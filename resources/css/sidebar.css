@@ -7,7 +7,7 @@ SIDEBAR STYLES
   background: var(--sidebar-background);
   box-shadow: var(--sidebar-shadow);
   position: fixed;
-  top: var(--header-height);
+  top: 0;
   left: 0;
   bottom: 0;
   width: var(--sidebar-width);
@@ -86,6 +86,7 @@ SIDEBAR STYLES
 @media (min-width: 1024px) {
   .sidebar {
     transform: none;
+    top: var(--header-height);
   }
 
   .sidenav-backdrop {

@@ -2,11 +2,11 @@
   "entrypoints": {
     "app": {
       "js": [
-        "/assets/342.70de04a2.js",
-        "/assets/app.26949583.js"
+        "http://localhost:8080/assets/vendors-node_modules_hotwired_turbo_dist_turbo_es2017-esm_js-node_modules_alpine-hotwire-turb-80061e.js",
+        "http://localhost:8080/assets/app.js"
       ],
       "css": [
-        "/assets/app.ee5a9736.css"
+        "http://localhost:8080/assets/app.css"
       ]
     }
   }
