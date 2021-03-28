@@ -1,0 +1,139 @@
+/*
+--------------------------------
+HEADER STYLES
+--------------------------------
+*/
+
+.header-wrapper {
+  height: var(--header-height);
+}
+
+.header {
+  background: var(--brand-color);
+  height: var(--header-height);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  right: 0;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+  align-items: center;
+}
+
+.primary-links {
+  display: flex;
+  align-items: center;
+  padding: 0 var(--space-x);
+}
+
+/* LOGO STYLES */
+
+.hamburger {
+  color: #fff;
+  margin-right: 8px;
+  top: 1px;
+  display: block;
+  position: relative;
+}
+
+.hamburger svg {
+  width: 26px;
+  display: block;
+  height: 26px;
+}
+
+.logo-wrapper a,
+.logo-wrapper svg {
+  display: block;
+}
+
+/* HEADER NAV  */
+.header-nav {
+  display: none;
+}
+
+/* SEARCH */
+.search-wrapper {
+  width: var(--toc-width);
+  padding: 0 var(--space-x) 0 10px;
+  border-left: 1px solid var(--brand-mute-color);
+}
+
+.search-trigger {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  border-radius: var(--rounded-corners-size);
+  width: 100%;
+}
+
+.search-trigger svg {
+  position: relative;
+  top: 1px;
+  display: block;
+}
+
+.search-trigger span.text {
+  margin-left: 10px;
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .primary-links {
+    width: var(--sidebar-width);
+  }
+
+  .search-trigger span.text {
+    display: block;
+  }
+
+  .search-trigger {
+    padding: 8px 12px;
+  }
+
+  .search-trigger:hover {
+    background: rgba(0, 0, 0, 0.2);
+  }
+}
+
+@media (min-width: 1024px) {
+  .header-nav {
+    display: block;
+    width: 655px;
+    margin: 0 auto;
+  }
+
+  .header-nav ul {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .header-nav a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    padding: 8px 16px;
+    border-radius: var(--rounded-corners-size);
+    font-size: var(--base-font-size);
+    letter-spacing: 0.5px;
+    margin-right: 10px;
+    font-weight: var(--bold-font-weight);
+    white-space: nowrap;
+  }
+
+  .header-nav li.active a,
+  .header-nav a:hover {
+    background: rgba(0, 0, 0, 0.2);
+  }
+}

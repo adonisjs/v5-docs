@@ -1,0 +1,30 @@
+<div id="sidenav-open" data-turbo-permanent>
+  <div class="sidebar" id="sidebar" data-maintain-scroll>
+    <div class="sidebar-container">
+      @each((groups, name) in zones)
+        @if(name === doc.zone)
+          @each(group in groups)
+            @each(category in group.categories)
+              <nav>
+                @if(category.name !== 'Root')
+                  <h3> {{ category.name }} </h3>
+                @end
+                <ol>
+                  @each(categoryDoc in category.docs)
+                    <li
+                      class="{{ doc.url === categoryDoc.url ? 'active' : '' }}"
+                    >
+                      <a href="{{ categoryDoc.url }}"> {{ categoryDoc.title }} </a>
+                    </li>
+                  @end
+                </ol>
+              </nav>
+            @end
+          @end
+        @end
+      @end
+    </div>
+  </div>
+
+  <a href="#" id="sidenav-close" class="sidenav-backdrop" title="Close Docs Menu" aria-label="Close Docs Menu"></a>
+</div>

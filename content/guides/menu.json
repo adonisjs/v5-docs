@@ -1,0 +1,187 @@
+[
+  {
+    "name": "root",
+    "categories": [
+      {
+        "name": "Root",
+        "docs": [
+          {
+            "title": "Introduction",
+            "permalink": "introduction",
+            "contentPath": "introduction.md"
+          }
+        ]
+      },
+      {
+        "name": "Http",
+        "docs": [
+          {
+            "title": "Context",
+            "permalink": "context",
+            "contentPath": "http/context.md"
+          },
+          {
+            "title": "Routing",
+            "permalink": "routing",
+            "contentPath": "http/routing.md"
+          },
+          {
+            "title": "Controllers",
+            "permalink": "controllers",
+            "contentPath": "http/controllers.md"
+          },
+          {
+            "title": "Request",
+            "permalink": "request",
+            "contentPath": "http/request.md"
+          },
+          {
+            "title": "Response",
+            "permalink": "response",
+            "contentPath": "http/response.md"
+          },
+          {
+            "title": "Forms & Validation",
+            "permalink": "forms-and-validations",
+            "contentPath": "http/forms-and-validations.md"
+          },
+          {
+            "title": "File uploads",
+            "permalink": "file-uploads",
+            "contentPath": "http/file-uploads.md"
+          },
+          {
+            "title": "Middleware",
+            "permalink": "middleware",
+            "contentPath": "http/middleware.md"
+          },
+          {
+            "title": "Session",
+            "permalink": "session",
+            "contentPath": "http/session.md"
+          },
+          {
+            "title": "Cookies",
+            "permalink": "cookies",
+            "contentPath": "http/cookies.md"
+          },
+          {
+            "title": "Hooks",
+            "permalink": "hooks",
+            "contentPath": "http/hooks.md"
+          },
+          {
+            "title": "Exception Handling",
+            "permalink": "exception-handling",
+            "contentPath": "http/exception-handling.md"
+          },
+          {
+            "title": "Static assets",
+            "permalink": "static-assets",
+            "contentPath": "http/static-assets.md"
+          },
+          {
+            "title": "Web security",
+            "permalink": "web-security",
+            "contentPath": "http/web-security.md"
+          },
+          {
+            "title": "CORS",
+            "permalink": "cors",
+            "contentPath": "http/cors.md"
+          }
+        ]
+      },
+      {
+        "name": "Views & Templates",
+        "docs": [
+          {
+            "title": "Introduction",
+            "permalink": "views/introduction",
+            "contentPath": "views/introduction.md"
+          },
+          {
+            "title": "Rendering views",
+            "permalink": "views/rendering",
+            "contentPath": "views/rendering.md"
+          },
+          {
+            "title": "Template syntax",
+            "permalink": "views/templates-syntax",
+            "contentPath": "views/templates-syntax.md"
+          },
+          {
+            "title": "Layouts & Partials",
+            "permalink": "views/layouts-and-partials",
+            "contentPath": "views/layouts-and-partials.md"
+          },
+          {
+            "title": "Conditionals & Loops",
+            "permalink": "views/conditionals-and-loops",
+            "contentPath": "views/conditionals-and-loops.md"
+          },
+          {
+            "title": "Components",
+            "permalink": "views/components",
+            "contentPath": "views/components.md"
+          },
+          {
+            "title": "Debugging",
+            "permalink": "views/debugging",
+            "contentPath": "views/debugging.md"
+          },
+          {
+            "title": "Advanced Options",
+            "permalink": "views/advanced-options",
+            "contentPath": "views/advanced-options.md"
+          },
+          {
+            "title": "FAQs",
+            "permalink": "views/faqs",
+            "contentPath": "views/faqs.md"
+          }
+        ]
+      },
+      {
+        "name": "Validator",
+        "docs": [
+          {
+            "title": "Introduction",
+            "permalink": "validator/introduction",
+            "contentPath": "validator/introduction.md"
+          },
+          {
+            "title": "Validations 101",
+            "permalink": "validator/validations-101",
+            "contentPath": "validator/validations-101.md"
+          },
+          {
+            "title": "Custom messages",
+            "permalink": "validator/custom-messages",
+            "contentPath": "validator/custom-messages.md"
+          },
+          {
+            "title": "Error reporters",
+            "permalink": "validator/error-reporters",
+            "contentPath": "validator/error-reporters.md"
+          },
+          {
+            "title": "Schema caching",
+            "permalink": "validator/schema-caching",
+            "contentPath": "validator/schema-caching.md"
+          },
+          {
+            "title": "Schema Composition",
+            "permalink": "validator/schema-composition",
+            "contentPath": "validator/schema-composition.md"
+          },
+          {
+            "title": "FAQs",
+            "permalink": "validator/faqs",
+            "contentPath": "validator/faqs.md"
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,61 @@
+/*
+--------------------------------
+TOC BLOCK
+--------------------------------
+*/
+
+.toc {
+  display: none;
+  position: fixed;
+  right: 0;
+  padding: 0 20px 0 30px;
+  top: var(--header-height);
+  bottom: 0;
+  width: var(--toc-width);
+  overflow: scroll;
+  border-left: 1px solid var(--lighter-gray);
+}
+
+.toc-container {
+  padding: 40px 0;
+}
+
+.toc h3 {
+  font-size: 1.4rem;
+  font-weight: var(--bold-font-weight);
+  text-transform: uppercase;
+}
+
+.toc nav > ul > li {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-bottom: 1px dashed #d1d5db;
+}
+
+.toc ul li ul {
+  margin-left: 10px;
+  margin-top: 5px;
+}
+
+.toc ul {
+  list-style: none;
+  padding: 0;
+}
+
+.toc li,
+.toc ul,
+.toc p {
+  margin: 0;
+}
+
+.toc li a {
+  font-size: 1.2rem;
+  color: var(--light-gray);
+  text-decoration: none;
+}
+
+@media (min-width: 1280px) {
+  .toc {
+    display: block;
+  }
+}

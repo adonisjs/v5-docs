@@ -1,0 +1,91 @@
+/*
+--------------------------------
+COMMON STYLES
+--------------------------------
+*/
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-padding-top: 72px;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: var(--background-color);
+  font-family: var(--font-sans);
+  color: var(--text-color);
+  font-weight: var(--base-font-weight);
+  line-height: 1.4;
+  font-size: var(--base-font-size);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+strong {
+  font-weight: var(--bold-font-weight);
+}
+
+code {
+  font-family: var(--font-mono);
+  -webkit-font-smoothing: auto;
+}
+
+img,
+video {
+  max-width: 100%;
+}
+
+.for-desktop {
+  display: none !important;
+}
+@media (min-width: 1024px) {
+  .for-desktop {
+    display: block !important;
+  }
+
+  .for-mobile {
+    display: none !important;
+  }
+
+  :root {
+    --markdown-content-width: 54ch;
+  }
+}
+
+@media (min-width: 768px) {
+  :root {
+    --space-x: 40px;
+    --toc-width: 260px;
+  }
+}
+
+/*
+--------------------------------
+DOC CONTENT STYLES
+--------------------------------
+*/
+
+.doc {
+  padding: 0 var(--space-x) 40px var(--space-x);
+}
+
+@media (min-width: 1024px) {
+  .doc {
+    padding-left: var(--sidebar-width);
+    padding-right: 0;
+  }
+}
+
+@media (min-width: 1280px) {
+  .doc {
+    padding-right: var(--toc-width);
+  }
+}

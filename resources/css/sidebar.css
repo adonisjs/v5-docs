@@ -1,0 +1,94 @@
+/*
+--------------------------------
+SIDEBAR STYLES
+--------------------------------
+*/
+.sidebar {
+  background: var(--sidebar-background);
+  box-shadow: var(--sidebar-shadow);
+  position: fixed;
+  top: var(--header-height);
+  left: 0;
+  bottom: 0;
+  width: var(--sidebar-width);
+  overflow: scroll;
+  z-index: 2;
+  transform: translateX(-110vw);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), visibility 0s linear 0.6s;
+}
+
+#sidenav-open:target .sidebar {
+  visibility: visible;
+  transform: translateX(0);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sidebar-container {
+  padding: 30px 0;
+}
+
+.sidebar nav {
+  margin-bottom: 20px;
+  margin-top: 10px;
+  padding: 0 calc(var(--space-x) - 12px);
+}
+
+.sidebar nav h3 {
+  color: var(--heading-color);
+  padding: 10px 12px;
+  font-size: var(--base-font-size);
+  font-weight: var(--bold-font-weight);
+  margin: 0;
+}
+
+.sidebar nav ol {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.sidebar nav li a {
+  display: inline-block;
+  font-size: var(--base-font-size);
+  color: var(--mute-color);
+  border: 2px solid transparent;
+  border-radius: var(--rounded-corners-size);
+  margin-bottom: 3px;
+  font-size: 1.4rem;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 2px 10px;
+}
+
+.sidebar nav li.active a {
+  color: var(--brand-color);
+  border-color: var(--accent-color);
+}
+
+.sidenav-backdrop {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.7);
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.6s ease, visibility 0s linear 0.4s;
+}
+
+#sidenav-open:target .sidenav-backdrop {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
+
+@media (min-width: 1024px) {
+  .sidebar {
+    transform: none;
+  }
+
+  .sidenav-backdrop {
+    display: none;
+  }
+}

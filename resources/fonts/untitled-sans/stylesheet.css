@@ -1,0 +1,26 @@
+@font-face {
+  font-family: 'Untitled Sans';
+  src: url('UntitledSans-Regular.woff2') format('woff2'),
+    url('UntitledSans-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Untitled Sans';
+  src: url('UntitledSans-RegularItalic.woff2') format('woff2'),
+    url('UntitledSans-RegularItalic.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Untitled Sans';
+  src: url('UntitledSans-Medium.woff2') format('woff2'),
+    url('UntitledSans-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}

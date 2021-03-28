@@ -1,0 +1,12 @@
+<aside class="toc">
+  @if(file.toc)
+    <div class="toc-container" data-turbo="false">
+      <h3> On this page </h3>
+      <nav>
+        <ul>
+          @dimerTree(file.toc.children)~
+        </ul>
+      </nav>
+    </div>
+  @end
+</aside>

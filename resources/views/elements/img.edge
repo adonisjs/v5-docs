@@ -1,0 +1,6 @@
+<figure>
+  <img data-src="{{ node.properties.src }}" alt="{{ node.properties.alt }}" class="lazyload">
+  @if(node.properties.alt)
+    <figcaption>{{ node.properties.alt }}</figcaption>
+  @endif
+</figure>

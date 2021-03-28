@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Routing</title>
+  <meta name="description" content="A typical route accepts the route pattern as the first argument and route handler as the second argument. For example:">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+  <link rel="manifest" href="/icons/site.webmanifest">
+  <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="/icons/favicon.ico">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-config" content="/icons/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+
+  <meta name="turbo-cache-control" content="no-cache">
+
+  <link
+    rel="preload"
+    href="{{ asset('assets/fonts/UntitledSans-RegularItalic.woff2') }}"
+    as="font"
+    type="font/woff2" crossorigin
+  >
+  <link
+    rel="preload"
+    href="{{ asset('assets/fonts/UntitledSans-Regular.woff2') }}"
+    as="font"
+    type="font/woff2"
+    crossorigin
+  >
+  <link
+    rel="preload"
+    href="{{ asset('assets/fonts/UntitledSans-Medium.woff2') }}"
+    as="font"
+    type="font/woff2"
+    crossorigin
+  >
+  <link
+    rel="preload"
+    href="{{ asset('assets/fonts/JetBrainsMono-Regular.woff2') }}"
+    as="font"
+    type="font/woff2"
+    crossorigin
+  >
+
+  @entryPointStyles('app')
+  @entryPointScripts('app')
+</head>
+
+<body>
+  @include('partials/header')
+  @include('partials/sidebar')
+  @include('partials/doc')
+  @include('partials/toc')
+</body>
+</html>

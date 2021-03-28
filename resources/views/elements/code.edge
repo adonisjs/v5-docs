@@ -1,0 +1,11 @@
+<div class="dimer-highlight">
+  @if(node.properties.dataTitle)
+    <div class="codeblock-title">
+      {{ node.properties.dataTitle }}
+    </div>
+  @endif
+{{-- Keep the pre and its contents to the edge --}}
+<pre>
+@dimerTree(node.children)~
+</pre>
+</div>
