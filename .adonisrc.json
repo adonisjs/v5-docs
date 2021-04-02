@@ -30,7 +30,6 @@
   "providers": [
     "./providers/AppProvider",
     "@adonisjs/core",
-    "@adonisjs/session",
     "@adonisjs/view",
     "@adonisjs/shield"
   ],

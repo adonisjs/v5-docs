@@ -368,14 +368,44 @@
 
 <main class="doc" data-turbo="false">
   <div class="markdown">
-    <h1>Introduction</h1><ul>
-<li>Introduce validator</li>
-<li>Put emphasis on static types &amp; runtime validations</li>
-<li>Performance &amp; Comparisons</li>
-</ul>  </div>
+    <h1>Introduction</h1><p>AdonisJS has inbuilt support for validating data using a pre-defined validation schema. Since, the validator is baked into the core of the framework, there is no need to install any additional dependencies. Just define the schema and validate the data against it.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">import</span><span style="color: #A6ACCD;"> Route </span><span style="color: #89DDFF;">from</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">@ioc:Adonis/Core/Route</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"><span style="color: #89DDFF;">import</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">schema</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">from</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">@ioc:Adonis/Core/Validator</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"></div><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">post</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">posts</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">async</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">({</span><span style="color: #A6ACCD;"> request </span><span style="color: #89DDFF;">})</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #676E95;">/**</span></div><div class="line"><span style="color: #676E95;">   * Schema definition</span></div><div class="line"><span style="color: #676E95;">   */</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #C792EA;">const</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">newPostSchema</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">=</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">schema</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">create</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">    title</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">schema</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">string</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">{</span><span style="color: #F07178;"> trim</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #FF9CAC;">true</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">}</span><span style="color: #F07178;">)</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #F07178;">    body</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">schema</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">string</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">{</span><span style="color: #F07178;"> escape</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #FF9CAC;">true</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">}</span><span style="color: #F07178;">)</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #F07178;">    categories</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">schema</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">array</span><span style="color: #F07178;">()</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">members</span><span style="color: #F07178;">(</span><span style="color: #A6ACCD;">schema</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">number</span><span style="color: #F07178;">())</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span><span style="color: #F07178;">)</span></div><div class="line"></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #676E95;">/**</span></div><div class="line"><span style="color: #676E95;">   * Validate request body against schema</span></div><div class="line"><span style="color: #676E95;">   */</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #C792EA;">const</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">payload</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">=</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">await</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">request</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">validate</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">{</span><span style="color: #F07178;"> schema</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">newPostSchema</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">}</span><span style="color: #F07178;">)</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
+</div>
+
+<p>The validator also <strong>extracts the static types</strong> from the schema definition. Meaning, you get the runtime validations along with the static type safety from a single schema definition.</p>
+<p><figure>
+  <img
+    data-src="https://res.cloudinary.com/adonis-js/image/upload/q_auto,f_auto/v1611685370/v5/validator-static-types.jpg"
+    alt=""
+    class="lazyload"
+    
+  >
+</figure>
+</p>
+<h2 id="built-with-http-in-mind"><a
+  href="#built-with-http-in-mind"
+  
+  
+><span class="icon icon-link"></span></a>
+Built with HTTP in mind</h2>  </div>
 </main>
 
 <aside class="toc">
+    <div class="toc-container" data-turbo="false">
+      <h3> On this page </h3>
+      <nav>
+        <ul>
+<li><a
+  href="#built-with-http-in-mind"
+  
+  
+>Built with HTTP in mind</a>
+</li>
+        </ul>
+      </nav>
+    </div>
 </aside>
 
 </body>

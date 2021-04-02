@@ -375,24 +375,24 @@
 </div>
 
 <p>The encryption is based on the <code>aes-256-cbc</code> algorithm and uses the <code>appKey</code> saved inside the <code>config/app.ts</code> file as the secret for encryption.</p>
-<h3 id="encryptingdecrypting-values"><a
+<h2 id="encryptingdecrypting-values"><a
   href="#encryptingdecrypting-values"
   
   
 ><span class="icon icon-link"></span></a>
-Encrypting/Decrypting values</h3>
+Encrypting/Decrypting values</h2>
 <p>The encryption module also generates a unique <a
   href="https://en.wikipedia.org/wiki/Initialization_vector"
   target=&quot;_blank&quot;
   rel=&quot;noopener&quot;
 >iv</a>
  for every encryption call. Hence encrypting the same value twice will result in a different visual output.</p>
-<h3 id="encrypt"><a
+<h4 id="encrypt"><a
   href="#encrypt"
   
   
 ><span class="icon icon-link"></span></a>
-encrypt</h3>
+encrypt</h4>
 <p>The <code>Encryption.encrypt</code> method encrypts a given value.</p>
 <div class="dimer-highlight">
 
@@ -418,12 +418,12 @@ encrypt</h3>
 <pre><code><div class="line"><span style="color: #A6ACCD;">Encryption</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">decrypt</span><span style="color: #A6ACCD;">(key</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">String</span><span style="color: #A6ACCD;">(params</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">id))</span></div></code></pre>
 </div>
 
-<h3 id="decrypt"><a
+<h4 id="decrypt"><a
   href="#decrypt"
   
   
 ><span class="icon icon-link"></span></a>
-decrypt</h3>
+decrypt</h4>
 <p>The <code>Encryption.decrypt</code> method decrypts the encrypted value. Returns <code>null</code> when unable to decrypt the value.</p>
 <div class="dimer-highlight">
 
@@ -461,8 +461,6 @@ Using a custom secret key</h2>
       <h3> On this page </h3>
       <nav>
         <ul>
-<li>
-<ul>
 <li><a
   href="#encryptingdecrypting-values"
   
@@ -470,34 +468,16 @@ Using a custom secret key</h2>
 >Encrypting/Decrypting values</a>
 </li>
 <li><a
-  href="#encrypt"
-  
-  
->encrypt</a>
-</li>
-<li><a
-  href="#decrypt"
-  
-  
->decrypt</a>
-</li>
-</ul>
-</li>
-<li>
-<p><a
   href="#support-data-types"
   
   
 >Support data types</a>
-</p>
 </li>
-<li>
-<p><a
+<li><a
   href="#using-a-custom-secret-key"
   
   
 >Using a custom secret key</a>
-</p>
 </li>
         </ul>
       </nav>
