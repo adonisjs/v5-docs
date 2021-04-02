@@ -51,7 +51,7 @@
     type="font/woff2"
     crossorigin
   >
-<link rel="stylesheet" href="/assets/app.ee5a9736.css" />
+<link rel="stylesheet" href="/assets/app.be48d775.css" />
 <script src="/assets/342.70de04a2.js" defer></script>
 <script src="/assets/app.26949583.js" defer></script>
 </head>
@@ -60,7 +60,7 @@
   <header class="header">
     <div class="header-container">
 
-      <div class="primary-links"><a href="#sidenav-open" title="Open Docs Menu" aria-label="Open Docs Menu" class="hamburger for-mobile">
+      <div class="primary-links"><a href="#sidenav-open" title="Open Docs Menu" aria-label="Open Docs Menu" class="hamburger for-mobile" data-turbo="false">
   <svg role="presentation" focusable="false" aria-label="Icon for open menu" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
     <line x1="4" y1="6" x2="20" y2="6" />
@@ -92,8 +92,14 @@
         <ul>
 
               <li class="active">
-                <a href="/guides/validator/introduction">
+                <a href="/guides/application">
                   Guides
+                </a>
+              </li>
+
+              <li class="">
+                <a href="/reference/database/connection">
+                  Reference guides
                 </a>
               </li>
         </ul>
@@ -112,18 +118,29 @@
   </header>
 </div>
 
-<div id="sidenav-open" data-turbo-permanent>
+<div id="sidenav-open">
   <div class="sidebar" id="sidebar" data-maintain-scroll>
     <div class="sidebar-container">
 
 
 
               <nav>
+                  <h3> Fundamentals </h3>
                 <ol>
                     <li
                       class=""
                     >
-                      <a href="/guides/introduction"> Introduction </a>
+                      <a href="/guides/application"> Application </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/config"> Config </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/environment-variables"> Environment variables </a>
                     </li>
                 </ol>
               </nav>
@@ -173,22 +190,12 @@
                     <li
                       class=""
                     >
-                      <a href="/guides/session"> Session </a>
-                    </li>
-                    <li
-                      class=""
-                    >
                       <a href="/guides/cookies"> Cookies </a>
                     </li>
                     <li
                       class=""
                     >
-                      <a href="/guides/hooks"> Hooks </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/exception-handling"> Exception Handling </a>
+                      <a href="/guides/session"> Session </a>
                     </li>
                     <li
                       class=""
@@ -198,12 +205,12 @@
                     <li
                       class=""
                     >
-                      <a href="/guides/web-security"> Web security </a>
+                      <a href="/guides/assets-manager"> Assets manager </a>
                     </li>
                     <li
                       class=""
                     >
-                      <a href="/guides/cors"> CORS </a>
+                      <a href="/guides/exception-handling"> Exception Handling </a>
                     </li>
                 </ol>
               </nav>
@@ -218,22 +225,37 @@
                     <li
                       class=""
                     >
-                      <a href="/guides/views/rendering"> Rendering views </a>
+                      <a href="/guides/views/rendering"> Rendering </a>
                     </li>
                     <li
                       class=""
                     >
-                      <a href="/guides/views/templates-syntax"> Template syntax </a>
+                      <a href="/guides/views/templating-syntax"> Templating syntax </a>
                     </li>
                     <li
                       class=""
                     >
-                      <a href="/guides/views/layouts-and-partials"> Layouts &amp; Partials </a>
+                      <a href="/guides/views/data-flow"> Data flow </a>
                     </li>
                     <li
                       class=""
                     >
-                      <a href="/guides/views/conditionals-and-loops"> Conditionals &amp; Loops </a>
+                      <a href="/guides/views/conditionals"> Conditionals </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/views/loops"> Loops </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/views/partials"> Partials </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/views/layouts"> Layouts </a>
                     </li>
                     <li
                       class=""
@@ -243,17 +265,17 @@
                     <li
                       class=""
                     >
+                      <a href="/guides/views/mutations"> Mutations </a>
+                    </li>
+                    <li
+                      class=""
+                    >
                       <a href="/guides/views/debugging"> Debugging </a>
                     </li>
                     <li
                       class=""
                     >
-                      <a href="/guides/views/advanced-options"> Advanced Options </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/views/faqs"> FAQs </a>
+                      <a href="/guides/views/custom-tags"> Creating custom tags </a>
                     </li>
                 </ol>
               </nav>
@@ -297,13 +319,54 @@
                     </li>
                 </ol>
               </nav>
+              <nav>
+                  <h3> Security </h3>
+                <ol>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/security/web-security"> Web Security </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/security/encryption"> Encryption </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/security/hashing"> Hashing </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/security/signed-urls"> Signed URLs </a>
+                    </li>
+                </ol>
+              </nav>
+              <nav>
+                  <h3> Digging deeper </h3>
+                <ol>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/ace-commandline"> Ace </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/repl"> AdonisJS Repl </a>
+                    </li>
+                </ol>
+              </nav>
+
     </div>
   </div>
 
-  <a href="#" id="sidenav-close" class="sidenav-backdrop" title="Close Docs Menu" aria-label="Close Docs Menu"></a>
+  <a href="#" data-turbo="false" id="sidenav-close" class="sidenav-backdrop" title="Close Docs Menu" aria-label="Close Docs Menu"></a>
 </div>
 
-<main class="doc">
+<main class="doc" data-turbo="false">
   <div class="markdown">
     <h1>Forms &amp; Validation</h1><p>AdonisJS has first-class support for <strong>parsing</strong> and <strong>validating</strong> the request body, and there is no need to install any 3rd party packages for the same. Just define the validation schema and validate the request body against it.</p>
 <div class="dimer-highlight">
@@ -313,11 +376,31 @@
 
 <p>The validator also <strong>extracts the static types</strong> from the schema definition. Meaning, you get the runtime validations along with the static type safety from a single schema definition.</p>
 <p><figure>
-  <img data-src="https://res.cloudinary.com/adonis-js/image/upload/q_auto,f_auto/v1611685370/v5/validator-static-types.jpg" alt="" class="lazyload">
+  <img
+    data-src="https://res.cloudinary.com/adonis-js/image/upload/q_auto,f_auto/v1611685370/v5/validator-static-types.jpg"
+    alt=""
+    class="lazyload"
+    
+  >
 </figure>
 </p>
-<h2 id="creating-the-form"><a href="#creating-the-form" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Creating the form</h2>
-<showcase><p>The final example is hosted on codesandbox. <a href="https://6zhxz.sse.codesandbox.io/posts/create">Click here</a> to preview the outcome or <a href="https://codesandbox.io/s/adonisv5-basic-form-validation-6zhxz">edit the project</a> directly on codesandbox.</p></showcase>
+<h2 id="creating-the-form"><a
+  href="#creating-the-form"
+  
+  
+><span class="icon icon-link"></span></a>
+Creating the form</h2>
+<showcase><p>The final example is hosted on codesandbox. <a
+  href="https://6zhxz.sse.codesandbox.io/posts/create"
+  target=&quot;_blank&quot;
+  rel=&quot;noopener&quot;
+>Click here</a>
+ to preview the outcome or <a
+  href="https://codesandbox.io/s/adonisv5-basic-form-validation-6zhxz"
+  target=&quot;_blank&quot;
+  rel=&quot;noopener&quot;
+>edit the project</a>
+ directly on codesandbox.</p></showcase>
 <p>AdonisJS does not interfere with your HTML, and you define the forms using the standard HTML syntax. In other words, AdonisJS doesn&#x27;t have any form builders doing magic behind the scenes, and hence you have the complete freedom to structure the HTML the way you want.</p>
 <p>The following is the HTML form to create a new blog post by accepting the post <strong>title</strong> and <strong>body</strong>.</p>
 <div class="dimer-highlight">
@@ -335,77 +418,175 @@
 <p>You can get the route URL for storing a new post using its <code>controller.action</code> name.</p>
 <div class="dimer-highlight">
 
-<pre><code><div class="line highlight-delete"><span style="color: #A6ACCD;">&lt;form action=&quot;/posts&quot; method=&quot;POST&quot;&gt;</span></div><div class="line highlight-insert"><span style="color: #A6ACCD;">&lt;form action=&quot;{{ route(&#x27;PostsController.store&#x27;) }}&quot; method=&quot;POST&quot;&gt;</span></div><div class="line dim"><span style="color: #A6ACCD;"> &lt;!-- Rest of the form --&gt;</span></div><div class="line dim"><span style="color: #A6ACCD;">&lt;/form&gt;</span></div></code></pre>
+<pre><code><div class="line highlight-delete"><span style="color: #89DDFF;">&lt;</span><span style="color: #F07178;">form</span><span style="color: #89DDFF;"> </span><span style="color: #C792EA;">action</span><span style="color: #89DDFF;">=</span><span style="color: #89DDFF;">&quot;</span><span style="color: #C3E88D;">/posts</span><span style="color: #89DDFF;">&quot;</span><span style="color: #89DDFF;"> </span><span style="color: #C792EA;">method</span><span style="color: #89DDFF;">=</span><span style="color: #89DDFF;">&quot;</span><span style="color: #C3E88D;">POST</span><span style="color: #89DDFF;">&quot;</span><span style="color: #89DDFF;">&gt;</span></div><div class="line highlight-insert"><span style="color: #89DDFF;">&lt;</span><span style="color: #F07178;">form</span><span style="color: #89DDFF;"> </span><span style="color: #C792EA;">action</span><span style="color: #89DDFF;">=</span><span style="color: #89DDFF;">&quot;</span><span style="color: #82AAFF;">{{</span><span style="color: #C3E88D;"> </span><span style="color: #82AAFF;">route</span><span style="color: #89DDFF;">(&#x27;</span><span style="color: #C3E88D;">PostsController.store</span><span style="color: #89DDFF;">&#x27;)</span><span style="color: #C3E88D;"> </span><span style="color: #82AAFF;">}}</span><span style="color: #89DDFF;">&quot;</span><span style="color: #89DDFF;"> </span><span style="color: #C792EA;">method</span><span style="color: #89DDFF;">=</span><span style="color: #89DDFF;">&quot;</span><span style="color: #C3E88D;">POST</span><span style="color: #89DDFF;">&quot;</span><span style="color: #89DDFF;">&gt;</span></div><div class="line dim"><span style="color: #A6ACCD;"> </span><span style="color: #676E95;">&lt;!-- Rest of the form --&gt;</span></div><div class="line dim"><span style="color: #89DDFF;">&lt;/</span><span style="color: #F07178;">form</span><span style="color: #89DDFF;">&gt;</span></div></code></pre>
 </div>
 
-<h3 id="why-use-the-route-helper"><a href="#why-use-the-route-helper" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Why use the route helper?</h3>
-<p>If you were to change the route URL inside the routes file, you would have to remember to change the form action. On the other hand, the <a href="">route helper</a> automates this process for you, resulting in more maintainable code.</p>
-<h2 id="validating-the-form"><a href="#validating-the-form" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Validating the form</h2>
+<h3 id="why-use-the-route-helper"><a
+  href="#why-use-the-route-helper"
+  
+  
+><span class="icon icon-link"></span></a>
+Why use the route helper?</h3>
+<p>If you were to change the route URL inside the routes file, you would have to remember to change the form action. On the other hand, the <a
+  href=""
+  
+  
+>route helper</a>
+ automates this process for you, resulting in more maintainable code.</p>
+<h2 id="validating-the-form"><a
+  href="#validating-the-form"
+  
+  
+><span class="icon icon-link"></span></a>
+Validating the form</h2>
 <p>Let&#x27;s continue with the same form we created above and implement the <code>PostsController.store</code> method to validate the incoming request.</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #89DDFF;">import</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">schema</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">from</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">@ioc:Adonis/Core/Validator</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"><span style="color: #89DDFF;">import</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">HttpContextContract</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">from</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">@ioc:Adonis/Core/HttpContext</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"></div><div class="line"><span style="color: #89DDFF;">export</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">class</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">PostsController</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">public</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">async</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">store</span><span style="color: #89DDFF;">({</span><span style="color: #A6ACCD;"> request </span><span style="color: #89DDFF;">}:</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">HttpContextContract</span><span style="color: #89DDFF;">)</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #C792EA;">const</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">postSchema</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">=</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">schema</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">create</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">      title</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">schema</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">string</span><span style="color: #F07178;">()</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #F07178;">      body</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">schema</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">string</span><span style="color: #F07178;">()</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">}</span><span style="color: #F07178;">)</span></div><div class="line"></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #C792EA;">const</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">payload</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">=</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">await</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">request</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">validate</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">{</span><span style="color: #F07178;"> schema</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">postSchema</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">}</span><span style="color: #F07178;">)</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #A6ACCD;">console</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">log</span><span style="color: #F07178;">(</span><span style="color: #A6ACCD;">payload</span><span style="color: #F07178;">)</span></div><div class="line"></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">return</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Post created</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
 </div>
 
-<h4 id="schemacreate"><a href="#schemacreate" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>schema.create</h4>
+<h4 id="schemacreate"><a
+  href="#schemacreate"
+  
+  
+><span class="icon icon-link"></span></a>
+schema.create</h4>
 <p>The <code>schema.create</code> method creates a new schema definition. You always begin by creating a new schema.</p>
-<h4 id="schemastring"><a href="#schemastring" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>schema.string</h4>
+<hr/>
+<h4 id="schemastring"><a
+  href="#schemastring"
+  
+  
+><span class="icon icon-link"></span></a>
+schema.string</h4>
 <p>The <code>schema.string</code> method enforces the value to be a valid string. There are other methods to enforce different data types like <code>schema.boolean</code>, <code>schema.number</code>, etc.</p>
-<h4 id="requestvalidate"><a href="#requestvalidate" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>request.validate</h4>
+<hr/>
+<h4 id="requestvalidate"><a
+  href="#requestvalidate"
+  
+  
+><span class="icon icon-link"></span></a>
+request.validate</h4>
 <p>The <code>request.validate</code> method accepts the pre-defined schema and validates the request body against it.</p>
 <p>If the validation fails, the validator will <strong>redirect the client back</strong> to the form along with the error messages and the form values.</p>
 <p>If the validation succeeds, the next line of code <em>(<code>console.log(data)</code> in this case)</em> will be executed.</p>
-<h2 id="displaying-validation-errors"><a href="#displaying-validation-errors" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Displaying validation errors</h2>
-<p>Upon validation failure, the user is redirected back to the form, along with the <strong>error messages</strong> and the <strong>form data</strong> inside the <a href="/guides/session#flash-messages">session flash messages</a>.</p>
+<h2 id="displaying-validation-errors"><a
+  href="#displaying-validation-errors"
+  
+  
+><span class="icon icon-link"></span></a>
+Displaying validation errors</h2>
+<p>Upon validation failure, the user is redirected back to the form, along with the <strong>error messages</strong> and the <strong>form data</strong> inside the <a
+  href="/guides/session#flash-messages"
+  
+  
+>session flash messages</a>
+.</p>
 <p>Inside the edge templates, you can access the flash messages using the <code>flashMessages</code> global property.</p>
-<h4 id="errors-structure-inside-flash-messages"><a href="#errors-structure-inside-flash-messages" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Errors structure inside flash messages</h4>
+<h4 id="errors-structure-inside-flash-messages"><a
+  href="#errors-structure-inside-flash-messages"
+  
+  
+><span class="icon icon-link"></span></a>
+Errors structure inside flash messages</h4>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #FFCB6B;">errors</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #FFCB6B;">title</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> [</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">required validation failed</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">]</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #FFCB6B;">body</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> [</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">required validation failed</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">]</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
 </div>
 
-<h4 id="access-error-messages"><a href="#access-error-messages" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Access error messages</h4>
+<h4 id="access-error-messages"><a
+  href="#access-error-messages"
+  
+  
+><span class="icon icon-link"></span></a>
+Access error messages</h4>
 <div class="dimer-highlight">
 
-<pre><code><div class="line"><span style="color: #A6ACCD;">{{ flashMessages.get(&#x27;errors.title&#x27;) }}</span></div><div class="line"><span style="color: #A6ACCD;">{{ flashMessages.get(&#x27;errors.body&#x27;) }}</span></div></code></pre>
+<pre><code><div class="line"><span style="color: #82AAFF;">{{</span><span style="color: #A6ACCD;"> flashMessages</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">get</span><span style="color: #89DDFF;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">errors.title</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">)</span><span style="color: #A6ACCD;"> </span><span style="color: #82AAFF;">}}</span></div><div class="line"><span style="color: #82AAFF;">{{</span><span style="color: #A6ACCD;"> flashMessages</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">get</span><span style="color: #89DDFF;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">errors.body</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">)</span><span style="color: #A6ACCD;"> </span><span style="color: #82AAFF;">}}</span></div></code></pre>
 </div>
 
-<h4 id="form-data-structure-inside-flash-messages"><a href="#form-data-structure-inside-flash-messages" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Form data structure inside flash messages</h4>
+<h4 id="form-data-structure-inside-flash-messages"><a
+  href="#form-data-structure-inside-flash-messages"
+  
+  
+><span class="icon icon-link"></span></a>
+Form data structure inside flash messages</h4>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #FFCB6B;">title</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Hello world</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
 </div>
 
-<h4 id="access-form-data"><a href="#access-form-data" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Access form data</h4>
+<h4 id="access-form-data"><a
+  href="#access-form-data"
+  
+  
+><span class="icon icon-link"></span></a>
+Access form data</h4>
 <div class="dimer-highlight">
 
-<pre><code><div class="line"><span style="color: #A6ACCD;">&lt;input</span></div><div class="line"><span style="color: #A6ACCD;">  type=&quot;text&quot;</span></div><div class="line"><span style="color: #A6ACCD;">  name=&quot;title&quot;</span></div><div class="line"><span style="color: #A6ACCD;">  value=&quot;{{ flashMessages.get(&#x27;title&#x27;, &#x27;&#x27;) }}&quot;</span></div><div class="line"><span style="color: #A6ACCD;">/&gt;</span></div></code></pre>
+<pre><code><div class="line"><span style="color: #89DDFF;">&lt;</span><span style="color: #F07178;">input</span></div><div class="line"><span style="color: #89DDFF;">  </span><span style="color: #C792EA;">type</span><span style="color: #89DDFF;">=</span><span style="color: #89DDFF;">&quot;</span><span style="color: #C3E88D;">text</span><span style="color: #89DDFF;">&quot;</span></div><div class="line"><span style="color: #89DDFF;">  </span><span style="color: #C792EA;">name</span><span style="color: #89DDFF;">=</span><span style="color: #89DDFF;">&quot;</span><span style="color: #C3E88D;">title</span><span style="color: #89DDFF;">&quot;</span></div><div class="line"><span style="color: #89DDFF;">  </span><span style="color: #C792EA;">value</span><span style="color: #89DDFF;">=</span><span style="color: #89DDFF;">&quot;</span><span style="color: #82AAFF;">{{</span><span style="color: #C3E88D;"> flashMessages</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">get</span><span style="color: #89DDFF;">(&#x27;</span><span style="color: #C3E88D;">title</span><span style="color: #89DDFF;">&#x27;,</span><span style="color: #C3E88D;"> </span><span style="color: #89DDFF;">&#x27;&#x27;)</span><span style="color: #C3E88D;"> </span><span style="color: #82AAFF;">}}</span><span style="color: #89DDFF;">&quot;</span></div><div class="line"><span style="color: #89DDFF;">/&gt;</span></div></code></pre>
 </div>
 
-<h2 id="custom-validation-messages"><a href="#custom-validation-messages" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Custom validation messages</h2>
+<h2 id="custom-validation-messages"><a
+  href="#custom-validation-messages"
+  
+  
+><span class="icon icon-link"></span></a>
+Custom validation messages</h2>
 <p>You can define custom messages for validation errors by passing a <code>messages</code> object to the <code>request.validate</code> method. For example:</p>
 <div class="dimer-highlight">
+    <div class="codeblock-title">
+      app/Controllers/Http/PostsController.ts
+    </div>
 
-<pre><code><div class="line dim"><span style="color: #A6ACCD;">const payload = await request.validate({</span></div><div class="line dim"><span style="color: #A6ACCD;">  schema: postSchema,</span></div><div class="line dim"><span style="color: #A6ACCD;"></span></div><div class="line highlight"><span style="color: #A6ACCD;">  messages: {</span></div><div class="line highlight"><span style="color: #A6ACCD;">    &#x27;title.required&#x27;: &#x27;Enter the post title&#x27;,</span></div><div class="line highlight"><span style="color: #A6ACCD;">    &#x27;body.required&#x27;: &#x27;Write some content for the post&#x27;,</span></div><div class="line highlight"><span style="color: #A6ACCD;">  },</span></div><div class="line dim"><span style="color: #A6ACCD;">})</span></div></code></pre>
+<pre><code><div class="line dim"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> payload </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> request</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">validate</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">{</span></div><div class="line dim"><span style="color: #A6ACCD;">  </span><span style="color: #F07178;">schema</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> postSchema</span><span style="color: #89DDFF;">,</span></div><div class="line dim"></div><div class="line highlight"><span style="color: #A6ACCD;">  </span><span style="color: #F07178;">messages</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line highlight"><span style="color: #A6ACCD;">    </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">title.required</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Enter the post title</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line highlight"><span style="color: #A6ACCD;">    </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">body.required</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Write some content for the post</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line highlight"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">},</span></div><div class="line dim"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<p>You can define the custom messages just for the <code>rule</code> name or be more specific by combining the <code>field.rule</code> name. Make sure to also read the dedicated guide on validator <a href="/guides/validator/custom-messages">custom messages</a>.</p>
-<h2 id="success-message"><a href="#success-message" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Success message</h2>
+<p>You can define the custom messages just for the <code>rule</code> name or be more specific by combining the <code>field.rule</code> name. Make sure to also read the dedicated guide on validator <a
+  href="/guides/validator/custom-messages"
+  
+  
+>custom messages</a>
+.</p>
+<h2 id="success-message"><a
+  href="#success-message"
+  
+  
+><span class="icon icon-link"></span></a>
+Success message</h2>
 <p>The usage of flash messages is not only limited to the validation errors. You can also use them to display the success message post form submission. For example:</p>
 <div class="dimer-highlight">
+    <div class="codeblock-title">
+      Controller
+    </div>
 
-<pre><code><div class="line dim"><span style="color: #A6ACCD;">import { schema } from &#x27;@ioc:Adonis/Core/Validator&#x27;</span></div><div class="line dim"><span style="color: #A6ACCD;">import { HttpContextContract } from &#x27;@ioc:Adonis/Core/HttpContext&#x27;</span></div><div class="line dim"><span style="color: #A6ACCD;"></span></div><div class="line dim"><span style="color: #A6ACCD;">export default class PostsController {</span></div><div class="line dim"><span style="color: #A6ACCD;">  // Create method</span></div><div class="line dim"><span style="color: #A6ACCD;"></span></div><div class="line highlight-delete"><span style="color: #A6ACCD;">  public async store({ request }: HttpContextContract) {</span></div><div class="line highlight-insert"><span style="color: #A6ACCD;">  public async store({ request, session }: HttpContextContract) {</span></div><div class="line dim"><span style="color: #A6ACCD;"></span></div><div class="line dim"><span style="color: #A6ACCD;">    // ... Collpased existing code</span></div><div class="line dim"><span style="color: #A6ACCD;">    console.log(payload)</span></div><div class="line dim"><span style="color: #A6ACCD;"></span></div><div class="line highlight-delete"><span style="color: #A6ACCD;">    return &#x27;Post created&#x27;</span></div><div class="line highlight-insert"><span style="color: #A6ACCD;">    session.flash(&#x27;success&#x27;, &#x27;Post created successfully&#x27;)</span></div><div class="line highlight-insert"><span style="color: #A6ACCD;">    response.redirect().back()</span></div><div class="line dim"><span style="color: #A6ACCD;">  }</span></div><div class="line dim"><span style="color: #A6ACCD;">}</span></div></code></pre>
+<pre><code><div class="line dim"><span style="color: #89DDFF;">import</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">schema</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">from</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">@ioc:Adonis/Core/Validator</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line dim"><span style="color: #89DDFF;">import</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">HttpContextContract</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">from</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">@ioc:Adonis/Core/HttpContext</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line dim"></div><div class="line dim"><span style="color: #89DDFF;">export</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">default</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">class</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">PostsController</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line dim"><span style="color: #89DDFF;">  </span><span style="color: #676E95;">// Create method</span></div><div class="line dim"></div><div class="line highlight-delete"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">public</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">async</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">store</span><span style="color: #89DDFF;">({</span><span style="color: #A6ACCD;"> request </span><span style="color: #89DDFF;">}:</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">HttpContextContract</span><span style="color: #89DDFF;">)</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line highlight-insert"><span style="color: #F07178;">  </span><span style="color: #A6ACCD;">public</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">async</span><span style="color: #F07178;"> </span><span style="color: #82AAFF;">store</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">{</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">request</span><span style="color: #89DDFF;">,</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">session</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">}</span><span style="color: #F07178;">: </span><span style="color: #A6ACCD;">HttpContextContract</span><span style="color: #F07178;">) </span><span style="color: #89DDFF;">{</span></div><div class="line dim"></div><div class="line dim"><span style="color: #89DDFF;">    </span><span style="color: #676E95;">// ... Collpased existing code</span></div><div class="line dim"><span style="color: #F07178;">    </span><span style="color: #A6ACCD;">console</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">log</span><span style="color: #F07178;">(</span><span style="color: #A6ACCD;">payload</span><span style="color: #F07178;">)</span></div><div class="line dim"></div><div class="line highlight-delete"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">return</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Post created</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line highlight-insert"><span style="color: #F07178;">    </span><span style="color: #A6ACCD;">session</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">flash</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">success</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Post created successfully</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">)</span></div><div class="line highlight-insert"><span style="color: #F07178;">    </span><span style="color: #A6ACCD;">response</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">redirect</span><span style="color: #F07178;">()</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">back</span><span style="color: #F07178;">()</span></div><div class="line dim"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span></div><div class="line dim"><span style="color: #89DDFF;">}</span></div></code></pre>
 </div>
 
-<h4 id="access-the-success-message-inside-edge-template"><a href="#access-the-success-message-inside-edge-template" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Access the success message inside edge template</h4>
+<h4 id="access-the-success-message-inside-edge-template"><a
+  href="#access-the-success-message-inside-edge-template"
+  
+  
+><span class="icon icon-link"></span></a>
+Access the success message inside edge template</h4>
 <div class="dimer-highlight">
 
-<pre><code><div class="line"><span style="color: #A6ACCD;">@if(flashMessages.has(&#x27;success&#x27;))</span></div><div class="line"><span style="color: #A6ACCD;"> &lt;p&gt;{{ flashMessages.get(&#x27;success&#x27;) }}&lt;/p&gt;</span></div><div class="line"><span style="color: #A6ACCD;">@endif</span></div></code></pre>
+<pre><code><div class="line"><span style="color: #89DDFF;">@if</span><span style="color: #A6ACCD;">(flashMessages</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">has</span><span style="color: #89DDFF;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">success</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">)</span><span style="color: #A6ACCD;">)</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">&lt;</span><span style="color: #F07178;">p</span><span style="color: #89DDFF;">&gt;</span><span style="color: #82AAFF;">{{</span><span style="color: #A6ACCD;"> flashMessages</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">get</span><span style="color: #89DDFF;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">success</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">)</span><span style="color: #A6ACCD;"> </span><span style="color: #82AAFF;">}}</span><span style="color: #89DDFF;">&lt;/</span><span style="color: #F07178;">p</span><span style="color: #89DDFF;">&gt;</span></div><div class="line"><span style="color: #89DDFF;">@endif</span></div></code></pre>
 </div>
 
-<h2 id="validation-errors-for-json-responses"><a href="#validation-errors-for-json-responses" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Validation errors for JSON responses</h2>
+<h2 id="validation-errors-for-json-responses"><a
+  href="#validation-errors-for-json-responses"
+  
+  
+><span class="icon icon-link"></span></a>
+Validation errors for JSON responses</h2>
 <p>So far in this guide, we have covered the use case of accessing the error messages inside the Edge templates via flash messages. However, this is not the only way to access the error messages. In fact, this is not even the default way.</p>
-<p>The validator uses <a href="/guides/request#content-negotiation">content negotiation</a> for choosing the appropriate response type.</p>
+<p>The validator uses <a
+  href="/guides/request#content-negotiation"
+  
+  
+>content negotiation</a>
+ for choosing the appropriate response type.</p>
 <ul>
 <li>For standard HTML-based form submissions, the user gets redirected back to the form along with the error messages inside the session flash store.</li>
 <li>HTTP requests with <code>Accept=application/json</code> header receives the validation errors in the JSON format, as shown below.</li>
@@ -416,9 +597,19 @@
 </div>
 
 <ul>
-<li>HTTP requests with <code>Accept=application/vnd.api+json</code> header, receives the error messages as per the <a href="https://jsonapi.org/format/#errors">JSON API spec</a>.</li>
+<li>HTTP requests with <code>Accept=application/vnd.api+json</code> header, receives the error messages as per the <a
+  href="https://jsonapi.org/format/#errors"
+  target=&quot;_blank&quot;
+  rel=&quot;noopener&quot;
+>JSON API spec</a>
+.</li>
 </ul>
-<h2 id="form-method-spoofing"><a href="#form-method-spoofing" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Form method spoofing</h2>
+<h2 id="form-method-spoofing"><a
+  href="#form-method-spoofing"
+  
+  
+><span class="icon icon-link"></span></a>
+Form method spoofing</h2>
 <p>Standard HTML forms cannot make use of all the HTTP verbs beyond <code>GET</code> and <code>POST</code>. It means you cannot create a form with the method <code>PUT</code>.</p>
 <p>However, AdonisJS allows you to spoof the HTTP method using the <code>_method</code> query string. In the following example, the request will be routed to the route listening for the <code>PUT</code> request.</p>
 <div class="dimer-highlight">
@@ -439,28 +630,68 @@
       <nav>
         <ul>
 <li>
-<p><a href="#creating-the-form">Creating the form</a></p>
+<p><a
+  href="#creating-the-form"
+  
+  
+>Creating the form</a>
+</p>
 <ul>
-<li><a href="#why-use-the-route-helper">Why use the route helper?</a></li>
+<li><a
+  href="#why-use-the-route-helper"
+  
+  
+>Why use the route helper?</a>
+</li>
 </ul>
 </li>
 <li>
-<p><a href="#validating-the-form">Validating the form</a></p>
+<p><a
+  href="#validating-the-form"
+  
+  
+>Validating the form</a>
+</p>
 </li>
 <li>
-<p><a href="#displaying-validation-errors">Displaying validation errors</a></p>
+<p><a
+  href="#displaying-validation-errors"
+  
+  
+>Displaying validation errors</a>
+</p>
 </li>
 <li>
-<p><a href="#custom-validation-messages">Custom validation messages</a></p>
+<p><a
+  href="#custom-validation-messages"
+  
+  
+>Custom validation messages</a>
+</p>
 </li>
 <li>
-<p><a href="#success-message">Success message</a></p>
+<p><a
+  href="#success-message"
+  
+  
+>Success message</a>
+</p>
 </li>
 <li>
-<p><a href="#validation-errors-for-json-responses">Validation errors for JSON responses</a></p>
+<p><a
+  href="#validation-errors-for-json-responses"
+  
+  
+>Validation errors for JSON responses</a>
+</p>
 </li>
 <li>
-<p><a href="#form-method-spoofing">Form method spoofing</a></p>
+<p><a
+  href="#form-method-spoofing"
+  
+  
+>Form method spoofing</a>
+</p>
 </li>
         </ul>
       </nav>

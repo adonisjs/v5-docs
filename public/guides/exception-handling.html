@@ -51,7 +51,7 @@
     type="font/woff2"
     crossorigin
   >
-<link rel="stylesheet" href="/assets/app.ee5a9736.css" />
+<link rel="stylesheet" href="/assets/app.be48d775.css" />
 <script src="/assets/342.70de04a2.js" defer></script>
 <script src="/assets/app.26949583.js" defer></script>
 </head>
@@ -60,7 +60,7 @@
   <header class="header">
     <div class="header-container">
 
-      <div class="primary-links"><a href="#sidenav-open" title="Open Docs Menu" aria-label="Open Docs Menu" class="hamburger for-mobile">
+      <div class="primary-links"><a href="#sidenav-open" title="Open Docs Menu" aria-label="Open Docs Menu" class="hamburger for-mobile" data-turbo="false">
   <svg role="presentation" focusable="false" aria-label="Icon for open menu" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
     <line x1="4" y1="6" x2="20" y2="6" />
@@ -92,8 +92,14 @@
         <ul>
 
               <li class="active">
-                <a href="/guides/validator/introduction">
+                <a href="/guides/application">
                   Guides
+                </a>
+              </li>
+
+              <li class="">
+                <a href="/reference/database/connection">
+                  Reference guides
                 </a>
               </li>
         </ul>
@@ -112,18 +118,29 @@
   </header>
 </div>
 
-<div id="sidenav-open" data-turbo-permanent>
+<div id="sidenav-open">
   <div class="sidebar" id="sidebar" data-maintain-scroll>
     <div class="sidebar-container">
 
 
 
               <nav>
+                  <h3> Fundamentals </h3>
                 <ol>
                     <li
                       class=""
                     >
-                      <a href="/guides/introduction"> Introduction </a>
+                      <a href="/guides/application"> Application </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/config"> Config </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/environment-variables"> Environment variables </a>
                     </li>
                 </ol>
               </nav>
@@ -173,22 +190,12 @@
                     <li
                       class=""
                     >
-                      <a href="/guides/session"> Session </a>
-                    </li>
-                    <li
-                      class=""
-                    >
                       <a href="/guides/cookies"> Cookies </a>
                     </li>
                     <li
                       class=""
                     >
-                      <a href="/guides/hooks"> Hooks </a>
-                    </li>
-                    <li
-                      class="active"
-                    >
-                      <a href="/guides/exception-handling"> Exception Handling </a>
+                      <a href="/guides/session"> Session </a>
                     </li>
                     <li
                       class=""
@@ -198,12 +205,12 @@
                     <li
                       class=""
                     >
-                      <a href="/guides/web-security"> Web security </a>
+                      <a href="/guides/assets-manager"> Assets manager </a>
                     </li>
                     <li
-                      class=""
+                      class="active"
                     >
-                      <a href="/guides/cors"> CORS </a>
+                      <a href="/guides/exception-handling"> Exception Handling </a>
                     </li>
                 </ol>
               </nav>
@@ -218,22 +225,37 @@
                     <li
                       class=""
                     >
-                      <a href="/guides/views/rendering"> Rendering views </a>
+                      <a href="/guides/views/rendering"> Rendering </a>
                     </li>
                     <li
                       class=""
                     >
-                      <a href="/guides/views/templates-syntax"> Template syntax </a>
+                      <a href="/guides/views/templating-syntax"> Templating syntax </a>
                     </li>
                     <li
                       class=""
                     >
-                      <a href="/guides/views/layouts-and-partials"> Layouts &amp; Partials </a>
+                      <a href="/guides/views/data-flow"> Data flow </a>
                     </li>
                     <li
                       class=""
                     >
-                      <a href="/guides/views/conditionals-and-loops"> Conditionals &amp; Loops </a>
+                      <a href="/guides/views/conditionals"> Conditionals </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/views/loops"> Loops </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/views/partials"> Partials </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/views/layouts"> Layouts </a>
                     </li>
                     <li
                       class=""
@@ -243,17 +265,17 @@
                     <li
                       class=""
                     >
+                      <a href="/guides/views/mutations"> Mutations </a>
+                    </li>
+                    <li
+                      class=""
+                    >
                       <a href="/guides/views/debugging"> Debugging </a>
                     </li>
                     <li
                       class=""
                     >
-                      <a href="/guides/views/advanced-options"> Advanced Options </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/views/faqs"> FAQs </a>
+                      <a href="/guides/views/custom-tags"> Creating custom tags </a>
                     </li>
                 </ol>
               </nav>
@@ -297,22 +319,73 @@
                     </li>
                 </ol>
               </nav>
+              <nav>
+                  <h3> Security </h3>
+                <ol>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/security/web-security"> Web Security </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/security/encryption"> Encryption </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/security/hashing"> Hashing </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/security/signed-urls"> Signed URLs </a>
+                    </li>
+                </ol>
+              </nav>
+              <nav>
+                  <h3> Digging deeper </h3>
+                <ol>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/ace-commandline"> Ace </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/repl"> AdonisJS Repl </a>
+                    </li>
+                </ol>
+              </nav>
+
     </div>
   </div>
 
-  <a href="#" id="sidenav-close" class="sidenav-backdrop" title="Close Docs Menu" aria-label="Close Docs Menu"></a>
+  <a href="#" data-turbo="false" id="sidenav-close" class="sidenav-backdrop" title="Close Docs Menu" aria-label="Close Docs Menu"></a>
 </div>
 
-<main class="doc">
+<main class="doc" data-turbo="false">
   <div class="markdown">
     <h1>Exception Handling</h1><p>AdonisJS uses exceptions for flow control. Meaning, instead of writing too many conditionals, we prefer raising exceptions and then handle them to return an appropriate response. For example:</p>
-<h4 id="instead-of-writing-the-following-code"><a href="#instead-of-writing-the-following-code" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Instead of writing the following code</h4>
+<h4 id="instead-of-writing-the-following-code"><a
+  href="#instead-of-writing-the-following-code"
+  
+  
+><span class="icon icon-link"></span></a>
+Instead of writing the following code</h4>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">get</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">dashboard</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">async</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">({</span><span style="color: #A6ACCD;"> auth</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> response </span><span style="color: #89DDFF;">})</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">if</span><span style="color: #F07178;"> (</span><span style="color: #89DDFF;">!</span><span style="color: #A6ACCD;">auth</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">isLoggedIn</span><span style="color: #F07178;">) </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">return</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">response</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">status</span><span style="color: #F07178;">(</span><span style="color: #F78C6C;">401</span><span style="color: #F07178;">)</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">send</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Unauthenticated</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">)</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span></div><div class="line"></div><div class="line"><span style="color: #89DDFF;">  </span><span style="color: #676E95;">// business logic</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h4 id="we-prefer-writing"><a href="#we-prefer-writing" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>We prefer writing</h4>
+<h4 id="we-prefer-writing"><a
+  href="#we-prefer-writing"
+  
+  
+><span class="icon icon-link"></span></a>
+We prefer writing</h4>
 <p>In the following example, the <code>auth.authenticate</code> method will raise an exception if the user is not logged in. The exception has the ability to handle itself and return an appropriate response.</p>
 <div class="dimer-highlight">
 
@@ -320,7 +393,12 @@
 </div>
 
 <div class="alert alert-tip"><p>Converting every conditional to an exception is also not the right approach. Instead, you can start by converting conditionals that always result in aborting the request.</p></div>
-<h2 id="handling-exceptions-globally"><a href="#handling-exceptions-globally" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Handling exceptions globally</h2>
+<h2 id="handling-exceptions-globally"><a
+  href="#handling-exceptions-globally"
+  
+  
+><span class="icon icon-link"></span></a>
+Handling exceptions globally</h2>
 <p>The exceptions raised during an HTTP request are forwarded to the global exception handler stored inside the <code>app/Exceptions/Handler.ts</code> file.</p>
 <div class="dimer-highlight">
     <div class="codeblock-title">
@@ -330,13 +408,23 @@
 <pre><code><div class="line"><span style="color: #89DDFF;">import</span><span style="color: #A6ACCD;"> Logger </span><span style="color: #89DDFF;">from</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">@ioc:Adonis/Core/Logger</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"><span style="color: #89DDFF;">import</span><span style="color: #A6ACCD;"> HttpExceptionHandler </span><span style="color: #89DDFF;">from</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">@ioc:Adonis/Core/HttpExceptionHandler</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"></div><div class="line"><span style="color: #89DDFF;">export</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">default</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">class</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">ExceptionHandler</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">extends</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">HttpExceptionHandler</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">protected</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">statusPages</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">404</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">errors/not-found</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">500..599</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">errors/server-error</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">}</span></div><div class="line"></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">constructor</span><span style="color: #89DDFF;">()</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #A6ACCD;">super</span><span style="color: #F07178;">(</span><span style="color: #A6ACCD;">Logger</span><span style="color: #F07178;">)</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
 </div>
 
-<p>The <code>handle</code> method in this class is responsible for handling the exceptions and converting them to a response. Either you can let the parent class (<a href="https://github.com/adonisjs/core/blob/develop/src/HttpExceptionHandler/index.ts">HttpExceptionHandler</a>) handle the errors for you, or you can define the <code>handle</code> method to self handle them.</p>
+<p>The <code>handle</code> method in this class is responsible for handling the exceptions and converting them to a response. Either you can let the parent class (<a
+  href="https://github.com/adonisjs/core/blob/develop/src/HttpExceptionHandler/index.ts"
+  target=&quot;_blank&quot;
+  rel=&quot;noopener&quot;
+>HttpExceptionHandler</a>
+) handle the errors for you, or you can define the <code>handle</code> method to self handle them.</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line dim"><span style="color: #89DDFF;">import</span><span style="color: #A6ACCD;"> Logger </span><span style="color: #89DDFF;">from</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">@ioc:Adonis/Core/Logger</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line dim"><span style="color: #89DDFF;">import</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">HttpContextContract</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">from</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">@ioc:Adonis/Core/HttpContext</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line dim"><span style="color: #89DDFF;">import</span><span style="color: #A6ACCD;"> HttpExceptionHandler </span><span style="color: #89DDFF;">from</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">@ioc:Adonis/Core/HttpExceptionHandler</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line dim"></div><div class="line dim"><span style="color: #89DDFF;">export</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">default</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">class</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">ExceptionHandler</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">extends</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">HttpExceptionHandler</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line dim"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">protected</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">statusPages</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line dim"><span style="color: #A6ACCD;">    </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">404</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">errors/not-found</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line dim"><span style="color: #A6ACCD;">    </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">500..599</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">errors/server-error</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line dim"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">}</span></div><div class="line dim"></div><div class="line dim"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">constructor</span><span style="color: #89DDFF;">()</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line dim"><span style="color: #F07178;">    </span><span style="color: #A6ACCD;">super</span><span style="color: #F07178;">(</span><span style="color: #A6ACCD;">Logger</span><span style="color: #F07178;">)</span></div><div class="line dim"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span></div><div class="line dim"></div><div class="line highlight"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">public</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">async</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">handle</span><span style="color: #89DDFF;">(</span><span style="color: #A6ACCD;">error</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">any</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> ctx</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">HttpContextContract</span><span style="color: #89DDFF;">)</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line highlight"><span style="color: #F07178;">    </span><span style="color: #676E95;">/**</span></div><div class="line highlight"><span style="color: #676E95;">     * Self handle the validation exception</span></div><div class="line highlight"><span style="color: #676E95;">     */</span></div><div class="line highlight"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">if</span><span style="color: #F07178;"> (</span><span style="color: #A6ACCD;">error</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">code</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">===</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">E_VALIDATION_FAILURE</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">) </span><span style="color: #89DDFF;">{</span></div><div class="line highlight"><span style="color: #F07178;">      </span><span style="color: #89DDFF;">return</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">ctx</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">response</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">status</span><span style="color: #F07178;">(</span><span style="color: #F78C6C;">422</span><span style="color: #F07178;">)</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">send</span><span style="color: #F07178;">(</span><span style="color: #A6ACCD;">error</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">messages</span><span style="color: #F07178;">)</span></div><div class="line highlight"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">}</span></div><div class="line highlight"></div><div class="line highlight"><span style="color: #F07178;">    </span><span style="color: #676E95;">/**</span></div><div class="line highlight"><span style="color: #676E95;">     * Forward rest of the exceptions to the parent class</span></div><div class="line highlight"><span style="color: #676E95;">     */</span></div><div class="line highlight"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">return</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">super</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">handle</span><span style="color: #F07178;">(</span><span style="color: #A6ACCD;">error</span><span style="color: #89DDFF;">,</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">ctx</span><span style="color: #F07178;">)</span></div><div class="line highlight"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span></div><div class="line dim"><span style="color: #89DDFF;">}</span></div></code></pre>
 </div>
 
-<h2 id="error-reporting"><a href="#error-reporting" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Error reporting</h2>
+<h2 id="error-reporting"><a
+  href="#error-reporting"
+  
+  
+><span class="icon icon-link"></span></a>
+Error reporting</h2>
 <p>Alongside the handle method, you can also implement the <code>report</code> method to report the exception to logging or an error monitoring service.</p>
 <p>The HTTP response does not wait for the report method to finish. In other words, the report method is executed in the background.</p>
 <div class="dimer-highlight">
@@ -344,9 +432,24 @@
 <pre><code><div class="line dim"><span style="color: #89DDFF;">import</span><span style="color: #A6ACCD;"> Logger </span><span style="color: #89DDFF;">from</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">@ioc:Adonis/Core/Logger</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line dim"><span style="color: #89DDFF;">import</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">HttpContextContract</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">from</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">@ioc:Adonis/Core/HttpContext</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line dim"><span style="color: #89DDFF;">import</span><span style="color: #A6ACCD;"> HttpExceptionHandler </span><span style="color: #89DDFF;">from</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">@ioc:Adonis/Core/HttpExceptionHandler</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line dim"></div><div class="line dim"><span style="color: #89DDFF;">export</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">default</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">class</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">ExceptionHandler</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">extends</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">HttpExceptionHandler</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line dim"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">protected</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">statusPages</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line dim"><span style="color: #A6ACCD;">    </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">404</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">errors/not-found</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line dim"><span style="color: #A6ACCD;">    </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">500..599</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">errors/server-error</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line dim"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">}</span></div><div class="line dim"></div><div class="line dim"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">constructor</span><span style="color: #89DDFF;">()</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line dim"><span style="color: #F07178;">    </span><span style="color: #A6ACCD;">super</span><span style="color: #F07178;">(</span><span style="color: #A6ACCD;">Logger</span><span style="color: #F07178;">)</span></div><div class="line dim"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span></div><div class="line dim"></div><div class="line highlight"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">public</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">async</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">report</span><span style="color: #89DDFF;">(</span><span style="color: #A6ACCD;">error</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">any</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> ctx</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">HttpContextContract</span><span style="color: #89DDFF;">)</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line highlight"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">if</span><span style="color: #F07178;"> (</span><span style="color: #89DDFF;">!this.</span><span style="color: #82AAFF;">shouldReport</span><span style="color: #F07178;">(</span><span style="color: #A6ACCD;">error</span><span style="color: #F07178;">)) </span><span style="color: #89DDFF;">{</span></div><div class="line highlight"><span style="color: #F07178;">      </span><span style="color: #89DDFF;">return</span></div><div class="line highlight"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">}</span></div><div class="line highlight"></div><div class="line highlight"><span style="color: #F07178;">    </span><span style="color: #A6ACCD;">someReportingService</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">report</span><span style="color: #F07178;">(</span><span style="color: #A6ACCD;">error</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">message</span><span style="color: #F07178;">)</span></div><div class="line highlight"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span></div><div class="line dim"><span style="color: #89DDFF;">}</span></div></code></pre>
 </div>
 
-<h2 id="http-exception-handler"><a href="#http-exception-handler" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Http Exception Handler</h2>
-<p>All of the following features are only available when the global exception handler extends the <a href="https://github.com/adonisjs/core/blob/develop/src/HttpExceptionHandler/index.ts">HttpExceptionHandler</a>, class. If you decide not to extend from this class, then the following features will not work.</p>
-<h3 id="status-pages"><a href="#status-pages" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Status pages</h3>
+<h2 id="http-exception-handler"><a
+  href="#http-exception-handler"
+  
+  
+><span class="icon icon-link"></span></a>
+Http Exception Handler</h2>
+<p>All of the following features are only available when the global exception handler extends the <a
+  href="https://github.com/adonisjs/core/blob/develop/src/HttpExceptionHandler/index.ts"
+  target=&quot;_blank&quot;
+  rel=&quot;noopener&quot;
+>HttpExceptionHandler</a>
+, class. If you decide not to extend from this class, then the following features will not work.</p>
+<h3 id="status-pages"><a
+  href="#status-pages"
+  
+  
+><span class="icon icon-link"></span></a>
+Status pages</h3>
 <p>The <code>statusPages</code> page property on the exception handler allows you to associate edge templates to a range of error status codes.</p>
 <p>In the following example, all 404 errors will render the <code>errors/not-found.edge</code> template, and the errors between the range of <em>500 - 599</em> will render the <code>errors/server-error.edge</code> template.</p>
 <div class="dimer-highlight">
@@ -354,14 +457,24 @@
 <pre><code><div class="line dim"><span style="color: #89DDFF;">import</span><span style="color: #A6ACCD;"> Logger </span><span style="color: #89DDFF;">from</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">@ioc:Adonis/Core/Logger</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line dim"><span style="color: #89DDFF;">import</span><span style="color: #A6ACCD;"> HttpExceptionHandler </span><span style="color: #89DDFF;">from</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">@ioc:Adonis/Core/HttpExceptionHandler</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line dim"></div><div class="line dim"><span style="color: #89DDFF;">export</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">default</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">class</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">ExceptionHandler</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">extends</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">HttpExceptionHandler</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line highlight"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">protected</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">statusPages</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line highlight"><span style="color: #A6ACCD;">    </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">404</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">errors/not-found</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line highlight"><span style="color: #A6ACCD;">    </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">500..599</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">errors/server-error</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line highlight"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">}</span></div><div class="line dim"></div><div class="line dim"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">constructor</span><span style="color: #89DDFF;">()</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line dim"><span style="color: #F07178;">    </span><span style="color: #A6ACCD;">super</span><span style="color: #F07178;">(</span><span style="color: #A6ACCD;">Logger</span><span style="color: #F07178;">)</span></div><div class="line dim"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span></div><div class="line dim"><span style="color: #89DDFF;">}</span></div></code></pre>
 </div>
 
-<h3 id="ignoring-exceptions-by-code-and-status"><a href="#ignoring-exceptions-by-code-and-status" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Ignoring exceptions by code and status</h3>
+<h3 id="ignoring-exceptions-by-code-and-status"><a
+  href="#ignoring-exceptions-by-code-and-status"
+  
+  
+><span class="icon icon-link"></span></a>
+Ignoring exceptions by code and status</h3>
 <p>You can ignore certain exceptions from being reported by whitelisting them inside the <code>ignoreCodes</code> and <code>ignoreStatuses</code> properties.</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line dim"><span style="color: #89DDFF;">import</span><span style="color: #A6ACCD;"> Logger </span><span style="color: #89DDFF;">from</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">@ioc:Adonis/Core/Logger</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line dim"><span style="color: #89DDFF;">import</span><span style="color: #A6ACCD;"> HttpExceptionHandler </span><span style="color: #89DDFF;">from</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">@ioc:Adonis/Core/HttpExceptionHandler</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line dim"></div><div class="line dim"><span style="color: #89DDFF;">export</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">default</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">class</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">ExceptionHandler</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">extends</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">HttpExceptionHandler</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line highlight"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">protected</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">ignoreCodes</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> [</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">E_ROUTE_NOT_FOUND</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">]</span></div><div class="line highlight"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">protected</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">ignoreStatuses</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> [</span><span style="color: #F78C6C;">404</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #F78C6C;">422</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #F78C6C;">403</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #F78C6C;">401</span><span style="color: #A6ACCD;">]</span></div><div class="line dim"></div><div class="line dim"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">constructor</span><span style="color: #89DDFF;">()</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line dim"><span style="color: #F07178;">    </span><span style="color: #A6ACCD;">super</span><span style="color: #F07178;">(</span><span style="color: #A6ACCD;">Logger</span><span style="color: #F07178;">)</span></div><div class="line dim"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span></div><div class="line dim"><span style="color: #89DDFF;">}</span></div></code></pre>
 </div>
 
-<h2 id="custom-exceptions"><a href="#custom-exceptions" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Custom exceptions</h2>
+<h2 id="custom-exceptions"><a
+  href="#custom-exceptions"
+  
+  
+><span class="icon icon-link"></span></a>
+Custom exceptions</h2>
 <p>You can create custom exceptions by executing the following ace command.</p>
 <div class="dimer-highlight">
 
@@ -400,20 +513,50 @@
       <nav>
         <ul>
 <li>
-<p><a href="#handling-exceptions-globally">Handling exceptions globally</a></p>
+<p><a
+  href="#handling-exceptions-globally"
+  
+  
+>Handling exceptions globally</a>
+</p>
 </li>
 <li>
-<p><a href="#error-reporting">Error reporting</a></p>
+<p><a
+  href="#error-reporting"
+  
+  
+>Error reporting</a>
+</p>
 </li>
 <li>
-<p><a href="#http-exception-handler">Http Exception Handler</a></p>
+<p><a
+  href="#http-exception-handler"
+  
+  
+>Http Exception Handler</a>
+</p>
 <ul>
-<li><a href="#status-pages">Status pages</a></li>
-<li><a href="#ignoring-exceptions-by-code-and-status">Ignoring exceptions by code and status</a></li>
+<li><a
+  href="#status-pages"
+  
+  
+>Status pages</a>
+</li>
+<li><a
+  href="#ignoring-exceptions-by-code-and-status"
+  
+  
+>Ignoring exceptions by code and status</a>
+</li>
 </ul>
 </li>
 <li>
-<p><a href="#custom-exceptions">Custom exceptions</a></p>
+<p><a
+  href="#custom-exceptions"
+  
+  
+>Custom exceptions</a>
+</p>
 </li>
         </ul>
       </nav>

@@ -29,9 +29,9 @@ Route.get('/', ({ request, auth, response }) => {
 
 ## Differences from the express `req` and `res` objects?
 
-You will not see any `req` or `res` objects in AdonisJS. Everything, including the request and the response, is part of the HTTP context.
+You will not see any `req` or `res` objects in AdonisJS. Everything, including the request and the response is part of the HTTP context.
 
-Also, you are encouraged to add your custom properties to the `ctx` and not the `request` object.
+Also, you are encouraged to add your custom properties to the `ctx` object and NOT to the `request` object.
 
 ## Http Context Properties
 
@@ -98,9 +98,9 @@ Route.group(() => {
 }).domain(':tenant.adonisjs.com')
 ```
 
-#### session :span{data-hint="Available when @adonisjs/session is installed" class="hint"}
+#### session
 
-Reference to the [session object](./session.md).
+Reference to the [session object](./session.md). Available only when `@adonisjs/session` package is installed.
 
 ```ts
 Route.get('/', async ({ session }) => {
@@ -108,9 +108,9 @@ Route.get('/', async ({ session }) => {
 })
 ```
 
-#### auth :span{data-hint="Available when @adonisjs/auth is installed" class="hint"}
+#### auth
 
-Reference to the [auth object](../auth/introduction.md).
+Reference to the [auth object](../auth/introduction.md). Available only when `@adonisjs/auth` package is installed.
 
 ```ts
 Route.get('/', async ({ auth }) => {
@@ -118,9 +118,9 @@ Route.get('/', async ({ auth }) => {
 })
 ```
 
-#### view :span{data-hint="Available when @adonisjs/view is installed" class="hint"}
+#### view
 
-Reference to the [view renderer object](../views/introduction.md).
+Reference to the [view renderer object](../views/introduction.md). Available only when `@adonisjs/view` package is installed.
 
 ```ts
 Route.get('/', async ({ view }) => {
@@ -156,7 +156,8 @@ The `location` property is added at the runtime; hence Typescript does not know 
 
 Create a new file at path `contracts/context.ts` (the filename is not important) and paste the following contents inside it.
 
-```ts{contracts/context.ts}
+```ts
+// title: contracts/context.ts
 declare module '@ioc:Adonis/Core/HttpContext' {
   import { Lookup } from 'geoip-lite'
 

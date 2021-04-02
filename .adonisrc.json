@@ -1,6 +1,11 @@
 {
+  "$schema": "https://raw.githubusercontent.com/adonisjs/application/master/adonisrc.schema.json",
   "typescript": true,
-  "commands": ["./commands", "@adonisjs/core/build/commands", "@adonisjs/repl/build/commands"],
+  "commands": [
+    "./commands",
+    "@adonisjs/core/build/commands",
+    "@adonisjs/repl/build/commands"
+  ],
   "exceptionHandlerNamespace": "App/Exceptions/Handler",
   "aliases": {
     "App": "app",
@@ -13,7 +18,13 @@
     "./start/kernel",
     {
       "file": "./start/content",
-      "environment": ["web", "console"]
+      "environment": [
+        "web",
+        "console",
+        "repl",
+        "test"
+      ],
+      "optional": false
     }
   ],
   "providers": [
@@ -35,7 +46,13 @@
     {
       "pattern": "content/**/*.md",
       "reloadServer": false
+    },
+    {
+      "pattern": "content/**/*.json",
+      "reloadServer": true
     }
   ],
-  "aceProviders": ["@adonisjs/repl"]
+  "aceProviders": [
+    "@adonisjs/repl"
+  ]
 }

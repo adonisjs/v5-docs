@@ -1,0 +1,77 @@
+[
+  {
+    "name": "Database",
+    "categories": [
+      {
+        "name": "Root",
+        "docs": [
+          {
+            "title": "Connection",
+            "permalink": "database/connection",
+            "contentPath": "database/connection.md"
+          },
+          {
+            "title": "Connection manager",
+            "permalink": "database/connection-manager",
+            "contentPath": "database/connection-manager.md"
+          },
+          {
+            "title": "Query builder",
+            "permalink": "database/query-builder",
+            "contentPath": "database/query-builder.md"
+          },
+          {
+            "title": "Insert query builder",
+            "permalink": "database/insert-query-builder",
+            "contentPath": "database/insert-query-builder.md"
+          },
+          {
+            "title": "Raw query builder",
+            "permalink": "database/raw-query-builder",
+            "contentPath": "database/raw-query-builder.md"
+          },
+          {
+            "title": "Query client",
+            "permalink": "database/query-client",
+            "contentPath": "database/query-client.md"
+          },
+          {
+            "title": "Transaction client",
+            "permalink": "database/transaction-client",
+            "contentPath": "database/transaction-client.md"
+          },
+          {
+            "title": "Database",
+            "permalink": "database/main",
+            "contentPath": "database/database.md"
+          },
+          {
+            "title": "Schema",
+            "permalink": "database/schema",
+            "contentPath": "database/schema.md"
+          }
+        ]
+      },
+      {
+        "name": "ORM",
+        "docs": [
+          {
+            "title": "Base Model",
+            "permalink": "orm/base-model",
+            "contentPath": "orm/base-model.md"
+          },
+          {
+            "title": "Query builder",
+            "permalink": "orm/query-builder",
+            "contentPath": "orm/query-builder.md"
+          },
+          {
+            "title": "Decorators",
+            "permalink": "orm/decorators",
+            "contentPath": "orm/decorators.md"
+          }
+        ]
+      }
+    ]
+  }
+]

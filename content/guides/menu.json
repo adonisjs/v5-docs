@@ -3,12 +3,22 @@
     "name": "root",
     "categories": [
       {
-        "name": "Root",
+        "name": "Fundamentals",
         "docs": [
           {
-            "title": "Introduction",
-            "permalink": "introduction",
-            "contentPath": "introduction.md"
+            "title": "Application",
+            "permalink": "application",
+            "contentPath": "fundamentals/application.md"
+          },
+          {
+            "title": "Config",
+            "permalink": "config",
+            "contentPath": "fundamentals/config.md"
+          },
+          {
+            "title": "Environment variables",
+            "permalink": "environment-variables",
+            "contentPath": "fundamentals/environment-variables.md"
           }
         ]
       },
@@ -18,7 +28,8 @@
           {
             "title": "Context",
             "permalink": "context",
-            "contentPath": "http/context.md"
+            "contentPath": "http/context.md",
+            "isLandingDoc": true
           },
           {
             "title": "Routing",
@@ -56,24 +67,14 @@
             "contentPath": "http/middleware.md"
           },
           {
-            "title": "Session",
-            "permalink": "session",
-            "contentPath": "http/session.md"
-          },
-          {
             "title": "Cookies",
             "permalink": "cookies",
             "contentPath": "http/cookies.md"
           },
           {
-            "title": "Hooks",
-            "permalink": "hooks",
-            "contentPath": "http/hooks.md"
-          },
-          {
-            "title": "Exception Handling",
-            "permalink": "exception-handling",
-            "contentPath": "http/exception-handling.md"
+            "title": "Session",
+            "permalink": "session",
+            "contentPath": "http/session.md"
           },
           {
             "title": "Static assets",
@@ -81,14 +82,14 @@
             "contentPath": "http/static-assets.md"
           },
           {
-            "title": "Web security",
-            "permalink": "web-security",
-            "contentPath": "http/web-security.md"
+            "title": "Assets manager",
+            "permalink": "assets-manager",
+            "contentPath": "http/assets-manager.md"
           },
           {
-            "title": "CORS",
-            "permalink": "cors",
-            "contentPath": "http/cors.md"
+            "title": "Exception Handling",
+            "permalink": "exception-handling",
+            "contentPath": "http/exception-handling.md"
           }
         ]
       },
@@ -101,24 +102,39 @@
             "contentPath": "views/introduction.md"
           },
           {
-            "title": "Rendering views",
+            "title": "Rendering",
             "permalink": "views/rendering",
             "contentPath": "views/rendering.md"
           },
           {
-            "title": "Template syntax",
-            "permalink": "views/templates-syntax",
-            "contentPath": "views/templates-syntax.md"
+            "title": "Templating syntax",
+            "permalink": "views/templating-syntax",
+            "contentPath": "views/templating-syntax.md"
           },
           {
-            "title": "Layouts & Partials",
-            "permalink": "views/layouts-and-partials",
-            "contentPath": "views/layouts-and-partials.md"
+            "title": "Data flow",
+            "permalink": "views/data-flow",
+            "contentPath": "views/data-flow.md"
           },
           {
-            "title": "Conditionals & Loops",
-            "permalink": "views/conditionals-and-loops",
-            "contentPath": "views/conditionals-and-loops.md"
+            "title": "Conditionals",
+            "permalink": "views/conditionals",
+            "contentPath": "views/conditionals.md"
+          },
+          {
+            "title": "Loops",
+            "permalink": "views/loops",
+            "contentPath": "views/loops.md"
+          },
+          {
+            "title": "Partials",
+            "permalink": "views/partials",
+            "contentPath": "views/partials.md"
+          },
+          {
+            "title": "Layouts",
+            "permalink": "views/layouts",
+            "contentPath": "views/layouts.md"
           },
           {
             "title": "Components",
@@ -126,19 +142,19 @@
             "contentPath": "views/components.md"
           },
           {
+            "title": "Mutations",
+            "permalink": "views/mutations",
+            "contentPath": "views/mutations.md"
+          },
+          {
             "title": "Debugging",
             "permalink": "views/debugging",
             "contentPath": "views/debugging.md"
           },
           {
-            "title": "Advanced Options",
-            "permalink": "views/advanced-options",
-            "contentPath": "views/advanced-options.md"
-          },
-          {
-            "title": "FAQs",
-            "permalink": "views/faqs",
-            "contentPath": "views/faqs.md"
+            "title": "Creating custom tags",
+            "permalink": "views/custom-tags",
+            "contentPath": "views/custom-tags.md"
           }
         ]
       },
@@ -179,6 +195,46 @@
             "title": "FAQs",
             "permalink": "validator/faqs",
             "contentPath": "validator/faqs.md"
+          }
+        ]
+      },
+      {
+        "name": "Security",
+        "docs": [
+          {
+            "title": "Web Security",
+            "permalink": "security/web-security",
+            "contentPath": "security/web-security.md"
+          },
+          {
+            "title": "Encryption",
+            "permalink": "security/encryption",
+            "contentPath": "security/encryption.md"
+          },
+          {
+            "title": "Hashing",
+            "permalink": "security/hashing",
+            "contentPath": "security/hashing.md"
+          },
+          {
+            "title": "Signed URLs",
+            "permalink": "security/signed-urls",
+            "contentPath": "security/signed-urls.md"
+          }
+        ]
+      },
+       {
+        "name": "Digging deeper",
+        "docs": [
+          {
+            "title": "Ace",
+            "permalink": "ace-commandline",
+            "contentPath": "digging-deeper/ace.md"
+          },
+          {
+            "title": "AdonisJS Repl",
+            "permalink": "repl",
+            "contentPath": "digging-deeper/repl.md"
           }
         ]
       }

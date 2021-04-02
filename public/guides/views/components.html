@@ -51,7 +51,7 @@
     type="font/woff2"
     crossorigin
   >
-<link rel="stylesheet" href="/assets/app.ee5a9736.css" />
+<link rel="stylesheet" href="/assets/app.be48d775.css" />
 <script src="/assets/342.70de04a2.js" defer></script>
 <script src="/assets/app.26949583.js" defer></script>
 </head>
@@ -60,7 +60,7 @@
   <header class="header">
     <div class="header-container">
 
-      <div class="primary-links"><a href="#sidenav-open" title="Open Docs Menu" aria-label="Open Docs Menu" class="hamburger for-mobile">
+      <div class="primary-links"><a href="#sidenav-open" title="Open Docs Menu" aria-label="Open Docs Menu" class="hamburger for-mobile" data-turbo="false">
   <svg role="presentation" focusable="false" aria-label="Icon for open menu" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
     <line x1="4" y1="6" x2="20" y2="6" />
@@ -92,8 +92,14 @@
         <ul>
 
               <li class="active">
-                <a href="/guides/validator/introduction">
+                <a href="/guides/application">
                   Guides
+                </a>
+              </li>
+
+              <li class="">
+                <a href="/reference/database/connection">
+                  Reference guides
                 </a>
               </li>
         </ul>
@@ -112,18 +118,29 @@
   </header>
 </div>
 
-<div id="sidenav-open" data-turbo-permanent>
+<div id="sidenav-open">
   <div class="sidebar" id="sidebar" data-maintain-scroll>
     <div class="sidebar-container">
 
 
 
               <nav>
+                  <h3> Fundamentals </h3>
                 <ol>
                     <li
                       class=""
                     >
-                      <a href="/guides/introduction"> Introduction </a>
+                      <a href="/guides/application"> Application </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/config"> Config </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/environment-variables"> Environment variables </a>
                     </li>
                 </ol>
               </nav>
@@ -173,22 +190,12 @@
                     <li
                       class=""
                     >
-                      <a href="/guides/session"> Session </a>
-                    </li>
-                    <li
-                      class=""
-                    >
                       <a href="/guides/cookies"> Cookies </a>
                     </li>
                     <li
                       class=""
                     >
-                      <a href="/guides/hooks"> Hooks </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/exception-handling"> Exception Handling </a>
+                      <a href="/guides/session"> Session </a>
                     </li>
                     <li
                       class=""
@@ -198,12 +205,12 @@
                     <li
                       class=""
                     >
-                      <a href="/guides/web-security"> Web security </a>
+                      <a href="/guides/assets-manager"> Assets manager </a>
                     </li>
                     <li
                       class=""
                     >
-                      <a href="/guides/cors"> CORS </a>
+                      <a href="/guides/exception-handling"> Exception Handling </a>
                     </li>
                 </ol>
               </nav>
@@ -218,22 +225,37 @@
                     <li
                       class=""
                     >
-                      <a href="/guides/views/rendering"> Rendering views </a>
+                      <a href="/guides/views/rendering"> Rendering </a>
                     </li>
                     <li
                       class=""
                     >
-                      <a href="/guides/views/templates-syntax"> Template syntax </a>
+                      <a href="/guides/views/templating-syntax"> Templating syntax </a>
                     </li>
                     <li
                       class=""
                     >
-                      <a href="/guides/views/layouts-and-partials"> Layouts &amp; Partials </a>
+                      <a href="/guides/views/data-flow"> Data flow </a>
                     </li>
                     <li
                       class=""
                     >
-                      <a href="/guides/views/conditionals-and-loops"> Conditionals &amp; Loops </a>
+                      <a href="/guides/views/conditionals"> Conditionals </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/views/loops"> Loops </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/views/partials"> Partials </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/views/layouts"> Layouts </a>
                     </li>
                     <li
                       class="active"
@@ -243,17 +265,17 @@
                     <li
                       class=""
                     >
+                      <a href="/guides/views/mutations"> Mutations </a>
+                    </li>
+                    <li
+                      class=""
+                    >
                       <a href="/guides/views/debugging"> Debugging </a>
                     </li>
                     <li
                       class=""
                     >
-                      <a href="/guides/views/advanced-options"> Advanced Options </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/views/faqs"> FAQs </a>
+                      <a href="/guides/views/custom-tags"> Creating custom tags </a>
                     </li>
                 </ol>
               </nav>
@@ -297,43 +319,337 @@
                     </li>
                 </ol>
               </nav>
+              <nav>
+                  <h3> Security </h3>
+                <ol>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/security/web-security"> Web Security </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/security/encryption"> Encryption </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/security/hashing"> Hashing </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/security/signed-urls"> Signed URLs </a>
+                    </li>
+                </ol>
+              </nav>
+              <nav>
+                  <h3> Digging deeper </h3>
+                <ol>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/ace-commandline"> Ace </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/repl"> AdonisJS Repl </a>
+                    </li>
+                </ol>
+              </nav>
+
     </div>
   </div>
 
-  <a href="#" id="sidenav-close" class="sidenav-backdrop" title="Close Docs Menu" aria-label="Close Docs Menu"></a>
+  <a href="#" data-turbo="false" id="sidenav-close" class="sidenav-backdrop" title="Close Docs Menu" aria-label="Close Docs Menu"></a>
 </div>
 
-<main class="doc">
+<main class="doc" data-turbo="false">
   <div class="markdown">
-    <h1>Components</h1><ul>
-<li>Talking about components and the inspiration</li>
-<li>How they are different from Vue or React components?</li>
-<li>Passing and using props
+    <h1>Components</h1><p>The Edge components system is highly inspired by the frontend frameworks like Vue or Svelte. It borrows the concept of <strong>reusability</strong>, <strong>isolated state</strong>, <strong>props</strong> and <strong>slots</strong> from them.</p>
+<p>However, do note that Edge is a backend template engine and hence some of the principles cannot be replicated because of the server side environment and the design of Edge. It includes</p>
 <ul>
-<li>Props except</li>
-<li>Props serialize. serializeExcept</li>
+<li><strong>Reactivity</strong>: There is no concept of reactivity on backend. You just generate the HTML and send it over the wire.</li>
+<li><strong>Scoped CSS</strong>: Edge is not compiled using frontend build tools like Webpack and hence it does not bother itself with compiling and extract CSS from components. You must use existing frontend tooling for that.</li>
 </ul>
-</li>
-<li>Passing slots
+<h2 id="creating-a-component"><a
+  href="#creating-a-component"
+  
+  
+><span class="icon icon-link"></span></a>
+Creating a component</h2>
+<p>Components are represented using the regular edge template files. For example: You can create a file named <code>button.edge</code> with the following markup</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">&lt;</span><span style="color: #F07178;">button</span><span style="color: #89DDFF;"> </span><span style="color: #C792EA;">type</span><span style="color: #89DDFF;">=</span><span style="color: #89DDFF;">&quot;</span><span style="color: #82AAFF;">{{</span><span style="color: #C3E88D;"> type </span><span style="color: #82AAFF;">}}</span><span style="color: #89DDFF;">&quot;</span><span style="color: #89DDFF;">&gt;</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #82AAFF;">{{</span><span style="color: #A6ACCD;"> text </span><span style="color: #82AAFF;">}}</span></div><div class="line"><span style="color: #89DDFF;">&lt;/</span><span style="color: #F07178;">button</span><span style="color: #89DDFF;">&gt;</span></div></code></pre>
+</div>
+
+<p>And then use it as a component inside other templates.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">@!component</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">button</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #FFCB6B;">text</span><span style="color: #A6ACCD;">: </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Login</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #FFCB6B;">type</span><span style="color: #A6ACCD;">: </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">submit</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
+</div>
+
+<p>The <code>@component</code> tag accepts a total of two arguments. First is the component path (relative from the views directory) and second is the component state (aka props).</p>
+<div class="alert alert-note"><p>Components do not have access to the state of the parent template. However, they can access templates <a
+  href=""
+  
+  
+>globals</a>
+ and <a
+  href=""
+  
+  
+>locals</a>
+.</p></div>
+<h2 id="slots"><a
+  href="#slots"
+  
+  
+><span class="icon icon-link"></span></a>
+Slots</h2>
+<p>Along with the props, components can also accept <code>slots</code>. Slots are named outlets, that the parent component can define markup for.</p>
+<p>As an example, lets accept the text for our <code>button</code> component as a slot and not as a prop.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">&lt;</span><span style="color: #F07178;">button</span><span style="color: #89DDFF;"> </span><span style="color: #C792EA;">type</span><span style="color: #89DDFF;">=</span><span style="color: #89DDFF;">&quot;</span><span style="color: #82AAFF;">{{</span><span style="color: #C3E88D;"> type </span><span style="color: #82AAFF;">}}</span><span style="color: #89DDFF;">&quot;</span><span style="color: #89DDFF;">&gt;</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #82AAFF;">{{{</span><span style="color: #A6ACCD;"> await </span><span style="color: #89DDFF;">$</span><span style="color: #A6ACCD;">slots</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">main</span><span style="color: #89DDFF;">()</span><span style="color: #A6ACCD;"> </span><span style="color: #82AAFF;">}}}</span></div><div class="line"><span style="color: #89DDFF;">&lt;/</span><span style="color: #F07178;">button</span><span style="color: #89DDFF;">&gt;</span></div></code></pre>
+</div>
+
+<p>The component caller can define the markup for the main slot as follows.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">@component</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">button</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #FFCB6B;">type</span><span style="color: #A6ACCD;">: </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">submit</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">&lt;</span><span style="color: #F07178;">i</span><span style="color: #89DDFF;"> </span><span style="color: #C792EA;">class</span><span style="color: #89DDFF;">=</span><span style="color: #89DDFF;">&quot;</span><span style="color: #C3E88D;">fa-icon-lock</span><span style="color: #89DDFF;">&quot;</span><span style="color: #89DDFF;"> /&gt;</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">&lt;</span><span style="color: #F07178;">span</span><span style="color: #89DDFF;">&gt;</span><span style="color: #A6ACCD;"> Login </span><span style="color: #89DDFF;">&lt;/</span><span style="color: #F07178;">span</span><span style="color: #89DDFF;">&gt;</span></div><div class="line"><span style="color: #82AAFF;">@end</span></div></code></pre>
+</div>
+
+<h3 id="main-slot"><a
+  href="#main-slot"
+  
+  
+><span class="icon icon-link"></span></a>
+Main slot</h3>
+<p>All the contents between the <code>@component</code> opening and the closing tag is part of the main slot, unless you move it inside a named slot.</p>
+<p>In the following example, all the content outside the <code>@slot(&#x27;trigger&#x27;)</code> is part of the main slot.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">@component</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">modal</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">@slot</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">trigger</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #89DDFF;">&lt;</span><span style="color: #F07178;">a</span><span style="color: #89DDFF;"> </span><span style="color: #C792EA;">href</span><span style="color: #89DDFF;">=</span><span style="color: #89DDFF;">&quot;&quot;</span><span style="color: #89DDFF;">&gt;</span><span style="color: #A6ACCD;"> Show modal </span><span style="color: #89DDFF;">&lt;/</span><span style="color: #F07178;">a</span><span style="color: #89DDFF;">&gt;</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #82AAFF;">@end</span></div><div class="line"></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">&lt;</span><span style="color: #F07178;">h1</span><span style="color: #89DDFF;">&gt;</span><span style="color: #A6ACCD;"> Modal title </span><span style="color: #89DDFF;">&lt;/</span><span style="color: #F07178;">h1</span><span style="color: #89DDFF;">&gt;</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">&lt;</span><span style="color: #F07178;">p</span><span style="color: #89DDFF;">&gt;</span><span style="color: #A6ACCD;"> Modal content </span><span style="color: #89DDFF;">&lt;/</span><span style="color: #F07178;">p</span><span style="color: #89DDFF;">&gt;</span></div><div class="line"><span style="color: #82AAFF;">@end</span></div></code></pre>
+</div>
+
+<h3 id="named-slots"><a
+  href="#named-slots"
+  
+  
+><span class="icon icon-link"></span></a>
+Named slots</h3>
+<p>Named slots allow the component to accept markup for multiple outlets. For example, a modal component can accept markup for the modal header, body and its actions</p>
+<div class="dimer-highlight">
+    <div class="codeblock-title">
+      components/modal.edge
+    </div>
+
+<pre><code><div class="line"><span style="color: #89DDFF;">&lt;</span><span style="color: #F07178;">div</span><span style="color: #89DDFF;">&gt;</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">&lt;</span><span style="color: #F07178;">header</span><span style="color: #89DDFF;">&gt;</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #82AAFF;">{{{</span><span style="color: #A6ACCD;"> await </span><span style="color: #89DDFF;">$</span><span style="color: #A6ACCD;">slots</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">header</span><span style="color: #89DDFF;">()</span><span style="color: #A6ACCD;"> </span><span style="color: #82AAFF;">}}}</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">&lt;/</span><span style="color: #F07178;">header</span><span style="color: #89DDFF;">&gt;</span></div><div class="line"></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">&lt;</span><span style="color: #F07178;">main</span><span style="color: #89DDFF;">&gt;</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #82AAFF;">{{{</span><span style="color: #A6ACCD;"> await </span><span style="color: #89DDFF;">$</span><span style="color: #A6ACCD;">slots</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">main</span><span style="color: #89DDFF;">()</span><span style="color: #A6ACCD;"> </span><span style="color: #82AAFF;">}}}</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">&lt;/</span><span style="color: #F07178;">main</span><span style="color: #89DDFF;">&gt;</span></div><div class="line"></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">&lt;</span><span style="color: #F07178;">footer</span><span style="color: #89DDFF;">&gt;</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #82AAFF;">{{{</span><span style="color: #A6ACCD;"> await </span><span style="color: #89DDFF;">$</span><span style="color: #A6ACCD;">slots</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">actions</span><span style="color: #89DDFF;">()</span><span style="color: #A6ACCD;"> </span><span style="color: #82AAFF;">}}}</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">&lt;/</span><span style="color: #F07178;">footer</span><span style="color: #89DDFF;">&gt;</span></div><div class="line"><span style="color: #89DDFF;">&lt;/</span><span style="color: #F07178;">div</span><span style="color: #89DDFF;">&gt;</span></div></code></pre>
+</div>
+
+<p>The parent template can define them as follows</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">@component</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">components/modal</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">@slot</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">header</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #89DDFF;">&lt;</span><span style="color: #F07178;">h1</span><span style="color: #89DDFF;">&gt;</span><span style="color: #A6ACCD;"> Delete post </span><span style="color: #89DDFF;">&lt;/</span><span style="color: #F07178;">h1</span><span style="color: #89DDFF;">&gt;</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #82AAFF;">@end</span></div><div class="line"></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">@slot</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">main</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #89DDFF;">&lt;</span><span style="color: #F07178;">div</span><span style="color: #89DDFF;">&gt;</span></div><div class="line"><span style="color: #A6ACCD;">      </span><span style="color: #89DDFF;">&lt;</span><span style="color: #F07178;">p</span><span style="color: #89DDFF;">&gt;</span><span style="color: #A6ACCD;">Are you sure, you want to delete the post</span><span style="color: #89DDFF;">&lt;/</span><span style="color: #F07178;">p</span><span style="color: #89DDFF;">&gt;</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #89DDFF;">&lt;/</span><span style="color: #F07178;">div</span><span style="color: #89DDFF;">&gt;</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #82AAFF;">@end</span></div><div class="line"></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">@slot</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">actions</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #89DDFF;">&lt;</span><span style="color: #F07178;">div</span><span style="color: #89DDFF;"> </span><span style="color: #C792EA;">class</span><span style="color: #89DDFF;">=</span><span style="color: #89DDFF;">&quot;</span><span style="color: #C3E88D;">flex</span><span style="color: #89DDFF;">&quot;</span><span style="color: #89DDFF;">&gt;</span></div><div class="line"><span style="color: #A6ACCD;">      </span><span style="color: #89DDFF;">&lt;</span><span style="color: #F07178;">button</span><span style="color: #89DDFF;">&gt;</span><span style="color: #A6ACCD;">Yes, delete it</span><span style="color: #89DDFF;">&lt;/</span><span style="color: #F07178;">button</span><span style="color: #89DDFF;">&gt;</span></div><div class="line"><span style="color: #A6ACCD;">      </span><span style="color: #89DDFF;">&lt;</span><span style="color: #F07178;">button</span><span style="color: #89DDFF;">&gt;</span><span style="color: #A6ACCD;">Cancel</span><span style="color: #89DDFF;">&lt;/</span><span style="color: #F07178;">button</span><span style="color: #89DDFF;">&gt;</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #89DDFF;">&lt;/</span><span style="color: #F07178;">div</span><span style="color: #89DDFF;">&gt;</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #82AAFF;">@end</span></div><div class="line"><span style="color: #82AAFF;">@end</span></div></code></pre>
+</div>
+
+<h4 id="output"><a
+  href="#output"
+  
+  
+><span class="icon icon-link"></span></a>
+Output</h4>
+<p><figure>
+  <img
+    data-src="https://res.cloudinary.com/adonis-js/image/upload/q_auto,f_auto/v1617097757/v5/edge-modal-component.png"
+    alt=""
+    class="lazyload"
+    
+  >
+</figure>
+</p>
+<h3 id="slots-scope"><a
+  href="#slots-scope"
+  
+  
+><span class="icon icon-link"></span></a>
+Slots scope</h3>
+<p>The slots have access to the state of the template in which they are defined (aka the parent template).</p>
+<h4 id="component-template"><a
+  href="#component-template"
+  
+  
+><span class="icon icon-link"></span></a>
+Component template</h4>
+<div class="dimer-highlight">
+    <div class="codeblock-title">
+      components/button.edge
+    </div>
+
+<pre><code><div class="line"><span style="color: #82AAFF;">@set</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">title</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">I am a button</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div><div class="line"></div><div class="line"><span style="color: #89DDFF;">&lt;</span><span style="color: #F07178;">button</span><span style="color: #89DDFF;">&gt;</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #82AAFF;">{{{</span><span style="color: #A6ACCD;"> await </span><span style="color: #89DDFF;">$</span><span style="color: #A6ACCD;">slots</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">main</span><span style="color: #89DDFF;">()</span><span style="color: #A6ACCD;"> </span><span style="color: #82AAFF;">}}}</span></div><div class="line"><span style="color: #89DDFF;">&lt;/</span><span style="color: #F07178;">button</span><span style="color: #89DDFF;">&gt;</span></div></code></pre>
+</div>
+
+<h4 id="parent-template"><a
+  href="#parent-template"
+  
+  
+><span class="icon icon-link"></span></a>
+Parent template</h4>
+<div class="dimer-highlight">
+    <div class="codeblock-title">
+      home.edge
+    </div>
+
+<pre><code><div class="line"><span style="color: #89DDFF;">@component</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">components/button</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">&lt;</span><span style="color: #F07178;">span</span><span style="color: #89DDFF;">&gt;</span><span style="color: #82AAFF;">{{</span><span style="color: #A6ACCD;"> title </span><span style="color: #82AAFF;">}}</span><span style="color: #89DDFF;">&lt;/</span><span style="color: #F07178;">span</span><span style="color: #89DDFF;">&gt;</span></div><div class="line"><span style="color: #82AAFF;">@end</span></div></code></pre>
+</div>
+
+<h4 id="output-1"><a
+  href="#output-1"
+  
+  
+><span class="icon icon-link"></span></a>
+Output</h4>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">&lt;</span><span style="color: #F07178;">button</span><span style="color: #89DDFF;">&gt;</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">&lt;</span><span style="color: #F07178;">span</span><span style="color: #89DDFF;">&gt;</span><span style="color: #A6ACCD;">undefined</span><span style="color: #89DDFF;">&lt;/</span><span style="color: #F07178;">span</span><span style="color: #89DDFF;">&gt;</span></div><div class="line"><span style="color: #89DDFF;">&lt;/</span><span style="color: #F07178;">button</span><span style="color: #89DDFF;">&gt;</span></div></code></pre>
+</div>
+
+<p>In order to pass data from the component to the parent, we can pass them as arguments to the slots. For example</p>
+<div class="dimer-highlight">
+    <div class="codeblock-title">
+      components/button.edge
+    </div>
+
+<pre><code><div class="line dim"><span style="color: #82AAFF;">@set</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">title</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">I am a button</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div><div class="line dim"></div><div class="line dim"><span style="color: #89DDFF;">&lt;</span><span style="color: #F07178;">button</span><span style="color: #89DDFF;">&gt;</span></div><div class="line highlight"><span style="color: #A6ACCD;">  </span><span style="color: #82AAFF;">{{{</span><span style="color: #A6ACCD;"> await </span><span style="color: #89DDFF;">$</span><span style="color: #A6ACCD;">slots</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">main</span><span style="color: #89DDFF;">({</span><span style="color: #A6ACCD;"> title </span><span style="color: #89DDFF;">})</span><span style="color: #A6ACCD;"> </span><span style="color: #82AAFF;">}}}</span></div><div class="line dim"><span style="color: #89DDFF;">&lt;/</span><span style="color: #F07178;">button</span><span style="color: #89DDFF;">&gt;</span></div></code></pre>
+</div>
+
+<div class="dimer-highlight">
+    <div class="codeblock-title">
+      home.edge
+    </div>
+
+<pre><code><div class="line dim"><span style="color: #89DDFF;">@component</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">components/button</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div><div class="line highlight"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">@slot</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">main</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> scope)</span></div><div class="line highlight"><span style="color: #A6ACCD;">    </span><span style="color: #89DDFF;">&lt;</span><span style="color: #F07178;">span</span><span style="color: #89DDFF;">&gt;</span><span style="color: #82AAFF;">{{</span><span style="color: #A6ACCD;"> scope</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">title </span><span style="color: #82AAFF;">}}</span><span style="color: #89DDFF;">&lt;/</span><span style="color: #F07178;">span</span><span style="color: #89DDFF;">&gt;</span></div><div class="line highlight"><span style="color: #A6ACCD;">  </span><span style="color: #82AAFF;">@end</span></div><div class="line dim"><span style="color: #82AAFF;">@end</span></div></code></pre>
+</div>
+
+<p>To summarize:</p>
 <ul>
-<li>Rendering slots</li>
-<li>Passing data from component to slot as a function</li>
+<li>Parent template can pass data to the component using props or slots.</li>
+<li>The component can pass data only to the slots as arguments.</li>
 </ul>
-</li>
-<li>Passing data to the components</li>
-<li>Context API for sharing data without props</li>
-<li>Links to the blog posts on creating custom components using alpine + edge. Should be designed. Headless has its own naunces and should not be part of blog and instead be part of a package.
-<ul>
-<li>Creating a simple button component</li>
-<li>Creating an interactive dropdown component</li>
-<li>Creating a complex modal component</li>
-<li>Creating a tabs component</li>
-</ul>
-</li>
-</ul>  </div>
+<h2 id="injecting-data-to-the-component-tree"><a
+  href="#injecting-data-to-the-component-tree"
+  
+  
+><span class="icon icon-link"></span></a>
+Injecting data to the component tree</h2>
+<p>The data injection API of Edge is inspired by the <a
+  href="https://svelte.dev/tutorial/context-api"
+  target=&quot;_blank&quot;
+  rel=&quot;noopener&quot;
+>Svelte context API</a>
+ and <a
+  href="https://v3.vuejs.org/guide/component-provide-inject.html#provide-inject"
+  target=&quot;_blank&quot;
+  rel=&quot;noopener&quot;
+>Vue provide/inject API</a>
+.</p>
+<p>The goal is to simplify the communication between the components inside a tree. However, do note that this is an advanced API and must only be used when you are self authoring a group of components and want transparent communication between them.</p>
+<h3 id="basic-example"><a
+  href="#basic-example"
+  
+  
+><span class="icon icon-link"></span></a>
+Basic example</h3>
+<p>Let&#x27;s start with the most basic example to see the injection API in action. Once, you understand the basics, you can view our screencasts on creating functional components using this API.</p>
+<h4 id="1-create-componentsparentedge-template"><a
+  href="#1-create-componentsparentedge-template"
+  
+  
+><span class="icon icon-link"></span></a>
+1. Create components/parent.edge template</h4>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #676E95;">{{-- Declare a local variable --}}</span></div><div class="line"><span style="color: #82AAFF;">@set</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">counter</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span><span style="color: #A6ACCD;"> value</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #F78C6C;">0</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div><div class="line"></div><div class="line"><span style="color: #676E95;">{{-- Inject it to the components tree --}}</span></div><div class="line"><span style="color: #82AAFF;">@share</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">{</span><span style="color: #A6ACCD;"> counter </span><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div><div class="line"></div><div class="line"><span style="color: #82AAFF;">{{{</span><span style="color: #A6ACCD;"> await </span><span style="color: #89DDFF;">$</span><span style="color: #A6ACCD;">slots</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">main</span><span style="color: #89DDFF;">()</span><span style="color: #A6ACCD;"> </span><span style="color: #82AAFF;">}}}</span></div></code></pre>
+</div>
+
+<h4 id="2-create-and-write-the-following-contents-to-the-homeedge-file"><a
+  href="#2-create-and-write-the-following-contents-to-the-homeedge-file"
+  
+  
+><span class="icon icon-link"></span></a>
+2. Create and write the following contents to the <code>home.edge</code> file</h4>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">@component</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">components/parent</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">&lt;</span><span style="color: #F07178;">p</span><span style="color: #89DDFF;">&gt;</span><span style="color: #A6ACCD;"> Value of counter is </span><span style="color: #82AAFF;">{{</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">$</span><span style="color: #A6ACCD;">context</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">counter</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">value </span><span style="color: #82AAFF;">}}</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&lt;/</span><span style="color: #F07178;">p</span><span style="color: #89DDFF;">&gt;</span></div><div class="line"></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #676E95;">{{-- Bump the value by one --}}</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #82AAFF;">@set</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">$</span><span style="color: #A6ACCD;">context</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">counter.value</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">$</span><span style="color: #A6ACCD;">context</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">counter</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">value </span><span style="color: #89DDFF;">+</span><span style="color: #A6ACCD;"> </span><span style="color: #F78C6C;">1</span><span style="color: #A6ACCD;">)</span></div><div class="line"></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">&lt;</span><span style="color: #F07178;">p</span><span style="color: #89DDFF;">&gt;</span><span style="color: #A6ACCD;"> Updated value is </span><span style="color: #82AAFF;">{{</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">$</span><span style="color: #A6ACCD;">context</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">counter</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">value </span><span style="color: #82AAFF;">}}</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&lt;/</span><span style="color: #F07178;">p</span><span style="color: #89DDFF;">&gt;</span></div><div class="line"><span style="color: #82AAFF;">@end</span></div></code></pre>
+</div>
+
+<p>The values injected by the component are available inside the tree using the <code>$context</code> variable. The <code>$context</code> object is shared among the entire tree and other components can add/update its value.</p>  </div>
 </main>
 
 <aside class="toc">
+    <div class="toc-container" data-turbo="false">
+      <h3> On this page </h3>
+      <nav>
+        <ul>
+<li>
+<p><a
+  href="#creating-a-component"
+  
+  
+>Creating a component</a>
+</p>
+</li>
+<li>
+<p><a
+  href="#slots"
+  
+  
+>Slots</a>
+</p>
+<ul>
+<li><a
+  href="#main-slot"
+  
+  
+>Main slot</a>
+</li>
+<li><a
+  href="#named-slots"
+  
+  
+>Named slots</a>
+</li>
+<li><a
+  href="#slots-scope"
+  
+  
+>Slots scope</a>
+</li>
+</ul>
+</li>
+<li>
+<p><a
+  href="#injecting-data-to-the-component-tree"
+  
+  
+>Injecting data to the component tree</a>
+</p>
+<ul>
+<li><a
+  href="#basic-example"
+  
+  
+>Basic example</a>
+</li>
+</ul>
+</li>
+        </ul>
+      </nav>
+    </div>
 </aside>
 
 </body>

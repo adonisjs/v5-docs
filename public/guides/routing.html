@@ -51,7 +51,7 @@
     type="font/woff2"
     crossorigin
   >
-<link rel="stylesheet" href="/assets/app.ee5a9736.css" />
+<link rel="stylesheet" href="/assets/app.be48d775.css" />
 <script src="/assets/342.70de04a2.js" defer></script>
 <script src="/assets/app.26949583.js" defer></script>
 </head>
@@ -60,7 +60,7 @@
   <header class="header">
     <div class="header-container">
 
-      <div class="primary-links"><a href="#sidenav-open" title="Open Docs Menu" aria-label="Open Docs Menu" class="hamburger for-mobile">
+      <div class="primary-links"><a href="#sidenav-open" title="Open Docs Menu" aria-label="Open Docs Menu" class="hamburger for-mobile" data-turbo="false">
   <svg role="presentation" focusable="false" aria-label="Icon for open menu" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
     <line x1="4" y1="6" x2="20" y2="6" />
@@ -92,8 +92,14 @@
         <ul>
 
               <li class="active">
-                <a href="/guides/validator/introduction">
+                <a href="/guides/application">
                   Guides
+                </a>
+              </li>
+
+              <li class="">
+                <a href="/reference/database/connection">
+                  Reference guides
                 </a>
               </li>
         </ul>
@@ -112,18 +118,29 @@
   </header>
 </div>
 
-<div id="sidenav-open" data-turbo-permanent>
+<div id="sidenav-open">
   <div class="sidebar" id="sidebar" data-maintain-scroll>
     <div class="sidebar-container">
 
 
 
               <nav>
+                  <h3> Fundamentals </h3>
                 <ol>
                     <li
                       class=""
                     >
-                      <a href="/guides/introduction"> Introduction </a>
+                      <a href="/guides/application"> Application </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/config"> Config </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/environment-variables"> Environment variables </a>
                     </li>
                 </ol>
               </nav>
@@ -173,22 +190,12 @@
                     <li
                       class=""
                     >
-                      <a href="/guides/session"> Session </a>
-                    </li>
-                    <li
-                      class=""
-                    >
                       <a href="/guides/cookies"> Cookies </a>
                     </li>
                     <li
                       class=""
                     >
-                      <a href="/guides/hooks"> Hooks </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/exception-handling"> Exception Handling </a>
+                      <a href="/guides/session"> Session </a>
                     </li>
                     <li
                       class=""
@@ -198,12 +205,12 @@
                     <li
                       class=""
                     >
-                      <a href="/guides/web-security"> Web security </a>
+                      <a href="/guides/assets-manager"> Assets manager </a>
                     </li>
                     <li
                       class=""
                     >
-                      <a href="/guides/cors"> CORS </a>
+                      <a href="/guides/exception-handling"> Exception Handling </a>
                     </li>
                 </ol>
               </nav>
@@ -218,22 +225,37 @@
                     <li
                       class=""
                     >
-                      <a href="/guides/views/rendering"> Rendering views </a>
+                      <a href="/guides/views/rendering"> Rendering </a>
                     </li>
                     <li
                       class=""
                     >
-                      <a href="/guides/views/templates-syntax"> Template syntax </a>
+                      <a href="/guides/views/templating-syntax"> Templating syntax </a>
                     </li>
                     <li
                       class=""
                     >
-                      <a href="/guides/views/layouts-and-partials"> Layouts &amp; Partials </a>
+                      <a href="/guides/views/data-flow"> Data flow </a>
                     </li>
                     <li
                       class=""
                     >
-                      <a href="/guides/views/conditionals-and-loops"> Conditionals &amp; Loops </a>
+                      <a href="/guides/views/conditionals"> Conditionals </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/views/loops"> Loops </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/views/partials"> Partials </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/views/layouts"> Layouts </a>
                     </li>
                     <li
                       class=""
@@ -243,17 +265,17 @@
                     <li
                       class=""
                     >
+                      <a href="/guides/views/mutations"> Mutations </a>
+                    </li>
+                    <li
+                      class=""
+                    >
                       <a href="/guides/views/debugging"> Debugging </a>
                     </li>
                     <li
                       class=""
                     >
-                      <a href="/guides/views/advanced-options"> Advanced Options </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/views/faqs"> FAQs </a>
+                      <a href="/guides/views/custom-tags"> Creating custom tags </a>
                     </li>
                 </ol>
               </nav>
@@ -297,13 +319,54 @@
                     </li>
                 </ol>
               </nav>
+              <nav>
+                  <h3> Security </h3>
+                <ol>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/security/web-security"> Web Security </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/security/encryption"> Encryption </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/security/hashing"> Hashing </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/security/signed-urls"> Signed URLs </a>
+                    </li>
+                </ol>
+              </nav>
+              <nav>
+                  <h3> Digging deeper </h3>
+                <ol>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/ace-commandline"> Ace </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/repl"> AdonisJS Repl </a>
+                    </li>
+                </ol>
+              </nav>
+
     </div>
   </div>
 
-  <a href="#" id="sidenav-close" class="sidenav-backdrop" title="Close Docs Menu" aria-label="Close Docs Menu"></a>
+  <a href="#" data-turbo="false" id="sidenav-close" class="sidenav-backdrop" title="Close Docs Menu" aria-label="Close Docs Menu"></a>
 </div>
 
-<main class="doc">
+<main class="doc" data-turbo="false">
   <div class="markdown">
     <h1>Routing</h1><p>The users of your website or web application can visit different URL&#x27;s like <code>/</code>, <code>/about</code> or <code>/posts/1</code>. To make these URLs work, you will have to define them as routes.</p>
 <p>Routes are usually defined (but not limited to) inside the <code>start/routes.ts</code> file using the Route module.</p>
@@ -313,16 +376,31 @@
 <pre><code><div class="line"><span style="color: #89DDFF;">import</span><span style="color: #A6ACCD;"> Route </span><span style="color: #89DDFF;">from</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">@ioc:Adonis/Core/Route</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"></div><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">get</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">()</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">return</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Hello world</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<p>The route handler can also refer to a <a href="./controller.md">controller</a> method.</p>
+<p>The route handler can also refer to a <a
+  href="./controller.md"
+  
+  
+>controller</a>
+ method.</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #89DDFF;">import</span><span style="color: #A6ACCD;"> Route </span><span style="color: #89DDFF;">from</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">@ioc:Adonis/Core/Route</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"></div><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">get</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">posts</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">PostsController.index</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h2 id="default-routes-file"><a href="#default-routes-file" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Default routes file</h2>
+<h2 id="default-routes-file"><a
+  href="#default-routes-file"
+  
+  
+><span class="icon icon-link"></span></a>
+Default routes file</h2>
 <p>Conventionally the routes are registered inside the <code>start/routes.ts</code> file, which is then preloaded by AdonisJS when booting the application. However, this is not a hard restriction, and you can keep your routes in a separate file as well.</p>
 <p>Let&#x27;s explore some different ways to structure and load routes from other files.</p>
-<h3 id="imports-inside-the-routests-file"><a href="#imports-inside-the-routests-file" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Imports inside the <code>routes.ts</code> file</h3>
+<h3 id="imports-inside-the-routests-file"><a
+  href="#imports-inside-the-routests-file"
+  
+  
+><span class="icon icon-link"></span></a>
+Imports inside the <code>routes.ts</code> file</h3>
 <p>One approach is to define your routes in different files as per your application structure and then import all those files inside the <code>start/routes.ts</code> file.</p>
 <div class="dimer-highlight">
     <div class="codeblock-title">
@@ -332,7 +410,12 @@
 <pre><code><div class="line"><span style="color: #89DDFF;">import</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">App/Modules/User/routes</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"><span style="color: #89DDFF;">import</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">App/Modules/Cart/routes</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"><span style="color: #89DDFF;">import</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">App/Modules/Product/routes</span><span style="color: #89DDFF;">&#x27;</span></div></code></pre>
 </div>
 
-<h3 id="register-as-a-preload-file"><a href="#register-as-a-preload-file" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Register as a preload file</h3>
+<h3 id="register-as-a-preload-file"><a
+  href="#register-as-a-preload-file"
+  
+  
+><span class="icon icon-link"></span></a>
+Register as a preload file</h3>
 <p>Another approach is to get rid of the routes file altogether and use a custom file path to register the routes. In this scenario, do make sure to register the path inside the <code>.adonisrc.json</code> file under the <code>preloads</code> array.</p>
 <div class="dimer-highlight">
     <div class="codeblock-title">
@@ -342,7 +425,12 @@
 <pre><code><div class="line dim"><span style="color: #89DDFF;">{</span></div><div class="line dim"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">&quot;</span><span style="color: #C792EA;">preloads</span><span style="color: #89DDFF;">&quot;</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">[</span></div><div class="line highlight-delete"><span style="color: #A6ACCD;">    </span><span style="color: #89DDFF;">&quot;</span><span style="color: #C3E88D;">./start/routes</span><span style="color: #89DDFF;">&quot;</span><span style="color: #89DDFF;">,</span></div><div class="line dim"><span style="color: #A6ACCD;">    </span><span style="color: #89DDFF;">&quot;</span><span style="color: #C3E88D;">./start/kernel</span><span style="color: #89DDFF;">&quot;</span><span style="color: #89DDFF;">,</span></div><div class="line highlight-insert"><span style="color: #A6ACCD;">    </span><span style="color: #89DDFF;">&quot;</span><span style="color: #C3E88D;">add-path-to-your-routes-file</span><span style="color: #89DDFF;">&quot;</span></div><div class="line dim"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">]</span></div><div class="line dim"><span style="color: #89DDFF;">}</span></div></code></pre>
 </div>
 
-<h2 id="list-routes"><a href="#list-routes" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>List routes</h2>
+<h2 id="list-routes"><a
+  href="#list-routes"
+  
+  
+><span class="icon icon-link"></span></a>
+List routes</h2>
 <p>You can view the registered routes by running the following ace command.</p>
 <div class="dimer-highlight">
 
@@ -355,40 +443,75 @@
 <pre><code><div class="line"><span style="color: #A6ACCD;">node ace list:routes --json </span><span style="color: #89DDFF;">&gt;</span><span style="color: #A6ACCD;"> routes.json</span></div></code></pre>
 </div>
 
-<h2 id="http-methods"><a href="#http-methods" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>HTTP methods</h2>
+<h2 id="http-methods"><a
+  href="#http-methods"
+  
+  
+><span class="icon icon-link"></span></a>
+HTTP methods</h2>
 <p>AdonisJS provides shorthand methods to register routes for commonly used HTTP verbs. For example:</p>
-<h4 id="post-verb"><a href="#post-verb" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Post verb</h4>
+<h4 id="post-verb"><a
+  href="#post-verb"
+  
+  
+><span class="icon icon-link"></span></a>
+Post verb</h4>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">post</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">posts</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">async</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">()</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h4 id="put-verb"><a href="#put-verb" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Put verb</h4>
+<h4 id="put-verb"><a
+  href="#put-verb"
+  
+  
+><span class="icon icon-link"></span></a>
+Put verb</h4>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">put</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">posts/:id</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">async</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">()</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h4 id="patch-verb"><a href="#patch-verb" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Patch verb</h4>
+<h4 id="patch-verb"><a
+  href="#patch-verb"
+  
+  
+><span class="icon icon-link"></span></a>
+Patch verb</h4>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">patch</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">posts/:id</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">async</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">()</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h4 id="delete-verb"><a href="#delete-verb" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Delete verb</h4>
+<h4 id="delete-verb"><a
+  href="#delete-verb"
+  
+  
+><span class="icon icon-link"></span></a>
+Delete verb</h4>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">delete</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">posts/:id</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">async</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">()</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h4 id="rest-of-the-http-verbs"><a href="#rest-of-the-http-verbs" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Rest of the HTTP verbs</h4>
+<h4 id="rest-of-the-http-verbs"><a
+  href="#rest-of-the-http-verbs"
+  
+  
+><span class="icon icon-link"></span></a>
+Rest of the HTTP verbs</h4>
 <p>For the rest of the HTTP verbs, you can use the <code>Route.route</code> method.</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">route</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> [</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">OPTIONS</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">HEAD</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">]</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">async</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">()</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h4 id="route-for-all-common-http-verbs"><a href="#route-for-all-common-http-verbs" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Route for all common HTTP verbs</h4>
+<h4 id="route-for-all-common-http-verbs"><a
+  href="#route-for-all-common-http-verbs"
+  
+  
+><span class="icon icon-link"></span></a>
+Route for all common HTTP verbs</h4>
 <p>The <code>Route.any</code> method registers the route to handle the request for all the following HTTP verbs.</p>
 <ul>
 <li>HEAD</li>
@@ -404,7 +527,12 @@
 <pre><code><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">any</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">csp-report</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">async</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">()</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h2 id="route-parameters"><a href="#route-parameters" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Route parameters</h2>
+<h2 id="route-parameters"><a
+  href="#route-parameters"
+  
+  
+><span class="icon icon-link"></span></a>
+Route parameters</h2>
 <p>Route parameters provide a way to register URLs that can accept dynamic values as part of the URL.</p>
 <p>A parameter always starts with a colon <code>:</code> followed by the name of the parameter. For example:</p>
 <div class="dimer-highlight">
@@ -412,14 +540,24 @@
 <pre><code><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">get</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/posts/:id</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">async</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">({</span><span style="color: #A6ACCD;"> params </span><span style="color: #89DDFF;">})</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">return</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x60;</span><span style="color: #C3E88D;">Viewing post with id </span><span style="color: #89DDFF;">${</span><span style="color: #A6ACCD;">params</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">id</span><span style="color: #89DDFF;">}&#x60;</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h3 id="optional-params"><a href="#optional-params" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Optional params</h3>
+<h3 id="optional-params"><a
+  href="#optional-params"
+  
+  
+><span class="icon icon-link"></span></a>
+Optional params</h3>
 <p>Parameters can also be marked as optional by appending a question mark <code>?</code> to the name. However, do make sure that the optional parameters come after the required parameters.</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">get</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/posts/:id?</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">async</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">({</span><span style="color: #A6ACCD;"> params </span><span style="color: #89DDFF;">})</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">if</span><span style="color: #F07178;"> (</span><span style="color: #A6ACCD;">params</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">id</span><span style="color: #F07178;">) </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">return</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x60;</span><span style="color: #C3E88D;">Viewing post with id </span><span style="color: #89DDFF;">${</span><span style="color: #A6ACCD;">params</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">id</span><span style="color: #89DDFF;">}&#x60;</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">return</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Viewing all posts</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h3 id="wildcard-parameters"><a href="#wildcard-parameters" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Wildcard parameters</h3>
+<h3 id="wildcard-parameters"><a
+  href="#wildcard-parameters"
+  
+  
+><span class="icon icon-link"></span></a>
+Wildcard parameters</h3>
 <p>You can also define a wildcard parameter using the <code>*</code> keyword. A wildcard param catches all the URI segments. For example:</p>
 <div class="dimer-highlight">
 
@@ -450,12 +588,17 @@
 <pre><code><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">get</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">docs/:category/*</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">({</span><span style="color: #A6ACCD;"> params </span><span style="color: #89DDFF;">})</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #A6ACCD;">console</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">log</span><span style="color: #F07178;">(</span><span style="color: #A6ACCD;">params</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">category</span><span style="color: #F07178;">)</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #A6ACCD;">console</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">log</span><span style="color: #F07178;">(</span><span style="color: #A6ACCD;">params</span><span style="color: #F07178;">[</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">*</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">])</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h2 id="params-matchers"><a href="#params-matchers" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Params matchers</h2>
+<h2 id="params-matchers"><a
+  href="#params-matchers"
+  
+  
+><span class="icon icon-link"></span></a>
+Params matchers</h2>
 <p>Param matchers allow you to validate the parameters against a given regular expression. If the check fails, the route will be skipped.</p>
 <p>Consider the following example in which we want to look up a post by its <code>id</code> and <code>slug</code> both.</p>
 <div class="dimer-highlight">
 
-<pre><code><div class="line"><span style="color: #A6ACCD;">Route</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">get</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/posts/:id</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">async</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">({</span><span style="color: #A6ACCD;"> params </span><span style="color: #89DDFF;">})</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">return</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x60;</span><span style="color: #C3E88D;">Viewing post using id </span><span style="color: #89DDFF;">${</span><span style="color: #A6ACCD;">params</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">id</span><span style="color: #89DDFF;">}&#x60;</span></div><div class="line"><span style="color: #F07178;"> </span><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div><div class="line"><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">where</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">id</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">^/</span><span style="color: #A6ACCD;">[</span><span style="color: #F78C6C;">0</span><span style="color: #89DDFF;">-</span><span style="color: #F78C6C;">9</span><span style="color: #A6ACCD;">]</span><span style="color: #89DDFF;">+/</span><span style="color: #A6ACCD;">$)</span></div><div class="line"></div><div class="line"><span style="color: #A6ACCD;">Route</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">get</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/posts/:slug</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">async</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">({</span><span style="color: #A6ACCD;"> params </span><span style="color: #89DDFF;">})</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">return</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x60;</span><span style="color: #C3E88D;">Viewing post using slug </span><span style="color: #89DDFF;">${</span><span style="color: #A6ACCD;">params</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">id</span><span style="color: #89DDFF;">}&#x60;</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">where</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">slug</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">^/</span><span style="color: #A6ACCD;">[a</span><span style="color: #89DDFF;">-</span><span style="color: #A6ACCD;">z0</span><span style="color: #89DDFF;">-</span><span style="color: #F78C6C;">9_</span><span style="color: #89DDFF;">-</span><span style="color: #A6ACCD;">]</span><span style="color: #89DDFF;">+/</span><span style="color: #A6ACCD;">$)</span></div></code></pre>
+<pre><code><div class="line"><span style="color: #A6ACCD;">Route</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">get</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/posts/:id</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">async</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">({</span><span style="color: #A6ACCD;"> params </span><span style="color: #89DDFF;">})</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">return</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x60;</span><span style="color: #C3E88D;">Viewing post using id </span><span style="color: #89DDFF;">${</span><span style="color: #A6ACCD;">params</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">id</span><span style="color: #89DDFF;">}&#x60;</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">where</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">id</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">^/</span><span style="color: #A6ACCD;">[</span><span style="color: #F78C6C;">0</span><span style="color: #89DDFF;">-</span><span style="color: #F78C6C;">9</span><span style="color: #A6ACCD;">]</span><span style="color: #89DDFF;">+/</span><span style="color: #A6ACCD;">$)</span></div><div class="line"></div><div class="line"><span style="color: #A6ACCD;">Route</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">get</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/posts/:slug</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">async</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">({</span><span style="color: #A6ACCD;"> params </span><span style="color: #89DDFF;">})</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">return</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x60;</span><span style="color: #C3E88D;">Viewing post using slug </span><span style="color: #89DDFF;">${</span><span style="color: #A6ACCD;">params</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">id</span><span style="color: #89DDFF;">}&#x60;</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">where</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">slug</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">^/</span><span style="color: #A6ACCD;">[a</span><span style="color: #89DDFF;">-</span><span style="color: #A6ACCD;">z0</span><span style="color: #89DDFF;">-</span><span style="color: #F78C6C;">9_</span><span style="color: #89DDFF;">-</span><span style="color: #A6ACCD;">]</span><span style="color: #89DDFF;">+/</span><span style="color: #A6ACCD;">$)</span></div></code></pre>
 </div>
 
 <ul>
@@ -469,15 +612,25 @@
 <pre><code><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">where</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">id</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">^/</span><span style="color: #A6ACCD;">[</span><span style="color: #F78C6C;">0</span><span style="color: #89DDFF;">-</span><span style="color: #F78C6C;">9</span><span style="color: #A6ACCD;">]</span><span style="color: #89DDFF;">+/</span><span style="color: #A6ACCD;">$)</span></div></code></pre>
 </div>
 
-<h2 id="params-casting"><a href="#params-casting" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Params casting</h2>
+<h2 id="params-casting"><a
+  href="#params-casting"
+  
+  
+><span class="icon icon-link"></span></a>
+Params casting</h2>
 <p>Parameters part of the URL are always represented as a string. For example: In the URL <code>/posts/1</code>, the value <code>1</code> is a string and not a number since there is no direct way to infer data types for the URI segments.</p>
 <p>However, you can manually cast the params to their actual Javascript data type by defining a <code>cast</code> property with the param matcher.</p>
 <div class="dimer-highlight">
 
-<pre><code><div class="line"><span style="color: #A6ACCD;">Route</span></div><div class="line"><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">get</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">posts/:id</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">PostsController.show</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div><div class="line"><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">where</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">id</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #F07178;">matches</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">^/</span><span style="color: #A6ACCD;">[</span><span style="color: #F78C6C;">0</span><span style="color: #89DDFF;">-</span><span style="color: #F78C6C;">9</span><span style="color: #A6ACCD;">]</span><span style="color: #89DDFF;">+/</span><span style="color: #A6ACCD;">$</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #82AAFF;">cast</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">(</span><span style="color: #A6ACCD;">id</span><span style="color: #89DDFF;">)</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">Number</span><span style="color: #A6ACCD;">(id)</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
+<pre><code><div class="line"><span style="color: #A6ACCD;">Route</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">get</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">posts/:id</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">PostsController.show</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">where</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">id</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #F07178;">matches</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">^/</span><span style="color: #A6ACCD;">[</span><span style="color: #F78C6C;">0</span><span style="color: #89DDFF;">-</span><span style="color: #F78C6C;">9</span><span style="color: #A6ACCD;">]</span><span style="color: #89DDFF;">+/</span><span style="color: #A6ACCD;">$</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #82AAFF;">cast</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">(</span><span style="color: #A6ACCD;">id</span><span style="color: #89DDFF;">)</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">Number</span><span style="color: #A6ACCD;">(id)</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h2 id="url-generation"><a href="#url-generation" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>URL generation</h2>
+<h2 id="url-generation"><a
+  href="#url-generation"
+  
+  
+><span class="icon icon-link"></span></a>
+URL generation</h2>
 <div class="alert alert-note"><p>The APIs for URL generation raises an exception when unable to look up a route.</p></div>
 <p>Instead of hardcoding the URLs everywhere in your app, you can leverage the URL generation API to generate URLs for pre-registered routes. For example:</p>
 <div class="dimer-highlight">
@@ -494,31 +647,51 @@
 <p>Or use the route&#x27;s unique name as a reference.</p>
 <div class="dimer-highlight">
 
-<pre><code><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">get</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/users/:id</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">UsersController.show</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">as</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">showUser</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">) </span><span style="color: #676E95;">// 👈 Route name</span></div><div class="line"></div><div class="line"><span style="color: #676E95;">// Generate URL</span></div><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> url </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">makeUrl</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">showUser</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">id</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #F78C6C;">1</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
+<pre><code><div class="line"><span style="color: #A6ACCD;">Route</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">get</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/users/:id</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">UsersController.show</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">as</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">showUser</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">) </span><span style="color: #676E95;">// 👈 Route name</span></div><div class="line"></div><div class="line"><span style="color: #676E95;">// Generate URL</span></div><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> url </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">makeUrl</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">showUser</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">id</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #F78C6C;">1</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h3 id="append-query-string"><a href="#append-query-string" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Append query string</h3>
+<h3 id="append-query-string"><a
+  href="#append-query-string"
+  
+  
+><span class="icon icon-link"></span></a>
+Append query string</h3>
 <p>You can append a query string to the generated URLs by passing a third argument to the <code>makeUrl</code> method.</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> url </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">makeUrl</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">showUser</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> [</span><span style="color: #F78C6C;">1</span><span style="color: #A6ACCD;">]</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #F07178;">qs</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #F07178;">verified</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #FF9CAC;">true</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">},</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h3 id="lookup-inside-a-domain"><a href="#lookup-inside-a-domain" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Lookup inside a domain</h3>
+<h3 id="lookup-inside-a-domain"><a
+  href="#lookup-inside-a-domain"
+  
+  
+><span class="icon icon-link"></span></a>
+Lookup inside a domain</h3>
 <p>Since AdonisJS allows you to register routes for different domains, you can limit your <code>makeUrl</code> search for a specific domain as well.</p>
 <div class="dimer-highlight">
 
-<pre><code><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">get</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/users/:id</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">UsersController.show</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">domain</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">:tenant.adonisjs.com</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div><div class="line"></div><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> url </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">makeUrl</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">UsersController.show</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> [</span><span style="color: #F78C6C;">1</span><span style="color: #A6ACCD;">]</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #F07178;">domain</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">:tenant.adonisjs.com</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
+<pre><code><div class="line"><span style="color: #A6ACCD;">Route</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">get</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/users/:id</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">UsersController.show</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">domain</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">:tenant.adonisjs.com</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div><div class="line"></div><div class="line"><span style="color: #676E95;">// Make URL</span></div><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> url </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">makeUrl</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">UsersController.show</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> [</span><span style="color: #F78C6C;">1</span><span style="color: #A6ACCD;">]</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #F07178;">domain</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">:tenant.adonisjs.com</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h3 id="prefix-a-domain"><a href="#prefix-a-domain" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Prefix a domain</h3>
+<h3 id="prefix-a-domain"><a
+  href="#prefix-a-domain"
+  
+  
+><span class="icon icon-link"></span></a>
+Prefix a domain</h3>
 <p>The generated URLs are always relative paths without any domain name. However, you can define one using the <code>prefixUrl</code> property.</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> url </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">makeUrl</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">UsersController.show</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> [</span><span style="color: #F78C6C;">1</span><span style="color: #A6ACCD;">]</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #F07178;">prefixUrl</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">https://foo.com</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h3 id="url-builder"><a href="#url-builder" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>URL builder</h3>
+<h3 id="url-builder"><a
+  href="#url-builder"
+  
+  
+><span class="icon icon-link"></span></a>
+URL builder</h3>
 <p>URL builder is an alternative to the <code>makeUrl</code> method and provides a fluent API to make the URLs.</p>
 <div class="dimer-highlight">
 
@@ -531,7 +704,12 @@
 <pre><code><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> url </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">builderForDomain</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">:tenant.adonisjs.com</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">params</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">{</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">id</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #F78C6C;">1</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">qs</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">{</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">verified</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #FF9CAC;">true</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">prefixUrl</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">https://foo.com</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">makeUrl</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">UsersController.show</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h3 id="url-generation-within-views"><a href="#url-generation-within-views" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>URL generation within views</h3>
+<h3 id="url-generation-within-views"><a
+  href="#url-generation-within-views"
+  
+  
+><span class="icon icon-link"></span></a>
+URL generation within views</h3>
 <p>You can use the <code>route</code> helper inside your template files to generate the URLs. The <code>route</code> has the same API as the <code>makeUrl</code> method.</p>
 <div class="dimer-highlight">
 
@@ -540,14 +718,19 @@
 
 <div class="dimer-highlight">
 
-<pre><code><div class="line"><span style="color: #A6ACCD;">&lt;form method=&quot;POST&quot; action=&quot;{{ route(&#x27;posts.create&#x27;) }}&quot;&gt;</span></div><div class="line"><span style="color: #A6ACCD;">&lt;/form&gt;</span></div></code></pre>
+<pre><code><div class="line"><span style="color: #89DDFF;">&lt;</span><span style="color: #F07178;">form</span><span style="color: #89DDFF;"> </span><span style="color: #C792EA;">method</span><span style="color: #89DDFF;">=</span><span style="color: #89DDFF;">&quot;</span><span style="color: #C3E88D;">POST</span><span style="color: #89DDFF;">&quot;</span><span style="color: #89DDFF;"> </span><span style="color: #C792EA;">action</span><span style="color: #89DDFF;">=</span><span style="color: #89DDFF;">&quot;</span><span style="color: #82AAFF;">{{</span><span style="color: #C3E88D;"> </span><span style="color: #82AAFF;">route</span><span style="color: #89DDFF;">(&#x27;</span><span style="color: #C3E88D;">posts.create</span><span style="color: #89DDFF;">&#x27;)</span><span style="color: #C3E88D;"> </span><span style="color: #82AAFF;">}}</span><span style="color: #89DDFF;">&quot;</span><span style="color: #89DDFF;">&gt;</span></div><div class="line"><span style="color: #89DDFF;">&lt;/</span><span style="color: #F07178;">form</span><span style="color: #89DDFF;">&gt;</span></div></code></pre>
 </div>
 
-<h3 id="url-generation-during-redirects"><a href="#url-generation-during-redirects" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>URL generation during redirects</h3>
+<h3 id="url-generation-during-redirects"><a
+  href="#url-generation-during-redirects"
+  
+  
+><span class="icon icon-link"></span></a>
+URL generation during redirects</h3>
 <p>You can also generate a URL to a pre-registered route when redirecting the request. The <code>redirect().toRoute()</code> has the same API as the <code>makeUrl</code> method.</p>
 <div class="dimer-highlight">
 
-<pre><code><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">get</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/users/:id</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">UsersController.show</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">as</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">users.show</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div></code></pre>
+<pre><code><div class="line"><span style="color: #A6ACCD;">Route</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">get</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/users/:id</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">UsersController.show</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">as</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">users.show</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
 <div class="dimer-highlight">
@@ -555,7 +738,12 @@
 <pre><code><div class="line dim"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">post</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">users</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">async</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">({</span><span style="color: #A6ACCD;"> response </span><span style="color: #89DDFF;">})</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line dim"><span style="color: #89DDFF;">  </span><span style="color: #676E95;">// Create user</span></div><div class="line highlight"><span style="color: #F07178;">  </span><span style="color: #A6ACCD;">response</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">redirect</span><span style="color: #F07178;">()</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">toRoute</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">users.show</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">{</span><span style="color: #F07178;"> id</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">user</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">id</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">}</span><span style="color: #F07178;">)</span></div><div class="line dim"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h2 id="routing-for-spa"><a href="#routing-for-spa" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Routing for SPA</h2>
+<h2 id="routing-for-spa"><a
+  href="#routing-for-spa"
+  
+  
+><span class="icon icon-link"></span></a>
+Routing for SPA</h2>
 <p>The flow may look as follows when serving a SPA from the same routing layer as your AdonisJS app.</p>
 <ul>
 <li>The first request hits the AdonisJS application.</li>
@@ -584,7 +772,12 @@
 <pre><code><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">group</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">()</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">get</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/users</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">UsersController.index</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">)</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">get</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/posts</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">PostsController.index</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">)</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">prefix</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/api</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div><div class="line"></div><div class="line"><span style="color: #676E95;">// SPA route</span></div><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">on</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">*</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">render</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">app</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h2 id="route-groups"><a href="#route-groups" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Route groups</h2>
+<h2 id="route-groups"><a
+  href="#route-groups"
+  
+  
+><span class="icon icon-link"></span></a>
+Route groups</h2>
 <p>AdonisJS provides a great way to group multiple routes of similar nature and bulk configure them instead of re-defining the same properties on every route.</p>
 <p>A group is created by passing a closure to the <code>Route.group</code> method. Routes declared inside the closure are part of the surrounding group.</p>
 <div class="dimer-highlight">
@@ -593,11 +786,16 @@
 </div>
 
 <p>You can also create nested groups, and AdonisJS will merge or override properties based upon the behavior of the applied setting.</p>
-<h3 id="prefix-routes"><a href="#prefix-routes" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Prefix routes</h3>
+<h3 id="prefix-routes"><a
+  href="#prefix-routes"
+  
+  
+><span class="icon icon-link"></span></a>
+Prefix routes</h3>
 <p>All of the following routes inside the group closure will be prefixed with the <code>/api</code> string.</p>
 <div class="dimer-highlight">
 
-<pre><code><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">group</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">()</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">get</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/users</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">UsersController.index</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">)</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">get</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/posts</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">PostsController.index</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">)</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">prefix</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/api</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div></code></pre>
+<pre><code><div class="line"><span style="color: #A6ACCD;">Route</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">group</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">()</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">get</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/users</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">UsersController.index</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">)</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">get</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/posts</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">PostsController.index</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">)</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">prefix</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/api</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
 <p>In the case of nested groups, the prefix will be applied from the outer to the inner group.</p>
@@ -606,23 +804,43 @@
 <pre><code><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">group</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">()</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">group</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">()</span><span style="color: #F07178;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">get</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/users</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">UsersController.index</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">) </span><span style="color: #676E95;">// /api/v1/users</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">get</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/posts</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">PostsController.index</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">) </span><span style="color: #676E95;">// /api/v1/posts</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span><span style="color: #F07178;">)</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">prefix</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/v1</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">)</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">prefix</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/api</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h3 id="apply-middleware"><a href="#apply-middleware" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Apply middleware</h3>
+<h3 id="apply-middleware"><a
+  href="#apply-middleware"
+  
+  
+><span class="icon icon-link"></span></a>
+Apply middleware</h3>
 <p>You can apply middleware to a group of routes by using the <code>.middleware</code> method. The group middleware are executed before the route&#x27;s middleware.</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">group</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">()</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">get</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">users</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #F07178;"> </span><span style="color: #C792EA;">async</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">()</span><span style="color: #F07178;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">return</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">handled</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span><span style="color: #F07178;">)</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">middleware</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">can:view_users</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">)</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">middleware</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">auth</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h3 id="naming-routes"><a href="#naming-routes" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Naming routes</h3>
+<h3 id="naming-routes"><a
+  href="#naming-routes"
+  
+  
+><span class="icon icon-link"></span></a>
+Naming routes</h3>
 <p>Naming a group will prefix all its routes with the given name. For example:</p>
 <div class="dimer-highlight">
 
-<pre><code><div class="line"><span style="color: #676E95;">// Named as users.index, users.store and so on</span></div><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">resource</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">users</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">UserController</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div><div class="line"></div><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">group</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">()</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #89DDFF;">  </span><span style="color: #676E95;">// Named as api.users.index, api.users.store</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">resource</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">users</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">UserController</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">)</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">prefix</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">v1</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">as</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">api</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div></code></pre>
+<pre><code><div class="line"><span style="color: #676E95;">// Named as users.index, users.store and so on</span></div><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">resource</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">users</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">UserController</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div><div class="line"></div><div class="line"><span style="color: #A6ACCD;">Route</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">group</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">()</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #89DDFF;">    </span><span style="color: #676E95;">// Named as api.users.index, api.users.store</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">resource</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">users</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">UserController</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">)</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">prefix</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">v1</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">as</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">api</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h2 id="brisk-routes"><a href="#brisk-routes" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Brisk routes</h2>
+<h2 id="brisk-routes"><a
+  href="#brisk-routes"
+  
+  
+><span class="icon icon-link"></span></a>
+Brisk routes</h2>
 <p>Brisk routes are defined without any explicit route handler. You can think of them as a shortcut for certain behaviors.</p>
-<h3 id="render"><a href="#render" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>render</h3>
+<h3 id="render"><a
+  href="#render"
+  
+  
+><span class="icon icon-link"></span></a>
+render</h3>
 <p>In the following example, we render the <code>welcome</code> view by chaining the <code>.render</code> method.</p>
 <div class="dimer-highlight">
 
@@ -635,21 +853,36 @@
 <pre><code><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">on</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">render</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">welcome</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">greeting</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Hello world</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h3 id="redirect"><a href="#redirect" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>redirect</h3>
+<h3 id="redirect"><a
+  href="#redirect"
+  
+  
+><span class="icon icon-link"></span></a>
+redirect</h3>
 <p>The <code>.redirect</code> method redirects the request to the pre-defined route. It will use the <strong>route params</strong> from the actual request to make the redirect route&#x27;s URL.</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">on</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/posts/:id</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">redirect</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/articles/:id</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div><div class="line"></div><div class="line"><span style="color: #676E95;">// Inline params</span></div><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">on</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/posts/:id</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">redirect</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/articles/:id</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">id</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #F78C6C;">1</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div><div class="line"></div><div class="line"><span style="color: #676E95;">// Custom status</span></div><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">on</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/posts/:id</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">redirect</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/articles/:id</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">undefined,</span><span style="color: #A6ACCD;"> </span><span style="color: #F78C6C;">301</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h3 id="redirecttourl"><a href="#redirecttourl" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>redirectToUrl</h3>
+<h3 id="redirecttourl"><a
+  href="#redirecttourl"
+  
+  
+><span class="icon icon-link"></span></a>
+redirectToUrl</h3>
 <p>To redirect to an absolute URL, you can make use of the <code>redirectToUrl</code> method.</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">on</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/posts/:id</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">redirectToUrl</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">https://medium.com/my-blog</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div><div class="line"></div><div class="line"><span style="color: #676E95;">// Custom status</span></div><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">on</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/posts/:id</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">redirectToUrl</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">https://medium.com/my-blog</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #F78C6C;">301</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h2 id="access-registered-routes"><a href="#access-registered-routes" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Access registered routes</h2>
+<h2 id="access-registered-routes"><a
+  href="#access-registered-routes"
+  
+  
+><span class="icon icon-link"></span></a>
+Access registered routes</h2>
 <p>You can access the registered routes by calling the <code>Route.toJSON</code> method. However, calling this method inside the <strong>routes file</strong> returns an empty array because the routes are compiled just before starting the HTTP server.</p>
 <p>You can run the <code>Route.toJSON()</code> method inside a <strong>middleware</strong>, <strong>controller</strong> or the <strong>service providers <code>start</code> method</strong>. The rule of thumb is to avoid accessing routes before the HTTP server is ready.</p>
 <div class="dimer-highlight">
@@ -661,29 +894,59 @@
 </div>
 
 <p><figure>
-  <img data-src="https://res.cloudinary.com/adonis-js/image/upload/q_auto,f_auto/v1611994181/v5/routes-to-json.png" alt="" class="lazyload">
+  <img
+    data-src="https://res.cloudinary.com/adonis-js/image/upload/q_auto,f_auto/v1611994181/v5/routes-to-json.png"
+    alt=""
+    class="lazyload"
+    
+  >
 </figure>
 </p>
-<h2 id="extending-router"><a href="#extending-router" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Extending Router</h2>
-<p>The Router is a combination of <a href="https://github.com/adonisjs/http-server/tree/develop/src/Router">multiple classes</a> can add custom properties/methods to all the classes using the <strong>macros</strong> or <strong>getters</strong>.</p>
+<h2 id="extending-router"><a
+  href="#extending-router"
+  
+  
+><span class="icon icon-link"></span></a>
+Extending Router</h2>
+<p>The Router is a combination of <a
+  href="https://github.com/adonisjs/http-server/tree/develop/src/Router"
+  target=&quot;_blank&quot;
+  rel=&quot;noopener&quot;
+>multiple classes</a>
+ can add custom properties/methods to all the classes using the <strong>macros</strong> or <strong>getters</strong>.</p>
 <p>The best place to extend the Router is inside the <code>boot</code> method of a custom service provider. Open the <code>providers/AppProvider.ts</code> file and write the following code inside it.</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line dim"><span style="color: #89DDFF;">import</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">ApplicationContract</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">from</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">@ioc:Adonis/Core/Application</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line dim"></div><div class="line dim"><span style="color: #89DDFF;">export</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">default</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">class</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">AppProvider</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line dim"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">public</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">static</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">needsApplication</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #FF9CAC;">true</span></div><div class="line dim"></div><div class="line dim"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">constructor</span><span style="color: #89DDFF;">(</span><span style="color: #C792EA;">protected</span><span style="color: #A6ACCD;"> app</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">ApplicationContract</span><span style="color: #89DDFF;">)</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{}</span></div><div class="line dim"></div><div class="line highlight"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">public</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">async</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">boot</span><span style="color: #89DDFF;">()</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line highlight"><span style="color: #F07178;">    </span><span style="color: #C792EA;">const</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">Route</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">=</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">this.</span><span style="color: #A6ACCD;">app</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">container</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">use</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Adonis/Core/Route</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">)</span></div><div class="line highlight"></div><div class="line highlight"><span style="color: #F07178;">    </span><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">macro</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">mustBeSigned</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #F07178;"> </span><span style="color: #C792EA;">function</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">()</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">{</span></div><div class="line highlight"><span style="color: #F07178;">      </span><span style="color: #89DDFF;">this.</span><span style="color: #82AAFF;">middleware</span><span style="color: #F07178;">(</span><span style="color: #C792EA;">async</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">(</span><span style="color: #A6ACCD;">ctx</span><span style="color: #89DDFF;">,</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">next</span><span style="color: #89DDFF;">)</span><span style="color: #F07178;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">{</span></div><div class="line highlight"><span style="color: #F07178;">        </span><span style="color: #89DDFF;">if</span><span style="color: #F07178;"> (</span><span style="color: #89DDFF;">!</span><span style="color: #A6ACCD;">ctx</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">request</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">hasValidSignature</span><span style="color: #F07178;">()) </span><span style="color: #89DDFF;">{</span></div><div class="line highlight"><span style="color: #F07178;">          </span><span style="color: #A6ACCD;">ctx</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">response</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">badRequest</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Invalid signature</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">)</span></div><div class="line highlight"><span style="color: #F07178;">          </span><span style="color: #89DDFF;">return</span></div><div class="line highlight"><span style="color: #F07178;">        </span><span style="color: #89DDFF;">}</span></div><div class="line highlight"></div><div class="line highlight"><span style="color: #F07178;">        </span><span style="color: #89DDFF;">await</span><span style="color: #F07178;"> </span><span style="color: #82AAFF;">next</span><span style="color: #F07178;">()</span></div><div class="line highlight"><span style="color: #F07178;">      </span><span style="color: #89DDFF;">}</span><span style="color: #F07178;">)</span></div><div class="line highlight"></div><div class="line highlight"><span style="color: #F07178;">      </span><span style="color: #89DDFF;">return</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">this</span></div><div class="line highlight"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">}</span><span style="color: #F07178;">)</span></div><div class="line highlight"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span></div><div class="line dim"><span style="color: #89DDFF;">}</span></div></code></pre>
 </div>
 
-<p>In the above example, we have added the <code>mustBeSigned</code> method to the Route class, which internally registers a middleware to verify the <a href="./../security/signed-urls.md">request signature</a>.</p>
+<p>In the above example, we have added the <code>mustBeSigned</code> method to the Route class, which internally registers a middleware to verify the <a
+  href="/guides/security/signed-urls"
+  
+  
+>request signature</a>
+.</p>
 <p>Now, open the <code>start/routes.ts</code> file to use this method.</p>
 <div class="dimer-highlight">
     <div class="codeblock-title">
       start/routes.ts
     </div>
 
-<pre><code><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">get</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">email/verify</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">OnboardingController.verifyEmail</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">mustBeSigned</span><span style="color: #A6ACCD;">()</span></div></code></pre>
+<pre><code><div class="line"><span style="color: #A6ACCD;">Route</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">get</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">email/verify</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">OnboardingController.verifyEmail</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">mustBeSigned</span><span style="color: #A6ACCD;">()</span></div></code></pre>
 </div>
 
-<h3 id="informing-typescript-about-the-method"><a href="#informing-typescript-about-the-method" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Informing typescript about the method</h3>
-<p>The <code>mustBeSigned</code> property is added at the runtime, and hence Typescript does not know about it. To inform the Typescript, we will use <a href="https://www.typescriptlang.org/docs/handbook/declaration-merging.html#merging-interfaces">declaration merging</a> and add the property to the <code>RouteContract</code> interface.</p>
+<h3 id="informing-typescript-about-the-method"><a
+  href="#informing-typescript-about-the-method"
+  
+  
+><span class="icon icon-link"></span></a>
+Informing typescript about the method</h3>
+<p>The <code>mustBeSigned</code> property is added at the runtime, and hence Typescript does not know about it. To inform the Typescript, we will use <a
+  href="https://www.typescriptlang.org/docs/handbook/declaration-merging.html#merging-interfaces"
+  target=&quot;_blank&quot;
+  rel=&quot;noopener&quot;
+>declaration merging</a>
+ and add the property to the <code>RouteContract</code> interface.</p>
 <p>Create a new file at path <code>contracts/route.ts</code> (the filename is not important) and paste the following contents inside it.</p>
 <div class="dimer-highlight">
     <div class="codeblock-title">
@@ -693,7 +956,12 @@
 <pre><code><div class="line"><span style="color: #C792EA;">declare</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">module</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">@ioc:Adonis/Core/Route</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #C792EA;">interface</span><span style="color: #F07178;"> </span><span style="color: #FFCB6B;">RouteContract</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">    mustBeSigned</span><span style="color: #89DDFF;">():</span><span style="color: #F07178;"> </span><span style="color: #FFCB6B;">this</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
 </div>
 
-<h3 id="extending-route-resource"><a href="#extending-route-resource" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Extending route resource</h3>
+<h3 id="extending-route-resource"><a
+  href="#extending-route-resource"
+  
+  
+><span class="icon icon-link"></span></a>
+Extending route resource</h3>
 <p>You can extend the <code>RouteResource</code> class as follows:</p>
 <div class="dimer-highlight">
     <div class="codeblock-title">
@@ -719,7 +987,12 @@
 <pre><code><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">resource</span><span style="color: #A6ACCD;">()</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">yourMacroName</span><span style="color: #A6ACCD;">()</span></div></code></pre>
 </div>
 
-<h3 id="extending-route-group"><a href="#extending-route-group" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Extending route group</h3>
+<h3 id="extending-route-group"><a
+  href="#extending-route-group"
+  
+  
+><span class="icon icon-link"></span></a>
+Extending route group</h3>
 <p>You can extend the <code>RouteGroup</code> class as follows:</p>
 <div class="dimer-highlight">
     <div class="codeblock-title">
@@ -745,7 +1018,12 @@
 <pre><code><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">group</span><span style="color: #A6ACCD;">()</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">yourMacroName</span><span style="color: #A6ACCD;">()</span></div></code></pre>
 </div>
 
-<h3 id="extending-brisk-route"><a href="#extending-brisk-route" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Extending brisk route</h3>
+<h3 id="extending-brisk-route"><a
+  href="#extending-brisk-route"
+  
+  
+><span class="icon icon-link"></span></a>
+Extending brisk route</h3>
 <p>You can extend the <code>BriskRoute</code> class as follows:</p>
 <div class="dimer-highlight">
     <div class="codeblock-title">
@@ -771,12 +1049,32 @@
 <pre><code><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">on</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">yourMacroName</span><span style="color: #A6ACCD;">()</span></div></code></pre>
 </div>
 
-<h2 id="additional-reading"><a href="#additional-reading" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Additional reading</h2>
+<h2 id="additional-reading"><a
+  href="#additional-reading"
+  
+  
+><span class="icon icon-link"></span></a>
+Additional reading</h2>
 <p>Following are some of the additional guides to learn more about the topics not covered in this document.</p>
 <ul>
-<li><a href="/guides/controllers#resourceful-routes-and-controllers">Resourceful routes</a></li>
-<li><a href="/guides/middleware">Route middleware</a></li>
-<li><a href="./../security/signed-urls.md">Signed routes</a></li>
+<li><a
+  href="/guides/controllers#resourceful-routes-and-controllers"
+  
+  
+>Resourceful routes</a>
+</li>
+<li><a
+  href="/guides/middleware"
+  
+  
+>Route middleware</a>
+</li>
+<li><a
+  href="/guides/security/signed-urls"
+  
+  
+>Signed routes</a>
+</li>
 </ul>  </div>
 </main>
 
@@ -786,75 +1084,240 @@
       <nav>
         <ul>
 <li>
-<p><a href="#default-routes-file">Default routes file</a></p>
+<p><a
+  href="#default-routes-file"
+  
+  
+>Default routes file</a>
+</p>
 <ul>
-<li><a href="#imports-inside-the-routests-file">Imports inside the <code>routes.ts</code> file</a></li>
-<li><a href="#register-as-a-preload-file">Register as a preload file</a></li>
+<li><a
+  href="#imports-inside-the-routests-file"
+  
+  
+>Imports inside the <code>routes.ts</code> file</a>
+</li>
+<li><a
+  href="#register-as-a-preload-file"
+  
+  
+>Register as a preload file</a>
+</li>
 </ul>
 </li>
 <li>
-<p><a href="#list-routes">List routes</a></p>
+<p><a
+  href="#list-routes"
+  
+  
+>List routes</a>
+</p>
 </li>
 <li>
-<p><a href="#http-methods">HTTP methods</a></p>
+<p><a
+  href="#http-methods"
+  
+  
+>HTTP methods</a>
+</p>
 </li>
 <li>
-<p><a href="#route-parameters">Route parameters</a></p>
+<p><a
+  href="#route-parameters"
+  
+  
+>Route parameters</a>
+</p>
 <ul>
-<li><a href="#optional-params">Optional params</a></li>
-<li><a href="#wildcard-parameters">Wildcard parameters</a></li>
+<li><a
+  href="#optional-params"
+  
+  
+>Optional params</a>
+</li>
+<li><a
+  href="#wildcard-parameters"
+  
+  
+>Wildcard parameters</a>
+</li>
 </ul>
 </li>
 <li>
-<p><a href="#params-matchers">Params matchers</a></p>
+<p><a
+  href="#params-matchers"
+  
+  
+>Params matchers</a>
+</p>
 </li>
 <li>
-<p><a href="#params-casting">Params casting</a></p>
+<p><a
+  href="#params-casting"
+  
+  
+>Params casting</a>
+</p>
 </li>
 <li>
-<p><a href="#url-generation">URL generation</a></p>
+<p><a
+  href="#url-generation"
+  
+  
+>URL generation</a>
+</p>
 <ul>
-<li><a href="#append-query-string">Append query string</a></li>
-<li><a href="#lookup-inside-a-domain">Lookup inside a domain</a></li>
-<li><a href="#prefix-a-domain">Prefix a domain</a></li>
-<li><a href="#url-builder">URL builder</a></li>
-<li><a href="#url-generation-within-views">URL generation within views</a></li>
-<li><a href="#url-generation-during-redirects">URL generation during redirects</a></li>
+<li><a
+  href="#append-query-string"
+  
+  
+>Append query string</a>
+</li>
+<li><a
+  href="#lookup-inside-a-domain"
+  
+  
+>Lookup inside a domain</a>
+</li>
+<li><a
+  href="#prefix-a-domain"
+  
+  
+>Prefix a domain</a>
+</li>
+<li><a
+  href="#url-builder"
+  
+  
+>URL builder</a>
+</li>
+<li><a
+  href="#url-generation-within-views"
+  
+  
+>URL generation within views</a>
+</li>
+<li><a
+  href="#url-generation-during-redirects"
+  
+  
+>URL generation during redirects</a>
+</li>
 </ul>
 </li>
 <li>
-<p><a href="#routing-for-spa">Routing for SPA</a></p>
+<p><a
+  href="#routing-for-spa"
+  
+  
+>Routing for SPA</a>
+</p>
 </li>
 <li>
-<p><a href="#route-groups">Route groups</a></p>
+<p><a
+  href="#route-groups"
+  
+  
+>Route groups</a>
+</p>
 <ul>
-<li><a href="#prefix-routes">Prefix routes</a></li>
-<li><a href="#apply-middleware">Apply middleware</a></li>
-<li><a href="#naming-routes">Naming routes</a></li>
+<li><a
+  href="#prefix-routes"
+  
+  
+>Prefix routes</a>
+</li>
+<li><a
+  href="#apply-middleware"
+  
+  
+>Apply middleware</a>
+</li>
+<li><a
+  href="#naming-routes"
+  
+  
+>Naming routes</a>
+</li>
 </ul>
 </li>
 <li>
-<p><a href="#brisk-routes">Brisk routes</a></p>
+<p><a
+  href="#brisk-routes"
+  
+  
+>Brisk routes</a>
+</p>
 <ul>
-<li><a href="#render">render</a></li>
-<li><a href="#redirect">redirect</a></li>
-<li><a href="#redirecttourl">redirectToUrl</a></li>
+<li><a
+  href="#render"
+  
+  
+>render</a>
+</li>
+<li><a
+  href="#redirect"
+  
+  
+>redirect</a>
+</li>
+<li><a
+  href="#redirecttourl"
+  
+  
+>redirectToUrl</a>
+</li>
 </ul>
 </li>
 <li>
-<p><a href="#access-registered-routes">Access registered routes</a></p>
+<p><a
+  href="#access-registered-routes"
+  
+  
+>Access registered routes</a>
+</p>
 </li>
 <li>
-<p><a href="#extending-router">Extending Router</a></p>
+<p><a
+  href="#extending-router"
+  
+  
+>Extending Router</a>
+</p>
 <ul>
-<li><a href="#informing-typescript-about-the-method">Informing typescript about the method</a></li>
-<li><a href="#extending-route-resource">Extending route resource</a></li>
-<li><a href="#extending-route-group">Extending route group</a></li>
-<li><a href="#extending-brisk-route">Extending brisk route</a></li>
+<li><a
+  href="#informing-typescript-about-the-method"
+  
+  
+>Informing typescript about the method</a>
+</li>
+<li><a
+  href="#extending-route-resource"
+  
+  
+>Extending route resource</a>
+</li>
+<li><a
+  href="#extending-route-group"
+  
+  
+>Extending route group</a>
+</li>
+<li><a
+  href="#extending-brisk-route"
+  
+  
+>Extending brisk route</a>
+</li>
 </ul>
 </li>
 <li>
-<p><a href="#additional-reading">Additional reading</a></p>
+<p><a
+  href="#additional-reading"
+  
+  
+>Additional reading</a>
+</p>
 </li>
         </ul>
       </nav>

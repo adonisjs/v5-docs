@@ -1,49 +1,27 @@
----
-goals:
-  - Explain the middleware concept
-  - The types of middleware in AdonisJS and their purposes
-  - Creating inline middleware using closures
-  - Creating middleware as class
-  - Using middleware as guards
-  - Using middleware as data transformation layer
-    - Pain points and alternatives
-  - Down stream middleware
-    - Ceveats here
-  - Applying middleware on route groups as high level checks
-  - Middleware as namespaces and not paths
-  - Register package middleware
----
-
 Middleware are a series of functions that are executed during an HTTP request before it reaches the route handler. Every function in the chain has the ability to end the request or forward it to the `next` function.
-
-You can use middleware for various use cases, like
-
-- A middleware to log HTTP requests.
-- An auth middleware to ensure user is authenticated and abort the request for unauthenticated users.
-- A middleware to time HTTP requests
-- and much more
 
 ## Basic Example
 
 The simplest way to test a middleware is to attach it to the route using the `Route.middleware` method. For example:
 
 ```ts
-Route.get('/users/:id', async () => {
-  return 'Show user'
-})
+Route
+  .get('/users/:id', async () => {
+    return 'Show user'
+  })
   // highlight-start
   .middleware(async (ctx, next) => {
     console.log(`Inside middleware ${ctx.request.url()}`)
     await next()
   })
-// highlight-end
+  // highlight-end
 ```
 
 ::video{url="https://res.cloudinary.com/adonis-js/video/upload/f_auto,q_auto/v1610089298/v5/route-middleware.mp4" controls}
 
 ## Middleware classes
 
-Writing middleware as inline closures is fine for some quick testing. However, we recommend extracting them to their own classes and then registering them inside the `start/kernel.ts` file.
+Writing middleware as inline functions is fine for some quick testing. However, we recommend extracting the middleware logic to its own file.
 
 ### Make middleware command
 
@@ -57,9 +35,12 @@ node ace make:middleware LogRequest
 
 ### About middleware class
 
-Middleware classes are stored (but not limited to) inside the `app/Middleware` directory and each file represents a single middleware. For example:
+Middleware classes are stored (but not limited to) inside the `app/Middleware` directory and each file represents a single middleware.
 
-```ts{app/Middleware/LogRequest.ts}
+Every middleware class must implement the `handle` method to handle the HTTP request and call the `next` method to forward the request to the next middleware or the route handler.
+
+```ts
+// title: app/Middleware/LogRequest.ts
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
 export default class LogRequest {
@@ -73,31 +54,44 @@ export default class LogRequest {
 }
 ```
 
-- Every middleware class must implement the `handle` method.
-- The `handle` method receives the HTTP context as the first argument and a `next` function.
-- Make sure to always call the `next` function in order to advance the middleware chain.
-- You can terminate the request by either raising an exception or by sending a response without calling the `next` method.
-  ```ts
-  export default class LogRequest {
-    public async handle({ response }: HttpContextContract, next: () => Promise<void>) {
-      response.send('Handled by middleware')
-      // Make sure to not call `next` when decided to
-      // send the response
-    }
-  }
-  ```
+Also, you can terminate requests from the middleware by raising an exception or sending the response using the `response.send` method. 
 
-### Registering middleware
+:::note
+
+Make sure you do NOT call the `next` method when decided to end the request.
+
+:::
+
+```ts
+import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
+
+export default class Auth {
+  public async handle(
+    { request, response }: HttpContextContract,
+    next: () => Promise<void>
+  ) {
+    if (notAuthenticated) {
+      response.unauthorized({ error: 'Must be logged in' })
+      return
+    }
+
+    await next()
+  }
+}
+```
+
+## Registering middleware
 
 For the middleware to take effect, it must be registered as a **global middleware** or a **named middleware** inside the `start/kernel.ts` file.
 
-Let's register the `LogRequest` middleware as a global middleware. As the name suggest, the global middleware are executed on every HTTP request.
+### Global middleware
 
-:::note
-Global middleware are executed only for the requests with a registered route. In other words, if a request comes in for an non-existing route, then the middleware will not be executed.
-:::
+Global middleware are executed for all the HTTP requests in the same sequence as they are registered.
 
-```ts{start/kernel.ts}
+You register them as an array inside the `start/kernel.ts` file, as shown below:
+
+```ts
+// title: start/kernel.ts
 Server.middleware.register([
   () => import('@ioc:Adonis/Core/BodyParserMiddleware'),
   // highlight-start
@@ -106,12 +100,84 @@ Server.middleware.register([
 ])
 ```
 
-## Middleware flow
+### Named middleware
 
-## Middleware as guards
+Named middleware allows you to selectively apply middleware on your routes/group of routes. You begin by registering them with a unique name and later reference it on the route by that name.
 
-## Middleware as observers
+```ts
+// title: start/kernel.ts
+Server.middleware.registerNamed({
+  auth: () => import('App/Middleware/Auth')
+})
+```
 
-## Middleware as data loaders
+Now, you can attach the `auth` middleware to a route as shown in the following example.
 
-## Downstream middleware
+```ts
+Route
+  .get('dashboard', 'DashboardController.index')
+  .middleware('auth') // 👈
+```
+
+You can also define multiple middleware on a route by passing them as an array or calling the middleware method multiple times.
+
+```ts
+Route
+  .get('dashboard', 'DashboardController.index')
+  .middleware(['auth', 'acl', 'throttle'])
+```
+
+```ts
+Route
+  .get('dashboard', 'DashboardController.index')
+  .middleware('auth')
+  .middleware('acl')
+  .middleware('throttle')
+```
+
+
+## Passing config to named middleware
+
+Named middleware can also accept runtime config through the `handle` method as the third argument. For example:
+
+```ts
+export default class Auth {
+  public async handle(
+    { request, response }: HttpContextContract,
+    next: () => Promise<void>
+    // highlight-start
+    guards?: string[]
+    // highlight-end
+  ) {
+    await next()
+  }
+}
+```
+
+In the above example, the Auth middleware accepts an optional `guards` array. The user of the middleware can pass the guards as follows:
+
+```ts
+Route
+  .get('dashboard', 'DashboardController.index')
+  .middleware('auth', ['web', 'api'])
+```
+
+## FAQs
+
+<details>
+<summary> How to disable middleware on a given HTTP request? </summary>
+  
+You cannot disable middleware for a given HTTP request. However, the middleware can accept the runtime config to ignore certain requests. 
+
+A great example of this is the bodyparser middleware. It [ignores all the requests not matching the whitelisted](https://github.com/adonisjs/bodyparser/blob/develop/src/BodyParser/index.ts#L108-L111) methods inside the `config/bodyparser.ts` file.
+
+</details>
+
+<details>
+<summary> Are middleware executed on requests with no routes? </summary>
+  
+AdonisJS does not execute the middleware chain, if there is no registered route for the current HTTP request.
+
+You can use [server hooks](./hooks.md) to handle requests that may or may not have a registered route.
+
+</details>

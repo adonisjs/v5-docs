@@ -1,0 +1,1529 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Routing</title>
+  <meta name="description" content="A typical route accepts the route pattern as the first argument and route handler as the second argument. For example:">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+  <link rel="manifest" href="/icons/site.webmanifest">
+  <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="/icons/favicon.ico">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-config" content="/icons/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+
+  <meta name="turbo-cache-control" content="no-cache">
+
+  <link
+    rel="preload"
+    href="/assets/fonts/UntitledSans-RegularItalic.2c343d99.woff2"
+    as="font"
+    type="font/woff2" crossorigin
+  >
+  <link
+    rel="preload"
+    href="/assets/fonts/UntitledSans-Regular.f7547efa.woff2"
+    as="font"
+    type="font/woff2"
+    crossorigin
+  >
+  <link
+    rel="preload"
+    href="/assets/fonts/UntitledSans-Medium.4adc0df5.woff2"
+    as="font"
+    type="font/woff2"
+    crossorigin
+  >
+  <link
+    rel="preload"
+    href="/assets/fonts/JetBrainsMono-Regular.5eea635b.woff2"
+    as="font"
+    type="font/woff2"
+    crossorigin
+  >
+<link rel="stylesheet" href="/assets/app.be48d775.css" />
+<script src="/assets/342.70de04a2.js" defer></script>
+<script src="/assets/app.26949583.js" defer></script>
+</head>
+
+<body><div class="header-wrapper">
+  <header class="header">
+    <div class="header-container">
+
+      <div class="primary-links"><a href="#sidenav-open" title="Open Docs Menu" aria-label="Open Docs Menu" class="hamburger for-mobile" data-turbo="false">
+  <svg role="presentation" focusable="false" aria-label="Icon for open menu" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+    <line x1="4" y1="6" x2="20" y2="6" />
+    <line x1="4" y1="12" x2="20" y2="12" />
+    <line x1="4" y1="18" x2="20" y2="18" />
+  </svg>
+</a>
+
+<div class="logo-wrapper">
+  <a href="https://adonisjs.com" title="AdonisJS website" target="_blank" rel="noopener">
+    <span class="for-mobile">
+      <svg width="68" height="17" viewBox="0 0 68 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M54.6867 0C53.54 0 52.7119 0.812178 52.7119 1.94286C52.7119 3.07354 53.54 3.88571 54.6867 3.88571C55.8333 3.88571 56.6614 3.07354 56.6614 1.94286C56.6614 0.812178 55.8333 0 54.6867 0ZM18.5686 16.6895C15.511 16.6895 13.2974 14.4286 13.2974 10.8927C13.2974 7.29317 15.511 5.03232 18.5686 5.03232C19.9859 5.03232 21.037 5.51007 21.6581 6.44965V0.509602H24.8431V16.4347H21.6581V15.304C21.0529 16.2276 20.0019 16.6895 18.5686 16.6895ZM16.5461 10.8927C16.5461 8.91803 17.6131 7.6281 19.2375 7.6281C20.8778 7.6281 21.9288 8.90211 21.9288 10.8768C21.9288 12.8197 20.8778 14.0778 19.2375 14.0778C17.6131 14.0778 16.5461 12.8197 16.5461 10.8927ZM29.8436 10.8609C29.8436 8.90211 30.9105 7.64403 32.503 7.64403C34.1115 7.64403 35.1785 8.90211 35.1785 10.8609C35.1785 12.8197 34.1115 14.0778 32.503 14.0778C30.9105 14.0778 29.8436 12.8197 29.8436 10.8609ZM64.9424 13.393C64.9424 13.9822 64.4965 14.3326 63.3658 14.3326C62.0918 14.3326 61.2956 13.6637 61.2956 12.8515H58.1105C58.1902 15.0492 60.2763 16.6895 63.3021 16.6895C66.1686 16.6895 68 15.4155 68 13.1541C68 11.466 66.9171 10.2876 64.7672 9.85761L62.4581 9.39578C61.7574 9.25246 61.3433 8.90211 61.3433 8.44028C61.3433 7.7555 62.044 7.38923 62.9358 7.38923C64.2098 7.38923 64.7035 7.97845 64.7035 8.67916H67.7293C67.6497 6.6089 66.0253 5.03232 62.9995 5.03232C60.1808 5.03232 58.2698 6.44965 58.2698 8.59953C58.2698 10.5424 59.5279 11.4183 61.407 11.8164L63.7002 12.3101C64.4487 12.4693 64.9424 12.7878 64.9424 13.393ZM53.1101 5.28712H56.2951V16.4347H53.1101V5.28712ZM43.3639 5.28712V6.44965C44.1761 5.51007 45.259 5.03232 46.5967 5.03232C49.097 5.03232 50.7213 6.65667 50.7213 9.17283V16.4347H47.5363V9.84169C47.5363 8.48806 46.7719 7.67588 45.4501 7.67588C44.1283 7.67588 43.3639 8.48806 43.3639 9.84169V16.4347H40.1789V5.28712H43.3639ZM32.503 5.03232C29.111 5.03232 26.5948 7.48478 26.5948 10.8609C26.5948 14.237 29.111 16.6895 32.503 16.6895C35.911 16.6895 38.4272 14.237 38.4272 10.8609C38.4272 7.48478 35.911 5.03232 32.503 5.03232ZM5.94005 7.6281C4.31569 7.6281 3.24871 8.91803 3.24871 10.8927C3.24871 12.8197 4.31569 14.0778 5.94005 14.0778C7.58033 14.0778 8.63138 12.8197 8.63138 10.8768C8.63138 8.90211 7.58033 7.6281 5.94005 7.6281ZM0 10.8927C0 14.4286 2.21358 16.6895 5.25527 16.6895C6.70445 16.6895 7.73958 16.2276 8.36066 15.304V16.4347H11.5457V5.28712H8.36066V6.44965C7.72365 5.51007 6.6726 5.03232 5.25527 5.03232C2.21358 5.03232 0 7.29317 0 10.8927Z" fill="white"/>
+      </svg>
+    </span>
+
+    <span class="for-desktop">
+      <svg width="108" height="36" viewBox="0 0 108 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M0 16.3331C0 29.506 3.16017 32.6662 16.3331 32.6662C29.506 32.6662 32.6662 29.506 32.6662 16.3331C32.6662 3.16017 29.506 0 16.3331 0C3.16017 0 0 3.16017 0 16.3331ZM6.58646 19.7261L11.7093 8.08338C12.5742 6.12075 14.2374 5.05627 16.3331 5.05627C18.4288 5.05627 20.092 6.12075 20.9569 8.08338L26.0797 19.7261C26.3126 20.2916 26.5122 21.0235 26.5122 21.6555C26.5122 24.5495 24.483 26.5787 21.589 26.5787C20.6032 26.5787 19.8203 26.3271 19.0278 26.0725C18.2158 25.8116 17.3937 25.5475 16.3331 25.5475C15.2847 25.5475 14.4426 25.814 13.6145 26.076C12.8136 26.3294 12.0258 26.5787 11.0772 26.5787C8.18318 26.5787 6.15402 24.5495 6.15402 21.6555C6.15402 21.0235 6.35361 20.2916 6.58646 19.7261ZM16.3331 10.1125L11.2768 21.5557C12.7737 20.8571 14.5035 20.5245 16.3331 20.5245C18.0961 20.5245 19.8924 20.8571 21.3228 21.5557L16.3331 10.1125Z" fill="white"></path>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M94.0883 8.03894C92.9542 8.03894 92.1352 8.84223 92.1352 9.96054C92.1352 11.0788 92.9542 11.8821 94.0883 11.8821C95.2223 11.8821 96.0414 11.0788 96.0414 9.96054C96.0414 8.84223 95.2223 8.03894 94.0883 8.03894ZM58.3654 24.5458C55.3413 24.5458 53.1519 22.3097 53.1519 18.8125C53.1519 15.2523 55.3413 13.0162 58.3654 13.0162C59.7673 13.0162 60.8068 13.4887 61.4211 14.418V8.54297H64.5713V24.2938H61.4211V23.1755C60.8226 24.089 59.783 24.5458 58.3654 24.5458ZM56.3651 18.8125C56.3651 16.8594 57.4204 15.5836 59.027 15.5836C60.6493 15.5836 61.6889 16.8436 61.6889 18.7967C61.6889 20.7183 60.6493 21.9627 59.027 21.9627C57.4204 21.9627 56.3651 20.7183 56.3651 18.8125ZM69.517 18.781C69.517 16.8436 70.5723 15.5993 72.1474 15.5993C73.7382 15.5993 74.7935 16.8436 74.7935 18.781C74.7935 20.7183 73.7382 21.9627 72.1474 21.9627C70.5723 21.9627 69.517 20.7183 69.517 18.781ZM104.232 21.2854C104.232 21.8681 103.791 22.2147 102.672 22.2147C101.412 22.2147 100.625 21.5531 100.625 20.7498H97.4747C97.5535 22.9235 99.6168 24.5458 102.609 24.5458C105.445 24.5458 107.256 23.2857 107.256 21.0491C107.256 19.3795 106.185 18.214 104.059 17.7887L101.775 17.3319C101.082 17.1902 100.672 16.8436 100.672 16.3869C100.672 15.7096 101.365 15.3473 102.247 15.3473C103.507 15.3473 103.996 15.9301 103.996 16.6231H106.988C106.909 14.5755 105.303 13.0162 102.31 13.0162C99.5223 13.0162 97.6322 14.418 97.6322 16.5444C97.6322 18.466 98.8765 19.3323 100.735 19.726L103.003 20.2143C103.744 20.3718 104.232 20.6868 104.232 21.2854ZM95.6791 24.2938H92.5289V13.2682H95.6791V24.2938ZM82.8895 13.2682V14.418C83.6927 13.4887 84.7638 13.0162 86.0869 13.0162C88.5597 13.0162 90.1663 14.6228 90.1663 17.1114V24.2938H87.0162V17.7729C87.0162 16.4341 86.2601 15.6308 84.9528 15.6308C83.6455 15.6308 82.8895 16.4341 82.8895 17.7729V24.2938H79.7393V13.2682H82.8895ZM72.1474 13.0162C68.7925 13.0162 66.3039 15.4418 66.3039 18.781C66.3039 22.1202 68.7925 24.5458 72.1474 24.5458C75.5181 24.5458 78.0067 22.1202 78.0067 18.781C78.0067 15.4418 75.5181 13.0162 72.1474 13.0162ZM45.8751 15.5836C44.2685 15.5836 43.2132 16.8594 43.2132 18.8125C43.2132 20.7183 44.2685 21.9627 45.8751 21.9627C47.4974 21.9627 48.5369 20.7183 48.5369 18.7967C48.5369 16.8436 47.4974 15.5836 45.8751 15.5836ZM40 18.8125C40 22.3097 42.1894 24.5458 45.1978 24.5458C46.6311 24.5458 47.6549 24.089 48.2692 23.1755V24.2938H51.4193V13.2682H48.2692V14.418C47.6391 13.4887 46.5996 13.0162 45.1978 13.0162C42.1894 13.0162 40 15.2523 40 18.8125Z" fill="white"></path>
+      </svg>
+    </span>
+  </a>
+</div>
+
+      </div>
+
+      <nav class="header-nav">
+        <ul>
+
+              <li class="active">
+                <a href="/guides/application">
+                  Guides
+                </a>
+              </li>
+
+              <li class="">
+                <a href="/reference/database/connection">
+                  Reference guides
+                </a>
+              </li>
+        </ul>
+      </nav>
+
+      <div class="search-wrapper">
+        <button class="search-trigger" title="Open search popup" aria-label="Open search popup">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" aria-hidden="true">
+            <path d="M0 0h24v24H0z" fill="none"></path>
+            <path fill="currentColor" d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+          </svg>
+          <span class="text"> Search... </span>
+        </button>
+      </div>
+    </div>
+  </header>
+</div>
+
+<div id="sidenav-open">
+  <div class="sidebar" id="sidebar" data-maintain-scroll>
+    <div class="sidebar-container">
+
+
+
+              <nav>
+                  <h3> Fundamentals </h3>
+                <ol>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/application"> Application </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/config"> Config </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/environment-variables"> Environment variables </a>
+                    </li>
+                </ol>
+              </nav>
+              <nav>
+                  <h3> Http </h3>
+                <ol>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/context"> Context </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/routing"> Routing </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/controllers"> Controllers </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/request"> Request </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/response"> Response </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/forms-and-validations"> Forms &amp; Validation </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/file-uploads"> File uploads </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/middleware"> Middleware </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/cookies"> Cookies </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/session"> Session </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/static-assets"> Static assets </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/assets-manager"> Assets manager </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/exception-handling"> Exception Handling </a>
+                    </li>
+                </ol>
+              </nav>
+              <nav>
+                  <h3> Views &amp; Templates </h3>
+                <ol>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/views/introduction"> Introduction </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/views/rendering"> Rendering </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/views/templating-syntax"> Templating syntax </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/views/data-flow"> Data flow </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/views/conditionals"> Conditionals </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/views/loops"> Loops </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/views/partials"> Partials </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/views/layouts"> Layouts </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/views/components"> Components </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/views/mutations"> Mutations </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/views/debugging"> Debugging </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/views/custom-tags"> Creating custom tags </a>
+                    </li>
+                </ol>
+              </nav>
+              <nav>
+                  <h3> Validator </h3>
+                <ol>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/validator/introduction"> Introduction </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/validator/validations-101"> Validations 101 </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/validator/custom-messages"> Custom messages </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/validator/error-reporters"> Error reporters </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/validator/schema-caching"> Schema caching </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/validator/schema-composition"> Schema Composition </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/validator/faqs"> FAQs </a>
+                    </li>
+                </ol>
+              </nav>
+              <nav>
+                  <h3> Security </h3>
+                <ol>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/security/web-security"> Web Security </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/security/encryption"> Encryption </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/security/hashing"> Hashing </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/security/signed-urls"> Signed URLs </a>
+                    </li>
+                </ol>
+              </nav>
+              <nav>
+                  <h3> Digging deeper </h3>
+                <ol>
+                    <li
+                      class="active"
+                    >
+                      <a href="/guides/ace-commandline"> Ace </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/repl"> AdonisJS Repl </a>
+                    </li>
+                </ol>
+              </nav>
+
+    </div>
+  </div>
+
+  <a href="#" data-turbo="false" id="sidenav-close" class="sidenav-backdrop" title="Close Docs Menu" aria-label="Close Docs Menu"></a>
+</div>
+
+<main class="doc" data-turbo="false">
+  <div class="markdown">
+    <h1>Ace</h1><p>Ace is a command line framework embedded into the core of AdonisJS. Commands like <code>node ace serve</code> or <code>node ace make:controller</code> are powered by the ace CLI.</p>
+<p>Ace, also allows you to create custom commands by storing them locally within your project codebase.</p>
+<h2 id="why-we-use-ace-instead-of-npm-scripts"><a
+  href="#why-we-use-ace-instead-of-npm-scripts"
+  
+  
+><span class="icon icon-link"></span></a>
+Why we use ace instead of npm scripts?</h2>
+<p>Majority of the Node.js projects extensively make use of the <a
+  href="https://docs.npmjs.com/cli/v7/using-npm/scripts"
+  target=&quot;_blank&quot;
+  rel=&quot;noopener&quot;
+>npm scripts</a>
+. Npm scripts are great, as they allow you define scripts on per project basis vs defining them globally somewhere on your computer.</p>
+<p>However, npm scripts doesn&#x27;t give you any tooling to create the CLI commands. You still have to manually parse the CLI arguments/flags, and also manage the command lifecycle.</p>
+<p>On the other hand, Ace is a proper framework for creating CLI interfaces.</p>
+<h2 id="usage"><a
+  href="#usage"
+  
+  
+><span class="icon icon-link"></span></a>
+Usage</h2>
+<p>Ace comes pre-configured with every new AdonisJS application and you can run it using the <code>ace</code> file stored in the root of your project.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #A6ACCD;">node ace</span></div></code></pre>
+</div>
+
+<p><figure>
+  <img
+    data-src="https://res.cloudinary.com/adonis-js/image/upload/v1617207298/v5/ace-help.png"
+    alt="Help screen"
+    class="lazyload"
+    
+  >
+    <figcaption>Help screen</figcaption>
+</figure>
+</p>
+<p>The <code>ace</code> is an extension less Javascript file that you execute like any other Node.js program. Running this file will boot the command line framework and execute the mentioned command.</p>
+<p>You can list all the commands by running <code>node ace --help</code>, and view help for a particular command using <code>node ace &lt;command-name&gt; --help</code>.</p>
+<h2 id="where-are-the-commands-defined"><a
+  href="#where-are-the-commands-defined"
+  
+  
+><span class="icon icon-link"></span></a>
+Where are the commands defined?</h2>
+<p>Ace allows you and the packages you install to contribute commands. They are defined inside the <code>.adonisrc.json</code> file under the <code>commands</code> array.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">&quot;</span><span style="color: #C792EA;">commands</span><span style="color: #89DDFF;">&quot;</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">[</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #89DDFF;">&quot;</span><span style="color: #C3E88D;">./commands</span><span style="color: #89DDFF;">&quot;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #89DDFF;">&quot;</span><span style="color: #C3E88D;">@adonisjs/core/build/commands</span><span style="color: #89DDFF;">&quot;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #89DDFF;">&quot;</span><span style="color: #C3E88D;">@adonisjs/repl/build/commands</span><span style="color: #89DDFF;">&quot;</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">]</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
+</div>
+
+<p>Every entry inside the array must point to a file that <a
+  href="https://github.com/adonisjs/core/blob/develop/commands/GenerateKey.ts"
+  target=&quot;_blank&quot;
+  rel=&quot;noopener&quot;
+>exports an ace command</a>
+. Or it can export an <a
+  href="https://github.com/adonisjs/core/blob/develop/commands/index.ts"
+  target=&quot;_blank&quot;
+  rel=&quot;noopener&quot;
+>additional array of commands</a>
+.</p>
+<p>The first entry <code>./commands</code> is reference to the commands directory of your project. Files inside this directory are scanned and registered as commands.</p>
+<h2 id="creating-a-new-command"><a
+  href="#creating-a-new-command"
+  
+  
+><span class="icon icon-link"></span></a>
+Creating a new command</h2>
+<p>You can create a new command by running the following ace command.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #A6ACCD;">node ace make:command Greet</span></div><div class="line"></div><div class="line"><span style="color: #676E95;"># CREATE: commands/Greet.ts</span></div></code></pre>
+</div>
+
+<p>Before you can run the newly created command, you will have to get it indexed by running the following command. <a
+  href="#why-generate-the-ace-manifest-file"
+  
+  
+>Learn why indexing is required</a>
+</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #A6ACCD;">node ace generate:manifest</span></div></code></pre>
+</div>
+
+<p>Finally, you can run the command as follows:</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #A6ACCD;">node ace greet</span></div><div class="line"></div><div class="line"><span style="color: #676E95;"># [ info ]  Hello world!</span></div></code></pre>
+</div>
+
+<h2 id="commands-structure"><a
+  href="#commands-structure"
+  
+  
+><span class="icon icon-link"></span></a>
+Commands structure</h2>
+<p>Ace commands are represented as classes and extends the <code>BaseCommand</code> class. You define the command name and description as static properties on the class itself.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">import</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">BaseCommand</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">from</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">@adonisjs/core/build/standalone</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"></div><div class="line"><span style="color: #89DDFF;">export</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">default</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">class</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">Greet</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">extends</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">BaseCommand</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">public</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">static</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">commandName</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">greet</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">public</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">static</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">description</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;&#x27;</span></div><div class="line"></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">public</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">static</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">settings</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #F07178;">loadApp</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #FF9CAC;">false</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #F07178;">stayAlive</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #FF9CAC;">false</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">}</span></div><div class="line"></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">public</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">async</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">run</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">()</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">this.</span><span style="color: #A6ACCD;">logger</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">info</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Hello world!</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">)</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
+</div>
+
+<h4 id="commandname"><a
+  href="#commandname"
+  
+  
+><span class="icon icon-link"></span></a>
+commandName</h4>
+<p>The name of the command someone types to run the command. It should always be a string.</p>
+<hr/>
+<h4 id="description"><a
+  href="#description"
+  
+  
+><span class="icon icon-link"></span></a>
+description</h4>
+<p>The command description is shown in the help output. Use this property to briefly explain what the command does.</p>
+<hr/>
+<h4 id="settings"><a
+  href="#settings"
+  
+  
+><span class="icon icon-link"></span></a>
+settings</h4>
+<p>The settings property controls the runtime behavior of the command.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Option</th><th>Description</th></tr></thead><tbody><tr><td><strong>loadApp</strong></td><td>Instructs ace to boot the application before running the method. By default, commands do NOT load the application and are executed as independent scripts.</td></tr><tr><td><strong>stayAlive</strong></td><td>Instructs ace to NOT kill the process after executing the command. However do make sure to manually kill the process using <code>await this.exit()</code></td></tr></tbody></table>
+<h4 id="aliases"><a
+  href="#aliases"
+  
+  
+><span class="icon icon-link"></span></a>
+aliases</h4>
+<p>You can also define an array of aliases for the command name. This allows others to execute the command using the aliases as well.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line dim"><span style="color: #89DDFF;">export</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">default</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">class</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">Greet</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">extends</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">BaseCommand</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line dim"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">public</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">static</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">commandName</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">greet</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line highlight"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">public</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">static</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">aliases</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> [</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">welcome</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">hi</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">]</span></div><div class="line dim"><span style="color: #89DDFF;">}</span></div></code></pre>
+</div>
+
+<hr/>
+<h4 id="run"><a
+  href="#run"
+  
+  
+><span class="icon icon-link"></span></a>
+run</h4>
+<p>Every command must implement the <code>run</code> method and write the logic to handle the command inside it.</p>
+<h2 id="cli-arguments"><a
+  href="#cli-arguments"
+  
+  
+><span class="icon icon-link"></span></a>
+CLI arguments</h2>
+<p>You register the arguments and flags your command accepts as properties on the class. For example:</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line dim"><span style="color: #89DDFF;">import</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line dim"><span style="color: #F07178;">  </span><span style="color: #A6ACCD;">BaseCommand</span><span style="color: #89DDFF;">,</span></div><div class="line dim"><span style="color: #F07178;">  </span><span style="color: #A6ACCD;">args</span><span style="color: #89DDFF;">,</span></div><div class="line dim"><span style="color: #F07178;">  </span><span style="color: #A6ACCD;">flags</span></div><div class="line dim"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">from</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">@adonisjs/core/build/standalone</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line dim"></div><div class="line dim"><span style="color: #89DDFF;">export</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">default</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">class</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">Greet</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">extends</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">BaseCommand</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line dim"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">public</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">static</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">commandName</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">greet</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line dim"><span style="color: #A6ACCD;">    </span></div><div class="line highlight"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">@</span><span style="color: #A6ACCD;">args</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">string</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">{</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">description</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Name of the person to greet</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div><div class="line highlight"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">public</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">name</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">string</span></div><div class="line highlight"></div><div class="line highlight"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">@</span><span style="color: #A6ACCD;">flags</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">boolean</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">{</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">alias</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">i</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">description</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Enable interactive mode</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div><div class="line highlight"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">public</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">interactive</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">boolean</span></div><div class="line dim"></div><div class="line dim"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">public</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">async</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">run</span><span style="color: #89DDFF;">()</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{}</span></div><div class="line dim"><span style="color: #89DDFF;">}</span></div></code></pre>
+</div>
+
+<p>Make sure to generate the ace manifest file by running the following command.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #A6ACCD;">node ace generate:manifest</span></div></code></pre>
+</div>
+
+<p>And then view the help for the <code>greet</code> command.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #A6ACCD;">node ace greet --help</span></div></code></pre>
+</div>
+
+<p><figure>
+  <img
+    data-src="https://res.cloudinary.com/adonis-js/image/upload/q_auto,f_auto/v1617325150/v5/command-args-flags.png"
+    alt=""
+    class="lazyload"
+    
+  >
+</figure>
+</p>
+<h3 id="arguments"><a
+  href="#arguments"
+  
+  
+><span class="icon icon-link"></span></a>
+Arguments</h3>
+<p>Command arguments are positional in nature and they are accepted in the same order as you define them on your class. For example:</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">export</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">default</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">class</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">Greet</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">extends</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">BaseCommand</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">@</span><span style="color: #A6ACCD;">args</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">string</span><span style="color: #A6ACCD;">()</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">public</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">name</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">string</span></div><div class="line"></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">@</span><span style="color: #A6ACCD;">args</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">string</span><span style="color: #A6ACCD;">()</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">public</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">age</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">string</span></div><div class="line"></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">@</span><span style="color: #A6ACCD;">args</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">string</span><span style="color: #A6ACCD;">()</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">public</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">height</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">string</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
+</div>
+
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #A6ACCD;">node ace greet </span><span style="color: #89DDFF;">&lt;</span><span style="color: #A6ACCD;">name</span><span style="color: #89DDFF;">&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&lt;</span><span style="color: #A6ACCD;">age</span><span style="color: #89DDFF;">&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&lt;</span><span style="color: #A6ACCD;">height</span><span style="color: #89DDFF;">&gt;</span></div></code></pre>
+</div>
+
+<h4 id="argsstring"><a
+  href="#argsstring"
+  
+  
+><span class="icon icon-link"></span></a>
+args.string</h4>
+<p>Marks the property as a command line argument. Note: The command arguments are always represented as string. You will have to perform type casting yourself, if expecting a non-string value.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">@</span><span style="color: #A6ACCD;">args</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">string</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #F07178;">description</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">The argument description</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #F07178;">name</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">username</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div><div class="line"><span style="color: #A6ACCD;">public </span><span style="color: #FFCB6B;">name</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> string</span></div></code></pre>
+</div>
+
+<h4 id="argsspread"><a
+  href="#argsspread"
+  
+  
+><span class="icon icon-link"></span></a>
+args.spread</h4>
+<p>The <code>@args.spread</code> method allows you define a catch all argument. It is like the <a
+  href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters"
+  target=&quot;_blank&quot;
+  rel=&quot;noopener&quot;
+>rest parameters </a>
+ in Javascript and must always be the last argument.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line dim"><span style="color: #89DDFF;">import</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">BaseCommand</span><span style="color: #89DDFF;">,</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">args</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">from</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">@adonisjs/core/build/standalone</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line dim"></div><div class="line dim"><span style="color: #89DDFF;">export</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">default</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">class</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">FileReader</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">extends</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">BaseCommand</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line dim"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">public</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">static</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">commandName</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">read</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line dim"></div><div class="line highlight"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">@</span><span style="color: #A6ACCD;">args</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">spread</span><span style="color: #A6ACCD;">()</span></div><div class="line highlight"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">public</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">files</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">string</span><span style="color: #A6ACCD;">[]</span></div><div class="line dim"></div><div class="line dim"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">public</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">async</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">run</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">()</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line dim"><span style="color: #F07178;">    </span><span style="color: #A6ACCD;">console</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">log</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">this.</span><span style="color: #A6ACCD;">files</span><span style="color: #F07178;">)</span></div><div class="line dim"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span></div><div class="line dim"><span style="color: #89DDFF;">}</span></div></code></pre>
+</div>
+
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #A6ACCD;">node ace </span><span style="color: #82AAFF;">read</span><span style="color: #A6ACCD;"> foo.txt bar.txt baz.txt</span></div></code></pre>
+</div>
+
+<p>Output will be</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #A6ACCD;">[ </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">foo.txt</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">bar.txt</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">baz.txt</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;"> ]</span></div></code></pre>
+</div>
+
+<h4 id="options"><a
+  href="#options"
+  
+  
+><span class="icon icon-link"></span></a>
+Options</h4>
+<p>All of the <code>@args</code> method accepts the following options.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Option</th><th>Description</th></tr></thead><tbody><tr><td><strong>description</strong></td><td>The help description for the argument</td></tr><tr><td><strong>name</strong></td><td>Define public name for the argument (the one that appears in the help output).</td></tr></tbody></table>
+<h2 id="flags"><a
+  href="#flags"
+  
+  
+><span class="icon icon-link"></span></a>
+Flags</h2>
+<p>You define the flags using the <code>@flags</code> decorator. A flag can accept <code>boolean</code>, <code>string/string[]</code>, or <code>number/number[]</code> values.</p>
+<h4 id="flagsboolean"><a
+  href="#flagsboolean"
+  
+  
+><span class="icon icon-link"></span></a>
+flags.boolean</h4>
+<p>Accept a boolean flag.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">@</span><span style="color: #A6ACCD;">flags</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">boolean</span><span style="color: #A6ACCD;">()</span></div><div class="line"><span style="color: #A6ACCD;">public </span><span style="color: #FFCB6B;">interactive</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> boolean</span></div></code></pre>
+</div>
+
+<p>The value for the boolean flag defaults to <code>false</code>, unless the flag has been specified. However, you can also define the default value yourself.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">@</span><span style="color: #A6ACCD;">flags</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">boolean</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #F07178;">default</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #FF9CAC;">true</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div><div class="line"><span style="color: #A6ACCD;">public </span><span style="color: #FFCB6B;">interactive</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> boolean</span></div></code></pre>
+</div>
+
+<p>To disable the flag at runtime, you must negate it with <code>--no</code> keyword.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #A6ACCD;">node ace greet virk --no-interactive</span></div></code></pre>
+</div>
+
+<h4 id="flagsstring"><a
+  href="#flagsstring"
+  
+  
+><span class="icon icon-link"></span></a>
+flags.string</h4>
+<p>Define a flag that accepts a string value.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">@</span><span style="color: #A6ACCD;">flags</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">string</span><span style="color: #A6ACCD;">()</span></div><div class="line"><span style="color: #A6ACCD;">public </span><span style="color: #FFCB6B;">email</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> string</span></div><div class="line"></div><div class="line"><span style="color: #89DDFF;">@</span><span style="color: #A6ACCD;">flags</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">string</span><span style="color: #A6ACCD;">()</span></div><div class="line"><span style="color: #A6ACCD;">public </span><span style="color: #FFCB6B;">password</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> string</span></div></code></pre>
+</div>
+
+<h4 id="flagsarray"><a
+  href="#flagsarray"
+  
+  
+><span class="icon icon-link"></span></a>
+flags.array</h4>
+<p>Define a flag that can be repeated multiple times. The value is an array of strings.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">@</span><span style="color: #A6ACCD;">flags</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">array</span><span style="color: #A6ACCD;">()</span></div><div class="line"><span style="color: #A6ACCD;">public </span><span style="color: #FFCB6B;">files</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> string[]</span></div></code></pre>
+</div>
+
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #A6ACCD;">node ace </span><span style="color: #82AAFF;">read</span><span style="color: #A6ACCD;"> --files=foo.txt --files=bar.txt</span></div><div class="line"></div><div class="line"><span style="color: #676E95;">## Or separate them with comma</span></div><div class="line"><span style="color: #A6ACCD;">node ace </span><span style="color: #82AAFF;">read</span><span style="color: #A6ACCD;"> --files=foo.txt,bar.txt</span></div></code></pre>
+</div>
+
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #A6ACCD;">console</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">log</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">this.</span><span style="color: #A6ACCD;">files)</span></div><div class="line"></div><div class="line"><span style="color: #676E95;">// [&#x27;foo.txt&#x27;, &#x27;bar.txt&#x27;]</span></div></code></pre>
+</div>
+
+<h4 id="flagsnumber"><a
+  href="#flagsnumber"
+  
+  
+><span class="icon icon-link"></span></a>
+flags.number</h4>
+<p>Define a flag that accept a number value.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">@</span><span style="color: #A6ACCD;">flags</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">number</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">{</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">alias</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">i</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div><div class="line"><span style="color: #A6ACCD;">public </span><span style="color: #FFCB6B;">iterations</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> number</span></div></code></pre>
+</div>
+
+<h4 id="flagsnumarray"><a
+  href="#flagsnumarray"
+  
+  
+><span class="icon icon-link"></span></a>
+flags.numArray</h4>
+<p>Same as <a
+  href="#flagsarray"
+  
+  
+>@flags.array</a>
+, but instead accepts an array of numbers.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">@</span><span style="color: #A6ACCD;">flags</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">numArray</span><span style="color: #A6ACCD;">()</span></div><div class="line"><span style="color: #A6ACCD;">public </span><span style="color: #FFCB6B;">counters</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> number[]</span></div></code></pre>
+</div>
+
+<h4 id="options-1"><a
+  href="#options-1"
+  
+  
+><span class="icon icon-link"></span></a>
+Options</h4>
+<p>All of the <code>@flags</code> decorators accepts the following options</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Option</th><th>Description</th></tr></thead><tbody><tr><td><strong>alias</strong></td><td>The shorthand name for the flag. The shorthand names are always defined using a single dash <code>-</code></td></tr><tr><td><strong>default</strong></td><td>The default value to use, when the flag is not defined</td></tr><tr><td><strong>description</strong></td><td>The help description for the flag</td></tr><tr><td><strong>name</strong></td><td>Public name for the flag (the one that appears in the help output).</td></tr></tbody></table>
+<h2 id="prompts"><a
+  href="#prompts"
+  
+  
+><span class="icon icon-link"></span></a>
+Prompts</h2>
+<p>Ace has inbuilt support for creating interactive prompts on the terminal. You can access the <code>prompts</code> module using the <code>this.prompt</code> property.</p>
+<p>Following is an example of using multiple prompts together.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">import</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">BaseCommand</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">from</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">@adonisjs/core/build/standalone</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"></div><div class="line"><span style="color: #89DDFF;">export</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">default</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">class</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">CreateUser</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">extends</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">BaseCommand</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">public</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">static</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">commandName</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">create:user</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">public</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">static</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">description</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Create a new user</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">public</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">async</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">run</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">()</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #C792EA;">const</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">email</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">=</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">await</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">this.</span><span style="color: #A6ACCD;">prompt</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">ask</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Enter email</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">)</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #C792EA;">const</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">password</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">=</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">await</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">this.</span><span style="color: #A6ACCD;">prompt</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">secure</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Choose account password</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">)</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #C792EA;">const</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">userType</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">=</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">await</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">this.</span><span style="color: #A6ACCD;">prompt</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">choice</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Select account type</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #F07178;"> [</span></div><div class="line"><span style="color: #F07178;">      </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">        name</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">admin</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #F07178;">        message</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Admin (Complete access)</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #F07178;">      </span><span style="color: #89DDFF;">},</span></div><div class="line"><span style="color: #F07178;">      </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">        name</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">collaborator</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #F07178;">        message</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Collaborator (Can access specific resources)</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #F07178;">      </span><span style="color: #89DDFF;">},</span></div><div class="line"><span style="color: #F07178;">      </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">        name</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">user</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #F07178;">        message</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">User (Readonly access)</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #F07178;">      </span><span style="color: #89DDFF;">}</span></div><div class="line"><span style="color: #F07178;">    ])</span></div><div class="line"></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #C792EA;">const</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">verifyEmail</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">=</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">await</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">this.</span><span style="color: #A6ACCD;">prompt</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">confirm</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Send account verification email?</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">)</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #C792EA;">const</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">accountTags</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">=</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">await</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">this.</span><span style="color: #A6ACCD;">prompt</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">enum</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Type tags to associate with the account</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">)</span></div><div class="line"></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #A6ACCD;">console</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">log</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">      </span><span style="color: #A6ACCD;">email</span><span style="color: #89DDFF;">,</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">password</span><span style="color: #89DDFF;">,</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">userType</span><span style="color: #89DDFF;">,</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">verifyEmail</span><span style="color: #89DDFF;">,</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">accountTags</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">}</span><span style="color: #F07178;">)</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
+</div>
+
+<div class="embed embed-video"><video controls="undefined"><source src="https://res.cloudinary.com/adonis-js/video/upload/q_auto/v1617259966/v5/command-prompts.mp4" type="video/mp4"/></video></div>
+<h4 id="promptask"><a
+  href="#promptask"
+  
+  
+><span class="icon icon-link"></span></a>
+prompt.ask</h4>
+<p>Displays the prompt to enter a value. Optionally accepts <a
+  href="#all-prompts-options"
+  
+  
+>options</a>
+ as the second argument.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">this.</span><span style="color: #A6ACCD;">prompt</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">ask</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Choose account username</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #F07178;">validate</span><span style="color: #89DDFF;">(</span><span style="color: #A6ACCD;">answer</span><span style="color: #89DDFF;">)</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">if</span><span style="color: #F07178;"> (</span><span style="color: #89DDFF;">!</span><span style="color: #A6ACCD;">answer</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">||</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">answer</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">length</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&lt;</span><span style="color: #F07178;"> </span><span style="color: #F78C6C;">4</span><span style="color: #F07178;">) </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">      </span><span style="color: #89DDFF;">return</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Username is required and must be over 4 characters</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">}</span></div><div class="line"></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">return</span><span style="color: #F07178;"> </span><span style="color: #FF9CAC;">true</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">},</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
+</div>
+
+<h4 id="promptsecure"><a
+  href="#promptsecure"
+  
+  
+><span class="icon icon-link"></span></a>
+prompt.secure</h4>
+<p>Uses the <code>password</code> prompt type. Optionally accepts <a
+  href="#all-prompts-options"
+  
+  
+>options</a>
+ as the second argument.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">this.</span><span style="color: #A6ACCD;">prompt</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">secure</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Enter account password</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #F07178;">validate</span><span style="color: #89DDFF;">(</span><span style="color: #A6ACCD;">answer</span><span style="color: #89DDFF;">)</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">if</span><span style="color: #F07178;"> (</span><span style="color: #89DDFF;">!</span><span style="color: #A6ACCD;">answer</span><span style="color: #F07178;">) </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">      </span><span style="color: #89DDFF;">return</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Password is required to login</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">}</span></div><div class="line"></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">return</span><span style="color: #F07178;"> </span><span style="color: #FF9CAC;">true</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">},</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
+</div>
+
+<h4 id="promptconfirm"><a
+  href="#promptconfirm"
+  
+  
+><span class="icon icon-link"></span></a>
+prompt.confirm</h4>
+<p>Display the prompt to select between <code>Yes</code> and <code>No</code>. Optionally you can pass the configuration <a
+  href="#all-prompts-options"
+  
+  
+>options</a>
+ as the second argument.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">this.</span><span style="color: #A6ACCD;">prompt</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">confirm</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Want to delete files?</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div></code></pre>
+</div>
+
+<h4 id="prompttoggle"><a
+  href="#prompttoggle"
+  
+  
+><span class="icon icon-link"></span></a>
+prompt.toggle</h4>
+<p>Similar to the <code>confirm</code> prompt. However, it allows custom <code>Yes</code> and <code>No</code> display values. Optionally you can pass the configuration <a
+  href="#all-prompts-options"
+  
+  
+>options</a>
+ as the second argument.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">this.</span><span style="color: #A6ACCD;">prompt</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">toggle</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Want to delete files?</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> [</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Yep</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Nope</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">])</span></div></code></pre>
+</div>
+
+<h4 id="promptchoice"><a
+  href="#promptchoice"
+  
+  
+><span class="icon icon-link"></span></a>
+prompt.choice</h4>
+<p>Display a list of options with the possibility to choose only one. Optionally you can pass the configuration <a
+  href="#all-prompts-options"
+  
+  
+>options</a>
+ as the third argument.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">this.</span><span style="color: #A6ACCD;">prompt</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">choice</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Select installation client</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> [</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">npm</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">yarn</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">])</span></div></code></pre>
+</div>
+
+<p>Or pass the choices as an array of objects.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">this.</span><span style="color: #A6ACCD;">prompt</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">choice</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Select toppings</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> [</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #F07178;">name</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Jalapenos</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #F07178;">hint</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Marinated in vinegar, will taste sour</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">},</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #F07178;">name</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Lettuce</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #F07178;">hint</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Fresh and leafy</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">},</span></div><div class="line"><span style="color: #A6ACCD;">])</span></div></code></pre>
+</div>
+
+<h4 id="promptmultiple"><a
+  href="#promptmultiple"
+  
+  
+><span class="icon icon-link"></span></a>
+prompt.multiple</h4>
+<p>Display a list of choices and allows selecting multiple options. Optionally you can pass the configuration <a
+  href="#all-prompts-options"
+  
+  
+>options</a>
+ as the third argument.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">this.</span><span style="color: #A6ACCD;">prompt</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">multiple</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Select base dependencies</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> [</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">@adonisjs/core</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">@adonisjs/bodyparser</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"><span style="color: #A6ACCD;">])</span></div></code></pre>
+</div>
+
+<p>Or pass the choice as an object</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">this.</span><span style="color: #A6ACCD;">prompt</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">multiple</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Select base dependencies</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> [</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #F07178;">name</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">@adonisjs/core</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #F07178;">message</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Framework core</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">},</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #F07178;">name</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">@adonisjs/bodyparser</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #F07178;">message</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Bodyparser</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">},</span></div><div class="line"><span style="color: #A6ACCD;">])</span></div></code></pre>
+</div>
+
+<h4 id="promptautocomplete"><a
+  href="#promptautocomplete"
+  
+  
+><span class="icon icon-link"></span></a>
+prompt.autocomplete</h4>
+<p>Display a list of options to make one or more selections, with the ability to filter the list items. Optionally you can pass the configuration <a
+  href="#all-prompts-options"
+  
+  
+>options</a>
+ as the third argument.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">this.</span><span style="color: #A6ACCD;">prompt</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">autocomplete</span><span style="color: #A6ACCD;">(</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Select country</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">  [</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">India</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">USA</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">UK</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Ireland</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Australia</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">]</span></div><div class="line"><span style="color: #A6ACCD;">)</span></div></code></pre>
+</div>
+
+<p>For multi-select, you can set <code>options.multiple = true</code>.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">this.</span><span style="color: #A6ACCD;">prompt</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">autocomplete</span><span style="color: #A6ACCD;">(</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Select country</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">  [</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">India</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">USA</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">UK</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Ireland</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Australia</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">]</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">{</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">multiple</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #FF9CAC;">true</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">}</span></div><div class="line"><span style="color: #A6ACCD;">)</span></div></code></pre>
+</div>
+
+<h4 id="promptenum"><a
+  href="#promptenum"
+  
+  
+><span class="icon icon-link"></span></a>
+prompt.enum</h4>
+<p>Similar to the <code>ask</code> prompt, but allows comma (,) separated values. Optionally accepts <a
+  href="#all-prompts-options"
+  
+  
+>options</a>
+ as the second argument.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">this.</span><span style="color: #A6ACCD;">prompt</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">enum</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Define tags</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #F07178;">hint</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Accepts comma separated values</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
+</div>
+
+<h4 id="all-prompts-options"><a
+  href="#all-prompts-options"
+  
+  
+><span class="icon icon-link"></span></a>
+All prompts options</h4>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>default</strong></td>
+<td>
+<p>The default value to use, when no inout has been provided</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">default</span><span style="color: #F07178;">: </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Virk</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
+</div>
+
+</td>
+</tr>
+<tr>
+<td><strong>hint</strong></td>
+<td>
+<p>Display hint to help fill the input</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #FFCB6B;">hint</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Email will be used for login</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
+</div>
+
+</td>
+</tr>
+<tr>
+<td><strong>result</strong></td>
+<td>
+<p>Modify the result. The method is invoked just before resolving the prompt promise</p>
+<p> <strong> Note </strong> The value will differ based upon the input type. For example: The value for <code>prompt.multiple</code> will be an array or selections.
+</p><div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #FFCB6B;">result</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">(</span><span style="color: #A6ACCD;">value</span><span style="color: #89DDFF;">)</span><span style="color: #F07178;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">return</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">value</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">toUppercase</span><span style="color: #F07178;">()</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
+</div>
+
+</td>
+</tr>
+<tr>
+<td><strong>format</strong></td>
+<td>
+<p>Format the user input in real time (as they type).</p>
+<p> <strong> Note </strong> The value will differ based upon the input type. For example: The value for <code>prompt.multiple</code> will be an array or selections.
+</p><div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #FFCB6B;">format</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">(</span><span style="color: #A6ACCD;">value</span><span style="color: #89DDFF;">)</span><span style="color: #F07178;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">      </span><span style="color: #89DDFF;">return</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">value</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">toUppercase</span><span style="color: #F07178;">()</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
+</div>
+
+</td>
+</tr>
+<tr>
+<td><strong>validate</strong></td>
+<td>
+<p>Validate the user input. Return <code>true</code> to pass the validation or <code>false/error message</code></p>
+<p> <strong> Note </strong> The value will differ based upon the input type. For example: The value for <code>prompt.multiple</code> will be an array or selections.
+</p><div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #FFCB6B;">validate</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">(</span><span style="color: #A6ACCD;">value</span><span style="color: #89DDFF;">)</span><span style="color: #F07178;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">if</span><span style="color: #F07178;"> (</span><span style="color: #89DDFF;">!</span><span style="color: #A6ACCD;">value</span><span style="color: #F07178;">) </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">      </span><span style="color: #89DDFF;">return</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Enter value</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">}</span></div><div class="line"><span style="color: #F07178;">    </span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">return</span><span style="color: #F07178;"> </span><span style="color: #FF9CAC;">true</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<h2 id="logger"><a
+  href="#logger"
+  
+  
+><span class="icon icon-link"></span></a>
+Logger</h2>
+<p>You can make use of the inbuilt logger to log messages to the console. We automatically strip out the colors and icons if the terminal does not support colors.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">export</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">default</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">class</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">Greet</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">extends</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">BaseCommand</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">public</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">static</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">commandName</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">greet</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">public</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">static</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">description</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Greet a person by their name</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">public</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">async</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">run</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">()</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">this.</span><span style="color: #A6ACCD;">logger</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">info</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">This is an info message</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">)</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">this.</span><span style="color: #A6ACCD;">logger</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">warning</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Running out of disk space</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">)</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">this.</span><span style="color: #A6ACCD;">logger</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">error</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">new</span><span style="color: #F07178;"> </span><span style="color: #FFCB6B;">Error</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Unable to write. Disk full</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">))</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">this.</span><span style="color: #A6ACCD;">logger</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">fatal</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">new</span><span style="color: #F07178;"> </span><span style="color: #FFCB6B;">Error</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Unable to write. Disk full</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">))</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">this.</span><span style="color: #A6ACCD;">logger</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">debug</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Something just happened</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">)</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">this.</span><span style="color: #A6ACCD;">logger</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">success</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Account created</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">)</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">this.</span><span style="color: #A6ACCD;">logger</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">info</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Message with time prefix</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">%time%</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">)</span></div><div class="line"><span style="color: #F07178;">    </span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #C792EA;">const</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">spinner</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">=</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">this.</span><span style="color: #A6ACCD;">logger</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">await</span><span style="color: #F07178;">(</span></div><div class="line"><span style="color: #F07178;">      </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">installing dependencies</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"><span style="color: #F07178;">      </span><span style="color: #89DDFF;">undefined,</span></div><div class="line"><span style="color: #F07178;">      </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">npm install --production</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"><span style="color: #F07178;">    )</span></div><div class="line"><span style="color: #F07178;">    </span></div><div class="line"><span style="color: #89DDFF;">    </span><span style="color: #676E95;">// perform some task</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #A6ACCD;">spinner</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">stop</span><span style="color: #F07178;">()</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
+</div>
+
+<p><figure>
+  <img
+    data-src="https://res.cloudinary.com/adonis-js/image/upload/q_auto,f_auto/v1617272056/v5/ace-logger-output.png"
+    alt=""
+    class="lazyload"
+    
+  >
+</figure>
+</p>
+<p>All of the logger methods also receives an optional value for the log message <code>prefix</code> and <code>suffix</code>.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">this.</span><span style="color: #A6ACCD;">logger</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">info</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">hello world</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">prefix</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">suffix</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div></code></pre>
+</div>
+
+<h3 id="actions"><a
+  href="#actions"
+  
+  
+><span class="icon icon-link"></span></a>
+Actions</h3>
+<p>Along with the standard log messages, you can also display log messages for a certain action. For example: An action to create the file can use the following code to show its status.</p>
+<div class="alert alert-note"><p>The logger actions are used to only display the UI. You still have to perform the action
+yourself.</p></div>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> filePath </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">app/Models/User.ts</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"></div><div class="line"><span style="color: #89DDFF;">this.</span><span style="color: #A6ACCD;">logger</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">action</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">create</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">succeeded</span><span style="color: #A6ACCD;">(filePath)</span></div><div class="line"><span style="color: #89DDFF;">this.</span><span style="color: #A6ACCD;">logger</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">action</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">create</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">skipped</span><span style="color: #A6ACCD;">(filePath</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">File already exists</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div><div class="line"><span style="color: #89DDFF;">this.</span><span style="color: #A6ACCD;">logger</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">action</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">create</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">failed</span><span style="color: #A6ACCD;">(filePath</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Something went wrong</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div></code></pre>
+</div>
+
+<p><figure>
+  <img
+    data-src="https://res.cloudinary.com/adonis-js/image/upload/q_auto,f_auto/v1617281150/v5/logger-actions.png"
+    alt=""
+    class="lazyload"
+    
+  >
+</figure>
+</p>
+<h3 id="update-existing-log-line"><a
+  href="#update-existing-log-line"
+  
+  
+><span class="icon icon-link"></span></a>
+Update existing log line</h3>
+<p>The logger also allows you to log messages by updating the existing log line. Using this method, you can draw textual and ascii progress bars.</p>
+<p>Everytime you run the <code>logUpdate</code> method, it will update the existing log line with the new message. You can persist and move to the new line using the <code>logUpdatePersist</code> method.</p>
+<p>Following is a complete working example of displaying a progress bar.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">import</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">BaseCommand</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">from</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">@adonisjs/core/build/standalone</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"></div><div class="line"><span style="color: #89DDFF;">export</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">default</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">class</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">Greet</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">extends</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">BaseCommand</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">public</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">static</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">commandName</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">greet</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">private</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">getProgressBar</span><span style="color: #89DDFF;">(</span><span style="color: #A6ACCD;">currentPercentage</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">number</span><span style="color: #89DDFF;">)</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #676E95;">/**</span></div><div class="line"><span style="color: #676E95;">     * Draw one cell for almost every 3%. This is to ensure the</span></div><div class="line"><span style="color: #676E95;">     * progress bar renders fine on smaller terminal width</span></div><div class="line"><span style="color: #676E95;">     */</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #C792EA;">const</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">completed</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">=</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">Math</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">ceil</span><span style="color: #F07178;">(</span><span style="color: #A6ACCD;">currentPercentage</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">/</span><span style="color: #F07178;"> </span><span style="color: #F78C6C;">3</span><span style="color: #F07178;">)</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #C792EA;">const</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">incomplete</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">=</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">Math</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">ceil</span><span style="color: #F07178;">((</span><span style="color: #F78C6C;">100</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">-</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">currentPercentage</span><span style="color: #F07178;">) </span><span style="color: #89DDFF;">/</span><span style="color: #F07178;"> </span><span style="color: #F78C6C;">3</span><span style="color: #F07178;">)</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">return</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x60;</span><span style="color: #C3E88D;">[</span><span style="color: #89DDFF;">${</span><span style="color: #89DDFF;">new</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">Array</span><span style="color: #A6ACCD;">(completed)</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">join</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">=</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span><span style="color: #89DDFF;">}${</span><span style="color: #89DDFF;">new</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">Array</span><span style="color: #A6ACCD;">(incomplete)</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">join</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span><span style="color: #89DDFF;">}</span><span style="color: #C3E88D;">]</span><span style="color: #89DDFF;">&#x60;</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span></div><div class="line"></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">public</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">async</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">run</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">()</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">for</span><span style="color: #F07178;"> (</span><span style="color: #C792EA;">let</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">i</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">=</span><span style="color: #F07178;"> </span><span style="color: #F78C6C;">0</span><span style="color: #89DDFF;">;</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">i</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&lt;=</span><span style="color: #F07178;"> </span><span style="color: #F78C6C;">100</span><span style="color: #89DDFF;">;</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">i</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">=</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">i</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">+</span><span style="color: #F07178;"> </span><span style="color: #F78C6C;">2</span><span style="color: #F07178;">) </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">      </span><span style="color: #89DDFF;">await</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">new</span><span style="color: #F07178;"> </span><span style="color: #FFCB6B;">Promise</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">(</span><span style="color: #A6ACCD;">resolve</span><span style="color: #89DDFF;">)</span><span style="color: #F07178;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #F07178;"> </span><span style="color: #82AAFF;">setTimeout</span><span style="color: #F07178;">(</span><span style="color: #A6ACCD;">resolve</span><span style="color: #89DDFF;">,</span><span style="color: #F07178;"> </span><span style="color: #F78C6C;">50</span><span style="color: #F07178;">))</span></div><div class="line"><span style="color: #F07178;">      </span><span style="color: #89DDFF;">this.</span><span style="color: #A6ACCD;">logger</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">logUpdate</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x60;</span><span style="color: #C3E88D;">downloading </span><span style="color: #89DDFF;">${</span><span style="color: #89DDFF;">this.</span><span style="color: #82AAFF;">getProgressBar</span><span style="color: #A6ACCD;">(i)</span><span style="color: #89DDFF;">}</span><span style="color: #C3E88D;"> </span><span style="color: #89DDFF;">${</span><span style="color: #A6ACCD;">i</span><span style="color: #89DDFF;">}</span><span style="color: #C3E88D;">%</span><span style="color: #89DDFF;">&#x60;</span><span style="color: #F07178;">)</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">}</span></div><div class="line"></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">this.</span><span style="color: #A6ACCD;">logger</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">logUpdatePersist</span><span style="color: #F07178;">()</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
+</div>
+
+<div class="embed embed-video"><video controls="undefined"><source src="https://res.cloudinary.com/adonis-js/video/upload/q_auto/v1617273444/v5/progress-bar-ace.mov" type="video/mp4"/></video></div>
+<h2 id="cli-ui"><a
+  href="#cli-ui"
+  
+  
+><span class="icon icon-link"></span></a>
+CLI UI</h2>
+<p>Along with the logger, Ace also has a lot of built in primitives to enhance the UI of your command line. It includes the ability to <strong>draw tables</strong>, <strong>render instructions inside a box</strong>, and <strong>animate progress for tasks</strong>.</p>
+<h3 id="tables"><a
+  href="#tables"
+  
+  
+><span class="icon icon-link"></span></a>
+Tables</h3>
+<p>You can draw tables using the <code>this.ui.table</code> property. Following is an example of the same.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> table </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">this.</span><span style="color: #A6ACCD;">ui</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">table</span><span style="color: #A6ACCD;">()</span></div><div class="line"><span style="color: #A6ACCD;">table</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">head</span><span style="color: #A6ACCD;">([</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Name</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Email</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Score</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">])</span></div><div class="line"></div><div class="line"><span style="color: #676E95;">// Optionally define column widths</span></div><div class="line"><span style="color: #A6ACCD;">table</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">columnWidths</span><span style="color: #A6ACCD;">([</span><span style="color: #F78C6C;">15</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #F78C6C;">30</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #F78C6C;">10</span><span style="color: #A6ACCD;">])</span></div><div class="line"></div><div class="line"><span style="color: #676E95;">// Add new rows</span></div><div class="line"><span style="color: #A6ACCD;">table</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">row</span><span style="color: #A6ACCD;">([</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Virk</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">virk@adonisjs.com</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">67</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">])</span></div><div class="line"><span style="color: #A6ACCD;">table</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">row</span><span style="color: #A6ACCD;">([</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Romain</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">romain@adonisjs.com</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">82</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">])</span></div><div class="line"><span style="color: #A6ACCD;">table</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">row</span><span style="color: #A6ACCD;">([</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Nikk</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">nikk@adonisjs.com</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">41</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">])</span></div><div class="line"></div><div class="line"><span style="color: #676E95;">// Render the table</span></div><div class="line"><span style="color: #A6ACCD;">table</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">render</span><span style="color: #A6ACCD;">()</span></div></code></pre>
+</div>
+
+<ul>
+<li>You create a new table instance using the <code>this.ui.table()</code> method.</li>
+<li>Create the table head using the <code>.head()</code> method and pass an array of columns to create.</li>
+<li>Add new rows using the <code>.row()</code> method.</li>
+<li>And finally render the table using the <code>.render()</code> method.</li>
+</ul>
+<p><figure>
+  <img
+    data-src="https://res.cloudinary.com/adonis-js/image/upload/q_auto,f_auto/v1617281322/v5/ui-table.png"
+    alt=""
+    class="lazyload"
+    
+  >
+</figure>
+</p>
+<h3 id="display-instructions"><a
+  href="#display-instructions"
+  
+  
+><span class="icon icon-link"></span></a>
+Display instructions</h3>
+<p>You can display instructions for a given action by drawing them inside a bounded box. For example:</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">this.</span><span style="color: #A6ACCD;">ui</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">instructions</span><span style="color: #A6ACCD;">()</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">add</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x60;</span><span style="color: #C3E88D;">cd </span><span style="color: #89DDFF;">${</span><span style="color: #89DDFF;">this.</span><span style="color: #A6ACCD;">colors</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">cyan</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">hello-world</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span><span style="color: #89DDFF;">}&#x60;</span><span style="color: #A6ACCD;">)</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">add</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x60;</span><span style="color: #C3E88D;">Run </span><span style="color: #89DDFF;">${</span><span style="color: #89DDFF;">this.</span><span style="color: #A6ACCD;">colors</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">cyan</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">node ace serve --watch</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span><span style="color: #89DDFF;">}</span><span style="color: #C3E88D;"> to start the server</span><span style="color: #89DDFF;">&#x60;</span><span style="color: #A6ACCD;">)</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">render</span><span style="color: #A6ACCD;">()</span></div></code></pre>
+</div>
+
+<ul>
+<li>Calling the <code>this.ui.instructions()</code> method begins a new instructions block.</li>
+<li>Next, you can add new lines by using the <code>.add()</code> method.</li>
+<li>Finally, call the <code>.render()</code> method to render it on the console.</li>
+</ul>
+<p><figure>
+  <img
+    data-src="https://res.cloudinary.com/adonis-js/image/upload/q_auto,f_auto/v1617281756/v5/logger-instructions.png"
+    alt=""
+    class="lazyload"
+    
+  >
+</figure>
+</p>
+<h3 id="sticker"><a
+  href="#sticker"
+  
+  
+><span class="icon icon-link"></span></a>
+Sticker</h3>
+<p>A sticker is similar to the <code>instructions</code> block. However, it does not prefix the lines with a pointer <code>&gt;</code>. Rest is all the same.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">this.</span><span style="color: #A6ACCD;">ui</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">sticker</span><span style="color: #A6ACCD;">()</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">add</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Started HTTP server</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">add</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;&#x27;</span><span style="color: #A6ACCD;">)</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">add</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x60;</span><span style="color: #C3E88D;">Local address:    </span><span style="color: #89DDFF;">${</span><span style="color: #89DDFF;">this.</span><span style="color: #A6ACCD;">colors</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">cyan</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">http://localhost:3333</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span><span style="color: #89DDFF;">}&#x60;</span><span style="color: #A6ACCD;">)</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">add</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x60;</span><span style="color: #C3E88D;">Network address:  </span><span style="color: #89DDFF;">${</span><span style="color: #89DDFF;">this.</span><span style="color: #A6ACCD;">colors</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">cyan</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">http://192.168.1.4:3333</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span><span style="color: #89DDFF;">}&#x60;</span><span style="color: #A6ACCD;">)</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">render</span><span style="color: #A6ACCD;">()</span></div></code></pre>
+</div>
+
+<p><figure>
+  <img
+    data-src="https://res.cloudinary.com/adonis-js/image/upload/q_auto,f_auto/v1617282627/v5/logger-sticker.png"
+    alt=""
+    class="lazyload"
+    
+  >
+</figure>
+</p>
+<h3 id="tasks-renderer"><a
+  href="#tasks-renderer"
+  
+  
+><span class="icon icon-link"></span></a>
+Tasks renderer</h3>
+<p>You can make use of tasks renderer to display the output of multiple actions. AdonisJS itself uses it to display the UI when scaffolding a new app.</p>
+<p>The tasks renderer has two output modes, ie <code>minimal</code> and <code>verbose</code>. We automatically switch to <code>verbose</code> mode when the shell is <a
+  href="https://github.com/poppinss/cliui/blob/develop/api.ts#L28-L30"
+  target=&quot;_blank&quot;
+  rel=&quot;noopener&quot;
+>not interactive</a>
+.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> tasksManager </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">this.</span><span style="color: #A6ACCD;">ui</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">tasks</span><span style="color: #A6ACCD;">()</span></div><div class="line"></div><div class="line"><span style="color: #676E95;">// Manually switch to verbose renderer</span></div><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> tasksManager </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">this.</span><span style="color: #A6ACCD;">ui</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">tasks</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">verbose</span><span style="color: #A6ACCD;">()</span></div></code></pre>
+</div>
+
+<p>After creating the tasks renderer, you add a new task by calling the <code>.add</code> method and perform the actual task work inside it. Once done performing the task, you must call <code>task.complete</code> or <code>task.fail</code> to move to the next task in the queue.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #A6ACCD;">tasksManager</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">add</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">clone repo</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">async</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">(</span><span style="color: #A6ACCD;">logger</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> task</span><span style="color: #89DDFF;">)</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #89DDFF;">    </span><span style="color: #676E95;">// use the logger to log about the progress</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">await</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">task</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">complete</span><span style="color: #F07178;">()</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">add</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">install package</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">async</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">(</span><span style="color: #A6ACCD;">logger</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> task</span><span style="color: #89DDFF;">)</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">await</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">task</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">fail</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">new</span><span style="color: #F07178;"> </span><span style="color: #FFCB6B;">Error</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Cannot install packages</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">))</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
+</div>
+
+<p>Call the <code>run</code> method after defining all the tasks.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> tasksManager</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">run</span><span style="color: #A6ACCD;">()</span></div></code></pre>
+</div>
+
+<h2 id="templates-generator"><a
+  href="#templates-generator"
+  
+  
+><span class="icon icon-link"></span></a>
+Templates generator</h2>
+<p>Ace has an inbuilt lightweight template generator. You can use it to generate files from pre-existing stubs. For example:</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line dim"><span style="color: #89DDFF;">import</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">join</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">from</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">path</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line dim"><span style="color: #89DDFF;">import</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">BaseCommand</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">from</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">@adonisjs/core/build/standalone</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line dim"></div><div class="line dim"><span style="color: #89DDFF;">export</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">default</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">class</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">Greet</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">extends</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">BaseCommand</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line dim"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">public</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">static</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">commandName</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">greet</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line dim"></div><div class="line dim"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">public</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">async</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">run</span><span style="color: #89DDFF;">()</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line highlight"><span style="color: #F07178;">    </span><span style="color: #C792EA;">const</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">name</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">=</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">UsersController</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line highlight"></div><div class="line highlight"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">this.</span><span style="color: #A6ACCD;">generator</span></div><div class="line highlight"><span style="color: #F07178;">      </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">addFile</span><span style="color: #F07178;">(</span><span style="color: #A6ACCD;">name</span><span style="color: #F07178;">)</span></div><div class="line highlight"><span style="color: #F07178;">      </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">appRoot</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">this.</span><span style="color: #A6ACCD;">application</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">appRoot</span><span style="color: #F07178;">)</span></div><div class="line highlight"><span style="color: #F07178;">      </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">destinationDir</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">app/Controllers/Http</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">)</span></div><div class="line highlight"><span style="color: #F07178;">      </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">useMustache</span><span style="color: #F07178;">()</span></div><div class="line highlight"><span style="color: #F07178;">      </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">stub</span><span style="color: #F07178;">(</span><span style="color: #82AAFF;">join</span><span style="color: #F07178;">(</span><span style="color: #A6ACCD;">__dirname</span><span style="color: #89DDFF;">,</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">./templates/controller.txt</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">))</span></div><div class="line highlight"><span style="color: #F07178;">      </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">apply</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">{</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">name</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">}</span><span style="color: #F07178;">)</span></div><div class="line highlight"></div><div class="line highlight"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">await</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">this.</span><span style="color: #A6ACCD;">generator</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">run</span><span style="color: #F07178;">()</span></div><div class="line dim"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span></div><div class="line dim"><span style="color: #89DDFF;">}</span></div></code></pre>
+</div>
+
+<ul>
+<li>The <code>generator.addFile</code> method initiates the process to create a new file.</li>
+<li>Using its fluent API, you can define the file destination, its stub and data to pass to the stub</li>
+<li>Finally execute the <code>this.generator.run</code> to create all the files added using <code>.addFile</code> method.</li>
+</ul>
+<h4 id="addfile"><a
+  href="#addfile"
+  
+  
+><span class="icon icon-link"></span></a>
+addFile</h4>
+<p>The method creates a new instance of the <a
+  href="https://github.com/adonisjs/ace/blob/develop/src/Generator/File.ts"
+  target=&quot;_blank&quot;
+  rel=&quot;noopener&quot;
+>GeneratorFile</a>
+ class. It accepts a total of two arguments, first the file name (with or without the extension) and second is an object of options.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">this.</span><span style="color: #A6ACCD;">generator</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">addFile</span><span style="color: #A6ACCD;">(</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">UserController</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #89DDFF;">    </span><span style="color: #676E95;">// force filename to be plural</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #F07178;">form</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">plural</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"></div><div class="line"><span style="color: #89DDFF;">    </span><span style="color: #676E95;">// define &quot;.ts&quot; extension when not already defined</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #F07178;">extname</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">ts</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"></div><div class="line"><span style="color: #89DDFF;">    </span><span style="color: #676E95;">// re-format the name to &quot;camelCase&quot;</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #F07178;">pattern</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">camelcase</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"></div><div class="line"><span style="color: #89DDFF;">    </span><span style="color: #676E95;">// add &quot;Controller&quot; suffix, when not already defined</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #F07178;">suffix</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Controller</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"></div><div class="line"><span style="color: #89DDFF;">    </span><span style="color: #676E95;">// Do not pluralize when controller name matches one of the following</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #F07178;">formIgnoreList</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> [</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Home</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Auth</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Login</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">]</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">}</span></div><div class="line"><span style="color: #A6ACCD;">)</span></div></code></pre>
+</div>
+
+<h4 id="destinationdir"><a
+  href="#destinationdir"
+  
+  
+><span class="icon icon-link"></span></a>
+destinationDir</h4>
+<p>Define the destination directory in which the file should be created. You can also pull the directory name from the <code>.adonisrc.json</code> file as follows:</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #676E95;">// Get path to the config directory</span></div><div class="line"><span style="color: #A6ACCD;">file</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">destinationDir</span><span style="color: #A6ACCD;">(</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">this.</span><span style="color: #A6ACCD;">application</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">directoriesMap</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">get</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">config</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span><span style="color: #89DDFF;">!</span></div><div class="line"><span style="color: #A6ACCD;">)</span></div><div class="line"></div><div class="line"><span style="color: #676E95;">// Get path to the controllers namespace</span></div><div class="line"><span style="color: #A6ACCD;">file</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">destinationDir</span><span style="color: #A6ACCD;">(</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">this.</span><span style="color: #A6ACCD;">application</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">resolveNamespaceDirectory</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">httpControllers</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span><span style="color: #89DDFF;">!</span></div><div class="line"><span style="color: #A6ACCD;">)</span></div></code></pre>
+</div>
+
+<h4 id="approot"><a
+  href="#approot"
+  
+  
+><span class="icon icon-link"></span></a>
+appRoot</h4>
+<p>Define the root of the application. This is prefixed to the <code>destinationDir</code> to create an absolute path.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #A6ACCD;">file</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">appRoot</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">this.</span><span style="color: #A6ACCD;">application</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">appRoot)</span></div></code></pre>
+</div>
+
+<h4 id="stub"><a
+  href="#stub"
+  
+  
+><span class="icon icon-link"></span></a>
+stub</h4>
+<p>Define an absolute path to the stub template. You can write templates using ES6 template literals or use <a
+  href="https://mustache.github.io/"
+  target=&quot;_blank&quot;
+  rel=&quot;noopener&quot;
+>mustache</a>
+ by first calling <code>useMustache</code> method.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #A6ACCD;">file</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">useMustache</span><span style="color: #A6ACCD;">() </span><span style="color: #676E95;">// use mustache as the template engine</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">stub</span><span style="color: #A6ACCD;">(</span><span style="color: #82AAFF;">join</span><span style="color: #A6ACCD;">(__dirname</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">templates/controller.txt</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">))</span></div></code></pre>
+</div>
+
+<h4 id="apply"><a
+  href="#apply"
+  
+  
+><span class="icon icon-link"></span></a>
+apply</h4>
+<p>Share data with the mustache template. The current filename (after applying all the transformations) is shared with the template as the <code>filename</code> property</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #A6ACCD;">file</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">apply</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #F07178;">resourceful</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #FF9CAC;">true</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
+</div>
+
+<h4 id="run-1"><a
+  href="#run-1"
+  
+  
+><span class="icon icon-link"></span></a>
+run</h4>
+<p>The <code>generator.run</code> method begins the process of creating the files defined using the <code>.addFile</code> method. The generator skips the file, if the destination path already exists.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">this.</span><span style="color: #A6ACCD;">generator</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">run</span><span style="color: #A6ACCD;">()</span></div></code></pre>
+</div>
+
+<h2 id="lifecycle-hooks"><a
+  href="#lifecycle-hooks"
+  
+  
+><span class="icon icon-link"></span></a>
+Lifecycle hooks</h2>
+<p>Commands can define the prepare and the completed lifecycle hooks. The <code>prepare</code> method is executed before running the run method and the <code>completed</code> method is executed after the run method.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">export</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">default</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">class</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">Greet</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">extends</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">BaseCommand</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">public</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">async</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">prepare</span><span style="color: #89DDFF;">()</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #A6ACCD;">console</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">log</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">before run</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">)</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span></div><div class="line"></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">public</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">async</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">run</span><span style="color: #89DDFF;">()</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #A6ACCD;">console</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">log</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">run</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">)</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span></div><div class="line"></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">public</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">async</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">completed</span><span style="color: #89DDFF;">()</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #A6ACCD;">console</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">log</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">after run</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">)</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
+</div>
+
+<p>In case of errors, you can access the error using <code>this.error</code> property inside the <code>completed</code> method.</p>
+<h2 id="executing-commands-programmatically"><a
+  href="#executing-commands-programmatically"
+  
+  
+><span class="icon icon-link"></span></a>
+Executing commands programmatically</h2>
+<p>Executing other commands from the same process programmatically is actually not a good practice. Commands are not meant to be consumed by the other parts of the code as <strong>they export a user interface</strong> and <strong>not a coding interface</strong>. For example:</p>
+<ul>
+<li>You find the status of a command from the process exit code and NOT some return value.</li>
+<li>Commands dump their state to the terminal directly and don&#x27;t store it inside some property to be accessed programmatically.</li>
+</ul>
+<p>With all this said, there are a couple of ways to execute commands programmatically.</p>
+<h3 id="execute-command-as-a-child-process"><a
+  href="#execute-command-as-a-child-process"
+  
+  
+><span class="icon icon-link"></span></a>
+Execute command as a child process</h3>
+<p>The recommended approach is to execute the command in a separate child process. You can make use of the Node.js <code>child_process</code> module or use the <a
+  href="https://npm.im/execa"
+  target=&quot;_blank&quot;
+  rel=&quot;noopener&quot;
+>execa</a>
+ npm module.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line highlight"><span style="color: #89DDFF;">import</span><span style="color: #A6ACCD;"> execa </span><span style="color: #89DDFF;">from</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">execa</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line dim"><span style="color: #89DDFF;">import</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">BaseCommand</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">from</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">@adonisjs/core/build/standalone</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line dim"></div><div class="line dim"><span style="color: #89DDFF;">export</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">default</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">class</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">Greet</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">extends</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">BaseCommand</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line dim"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">public</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">static</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">commandName</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">greet</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line dim"></div><div class="line dim"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">public</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">async</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">run</span><span style="color: #89DDFF;">()</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line highlight"><span style="color: #F07178;">    </span><span style="color: #C792EA;">const</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">{</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">exitCode</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">}</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">=</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">await</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">execa</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">node</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">ace</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #F07178;"> [</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">make:controller</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">User</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">]</span><span style="color: #89DDFF;">,</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">{</span></div><div class="line highlight"><span style="color: #F07178;">      stdio</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">inherit</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line highlight"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">}</span><span style="color: #F07178;">)</span></div><div class="line dim"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span></div><div class="line dim"><span style="color: #89DDFF;">}</span></div></code></pre>
+</div>
+
+<h3 id="execute-command-within-the-same-process"><a
+  href="#execute-command-within-the-same-process"
+  
+  
+><span class="icon icon-link"></span></a>
+Execute command within the same process</h3>
+<p>Another option is to make use the Ace kernel to execute the command within the same process. In the following example, there is no way to know the exit code for the command.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line dim"><span style="color: #89DDFF;">import</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">BaseCommand</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">from</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">@adonisjs/core/build/standalone</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line dim"></div><div class="line dim"><span style="color: #89DDFF;">export</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">default</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">class</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">Greet</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">extends</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">BaseCommand</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line dim"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">public</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">static</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">commandName</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">greet</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line dim"></div><div class="line dim"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">public</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">async</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">run</span><span style="color: #89DDFF;">()</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line highlight"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">await</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">this.</span><span style="color: #A6ACCD;">kernel</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">exec</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">make:controller</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #F07178;"> [</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">User</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">])</span></div><div class="line dim"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span></div><div class="line dim"><span style="color: #89DDFF;">}</span></div></code></pre>
+</div>
+  </div>
+</main>
+
+<aside class="toc">
+    <div class="toc-container" data-turbo="false">
+      <h3> On this page </h3>
+      <nav>
+        <ul>
+<li>
+<p><a
+  href="#why-we-use-ace-instead-of-npm-scripts"
+  
+  
+>Why we use ace instead of npm scripts?</a>
+</p>
+</li>
+<li>
+<p><a
+  href="#usage"
+  
+  
+>Usage</a>
+</p>
+</li>
+<li>
+<p><a
+  href="#where-are-the-commands-defined"
+  
+  
+>Where are the commands defined?</a>
+</p>
+</li>
+<li>
+<p><a
+  href="#creating-a-new-command"
+  
+  
+>Creating a new command</a>
+</p>
+</li>
+<li>
+<p><a
+  href="#commands-structure"
+  
+  
+>Commands structure</a>
+</p>
+</li>
+<li>
+<p><a
+  href="#cli-arguments"
+  
+  
+>CLI arguments</a>
+</p>
+<ul>
+<li><a
+  href="#arguments"
+  
+  
+>Arguments</a>
+</li>
+</ul>
+</li>
+<li>
+<p><a
+  href="#flags"
+  
+  
+>Flags</a>
+</p>
+</li>
+<li>
+<p><a
+  href="#prompts"
+  
+  
+>Prompts</a>
+</p>
+</li>
+<li>
+<p><a
+  href="#logger"
+  
+  
+>Logger</a>
+</p>
+<ul>
+<li><a
+  href="#actions"
+  
+  
+>Actions</a>
+</li>
+<li><a
+  href="#update-existing-log-line"
+  
+  
+>Update existing log line</a>
+</li>
+</ul>
+</li>
+<li>
+<p><a
+  href="#cli-ui"
+  
+  
+>CLI UI</a>
+</p>
+<ul>
+<li><a
+  href="#tables"
+  
+  
+>Tables</a>
+</li>
+<li><a
+  href="#display-instructions"
+  
+  
+>Display instructions</a>
+</li>
+<li><a
+  href="#sticker"
+  
+  
+>Sticker</a>
+</li>
+<li><a
+  href="#tasks-renderer"
+  
+  
+>Tasks renderer</a>
+</li>
+</ul>
+</li>
+<li>
+<p><a
+  href="#templates-generator"
+  
+  
+>Templates generator</a>
+</p>
+</li>
+<li>
+<p><a
+  href="#lifecycle-hooks"
+  
+  
+>Lifecycle hooks</a>
+</p>
+</li>
+<li>
+<p><a
+  href="#executing-commands-programmatically"
+  
+  
+>Executing commands programmatically</a>
+</p>
+<ul>
+<li><a
+  href="#execute-command-as-a-child-process"
+  
+  
+>Execute command as a child process</a>
+</li>
+<li><a
+  href="#execute-command-within-the-same-process"
+  
+  
+>Execute command within the same process</a>
+</li>
+</ul>
+</li>
+        </ul>
+      </nav>
+    </div>
+</aside>
+
+</body>
+</html>

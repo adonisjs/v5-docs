@@ -51,7 +51,7 @@
     type="font/woff2"
     crossorigin
   >
-<link rel="stylesheet" href="/assets/app.ee5a9736.css" />
+<link rel="stylesheet" href="/assets/app.be48d775.css" />
 <script src="/assets/342.70de04a2.js" defer></script>
 <script src="/assets/app.26949583.js" defer></script>
 </head>
@@ -60,7 +60,7 @@
   <header class="header">
     <div class="header-container">
 
-      <div class="primary-links"><a href="#sidenav-open" title="Open Docs Menu" aria-label="Open Docs Menu" class="hamburger for-mobile">
+      <div class="primary-links"><a href="#sidenav-open" title="Open Docs Menu" aria-label="Open Docs Menu" class="hamburger for-mobile" data-turbo="false">
   <svg role="presentation" focusable="false" aria-label="Icon for open menu" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
     <line x1="4" y1="6" x2="20" y2="6" />
@@ -92,8 +92,14 @@
         <ul>
 
               <li class="active">
-                <a href="/guides/validator/introduction">
+                <a href="/guides/application">
                   Guides
+                </a>
+              </li>
+
+              <li class="">
+                <a href="/reference/database/connection">
+                  Reference guides
                 </a>
               </li>
         </ul>
@@ -112,18 +118,29 @@
   </header>
 </div>
 
-<div id="sidenav-open" data-turbo-permanent>
+<div id="sidenav-open">
   <div class="sidebar" id="sidebar" data-maintain-scroll>
     <div class="sidebar-container">
 
 
 
               <nav>
+                  <h3> Fundamentals </h3>
                 <ol>
                     <li
                       class=""
                     >
-                      <a href="/guides/introduction"> Introduction </a>
+                      <a href="/guides/application"> Application </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/config"> Config </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/environment-variables"> Environment variables </a>
                     </li>
                 </ol>
               </nav>
@@ -173,22 +190,12 @@
                     <li
                       class=""
                     >
-                      <a href="/guides/session"> Session </a>
-                    </li>
-                    <li
-                      class=""
-                    >
                       <a href="/guides/cookies"> Cookies </a>
                     </li>
                     <li
                       class=""
                     >
-                      <a href="/guides/hooks"> Hooks </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/exception-handling"> Exception Handling </a>
+                      <a href="/guides/session"> Session </a>
                     </li>
                     <li
                       class=""
@@ -198,12 +205,12 @@
                     <li
                       class=""
                     >
-                      <a href="/guides/web-security"> Web security </a>
+                      <a href="/guides/assets-manager"> Assets manager </a>
                     </li>
                     <li
                       class=""
                     >
-                      <a href="/guides/cors"> CORS </a>
+                      <a href="/guides/exception-handling"> Exception Handling </a>
                     </li>
                 </ol>
               </nav>
@@ -218,22 +225,37 @@
                     <li
                       class=""
                     >
-                      <a href="/guides/views/rendering"> Rendering views </a>
+                      <a href="/guides/views/rendering"> Rendering </a>
                     </li>
                     <li
                       class=""
                     >
-                      <a href="/guides/views/templates-syntax"> Template syntax </a>
+                      <a href="/guides/views/templating-syntax"> Templating syntax </a>
                     </li>
                     <li
                       class=""
                     >
-                      <a href="/guides/views/layouts-and-partials"> Layouts &amp; Partials </a>
+                      <a href="/guides/views/data-flow"> Data flow </a>
                     </li>
                     <li
                       class=""
                     >
-                      <a href="/guides/views/conditionals-and-loops"> Conditionals &amp; Loops </a>
+                      <a href="/guides/views/conditionals"> Conditionals </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/views/loops"> Loops </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/views/partials"> Partials </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/views/layouts"> Layouts </a>
                     </li>
                     <li
                       class=""
@@ -243,17 +265,17 @@
                     <li
                       class=""
                     >
+                      <a href="/guides/views/mutations"> Mutations </a>
+                    </li>
+                    <li
+                      class=""
+                    >
                       <a href="/guides/views/debugging"> Debugging </a>
                     </li>
                     <li
                       class=""
                     >
-                      <a href="/guides/views/advanced-options"> Advanced Options </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/views/faqs"> FAQs </a>
+                      <a href="/guides/views/custom-tags"> Creating custom tags </a>
                     </li>
                 </ol>
               </nav>
@@ -297,13 +319,54 @@
                     </li>
                 </ol>
               </nav>
+              <nav>
+                  <h3> Security </h3>
+                <ol>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/security/web-security"> Web Security </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/security/encryption"> Encryption </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/security/hashing"> Hashing </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/security/signed-urls"> Signed URLs </a>
+                    </li>
+                </ol>
+              </nav>
+              <nav>
+                  <h3> Digging deeper </h3>
+                <ol>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/ace-commandline"> Ace </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/repl"> AdonisJS Repl </a>
+                    </li>
+                </ol>
+              </nav>
+
     </div>
   </div>
 
-  <a href="#" id="sidenav-close" class="sidenav-backdrop" title="Close Docs Menu" aria-label="Close Docs Menu"></a>
+  <a href="#" data-turbo="false" id="sidenav-close" class="sidenav-backdrop" title="Close Docs Menu" aria-label="Close Docs Menu"></a>
 </div>
 
-<main class="doc">
+<main class="doc" data-turbo="false">
   <div class="markdown">
     <h1>Context</h1><p>HTTP context is a request-specific object that holds the information like the <code>request body</code>, <code>cookies</code>, <code>headers</code>, the currently <code>logged in user</code>, and much more for a given HTTP request.</p>
 <p>The HTTP context is passed by reference to the route handler, middleware, HTTP hooks, and exception handler.</p>
@@ -312,38 +375,93 @@
 <pre><code><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">get</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">({</span><span style="color: #A6ACCD;"> request</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> auth</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> response </span><span style="color: #89DDFF;">})</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #676E95;">/**</span></div><div class="line"><span style="color: #676E95;">   * Request url</span></div><div class="line"><span style="color: #676E95;">   */</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #A6ACCD;">console</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">log</span><span style="color: #F07178;">(</span><span style="color: #A6ACCD;">request</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">url</span><span style="color: #F07178;">())</span></div><div class="line"></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #676E95;">/**</span></div><div class="line"><span style="color: #676E95;">   * Request body + query params</span></div><div class="line"><span style="color: #676E95;">   */</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #A6ACCD;">console</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">log</span><span style="color: #F07178;">(</span><span style="color: #A6ACCD;">request</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">all</span><span style="color: #F07178;">())</span></div><div class="line"></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #676E95;">/**</span></div><div class="line"><span style="color: #676E95;">   * Send response</span></div><div class="line"><span style="color: #676E95;">   */</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #A6ACCD;">response</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">send</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">hello world</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">)</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #A6ACCD;">response</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">send</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">{</span><span style="color: #F07178;"> hello</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">world</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">}</span><span style="color: #F07178;">)</span></div><div class="line"></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #676E95;">/**</span></div><div class="line"><span style="color: #676E95;">   * Available when auth is configured</span></div><div class="line"><span style="color: #676E95;">   */</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #A6ACCD;">console</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">log</span><span style="color: #F07178;">(</span><span style="color: #A6ACCD;">auth</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">user</span><span style="color: #F07178;">)</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h2 id="differences-from-the-express-req-and-res-objects"><a href="#differences-from-the-express-req-and-res-objects" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Differences from the express <code>req</code> and <code>res</code> objects?</h2>
-<p>You will not see any <code>req</code> or <code>res</code> objects in AdonisJS. Everything, including the request and the response, is part of the HTTP context.</p>
-<p>Also, you are encouraged to add your custom properties to the <code>ctx</code> and not the <code>request</code> object.</p>
-<h2 id="http-context-properties"><a href="#http-context-properties" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Http Context Properties</h2>
+<h2 id="differences-from-the-express-req-and-res-objects"><a
+  href="#differences-from-the-express-req-and-res-objects"
+  
+  
+><span class="icon icon-link"></span></a>
+Differences from the express <code>req</code> and <code>res</code> objects?</h2>
+<p>You will not see any <code>req</code> or <code>res</code> objects in AdonisJS. Everything, including the request and the response is part of the HTTP context.</p>
+<p>Also, you are encouraged to add your custom properties to the <code>ctx</code> object and NOT to the <code>request</code> object.</p>
+<h2 id="http-context-properties"><a
+  href="#http-context-properties"
+  
+  
+><span class="icon icon-link"></span></a>
+Http Context Properties</h2>
 <p>Following is the list of properties available on the HTTP context. As you will install new packages, they may also add more properties to this object.</p>
 <p><figure>
-  <img data-src="https://res.cloudinary.com/adonis-js/image/upload/f_auto,q_auto/v1609928565/v5/context-inspect.png" alt="Output of ctx.inspect({ depth: 0 })" class="lazyload">
+  <img
+    data-src="https://res.cloudinary.com/adonis-js/image/upload/f_auto,q_auto/v1609928565/v5/context-inspect.png"
+    alt="Output of ctx.inspect({ depth: 0 })"
+    class="lazyload"
+    
+  >
     <figcaption>Output of ctx.inspect({ depth: 0 })</figcaption>
 </figure>
 </p>
-<h4 id="request"><a href="#request" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>request</h4>
-<p>Reference to the <a href="/guides/request">HTTP request</a></p>
+<h4 id="request"><a
+  href="#request"
+  
+  
+><span class="icon icon-link"></span></a>
+request</h4>
+<p>Reference to the <a
+  href="/guides/request"
+  
+  
+>HTTP request</a>
+</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">get</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">async</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">({</span><span style="color: #A6ACCD;"> request </span><span style="color: #89DDFF;">})</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h4 id="response"><a href="#response" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>response</h4>
-<p>Reference to the <a href="/guides/response">HTTP response</a></p>
+<h4 id="response"><a
+  href="#response"
+  
+  
+><span class="icon icon-link"></span></a>
+response</h4>
+<p>Reference to the <a
+  href="/guides/response"
+  
+  
+>HTTP response</a>
+</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">get</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">async</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">({</span><span style="color: #A6ACCD;"> response </span><span style="color: #89DDFF;">})</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h4 id="logger"><a href="#logger" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>logger</h4>
-<p>Reference to the logger instance. A <a href="../digging-deeper/logger.md#child_logger">child logger</a> instance with a unique <a href="/guides/request#request-id">request id</a> is created for every HTTP request.</p>
+<h4 id="logger"><a
+  href="#logger"
+  
+  
+><span class="icon icon-link"></span></a>
+logger</h4>
+<p>Reference to the logger instance. A <a
+  href="../digging-deeper/logger.md#child_logger"
+  
+  
+>child logger</a>
+ instance with a unique <a
+  href="/guides/request#request-id"
+  
+  
+>request id</a>
+ is created for every HTTP request.</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">get</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">async</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">({</span><span style="color: #A6ACCD;"> logger </span><span style="color: #89DDFF;">})</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h4 id="route"><a href="#route" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>route</h4>
+<h4 id="route"><a
+  href="#route"
+  
+  
+><span class="icon icon-link"></span></a>
+route</h4>
 <p>Reference to the matched route for the current HTTP request. The route object has the following properties.</p>
 <ul>
 <li><code>pattern</code>: The route pattern</li>
@@ -356,42 +474,87 @@
 <pre><code><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">get</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">async</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">({</span><span style="color: #A6ACCD;"> route </span><span style="color: #89DDFF;">})</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h4 id="params"><a href="#params" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>params</h4>
+<h4 id="params"><a
+  href="#params"
+  
+  
+><span class="icon icon-link"></span></a>
+params</h4>
 <p>An object of route params.</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">get</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">users/:id</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">async</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">({</span><span style="color: #A6ACCD;"> params </span><span style="color: #89DDFF;">})</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #A6ACCD;">console</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">log</span><span style="color: #F07178;">(</span><span style="color: #A6ACCD;">params</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">id</span><span style="color: #F07178;">)</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h4 id="subdomains"><a href="#subdomains" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>subdomains</h4>
+<h4 id="subdomains"><a
+  href="#subdomains"
+  
+  
+><span class="icon icon-link"></span></a>
+subdomains</h4>
 <p>An object of route subdomains. Only available when the route is registered with a domain.</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">group</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">()</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">get</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #F07178;"> </span><span style="color: #C792EA;">async</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">({</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">subdomains</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">})</span><span style="color: #F07178;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #A6ACCD;">console</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">log</span><span style="color: #F07178;">(</span><span style="color: #A6ACCD;">subdomains</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">tenant</span><span style="color: #F07178;">)</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span><span style="color: #F07178;">)</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">domain</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">:tenant.adonisjs.com</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h4 id="session"><a href="#session" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>session <span data-hint="Available when @adonisjs/session is installed" class="hint"></span></h4>
-<p>Reference to the <a href="/guides/session">session object</a>.</p>
+<h4 id="session"><a
+  href="#session"
+  
+  
+><span class="icon icon-link"></span></a>
+session</h4>
+<p>Reference to the <a
+  href="/guides/session"
+  
+  
+>session object</a>
+. Available only when <code>@adonisjs/session</code> package is installed.</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">get</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">async</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">({</span><span style="color: #A6ACCD;"> session </span><span style="color: #89DDFF;">})</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #A6ACCD;">session</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">get</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">cart_value</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">)</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h4 id="auth"><a href="#auth" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>auth <span data-hint="Available when @adonisjs/auth is installed" class="hint"></span></h4>
-<p>Reference to the <a href="../auth/introduction.md">auth object</a>.</p>
+<h4 id="auth"><a
+  href="#auth"
+  
+  
+><span class="icon icon-link"></span></a>
+auth</h4>
+<p>Reference to the <a
+  href="../auth/introduction.md"
+  
+  
+>auth object</a>
+. Available only when <code>@adonisjs/auth</code> package is installed.</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">get</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">async</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">({</span><span style="color: #A6ACCD;"> auth </span><span style="color: #89DDFF;">})</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #A6ACCD;">console</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">log</span><span style="color: #F07178;">(</span><span style="color: #A6ACCD;">auth</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">user</span><span style="color: #F07178;">)</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h4 id="view"><a href="#view" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>view <span data-hint="Available when @adonisjs/view is installed" class="hint"></span></h4>
-<p>Reference to the <a href="/guides/views/introduction">view renderer object</a>.</p>
+<h4 id="view"><a
+  href="#view"
+  
+  
+><span class="icon icon-link"></span></a>
+view</h4>
+<p>Reference to the <a
+  href="/guides/views/introduction"
+  
+  
+>view renderer object</a>
+. Available only when <code>@adonisjs/view</code> package is installed.</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">get</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">async</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">({</span><span style="color: #A6ACCD;"> view </span><span style="color: #89DDFF;">})</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">return</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">view</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">render</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">welcome</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">)</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h2 id="extending-context"><a href="#extending-context" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Extending Context</h2>
+<h2 id="extending-context"><a
+  href="#extending-context"
+  
+  
+><span class="icon icon-link"></span></a>
+Extending Context</h2>
 <p>The HTTP context object is meant to be extended by other packages or your own application code. A common use case is to attach custom properties inside a middleware. For example:</p>
 <div class="dimer-highlight">
 
@@ -399,16 +562,34 @@
 </div>
 
 <p>Here we have added a custom <code>location</code> property to the <code>ctx</code>, which you can access inside the route handler or the upcoming middlewares.</p>
-<h3 id="informing-typescript-about-the-custom-property"><a href="#informing-typescript-about-the-custom-property" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Informing typescript about the custom property</h3>
-<p>The <code>location</code> property is added at the runtime; hence Typescript does not know about it. To inform the Typescript, we will use <a href="https://www.typescriptlang.org/docs/handbook/declaration-merging.html#merging-interfaces">declaration merging</a> and add the property to the <code>HttpContextContract</code> interface.</p>
+<h3 id="informing-typescript-about-the-custom-property"><a
+  href="#informing-typescript-about-the-custom-property"
+  
+  
+><span class="icon icon-link"></span></a>
+Informing typescript about the custom property</h3>
+<p>The <code>location</code> property is added at the runtime; hence Typescript does not know about it. To inform the Typescript, we will use <a
+  href="https://www.typescriptlang.org/docs/handbook/declaration-merging.html#merging-interfaces"
+  target=&quot;_blank&quot;
+  rel=&quot;noopener&quot;
+>declaration merging</a>
+ and add the property to the <code>HttpContextContract</code> interface.</p>
 <p>Create a new file at path <code>contracts/context.ts</code> (the filename is not important) and paste the following contents inside it.</p>
 <div class="dimer-highlight">
+    <div class="codeblock-title">
+      contracts/context.ts
+    </div>
 
-<pre><code><div class="line"><span style="color: #A6ACCD;">declare module &#x27;@ioc:Adonis/Core/HttpContext&#x27; {</span></div><div class="line"><span style="color: #A6ACCD;">  import { Lookup } from &#x27;geoip-lite&#x27;</span></div><div class="line"><span style="color: #A6ACCD;"></span></div><div class="line"><span style="color: #A6ACCD;">  interface HttpContextContract {</span></div><div class="line"><span style="color: #A6ACCD;">    location: Lookup | null</span></div><div class="line"><span style="color: #A6ACCD;">  }</span></div><div class="line"><span style="color: #A6ACCD;">}</span></div></code></pre>
+<pre><code><div class="line"><span style="color: #C792EA;">declare</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">module</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">@ioc:Adonis/Core/HttpContext</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">import</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">{</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">Lookup</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">}</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">from</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">geoip-lite</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #C792EA;">interface</span><span style="color: #F07178;"> </span><span style="color: #FFCB6B;">HttpContextContract</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">    location</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #FFCB6B;">Lookup</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">|</span><span style="color: #F07178;"> </span><span style="color: #FFCB6B;">null</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
 </div>
 
 <p>That&#x27;s all! Now, Typescript will not complain about the missing property on the <code>ctx</code> object.</p>
-<h3 id="using-getters-and-macros"><a href="#using-getters-and-macros" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Using getters and macros</h3>
+<h3 id="using-getters-and-macros"><a
+  href="#using-getters-and-macros"
+  
+  
+><span class="icon icon-link"></span></a>
+Using getters and macros</h3>
 <p>You can also use getters and macros for adding custom properties to the <code>ctx</code> object. In the previous example, we added an <strong>instance property</strong> to the <code>ctx</code> object. However, getters and macros add the property on the <strong>prototype of the class</strong>.</p>
 <p>Also, there is no need to create a middleware this time since you need to define the macros/getters only once, and they are available for all the instances of the HttpContext class.</p>
 <p>Open the pre-existing <code>providers/AppProvider.ts</code> file and paste the following code inside the <code>boot</code> method.</p>
@@ -423,7 +604,12 @@
 <pre><code><div class="line"><span style="color: #A6ACCD;">HttpContext</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">getter</span><span style="color: #A6ACCD;">(</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">location</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">function</span><span style="color: #A6ACCD;"> </span><span style="color: #82AAFF;">location</span><span style="color: #89DDFF;">()</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">return</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">geoip</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">lookup</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">this.</span><span style="color: #A6ACCD;">request</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">ip</span><span style="color: #F07178;">())</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">},</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #FF9CAC;">true</span><span style="color: #A6ACCD;"> </span><span style="color: #676E95;">// 👈 register as singleton</span></div><div class="line"><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h3 id="macros"><a href="#macros" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Macros</h3>
+<h3 id="macros"><a
+  href="#macros"
+  
+  
+><span class="icon icon-link"></span></a>
+Macros</h3>
 <p>Getters are always accessible as properties. However, macros can be both properties and methods.</p>
 <div class="dimer-highlight">
 
@@ -444,17 +630,47 @@
       <nav>
         <ul>
 <li>
-<p><a href="#differences-from-the-express-req-and-res-objects">Differences from the express <code>req</code> and <code>res</code> objects?</a></p>
+<p><a
+  href="#differences-from-the-express-req-and-res-objects"
+  
+  
+>Differences from the express <code>req</code> and <code>res</code> objects?</a>
+</p>
 </li>
 <li>
-<p><a href="#http-context-properties">Http Context Properties</a></p>
+<p><a
+  href="#http-context-properties"
+  
+  
+>Http Context Properties</a>
+</p>
 </li>
 <li>
-<p><a href="#extending-context">Extending Context</a></p>
+<p><a
+  href="#extending-context"
+  
+  
+>Extending Context</a>
+</p>
 <ul>
-<li><a href="#informing-typescript-about-the-custom-property">Informing typescript about the custom property</a></li>
-<li><a href="#using-getters-and-macros">Using getters and macros</a></li>
-<li><a href="#macros">Macros</a></li>
+<li><a
+  href="#informing-typescript-about-the-custom-property"
+  
+  
+>Informing typescript about the custom property</a>
+</li>
+<li><a
+  href="#using-getters-and-macros"
+  
+  
+>Using getters and macros</a>
+</li>
+<li><a
+  href="#macros"
+  
+  
+>Macros</a>
+</li>
 </ul>
 </li>
         </ul>

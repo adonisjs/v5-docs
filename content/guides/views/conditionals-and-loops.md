@@ -1,6 +1,0 @@
-- Talking about the writing conditionals
-- Talking about writing loops
-- Loops magic variables
-- Nested loops
-- Inline loops with curly braces - `{{ users.map((user) => user.username).join('/') }}`
-- Inline conditional using ternary operator

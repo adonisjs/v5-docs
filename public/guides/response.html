@@ -51,7 +51,7 @@
     type="font/woff2"
     crossorigin
   >
-<link rel="stylesheet" href="/assets/app.ee5a9736.css" />
+<link rel="stylesheet" href="/assets/app.be48d775.css" />
 <script src="/assets/342.70de04a2.js" defer></script>
 <script src="/assets/app.26949583.js" defer></script>
 </head>
@@ -60,7 +60,7 @@
   <header class="header">
     <div class="header-container">
 
-      <div class="primary-links"><a href="#sidenav-open" title="Open Docs Menu" aria-label="Open Docs Menu" class="hamburger for-mobile">
+      <div class="primary-links"><a href="#sidenav-open" title="Open Docs Menu" aria-label="Open Docs Menu" class="hamburger for-mobile" data-turbo="false">
   <svg role="presentation" focusable="false" aria-label="Icon for open menu" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
     <line x1="4" y1="6" x2="20" y2="6" />
@@ -92,8 +92,14 @@
         <ul>
 
               <li class="active">
-                <a href="/guides/validator/introduction">
+                <a href="/guides/application">
                   Guides
+                </a>
+              </li>
+
+              <li class="">
+                <a href="/reference/database/connection">
+                  Reference guides
                 </a>
               </li>
         </ul>
@@ -112,18 +118,29 @@
   </header>
 </div>
 
-<div id="sidenav-open" data-turbo-permanent>
+<div id="sidenav-open">
   <div class="sidebar" id="sidebar" data-maintain-scroll>
     <div class="sidebar-container">
 
 
 
               <nav>
+                  <h3> Fundamentals </h3>
                 <ol>
                     <li
                       class=""
                     >
-                      <a href="/guides/introduction"> Introduction </a>
+                      <a href="/guides/application"> Application </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/config"> Config </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/environment-variables"> Environment variables </a>
                     </li>
                 </ol>
               </nav>
@@ -173,22 +190,12 @@
                     <li
                       class=""
                     >
-                      <a href="/guides/session"> Session </a>
-                    </li>
-                    <li
-                      class=""
-                    >
                       <a href="/guides/cookies"> Cookies </a>
                     </li>
                     <li
                       class=""
                     >
-                      <a href="/guides/hooks"> Hooks </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/exception-handling"> Exception Handling </a>
+                      <a href="/guides/session"> Session </a>
                     </li>
                     <li
                       class=""
@@ -198,12 +205,12 @@
                     <li
                       class=""
                     >
-                      <a href="/guides/web-security"> Web security </a>
+                      <a href="/guides/assets-manager"> Assets manager </a>
                     </li>
                     <li
                       class=""
                     >
-                      <a href="/guides/cors"> CORS </a>
+                      <a href="/guides/exception-handling"> Exception Handling </a>
                     </li>
                 </ol>
               </nav>
@@ -218,22 +225,37 @@
                     <li
                       class=""
                     >
-                      <a href="/guides/views/rendering"> Rendering views </a>
+                      <a href="/guides/views/rendering"> Rendering </a>
                     </li>
                     <li
                       class=""
                     >
-                      <a href="/guides/views/templates-syntax"> Template syntax </a>
+                      <a href="/guides/views/templating-syntax"> Templating syntax </a>
                     </li>
                     <li
                       class=""
                     >
-                      <a href="/guides/views/layouts-and-partials"> Layouts &amp; Partials </a>
+                      <a href="/guides/views/data-flow"> Data flow </a>
                     </li>
                     <li
                       class=""
                     >
-                      <a href="/guides/views/conditionals-and-loops"> Conditionals &amp; Loops </a>
+                      <a href="/guides/views/conditionals"> Conditionals </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/views/loops"> Loops </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/views/partials"> Partials </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/views/layouts"> Layouts </a>
                     </li>
                     <li
                       class=""
@@ -243,17 +265,17 @@
                     <li
                       class=""
                     >
+                      <a href="/guides/views/mutations"> Mutations </a>
+                    </li>
+                    <li
+                      class=""
+                    >
                       <a href="/guides/views/debugging"> Debugging </a>
                     </li>
                     <li
                       class=""
                     >
-                      <a href="/guides/views/advanced-options"> Advanced Options </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/views/faqs"> FAQs </a>
+                      <a href="/guides/views/custom-tags"> Creating custom tags </a>
                     </li>
                 </ol>
               </nav>
@@ -297,45 +319,116 @@
                     </li>
                 </ol>
               </nav>
+              <nav>
+                  <h3> Security </h3>
+                <ol>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/security/web-security"> Web Security </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/security/encryption"> Encryption </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/security/hashing"> Hashing </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/security/signed-urls"> Signed URLs </a>
+                    </li>
+                </ol>
+              </nav>
+              <nav>
+                  <h3> Digging deeper </h3>
+                <ol>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/ace-commandline"> Ace </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/repl"> AdonisJS Repl </a>
+                    </li>
+                </ol>
+              </nav>
+
     </div>
   </div>
 
-  <a href="#" id="sidenav-close" class="sidenav-backdrop" title="Close Docs Menu" aria-label="Close Docs Menu"></a>
+  <a href="#" data-turbo="false" id="sidenav-close" class="sidenav-backdrop" title="Close Docs Menu" aria-label="Close Docs Menu"></a>
 </div>
 
-<main class="doc">
+<main class="doc" data-turbo="false">
   <div class="markdown">
-    <h1>Response</h1><p>The instance of the <a href="https://github.com/adonisjs/http-server/blob/develop/src/Response/index.ts">response class</a> allows you to respond to the HTTP requests. AdonisJS out of the box supports sending <strong>HTML fragments</strong>, <strong>JSON objects</strong>, <strong>streams</strong> and much more.</p>
+    <h1>Response</h1><p>The instance of the <a
+  href="https://github.com/adonisjs/http-server/blob/develop/src/Response/index.ts"
+  target=&quot;_blank&quot;
+  rel=&quot;noopener&quot;
+>response class</a>
+ allows you to respond to the HTTP requests. AdonisJS out of the box supports sending <strong>HTML fragments</strong>, <strong>JSON objects</strong>, <strong>streams</strong> and much more.</p>
 <p>You can access the <code>response</code> object from the HTTP context instance passed to the route handler, middleware, and exception handler.</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">get</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">(</span><span style="color: #A6ACCD;">ctx</span><span style="color: #89DDFF;">)</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #A6ACCD;">ctx</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">response</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">send</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">hello world</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">)</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h2 id="sending-the-response"><a href="#sending-the-response" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Sending the response</h2>
+<h2 id="sending-the-response"><a
+  href="#sending-the-response"
+  
+  
+><span class="icon icon-link"></span></a>
+Sending the response</h2>
 <p>The simplest way to send a response is to return a value from the route handler.</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">get</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">()</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #676E95;">/** Plain string */</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">return</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">This is the homepage</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #676E95;">/** Html fragment */</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">return</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">&lt;p&gt; This is the homepage &lt;/p&gt;</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #676E95;">/** JSON response */</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">return</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">{</span><span style="color: #F07178;"> page</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">home</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">}</span></div><div class="line"></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #676E95;">/** Converted to ISO string */</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">return</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">new</span><span style="color: #F07178;"> </span><span style="color: #FFCB6B;">Date</span><span style="color: #F07178;">()</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<p>Along with returning a value, you can also use the <code>response.send</code> method to send the response. The first argument is the response body (same as the return value). Optionally you can pass a second argument to generate and set the <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/ETag">etag</a>.</p>
+<p>Along with returning a value, you can also use the <code>response.send</code> method to send the response. The first argument is the response body (same as the return value). Optionally you can pass a second argument to generate and set the <a
+  href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/ETag"
+  target=&quot;_blank&quot;
+  rel=&quot;noopener&quot;
+>etag</a>
+.</p>
 <div class="alert alert-note"><p>You can also enable ETag generation for all responses by enabling the <code>http.etag</code> property inside the <code>config/app.ts</code> file.</p></div>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #A6ACCD;">response</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">send</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">{</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">hello</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">world</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div><div class="line"></div><div class="line"><span style="color: #676E95;">// With etag</span></div><div class="line"><span style="color: #A6ACCD;">response</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">send</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">{</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">hello</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">world</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">},</span><span style="color: #A6ACCD;"> </span><span style="color: #FF9CAC;">true</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h3 id="serializing-response-body"><a href="#serializing-response-body" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Serializing response body</h3>
+<h3 id="serializing-response-body"><a
+  href="#serializing-response-body"
+  
+  
+><span class="icon icon-link"></span></a>
+Serializing response body</h3>
 <p>Following is the list of data types serialized by the response class.</p>
 <ul>
-<li><strong>Arrays</strong> and <strong>Objects</strong> are stringified using the <a href="https://github.com/poppinss/utils/blob/develop/src/safeStringify.ts">safe stringify function</a>. The method is similar to <code>JSON.stringify</code> but removes the circular references.</li>
+<li><strong>Arrays</strong> and <strong>Objects</strong> are stringified using the <a
+  href="https://github.com/poppinss/utils/blob/develop/src/safeStringify.ts"
+  target=&quot;_blank&quot;
+  rel=&quot;noopener&quot;
+>safe stringify function</a>
+. The method is similar to <code>JSON.stringify</code> but removes the circular references.</li>
 <li>The <strong>number</strong> and <strong>boolean</strong> values are converted to a string.</li>
 <li>Instance of <strong>Date</strong> is converted to a string by calling the <code>toISOString</code> method.</li>
 <li><strong>Regular expressions</strong> and <strong>error</strong> objects are converted to a string by calling the <code>toString</code> method on them.</li>
 <li>Any other data type results in an exception.</li>
 </ul>
-<h3 id="content-type-inference"><a href="#content-type-inference" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Content type inference</h3>
+<h3 id="content-type-inference"><a
+  href="#content-type-inference"
+  
+  
+><span class="icon icon-link"></span></a>
+Content type inference</h3>
 <p>The response class automatically sets the <code>content-type</code> and <code>content-length</code> headers by inspecting the response body.</p>
 <div class="alert alert-note"><p>The automatic <strong>content type</strong> header is only defined when you don&#x27;t set it explicitly during the request lifecycle.</p></div>
 <ul>
@@ -344,72 +437,127 @@
 <li>JSONP responses are sent with the <code>text/javascript</code> content type.</li>
 <li>For everything else, we set the content type to <code>text/plain</code>.</li>
 </ul>
-<h2 id="lazy-response"><a href="#lazy-response" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Lazy Response</h2>
+<h2 id="lazy-response"><a
+  href="#lazy-response"
+  
+  
+><span class="icon icon-link"></span></a>
+Lazy Response</h2>
 <p>Many Node.js frameworks write the response to the outgoing stream as soon as you call the <code>response.send</code> method. AdonisJS <strong>does not</strong> do the same. Instead, we wait for the route handler and all the middleware calls to finish before writing the final response.</p>
 <p>This approach ensures that the last call to <code>response.send</code> always wins. In most cases, this behavior doesn&#x27;t impact you or your applications at all. However, it allows you to post-process the response inside a middleware.</p>
 <p>Following is an example of converting the <code>camelCase</code> object keys to <code>snake_case</code>.</p>
 <warn><p>The following example is not the best way to transform response. It is just a demonstration of how post-processing a response looks like</p></warn>
 <div class="dimer-highlight">
 
-<pre><code><div class="line highlight"><span style="color: #89DDFF;">import</span><span style="color: #A6ACCD;"> snakeCaseKeys </span><span style="color: #89DDFF;">from</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">snakecase-keys</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line dim"></div><div class="line dim"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">get</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">async</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">({</span><span style="color: #A6ACCD;"> response </span><span style="color: #89DDFF;">})</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line dim"><span style="color: #F07178;">  </span><span style="color: #A6ACCD;">response</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">send</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">{</span><span style="color: #F07178;"> fullName</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Harminder Virk</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">}</span><span style="color: #F07178;">)</span></div><div class="line dim"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">middleware</span><span style="color: #A6ACCD;">(</span><span style="color: #C792EA;">async</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">({</span><span style="color: #A6ACCD;"> response </span><span style="color: #89DDFF;">},</span><span style="color: #A6ACCD;"> next</span><span style="color: #89DDFF;">)</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line dim"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">await</span><span style="color: #F07178;"> </span><span style="color: #82AAFF;">next</span><span style="color: #F07178;">()</span></div><div class="line dim"></div><div class="line highlight"><span style="color: #F07178;">  </span><span style="color: #676E95;">/**</span></div><div class="line highlight"><span style="color: #676E95;">   * Following code is executed after the route handler.</span></div><div class="line highlight"><span style="color: #676E95;">   * Read the middleware guide to learn how it works</span></div><div class="line highlight"><span style="color: #676E95;">   */</span></div><div class="line highlight"><span style="color: #F07178;">  </span><span style="color: #C792EA;">const</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">existingBody</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">=</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">response</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">lazyBody</span><span style="color: #F07178;">[</span><span style="color: #F78C6C;">0</span><span style="color: #F07178;">]</span></div><div class="line highlight"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">if</span><span style="color: #F07178;"> (</span><span style="color: #89DDFF;">!</span><span style="color: #A6ACCD;">existingBody</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">||</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">existingBody</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">constructor</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">!==</span><span style="color: #F07178;"> </span><span style="color: #FFCB6B;">Object</span><span style="color: #F07178;">) </span><span style="color: #89DDFF;">{</span></div><div class="line highlight"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">return</span></div><div class="line highlight"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span></div><div class="line highlight"></div><div class="line highlight"><span style="color: #F07178;">  </span><span style="color: #A6ACCD;">response</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">send</span><span style="color: #F07178;">(</span><span style="color: #82AAFF;">snakeCaseKeys</span><span style="color: #F07178;">(</span><span style="color: #A6ACCD;">existingBody</span><span style="color: #F07178;">))</span></div><div class="line dim"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
+<pre><code><div class="line highlight"><span style="color: #89DDFF;">import</span><span style="color: #A6ACCD;"> snakeCaseKeys </span><span style="color: #89DDFF;">from</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">snakecase-keys</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line dim"></div><div class="line dim"><span style="color: #A6ACCD;">Route</span></div><div class="line dim"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">get</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">async</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">({</span><span style="color: #A6ACCD;"> response </span><span style="color: #89DDFF;">})</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line dim"><span style="color: #F07178;">    </span><span style="color: #A6ACCD;">response</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">send</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">{</span><span style="color: #F07178;"> fullName</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Harminder Virk</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">}</span><span style="color: #F07178;">)</span></div><div class="line dim"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div><div class="line dim"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">middleware</span><span style="color: #A6ACCD;">(</span><span style="color: #C792EA;">async</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">({</span><span style="color: #A6ACCD;"> response </span><span style="color: #89DDFF;">},</span><span style="color: #A6ACCD;"> next</span><span style="color: #89DDFF;">)</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line dim"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">await</span><span style="color: #F07178;"> </span><span style="color: #82AAFF;">next</span><span style="color: #F07178;">()</span></div><div class="line dim"></div><div class="line highlight"><span style="color: #F07178;">    </span><span style="color: #676E95;">/**</span></div><div class="line highlight"><span style="color: #676E95;">     * Following code is executed after the route handler.</span></div><div class="line highlight"><span style="color: #676E95;">     * Read the middleware guide to learn how it works</span></div><div class="line highlight"><span style="color: #676E95;">     */</span></div><div class="line highlight"><span style="color: #F07178;">    </span><span style="color: #C792EA;">const</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">existingBody</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">=</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">response</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">lazyBody</span><span style="color: #F07178;">[</span><span style="color: #F78C6C;">0</span><span style="color: #F07178;">]</span></div><div class="line highlight"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">if</span><span style="color: #F07178;"> (</span><span style="color: #89DDFF;">!</span><span style="color: #A6ACCD;">existingBody</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">||</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">existingBody</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">constructor</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">!==</span><span style="color: #F07178;"> </span><span style="color: #FFCB6B;">Object</span><span style="color: #F07178;">) </span><span style="color: #89DDFF;">{</span></div><div class="line highlight"><span style="color: #F07178;">      </span><span style="color: #89DDFF;">return</span></div><div class="line highlight"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">}</span></div><div class="line highlight"></div><div class="line highlight"><span style="color: #F07178;">    </span><span style="color: #A6ACCD;">response</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">send</span><span style="color: #F07178;">(</span><span style="color: #82AAFF;">snakeCaseKeys</span><span style="color: #F07178;">(</span><span style="color: #A6ACCD;">existingBody</span><span style="color: #F07178;">))</span></div><div class="line dim"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
 <p>In the above example, the route handler writes the response body using the <code>response.send</code> method. However, the downstream middleware mutates the body and re-writes it using the <code>response.send</code> again.</p>
 <p>Since the response body is lazily evaluated, We will always set the <strong>content-length</strong> and the <strong>content-type</strong> headers by inspecting the most recent response body.</p>
-<h2 id="response-status-and-headers"><a href="#response-status-and-headers" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Response status and headers</h2>
+<h2 id="response-status-and-headers"><a
+  href="#response-status-and-headers"
+  
+  
+><span class="icon icon-link"></span></a>
+Response status and headers</h2>
 <p>Following are the methods to work with the response headers and the response status.</p>
-<h3 id="header"><a href="#header" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>header</h3>
+<h3 id="header"><a
+  href="#header"
+  
+  
+><span class="icon icon-link"></span></a>
+header</h3>
 <p>The <code>response.header</code> method defines the HTTP response header. Using this method overwrites the existing header (if any).</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #A6ACCD;">response</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">header</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Content-type</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">text/html</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h3 id="append"><a href="#append" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>append</h3>
+<h3 id="append"><a
+  href="#append"
+  
+  
+><span class="icon icon-link"></span></a>
+append</h3>
 <p>The <code>response.append</code> method is similar to the <code>header</code> method. However, it appends to the existing header value (if any).</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #A6ACCD;">response</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">append</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Set-cookie</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">cookie-value</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h3 id="removeheader"><a href="#removeheader" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>removeHeader</h3>
+<h3 id="removeheader"><a
+  href="#removeheader"
+  
+  
+><span class="icon icon-link"></span></a>
+removeHeader</h3>
 <p>The <code>response.removeHeader</code> allows removing an existing response header.</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #A6ACCD;">response</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">removeHeader</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Content-type</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h3 id="getheader"><a href="#getheader" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>getHeader</h3>
+<h3 id="getheader"><a
+  href="#getheader"
+  
+  
+><span class="icon icon-link"></span></a>
+getHeader</h3>
 <p>The <code>response.getHeader</code> method returns the value of an existing header.</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> cookie </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> response</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">getHeader</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Set-cookie</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h3 id="safeheader"><a href="#safeheader" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>safeHeader</h3>
+<h3 id="safeheader"><a
+  href="#safeheader"
+  
+  
+><span class="icon icon-link"></span></a>
+safeHeader</h3>
 <p>The <code>response.safeHeader</code> method is similar to the <code>header</code> method. However, it only defines the header if it is not defined already.</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #A6ACCD;">response</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">safeHeader</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Content-type</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">application/json</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h3 id="status"><a href="#status" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>status</h3>
+<h3 id="status"><a
+  href="#status"
+  
+  
+><span class="icon icon-link"></span></a>
+status</h3>
 <p>The <code>response.status</code> defines the status for the HTTP response.</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #A6ACCD;">response</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">status</span><span style="color: #A6ACCD;">(</span><span style="color: #F78C6C;">401</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h3 id="safestatus"><a href="#safestatus" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>safeStatus</h3>
+<h3 id="safestatus"><a
+  href="#safestatus"
+  
+  
+><span class="icon icon-link"></span></a>
+safeStatus</h3>
 <p>Like the <code>status</code> method, the <code>response.status</code> only defines the status if it is not defined already.</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #A6ACCD;">response</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">safeStatus</span><span style="color: #A6ACCD;">(</span><span style="color: #F78C6C;">401</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h2 id="streams--file-downloads"><a href="#streams--file-downloads" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Streams &amp; file downloads</h2>
+<h2 id="streams--file-downloads"><a
+  href="#streams--file-downloads"
+  
+  
+><span class="icon icon-link"></span></a>
+Streams &amp; file downloads</h2>
 <p>AdonisJS has first-class support for piping streams and file downloads. Also, we make sure to clean up streams in case of errors properly.</p>
-<h3 id="stream"><a href="#stream" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>stream</h3>
+<h3 id="stream"><a
+  href="#stream"
+  
+  
+><span class="icon icon-link"></span></a>
+stream</h3>
 <p>The <code>response.stream</code> method allows piping the stream to the response. This method does not set the <strong>content-type</strong> and the <strong>content-length</strong> headers, and you will have to set them manually.</p>
 <div class="dimer-highlight">
 
@@ -422,7 +570,12 @@
 <pre><code><div class="line"><span style="color: #A6ACCD;">response</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">stream</span><span style="color: #A6ACCD;">(image</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">(</span><span style="color: #A6ACCD;">error</span><span style="color: #89DDFF;">)</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">return</span><span style="color: #F07178;"> [</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Unable to send file</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #F07178;"> </span><span style="color: #F78C6C;">400</span><span style="color: #F07178;">]</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h3 id="download"><a href="#download" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>download</h3>
+<h3 id="download"><a
+  href="#download"
+  
+  
+><span class="icon icon-link"></span></a>
+download</h3>
 <p>The <code>download</code> method streams the file to the client by reading it from the disk. Unlike the stream method, the <code>download</code> method does set the <strong>content-type</strong> and the <strong>content-length</strong> headers.</p>
 <div class="dimer-highlight">
 
@@ -441,50 +594,95 @@
 <pre><code><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> filePath </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> Application</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">tmpPath</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">uploads/some-file.jpg</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div><div class="line"></div><div class="line"><span style="color: #A6ACCD;">response</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">download</span><span style="color: #A6ACCD;">(filePath</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #FF9CAC;">true</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">(</span><span style="color: #A6ACCD;">error</span><span style="color: #89DDFF;">)</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">if</span><span style="color: #F07178;"> (</span><span style="color: #A6ACCD;">error</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">code</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">===</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">ENOENT</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">) </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">return</span><span style="color: #F07178;"> [</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">File does not exists</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #F07178;"> </span><span style="color: #F78C6C;">404</span><span style="color: #F07178;">]</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span></div><div class="line"></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">return</span><span style="color: #F07178;"> [</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Cannot download file</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #F07178;"> </span><span style="color: #F78C6C;">400</span><span style="color: #F07178;">]</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h3 id="attachment"><a href="#attachment" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>attachment</h3>
-<p>The <code>response.attachment</code> is similar to the <code>download</code> method. However, it allows customizing the downloaded file name and also defines the <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Disposition">Content-Disposition</a> header.</p>
+<h3 id="attachment"><a
+  href="#attachment"
+  
+  
+><span class="icon icon-link"></span></a>
+attachment</h3>
+<p>The <code>response.attachment</code> is similar to the <code>download</code> method. However, it allows customizing the downloaded file name and also defines the <a
+  href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Disposition"
+  target=&quot;_blank&quot;
+  rel=&quot;noopener&quot;
+>Content-Disposition</a>
+ header.</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> filePath </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> Application</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">tmpPath</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">uploads/some-file.jpg</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div><div class="line"><span style="color: #A6ACCD;">response</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">attachment</span><span style="color: #A6ACCD;">(filePath)</span></div><div class="line"></div><div class="line"><span style="color: #676E95;">// define custom name</span></div><div class="line"><span style="color: #A6ACCD;">response</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">attachment</span><span style="color: #A6ACCD;">(filePath</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">foo.jpg</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div><div class="line"></div><div class="line"><span style="color: #676E95;">// define custom disposition</span></div><div class="line"><span style="color: #A6ACCD;">response</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">attachment</span><span style="color: #A6ACCD;">(filePath</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">foo.jpg</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">inline</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h2 id="redirects"><a href="#redirects" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Redirects</h2>
+<h2 id="redirects"><a
+  href="#redirects"
+  
+  
+><span class="icon icon-link"></span></a>
+Redirects</h2>
 <p>The response class exposes a rich API to work with redirects, including redirecting users to a route, redirecting back to the previous page, and forwarding the existing query string.</p>
-<p>You can get an instance of the <a href="https://github.com/adonisjs/http-server/blob/develop/src/Redirect/index.ts">Redirect class</a> using the <code>response.redirect()</code> method.</p>
+<p>You can get an instance of the <a
+  href="https://github.com/adonisjs/http-server/blob/develop/src/Redirect/index.ts"
+  target=&quot;_blank&quot;
+  rel=&quot;noopener&quot;
+>Redirect class</a>
+ using the <code>response.redirect()</code> method.</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #676E95;">// Redirect back</span></div><div class="line"><span style="color: #A6ACCD;">response</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">redirect</span><span style="color: #A6ACCD;">()</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">back</span><span style="color: #A6ACCD;">()</span></div><div class="line"></div><div class="line"><span style="color: #676E95;">// Redirect to a url</span></div><div class="line"><span style="color: #A6ACCD;">response</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">redirect</span><span style="color: #A6ACCD;">()</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">toPath</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/some/url</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h3 id="custom-status-code"><a href="#custom-status-code" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Custom status code</h3>
+<h3 id="custom-status-code"><a
+  href="#custom-status-code"
+  
+  
+><span class="icon icon-link"></span></a>
+Custom status code</h3>
 <p>By default, a <code>302</code> status code is used. You can override it using the <code>.status</code> method.</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #A6ACCD;">response</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">redirect</span><span style="color: #A6ACCD;">()</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">status</span><span style="color: #A6ACCD;">(</span><span style="color: #F78C6C;">301</span><span style="color: #A6ACCD;">)</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">toPath</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/some/url</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h3 id="redirect-to-a-route"><a href="#redirect-to-a-route" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Redirect to a route</h3>
+<h3 id="redirect-to-a-route"><a
+  href="#redirect-to-a-route"
+  
+  
+><span class="icon icon-link"></span></a>
+Redirect to a route</h3>
 <p>You can also redirect the request to a named route using the <code>.toRoute</code> method.</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #A6ACCD;">response</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">redirect</span><span style="color: #A6ACCD;">()</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">toRoute</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">PostsController.show</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">id</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #F78C6C;">1</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h3 id="defineforward-query-string"><a href="#defineforward-query-string" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Define/forward query string</h3>
+<h3 id="defineforward-query-string"><a
+  href="#defineforward-query-string"
+  
+  
+><span class="icon icon-link"></span></a>
+Define/forward query string</h3>
 <p>The <code>.withQs</code> allows you to forward the existing query string or define a custom query string during redirect.</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #A6ACCD;">response</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">redirect</span><span style="color: #A6ACCD;">()</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">withQs</span><span style="color: #A6ACCD;">() </span><span style="color: #676E95;">// 👈 forwardes the existing qs</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">back</span><span style="color: #A6ACCD;">()</span></div><div class="line"></div><div class="line"><span style="color: #A6ACCD;">response</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">redirect</span><span style="color: #A6ACCD;">()</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">withQs</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">{</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">sort</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">id</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">) </span><span style="color: #676E95;">// 👈 custom</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">back</span><span style="color: #A6ACCD;">()</span></div></code></pre>
 </div>
 
-<h3 id="withqs-with-params"><a href="#withqs-with-params" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>withQs with params</h3>
+<h3 id="withqs-with-params"><a
+  href="#withqs-with-params"
+  
+  
+><span class="icon icon-link"></span></a>
+withQs with params</h3>
 <p>Calling the <code>.withQs</code> method with custom object multiple times merges the objects together. However, you can combine it with <code>.clearQs</code> method to clear the existing objects. For example:</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #A6ACCD;">response</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">redirect</span><span style="color: #A6ACCD;">()</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">withQs</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">{</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">sort</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">id</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">clearQs</span><span style="color: #A6ACCD;">()</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">withQs</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">{</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">filters</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">name</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">virk</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">toPath</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/users</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div><div class="line"></div><div class="line"><span style="color: #676E95;">// URL: /users?filters[name]=virk</span></div></code></pre>
 </div>
 
-<h3 id="withqs-without-params"><a href="#withqs-without-params" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>withQs without params</h3>
+<h3 id="withqs-without-params"><a
+  href="#withqs-without-params"
+  
+  
+><span class="icon icon-link"></span></a>
+withQs without params</h3>
 <p>Calling the <code>withQs</code> method without any parameters will forward the existing query string to the redirected URL. If you redirect the user back to the old page, then the query string from the <code>referrer</code> header URL will be used.</p>
 <div class="dimer-highlight">
 
@@ -496,64 +694,144 @@
 <pre><code><div class="line"><span style="color: #A6ACCD;">response</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">redirect</span><span style="color: #A6ACCD;">()</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">withQs</span><span style="color: #A6ACCD;">()</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">toPath</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/users</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">) </span><span style="color: #676E95;">// 👈 current URL qs is used</span></div></code></pre>
 </div>
 
-<h2 id="abort-and-respond"><a href="#abort-and-respond" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Abort and respond</h2>
+<h2 id="abort-and-respond"><a
+  href="#abort-and-respond"
+  
+  
+><span class="icon icon-link"></span></a>
+Abort and respond</h2>
 <p>The response class allows you to abort the current HTTP request using the <code>response.abort</code> or <code>response.abortIf</code> methods.</p>
-<h3 id="abort"><a href="#abort" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>abort</h3>
-<p>The <code>response.abort</code> method aborts the current request by raising an <a href="https://github.com/adonisjs/http-server/blob/develop/src/Response/index.ts#L44">AbortException</a></p>
+<h3 id="abort"><a
+  href="#abort"
+  
+  
+><span class="icon icon-link"></span></a>
+abort</h3>
+<p>The <code>response.abort</code> method aborts the current request by raising an <a
+  href="https://github.com/adonisjs/http-server/blob/develop/src/Response/index.ts#L44"
+  target=&quot;_blank&quot;
+  rel=&quot;noopener&quot;
+>AbortException</a>
+</p>
 <p>The method accepts a total of two arguments: ie, the response body and an optional status.</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #89DDFF;">if</span><span style="color: #A6ACCD;"> (</span><span style="color: #89DDFF;">!</span><span style="color: #A6ACCD;">auth</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">user) </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #A6ACCD;">response</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">abort</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Not authenticated</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">)</span></div><div class="line"></div><div class="line"><span style="color: #89DDFF;">  </span><span style="color: #676E95;">// with custom status</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #A6ACCD;">response</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">abort</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Not authenticated</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #F07178;"> </span><span style="color: #F78C6C;">401</span><span style="color: #F07178;">)</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
 </div>
 
-<h3 id="abortif"><a href="#abortif" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>abortIf</h3>
+<h3 id="abortif"><a
+  href="#abortif"
+  
+  
+><span class="icon icon-link"></span></a>
+abortIf</h3>
 <p>The <code>response.abortIf</code> method accepts a condition and aborts the request when the condition is true.</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #A6ACCD;">response</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">abortIf</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">!</span><span style="color: #A6ACCD;">auth</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">user</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Not authenticated</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #F78C6C;">401</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h3 id="abortunless"><a href="#abortunless" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>abortUnless</h3>
+<h3 id="abortunless"><a
+  href="#abortunless"
+  
+  
+><span class="icon icon-link"></span></a>
+abortUnless</h3>
 <p>The <code>response.abortUnless</code> method is the opposite of the abortIf method.</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #A6ACCD;">response</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">abortUnless</span><span style="color: #A6ACCD;">(auth</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">user</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Not authenticated</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #F78C6C;">401</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h2 id="other-methods-and-properties"><a href="#other-methods-and-properties" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Other methods and properties</h2>
+<h2 id="other-methods-and-properties"><a
+  href="#other-methods-and-properties"
+  
+  
+><span class="icon icon-link"></span></a>
+Other methods and properties</h2>
 <p>Following is the list of other methods and properties available in the response class.</p>
-<h3 id="finished"><a href="#finished" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>finished</h3>
+<h3 id="finished"><a
+  href="#finished"
+  
+  
+><span class="icon icon-link"></span></a>
+finished</h3>
 <p>Find if the response has been written to the outgoing stream.</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #89DDFF;">if</span><span style="color: #A6ACCD;"> (</span><span style="color: #89DDFF;">!</span><span style="color: #A6ACCD;">response</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">finished) </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #A6ACCD;">response</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">send</span><span style="color: #F07178;">()</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
 </div>
 
-<h3 id="headerssent"><a href="#headerssent" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>headersSent</h3>
-<p>An alias for the Node.js <a href="https://nodejs.org/dist/latest-v15.x/docs/api/http.html#http_response_headerssent">res.headersSent</a> property.</p>
-<h3 id="ispending"><a href="#ispending" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>isPending</h3>
+<h3 id="headerssent"><a
+  href="#headerssent"
+  
+  
+><span class="icon icon-link"></span></a>
+headersSent</h3>
+<p>An alias for the Node.js <a
+  href="https://nodejs.org/dist/latest-v15.x/docs/api/http.html#http_response_headerssent"
+  target=&quot;_blank&quot;
+  rel=&quot;noopener&quot;
+>res.headersSent</a>
+ property.</p>
+<h3 id="ispending"><a
+  href="#ispending"
+  
+  
+><span class="icon icon-link"></span></a>
+isPending</h3>
 <p>The property is the opposite of the <code>response.finished</code> property.</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #89DDFF;">if</span><span style="color: #A6ACCD;"> (response</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">isPending) </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #A6ACCD;">response</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">send</span><span style="color: #F07178;">()</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
 </div>
 
-<h3 id="vary"><a href="#vary" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>vary</h3>
-<p>A shortcut to define the <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Vary">HTTP vary header</a>. Calling the <code>vary</code> method multiple times will append to the list of existing headers.</p>
+<h3 id="vary"><a
+  href="#vary"
+  
+  
+><span class="icon icon-link"></span></a>
+vary</h3>
+<p>A shortcut to define the <a
+  href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Vary"
+  target=&quot;_blank&quot;
+  rel=&quot;noopener&quot;
+>HTTP vary header</a>
+. Calling the <code>vary</code> method multiple times will append to the list of existing headers.</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #A6ACCD;">response</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">vary</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Origin</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div><div class="line"></div><div class="line"><span style="color: #676E95;">// Set multiple headers</span></div><div class="line"><span style="color: #A6ACCD;">response</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">vary</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Accept, User-Agent</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h3 id="location"><a href="#location" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>location</h3>
-<p>A shortcut to set the <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Location">HTTP location header</a>.</p>
+<h3 id="location"><a
+  href="#location"
+  
+  
+><span class="icon icon-link"></span></a>
+location</h3>
+<p>A shortcut to set the <a
+  href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Location"
+  target=&quot;_blank&quot;
+  rel=&quot;noopener&quot;
+>HTTP location header</a>
+.</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #A6ACCD;">response</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">location</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/dashboard</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h3 id="type"><a href="#type" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>type</h3>
-<p>A shortcut to set the <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type">HTTP content-type header</a>.</p>
+<h3 id="type"><a
+  href="#type"
+  
+  
+><span class="icon icon-link"></span></a>
+type</h3>
+<p>A shortcut to set the <a
+  href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type"
+  target=&quot;_blank&quot;
+  rel=&quot;noopener&quot;
+>HTTP content-type header</a>
+.</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #A6ACCD;">response</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">type</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">application/json</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div></code></pre>
@@ -565,15 +843,30 @@
 <pre><code><div class="line"><span style="color: #A6ACCD;">response</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">type</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">json</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">) </span><span style="color: #676E95;">// defines content-type=application/json</span></div><div class="line"><span style="color: #A6ACCD;">response</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">type</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">html</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">) </span><span style="color: #676E95;">// defines content-type=text/html</span></div></code></pre>
 </div>
 
-<h3 id="descriptive-response-methods"><a href="#descriptive-response-methods" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Descriptive response methods</h3>
+<h3 id="descriptive-response-methods"><a
+  href="#descriptive-response-methods"
+  
+  
+><span class="icon icon-link"></span></a>
+Descriptive response methods</h3>
 <p>The response class has a bunch of descriptive methods (one of each HTTP status) to send the response body and set the status at the same time. For example:</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #A6ACCD;">response</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">badRequest</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">{</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">error</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Invalid login credentials</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div><div class="line"><span style="color: #A6ACCD;">response</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">forbidden</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">{</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">error</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Unauthorized</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<p><a href="https://github.com/adonisjs/http-server/blob/ea55c2a65fd388373d0b4e35ae45bee9cb096d02/src/Response/index.ts#L937-L1145">Here&#x27;s</a> the list of all the available methods.</p>
-<h2 id="extending-response-class"><a href="#extending-response-class" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Extending Response class</h2>
+<p><a
+  href="https://github.com/adonisjs/http-server/blob/ea55c2a65fd388373d0b4e35ae45bee9cb096d02/src/Response/index.ts#L937-L1145"
+  target=&quot;_blank&quot;
+  rel=&quot;noopener&quot;
+>Here&#x27;s</a>
+ the list of all the available methods.</p>
+<h2 id="extending-response-class"><a
+  href="#extending-response-class"
+  
+  
+><span class="icon icon-link"></span></a>
+Extending Response class</h2>
 <p>You can extend the Response class using macros or getters. The best place to extend the response is inside a custom service provider.</p>
 <p>Open the pre-existing <code>providers/AppProvider.ts</code> file and write the following code inside the <code>boot</code> method.</p>
 <div class="dimer-highlight">
@@ -588,20 +881,53 @@
 <pre><code><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">post</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">users</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">({</span><span style="color: #A6ACCD;"> response </span><span style="color: #89DDFF;">})</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #A6ACCD;">response</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">flash</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">{</span><span style="color: #F07178;"> success</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">User created</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">}</span><span style="color: #F07178;">)</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h3 id="informing-typescript-about-the-method"><a href="#informing-typescript-about-the-method" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Informing typescript about the method</h3>
-<p>The <code>flash</code> property is added at the runtime, and hence Typescript does not know about it. To inform the Typescript, we will use <a href="https://www.typescriptlang.org/docs/handbook/declaration-merging.html#merging-interfaces">declaration merging</a> and add the property to the <code>ResponseContract</code> interface.</p>
+<h3 id="informing-typescript-about-the-method"><a
+  href="#informing-typescript-about-the-method"
+  
+  
+><span class="icon icon-link"></span></a>
+Informing typescript about the method</h3>
+<p>The <code>flash</code> property is added at the runtime, and hence Typescript does not know about it. To inform the Typescript, we will use <a
+  href="https://www.typescriptlang.org/docs/handbook/declaration-merging.html#merging-interfaces"
+  target=&quot;_blank&quot;
+  rel=&quot;noopener&quot;
+>declaration merging</a>
+ and add the property to the <code>ResponseContract</code> interface.</p>
 <p>Create a new file at path <code>contracts/response.ts</code> (the filename is not important) and paste the following contents inside it.</p>
 <div class="dimer-highlight">
+    <div class="codeblock-title">
+      contracts/response.ts
+    </div>
 
-<pre><code><div class="line"><span style="color: #A6ACCD;">declare module &#x27;@ioc:Adonis/Core/Response&#x27; {</span></div><div class="line"><span style="color: #A6ACCD;"> interface ResponseContract {</span></div><div class="line"><span style="color: #A6ACCD;"> flash(messages: any): this</span></div><div class="line"><span style="color: #A6ACCD;"> }</span></div><div class="line"><span style="color: #A6ACCD;">}</span></div></code></pre>
+<pre><code><div class="line"><span style="color: #C792EA;">declare</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">module</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">@ioc:Adonis/Core/Response</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #C792EA;">interface</span><span style="color: #F07178;"> </span><span style="color: #FFCB6B;">ResponseContract</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">    flash</span><span style="color: #89DDFF;">(</span><span style="color: #A6ACCD;">messages</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #FFCB6B;">any</span><span style="color: #89DDFF;">):</span><span style="color: #F07178;"> </span><span style="color: #FFCB6B;">this</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
 </div>
 
-<h2 id="additional-reading"><a href="#additional-reading" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Additional reading</h2>
+<h2 id="additional-reading"><a
+  href="#additional-reading"
+  
+  
+><span class="icon icon-link"></span></a>
+Additional reading</h2>
 <p>Following are some of the additional guides to learn more about the topics not covered in this document.</p>
 <ul>
-<li><a href="/guides/cookies">Cookies</a></li>
-<li><a href="/guides/session">Session</a></li>
-<li><a href="./views.md">Views</a></li>
+<li><a
+  href="/guides/cookies"
+  
+  
+>Cookies</a>
+</li>
+<li><a
+  href="/guides/session"
+  
+  
+>Session</a>
+</li>
+<li><a
+  href="./views.md"
+  
+  
+>Views</a>
+</li>
 </ul>  </div>
 </main>
 
@@ -611,73 +937,258 @@
       <nav>
         <ul>
 <li>
-<p><a href="#sending-the-response">Sending the response</a></p>
+<p><a
+  href="#sending-the-response"
+  
+  
+>Sending the response</a>
+</p>
 <ul>
-<li><a href="#serializing-response-body">Serializing response body</a></li>
-<li><a href="#content-type-inference">Content type inference</a></li>
+<li><a
+  href="#serializing-response-body"
+  
+  
+>Serializing response body</a>
+</li>
+<li><a
+  href="#content-type-inference"
+  
+  
+>Content type inference</a>
+</li>
 </ul>
 </li>
 <li>
-<p><a href="#lazy-response">Lazy Response</a></p>
+<p><a
+  href="#lazy-response"
+  
+  
+>Lazy Response</a>
+</p>
 </li>
 <li>
-<p><a href="#response-status-and-headers">Response status and headers</a></p>
+<p><a
+  href="#response-status-and-headers"
+  
+  
+>Response status and headers</a>
+</p>
 <ul>
-<li><a href="#header">header</a></li>
-<li><a href="#append">append</a></li>
-<li><a href="#removeheader">removeHeader</a></li>
-<li><a href="#getheader">getHeader</a></li>
-<li><a href="#safeheader">safeHeader</a></li>
-<li><a href="#status">status</a></li>
-<li><a href="#safestatus">safeStatus</a></li>
+<li><a
+  href="#header"
+  
+  
+>header</a>
+</li>
+<li><a
+  href="#append"
+  
+  
+>append</a>
+</li>
+<li><a
+  href="#removeheader"
+  
+  
+>removeHeader</a>
+</li>
+<li><a
+  href="#getheader"
+  
+  
+>getHeader</a>
+</li>
+<li><a
+  href="#safeheader"
+  
+  
+>safeHeader</a>
+</li>
+<li><a
+  href="#status"
+  
+  
+>status</a>
+</li>
+<li><a
+  href="#safestatus"
+  
+  
+>safeStatus</a>
+</li>
 </ul>
 </li>
 <li>
-<p><a href="#streams--file-downloads">Streams &amp; file downloads</a></p>
+<p><a
+  href="#streams--file-downloads"
+  
+  
+>Streams &amp; file downloads</a>
+</p>
 <ul>
-<li><a href="#stream">stream</a></li>
-<li><a href="#download">download</a></li>
-<li><a href="#attachment">attachment</a></li>
+<li><a
+  href="#stream"
+  
+  
+>stream</a>
+</li>
+<li><a
+  href="#download"
+  
+  
+>download</a>
+</li>
+<li><a
+  href="#attachment"
+  
+  
+>attachment</a>
+</li>
 </ul>
 </li>
 <li>
-<p><a href="#redirects">Redirects</a></p>
+<p><a
+  href="#redirects"
+  
+  
+>Redirects</a>
+</p>
 <ul>
-<li><a href="#custom-status-code">Custom status code</a></li>
-<li><a href="#redirect-to-a-route">Redirect to a route</a></li>
-<li><a href="#defineforward-query-string">Define/forward query string</a></li>
-<li><a href="#withqs-with-params">withQs with params</a></li>
-<li><a href="#withqs-without-params">withQs without params</a></li>
+<li><a
+  href="#custom-status-code"
+  
+  
+>Custom status code</a>
+</li>
+<li><a
+  href="#redirect-to-a-route"
+  
+  
+>Redirect to a route</a>
+</li>
+<li><a
+  href="#defineforward-query-string"
+  
+  
+>Define/forward query string</a>
+</li>
+<li><a
+  href="#withqs-with-params"
+  
+  
+>withQs with params</a>
+</li>
+<li><a
+  href="#withqs-without-params"
+  
+  
+>withQs without params</a>
+</li>
 </ul>
 </li>
 <li>
-<p><a href="#abort-and-respond">Abort and respond</a></p>
+<p><a
+  href="#abort-and-respond"
+  
+  
+>Abort and respond</a>
+</p>
 <ul>
-<li><a href="#abort">abort</a></li>
-<li><a href="#abortif">abortIf</a></li>
-<li><a href="#abortunless">abortUnless</a></li>
+<li><a
+  href="#abort"
+  
+  
+>abort</a>
+</li>
+<li><a
+  href="#abortif"
+  
+  
+>abortIf</a>
+</li>
+<li><a
+  href="#abortunless"
+  
+  
+>abortUnless</a>
+</li>
 </ul>
 </li>
 <li>
-<p><a href="#other-methods-and-properties">Other methods and properties</a></p>
+<p><a
+  href="#other-methods-and-properties"
+  
+  
+>Other methods and properties</a>
+</p>
 <ul>
-<li><a href="#finished">finished</a></li>
-<li><a href="#headerssent">headersSent</a></li>
-<li><a href="#ispending">isPending</a></li>
-<li><a href="#vary">vary</a></li>
-<li><a href="#location">location</a></li>
-<li><a href="#type">type</a></li>
-<li><a href="#descriptive-response-methods">Descriptive response methods</a></li>
+<li><a
+  href="#finished"
+  
+  
+>finished</a>
+</li>
+<li><a
+  href="#headerssent"
+  
+  
+>headersSent</a>
+</li>
+<li><a
+  href="#ispending"
+  
+  
+>isPending</a>
+</li>
+<li><a
+  href="#vary"
+  
+  
+>vary</a>
+</li>
+<li><a
+  href="#location"
+  
+  
+>location</a>
+</li>
+<li><a
+  href="#type"
+  
+  
+>type</a>
+</li>
+<li><a
+  href="#descriptive-response-methods"
+  
+  
+>Descriptive response methods</a>
+</li>
 </ul>
 </li>
 <li>
-<p><a href="#extending-response-class">Extending Response class</a></p>
+<p><a
+  href="#extending-response-class"
+  
+  
+>Extending Response class</a>
+</p>
 <ul>
-<li><a href="#informing-typescript-about-the-method">Informing typescript about the method</a></li>
+<li><a
+  href="#informing-typescript-about-the-method"
+  
+  
+>Informing typescript about the method</a>
+</li>
 </ul>
 </li>
 <li>
-<p><a href="#additional-reading">Additional reading</a></p>
+<p><a
+  href="#additional-reading"
+  
+  
+>Additional reading</a>
+</p>
 </li>
         </ul>
       </nav>

@@ -51,7 +51,7 @@
     type="font/woff2"
     crossorigin
   >
-<link rel="stylesheet" href="/assets/app.ee5a9736.css" />
+<link rel="stylesheet" href="/assets/app.be48d775.css" />
 <script src="/assets/342.70de04a2.js" defer></script>
 <script src="/assets/app.26949583.js" defer></script>
 </head>
@@ -60,7 +60,7 @@
   <header class="header">
     <div class="header-container">
 
-      <div class="primary-links"><a href="#sidenav-open" title="Open Docs Menu" aria-label="Open Docs Menu" class="hamburger for-mobile">
+      <div class="primary-links"><a href="#sidenav-open" title="Open Docs Menu" aria-label="Open Docs Menu" class="hamburger for-mobile" data-turbo="false">
   <svg role="presentation" focusable="false" aria-label="Icon for open menu" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
     <line x1="4" y1="6" x2="20" y2="6" />
@@ -92,8 +92,14 @@
         <ul>
 
               <li class="active">
-                <a href="/guides/validator/introduction">
+                <a href="/guides/application">
                   Guides
+                </a>
+              </li>
+
+              <li class="">
+                <a href="/reference/database/connection">
+                  Reference guides
                 </a>
               </li>
         </ul>
@@ -112,18 +118,29 @@
   </header>
 </div>
 
-<div id="sidenav-open" data-turbo-permanent>
+<div id="sidenav-open">
   <div class="sidebar" id="sidebar" data-maintain-scroll>
     <div class="sidebar-container">
 
 
 
               <nav>
+                  <h3> Fundamentals </h3>
                 <ol>
                     <li
                       class=""
                     >
-                      <a href="/guides/introduction"> Introduction </a>
+                      <a href="/guides/application"> Application </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/config"> Config </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/environment-variables"> Environment variables </a>
                     </li>
                 </ol>
               </nav>
@@ -173,22 +190,12 @@
                     <li
                       class=""
                     >
-                      <a href="/guides/session"> Session </a>
-                    </li>
-                    <li
-                      class=""
-                    >
                       <a href="/guides/cookies"> Cookies </a>
                     </li>
                     <li
                       class=""
                     >
-                      <a href="/guides/hooks"> Hooks </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/exception-handling"> Exception Handling </a>
+                      <a href="/guides/session"> Session </a>
                     </li>
                     <li
                       class="active"
@@ -198,12 +205,12 @@
                     <li
                       class=""
                     >
-                      <a href="/guides/web-security"> Web security </a>
+                      <a href="/guides/assets-manager"> Assets manager </a>
                     </li>
                     <li
                       class=""
                     >
-                      <a href="/guides/cors"> CORS </a>
+                      <a href="/guides/exception-handling"> Exception Handling </a>
                     </li>
                 </ol>
               </nav>
@@ -218,22 +225,37 @@
                     <li
                       class=""
                     >
-                      <a href="/guides/views/rendering"> Rendering views </a>
+                      <a href="/guides/views/rendering"> Rendering </a>
                     </li>
                     <li
                       class=""
                     >
-                      <a href="/guides/views/templates-syntax"> Template syntax </a>
+                      <a href="/guides/views/templating-syntax"> Templating syntax </a>
                     </li>
                     <li
                       class=""
                     >
-                      <a href="/guides/views/layouts-and-partials"> Layouts &amp; Partials </a>
+                      <a href="/guides/views/data-flow"> Data flow </a>
                     </li>
                     <li
                       class=""
                     >
-                      <a href="/guides/views/conditionals-and-loops"> Conditionals &amp; Loops </a>
+                      <a href="/guides/views/conditionals"> Conditionals </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/views/loops"> Loops </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/views/partials"> Partials </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/views/layouts"> Layouts </a>
                     </li>
                     <li
                       class=""
@@ -243,17 +265,17 @@
                     <li
                       class=""
                     >
+                      <a href="/guides/views/mutations"> Mutations </a>
+                    </li>
+                    <li
+                      class=""
+                    >
                       <a href="/guides/views/debugging"> Debugging </a>
                     </li>
                     <li
                       class=""
                     >
-                      <a href="/guides/views/advanced-options"> Advanced Options </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/views/faqs"> FAQs </a>
+                      <a href="/guides/views/custom-tags"> Creating custom tags </a>
                     </li>
                 </ol>
               </nav>
@@ -297,13 +319,54 @@
                     </li>
                 </ol>
               </nav>
+              <nav>
+                  <h3> Security </h3>
+                <ol>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/security/web-security"> Web Security </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/security/encryption"> Encryption </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/security/hashing"> Hashing </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/security/signed-urls"> Signed URLs </a>
+                    </li>
+                </ol>
+              </nav>
+              <nav>
+                  <h3> Digging deeper </h3>
+                <ol>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/ace-commandline"> Ace </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/repl"> AdonisJS Repl </a>
+                    </li>
+                </ol>
+              </nav>
+
     </div>
   </div>
 
-  <a href="#" id="sidenav-close" class="sidenav-backdrop" title="Close Docs Menu" aria-label="Close Docs Menu"></a>
+  <a href="#" data-turbo="false" id="sidenav-close" class="sidenav-backdrop" title="Close Docs Menu" aria-label="Close Docs Menu"></a>
 </div>
 
-<main class="doc">
+<main class="doc" data-turbo="false">
   <div class="markdown">
     <h1>Static assets</h1><p>AdonisJS ships with a static file server to serve the files from a given directory. It is as simple as dropping a file inside the <code>./public</code> directory and then accessing it by its filename. For example:</p>
 <p>Create a file named <code>public/style.css</code> with the following contents.</p>
@@ -312,28 +375,63 @@
 <pre><code><div class="line"><span style="color: #FFCB6B;">body</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #B2CCD6;">background</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">#</span><span style="color: #A6ACCD;">f7f7f7</span><span style="color: #89DDFF;">;</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
 </div>
 
-<p>And then access it by visiting the <a href="http://localhost:3333/style.css">http://localhost:3333/style.css</a>. You don&#x27;t have to type the directory name (/public), and the files are accessible directly by their filename.</p>
-<h2 id="configuration"><a href="#configuration" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Configuration</h2>
+<p>And then access it by visiting the <a
+  href="http://localhost:3333/style.css"
+  target=&quot;_blank&quot;
+  rel=&quot;noopener&quot;
+>http://localhost:3333/style.css</a>
+. You don&#x27;t have to type the directory name (/public), and the files are accessible directly by their filename.</p>
+<h2 id="configuration"><a
+  href="#configuration"
+  
+  
+><span class="icon icon-link"></span></a>
+Configuration</h2>
 <p>The config for the static server is stored inside the <code>config/static.ts</code> file.</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #89DDFF;">import</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">AssetsConfig</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">from</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">@ioc:Adonis/Core/Static</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"></div><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> staticConfig</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">AssetsConfig</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #F07178;">enabled</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #FF9CAC;">true</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #F07178;">dotFiles</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">ignore</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #F07178;">etag</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #FF9CAC;">true</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #F07178;">lastModified</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #FF9CAC;">true</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #89DDFF;">}</span></div><div class="line"></div><div class="line"><span style="color: #89DDFF;">export</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">default</span><span style="color: #A6ACCD;"> staticConfig</span></div></code></pre>
 </div>
 
-<h4 id="enabled"><a href="#enabled" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>enabled</h4>
+<h4 id="enabled"><a
+  href="#enabled"
+  
+  
+><span class="icon icon-link"></span></a>
+enabled</h4>
 <p>A toggle switch to enable/disable the static file server.</p>
-<h4 id="dotfiles"><a href="#dotfiles" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>dotFiles</h4>
+<h4 id="dotfiles"><a
+  href="#dotfiles"
+  
+  
+><span class="icon icon-link"></span></a>
+dotFiles</h4>
 <p>The treatment for the dotfiles. The value can be one of the following:</p>
 <ul>
 <li><code>&#x27;allow&#x27;</code>: No special treatment for dotfiles. Just serve them like any other file.</li>
 <li><code>&#x27;deny&#x27;</code>: Deny the request with a 403 status code.</li>
 <li><code>&#x27;ignore&#x27;</code>: Pretend like the dotfile does not exist.</li>
 </ul>
-<h4 id="etag"><a href="#etag" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>etag</h4>
+<h4 id="etag"><a
+  href="#etag"
+  
+  
+><span class="icon icon-link"></span></a>
+etag</h4>
 <p>Whether or not to generate the ETag for the files.</p>
-<h4 id="lastmodified"><a href="#lastmodified" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>lastModified</h4>
+<h4 id="lastmodified"><a
+  href="#lastmodified"
+  
+  
+><span class="icon icon-link"></span></a>
+lastModified</h4>
 <p>Enable or disable the <code>Last-Modified</code> HTTP header. The value for the header relies on the file&#x27;s last modified value.</p>
-<h2 id="the-default-directory"><a href="#the-default-directory" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>The default directory</h2>
+<h2 id="the-default-directory"><a
+  href="#the-default-directory"
+  
+  
+><span class="icon icon-link"></span></a>
+The default directory</h2>
 <p>Conventionally, we serve the files from the <code>./public</code> directory. However, you can choose a different directory by configuring it inside the <code>.adonisrc.json</code> file.</p>
 <div class="dimer-highlight">
     <div class="codeblock-title">
@@ -344,7 +442,12 @@
 </div>
 
 <p>After the above change, The static server will serve the files from the <code>./assets</code> directory.</p>
-<h3 id="notifying-assembler-about-the-change"><a href="#notifying-assembler-about-the-change" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Notifying assembler about the change</h3>
+<h3 id="notifying-assembler-about-the-change"><a
+  href="#notifying-assembler-about-the-change"
+  
+  
+><span class="icon icon-link"></span></a>
+Notifying assembler about the change</h3>
 <p>The <code>@adonisjs/assembler</code> package compiles your production application and writes the output to the <code>./build</code> directory.</p>
 <p>During this process, it also copies the files from the <code>public</code> directory, and hence, you must notify it about the change within the <code>.adonisrc.json</code> file.</p>
 <div class="dimer-highlight">
@@ -355,7 +458,20 @@
 <pre><code><div class="line dim"><span style="color: #89DDFF;">{</span></div><div class="line dim"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">&quot;</span><span style="color: #C792EA;">metaFiles</span><span style="color: #89DDFF;">&quot;</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">[</span></div><div class="line highlight-delete"><span style="color: #A6ACCD;">    </span><span style="color: #89DDFF;">{</span></div><div class="line highlight-delete"><span style="color: #A6ACCD;">      </span><span style="color: #89DDFF;">&quot;</span><span style="color: #FFCB6B;">pattern</span><span style="color: #89DDFF;">&quot;</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&quot;</span><span style="color: #C3E88D;">public/**</span><span style="color: #89DDFF;">&quot;</span><span style="color: #89DDFF;">,</span></div><div class="line highlight-delete"><span style="color: #A6ACCD;">      </span><span style="color: #89DDFF;">&quot;</span><span style="color: #FFCB6B;">reloadServer</span><span style="color: #89DDFF;">&quot;</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">false</span></div><div class="line highlight-delete"><span style="color: #A6ACCD;">    </span><span style="color: #89DDFF;">},</span></div><div class="line highlight-insert"><span style="color: #A6ACCD;">    </span><span style="color: #89DDFF;">{</span></div><div class="line highlight-insert"><span style="color: #A6ACCD;">      </span><span style="color: #89DDFF;">&quot;</span><span style="color: #FFCB6B;">pattern</span><span style="color: #89DDFF;">&quot;</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&quot;</span><span style="color: #C3E88D;">assets/**</span><span style="color: #89DDFF;">&quot;</span><span style="color: #89DDFF;">,</span></div><div class="line highlight-insert"><span style="color: #A6ACCD;">      </span><span style="color: #89DDFF;">&quot;</span><span style="color: #FFCB6B;">reloadServer</span><span style="color: #89DDFF;">&quot;</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">false</span></div><div class="line highlight-insert"><span style="color: #A6ACCD;">    </span><span style="color: #89DDFF;">}</span></div><div class="line dim"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">]</span></div><div class="line dim"><span style="color: #89DDFF;">}</span></div></code></pre>
 </div>
 
-<h2 id="additional-reading"><a href="#additional-reading" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Additional reading</h2>
+<h2 id="url-conflicts"><a
+  href="#url-conflicts"
+  
+  
+><span class="icon icon-link"></span></a>
+URL conflicts</h2>
+<p>In case your static file names conflict with a registered route, AdonisJS will give preference to the static file and the route handler will never be called.</p>
+<p>In this scenario, we recommend you to rename the static file or move it inside a sub-folder to avoid the conflict at the first place.</p>
+<h2 id="additional-reading"><a
+  href="#additional-reading"
+  
+  
+><span class="icon icon-link"></span></a>
+Additional reading</h2>
 <ul>
 <li>Assets bundler</li>
 </ul>  </div>
@@ -367,16 +483,44 @@
       <nav>
         <ul>
 <li>
-<p><a href="#configuration">Configuration</a></p>
+<p><a
+  href="#configuration"
+  
+  
+>Configuration</a>
+</p>
 </li>
 <li>
-<p><a href="#the-default-directory">The default directory</a></p>
+<p><a
+  href="#the-default-directory"
+  
+  
+>The default directory</a>
+</p>
 <ul>
-<li><a href="#notifying-assembler-about-the-change">Notifying assembler about the change</a></li>
+<li><a
+  href="#notifying-assembler-about-the-change"
+  
+  
+>Notifying assembler about the change</a>
+</li>
 </ul>
 </li>
 <li>
-<p><a href="#additional-reading">Additional reading</a></p>
+<p><a
+  href="#url-conflicts"
+  
+  
+>URL conflicts</a>
+</p>
+</li>
+<li>
+<p><a
+  href="#additional-reading"
+  
+  
+>Additional reading</a>
+</p>
 </li>
         </ul>
       </nav>

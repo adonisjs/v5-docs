@@ -83,24 +83,26 @@ The following example is not the best way to transform response. It is just a de
 import snakeCaseKeys from 'snakecase-keys'
 // highlight-end
 
-Route.get('/', async ({ response }) => {
-  response.send({ fullName: 'Harminder Virk' })
-}).middleware(async ({ response }, next) => {
-  await next()
+Route
+  .get('/', async ({ response }) => {
+    response.send({ fullName: 'Harminder Virk' })
+  })
+  .middleware(async ({ response }, next) => {
+    await next()
 
-  // highlight-start
-  /**
-   * Following code is executed after the route handler.
-   * Read the middleware guide to learn how it works
-   */
-  const existingBody = response.lazyBody[0]
-  if (!existingBody || existingBody.constructor !== Object) {
-    return
-  }
+    // highlight-start
+    /**
+     * Following code is executed after the route handler.
+     * Read the middleware guide to learn how it works
+     */
+    const existingBody = response.lazyBody[0]
+    if (!existingBody || existingBody.constructor !== Object) {
+      return
+    }
 
-  response.send(snakeCaseKeys(existingBody))
-  // highlight-end
-})
+    response.send(snakeCaseKeys(existingBody))
+    // highlight-end
+  })
 ```
 
 In the above example, the route handler writes the response body using the `response.send` method. However, the downstream middleware mutates the body and re-writes it using the `response.send` again.
@@ -456,11 +458,12 @@ The `flash` property is added at the runtime, and hence Typescript does not know
 
 Create a new file at path `contracts/response.ts` (the filename is not important) and paste the following contents inside it.
 
-```ts{contracts/response.ts}
+```ts
+// title: contracts/response.ts
 declare module '@ioc:Adonis/Core/Response' {
- interface ResponseContract {
- flash(messages: any): this
- }
+  interface ResponseContract {
+    flash(messages: any): this
+  }
 }
 ```
 

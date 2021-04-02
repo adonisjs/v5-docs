@@ -85,7 +85,9 @@ Lazy loading the controllers is a perfect solution to the problem mentioned abov
 import Route from '@ioc:Adonis/Core/Route'
 
 Route.get('/posts', async (ctx) => {
-  const { default: PostsController } = await import('App/Controllers/Http/PostsController')
+  const { default: PostsController } = await import(
+    'App/Controllers/Http/PostsController'
+  )
   return new PostsController().index(ctx)
 })
 ```
@@ -198,7 +200,11 @@ Route.resource('comments', 'CommentsController').except(['update', 'destroy']) /
 The opposite of the `except` method is the `only` method. It only registers the routes with the given action names.
 
 ```ts
-Route.resource('comments', 'CommentsController').only(['index', 'show', 'store']) // 👈
+Route.resource('comments', 'CommentsController').only([
+  'index',
+  'show',
+  'store',
+]) // 👈
 ```
 
 ### API only routes

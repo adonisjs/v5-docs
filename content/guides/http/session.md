@@ -2,16 +2,13 @@ The support for sessions is provided by the `@adonisjs/session` package. The pac
 
 Open the `.adonisrc.json` file and check if `@adonisjs/session` is mentioned inside the list of `providers` array. **IF NOT, then continue with the following steps:**
 
-:::div{class="setup"}
-:::codegroup
-
 ```sh
-// title: Install
 npm i @adonisjs/session
 ```
 
+Run the following `ace` command to configure the project.
+
 ```sh
-// title: Configure
 node ace configure @adonisjs/session
 
 # CREATE:  config/session.ts
@@ -19,8 +16,10 @@ node ace configure @adonisjs/session
 # UPDATE: .adonisrc.json { providers += "@adonisjs/session" }
 ```
 
+Once done, copy/paste the following line of code inside the `env.ts` file to validate the `SESSION_DRIVER` environment variable.
+
 ```ts
-// title: Post configure
+// title: env.ts
 export default Env.rules({
   // ... rest of the variables
 
@@ -30,25 +29,12 @@ export default Env.rules({
 })
 ```
 
-:::
-
-:::div{class="features"}
-
-- Support for drivers
-- Flash messages
-
-<!-- -->
-
-- [View on npm]()
-- [View on github]()
-
-:::
-
 ## Session configuration
 
 You can configure the behavior of the session by tweaking the `config/session.ts` file. Following is the default config file.
 
-```ts{config/session.ts}
+```ts
+// title: config/session.ts
 {
   enabled: true,
   driver: Env.get('SESSION_DRIVER'),
@@ -73,7 +59,8 @@ The session package allows you to choose between one of the available drivers to
 
 You can configure the driver inside the `config/session.ts` file. The `driver` property, in turn, relies on the `SESSION_DRIVER` environment variable.
 
-```ts{config/session.ts}
+```ts
+// title: config/session.ts
 {
   driver: Env.get('SESSION_DRIVER'),
 }
@@ -132,7 +119,8 @@ The redis driver relies on the `@adonisjs/redis` package. Make sure to configure
 
 The configuration for the redis driver references one of the pre-defined redis connections inside the `config/redis.ts` file.
 
-```ts{config/session.ts}
+```ts
+// title: config/session.ts
 {
   driver: 'redis',
   // highlight-start
@@ -143,7 +131,8 @@ The configuration for the redis driver references one of the pre-defined redis c
 
 Next, define a connection named `local` inside the `config/redis.ts` file.
 
-```ts{config/redis.ts}
+```ts
+// title: config/redis.ts
 {
   connections: {
     // highlight-start
@@ -361,7 +350,8 @@ session.flashExcept(['_csrf', 'submit'])
 
 You can access the flash messages set by the previous request using the `session.flashMessages` property or the `flashMessages` helper inside the edge templates.
 
-```edge{Inside templates}
+```edge
+// title: Inside templates
 {{-- Get value for a given key --}}
 {{ flashMessages.get('errors.title') }}
 
@@ -458,7 +448,9 @@ The session package exposes the API to add your custom session drivers. Every se
 
 ```ts
 interface SessionDriverContract {
-  read(sessionId: string): Promise<Record<string, any> | null> | Record<string, any> | null
+  read(
+    sessionId: string
+  ): Promise<Record<string, any> | null> | Record<string, any> | null
 
   write(sessionId: string, values: Record<string, any>): Promise<void> | void
 
@@ -513,7 +505,8 @@ providers
 
 Open the `SessionDriver/index.ts` file and paste the following contents inside it.
 
-```ts{providers/SessionDriver/index.ts}
+```ts
+// title: providers/SessionDriver/index.ts
 import { SessionDriverContract } from '@ioc:Adonis/Addons/Session'
 
 const SESSIONS: Map<string, Record<string, any>> = new Map()
@@ -608,7 +601,8 @@ You must also inject the configuration for the driver through the constructor. T
 
 The configuration for the driver is stored inside a property matching the driver's name. For example:
 
-```ts{config/session.ts}
+```ts
+// title: config/session.ts
 {
   // The following object is for the memory driver
   memory: {}

@@ -181,8 +181,8 @@ Consider the following example in which we want to look up a post by its `id` an
 Route
   .get('/posts/:id', async ({ params }) => {
     return `Viewing post using id ${params.id}`
- })
- .where('id', ^/[0-9]+/$)
+  })
+  .where('id', ^/[0-9]+/$)
 
 Route
   .get('/posts/:slug', async ({ params }) => {
@@ -209,11 +209,11 @@ However, you can manually cast the params to their actual Javascript data type b
 
 ```ts
 Route
- .get('posts/:id', 'PostsController.show')
- .where('id', {
+  .get('posts/:id', 'PostsController.show')
+  .where('id', {
     matches: ^/[0-9]+/$,
     cast: (id) => Number(id),
- })
+  })
 ```
 
 ## URL generation
@@ -245,7 +245,9 @@ const url = Route.makeUrl('UsersController.show', { id: 1 })
 Or use the route's unique name as a reference.
 
 ```ts
-Route.get('/users/:id', 'UsersController.show').as('showUser') // 👈 Route name
+Route
+  .get('/users/:id', 'UsersController.show')
+  .as('showUser') // 👈 Route name
 
 // Generate URL
 const url = Route.makeUrl('showUser', { id: 1 })
@@ -268,8 +270,11 @@ const url = Route.makeUrl('showUser', [1], {
 Since AdonisJS allows you to register routes for different domains, you can limit your `makeUrl` search for a specific domain as well.
 
 ```ts
-Route.get('/users/:id', 'UsersController.show').domain(':tenant.adonisjs.com')
+Route
+  .get('/users/:id', 'UsersController.show')
+  .domain(':tenant.adonisjs.com')
 
+// Make URL
 const url = Route.makeUrl('UsersController.show', [1], {
   domain: ':tenant.adonisjs.com',
 })
@@ -325,7 +330,9 @@ Route.post('posts', 'PostsController.store').as('posts.create')
 You can also generate a URL to a pre-registered route when redirecting the request. The `redirect().toRoute()` has the same API as the `makeUrl` method.
 
 ```ts
-Route.get('/users/:id', 'UsersController.show').as('users.show')
+Route
+  .get('/users/:id', 'UsersController.show')
+  .as('users.show')
 ```
 
 ```ts
@@ -400,10 +407,12 @@ You can also create nested groups, and AdonisJS will merge or override propertie
 All of the following routes inside the group closure will be prefixed with the `/api` string.
 
 ```ts
-Route.group(() => {
-  Route.get('/users', 'UsersController.index')
-  Route.get('/posts', 'PostsController.index')
-}).prefix('/api')
+Route
+  .group(() => {
+    Route.get('/users', 'UsersController.index')
+    Route.get('/posts', 'PostsController.index')
+  })
+  .prefix('/api')
 ```
 
 In the case of nested groups, the prefix will be applied from the outer to the inner group.
@@ -437,10 +446,11 @@ Naming a group will prefix all its routes with the given name. For example:
 // Named as users.index, users.store and so on
 Route.resource('users', 'UserController')
 
-Route.group(() => {
-  // Named as api.users.index, api.users.store
-  Route.resource('users', 'UserController')
-})
+Route
+  .group(() => {
+    // Named as api.users.index, api.users.store
+    Route.resource('users', 'UserController')
+  })
   .prefix('v1')
   .as('api')
 ```
@@ -552,7 +562,9 @@ Now, open the `start/routes.ts` file to use this method.
 
 ```ts
 // title: start/routes.ts
-Route.get('email/verify', 'OnboardingController.verifyEmail').mustBeSigned()
+Route
+  .get('email/verify', 'OnboardingController.verifyEmail')
+  .mustBeSigned()
 ```
 
 ### Informing typescript about the method

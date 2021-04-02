@@ -51,7 +51,7 @@
     type="font/woff2"
     crossorigin
   >
-<link rel="stylesheet" href="/assets/app.ee5a9736.css" />
+<link rel="stylesheet" href="/assets/app.be48d775.css" />
 <script src="/assets/342.70de04a2.js" defer></script>
 <script src="/assets/app.26949583.js" defer></script>
 </head>
@@ -60,7 +60,7 @@
   <header class="header">
     <div class="header-container">
 
-      <div class="primary-links"><a href="#sidenav-open" title="Open Docs Menu" aria-label="Open Docs Menu" class="hamburger for-mobile">
+      <div class="primary-links"><a href="#sidenav-open" title="Open Docs Menu" aria-label="Open Docs Menu" class="hamburger for-mobile" data-turbo="false">
   <svg role="presentation" focusable="false" aria-label="Icon for open menu" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
     <line x1="4" y1="6" x2="20" y2="6" />
@@ -92,8 +92,14 @@
         <ul>
 
               <li class="active">
-                <a href="/guides/validator/introduction">
+                <a href="/guides/application">
                   Guides
+                </a>
+              </li>
+
+              <li class="">
+                <a href="/reference/database/connection">
+                  Reference guides
                 </a>
               </li>
         </ul>
@@ -112,18 +118,29 @@
   </header>
 </div>
 
-<div id="sidenav-open" data-turbo-permanent>
+<div id="sidenav-open">
   <div class="sidebar" id="sidebar" data-maintain-scroll>
     <div class="sidebar-container">
 
 
 
               <nav>
+                  <h3> Fundamentals </h3>
                 <ol>
                     <li
                       class=""
                     >
-                      <a href="/guides/introduction"> Introduction </a>
+                      <a href="/guides/application"> Application </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/config"> Config </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/environment-variables"> Environment variables </a>
                     </li>
                 </ol>
               </nav>
@@ -173,22 +190,12 @@
                     <li
                       class=""
                     >
-                      <a href="/guides/session"> Session </a>
-                    </li>
-                    <li
-                      class=""
-                    >
                       <a href="/guides/cookies"> Cookies </a>
                     </li>
                     <li
                       class=""
                     >
-                      <a href="/guides/hooks"> Hooks </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/exception-handling"> Exception Handling </a>
+                      <a href="/guides/session"> Session </a>
                     </li>
                     <li
                       class=""
@@ -198,12 +205,12 @@
                     <li
                       class=""
                     >
-                      <a href="/guides/web-security"> Web security </a>
+                      <a href="/guides/assets-manager"> Assets manager </a>
                     </li>
                     <li
                       class=""
                     >
-                      <a href="/guides/cors"> CORS </a>
+                      <a href="/guides/exception-handling"> Exception Handling </a>
                     </li>
                 </ol>
               </nav>
@@ -218,22 +225,37 @@
                     <li
                       class="active"
                     >
-                      <a href="/guides/views/rendering"> Rendering views </a>
+                      <a href="/guides/views/rendering"> Rendering </a>
                     </li>
                     <li
                       class=""
                     >
-                      <a href="/guides/views/templates-syntax"> Template syntax </a>
+                      <a href="/guides/views/templating-syntax"> Templating syntax </a>
                     </li>
                     <li
                       class=""
                     >
-                      <a href="/guides/views/layouts-and-partials"> Layouts &amp; Partials </a>
+                      <a href="/guides/views/data-flow"> Data flow </a>
                     </li>
                     <li
                       class=""
                     >
-                      <a href="/guides/views/conditionals-and-loops"> Conditionals &amp; Loops </a>
+                      <a href="/guides/views/conditionals"> Conditionals </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/views/loops"> Loops </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/views/partials"> Partials </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/views/layouts"> Layouts </a>
                     </li>
                     <li
                       class=""
@@ -243,17 +265,17 @@
                     <li
                       class=""
                     >
+                      <a href="/guides/views/mutations"> Mutations </a>
+                    </li>
+                    <li
+                      class=""
+                    >
                       <a href="/guides/views/debugging"> Debugging </a>
                     </li>
                     <li
                       class=""
                     >
-                      <a href="/guides/views/advanced-options"> Advanced Options </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/views/faqs"> FAQs </a>
+                      <a href="/guides/views/custom-tags"> Creating custom tags </a>
                     </li>
                 </ol>
               </nav>
@@ -297,19 +319,244 @@
                     </li>
                 </ol>
               </nav>
+              <nav>
+                  <h3> Security </h3>
+                <ol>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/security/web-security"> Web Security </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/security/encryption"> Encryption </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/security/hashing"> Hashing </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/security/signed-urls"> Signed URLs </a>
+                    </li>
+                </ol>
+              </nav>
+              <nav>
+                  <h3> Digging deeper </h3>
+                <ol>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/ace-commandline"> Ace </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/repl"> AdonisJS Repl </a>
+                    </li>
+                </ol>
+              </nav>
+
     </div>
   </div>
 
-  <a href="#" id="sidenav-close" class="sidenav-backdrop" title="Close Docs Menu" aria-label="Close Docs Menu"></a>
+  <a href="#" data-turbo="false" id="sidenav-close" class="sidenav-backdrop" title="Close Docs Menu" aria-label="Close Docs Menu"></a>
 </div>
 
-<main class="doc">
+<main class="doc" data-turbo="false">
   <div class="markdown">
-    <h1>Rendering views</h1><p>The templates in AdonisJS are stored inside the <code>resources/views</code> directory and the filename must end with <code>.edge</code> extension.</p>
-<p>To begin</p>  </div>
+    <h1>Rendering</h1><p>You can render views by importing the <code>View</code> module as shown below.</p>
+<p>The <code>renderAsync</code> method accepts the template path relative from the <code>views</code> directory and the data object to pass to the template and always returns a string value.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">import</span><span style="color: #A6ACCD;"> View </span><span style="color: #89DDFF;">from</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">@ioc:Adonis/Core/View</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"></div><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> html </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> View</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">renderAsync</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">welcome</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #F07178;">greeting</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Hello</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
+</div>
+
+<p>During the HTTP requests, it is recommended to use the <code>ctx.view</code> object, instead of the top level import.</p>
+<p>The <code>ctx.view</code> is an isolated instance of the View module created for that specific request and shares the request specific data with the templates.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">get</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">async</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">({</span><span style="color: #A6ACCD;"> view </span><span style="color: #89DDFF;">})</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #C792EA;">const</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">html</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">=</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">await</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">view</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">renderAsync</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">welcome</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">    greeting</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Hello</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span><span style="color: #F07178;">)</span></div><div class="line"><span style="color: #F07178;">  </span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">return</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">html</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
+</div>
+
+<h2 id="rendering-modes"><a
+  href="#rendering-modes"
+  
+  
+><span class="icon icon-link"></span></a>
+Rendering Modes</h2>
+<p>Edge exposes both the sync and the async API&#x27;s for rendering views. We <strong>recommend using the async API</strong> as the I/O operations performed by Edge does not block the Node.js event loop.</p>
+<p>In the following example:</p>
+<ul>
+<li>The <code>user.edge</code> file is read synchronously from the disk.</li>
+<li>Any internal references to load partials or components will be synchronous too.</li>
+<li>The template cannot use the <code>await</code> keyword. For example: <code>{{ await getUser() }}</code> will NOT work.</li>
+</ul>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #A6ACCD;">view</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">render</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">user</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #82AAFF;">getUser</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">async</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">()</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{},</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
+</div>
+
+<p>Whereas, the <code>view.renderAsync</code> method is free from all the caveats of synchronous rendering.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> view</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">renderAsync</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">user</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #82AAFF;">getUser</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">async</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">()</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{},</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
+</div>
+
+<h2 id="disks"><a
+  href="#disks"
+  
+  
+><span class="icon icon-link"></span></a>
+Disks</h2>
+<p>Edge allows you to specify <strong>multiple root directories</strong> for finding the templates. We call this concept as mounting disk.</p>
+<p>We mount the <code>./resources/views</code> directory as the default disk for you implicitly. If required, you can also mount additional directories, each with a unique name.</p>
+<p>You can write the following code inside a <a
+  href="link-to-preloading-files"
+  
+  
+>preload file</a>
+.</p>
+<div class="dimer-highlight">
+    <div class="codeblock-title">
+      start/views.ts
+    </div>
+
+<pre><code><div class="line"></div><div class="line"><span style="color: #89DDFF;">import</span><span style="color: #A6ACCD;"> View </span><span style="color: #89DDFF;">from</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">@ioc:Adonis/Core/View</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"><span style="color: #89DDFF;">import</span><span style="color: #A6ACCD;"> Application </span><span style="color: #89DDFF;">from</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">@ioc:Adonis/Core/Application</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"></div><div class="line"><span style="color: #A6ACCD;">View</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">mount</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">material</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> Application</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">resourcesPath</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">themes/material</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">))</span></div><div class="line"><span style="color: #A6ACCD;">View</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">mount</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">elegant</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> Application</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">resourcesPath</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">themes/elegant</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">))</span></div></code></pre>
+</div>
+
+<p>You can render the views from the named disks by prefixing the disk name.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #676E95;">// renders themes/material/user.edge</span></div><div class="line"><span style="color: #A6ACCD;">view</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">renderAsync</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">material::user</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div><div class="line"></div><div class="line"><span style="color: #676E95;">// renders themes/elegant/user.edge</span></div><div class="line"><span style="color: #A6ACCD;">view</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">renderAsync</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">elegant::user</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div></code></pre>
+</div>
+
+<p>Similarly, you can prefix the disk name when including partials or components.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">@include</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">material::header</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div><div class="line"></div><div class="line"><span style="color: #89DDFF;">@component</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">material::button</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div><div class="line"><span style="color: #82AAFF;">@end</span></div></code></pre>
+</div>
+
+<h2 id="in-memory-templates"><a
+  href="#in-memory-templates"
+  
+  
+><span class="icon icon-link"></span></a>
+In-memory templates</h2>
+<p>Edge allows you to register in-memory templates without creating any file on the disk. You may find it useful, when you want to provide some templates as part of an npm package.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">import</span><span style="color: #A6ACCD;"> View </span><span style="color: #89DDFF;">from</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">@ioc:Adonis/Core/View</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"></div><div class="line"><span style="color: #A6ACCD;">View</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">registerTemplate</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">uikit/button</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #F07178;">template</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x60;</span></div><div class="line"><span style="color: #C3E88D;">    &lt;button {{ $props.serializeExcept([&#x27;title&#x27;]) }}&gt;</span></div><div class="line"><span style="color: #C3E88D;">      {{ title }}</span></div><div class="line"><span style="color: #C3E88D;">    &lt;/button&gt;</span></div><div class="line"><span style="color: #C3E88D;">  </span><span style="color: #89DDFF;">&#x60;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
+</div>
+
+<p>Now, you can render the template directly, or use it as a component with the exact name given to the <code>View.registerTemplate</code> method.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">@!component</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">uikit/button</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #FFCB6B;">title</span><span style="color: #A6ACCD;">: </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Signup</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #FFCB6B;">class</span><span style="color: #A6ACCD;">: </span><span style="color: #89DDFF;">[</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">btn</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">btn-primary</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">],</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #FFCB6B;">id</span><span style="color: #A6ACCD;">: </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">signup</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
+</div>
+
+<div class="alert alert-note"><p>The in-memory templates are given preference over the on-disk templates in case of the path conflict.</p></div>
+<h2 id="rendering-raw-string"><a
+  href="#rendering-raw-string"
+  
+  
+><span class="icon icon-link"></span></a>
+Rendering raw string</h2>
+<p>Edge also exposes the API to render raw string values directly as a template. However do note, that raw strings do not enjoy the benefits of template caching as there are not associated with a unique path.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #A6ACCD;">View</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">renderRaw</span><span style="color: #A6ACCD;">(</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">&#x60;</span></div><div class="line"><span style="color: #C3E88D;">  &lt;p&gt; Hello {{ username }} &lt;/p&gt;</span></div><div class="line"><span style="color: #89DDFF;">&#x60;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #F07178;">username</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">virk</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">}</span></div><div class="line"><span style="color: #A6ACCD;">)</span></div></code></pre>
+</div>
+
+<p>Use the <code>renderRawAsync</code> method to render the raw string asynchronously.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> View</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">renderRawAsync</span><span style="color: #A6ACCD;">(</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">&#x60;</span></div><div class="line"><span style="color: #C3E88D;">  &lt;p&gt; Hello {{ username }} &lt;/p&gt;</span></div><div class="line"><span style="color: #89DDFF;">&#x60;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #F07178;">username</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">virk</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">}</span></div><div class="line"><span style="color: #A6ACCD;">)</span></div></code></pre>
+</div>
+
+<h2 id="view-renderer-instances"><a
+  href="#view-renderer-instances"
+  
+  
+><span class="icon icon-link"></span></a>
+View renderer instances</h2>
+<p>Views in edge are rendered using the <a
+  href="https://github.com/edge-js/edge/blob/develop/src/Renderer/index.ts"
+  target=&quot;_blank&quot;
+  rel=&quot;noopener&quot;
+>ViewRenderer</a>
+ class. Every time you run the <code>View.render</code> method, we create a new instance of the <code>ViewRenderer</code> and then call the <code>render</code> method on it.</p>
+<p>You can also get the renderer instance by calling the <code>View.getRenderer()</code> method and use the <code>share</code> method to share data with the view.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">import</span><span style="color: #A6ACCD;"> View </span><span style="color: #89DDFF;">from</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">@ioc:Adonis/Core/View</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> view </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> View</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">getRenderer</span><span style="color: #A6ACCD;">()</span></div><div class="line"></div><div class="line"><span style="color: #A6ACCD;">view</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">share</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">{</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">url</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">user</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> auth</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">user </span><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div><div class="line"><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> view</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">renderAsync</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">home</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div></code></pre>
+</div>
+
+<p>The <code>ctx.view</code> object is an instance of the <code>ViewRenderer</code> class.</p>
+<h2 id="caching"><a
+  href="#caching"
+  
+  
+><span class="icon icon-link"></span></a>
+Caching</h2>
+<p>Compiling a template to a Javascript function is a time taking process and hence it is recommended to cache the compiled templates in production.</p>
+<p>You can control the templates caching using the <code>CACHE_VIEWS</code> environment variable. Just make sure to set the value to <code>true</code> in the production environment.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #A6ACCD;">CACHE_VIEWS=true</span></div></code></pre>
+</div>
+
+<p>All of the templates are cached within the memory. Currently, we do not have any plans to support on-disk caching. Since, the value provided for the efforts is too low.</p>
+<p>Raw text does not take up too much space and even keeping thousands of pre-compiled templates in memory should not be a problem.</p>  </div>
 </main>
 
 <aside class="toc">
+    <div class="toc-container" data-turbo="false">
+      <h3> On this page </h3>
+      <nav>
+        <ul>
+<li><a
+  href="#rendering-modes"
+  
+  
+>Rendering Modes</a>
+</li>
+<li><a
+  href="#disks"
+  
+  
+>Disks</a>
+</li>
+<li><a
+  href="#in-memory-templates"
+  
+  
+>In-memory templates</a>
+</li>
+<li><a
+  href="#rendering-raw-string"
+  
+  
+>Rendering raw string</a>
+</li>
+<li><a
+  href="#view-renderer-instances"
+  
+  
+>View renderer instances</a>
+</li>
+<li><a
+  href="#caching"
+  
+  
+>Caching</a>
+</li>
+        </ul>
+      </nav>
+    </div>
 </aside>
 
 </body>

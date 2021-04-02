@@ -89,9 +89,10 @@ request.param('id', 1)
 
 The request body is parsed using the pre-configured bodyparser middleware. Open the `start/kernel.ts` file and ensure that the following middleware is registered inside the list of the global middlewares.
 
-```ts{start/kernel.ts}
+```ts
+// title: start/kernel.ts
 Server.middleware.register([
- () => import('@ioc:Adonis/Core/BodyParserMiddleware')
+  () => import('@ioc:Adonis/Core/BodyParserMiddleware')
 ])
 ```
 
@@ -154,21 +155,23 @@ You can use the raw parser to process custom/unsupported content types. For exam
 
 #### Register the custom content type
 
-```ts{config/bodyparser.ts}
+```ts
+// title: config/bodyparser.ts
 {
- raw: {
- // ...
- types: ['text/*', 'my-custom-content-type']
- }
+  raw: {
+    // ...
+    types: ['text/*', 'my-custom-content-type']
+  }
 }
 ```
 
 #### Create a middleware to parse the content type further
 
 ```ts
-Route.get('/', ({ request }) => {
-  console.log(request.all())
-})
+Route
+  .get('/', ({ request }) => {
+    console.log(request.all())
+  })
   // highlight-start
   .middleware(async ({ request }, next) => {
     const contentType = request.header('content-type')
@@ -181,7 +184,7 @@ Route.get('/', ({ request }) => {
 
     await next()
   })
-// highlight-end
+  // highlight-end
 ```
 
 ## Request route
@@ -276,11 +279,12 @@ Open the `config/app.ts` and set the value of `http.generateRequestId` to true.
 
 Also, the request-id is only generated when the `X-Request-Id` header is not set. This allows you to generate the request ids at your proxy server level and then reference them inside your AdonisJS application.
 
-```ts{config/app.ts}
+```ts
+// title: config/app.ts
 {
- http: {
- generateRequestId: true
- }
+  http: {
+    generateRequestId: true
+  }
 }
 ```
 
@@ -347,14 +351,14 @@ Open the `config/app.ts` file and define the `getIp` method as follows:
 
 ```ts
 http: {
- getIp(request) {
- const nginxRealIp = request.header('X-Real-Ip')
- if (nginxRealIp) {
- return nginxRealIp
- }
+  getIp(request) {
+    const nginxRealIp = request.header('X-Real-Ip')
+    if (nginxRealIp) {
+      return nginxRealIp
+    }
 
- return request.ips()[0]
- }
+    return request.ips()[0]
+  }
 }
 ```
 
@@ -433,11 +437,12 @@ However, all the proxy servers set the [`X-Forwaded`](https://developer.mozilla.
 
 You can control which proxies to trust by modifying the `http.trustProxy` value inside the `config/app.ts`.
 
-```ts{config/app.ts}
+```ts
+// title: config/app.ts
 {
- http: {
- trustProxy: proxyAddr.compile(valueComesHere)
- }
+  http: {
+    trustProxy: proxyAddr.compile(valueComesHere)
+  }
 }
 ```
 
@@ -491,6 +496,20 @@ The following methods from the request class rely on a trusted proxy to return t
 - **hostname**: The value of `request.hostname()` is derived from the `X-Forwarded-Host` header.
 - **protocol**: The value of `request.protocol()` is derived from the `X-Forwarded-Proto` header.
 - **ip/ips**: The value of `request.ips()` and `request.ip()` is derived from the `X-Forwaded-For` header. However, the `http.getIp` configuration method takes precendence when defined. [Learn more](#custom-ip-reterval-method)
+
+## CORS
+
+AdonisJS has in-built support for responding to the [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) `OPTIONS` requests. Just enable it inside the `config/cors.ts` file.
+
+```ts
+// title: config/cors.ts
+{
+  enabled: true,
+  // ...rest of the config
+}
+```
+
+The config file is extensively documented. Make sure to go through all the options and read the associated comments to understand its usage.
 
 ## Other methods and properties
 
@@ -557,7 +576,9 @@ export default class AppProvider {
 
     Request.macro('wantsJSON', function () {
       const types = this.types()
-      return types[0] && (types[0].includes('/json') || types[0].includes('+json'))
+      return (
+        types[0] && (types[0].includes('/json') || types[0].includes('+json'))
+      )
     })
   }
   // highlight-end
@@ -582,11 +603,12 @@ The `wantsJSON` property is added at the runtime, and hence Typescript does not 
 
 Create a new file at path `contracts/request.ts` (the filename is not important) and paste the following contents inside it.
 
-```ts{contracts/request.ts}
+```ts
+// title: contracts/request.ts
 declare module '@ioc:Adonis/Core/Request' {
- interface RequestContract {
- wantsJSON(): boolean
- }
+  interface RequestContract {
+    wantsJSON(): boolean
+  }
 }
 ```
 

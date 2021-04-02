@@ -51,7 +51,7 @@
     type="font/woff2"
     crossorigin
   >
-<link rel="stylesheet" href="/assets/app.ee5a9736.css" />
+<link rel="stylesheet" href="/assets/app.be48d775.css" />
 <script src="/assets/342.70de04a2.js" defer></script>
 <script src="/assets/app.26949583.js" defer></script>
 </head>
@@ -60,7 +60,7 @@
   <header class="header">
     <div class="header-container">
 
-      <div class="primary-links"><a href="#sidenav-open" title="Open Docs Menu" aria-label="Open Docs Menu" class="hamburger for-mobile">
+      <div class="primary-links"><a href="#sidenav-open" title="Open Docs Menu" aria-label="Open Docs Menu" class="hamburger for-mobile" data-turbo="false">
   <svg role="presentation" focusable="false" aria-label="Icon for open menu" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
     <line x1="4" y1="6" x2="20" y2="6" />
@@ -92,8 +92,14 @@
         <ul>
 
               <li class="active">
-                <a href="/guides/validator/introduction">
+                <a href="/guides/application">
                   Guides
+                </a>
+              </li>
+
+              <li class="">
+                <a href="/reference/database/connection">
+                  Reference guides
                 </a>
               </li>
         </ul>
@@ -112,18 +118,29 @@
   </header>
 </div>
 
-<div id="sidenav-open" data-turbo-permanent>
+<div id="sidenav-open">
   <div class="sidebar" id="sidebar" data-maintain-scroll>
     <div class="sidebar-container">
 
 
 
               <nav>
+                  <h3> Fundamentals </h3>
                 <ol>
                     <li
                       class=""
                     >
-                      <a href="/guides/introduction"> Introduction </a>
+                      <a href="/guides/application"> Application </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/config"> Config </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/environment-variables"> Environment variables </a>
                     </li>
                 </ol>
               </nav>
@@ -173,22 +190,12 @@
                     <li
                       class=""
                     >
-                      <a href="/guides/session"> Session </a>
-                    </li>
-                    <li
-                      class=""
-                    >
                       <a href="/guides/cookies"> Cookies </a>
                     </li>
                     <li
                       class=""
                     >
-                      <a href="/guides/hooks"> Hooks </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/exception-handling"> Exception Handling </a>
+                      <a href="/guides/session"> Session </a>
                     </li>
                     <li
                       class=""
@@ -198,12 +205,12 @@
                     <li
                       class=""
                     >
-                      <a href="/guides/web-security"> Web security </a>
+                      <a href="/guides/assets-manager"> Assets manager </a>
                     </li>
                     <li
                       class=""
                     >
-                      <a href="/guides/cors"> CORS </a>
+                      <a href="/guides/exception-handling"> Exception Handling </a>
                     </li>
                 </ol>
               </nav>
@@ -218,22 +225,37 @@
                     <li
                       class=""
                     >
-                      <a href="/guides/views/rendering"> Rendering views </a>
+                      <a href="/guides/views/rendering"> Rendering </a>
                     </li>
                     <li
                       class=""
                     >
-                      <a href="/guides/views/templates-syntax"> Template syntax </a>
+                      <a href="/guides/views/templating-syntax"> Templating syntax </a>
                     </li>
                     <li
                       class=""
                     >
-                      <a href="/guides/views/layouts-and-partials"> Layouts &amp; Partials </a>
+                      <a href="/guides/views/data-flow"> Data flow </a>
                     </li>
                     <li
                       class=""
                     >
-                      <a href="/guides/views/conditionals-and-loops"> Conditionals &amp; Loops </a>
+                      <a href="/guides/views/conditionals"> Conditionals </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/views/loops"> Loops </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/views/partials"> Partials </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/views/layouts"> Layouts </a>
                     </li>
                     <li
                       class=""
@@ -243,17 +265,17 @@
                     <li
                       class=""
                     >
+                      <a href="/guides/views/mutations"> Mutations </a>
+                    </li>
+                    <li
+                      class=""
+                    >
                       <a href="/guides/views/debugging"> Debugging </a>
                     </li>
                     <li
                       class=""
                     >
-                      <a href="/guides/views/advanced-options"> Advanced Options </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/views/faqs"> FAQs </a>
+                      <a href="/guides/views/custom-tags"> Creating custom tags </a>
                     </li>
                 </ol>
               </nav>
@@ -297,40 +319,236 @@
                     </li>
                 </ol>
               </nav>
+              <nav>
+                  <h3> Security </h3>
+                <ol>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/security/web-security"> Web Security </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/security/encryption"> Encryption </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/security/hashing"> Hashing </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/security/signed-urls"> Signed URLs </a>
+                    </li>
+                </ol>
+              </nav>
+              <nav>
+                  <h3> Digging deeper </h3>
+                <ol>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/ace-commandline"> Ace </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/repl"> AdonisJS Repl </a>
+                    </li>
+                </ol>
+              </nav>
+
     </div>
   </div>
 
-  <a href="#" id="sidenav-close" class="sidenav-backdrop" title="Close Docs Menu" aria-label="Close Docs Menu"></a>
+  <a href="#" data-turbo="false" id="sidenav-close" class="sidenav-backdrop" title="Close Docs Menu" aria-label="Close Docs Menu"></a>
 </div>
 
-<main class="doc">
+<main class="doc" data-turbo="false">
   <div class="markdown">
-    <h1>Introduction</h1><p>The views layer of AdonisJS is powered by Edge. Edge is a simple, yet powerful template engine that helps you dynamically generate HTML with runtime data.</p>
-<p>The edge templates are standard HTML documents using the edge syntax to reference runtime data, write conditionals, or run loops. For example:</p>
-<h5 id="reference-runtime-values-also-known-as-interpolation"><a href="#reference-runtime-values-also-known-as-interpolation" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Reference runtime values. Also known as interpolation</h5>
+    <h1>Introduction</h1><p>The Views layer of AdonisJS is powered by a home grown template engine called <a
+  href="https://github.com/edge-js/edge"
+  target=&quot;_blank&quot;
+  rel=&quot;noopener&quot;
+>Edge</a>
+. Edge is a logical and batteries included template engine for Node.js. It can render any text based format, whether is <strong>HTML</strong>, <strong>Markdown</strong> or <strong>plain text</strong> files.</p>
+<p>We created Edge as an alternative to other existing template engines and address the pain points we had with them.</p>
+<h2 id="edge-vs-pug"><a
+  href="#edge-vs-pug"
+  
+  
+><span class="icon icon-link"></span></a>
+Edge vs Pug</h2>
+<p>Unlike Pug, we don&#x27;t re-invent the way you write the HTML. In fact, Edge is not even tied to HTML at first place, as it can render any text based files.</p>
 <div class="dimer-highlight">
 
-<pre><code><div class="line"><span style="color: #A6ACCD;">&lt;h1&gt; Hello {{ username }} &lt;/h1&gt;</span></div></code></pre>
+<pre><code><div class="line"><span style="color: #F07178;">h1</span><span style="color: #A6ACCD;">= title</span></div><div class="line"><span style="color: #F07178;">p</span><span style="color: #A6ACCD;"> Written with love by </span><span style="color: #C3E88D;">#{</span><span style="color: #A6ACCD;">author</span><span style="color: #C3E88D;">}</span></div><div class="line"><span style="color: #F07178;">p</span><span style="color: #A6ACCD;"> This will be safe: </span><span style="color: #C3E88D;">#{</span><span style="color: #A6ACCD;">theGreat</span><span style="color: #C3E88D;">}</span></div></code></pre>
 </div>
 
-<h5 id="write-conditionals"><a href="#write-conditionals" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Write conditionals</h5>
 <div class="dimer-highlight">
 
-<pre><code><div class="line"><span style="color: #A6ACCD;">@if(user.username)</span></div><div class="line"><span style="color: #A6ACCD;">  &lt;h1&gt; Hello {{ user.username }} &lt;/h1&gt;</span></div><div class="line"><span style="color: #A6ACCD;">@else</span></div><div class="line"><span style="color: #A6ACCD;">  &lt;h1&gt; Hello Guest &lt;/h1&gt;</span></div><div class="line"><span style="color: #A6ACCD;">@end</span></div></code></pre>
+<pre><code><div class="line"><span style="color: #89DDFF;">&lt;</span><span style="color: #F07178;">h1</span><span style="color: #89DDFF;">&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #82AAFF;">{{</span><span style="color: #A6ACCD;"> title </span><span style="color: #82AAFF;">}}</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&lt;/</span><span style="color: #F07178;">h1</span><span style="color: #89DDFF;">&gt;</span></div><div class="line"><span style="color: #89DDFF;">&lt;</span><span style="color: #F07178;">p</span><span style="color: #89DDFF;">&gt;</span><span style="color: #A6ACCD;"> Written with love by </span><span style="color: #82AAFF;">{{</span><span style="color: #A6ACCD;"> author </span><span style="color: #82AAFF;">}}</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&lt;/</span><span style="color: #F07178;">p</span><span style="color: #89DDFF;">&gt;</span></div><div class="line"><span style="color: #89DDFF;">&lt;</span><span style="color: #F07178;">p</span><span style="color: #89DDFF;">&gt;</span><span style="color: #A6ACCD;"> This will be safe: </span><span style="color: #82AAFF;">{{</span><span style="color: #A6ACCD;"> theGreat </span><span style="color: #82AAFF;">}}</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&lt;/</span><span style="color: #F07178;">p</span><span style="color: #89DDFF;">&gt;</span></div></code></pre>
 </div>
 
-<h5 id="run-loops"><a href="#run-loops" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Run loops</h5>
+<h2 id="edge-vs-nunjucks"><a
+  href="#edge-vs-nunjucks"
+  
+  
+><span class="icon icon-link"></span></a>
+Edge vs Nunjucks</h2>
+<p>Unlike Nunjucks, Edge feels like writing Javascript. It is quicker to type and has a small learning curve.</p>
 <div class="dimer-highlight">
 
-<pre><code><div class="line"><span style="color: #A6ACCD;">@each(user in users)</span></div><div class="line"><span style="color: #A6ACCD;">  &lt;h1&gt; Hello {{ user.username }} &lt;/h1&gt;</span></div><div class="line"><span style="color: #A6ACCD;">@end</span></div></code></pre>
+<pre><code><div class="line"><span style="color: #A6ACCD;">{% if happy and hungry %}</span></div><div class="line"><span style="color: #A6ACCD;">  I am happy *and* hungry; both are true.</span></div><div class="line"><span style="color: #A6ACCD;">{% endif %}</span></div><div class="line"><span style="color: #A6ACCD;"></span></div><div class="line"><span style="color: #A6ACCD;">{{ &quot;true&quot; if foo else &quot;false&quot; }}</span></div></code></pre>
 </div>
 
-<h2 id="edge-features"><a href="#edge-features" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Edge features</h2>
-<p>Edge is one of the most modern template engines in the Node.js ecosystem.</p>
-<h2 id="rendering-views"><a href="#rendering-views" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Rendering views</h2>
-<h2 id="editor-extensions"><a href="#editor-extensions" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Editor extensions</h2>
-<h2 id="what-is-edge"><a href="#what-is-edge" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>What is Edge?</h2>
-<p>Edge is a template engine for Node.js. It runs</p>  </div>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">@if</span><span style="color: #A6ACCD;">(happy </span><span style="color: #89DDFF;">&amp;&amp;</span><span style="color: #A6ACCD;"> hungry)</span></div><div class="line"><span style="color: #A6ACCD;">  I am happy *and* hungry; both are true.</span></div><div class="line"><span style="color: #89DDFF;">@endif</span></div><div class="line"></div><div class="line"><span style="color: #82AAFF;">{{</span><span style="color: #A6ACCD;"> foo ? </span><span style="color: #89DDFF;">&quot;true&quot;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&quot;false&quot;</span><span style="color: #A6ACCD;"> </span><span style="color: #82AAFF;">}}</span></div></code></pre>
+</div>
+
+<h2 id="edge-vs-handlebars"><a
+  href="#edge-vs-handlebars"
+  
+  
+><span class="icon icon-link"></span></a>
+Edge vs Handlebars</h2>
+<p>Unlike Handlebars, Edge is not restrictive in nature. You can use any Javascript expression inside your templates and we parse them using a spec compliant JavaScript parser.</p>
+<p>Handlebars expects you to register a helper for every small functionality. The story gets even worse if you have to apply multiple helpers at the same time.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #A6ACCD;">Handlebars</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">registerHelper</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">upperCase</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">function</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">(</span><span style="color: #A6ACCD;">aString</span><span style="color: #89DDFF;">)</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">return</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">aString</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">toUpperCase</span><span style="color: #F07178;">()</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
+</div>
+
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #A6ACCD;">{{upperCase lastname}}</span></div></code></pre>
+</div>
+
+<p>Whereas, Edge leverages the existing Javascript expressions.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #82AAFF;">{{</span><span style="color: #A6ACCD;"> lastname</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">toUpperCase</span><span style="color: #89DDFF;">()</span><span style="color: #A6ACCD;"> </span><span style="color: #82AAFF;">}}</span></div></code></pre>
+</div>
+
+<h2 id="setup"><a
+  href="#setup"
+  
+  
+><span class="icon icon-link"></span></a>
+Setup</h2>
+<p>Edge comes pre-configured with the <code>web</code> starter template. However, installing and configuring it is also relatively straightforward.</p>
+<p>Open the <code>.adonisrc.json</code> file and check if <code>@adonisjs/view</code> is mentioned inside the list of <code>providers</code> array. <strong>IF NOT, then continue with the following steps:</strong></p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #A6ACCD;">npm i @adonisjs/view</span></div></code></pre>
+</div>
+
+<p>Run the following <code>ace</code> command to configure the package.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #A6ACCD;">node ace configure @adonisjs/view</span></div><div class="line"></div><div class="line"><span style="color: #676E95;"># UPDATE: .env { &quot;CACHE_VIEWS = false&quot; }</span></div><div class="line"><span style="color: #676E95;"># UPDATE: .adonisrc.json { providers += &quot;@adonisjs/view&quot; }</span></div><div class="line"><span style="color: #676E95;"># UPDATE: .adonisrc.json { metaFiles += &quot;resources/views/**/*.edge&quot; }</span></div></code></pre>
+</div>
+
+<h2 id="views-directory"><a
+  href="#views-directory"
+  
+  
+><span class="icon icon-link"></span></a>
+Views directory</h2>
+<p>AdonisJS registers the <code>resources/views</code> as the default directory for finding the Edge templates. However, you can register a custom path by modifying the <code>.adonisrc.json</code> file.</p>
+<p>After the following change, Edge will find templates inside the <code>./app/views</code> directory.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">&quot;</span><span style="color: #C792EA;">directories</span><span style="color: #89DDFF;">&quot;</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #89DDFF;">&quot;</span><span style="color: #FFCB6B;">views</span><span style="color: #89DDFF;">&quot;</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&quot;</span><span style="color: #C3E88D;">./app/views</span><span style="color: #89DDFF;">&quot;</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">}</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
+</div>
+
+<p>Also, make sure to update the <code>metaFiles</code> array in the same file to tell <code>@adonisjs/assembler</code> to copy the templates when creating the production build.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line dim"><span style="color: #89DDFF;">{</span></div><div class="line dim"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">&quot;</span><span style="color: #C792EA;">metaFiles</span><span style="color: #89DDFF;">&quot;</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">[</span></div><div class="line dim"><span style="color: #A6ACCD;">    </span><span style="color: #89DDFF;">{</span></div><div class="line highlight-delete"><span style="color: #A6ACCD;">      </span><span style="color: #89DDFF;">&quot;</span><span style="color: #FFCB6B;">pattern</span><span style="color: #89DDFF;">&quot;</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&quot;</span><span style="color: #C3E88D;">resources/views/**/*.edge</span><span style="color: #89DDFF;">&quot;</span><span style="color: #89DDFF;">,</span></div><div class="line highlight-insert"><span style="color: #A6ACCD;">      </span><span style="color: #89DDFF;">&quot;</span><span style="color: #FFCB6B;">pattern</span><span style="color: #89DDFF;">&quot;</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&quot;</span><span style="color: #C3E88D;">app/views/**/*.edge</span><span style="color: #89DDFF;">&quot;</span><span style="color: #89DDFF;">,</span></div><div class="line dim"><span style="color: #A6ACCD;">      </span><span style="color: #89DDFF;">&quot;</span><span style="color: #FFCB6B;">reloadServer</span><span style="color: #89DDFF;">&quot;</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">false</span></div><div class="line dim"><span style="color: #A6ACCD;">    </span><span style="color: #89DDFF;">}</span></div><div class="line dim"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">],</span><span style="color: #A6ACCD;">  </span></div><div class="line dim"><span style="color: #89DDFF;">}</span></div></code></pre>
+</div>
+
+<h2 id="basic-example"><a
+  href="#basic-example"
+  
+  
+><span class="icon icon-link"></span></a>
+Basic example</h2>
+<p>Let&#x27;s begin by creating a route that renders a given template file.</p>
+<div class="dimer-highlight">
+    <div class="codeblock-title">
+      start/routes.ts
+    </div>
+
+<pre><code><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">get</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">async</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">({</span><span style="color: #A6ACCD;"> view </span><span style="color: #89DDFF;">})</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">return</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">view</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">renderAsync</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">home</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">)</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
+</div>
+
+<p>Next step is to create the <code>home.edge</code> template. You can manually create a file inside the views folder, or use the following ace command to create one.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #A6ACCD;">node ace make:view home</span></div><div class="line"></div><div class="line"><span style="color: #676E95;"># CREATE: resources/views/home.edge</span></div></code></pre>
+</div>
+
+<p>Let&#x27;s open the newly created file and paste the following code snippet inside it.</p>
+<div class="dimer-highlight">
+    <div class="codeblock-title">
+      resources/views/home.edge
+    </div>
+
+<pre><code><div class="line"><span style="color: #89DDFF;">&lt;</span><span style="color: #F07178;">p</span><span style="color: #89DDFF;">&gt;</span><span style="color: #A6ACCD;"> Hello world. You are viewing the </span><span style="color: #82AAFF;">{{</span><span style="color: #A6ACCD;"> request</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">url</span><span style="color: #89DDFF;">()</span><span style="color: #A6ACCD;"> </span><span style="color: #82AAFF;">}}</span><span style="color: #A6ACCD;"> page </span><span style="color: #89DDFF;">&lt;/</span><span style="color: #F07178;">p</span><span style="color: #89DDFF;">&gt;</span></div></code></pre>
+</div>
+
+<p>Make sure to start the development server by running <code>node ace serve --watch</code> and visit <a
+  href="http://localhost:3333"
+  target=&quot;_blank&quot;
+  rel=&quot;noopener&quot;
+>http://localhost:3333</a>
+ to view the contents of the template file.</p>
+<p><figure>
+  <img
+    data-src="https://res.cloudinary.com/adonis-js/image/upload/q_auto,f_auto/v1617093908/v5/view-usage.png"
+    alt=""
+    class="lazyload"
+    
+  >
+</figure>
+</p>
+<h2 id="editor-extensions"><a
+  href="#editor-extensions"
+  
+  
+><span class="icon icon-link"></span></a>
+Editor extensions</h2>
+<p>The syntax highlighting extensions are available for the following editors.</p>
+<ul>
+<li><a
+  href="https://marketplace.visualstudio.com/items?itemName=luongnd.edge"
+  target=&quot;_blank&quot;
+  rel=&quot;noopener&quot;
+>VsCode</a>
+</li>
+<li><a
+  href="https://github.com/edge-js/edge-sublime"
+  target=&quot;_blank&quot;
+  rel=&quot;noopener&quot;
+>Sublime Text</a>
+</li>
+<li><a
+  href="https://github.com/edge-js/edge-atom-syntax"
+  target=&quot;_blank&quot;
+  rel=&quot;noopener&quot;
+>Atom</a>
+</li>
+<li><a
+  href="https://github.com/watzon/vim-edge-template"
+  target=&quot;_blank&quot;
+  rel=&quot;noopener&quot;
+>Vim</a>
+</li>
+</ul>  </div>
 </main>
 
 <aside class="toc">
@@ -338,10 +556,48 @@
       <h3> On this page </h3>
       <nav>
         <ul>
-<li><a href="#edge-features">Edge features</a></li>
-<li><a href="#rendering-views">Rendering views</a></li>
-<li><a href="#editor-extensions">Editor extensions</a></li>
-<li><a href="#what-is-edge">What is Edge?</a></li>
+<li><a
+  href="#edge-vs-pug"
+  
+  
+>Edge vs Pug</a>
+</li>
+<li><a
+  href="#edge-vs-nunjucks"
+  
+  
+>Edge vs Nunjucks</a>
+</li>
+<li><a
+  href="#edge-vs-handlebars"
+  
+  
+>Edge vs Handlebars</a>
+</li>
+<li><a
+  href="#setup"
+  
+  
+>Setup</a>
+</li>
+<li><a
+  href="#views-directory"
+  
+  
+>Views directory</a>
+</li>
+<li><a
+  href="#basic-example"
+  
+  
+>Basic example</a>
+</li>
+<li><a
+  href="#editor-extensions"
+  
+  
+>Editor extensions</a>
+</li>
         </ul>
       </nav>
     </div>

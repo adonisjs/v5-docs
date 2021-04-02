@@ -1,0 +1,7 @@
+<a
+  href="{{ node.properties.href }}"
+  {{ node.properties.href.startsWith('http') ? 'target="_blank"' : '' }}
+  {{ node.properties.href.startsWith('http') ? 'rel="noopener"' : '' }}
+>
+@dimerTree(node.children)~
+</a>

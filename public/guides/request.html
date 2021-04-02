@@ -51,7 +51,7 @@
     type="font/woff2"
     crossorigin
   >
-<link rel="stylesheet" href="/assets/app.ee5a9736.css" />
+<link rel="stylesheet" href="/assets/app.be48d775.css" />
 <script src="/assets/342.70de04a2.js" defer></script>
 <script src="/assets/app.26949583.js" defer></script>
 </head>
@@ -60,7 +60,7 @@
   <header class="header">
     <div class="header-container">
 
-      <div class="primary-links"><a href="#sidenav-open" title="Open Docs Menu" aria-label="Open Docs Menu" class="hamburger for-mobile">
+      <div class="primary-links"><a href="#sidenav-open" title="Open Docs Menu" aria-label="Open Docs Menu" class="hamburger for-mobile" data-turbo="false">
   <svg role="presentation" focusable="false" aria-label="Icon for open menu" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
     <line x1="4" y1="6" x2="20" y2="6" />
@@ -92,8 +92,14 @@
         <ul>
 
               <li class="active">
-                <a href="/guides/validator/introduction">
+                <a href="/guides/application">
                   Guides
+                </a>
+              </li>
+
+              <li class="">
+                <a href="/reference/database/connection">
+                  Reference guides
                 </a>
               </li>
         </ul>
@@ -112,18 +118,29 @@
   </header>
 </div>
 
-<div id="sidenav-open" data-turbo-permanent>
+<div id="sidenav-open">
   <div class="sidebar" id="sidebar" data-maintain-scroll>
     <div class="sidebar-container">
 
 
 
               <nav>
+                  <h3> Fundamentals </h3>
                 <ol>
                     <li
                       class=""
                     >
-                      <a href="/guides/introduction"> Introduction </a>
+                      <a href="/guides/application"> Application </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/config"> Config </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/environment-variables"> Environment variables </a>
                     </li>
                 </ol>
               </nav>
@@ -173,22 +190,12 @@
                     <li
                       class=""
                     >
-                      <a href="/guides/session"> Session </a>
-                    </li>
-                    <li
-                      class=""
-                    >
                       <a href="/guides/cookies"> Cookies </a>
                     </li>
                     <li
                       class=""
                     >
-                      <a href="/guides/hooks"> Hooks </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/exception-handling"> Exception Handling </a>
+                      <a href="/guides/session"> Session </a>
                     </li>
                     <li
                       class=""
@@ -198,12 +205,12 @@
                     <li
                       class=""
                     >
-                      <a href="/guides/web-security"> Web security </a>
+                      <a href="/guides/assets-manager"> Assets manager </a>
                     </li>
                     <li
                       class=""
                     >
-                      <a href="/guides/cors"> CORS </a>
+                      <a href="/guides/exception-handling"> Exception Handling </a>
                     </li>
                 </ol>
               </nav>
@@ -218,22 +225,37 @@
                     <li
                       class=""
                     >
-                      <a href="/guides/views/rendering"> Rendering views </a>
+                      <a href="/guides/views/rendering"> Rendering </a>
                     </li>
                     <li
                       class=""
                     >
-                      <a href="/guides/views/templates-syntax"> Template syntax </a>
+                      <a href="/guides/views/templating-syntax"> Templating syntax </a>
                     </li>
                     <li
                       class=""
                     >
-                      <a href="/guides/views/layouts-and-partials"> Layouts &amp; Partials </a>
+                      <a href="/guides/views/data-flow"> Data flow </a>
                     </li>
                     <li
                       class=""
                     >
-                      <a href="/guides/views/conditionals-and-loops"> Conditionals &amp; Loops </a>
+                      <a href="/guides/views/conditionals"> Conditionals </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/views/loops"> Loops </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/views/partials"> Partials </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/views/layouts"> Layouts </a>
                     </li>
                     <li
                       class=""
@@ -243,17 +265,17 @@
                     <li
                       class=""
                     >
+                      <a href="/guides/views/mutations"> Mutations </a>
+                    </li>
+                    <li
+                      class=""
+                    >
                       <a href="/guides/views/debugging"> Debugging </a>
                     </li>
                     <li
                       class=""
                     >
-                      <a href="/guides/views/advanced-options"> Advanced Options </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/views/faqs"> FAQs </a>
+                      <a href="/guides/views/custom-tags"> Creating custom tags </a>
                     </li>
                 </ol>
               </nav>
@@ -297,15 +319,61 @@
                     </li>
                 </ol>
               </nav>
+              <nav>
+                  <h3> Security </h3>
+                <ol>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/security/web-security"> Web Security </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/security/encryption"> Encryption </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/security/hashing"> Hashing </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/security/signed-urls"> Signed URLs </a>
+                    </li>
+                </ol>
+              </nav>
+              <nav>
+                  <h3> Digging deeper </h3>
+                <ol>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/ace-commandline"> Ace </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/repl"> AdonisJS Repl </a>
+                    </li>
+                </ol>
+              </nav>
+
     </div>
   </div>
 
-  <a href="#" id="sidenav-close" class="sidenav-backdrop" title="Close Docs Menu" aria-label="Close Docs Menu"></a>
+  <a href="#" data-turbo="false" id="sidenav-close" class="sidenav-backdrop" title="Close Docs Menu" aria-label="Close Docs Menu"></a>
 </div>
 
-<main class="doc">
+<main class="doc" data-turbo="false">
   <div class="markdown">
-    <h1>Request</h1><p>The instance of the <a href="https://github.com/adonisjs/http-server/blob/develop/src/Request/index.ts">request class</a> allows you to access data for the current HTTP request, including the <strong>request body</strong>, <strong>uploaded files</strong>, <strong>cookies</strong> and much more.</p>
+    <h1>Request</h1><p>The instance of the <a
+  href="https://github.com/adonisjs/http-server/blob/develop/src/Request/index.ts"
+  target=&quot;_blank&quot;
+  rel=&quot;noopener&quot;
+>request class</a>
+ allows you to access data for the current HTTP request, including the <strong>request body</strong>, <strong>uploaded files</strong>, <strong>cookies</strong> and much more.</p>
 <p>You can access the <code>request</code> object from the HTTP context instance passed to the route handler, middleware, and exception handler.</p>
 <div class="dimer-highlight">
 
@@ -318,14 +386,24 @@
 <pre><code><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">get</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">async</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">({</span><span style="color: #A6ACCD;"> request </span><span style="color: #89DDFF;">})</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #A6ACCD;">console</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">log</span><span style="color: #F07178;">(</span><span style="color: #A6ACCD;">request</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">url</span><span style="color: #F07178;">())</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h2 id="request-data"><a href="#request-data" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Request data</h2>
+<h2 id="request-data"><a
+  href="#request-data"
+  
+  
+><span class="icon icon-link"></span></a>
+Request data</h2>
 <p>You can access the request data using one of the following methods.</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">post</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">posts</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">async</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">({</span><span style="color: #A6ACCD;"> request </span><span style="color: #89DDFF;">})</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #676E95;">/**</span></div><div class="line"><span style="color: #676E95;">   * Access the entire request body</span></div><div class="line"><span style="color: #676E95;">   */</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #A6ACCD;">console</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">log</span><span style="color: #F07178;">(</span><span style="color: #A6ACCD;">request</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">body</span><span style="color: #F07178;">())</span></div><div class="line"></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #676E95;">/**</span></div><div class="line"><span style="color: #676E95;">   * Access the parsed query string object</span></div><div class="line"><span style="color: #676E95;">   */</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #A6ACCD;">console</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">log</span><span style="color: #F07178;">(</span><span style="color: #A6ACCD;">request</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">qs</span><span style="color: #F07178;">())</span></div><div class="line"></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #676E95;">/**</span></div><div class="line"><span style="color: #676E95;">   * A merged copy of the request body and the query</span></div><div class="line"><span style="color: #676E95;">   * string</span></div><div class="line"><span style="color: #676E95;">   */</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #A6ACCD;">console</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">log</span><span style="color: #F07178;">(</span><span style="color: #A6ACCD;">request</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">all</span><span style="color: #F07178;">())</span></div><div class="line"></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #676E95;">/**</span></div><div class="line"><span style="color: #676E95;">   * Cherry pick fields from the &quot;request.all()&quot; output</span></div><div class="line"><span style="color: #676E95;">   */</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #A6ACCD;">console</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">log</span><span style="color: #F07178;">(</span><span style="color: #A6ACCD;">request</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">only</span><span style="color: #F07178;">([</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">title</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">description</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">]))</span></div><div class="line"></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #676E95;">/**</span></div><div class="line"><span style="color: #676E95;">   * Omit fields from the &quot;request.all()&quot; output</span></div><div class="line"><span style="color: #676E95;">   */</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #A6ACCD;">console</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">log</span><span style="color: #F07178;">(</span><span style="color: #A6ACCD;">request</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">except</span><span style="color: #F07178;">([</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">csrf_token</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">submit</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">]))</span></div><div class="line"></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #676E95;">/**</span></div><div class="line"><span style="color: #676E95;">   * Access value for a single field</span></div><div class="line"><span style="color: #676E95;">   */</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #A6ACCD;">console</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">log</span><span style="color: #F07178;">(</span><span style="color: #A6ACCD;">request</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">input</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">title</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">))</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #A6ACCD;">console</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">log</span><span style="color: #F07178;">(</span><span style="color: #A6ACCD;">request</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">input</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">description</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">))</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h3 id="query-string-and-params"><a href="#query-string-and-params" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Query string and params</h3>
+<h3 id="query-string-and-params"><a
+  href="#query-string-and-params"
+  
+  
+><span class="icon icon-link"></span></a>
+Query string and params</h3>
 <p>The parsed query string can be accessed using the <code>request.qs()</code> method.</p>
 <div class="dimer-highlight">
 
@@ -344,11 +422,19 @@
 <pre><code><div class="line"><span style="color: #A6ACCD;">request</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">param</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">id</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div><div class="line"></div><div class="line"><span style="color: #676E95;">// Default value for optional params</span></div><div class="line"><span style="color: #A6ACCD;">request</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">param</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">id</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #F78C6C;">1</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h3 id="request-body"><a href="#request-body" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Request body</h3>
+<h3 id="request-body"><a
+  href="#request-body"
+  
+  
+><span class="icon icon-link"></span></a>
+Request body</h3>
 <p>The request body is parsed using the pre-configured bodyparser middleware. Open the <code>start/kernel.ts</code> file and ensure that the following middleware is registered inside the list of the global middlewares.</p>
 <div class="dimer-highlight">
+    <div class="codeblock-title">
+      start/kernel.ts
+    </div>
 
-<pre><code><div class="line"><span style="color: #A6ACCD;">Server.middleware.register([</span></div><div class="line"><span style="color: #A6ACCD;"> () =&gt; import(&#x27;@ioc:Adonis/Core/BodyParserMiddleware&#x27;)</span></div><div class="line"><span style="color: #A6ACCD;">])</span></div></code></pre>
+<pre><code><div class="line"><span style="color: #A6ACCD;">Server</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">middleware</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">register</span><span style="color: #A6ACCD;">([</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">()</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">import</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">@ioc:Adonis/Core/BodyParserMiddleware</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div><div class="line"><span style="color: #A6ACCD;">])</span></div></code></pre>
 </div>
 
 <p>Once the bodyparser middleware has been registered, you can use one of the following methods to access the request body.</p>
@@ -369,9 +455,19 @@
 <pre><code><div class="line"><span style="color: #676E95;">// Cherry pick</span></div><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> body </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> request</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">only</span><span style="color: #A6ACCD;">([</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">title</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">description</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">])</span></div><div class="line"></div><div class="line"><span style="color: #676E95;">// Omit</span></div><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> body </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> request</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">except</span><span style="color: #A6ACCD;">([</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">submit</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">csrf_token</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">])</span></div></code></pre>
 </div>
 
-<h3 id="supported-content-types"><a href="#supported-content-types" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Supported content types</h3>
+<h3 id="supported-content-types"><a
+  href="#supported-content-types"
+  
+  
+><span class="icon icon-link"></span></a>
+Supported content types</h3>
 <p>The bodyparser is capable of parsing the following content types.</p>
-<h4 id="json"><a href="#json" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>JSON</h4>
+<h4 id="json"><a
+  href="#json"
+  
+  
+><span class="icon icon-link"></span></a>
+JSON</h4>
 <p>The JSON parser processes request sending the JSON string with one of the following content types.</p>
 <ul>
 <li>application/json</li>
@@ -380,26 +476,64 @@
 <li>application/csp-report</li>
 </ul>
 <p>You can add more content types to the <code>json.types</code> array inside the <code>config/bodyparser.ts</code> file, and the JSON parser will also process them.</p>
-<h4 id="url-encoded"><a href="#url-encoded" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>URL encoded</h4>
+<h4 id="url-encoded"><a
+  href="#url-encoded"
+  
+  
+><span class="icon icon-link"></span></a>
+URL encoded</h4>
 <p>Request sending a URL encoded string with <code>content-type=&#x27;application/x-www-form-urlencoded&#x27;</code> is parsed using the URL encoding parser.</p>
-<h4 id="multipart"><a href="#multipart" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Multipart</h4>
-<p>The multipart requests with <code>content-type=&#x27;multipart/form-data&#x27;</code> are parsed using the multipart parser. Make sure to read the guide on <a href="/guides/file-uploads">file uploads</a> to view all available configuration options.</p>
-<h4 id="raw"><a href="#raw" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Raw</h4>
+<h4 id="multipart"><a
+  href="#multipart"
+  
+  
+><span class="icon icon-link"></span></a>
+Multipart</h4>
+<p>The multipart requests with <code>content-type=&#x27;multipart/form-data&#x27;</code> are parsed using the multipart parser. Make sure to read the guide on <a
+  href="/guides/file-uploads"
+  
+  
+>file uploads</a>
+ to view all available configuration options.</p>
+<h4 id="raw"><a
+  href="#raw"
+  
+  
+><span class="icon icon-link"></span></a>
+Raw</h4>
 <p>All requests with <code>content-type=&#x27;text/*&#x27;</code> are read using the raw parser. You can further process the raw string inside a middleware or the route handler.</p>
 <p>You can use the raw parser to process custom/unsupported content types. For example</p>
-<h4 id="register-the-custom-content-type"><a href="#register-the-custom-content-type" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Register the custom content type</h4>
+<h4 id="register-the-custom-content-type"><a
+  href="#register-the-custom-content-type"
+  
+  
+><span class="icon icon-link"></span></a>
+Register the custom content type</h4>
 <div class="dimer-highlight">
+    <div class="codeblock-title">
+      config/bodyparser.ts
+    </div>
 
-<pre><code><div class="line"><span style="color: #A6ACCD;">{</span></div><div class="line"><span style="color: #A6ACCD;"> raw: {</span></div><div class="line"><span style="color: #A6ACCD;"> // ...</span></div><div class="line"><span style="color: #A6ACCD;"> types: [&#x27;text/*&#x27;, &#x27;my-custom-content-type&#x27;]</span></div><div class="line"><span style="color: #A6ACCD;"> }</span></div><div class="line"><span style="color: #A6ACCD;">}</span></div></code></pre>
+<pre><code><div class="line"><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #FFCB6B;">raw</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #89DDFF;">    </span><span style="color: #676E95;">// ...</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #FFCB6B;">types</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> [</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">text/*</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">my-custom-content-type</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">]</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
 </div>
 
-<h4 id="create-a-middleware-to-parse-the-content-type-further"><a href="#create-a-middleware-to-parse-the-content-type-further" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Create a middleware to parse the content type further</h4>
+<h4 id="create-a-middleware-to-parse-the-content-type-further"><a
+  href="#create-a-middleware-to-parse-the-content-type-further"
+  
+  
+><span class="icon icon-link"></span></a>
+Create a middleware to parse the content type further</h4>
 <div class="dimer-highlight">
 
-<pre><code><div class="line dim"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">get</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">({</span><span style="color: #A6ACCD;"> request </span><span style="color: #89DDFF;">})</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line dim"><span style="color: #F07178;">  </span><span style="color: #A6ACCD;">console</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">log</span><span style="color: #F07178;">(</span><span style="color: #A6ACCD;">request</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">all</span><span style="color: #F07178;">())</span></div><div class="line dim"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div><div class="line highlight"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">middleware</span><span style="color: #A6ACCD;">(</span><span style="color: #C792EA;">async</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">({</span><span style="color: #A6ACCD;"> request </span><span style="color: #89DDFF;">},</span><span style="color: #A6ACCD;"> next</span><span style="color: #89DDFF;">)</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line highlight"><span style="color: #F07178;">    </span><span style="color: #C792EA;">const</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">contentType</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">=</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">request</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">header</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">content-type</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">)</span></div><div class="line highlight"></div><div class="line highlight"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">if</span><span style="color: #F07178;"> (</span><span style="color: #A6ACCD;">contentType</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">===</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">my-custom-content-type</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">) </span><span style="color: #89DDFF;">{</span></div><div class="line highlight"><span style="color: #F07178;">      </span><span style="color: #C792EA;">const</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">body</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">=</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">request</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">raw</span><span style="color: #F07178;">()</span></div><div class="line highlight"><span style="color: #F07178;">      </span><span style="color: #C792EA;">const</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">parsed</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">=</span><span style="color: #F07178;"> </span><span style="color: #82AAFF;">someCustomParser</span><span style="color: #F07178;">(</span><span style="color: #A6ACCD;">body</span><span style="color: #F07178;">)</span></div><div class="line highlight"><span style="color: #F07178;">      </span><span style="color: #A6ACCD;">request</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">updateBody</span><span style="color: #F07178;">(</span><span style="color: #A6ACCD;">parsed</span><span style="color: #F07178;">)</span></div><div class="line highlight"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">}</span></div><div class="line highlight"></div><div class="line highlight"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">await</span><span style="color: #F07178;"> </span><span style="color: #82AAFF;">next</span><span style="color: #F07178;">()</span></div><div class="line highlight"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
+<pre><code><div class="line dim"><span style="color: #A6ACCD;">Route</span></div><div class="line dim"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">get</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">({</span><span style="color: #A6ACCD;"> request </span><span style="color: #89DDFF;">})</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line dim"><span style="color: #F07178;">    </span><span style="color: #A6ACCD;">console</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">log</span><span style="color: #F07178;">(</span><span style="color: #A6ACCD;">request</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">all</span><span style="color: #F07178;">())</span></div><div class="line dim"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div><div class="line highlight"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">middleware</span><span style="color: #A6ACCD;">(</span><span style="color: #C792EA;">async</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">({</span><span style="color: #A6ACCD;"> request </span><span style="color: #89DDFF;">},</span><span style="color: #A6ACCD;"> next</span><span style="color: #89DDFF;">)</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line highlight"><span style="color: #F07178;">    </span><span style="color: #C792EA;">const</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">contentType</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">=</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">request</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">header</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">content-type</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">)</span></div><div class="line highlight"></div><div class="line highlight"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">if</span><span style="color: #F07178;"> (</span><span style="color: #A6ACCD;">contentType</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">===</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">my-custom-content-type</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">) </span><span style="color: #89DDFF;">{</span></div><div class="line highlight"><span style="color: #F07178;">      </span><span style="color: #C792EA;">const</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">body</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">=</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">request</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">raw</span><span style="color: #F07178;">()</span></div><div class="line highlight"><span style="color: #F07178;">      </span><span style="color: #C792EA;">const</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">parsed</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">=</span><span style="color: #F07178;"> </span><span style="color: #82AAFF;">someCustomParser</span><span style="color: #F07178;">(</span><span style="color: #A6ACCD;">body</span><span style="color: #F07178;">)</span></div><div class="line highlight"><span style="color: #F07178;">      </span><span style="color: #A6ACCD;">request</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">updateBody</span><span style="color: #F07178;">(</span><span style="color: #A6ACCD;">parsed</span><span style="color: #F07178;">)</span></div><div class="line highlight"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">}</span></div><div class="line highlight"></div><div class="line highlight"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">await</span><span style="color: #F07178;"> </span><span style="color: #82AAFF;">next</span><span style="color: #F07178;">()</span></div><div class="line highlight"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h2 id="request-route"><a href="#request-route" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Request route</h2>
+<h2 id="request-route"><a
+  href="#request-route"
+  
+  
+><span class="icon icon-link"></span></a>
+Request route</h2>
 <p>The <code>request</code> class holds the current matching route for the HTTP request and you can access it as follows:</p>
 <div class="dimer-highlight">
 
@@ -418,7 +552,12 @@
 <pre><code><div class="line"><span style="color: #89DDFF;">if</span><span style="color: #A6ACCD;"> (request</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">matchesRoute</span><span style="color: #A6ACCD;">([</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/posts/:id</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/posts/:id/comments</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">])) </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
 </div>
 
-<h2 id="request-url"><a href="#request-url" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Request URL</h2>
+<h2 id="request-url"><a
+  href="#request-url"
+  
+  
+><span class="icon icon-link"></span></a>
+Request URL</h2>
 <p>You can access the request URL using the <code>request.url()</code> method. It returns the pathname without the domain name or the port.</p>
 <div class="dimer-highlight">
 
@@ -431,33 +570,76 @@
 <pre><code><div class="line"><span style="color: #A6ACCD;">request</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">completeUrl</span><span style="color: #A6ACCD;">()</span></div><div class="line"></div><div class="line"><span style="color: #676E95;">// Include query string</span></div><div class="line"><span style="color: #A6ACCD;">request</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">completeUrl</span><span style="color: #A6ACCD;">(</span><span style="color: #FF9CAC;">true</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h2 id="request-method"><a href="#request-method" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Request method</h2>
-<h3 id="method"><a href="#method" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>method</h3>
-<p>Returns the HTTP method for the given request. The spoofed method is returned when <a href="/guides/forms-and-validations#form-method-spoofing">form method spoofing</a> is enabled.</p>
+<h2 id="request-method"><a
+  href="#request-method"
+  
+  
+><span class="icon icon-link"></span></a>
+Request method</h2>
+<h3 id="method"><a
+  href="#method"
+  
+  
+><span class="icon icon-link"></span></a>
+method</h3>
+<p>Returns the HTTP method for the given request. The spoofed method is returned when <a
+  href="/guides/forms-and-validations#form-method-spoofing"
+  
+  
+>form method spoofing</a>
+ is enabled.</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #A6ACCD;">request</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">method</span><span style="color: #A6ACCD;">()</span></div></code></pre>
 </div>
 
-<h3 id="intended"><a href="#intended" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>intended</h3>
+<h3 id="intended"><a
+  href="#intended"
+  
+  
+><span class="icon icon-link"></span></a>
+intended</h3>
 <p>The <code>intended</code> method returns the actual HTTP method and not the spoofed one.</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #A6ACCD;">request</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">intended</span><span style="color: #A6ACCD;">()</span></div></code></pre>
 </div>
 
-<h2 id="request-id"><a href="#request-id" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Request id</h2>
-<p>Request ids <a href="https://blog.heroku.com/http_request_id_s_improve_visibility_across_the_application_stack">help you debug and trace logs</a> for a given HTTP request by associating a unique id to every log entry.</p>
+<h2 id="request-id"><a
+  href="#request-id"
+  
+  
+><span class="icon icon-link"></span></a>
+Request id</h2>
+<p>Request ids <a
+  href="https://blog.heroku.com/http_request_id_s_improve_visibility_across_the_application_stack"
+  target=&quot;_blank&quot;
+  rel=&quot;noopener&quot;
+>help you debug and trace logs</a>
+ for a given HTTP request by associating a unique id to every log entry.</p>
 <p>AdonisJS follows the industry standard and has first-class support for working with the <code>X-Request-Id</code> header.</p>
-<h3 id="generating-request-ids"><a href="#generating-request-ids" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Generating request ids</h3>
+<h3 id="generating-request-ids"><a
+  href="#generating-request-ids"
+  
+  
+><span class="icon icon-link"></span></a>
+Generating request ids</h3>
 <p>Open the <code>config/app.ts</code> and set the value of <code>http.generateRequestId</code> to true.</p>
 <p>Also, the request-id is only generated when the <code>X-Request-Id</code> header is not set. This allows you to generate the request ids at your proxy server level and then reference them inside your AdonisJS application.</p>
 <div class="dimer-highlight">
+    <div class="codeblock-title">
+      config/app.ts
+    </div>
 
-<pre><code><div class="line"><span style="color: #A6ACCD;">{</span></div><div class="line"><span style="color: #A6ACCD;"> http: {</span></div><div class="line"><span style="color: #A6ACCD;"> generateRequestId: true</span></div><div class="line"><span style="color: #A6ACCD;"> }</span></div><div class="line"><span style="color: #A6ACCD;">}</span></div></code></pre>
+<pre><code><div class="line"><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #FFCB6B;">http</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #FFCB6B;">generateRequestId</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #FF9CAC;">true</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
 </div>
 
-<h3 id="access-request-id"><a href="#access-request-id" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Access request id</h3>
+<h3 id="access-request-id"><a
+  href="#access-request-id"
+  
+  
+><span class="icon icon-link"></span></a>
+Access request id</h3>
 <p>The <code>request.id()</code> method returns the request-id by reading the <code>X-Request-Id</code> header. The flow looks as follows:</p>
 <ul>
 <li>Read the value of the <code>X-Request-Id</code> header. Return the value if it is present.</li>
@@ -469,14 +651,24 @@
 <pre><code><div class="line"><span style="color: #A6ACCD;">request</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">id</span><span style="color: #A6ACCD;">()</span></div></code></pre>
 </div>
 
-<h3 id="request-id-inside-logs"><a href="#request-id-inside-logs" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Request id inside logs</h3>
+<h3 id="request-id-inside-logs"><a
+  href="#request-id-inside-logs"
+  
+  
+><span class="icon icon-link"></span></a>
+Request id inside logs</h3>
 <p>The logger instance attached to the HTTP context automatically sets the <code>request_id</code> property on every log statement.</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">get</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">({</span><span style="color: #A6ACCD;"> logger </span><span style="color: #89DDFF;">})</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #89DDFF;">  </span><span style="color: #676E95;">// { msg: &#x27;hello world&#x27;, request_id: &#x27;ckk9oliws0000qt3x9vr5dkx7&#x27; }</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #A6ACCD;">logger</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">info</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">hello world</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">)</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h2 id="request-headers"><a href="#request-headers" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Request headers</h2>
+<h2 id="request-headers"><a
+  href="#request-headers"
+  
+  
+><span class="icon icon-link"></span></a>
+Request headers</h2>
 <p>The <code>request.headers()</code> and the <code>request.header()</code> method gives you access to the request headers.</p>
 <div class="dimer-highlight">
 
@@ -489,8 +681,18 @@
 <pre><code><div class="line"><span style="color: #A6ACCD;">request</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">header</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">X-CUSTOM-KEY</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">) </span><span style="color: #89DDFF;">===</span><span style="color: #A6ACCD;"> request</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">header</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">x-custom-key</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div><div class="line"></div><div class="line"><span style="color: #676E95;">// With default value</span></div><div class="line"><span style="color: #A6ACCD;">request</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">header</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">x-header-name</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">default value</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h2 id="request-ip-address"><a href="#request-ip-address" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Request IP address</h2>
-<p>The <code>request.ip()</code> method returns the most trusted IP address for the HTTP request. Make sure to read the <a href="#trusted-proxy">trusted proxy</a> section to understand how you can get the correct IP address when your application is behind a proxy server.</p>
+<h2 id="request-ip-address"><a
+  href="#request-ip-address"
+  
+  
+><span class="icon icon-link"></span></a>
+Request IP address</h2>
+<p>The <code>request.ip()</code> method returns the most trusted IP address for the HTTP request. Make sure to read the <a
+  href="#trusted-proxy"
+  
+  
+>trusted proxy</a>
+ section to understand how you can get the correct IP address when your application is behind a proxy server.</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #A6ACCD;">request</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">ip</span><span style="color: #A6ACCD;">()</span></div></code></pre>
@@ -502,62 +704,130 @@
 <pre><code><div class="line"><span style="color: #A6ACCD;">request</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">ips</span><span style="color: #A6ACCD;">()</span></div></code></pre>
 </div>
 
-<h3 id="custom-ip-reterval-method"><a href="#custom-ip-reterval-method" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Custom IP reterval method</h3>
+<h3 id="custom-ip-reterval-method"><a
+  href="#custom-ip-reterval-method"
+  
+  
+><span class="icon icon-link"></span></a>
+Custom IP reterval method</h3>
 <p>If the trusted proxy settings are not enough to determine the correct IP address, you can implement your own custom <code>getIp</code> method.</p>
 <p>Open the <code>config/app.ts</code> file and define the <code>getIp</code> method as follows:</p>
 <div class="dimer-highlight">
 
-<pre><code><div class="line"><span style="color: #FFCB6B;">http</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;"> </span><span style="color: #82AAFF;">getIp</span><span style="color: #F07178;">(</span><span style="color: #A6ACCD;">request</span><span style="color: #F07178;">) </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;"> </span><span style="color: #C792EA;">const</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">nginxRealIp</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">=</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">request</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">header</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">X-Real-Ip</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">)</span></div><div class="line"><span style="color: #F07178;"> </span><span style="color: #89DDFF;">if</span><span style="color: #F07178;"> (</span><span style="color: #A6ACCD;">nginxRealIp</span><span style="color: #F07178;">) </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;"> </span><span style="color: #89DDFF;">return</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">nginxRealIp</span></div><div class="line"><span style="color: #F07178;"> </span><span style="color: #89DDFF;">}</span></div><div class="line"></div><div class="line"><span style="color: #F07178;"> </span><span style="color: #89DDFF;">return</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">request</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">ips</span><span style="color: #F07178;">()[</span><span style="color: #F78C6C;">0</span><span style="color: #F07178;">]</span></div><div class="line"><span style="color: #F07178;"> </span><span style="color: #89DDFF;">}</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
+<pre><code><div class="line"><span style="color: #FFCB6B;">http</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #82AAFF;">getIp</span><span style="color: #F07178;">(</span><span style="color: #A6ACCD;">request</span><span style="color: #F07178;">) </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #C792EA;">const</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">nginxRealIp</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">=</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">request</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">header</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">X-Real-Ip</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">)</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">if</span><span style="color: #F07178;"> (</span><span style="color: #A6ACCD;">nginxRealIp</span><span style="color: #F07178;">) </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">      </span><span style="color: #89DDFF;">return</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">nginxRealIp</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">}</span></div><div class="line"></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">return</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">request</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">ips</span><span style="color: #F07178;">()[</span><span style="color: #F78C6C;">0</span><span style="color: #F07178;">]</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
 </div>
 
-<h2 id="content-negotiation"><a href="#content-negotiation" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Content negotiation</h2>
-<p><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Content_negotiation">Content negotiation</a> is a mechanism that is used for serving different representations of a resource from the same URL.</p>
+<h2 id="content-negotiation"><a
+  href="#content-negotiation"
+  
+  
+><span class="icon icon-link"></span></a>
+Content negotiation</h2>
+<p><a
+  href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Content_negotiation"
+  target=&quot;_blank&quot;
+  rel=&quot;noopener&quot;
+>Content negotiation</a>
+ is a mechanism that is used for serving different representations of a resource from the same URL.</p>
 <p>The client making the request can negotiate for the <strong>resource representation</strong>, <strong>charset</strong>, <strong>language</strong>, and <strong>encoding</strong> using different <code>Accept</code> headers, and you can handle them as follows.</p>
-<h3 id="requestaccepts"><a href="#requestaccepts" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>request.accepts</h3>
-<p>The <code>request.accepts</code> method takes an array of content types (including shorthands) and returns the most appropriate content type by inspecting the <code>Accept</code> header. You can find the list of supported content types <a href="https://github.com/jshttp/mime-db/blob/master/db.json">here</a>.</p>
+<h3 id="requestaccepts"><a
+  href="#requestaccepts"
+  
+  
+><span class="icon icon-link"></span></a>
+request.accepts</h3>
+<p>The <code>request.accepts</code> method takes an array of content types (including shorthands) and returns the most appropriate content type by inspecting the <code>Accept</code> header. You can find the list of supported content types <a
+  href="https://github.com/jshttp/mime-db/blob/master/db.json"
+  target=&quot;_blank&quot;
+  rel=&quot;noopener&quot;
+>here</a>
+.</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">get</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">posts</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">async</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">({</span><span style="color: #A6ACCD;"> request</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> view </span><span style="color: #89DDFF;">})</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #C792EA;">const</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">posts</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">=</span><span style="color: #F07178;"> [</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">      title</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Adonis 101</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">},</span></div><div class="line"><span style="color: #F07178;">  ]</span></div><div class="line"></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">switch</span><span style="color: #F07178;"> (</span><span style="color: #A6ACCD;">request</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">accepts</span><span style="color: #F07178;">([</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">html</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">json</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">])) </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">case</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">html</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">:</span></div><div class="line"><span style="color: #F07178;">      </span><span style="color: #89DDFF;">return</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">view</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">render</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">posts/index</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">{</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">posts</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">}</span><span style="color: #F07178;">)</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">case</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">json</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">:</span></div><div class="line"><span style="color: #F07178;">      </span><span style="color: #89DDFF;">return</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">posts</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">default</span><span style="color: #89DDFF;">:</span></div><div class="line"><span style="color: #F07178;">      </span><span style="color: #89DDFF;">return</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">view</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">render</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">posts/index</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">{</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">posts</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">}</span><span style="color: #F07178;">)</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h3 id="requestlanguage"><a href="#requestlanguage" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>request.language</h3>
+<h3 id="requestlanguage"><a
+  href="#requestlanguage"
+  
+  
+><span class="icon icon-link"></span></a>
+request.language</h3>
 <p>Negotiate for the requested language based upon the <code>Accept-language</code> header.</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> language </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> request</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">language</span><span style="color: #A6ACCD;">([</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">fr</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">de</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">])</span></div><div class="line"></div><div class="line"><span style="color: #89DDFF;">if</span><span style="color: #A6ACCD;"> (language) </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">return</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">view</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">render</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x60;</span><span style="color: #C3E88D;">posts/</span><span style="color: #89DDFF;">${</span><span style="color: #A6ACCD;">language</span><span style="color: #89DDFF;">}</span><span style="color: #C3E88D;">/index</span><span style="color: #89DDFF;">&#x60;</span><span style="color: #F07178;">)</span></div><div class="line"><span style="color: #89DDFF;">}</span></div><div class="line"></div><div class="line"><span style="color: #89DDFF;">return</span><span style="color: #A6ACCD;"> view</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">render</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">posts/en/index</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h3 id="requestencoding"><a href="#requestencoding" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>request.encoding</h3>
+<h3 id="requestencoding"><a
+  href="#requestencoding"
+  
+  
+><span class="icon icon-link"></span></a>
+request.encoding</h3>
 <p>Find the best encoding using the <code>Accept-encoding</code> header.</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #89DDFF;">switch</span><span style="color: #A6ACCD;"> (request</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">encoding</span><span style="color: #A6ACCD;">([</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">gzip</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">br</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">])) </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">case</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">gzip</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">:</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #89DDFF;">return</span><span style="color: #A6ACCD;"> </span><span style="color: #82AAFF;">compressAsGzip</span><span style="color: #A6ACCD;">(someValue)</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">case</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">br</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">:</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #89DDFF;">return</span><span style="color: #A6ACCD;"> </span><span style="color: #82AAFF;">compressAsBr</span><span style="color: #A6ACCD;">(someValue)</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">default</span><span style="color: #89DDFF;">:</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #89DDFF;">return</span><span style="color: #A6ACCD;"> value</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
 </div>
 
-<h3 id="requestcharset"><a href="#requestcharset" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>request.charset</h3>
+<h3 id="requestcharset"><a
+  href="#requestcharset"
+  
+  
+><span class="icon icon-link"></span></a>
+request.charset</h3>
 <p>Find the best charset using the <code>Accept-charset</code> header.</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> charset </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> request</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">charset</span><span style="color: #A6ACCD;">([</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">utf-8</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">hex</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">ascii</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">])</span></div><div class="line"><span style="color: #89DDFF;">return</span><span style="color: #A6ACCD;"> Buffer</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">from</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">hello-world</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">toString</span><span style="color: #A6ACCD;">(charset </span><span style="color: #89DDFF;">||</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">utf-8</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h2 id="trusted-proxy"><a href="#trusted-proxy" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Trusted proxy</h2>
-<p>The majority of Node.js applications are deployed behind a proxy server like Nginx or Caddy. Hence, the value of <a href="https://nodejs.org/api/net.html#net_socket_remoteaddress">remoteAddress</a> is the IP address of the proxy server and not the client.</p>
-<p>However, all the proxy servers set the <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers#proxies"><code>X-Forwaded</code></a> headers to reflect the request&#x27;s original values, and you must inform AdonisJS to trust the proxy server headers.</p>
+<h2 id="trusted-proxy"><a
+  href="#trusted-proxy"
+  
+  
+><span class="icon icon-link"></span></a>
+Trusted proxy</h2>
+<p>The majority of Node.js applications are deployed behind a proxy server like Nginx or Caddy. Hence, the value of <a
+  href="https://nodejs.org/api/net.html#net_socket_remoteaddress"
+  target=&quot;_blank&quot;
+  rel=&quot;noopener&quot;
+>remoteAddress</a>
+ is the IP address of the proxy server and not the client.</p>
+<p>However, all the proxy servers set the <a
+  href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers#proxies"
+  target=&quot;_blank&quot;
+  rel=&quot;noopener&quot;
+><code>X-Forwaded</code></a>
+ headers to reflect the request&#x27;s original values, and you must inform AdonisJS to trust the proxy server headers.</p>
 <p>You can control which proxies to trust by modifying the <code>http.trustProxy</code> value inside the <code>config/app.ts</code>.</p>
 <div class="dimer-highlight">
+    <div class="codeblock-title">
+      config/app.ts
+    </div>
 
-<pre><code><div class="line"><span style="color: #A6ACCD;">{</span></div><div class="line"><span style="color: #A6ACCD;"> http: {</span></div><div class="line"><span style="color: #A6ACCD;"> trustProxy: proxyAddr.compile(valueComesHere)</span></div><div class="line"><span style="color: #A6ACCD;"> }</span></div><div class="line"><span style="color: #A6ACCD;">}</span></div></code></pre>
+<pre><code><div class="line"><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #FFCB6B;">http</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #FFCB6B;">trustProxy</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">proxyAddr</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">compile</span><span style="color: #F07178;">(</span><span style="color: #A6ACCD;">valueComesHere</span><span style="color: #F07178;">)</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
 </div>
 
-<h3 id="boolean-values"><a href="#boolean-values" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Boolean values</h3>
+<h3 id="boolean-values"><a
+  href="#boolean-values"
+  
+  
+><span class="icon icon-link"></span></a>
+Boolean values</h3>
 <p>Setting the value to <code>true</code> will trust the left-most entry in the <code>X-Forwarded-*</code> header. Whereas the <code>false</code> assumes the application directly faces the Internet and value for <code>request.connection.remoteAddress</code> is used.</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #FFCB6B;">trustProxy</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">proxyAddr</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">compile</span><span style="color: #F07178;">(</span><span style="color: #FF9CAC;">true</span><span style="color: #F07178;">)</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
 </div>
 
-<h3 id="ip-addresses"><a href="#ip-addresses" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Ip addresses</h3>
+<h3 id="ip-addresses"><a
+  href="#ip-addresses"
+  
+  
+><span class="icon icon-link"></span></a>
+Ip addresses</h3>
 <p>You can also define a single or an array of proxy server IP addresses to trust.</p>
 <div class="dimer-highlight">
 
@@ -570,63 +840,134 @@
 <li><code>linklocal</code>: IPv4 and IPv6 link-local addresses (like <code>fe80::1:1:1:1</code> and <code>169.254.0.1</code>).</li>
 <li><code>uniquelocal</code>: IPv4 private addresses and IPv6 unique-local addresses (like <code>fc00:ac:1ab5:fff::1</code> and <code>192.168.0.1</code>).</li>
 </ul>
-<h3 id="custom-function"><a href="#custom-function" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Custom function</h3>
+<h3 id="custom-function"><a
+  href="#custom-function"
+  
+  
+><span class="icon icon-link"></span></a>
+Custom function</h3>
 <p>You can also define a custom function that returns a boolean on a per request basis.</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #FFCB6B;">trustProxy</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">proxyAddr</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">compile</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">(</span><span style="color: #A6ACCD;">address</span><span style="color: #89DDFF;">,</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">index</span><span style="color: #89DDFF;">)</span><span style="color: #F07178;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">return</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">address</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">===</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">127.0.0.1</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">||</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">address</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">===</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">123.123.123.123</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span><span style="color: #F07178;">)</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
 </div>
 
-<h3 id="proxy-headers-in-use"><a href="#proxy-headers-in-use" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Proxy headers in use</h3>
+<h3 id="proxy-headers-in-use"><a
+  href="#proxy-headers-in-use"
+  
+  
+><span class="icon icon-link"></span></a>
+Proxy headers in use</h3>
 <p>The following methods from the request class rely on a trusted proxy to return the correct value.</p>
 <ul>
 <li><strong>hostname</strong>: The value of <code>request.hostname()</code> is derived from the <code>X-Forwarded-Host</code> header.</li>
 <li><strong>protocol</strong>: The value of <code>request.protocol()</code> is derived from the <code>X-Forwarded-Proto</code> header.</li>
-<li><strong>ip/ips</strong>: The value of <code>request.ips()</code> and <code>request.ip()</code> is derived from the <code>X-Forwaded-For</code> header. However, the <code>http.getIp</code> configuration method takes precendence when defined. <a href="#custom-ip-reterval-method">Learn more</a></li>
+<li><strong>ip/ips</strong>: The value of <code>request.ips()</code> and <code>request.ip()</code> is derived from the <code>X-Forwaded-For</code> header. However, the <code>http.getIp</code> configuration method takes precendence when defined. <a
+  href="#custom-ip-reterval-method"
+  
+  
+>Learn more</a>
+</li>
 </ul>
-<h2 id="other-methods-and-properties"><a href="#other-methods-and-properties" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Other methods and properties</h2>
+<h2 id="cors"><a
+  href="#cors"
+  
+  
+><span class="icon icon-link"></span></a>
+CORS</h2>
+<p>AdonisJS has in-built support for responding to the <a
+  href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS"
+  target=&quot;_blank&quot;
+  rel=&quot;noopener&quot;
+>CORS</a>
+ <code>OPTIONS</code> requests. Just enable it inside the <code>config/cors.ts</code> file.</p>
+<div class="dimer-highlight">
+    <div class="codeblock-title">
+      config/cors.ts
+    </div>
+
+<pre><code><div class="line"><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #FFCB6B;">enabled</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #FF9CAC;">true</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #89DDFF;">  </span><span style="color: #676E95;">// ...rest of the config</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
+</div>
+
+<p>The config file is extensively documented. Make sure to go through all the options and read the associated comments to understand its usage.</p>
+<h2 id="other-methods-and-properties"><a
+  href="#other-methods-and-properties"
+  
+  
+><span class="icon icon-link"></span></a>
+Other methods and properties</h2>
 <p>Following is the list of other available methods and properties on the Request class.</p>
-<h3 id="updatebody"><a href="#updatebody" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>updateBody</h3>
+<h3 id="updatebody"><a
+  href="#updatebody"
+  
+  
+><span class="icon icon-link"></span></a>
+updateBody</h3>
 <p>Allows you to update the request body with a custom payload. It would be best if you weren&#x27;t doing it unless creating a package that purposefully mutates the request body.</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #A6ACCD;">request</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">updateBody</span><span style="color: #A6ACCD;">(myCustomPayload)</span></div></code></pre>
 </div>
 
-<h3 id="updaterawbody"><a href="#updaterawbody" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>updateRawBody</h3>
+<h3 id="updaterawbody"><a
+  href="#updaterawbody"
+  
+  
+><span class="icon icon-link"></span></a>
+updateRawBody</h3>
 <p>The <code>updateRawBody</code> allows updating the raw request body. The raw body is always a string.</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #A6ACCD;">request</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">updateRawBody</span><span style="color: #A6ACCD;">(JSON</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">stringify</span><span style="color: #A6ACCD;">(myCustomPayload))</span></div></code></pre>
 </div>
 
-<h3 id="updateqs"><a href="#updateqs" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>updateQs</h3>
+<h3 id="updateqs"><a
+  href="#updateqs"
+  
+  
+><span class="icon icon-link"></span></a>
+updateQs</h3>
 <p>The <code>updateQs</code> allows updating the value of parsed query string.</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #A6ACCD;">request</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">updateQs</span><span style="color: #A6ACCD;">(</span><span style="color: #82AAFF;">someCustomParser</span><span style="color: #A6ACCD;">(request</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">parsedUrl</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">query))</span></div></code></pre>
 </div>
 
-<h3 id="original"><a href="#original" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>original</h3>
+<h3 id="original"><a
+  href="#original"
+  
+  
+><span class="icon icon-link"></span></a>
+original</h3>
 <p>Returns the request&#x27;s original body parsed by the bodyparser. Calling the <code>updateBody</code> method does not change the original payload.</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #A6ACCD;">request</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">original</span><span style="color: #A6ACCD;">()</span></div></code></pre>
 </div>
 
-<h3 id="hasbody"><a href="#hasbody" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>hasBody</h3>
+<h3 id="hasbody"><a
+  href="#hasbody"
+  
+  
+><span class="icon icon-link"></span></a>
+hasBody</h3>
 <p>Find if the request has a body. The bodyparser uses this method to know if the request has a body before parsing it.</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #89DDFF;">if</span><span style="color: #A6ACCD;"> (request</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">hasBody</span><span style="color: #A6ACCD;">()) </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #89DDFF;">  </span><span style="color: #676E95;">// parse request body</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
 </div>
 
-<h2 id="extending-request-class"><a href="#extending-request-class" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Extending Request class</h2>
+<h2 id="extending-request-class"><a
+  href="#extending-request-class"
+  
+  
+><span class="icon icon-link"></span></a>
+Extending Request class</h2>
 <p>You can extend the Request class using <strong>macros</strong> or <strong>getters</strong>. The best place to extend the request is inside a custom service provider.</p>
 <p>Open the pre-existing <code>providers/AppProvider.ts</code> file and write the following code inside the <code>boot</code> method.</p>
 <div class="dimer-highlight">
 
-<pre><code><div class="line dim"><span style="color: #89DDFF;">import</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">ApplicationContract</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">from</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">@ioc:Adonis/Core/Application</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line dim"></div><div class="line dim"><span style="color: #89DDFF;">export</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">default</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">class</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">AppProvider</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line dim"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">public</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">static</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">needsApplication</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #FF9CAC;">true</span></div><div class="line dim"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">constructor</span><span style="color: #89DDFF;">(</span><span style="color: #C792EA;">protected</span><span style="color: #A6ACCD;"> app</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">ApplicationContract</span><span style="color: #89DDFF;">)</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{}</span></div><div class="line dim"></div><div class="line highlight"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">public</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">async</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">boot</span><span style="color: #89DDFF;">()</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line highlight"><span style="color: #F07178;">    </span><span style="color: #C792EA;">const</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">Request</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">=</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">this.</span><span style="color: #A6ACCD;">app</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">container</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">use</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Adonis/Core/Request</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">)</span></div><div class="line highlight"></div><div class="line highlight"><span style="color: #F07178;">    </span><span style="color: #A6ACCD;">Request</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">macro</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">wantsJSON</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #F07178;"> </span><span style="color: #C792EA;">function</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">()</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">{</span></div><div class="line highlight"><span style="color: #F07178;">      </span><span style="color: #C792EA;">const</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">types</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">=</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">this.</span><span style="color: #82AAFF;">types</span><span style="color: #F07178;">()</span></div><div class="line highlight"><span style="color: #F07178;">      </span><span style="color: #89DDFF;">return</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">types</span><span style="color: #F07178;">[</span><span style="color: #F78C6C;">0</span><span style="color: #F07178;">] </span><span style="color: #89DDFF;">&amp;&amp;</span><span style="color: #F07178;"> (</span><span style="color: #A6ACCD;">types</span><span style="color: #F07178;">[</span><span style="color: #F78C6C;">0</span><span style="color: #F07178;">]</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">includes</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/json</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">) </span><span style="color: #89DDFF;">||</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">types</span><span style="color: #F07178;">[</span><span style="color: #F78C6C;">0</span><span style="color: #F07178;">]</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">includes</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">+json</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">))</span></div><div class="line highlight"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">}</span><span style="color: #F07178;">)</span></div><div class="line highlight"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span></div><div class="line dim"><span style="color: #89DDFF;">}</span></div></code></pre>
+<pre><code><div class="line dim"><span style="color: #89DDFF;">import</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">ApplicationContract</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">from</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">@ioc:Adonis/Core/Application</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line dim"></div><div class="line dim"><span style="color: #89DDFF;">export</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">default</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">class</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">AppProvider</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line dim"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">public</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">static</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">needsApplication</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #FF9CAC;">true</span></div><div class="line dim"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">constructor</span><span style="color: #89DDFF;">(</span><span style="color: #C792EA;">protected</span><span style="color: #A6ACCD;"> app</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">ApplicationContract</span><span style="color: #89DDFF;">)</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{}</span></div><div class="line dim"></div><div class="line highlight"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">public</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">async</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">boot</span><span style="color: #89DDFF;">()</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line highlight"><span style="color: #F07178;">    </span><span style="color: #C792EA;">const</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">Request</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">=</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">this.</span><span style="color: #A6ACCD;">app</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">container</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">use</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Adonis/Core/Request</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">)</span></div><div class="line highlight"></div><div class="line highlight"><span style="color: #F07178;">    </span><span style="color: #A6ACCD;">Request</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">macro</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">wantsJSON</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #F07178;"> </span><span style="color: #C792EA;">function</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">()</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">{</span></div><div class="line highlight"><span style="color: #F07178;">      </span><span style="color: #C792EA;">const</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">types</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">=</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">this.</span><span style="color: #82AAFF;">types</span><span style="color: #F07178;">()</span></div><div class="line highlight"><span style="color: #F07178;">      </span><span style="color: #89DDFF;">return</span><span style="color: #F07178;"> (</span></div><div class="line highlight"><span style="color: #F07178;">        </span><span style="color: #A6ACCD;">types</span><span style="color: #F07178;">[</span><span style="color: #F78C6C;">0</span><span style="color: #F07178;">] </span><span style="color: #89DDFF;">&amp;&amp;</span><span style="color: #F07178;"> (</span><span style="color: #A6ACCD;">types</span><span style="color: #F07178;">[</span><span style="color: #F78C6C;">0</span><span style="color: #F07178;">]</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">includes</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/json</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">) </span><span style="color: #89DDFF;">||</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">types</span><span style="color: #F07178;">[</span><span style="color: #F78C6C;">0</span><span style="color: #F07178;">]</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">includes</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">+json</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">))</span></div><div class="line highlight"><span style="color: #F07178;">      )</span></div><div class="line highlight"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">}</span><span style="color: #F07178;">)</span></div><div class="line highlight"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span></div><div class="line dim"><span style="color: #89DDFF;">}</span></div></code></pre>
 </div>
 
 <p>In the above example, we have added the <code>wantsJSON</code> method to the request class. It reads the <code>Accept</code> header&#x27;s value and returns true if the first value negotiates for JSON.</p>
@@ -636,20 +977,53 @@
 <pre><code><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">get</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">({</span><span style="color: #A6ACCD;"> request </span><span style="color: #89DDFF;">})</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">if</span><span style="color: #F07178;"> (</span><span style="color: #A6ACCD;">request</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">wantsJSON</span><span style="color: #F07178;">()) </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">return</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">{}</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h3 id="informing-typescript-about-the-method"><a href="#informing-typescript-about-the-method" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Informing typescript about the method</h3>
-<p>The <code>wantsJSON</code> property is added at the runtime, and hence Typescript does not know about it. To inform the Typescript, we will use <a href="https://www.typescriptlang.org/docs/handbook/declaration-merging.html#merging-interfaces">declaration merging</a> and add the property to the <code>RequestContract</code> interface.</p>
+<h3 id="informing-typescript-about-the-method"><a
+  href="#informing-typescript-about-the-method"
+  
+  
+><span class="icon icon-link"></span></a>
+Informing typescript about the method</h3>
+<p>The <code>wantsJSON</code> property is added at the runtime, and hence Typescript does not know about it. To inform the Typescript, we will use <a
+  href="https://www.typescriptlang.org/docs/handbook/declaration-merging.html#merging-interfaces"
+  target=&quot;_blank&quot;
+  rel=&quot;noopener&quot;
+>declaration merging</a>
+ and add the property to the <code>RequestContract</code> interface.</p>
 <p>Create a new file at path <code>contracts/request.ts</code> (the filename is not important) and paste the following contents inside it.</p>
 <div class="dimer-highlight">
+    <div class="codeblock-title">
+      contracts/request.ts
+    </div>
 
-<pre><code><div class="line"><span style="color: #A6ACCD;">declare module &#x27;@ioc:Adonis/Core/Request&#x27; {</span></div><div class="line"><span style="color: #A6ACCD;"> interface RequestContract {</span></div><div class="line"><span style="color: #A6ACCD;"> wantsJSON(): boolean</span></div><div class="line"><span style="color: #A6ACCD;"> }</span></div><div class="line"><span style="color: #A6ACCD;">}</span></div></code></pre>
+<pre><code><div class="line"><span style="color: #C792EA;">declare</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">module</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">@ioc:Adonis/Core/Request</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #C792EA;">interface</span><span style="color: #F07178;"> </span><span style="color: #FFCB6B;">RequestContract</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">    wantsJSON</span><span style="color: #89DDFF;">():</span><span style="color: #F07178;"> </span><span style="color: #FFCB6B;">boolean</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
 </div>
 
-<h2 id="additional-reading"><a href="#additional-reading" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Additional reading</h2>
+<h2 id="additional-reading"><a
+  href="#additional-reading"
+  
+  
+><span class="icon icon-link"></span></a>
+Additional reading</h2>
 <p>Following are some of the additional guides to learn more about the topics not covered in this document.</p>
 <ul>
-<li><a href="/guides/cookies">Cookies</a></li>
-<li><a href="/guides/file-uploads">File uploads</a></li>
-<li><a href="/guides/forms-and-validations">Forms and validations</a></li>
+<li><a
+  href="/guides/cookies"
+  
+  
+>Cookies</a>
+</li>
+<li><a
+  href="/guides/file-uploads"
+  
+  
+>File uploads</a>
+</li>
+<li><a
+  href="/guides/forms-and-validations"
+  
+  
+>Forms and validations</a>
+</li>
 </ul>  </div>
 </main>
 
@@ -659,79 +1033,262 @@
       <nav>
         <ul>
 <li>
-<p><a href="#request-data">Request data</a></p>
+<p><a
+  href="#request-data"
+  
+  
+>Request data</a>
+</p>
 <ul>
-<li><a href="#query-string-and-params">Query string and params</a></li>
-<li><a href="#request-body">Request body</a></li>
-<li><a href="#supported-content-types">Supported content types</a></li>
+<li><a
+  href="#query-string-and-params"
+  
+  
+>Query string and params</a>
+</li>
+<li><a
+  href="#request-body"
+  
+  
+>Request body</a>
+</li>
+<li><a
+  href="#supported-content-types"
+  
+  
+>Supported content types</a>
+</li>
 </ul>
 </li>
 <li>
-<p><a href="#request-route">Request route</a></p>
+<p><a
+  href="#request-route"
+  
+  
+>Request route</a>
+</p>
 </li>
 <li>
-<p><a href="#request-url">Request URL</a></p>
+<p><a
+  href="#request-url"
+  
+  
+>Request URL</a>
+</p>
 </li>
 <li>
-<p><a href="#request-method">Request method</a></p>
+<p><a
+  href="#request-method"
+  
+  
+>Request method</a>
+</p>
 <ul>
-<li><a href="#method">method</a></li>
-<li><a href="#intended">intended</a></li>
+<li><a
+  href="#method"
+  
+  
+>method</a>
+</li>
+<li><a
+  href="#intended"
+  
+  
+>intended</a>
+</li>
 </ul>
 </li>
 <li>
-<p><a href="#request-id">Request id</a></p>
+<p><a
+  href="#request-id"
+  
+  
+>Request id</a>
+</p>
 <ul>
-<li><a href="#generating-request-ids">Generating request ids</a></li>
-<li><a href="#access-request-id">Access request id</a></li>
-<li><a href="#request-id-inside-logs">Request id inside logs</a></li>
+<li><a
+  href="#generating-request-ids"
+  
+  
+>Generating request ids</a>
+</li>
+<li><a
+  href="#access-request-id"
+  
+  
+>Access request id</a>
+</li>
+<li><a
+  href="#request-id-inside-logs"
+  
+  
+>Request id inside logs</a>
+</li>
 </ul>
 </li>
 <li>
-<p><a href="#request-headers">Request headers</a></p>
+<p><a
+  href="#request-headers"
+  
+  
+>Request headers</a>
+</p>
 </li>
 <li>
-<p><a href="#request-ip-address">Request IP address</a></p>
+<p><a
+  href="#request-ip-address"
+  
+  
+>Request IP address</a>
+</p>
 <ul>
-<li><a href="#custom-ip-reterval-method">Custom IP reterval method</a></li>
+<li><a
+  href="#custom-ip-reterval-method"
+  
+  
+>Custom IP reterval method</a>
+</li>
 </ul>
 </li>
 <li>
-<p><a href="#content-negotiation">Content negotiation</a></p>
+<p><a
+  href="#content-negotiation"
+  
+  
+>Content negotiation</a>
+</p>
 <ul>
-<li><a href="#requestaccepts">request.accepts</a></li>
-<li><a href="#requestlanguage">request.language</a></li>
-<li><a href="#requestencoding">request.encoding</a></li>
-<li><a href="#requestcharset">request.charset</a></li>
+<li><a
+  href="#requestaccepts"
+  
+  
+>request.accepts</a>
+</li>
+<li><a
+  href="#requestlanguage"
+  
+  
+>request.language</a>
+</li>
+<li><a
+  href="#requestencoding"
+  
+  
+>request.encoding</a>
+</li>
+<li><a
+  href="#requestcharset"
+  
+  
+>request.charset</a>
+</li>
 </ul>
 </li>
 <li>
-<p><a href="#trusted-proxy">Trusted proxy</a></p>
+<p><a
+  href="#trusted-proxy"
+  
+  
+>Trusted proxy</a>
+</p>
 <ul>
-<li><a href="#boolean-values">Boolean values</a></li>
-<li><a href="#ip-addresses">Ip addresses</a></li>
-<li><a href="#custom-function">Custom function</a></li>
-<li><a href="#proxy-headers-in-use">Proxy headers in use</a></li>
+<li><a
+  href="#boolean-values"
+  
+  
+>Boolean values</a>
+</li>
+<li><a
+  href="#ip-addresses"
+  
+  
+>Ip addresses</a>
+</li>
+<li><a
+  href="#custom-function"
+  
+  
+>Custom function</a>
+</li>
+<li><a
+  href="#proxy-headers-in-use"
+  
+  
+>Proxy headers in use</a>
+</li>
 </ul>
 </li>
 <li>
-<p><a href="#other-methods-and-properties">Other methods and properties</a></p>
+<p><a
+  href="#cors"
+  
+  
+>CORS</a>
+</p>
+</li>
+<li>
+<p><a
+  href="#other-methods-and-properties"
+  
+  
+>Other methods and properties</a>
+</p>
 <ul>
-<li><a href="#updatebody">updateBody</a></li>
-<li><a href="#updaterawbody">updateRawBody</a></li>
-<li><a href="#updateqs">updateQs</a></li>
-<li><a href="#original">original</a></li>
-<li><a href="#hasbody">hasBody</a></li>
+<li><a
+  href="#updatebody"
+  
+  
+>updateBody</a>
+</li>
+<li><a
+  href="#updaterawbody"
+  
+  
+>updateRawBody</a>
+</li>
+<li><a
+  href="#updateqs"
+  
+  
+>updateQs</a>
+</li>
+<li><a
+  href="#original"
+  
+  
+>original</a>
+</li>
+<li><a
+  href="#hasbody"
+  
+  
+>hasBody</a>
+</li>
 </ul>
 </li>
 <li>
-<p><a href="#extending-request-class">Extending Request class</a></p>
+<p><a
+  href="#extending-request-class"
+  
+  
+>Extending Request class</a>
+</p>
 <ul>
-<li><a href="#informing-typescript-about-the-method">Informing typescript about the method</a></li>
+<li><a
+  href="#informing-typescript-about-the-method"
+  
+  
+>Informing typescript about the method</a>
+</li>
 </ul>
 </li>
 <li>
-<p><a href="#additional-reading">Additional reading</a></p>
+<p><a
+  href="#additional-reading"
+  
+  
+>Additional reading</a>
+</p>
 </li>
         </ul>
       </nav>

@@ -51,7 +51,7 @@
     type="font/woff2"
     crossorigin
   >
-<link rel="stylesheet" href="/assets/app.ee5a9736.css" />
+<link rel="stylesheet" href="/assets/app.be48d775.css" />
 <script src="/assets/342.70de04a2.js" defer></script>
 <script src="/assets/app.26949583.js" defer></script>
 </head>
@@ -60,7 +60,7 @@
   <header class="header">
     <div class="header-container">
 
-      <div class="primary-links"><a href="#sidenav-open" title="Open Docs Menu" aria-label="Open Docs Menu" class="hamburger for-mobile">
+      <div class="primary-links"><a href="#sidenav-open" title="Open Docs Menu" aria-label="Open Docs Menu" class="hamburger for-mobile" data-turbo="false">
   <svg role="presentation" focusable="false" aria-label="Icon for open menu" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
     <line x1="4" y1="6" x2="20" y2="6" />
@@ -92,8 +92,14 @@
         <ul>
 
               <li class="active">
-                <a href="/guides/validator/introduction">
+                <a href="/guides/application">
                   Guides
+                </a>
+              </li>
+
+              <li class="">
+                <a href="/reference/database/connection">
+                  Reference guides
                 </a>
               </li>
         </ul>
@@ -112,18 +118,29 @@
   </header>
 </div>
 
-<div id="sidenav-open" data-turbo-permanent>
+<div id="sidenav-open">
   <div class="sidebar" id="sidebar" data-maintain-scroll>
     <div class="sidebar-container">
 
 
 
               <nav>
+                  <h3> Fundamentals </h3>
                 <ol>
                     <li
                       class=""
                     >
-                      <a href="/guides/introduction"> Introduction </a>
+                      <a href="/guides/application"> Application </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/config"> Config </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/environment-variables"> Environment variables </a>
                     </li>
                 </ol>
               </nav>
@@ -173,22 +190,12 @@
                     <li
                       class=""
                     >
-                      <a href="/guides/session"> Session </a>
-                    </li>
-                    <li
-                      class=""
-                    >
                       <a href="/guides/cookies"> Cookies </a>
                     </li>
                     <li
                       class=""
                     >
-                      <a href="/guides/hooks"> Hooks </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/exception-handling"> Exception Handling </a>
+                      <a href="/guides/session"> Session </a>
                     </li>
                     <li
                       class=""
@@ -198,12 +205,12 @@
                     <li
                       class=""
                     >
-                      <a href="/guides/web-security"> Web security </a>
+                      <a href="/guides/assets-manager"> Assets manager </a>
                     </li>
                     <li
                       class=""
                     >
-                      <a href="/guides/cors"> CORS </a>
+                      <a href="/guides/exception-handling"> Exception Handling </a>
                     </li>
                 </ol>
               </nav>
@@ -218,22 +225,37 @@
                     <li
                       class=""
                     >
-                      <a href="/guides/views/rendering"> Rendering views </a>
+                      <a href="/guides/views/rendering"> Rendering </a>
                     </li>
                     <li
                       class=""
                     >
-                      <a href="/guides/views/templates-syntax"> Template syntax </a>
+                      <a href="/guides/views/templating-syntax"> Templating syntax </a>
                     </li>
                     <li
                       class=""
                     >
-                      <a href="/guides/views/layouts-and-partials"> Layouts &amp; Partials </a>
+                      <a href="/guides/views/data-flow"> Data flow </a>
                     </li>
                     <li
                       class=""
                     >
-                      <a href="/guides/views/conditionals-and-loops"> Conditionals &amp; Loops </a>
+                      <a href="/guides/views/conditionals"> Conditionals </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/views/loops"> Loops </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/views/partials"> Partials </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/views/layouts"> Layouts </a>
                     </li>
                     <li
                       class=""
@@ -243,17 +265,17 @@
                     <li
                       class=""
                     >
+                      <a href="/guides/views/mutations"> Mutations </a>
+                    </li>
+                    <li
+                      class=""
+                    >
                       <a href="/guides/views/debugging"> Debugging </a>
                     </li>
                     <li
                       class=""
                     >
-                      <a href="/guides/views/advanced-options"> Advanced Options </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/views/faqs"> FAQs </a>
+                      <a href="/guides/views/custom-tags"> Creating custom tags </a>
                     </li>
                 </ol>
               </nav>
@@ -297,13 +319,54 @@
                     </li>
                 </ol>
               </nav>
+              <nav>
+                  <h3> Security </h3>
+                <ol>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/security/web-security"> Web Security </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/security/encryption"> Encryption </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/security/hashing"> Hashing </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/security/signed-urls"> Signed URLs </a>
+                    </li>
+                </ol>
+              </nav>
+              <nav>
+                  <h3> Digging deeper </h3>
+                <ol>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/ace-commandline"> Ace </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/repl"> AdonisJS Repl </a>
+                    </li>
+                </ol>
+              </nav>
+
     </div>
   </div>
 
-  <a href="#" id="sidenav-close" class="sidenav-backdrop" title="Close Docs Menu" aria-label="Close Docs Menu"></a>
+  <a href="#" data-turbo="false" id="sidenav-close" class="sidenav-backdrop" title="Close Docs Menu" aria-label="Close Docs Menu"></a>
 </div>
 
-<main class="doc">
+<main class="doc" data-turbo="false">
   <div class="markdown">
     <h1>Controllers</h1><p>Controllers are the de facto way of handling HTTP requests in AdonisJS. They enable you to clean up the routes file by moving all the inline route handlers to their dedicated controller files.</p>
 <p>In AdonisJS, the controllers are stored inside (but not limited to) the <code>app/Controllers/Http</code> directory and each file represents a single controller. For example:</p>
@@ -321,7 +384,12 @@
 <pre><code><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">get</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">posts</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">PostsController.index</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h2 id="controllers-location"><a href="#controllers-location" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Controllers location</h2>
+<h2 id="controllers-location"><a
+  href="#controllers-location"
+  
+  
+><span class="icon icon-link"></span></a>
+Controllers location</h2>
 <p>Conventionally, the controllers are stored inside the <code>app/Controllers/Http</code> directory, but it is not a hard rule, and you can modify their location inside the <code>.adonisrc.json</code> file.</p>
 <div class="dimer-highlight">
 
@@ -329,7 +397,12 @@
 </div>
 
 <p>Now, AdonisJS will find the controllers inside the <code>App/Controllers</code> directory. Also, the <code>make:controller</code> command will create them inside the correct location.</p>
-<h2 id="make-controller-command"><a href="#make-controller-command" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Make controller command</h2>
+<h2 id="make-controller-command"><a
+  href="#make-controller-command"
+  
+  
+><span class="icon icon-link"></span></a>
+Make controller command</h2>
 <p>You can make use of <code>node ace</code> to create a new controller. For example:</p>
 <div class="dimer-highlight">
 
@@ -339,11 +412,21 @@
 <p>If you notice, in the above command, we mentioned the word <code>Post</code> as singular, whereas the generated file name is in the plural form and has a <code>Controller</code> suffix.</p>
 <p>AdonisJS applies these transformations to ensure that the filenames are consistent throughout your project. However, you can instruct the CLI not to apply these transformations by using the <code>--exact</code> flag.</p>
 <p><figure>
-  <img data-src="https://res.cloudinary.com/adonis-js/image/upload/f_auto,q_auto/v1611555570/v5/controller-help-exact-flag.png" alt="Output of &quot;node ace make --help&quot;" class="lazyload">
+  <img
+    data-src="https://res.cloudinary.com/adonis-js/image/upload/f_auto,q_auto/v1611555570/v5/controller-help-exact-flag.png"
+    alt="Output of &quot;node ace make --help&quot;"
+    class="lazyload"
+    
+  >
     <figcaption>Output of &quot;node ace make --help&quot;</figcaption>
 </figure>
 </p>
-<h2 id="controller-routes-reference"><a href="#controller-routes-reference" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Controller routes reference</h2>
+<h2 id="controller-routes-reference"><a
+  href="#controller-routes-reference"
+  
+  
+><span class="icon icon-link"></span></a>
+Controller routes reference</h2>
 <p>As you can notice, the controllers are referenced on routes as a string expression, i.e., <code>&#x27;Controller.method&#x27;</code>. We opted for this approach intentionally in favor of lazy loading controllers and less verbose syntax.</p>
 <p>Let&#x27;s see how the routes file may look like if we decide <strong>NOT TO use</strong> the string expression.</p>
 <div class="dimer-highlight">
@@ -353,24 +436,54 @@
 
 <p>In the above example, we import the <code>PostsController</code> within the routes file. Create an instance of it and run the <code>index</code> method, passing the <code>ctx</code> object.</p>
 <p>Now imagine an application with 40-50 different controllers. Each controller has its set of imports, all getting pulled down inside a single routes file, making the routes file a choke point.</p>
-<h3 id="lazy-loading"><a href="#lazy-loading" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Lazy loading</h3>
+<h3 id="lazy-loading"><a
+  href="#lazy-loading"
+  
+  
+><span class="icon icon-link"></span></a>
+Lazy loading</h3>
 <p>Lazy loading the controllers is a perfect solution to the problem mentioned above. There is no need to import everything at the top level; instead, import the controllers as they are needed.</p>
 <div class="dimer-highlight">
 
-<pre><code><div class="line"><span style="color: #89DDFF;">import</span><span style="color: #A6ACCD;"> Route </span><span style="color: #89DDFF;">from</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">@ioc:Adonis/Core/Route</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"></div><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">get</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/posts</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">async</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">(</span><span style="color: #A6ACCD;">ctx</span><span style="color: #89DDFF;">)</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #C792EA;">const</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">{</span><span style="color: #F07178;"> default</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">PostsController</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">}</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">=</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">await</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">import</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">App/Controllers/Http/PostsController</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">)</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">return</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">new</span><span style="color: #F07178;"> </span><span style="color: #82AAFF;">PostsController</span><span style="color: #F07178;">()</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">index</span><span style="color: #F07178;">(</span><span style="color: #A6ACCD;">ctx</span><span style="color: #F07178;">)</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
+<pre><code><div class="line"><span style="color: #89DDFF;">import</span><span style="color: #A6ACCD;"> Route </span><span style="color: #89DDFF;">from</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">@ioc:Adonis/Core/Route</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"></div><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">get</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/posts</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">async</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">(</span><span style="color: #A6ACCD;">ctx</span><span style="color: #89DDFF;">)</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #C792EA;">const</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">{</span><span style="color: #F07178;"> default</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">PostsController</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">}</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">=</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">await</span><span style="color: #F07178;"> </span><span style="color: #82AAFF;">import</span><span style="color: #F07178;">(</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">App/Controllers/Http/PostsController</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"><span style="color: #F07178;">  )</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">return</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">new</span><span style="color: #F07178;"> </span><span style="color: #82AAFF;">PostsController</span><span style="color: #F07178;">()</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">index</span><span style="color: #F07178;">(</span><span style="color: #A6ACCD;">ctx</span><span style="color: #F07178;">)</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
 <p>Manually importing the controller, instantiating the class instance is still too much code, considering a decent-sized application can go over 100 routes.</p>
-<h3 id="betting-on-the-typescript-future"><a href="#betting-on-the-typescript-future" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Betting on the typescript future</h3>
+<h3 id="betting-on-the-typescript-future"><a
+  href="#betting-on-the-typescript-future"
+  
+  
+><span class="icon icon-link"></span></a>
+Betting on the typescript future</h3>
 <p>The string-based reference provides the best of both worlds. The controllers are lazy-loaded, and the syntax is concise.</p>
 <p>However, it comes with the downside of not being type-safe. IDE doesn&#x27;t complain if the controller or the method is missing or has a typo.</p>
 <p>On the brighter side, making the string expression type-safe is not impossible. Typescript is already making progress in that direction. We need two things to achieve type safety when referencing the <code>&#x27;Controller.method&#x27;</code> as a string expression.</p>
 <ul>
-<li>The ability to tokenize the string expression and create a full path to the controller and its method. It is achievable with Typescript 4.1 and onwards. Here is a <a href="https://www.typescriptlang.org/play?ts=4.1.3#code/MYewdgzgLgBASiArlApjAvDA3gKBjAcxSgB4AJAQzABMAbFAJxhQA9UaIZoGBLMAgHwAKAA4UoqBmABcXKL34AaGAAsqdRrMo16DAJSyY2jU1btqnAAYASLHwBmjGAEEAvgDpbDpwCFXlmAB+bDx8GFAweRBaXVlLZxERAHoAYXAomMYIJLIJZNs3S0VQ-ABbYhUQalkfUNcYWUQwAGswEAB3MBxXHF6kpKMQADcnYacoFTQAIgYkVCmYIYpeCgAjehh1LhQ0CfEYdrRlo-XdkBgxBggjuQUCGD4oc6fmlEgcCOgYWeQ0TARfu4iFAhAByJKg5SgsggcppSKzTIMdx8aisUF6IA">proof of concept</a> for the same.</li>
-<li>Next is the ability to have an Import type with support for generics. There is <a href="https://github.com/microsoft/TypeScript/issues/31090">an open issue</a> for it, and we are optimistic that it will make its way to the Typescript in the future, as it adheres to the Typescript design goals.</li>
+<li>The ability to tokenize the string expression and create a full path to the controller and its method. It is achievable with Typescript 4.1 and onwards. Here is a <a
+  href="https://www.typescriptlang.org/play?ts=4.1.3#code/MYewdgzgLgBASiArlApjAvDA3gKBjAcxSgB4AJAQzABMAbFAJxhQA9UaIZoGBLMAgHwAKAA4UoqBmABcXKL34AaGAAsqdRrMo16DAJSyY2jU1btqnAAYASLHwBmjGAEEAvgDpbDpwCFXlmAB+bDx8GFAweRBaXVlLZxERAHoAYXAomMYIJLIJZNs3S0VQ-ABbYhUQalkfUNcYWUQwAGswEAB3MBxXHF6kpKMQADcnYacoFTQAIgYkVCmYIYpeCgAjehh1LhQ0CfEYdrRlo-XdkBgxBggjuQUCGD4oc6fmlEgcCOgYWeQ0TARfu4iFAhAByJKg5SgsggcppSKzTIMdx8aisUF6IA"
+  target=&quot;_blank&quot;
+  rel=&quot;noopener&quot;
+>proof of concept</a>
+ for the same.</li>
+<li>Next is the ability to have an Import type with support for generics. There is <a
+  href="https://github.com/microsoft/TypeScript/issues/31090"
+  target=&quot;_blank&quot;
+  rel=&quot;noopener&quot;
+>an open issue</a>
+ for it, and we are optimistic that it will make its way to the Typescript in the future, as it adheres to the Typescript design goals.</li>
 </ul>
-<h2 id="crud-operations"><a href="#crud-operations" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>CRUD operations</h2>
-<p>The principles of <a href="https://en.wikipedia.org/wiki/Representational_state_transfer">REST</a> provides a great way to map CRUD operations with HTTP methods without making the URL&#x27;s verbose.</p>
+<h2 id="crud-operations"><a
+  href="#crud-operations"
+  
+  
+><span class="icon icon-link"></span></a>
+CRUD operations</h2>
+<p>The principles of <a
+  href="https://en.wikipedia.org/wiki/Representational_state_transfer"
+  target=&quot;_blank&quot;
+  rel=&quot;noopener&quot;
+>REST</a>
+ provides a great way to map CRUD operations with HTTP methods without making the URL&#x27;s verbose.</p>
 <p>For example, The URL <code>/posts</code> can be used to <strong>view all the posts</strong> and also to <strong>create a new post</strong>, just by using the correct HTTP method.</p>
 <div class="dimer-highlight">
 
@@ -383,8 +496,18 @@
 <pre><code><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">get</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/posts</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">()</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">return</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">List all posts</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div><div class="line"></div><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">get</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/posts/create</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">()</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">return</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Display a form to create a post</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div><div class="line"></div><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">post</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/posts</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">async</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">()</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">return</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Handle post creation form request</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div><div class="line"></div><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">get</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/posts/:id</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">()</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">return</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Return a single post</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div><div class="line"></div><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">get</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/posts/:id/edit</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">()</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">return</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Display a form to edit a post</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div><div class="line"></div><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">put</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/posts/:id</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">()</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">return</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Handle post update form submission</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div><div class="line"></div><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">delete</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/posts/:id</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">()</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">return</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Delete post</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h2 id="resourceful-routes-and-controllers"><a href="#resourceful-routes-and-controllers" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Resourceful routes and controllers</h2>
-<p>Since the <a href="#crud-operations">above mentioned</a> routes are using a pre-defined convention. AdonisJS provides a shortcut to register all the routes together using the <code>Route.resource</code> method.</p>
+<h2 id="resourceful-routes-and-controllers"><a
+  href="#resourceful-routes-and-controllers"
+  
+  
+><span class="icon icon-link"></span></a>
+Resourceful routes and controllers</h2>
+<p>Since the <a
+  href="#crud-operations"
+  
+  
+>above mentioned</a>
+ routes are using a pre-defined convention. AdonisJS provides a shortcut to register all the routes together using the <code>Route.resource</code> method.</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">resource</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">posts</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">PostsController</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div></code></pre>
@@ -392,10 +515,20 @@
 
 <p>Following is the list of registered routes.</p>
 <p><figure>
-  <img data-src="https://res.cloudinary.com/adonis-js/image/upload/q_auto,f_auto/v1611651446/v5/routes-list.png" alt="" class="lazyload">
+  <img
+    data-src="https://res.cloudinary.com/adonis-js/image/upload/q_auto,f_auto/v1611651446/v5/routes-list.png"
+    alt=""
+    class="lazyload"
+    
+  >
 </figure>
 </p>
-<h3 id="naming-routes"><a href="#naming-routes" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Naming routes</h3>
+<h3 id="naming-routes"><a
+  href="#naming-routes"
+  
+  
+><span class="icon icon-link"></span></a>
+Naming routes</h3>
 <p>As you can notice, each route registered by the resource is given a name. The route name is created by combining the <strong>resource name</strong> and the <strong>action</strong> performed by the route. For example:</p>
 <ul>
 <li><code>posts.create</code> signifies a route to display the form to create a new post</li>
@@ -412,7 +545,12 @@
 <pre><code><div class="line"><span style="color: #A6ACCD;">articles.index</span></div><div class="line"><span style="color: #A6ACCD;">articles.create</span></div><div class="line"><span style="color: #A6ACCD;">articles.store</span></div><div class="line"><span style="color: #A6ACCD;">articles.show</span></div><div class="line"><span style="color: #A6ACCD;">articles.edit</span></div><div class="line"><span style="color: #A6ACCD;">articles.update</span></div><div class="line"><span style="color: #A6ACCD;">articles.destroy</span></div></code></pre>
 </div>
 
-<h3 id="filtering-routes"><a href="#filtering-routes" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Filtering routes</h3>
+<h3 id="filtering-routes"><a
+  href="#filtering-routes"
+  
+  
+><span class="icon icon-link"></span></a>
+Filtering routes</h3>
 <p>In many situations, you would want to prevent some of the resourceful routes from getting registered. For example, You decide to restrict the users of your blog from <strong>updating</strong> or <strong>deleting</strong> their comments, and hence routes for the same is not required.</p>
 <div class="dimer-highlight">
 
@@ -422,17 +560,27 @@
 <p>The opposite of the <code>except</code> method is the <code>only</code> method. It only registers the routes with the given action names.</p>
 <div class="dimer-highlight">
 
-<pre><code><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">resource</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">comments</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">CommentsController</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">only</span><span style="color: #A6ACCD;">([</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">index</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">show</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">store</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">]) </span><span style="color: #676E95;">// 👈</span></div></code></pre>
+<pre><code><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">resource</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">comments</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">CommentsController</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">only</span><span style="color: #A6ACCD;">([</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">index</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">show</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">store</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">]) </span><span style="color: #676E95;">// 👈</span></div></code></pre>
 </div>
 
-<h3 id="api-only-routes"><a href="#api-only-routes" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>API only routes</h3>
+<h3 id="api-only-routes"><a
+  href="#api-only-routes"
+  
+  
+><span class="icon icon-link"></span></a>
+API only routes</h3>
 <p>When creating an API server, the routes to display the forms are redundant, as you will be making those forms within your frontend or the mobile app. You can remove those routes by calling the <code>apiOnly</code> method.</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">resource</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">posts</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">PostsController</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">apiOnly</span><span style="color: #A6ACCD;">() </span><span style="color: #676E95;">// 👈</span></div></code></pre>
 </div>
 
-<h3 id="applying-middleware"><a href="#applying-middleware" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Applying middleware</h3>
+<h3 id="applying-middleware"><a
+  href="#applying-middleware"
+  
+  
+><span class="icon icon-link"></span></a>
+Applying middleware</h3>
 <p>The <code>.middleware</code> method also applies middleware on all or selected sets of routes registered by a given resource.</p>
 <div class="dimer-highlight">
 
@@ -445,7 +593,12 @@
 <pre><code><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">resource</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">users</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">UsersController</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">middleware</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #F07178;">create</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> [</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">auth</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">]</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #F07178;">store</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> [</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">auth</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">]</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #F07178;">destroy</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> [</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">auth</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">]</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h2 id="nested-resources"><a href="#nested-resources" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Nested resources</h2>
+<h2 id="nested-resources"><a
+  href="#nested-resources"
+  
+  
+><span class="icon icon-link"></span></a>
+Nested resources</h2>
 <p>You can also register nested resources by separating each resource with a <code>dot notation (.)</code>. For example:</p>
 <div class="dimer-highlight">
 
@@ -453,11 +606,21 @@
 </div>
 
 <p><figure>
-  <img data-src="https://res.cloudinary.com/adonis-js/image/upload/q_auto,f_auto/v1611673295/v5/nested-resource.png" alt="" class="lazyload">
+  <img
+    data-src="https://res.cloudinary.com/adonis-js/image/upload/q_auto,f_auto/v1611673295/v5/nested-resource.png"
+    alt=""
+    class="lazyload"
+    
+  >
 </figure>
 </p>
 <p>As you can notice, the parent resource id is prefixed with the resource name. ie <code>post_id</code>.</p>
-<h2 id="shallow-resources"><a href="#shallow-resources" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Shallow resources</h2>
+<h2 id="shallow-resources"><a
+  href="#shallow-resources"
+  
+  
+><span class="icon icon-link"></span></a>
+Shallow resources</h2>
 <p>In the case of nested resources, every child resource is prefixed with the parent resource name and its id. For example:</p>
 <ul>
 <li><code>/posts/:post_id/comments</code>: View all comments for the post</li>
@@ -471,10 +634,20 @@
 </div>
 
 <p><figure>
-  <img data-src="https://res.cloudinary.com/adonis-js/image/upload/q_auto,f_auto/v1612004976/v5/shallow-resource.png" alt="" class="lazyload">
+  <img
+    data-src="https://res.cloudinary.com/adonis-js/image/upload/q_auto,f_auto/v1612004976/v5/shallow-resource.png"
+    alt=""
+    class="lazyload"
+    
+  >
 </figure>
 </p>
-<h2 id="reusing-controllers"><a href="#reusing-controllers" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Reusing controllers</h2>
+<h2 id="reusing-controllers"><a
+  href="#reusing-controllers"
+  
+  
+><span class="icon icon-link"></span></a>
+Reusing controllers</h2>
 <p>Many developers tend to make the mistake of attempting to re-use controllers by importing them inside other controllers.</p>
 <p>If you want to re-use some logic within your application, you must extract that piece of code to its class or object, often known as service objects.</p>
 <p>We strongly recommend treating your controllers as <strong>traffic hops</strong>, whose job is to <strong>accept the HTTP request</strong>, <strong>assign work</strong> to the other parts of the application, and <strong>return a response</strong>. All of the reusable logic must live outside the controller.</p>  </div>
@@ -486,38 +659,108 @@
       <nav>
         <ul>
 <li>
-<p><a href="#controllers-location">Controllers location</a></p>
+<p><a
+  href="#controllers-location"
+  
+  
+>Controllers location</a>
+</p>
 </li>
 <li>
-<p><a href="#make-controller-command">Make controller command</a></p>
+<p><a
+  href="#make-controller-command"
+  
+  
+>Make controller command</a>
+</p>
 </li>
 <li>
-<p><a href="#controller-routes-reference">Controller routes reference</a></p>
+<p><a
+  href="#controller-routes-reference"
+  
+  
+>Controller routes reference</a>
+</p>
 <ul>
-<li><a href="#lazy-loading">Lazy loading</a></li>
-<li><a href="#betting-on-the-typescript-future">Betting on the typescript future</a></li>
+<li><a
+  href="#lazy-loading"
+  
+  
+>Lazy loading</a>
+</li>
+<li><a
+  href="#betting-on-the-typescript-future"
+  
+  
+>Betting on the typescript future</a>
+</li>
 </ul>
 </li>
 <li>
-<p><a href="#crud-operations">CRUD operations</a></p>
+<p><a
+  href="#crud-operations"
+  
+  
+>CRUD operations</a>
+</p>
 </li>
 <li>
-<p><a href="#resourceful-routes-and-controllers">Resourceful routes and controllers</a></p>
+<p><a
+  href="#resourceful-routes-and-controllers"
+  
+  
+>Resourceful routes and controllers</a>
+</p>
 <ul>
-<li><a href="#naming-routes">Naming routes</a></li>
-<li><a href="#filtering-routes">Filtering routes</a></li>
-<li><a href="#api-only-routes">API only routes</a></li>
-<li><a href="#applying-middleware">Applying middleware</a></li>
+<li><a
+  href="#naming-routes"
+  
+  
+>Naming routes</a>
+</li>
+<li><a
+  href="#filtering-routes"
+  
+  
+>Filtering routes</a>
+</li>
+<li><a
+  href="#api-only-routes"
+  
+  
+>API only routes</a>
+</li>
+<li><a
+  href="#applying-middleware"
+  
+  
+>Applying middleware</a>
+</li>
 </ul>
 </li>
 <li>
-<p><a href="#nested-resources">Nested resources</a></p>
+<p><a
+  href="#nested-resources"
+  
+  
+>Nested resources</a>
+</p>
 </li>
 <li>
-<p><a href="#shallow-resources">Shallow resources</a></p>
+<p><a
+  href="#shallow-resources"
+  
+  
+>Shallow resources</a>
+</p>
 </li>
 <li>
-<p><a href="#reusing-controllers">Reusing controllers</a></p>
+<p><a
+  href="#reusing-controllers"
+  
+  
+>Reusing controllers</a>
+</p>
 </li>
         </ul>
       </nav>

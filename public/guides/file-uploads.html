@@ -51,7 +51,7 @@
     type="font/woff2"
     crossorigin
   >
-<link rel="stylesheet" href="/assets/app.ee5a9736.css" />
+<link rel="stylesheet" href="/assets/app.be48d775.css" />
 <script src="/assets/342.70de04a2.js" defer></script>
 <script src="/assets/app.26949583.js" defer></script>
 </head>
@@ -60,7 +60,7 @@
   <header class="header">
     <div class="header-container">
 
-      <div class="primary-links"><a href="#sidenav-open" title="Open Docs Menu" aria-label="Open Docs Menu" class="hamburger for-mobile">
+      <div class="primary-links"><a href="#sidenav-open" title="Open Docs Menu" aria-label="Open Docs Menu" class="hamburger for-mobile" data-turbo="false">
   <svg role="presentation" focusable="false" aria-label="Icon for open menu" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
     <line x1="4" y1="6" x2="20" y2="6" />
@@ -92,8 +92,14 @@
         <ul>
 
               <li class="active">
-                <a href="/guides/validator/introduction">
+                <a href="/guides/application">
                   Guides
+                </a>
+              </li>
+
+              <li class="">
+                <a href="/reference/database/connection">
+                  Reference guides
                 </a>
               </li>
         </ul>
@@ -112,18 +118,29 @@
   </header>
 </div>
 
-<div id="sidenav-open" data-turbo-permanent>
+<div id="sidenav-open">
   <div class="sidebar" id="sidebar" data-maintain-scroll>
     <div class="sidebar-container">
 
 
 
               <nav>
+                  <h3> Fundamentals </h3>
                 <ol>
                     <li
                       class=""
                     >
-                      <a href="/guides/introduction"> Introduction </a>
+                      <a href="/guides/application"> Application </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/config"> Config </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/environment-variables"> Environment variables </a>
                     </li>
                 </ol>
               </nav>
@@ -173,22 +190,12 @@
                     <li
                       class=""
                     >
-                      <a href="/guides/session"> Session </a>
-                    </li>
-                    <li
-                      class=""
-                    >
                       <a href="/guides/cookies"> Cookies </a>
                     </li>
                     <li
                       class=""
                     >
-                      <a href="/guides/hooks"> Hooks </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/exception-handling"> Exception Handling </a>
+                      <a href="/guides/session"> Session </a>
                     </li>
                     <li
                       class=""
@@ -198,12 +205,12 @@
                     <li
                       class=""
                     >
-                      <a href="/guides/web-security"> Web security </a>
+                      <a href="/guides/assets-manager"> Assets manager </a>
                     </li>
                     <li
                       class=""
                     >
-                      <a href="/guides/cors"> CORS </a>
+                      <a href="/guides/exception-handling"> Exception Handling </a>
                     </li>
                 </ol>
               </nav>
@@ -218,22 +225,37 @@
                     <li
                       class=""
                     >
-                      <a href="/guides/views/rendering"> Rendering views </a>
+                      <a href="/guides/views/rendering"> Rendering </a>
                     </li>
                     <li
                       class=""
                     >
-                      <a href="/guides/views/templates-syntax"> Template syntax </a>
+                      <a href="/guides/views/templating-syntax"> Templating syntax </a>
                     </li>
                     <li
                       class=""
                     >
-                      <a href="/guides/views/layouts-and-partials"> Layouts &amp; Partials </a>
+                      <a href="/guides/views/data-flow"> Data flow </a>
                     </li>
                     <li
                       class=""
                     >
-                      <a href="/guides/views/conditionals-and-loops"> Conditionals &amp; Loops </a>
+                      <a href="/guides/views/conditionals"> Conditionals </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/views/loops"> Loops </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/views/partials"> Partials </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/views/layouts"> Layouts </a>
                     </li>
                     <li
                       class=""
@@ -243,17 +265,17 @@
                     <li
                       class=""
                     >
+                      <a href="/guides/views/mutations"> Mutations </a>
+                    </li>
+                    <li
+                      class=""
+                    >
                       <a href="/guides/views/debugging"> Debugging </a>
                     </li>
                     <li
                       class=""
                     >
-                      <a href="/guides/views/advanced-options"> Advanced Options </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/views/faqs"> FAQs </a>
+                      <a href="/guides/views/custom-tags"> Creating custom tags </a>
                     </li>
                 </ol>
               </nav>
@@ -297,18 +319,69 @@
                     </li>
                 </ol>
               </nav>
+              <nav>
+                  <h3> Security </h3>
+                <ol>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/security/web-security"> Web Security </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/security/encryption"> Encryption </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/security/hashing"> Hashing </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/security/signed-urls"> Signed URLs </a>
+                    </li>
+                </ol>
+              </nav>
+              <nav>
+                  <h3> Digging deeper </h3>
+                <ol>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/ace-commandline"> Ace </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/guides/repl"> AdonisJS Repl </a>
+                    </li>
+                </ol>
+              </nav>
+
     </div>
   </div>
 
-  <a href="#" id="sidenav-close" class="sidenav-backdrop" title="Close Docs Menu" aria-label="Close Docs Menu"></a>
+  <a href="#" data-turbo="false" id="sidenav-close" class="sidenav-backdrop" title="Close Docs Menu" aria-label="Close Docs Menu"></a>
 </div>
 
-<main class="doc">
+<main class="doc" data-turbo="false">
   <div class="markdown">
     <h1>File uploads</h1><p>AdonisJS provides you a robust and performant API for dealing with file uploads. Not only can you process and store uploaded files locally, but you can also <strong>stream them directly to the cloud services like S3, Cloudinary, or Google cloud storage</strong>.</p>
-<h2 id="retrieving-uploaded-files"><a href="#retrieving-uploaded-files" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Retrieving uploaded files</h2>
+<h2 id="retrieving-uploaded-files"><a
+  href="#retrieving-uploaded-files"
+  
+  
+><span class="icon icon-link"></span></a>
+Retrieving uploaded files</h2>
 <p>The bodyparser middleware registered inside the <code>start/kernel.ts</code> file automatically processes all the files for <code>multipart/form-data</code> requests.</p>
-<p>You can access the files using the <code>request.file</code> method. The method accepts the field name and returns an instance of the <a href="https://github.com/adonisjs/bodyparser/blob/develop/src/Multipart/File.ts">File</a> class, or null if no file was uploaded.</p>
+<p>You can access the files using the <code>request.file</code> method. The method accepts the field name and returns an instance of the <a
+  href="https://github.com/adonisjs/bodyparser/blob/develop/src/Multipart/File.ts"
+  target=&quot;_blank&quot;
+  rel=&quot;noopener&quot;
+>File</a>
+ class, or <code>null</code> if no file was uploaded.</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #89DDFF;">import</span><span style="color: #A6ACCD;"> Route </span><span style="color: #89DDFF;">from</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">@ioc:Adonis/Core/Route</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"><span style="color: #89DDFF;">import</span><span style="color: #A6ACCD;"> Application </span><span style="color: #89DDFF;">from</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">@ioc:Adonis/Core/Application</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"></div><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">post</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">posts</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">async</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">({</span><span style="color: #A6ACCD;"> request </span><span style="color: #89DDFF;">})</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #C792EA;">const</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">coverImage</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">=</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">request</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">file</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">cover_image</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">)</span></div><div class="line"></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">if</span><span style="color: #F07178;"> (</span><span style="color: #A6ACCD;">coverImage</span><span style="color: #F07178;">) </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">await</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">coverImage</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">move</span><span style="color: #F07178;">(</span><span style="color: #A6ACCD;">Application</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">tmpPath</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">uploads</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">))</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
@@ -320,15 +393,30 @@
 <pre><code><div class="line"><span style="color: #89DDFF;">import</span><span style="color: #A6ACCD;"> Route </span><span style="color: #89DDFF;">from</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">@ioc:Adonis/Core/Route</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"><span style="color: #89DDFF;">import</span><span style="color: #A6ACCD;"> Application </span><span style="color: #89DDFF;">from</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">@ioc:Adonis/Core/Application</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"></div><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">post</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">gallery</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">async</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">({</span><span style="color: #A6ACCD;"> request </span><span style="color: #89DDFF;">})</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #C792EA;">const</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">images</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">=</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">request</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">files</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">images</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">)</span></div><div class="line"></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">for</span><span style="color: #F07178;"> (</span><span style="color: #C792EA;">let</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">image</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">of</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">images</span><span style="color: #F07178;">) </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">await</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">image</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">move</span><span style="color: #F07178;">(</span><span style="color: #A6ACCD;">Application</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">tmpPath</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">uploads</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">))</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h2 id="validating-files"><a href="#validating-files" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Validating files</h2>
+<h2 id="validating-files"><a
+  href="#validating-files"
+  
+  
+><span class="icon icon-link"></span></a>
+Validating files</h2>
 <p>You can also validate the file by specifying the rules for the file extension and the file size, and AdonisJS will perform the validations implicitly.</p>
-<p>We attempt to detect the file extension using the file <a href="https://en.wikipedia.org/wiki/Magic_number_(programming)#Magic_numbers_in_files">magic number</a> and fallback to the filename extension when unable to detect it using the magic number.</p>
+<p>We attempt to detect the file extension using the file <a
+  href="https://en.wikipedia.org/wiki/Magic_number_(programming)#Magic_numbers_in_files"
+  target=&quot;_blank&quot;
+  rel=&quot;noopener&quot;
+>magic number</a>
+ and fallback to the filename extension when unable to detect it using the magic number.</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> coverImage </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> request</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">file</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">cover_image</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #F07178;">size</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">2mb</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #F07178;">extnames</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> [</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">jpg</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">png</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">gif</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">]</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div><div class="line"></div><div class="line"><span style="color: #89DDFF;">if</span><span style="color: #A6ACCD;"> (</span><span style="color: #89DDFF;">!</span><span style="color: #A6ACCD;">coverImage) </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">return</span></div><div class="line"><span style="color: #89DDFF;">}</span></div><div class="line"></div><div class="line"><span style="color: #89DDFF;">if</span><span style="color: #A6ACCD;"> (</span><span style="color: #89DDFF;">!</span><span style="color: #A6ACCD;">coverImage</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">isValid</span><span style="color: #A6ACCD;">()) </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">return</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">coverImage</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">errors</span></div><div class="line"><span style="color: #89DDFF;">}</span></div><div class="line"></div><div class="line"><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> coverImage</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">move</span><span style="color: #A6ACCD;">(Application</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">tmpPath</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">uploads</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">))</span></div></code></pre>
 </div>
 
-<h2 id="validating-files-using-the-validator"><a href="#validating-files-using-the-validator" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Validating files using the validator</h2>
+<h2 id="validating-files-using-the-validator"><a
+  href="#validating-files-using-the-validator"
+  
+  
+><span class="icon icon-link"></span></a>
+Validating files using the validator</h2>
 <p>You can also use the validator to validate the user uploaded files alongside the rest of the form.</p>
 <p>The <code>schema.file</code> method validates the input to be a valid file, along with any custom validation rules provided for the file size and the extension.</p>
 <p>If the file validation fails, you can access the error message alongside the rest of the form errors. Otherwise, you can access the file instance and move it to the desired location.</p>
@@ -337,7 +425,12 @@
 <pre><code><div class="line"><span style="color: #89DDFF;">import</span><span style="color: #A6ACCD;"> Route </span><span style="color: #89DDFF;">from</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">@ioc:Adonis/Core/Route</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"><span style="color: #89DDFF;">import</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">schema</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">from</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">@ioc:Adonis/Core/Validator</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"><span style="color: #89DDFF;">import</span><span style="color: #A6ACCD;"> Application </span><span style="color: #89DDFF;">from</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">@ioc:Adonis/Core/Application</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"></div><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">post</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">posts</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">async</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">({</span><span style="color: #A6ACCD;"> request </span><span style="color: #89DDFF;">})</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #C792EA;">const</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">postSchema</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">=</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">schema</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">create</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">    cover_image</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">schema</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">file</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">      size</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">2mb</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #F07178;">      extnames</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> [</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">jpg</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">gif</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">png</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">]</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">}</span><span style="color: #F07178;">)</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span><span style="color: #F07178;">)</span></div><div class="line"></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #C792EA;">const</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">payload</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">=</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">await</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">request</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">validate</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">{</span><span style="color: #F07178;"> schema</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">postSchema</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">}</span><span style="color: #F07178;">)</span></div><div class="line"></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">await</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">payload</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">cover_image</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">move</span><span style="color: #F07178;">(</span><span style="color: #A6ACCD;">Application</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">tmpPath</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">uploads</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">))</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h2 id="renaming-files"><a href="#renaming-files" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Renaming files</h2>
+<h2 id="renaming-files"><a
+  href="#renaming-files"
+  
+  
+><span class="icon icon-link"></span></a>
+Renaming files</h2>
 <p>It is always recommended to rename the user uploaded files during the <code>move</code> operation. The renamed file name can be anything suitable for your app, or you can use the <code>cuid</code> helper method to create random file names.</p>
 <div class="dimer-highlight">
 
@@ -350,7 +443,12 @@
 <pre><code><div class="line"><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> coverImage</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">move</span><span style="color: #A6ACCD;">(Application</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">tmpPath</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">uploads</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #F07178;">name</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> fileName</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #F07178;">overwrite</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #FF9CAC;">true</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h2 id="serving-uploaded-files"><a href="#serving-uploaded-files" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Serving uploaded files</h2>
+<h2 id="serving-uploaded-files"><a
+  href="#serving-uploaded-files"
+  
+  
+><span class="icon icon-link"></span></a>
+Serving uploaded files</h2>
 <p>The API for the file uploads only focuses on handling user uploaded files and not saving and serving them. However, the following is the simplest way to serve the files from a local disk.</p>
 <p>The <code>response.download</code> method streams the file to the client and returns a <code>404</code> status code when the file is missing.</p>
 <div class="dimer-highlight">
@@ -358,81 +456,161 @@
 <pre><code><div class="line"><span style="color: #89DDFF;">import</span><span style="color: #A6ACCD;"> Route </span><span style="color: #89DDFF;">from</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">@ioc:Adonis/Core/Route</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"><span style="color: #89DDFF;">import</span><span style="color: #A6ACCD;"> Application </span><span style="color: #89DDFF;">from</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">@ioc:Adonis/Core/Application</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"></div><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">get</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">uploads/:filename</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">async</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">({</span><span style="color: #A6ACCD;"> params</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> response </span><span style="color: #89DDFF;">})</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">return</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">response</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">download</span><span style="color: #F07178;">(</span><span style="color: #A6ACCD;">Application</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">tmpPath</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">uploads</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">params</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">filename</span><span style="color: #F07178;">))</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
 </div>
 
-<h2 id="direct-file-uploads"><a href="#direct-file-uploads" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Direct file uploads</h2>
-<p>Check out this <a href="">in-depth tutorial</a> to learn more about direct file uploads.</p>
-<h2 id="file-properties"><a href="#file-properties" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>File properties</h2>
-<p>Following is the list of properties on the <a href="https://github.com/adonisjs/bodyparser/blob/develop/src/Multipart/File.ts">File</a> class.</p>
-<h3 id="fieldname"><a href="#fieldname" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>fieldName</h3>
+<h2 id="direct-file-uploads"><a
+  href="#direct-file-uploads"
+  
+  
+><span class="icon icon-link"></span></a>
+Direct file uploads</h2>
+<p>Check out this <a
+  href=""
+  
+  
+>in-depth tutorial</a>
+ to learn more about direct file uploads.</p>
+<h2 id="file-properties"><a
+  href="#file-properties"
+  
+  
+><span class="icon icon-link"></span></a>
+File properties</h2>
+<p>Following is the list of properties on the <a
+  href="https://github.com/adonisjs/bodyparser/blob/develop/src/Multipart/File.ts"
+  target=&quot;_blank&quot;
+  rel=&quot;noopener&quot;
+>File</a>
+ class.</p>
+<h3 id="fieldname"><a
+  href="#fieldname"
+  
+  
+><span class="icon icon-link"></span></a>
+fieldName</h3>
 <p>Reference to the input file name.</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #A6ACCD;">file</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">fieldName</span></div></code></pre>
 </div>
 
-<h3 id="clientname"><a href="#clientname" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>clientName</h3>
+<h3 id="clientname"><a
+  href="#clientname"
+  
+  
+><span class="icon icon-link"></span></a>
+clientName</h3>
 <p>The uploaded file name. It is usually the name of the file on the user&#x27;s computer.</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #A6ACCD;">file</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">clientName</span></div></code></pre>
 </div>
 
-<h3 id="size"><a href="#size" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>size</h3>
+<h3 id="size"><a
+  href="#size"
+  
+  
+><span class="icon icon-link"></span></a>
+size</h3>
 <p>The file size in bytes. It is only available when the file stream has been consumed.</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #A6ACCD;">file</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">size</span></div></code></pre>
 </div>
 
-<h3 id="headers"><a href="#headers" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>headers</h3>
+<h3 id="headers"><a
+  href="#headers"
+  
+  
+><span class="icon icon-link"></span></a>
+headers</h3>
 <p>The HTTP headers associated with the file</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #A6ACCD;">file</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">headers</span></div></code></pre>
 </div>
 
-<h3 id="tmppath"><a href="#tmppath" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>tmpPath</h3>
+<h3 id="tmppath"><a
+  href="#tmppath"
+  
+  
+><span class="icon icon-link"></span></a>
+tmpPath</h3>
 <p>The path of the file inside the computer <code>/tmp</code> directory. It is available only when the files are processed by the bodyparser middleware and not during direct uploads.</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #A6ACCD;">file</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">tmpPath</span></div></code></pre>
 </div>
 
-<h3 id="filepath"><a href="#filepath" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>filePath</h3>
+<h3 id="filepath"><a
+  href="#filepath"
+  
+  
+><span class="icon icon-link"></span></a>
+filePath</h3>
 <p>The file&#x27;s absolute path. Available after the <code>move</code> operation.</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #A6ACCD;">file</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">filePath</span></div></code></pre>
 </div>
 
-<h3 id="filename"><a href="#filename" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>fileName</h3>
+<h3 id="filename"><a
+  href="#filename"
+  
+  
+><span class="icon icon-link"></span></a>
+fileName</h3>
 <p>The file&#x27;s relative name. Available after the <code>move</code> operation.</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #A6ACCD;">file</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">fileName</span></div></code></pre>
 </div>
 
-<h3 id="type"><a href="#type" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>type</h3>
-<p>The file <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types">mime type</a>. Available after the file stream has been consumed</p>
+<h3 id="type"><a
+  href="#type"
+  
+  
+><span class="icon icon-link"></span></a>
+type</h3>
+<p>The file <a
+  href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types"
+  target=&quot;_blank&quot;
+  rel=&quot;noopener&quot;
+>mime type</a>
+. Available after the file stream has been consumed</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #A6ACCD;">file</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">type</span></div></code></pre>
 </div>
 
-<h3 id="subtype"><a href="#subtype" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>subtype</h3>
+<h3 id="subtype"><a
+  href="#subtype"
+  
+  
+><span class="icon icon-link"></span></a>
+subtype</h3>
 <p>The subtype from the file mime type. Available after the file stream has been consumed.</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #A6ACCD;">file</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">subtype</span></div></code></pre>
 </div>
 
-<h3 id="extname"><a href="#extname" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>extname</h3>
+<h3 id="extname"><a
+  href="#extname"
+  
+  
+><span class="icon icon-link"></span></a>
+extname</h3>
 <p>The file extension. Available after the file stream has been consumed.</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #A6ACCD;">file</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">extname</span></div></code></pre>
 </div>
 
-<h3 id="state"><a href="#state" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>state</h3>
+<h3 id="state"><a
+  href="#state"
+  
+  
+><span class="icon icon-link"></span></a>
+state</h3>
 <p>The file processing state. It is one of the following.</p>
 <ul>
 <li><code>idle</code>: The file stream is idle and is not flowing.</li>
@@ -445,48 +623,93 @@
 <pre><code><div class="line"><span style="color: #89DDFF;">if</span><span style="color: #A6ACCD;"> (file</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">state </span><span style="color: #89DDFF;">===</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">consumed</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">) </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #A6ACCD;">console</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">log</span><span style="color: #F07178;">(</span><span style="color: #A6ACCD;">file</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">type</span><span style="color: #F07178;">)</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
 </div>
 
-<h3 id="isvalid"><a href="#isvalid" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>isValid</h3>
+<h3 id="isvalid"><a
+  href="#isvalid"
+  
+  
+><span class="icon icon-link"></span></a>
+isValid</h3>
 <p>Find if the file has passed the validation or not.</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #89DDFF;">if</span><span style="color: #A6ACCD;"> (</span><span style="color: #89DDFF;">!</span><span style="color: #A6ACCD;">file</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">isValid) </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">return</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">file</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">errors</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
 </div>
 
-<h3 id="haserrors"><a href="#haserrors" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>hasErrors</h3>
+<h3 id="haserrors"><a
+  href="#haserrors"
+  
+  
+><span class="icon icon-link"></span></a>
+hasErrors</h3>
 <p>The <code>hasErrors</code> property is the opposite of the <code>isValid</code> property.</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #89DDFF;">if</span><span style="color: #A6ACCD;"> (file</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">hasErrors) </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">return</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">file</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">errors</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
 </div>
 
-<h3 id="validated"><a href="#validated" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>validated</h3>
+<h3 id="validated"><a
+  href="#validated"
+  
+  
+><span class="icon icon-link"></span></a>
+validated</h3>
 <p>Find if the file has been validated or not. Call <code>file.validate()</code> to valid it.</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #89DDFF;">if</span><span style="color: #A6ACCD;"> (</span><span style="color: #89DDFF;">!</span><span style="color: #A6ACCD;">file</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">validated) </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #A6ACCD;">file</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">validate</span><span style="color: #F07178;">()</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
 </div>
 
-<h3 id="errors"><a href="#errors" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>errors</h3>
+<h3 id="errors"><a
+  href="#errors"
+  
+  
+><span class="icon icon-link"></span></a>
+errors</h3>
 <p>An array of validation errors</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #89DDFF;">if</span><span style="color: #A6ACCD;"> (file</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">hasErrors) </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">return</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">file</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">errors</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
 </div>
 
-<h3 id="sizelimit"><a href="#sizelimit" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>sizeLimit</h3>
+<h3 id="sizelimit"><a
+  href="#sizelimit"
+  
+  
+><span class="icon icon-link"></span></a>
+sizeLimit</h3>
 <p>Reference to the <code>size</code> validation option.</p>
-<h3 id="allowedextensions"><a href="#allowedextensions" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>allowedExtensions</h3>
+<h3 id="allowedextensions"><a
+  href="#allowedextensions"
+  
+  
+><span class="icon icon-link"></span></a>
+allowedExtensions</h3>
 <p>Reference to the <code>extnames</code> validation option.</p>
-<h3 id="validate"><a href="#validate" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>validate</h3>
+<h3 id="validate"><a
+  href="#validate"
+  
+  
+><span class="icon icon-link"></span></a>
+validate</h3>
 <p>Validate the file against the pre-defined validation options. AdonisJS implicitly calls this method when you access the file using the <code>request.file(s)</code> method.</p>
-<h3 id="tojson"><a href="#tojson" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>toJSON</h3>
+<h3 id="tojson"><a
+  href="#tojson"
+  
+  
+><span class="icon icon-link"></span></a>
+toJSON</h3>
 <p>Get the JSON object representation of the file instance.</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> json </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> file</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">toJSON</span><span style="color: #A6ACCD;">()</span></div></code></pre>
 </div>
 
-<h2 id="additional-reading"><a href="#additional-reading" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Additional reading</h2>
+<h2 id="additional-reading"><a
+  href="#additional-reading"
+  
+  
+><span class="icon icon-link"></span></a>
+Additional reading</h2>
 <ul>
 <li>Step by step tutorial on file uploads</li>
 <li>Direct file uploads</li>
@@ -499,49 +722,184 @@
       <nav>
         <ul>
 <li>
-<p><a href="#retrieving-uploaded-files">Retrieving uploaded files</a></p>
+<p><a
+  href="#retrieving-uploaded-files"
+  
+  
+>Retrieving uploaded files</a>
+</p>
 </li>
 <li>
-<p><a href="#validating-files">Validating files</a></p>
+<p><a
+  href="#validating-files"
+  
+  
+>Validating files</a>
+</p>
 </li>
 <li>
-<p><a href="#validating-files-using-the-validator">Validating files using the validator</a></p>
+<p><a
+  href="#validating-files-using-the-validator"
+  
+  
+>Validating files using the validator</a>
+</p>
 </li>
 <li>
-<p><a href="#renaming-files">Renaming files</a></p>
+<p><a
+  href="#renaming-files"
+  
+  
+>Renaming files</a>
+</p>
 </li>
 <li>
-<p><a href="#serving-uploaded-files">Serving uploaded files</a></p>
+<p><a
+  href="#serving-uploaded-files"
+  
+  
+>Serving uploaded files</a>
+</p>
 </li>
 <li>
-<p><a href="#direct-file-uploads">Direct file uploads</a></p>
+<p><a
+  href="#direct-file-uploads"
+  
+  
+>Direct file uploads</a>
+</p>
 </li>
 <li>
-<p><a href="#file-properties">File properties</a></p>
+<p><a
+  href="#file-properties"
+  
+  
+>File properties</a>
+</p>
 <ul>
-<li><a href="#fieldname">fieldName</a></li>
-<li><a href="#clientname">clientName</a></li>
-<li><a href="#size">size</a></li>
-<li><a href="#headers">headers</a></li>
-<li><a href="#tmppath">tmpPath</a></li>
-<li><a href="#filepath">filePath</a></li>
-<li><a href="#filename">fileName</a></li>
-<li><a href="#type">type</a></li>
-<li><a href="#subtype">subtype</a></li>
-<li><a href="#extname">extname</a></li>
-<li><a href="#state">state</a></li>
-<li><a href="#isvalid">isValid</a></li>
-<li><a href="#haserrors">hasErrors</a></li>
-<li><a href="#validated">validated</a></li>
-<li><a href="#errors">errors</a></li>
-<li><a href="#sizelimit">sizeLimit</a></li>
-<li><a href="#allowedextensions">allowedExtensions</a></li>
-<li><a href="#validate">validate</a></li>
-<li><a href="#tojson">toJSON</a></li>
+<li><a
+  href="#fieldname"
+  
+  
+>fieldName</a>
+</li>
+<li><a
+  href="#clientname"
+  
+  
+>clientName</a>
+</li>
+<li><a
+  href="#size"
+  
+  
+>size</a>
+</li>
+<li><a
+  href="#headers"
+  
+  
+>headers</a>
+</li>
+<li><a
+  href="#tmppath"
+  
+  
+>tmpPath</a>
+</li>
+<li><a
+  href="#filepath"
+  
+  
+>filePath</a>
+</li>
+<li><a
+  href="#filename"
+  
+  
+>fileName</a>
+</li>
+<li><a
+  href="#type"
+  
+  
+>type</a>
+</li>
+<li><a
+  href="#subtype"
+  
+  
+>subtype</a>
+</li>
+<li><a
+  href="#extname"
+  
+  
+>extname</a>
+</li>
+<li><a
+  href="#state"
+  
+  
+>state</a>
+</li>
+<li><a
+  href="#isvalid"
+  
+  
+>isValid</a>
+</li>
+<li><a
+  href="#haserrors"
+  
+  
+>hasErrors</a>
+</li>
+<li><a
+  href="#validated"
+  
+  
+>validated</a>
+</li>
+<li><a
+  href="#errors"
+  
+  
+>errors</a>
+</li>
+<li><a
+  href="#sizelimit"
+  
+  
+>sizeLimit</a>
+</li>
+<li><a
+  href="#allowedextensions"
+  
+  
+>allowedExtensions</a>
+</li>
+<li><a
+  href="#validate"
+  
+  
+>validate</a>
+</li>
+<li><a
+  href="#tojson"
+  
+  
+>toJSON</a>
+</li>
 </ul>
 </li>
 <li>
-<p><a href="#additional-reading">Additional reading</a></p>
+<p><a
+  href="#additional-reading"
+  
+  
+>Additional reading</a>
+</p>
 </li>
         </ul>
       </nav>

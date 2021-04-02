@@ -1,0 +1,1790 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Routing</title>
+  <meta name="description" content="A typical route accepts the route pattern as the first argument and route handler as the second argument. For example:">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+  <link rel="manifest" href="/icons/site.webmanifest">
+  <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="/icons/favicon.ico">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-config" content="/icons/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+
+  <meta name="turbo-cache-control" content="no-cache">
+
+  <link
+    rel="preload"
+    href="/assets/fonts/UntitledSans-RegularItalic.2c343d99.woff2"
+    as="font"
+    type="font/woff2" crossorigin
+  >
+  <link
+    rel="preload"
+    href="/assets/fonts/UntitledSans-Regular.f7547efa.woff2"
+    as="font"
+    type="font/woff2"
+    crossorigin
+  >
+  <link
+    rel="preload"
+    href="/assets/fonts/UntitledSans-Medium.4adc0df5.woff2"
+    as="font"
+    type="font/woff2"
+    crossorigin
+  >
+  <link
+    rel="preload"
+    href="/assets/fonts/JetBrainsMono-Regular.5eea635b.woff2"
+    as="font"
+    type="font/woff2"
+    crossorigin
+  >
+<link rel="stylesheet" href="/assets/app.be48d775.css" />
+<script src="/assets/342.70de04a2.js" defer></script>
+<script src="/assets/app.26949583.js" defer></script>
+</head>
+
+<body><div class="header-wrapper">
+  <header class="header">
+    <div class="header-container">
+
+      <div class="primary-links"><a href="#sidenav-open" title="Open Docs Menu" aria-label="Open Docs Menu" class="hamburger for-mobile" data-turbo="false">
+  <svg role="presentation" focusable="false" aria-label="Icon for open menu" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+    <line x1="4" y1="6" x2="20" y2="6" />
+    <line x1="4" y1="12" x2="20" y2="12" />
+    <line x1="4" y1="18" x2="20" y2="18" />
+  </svg>
+</a>
+
+<div class="logo-wrapper">
+  <a href="https://adonisjs.com" title="AdonisJS website" target="_blank" rel="noopener">
+    <span class="for-mobile">
+      <svg width="68" height="17" viewBox="0 0 68 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M54.6867 0C53.54 0 52.7119 0.812178 52.7119 1.94286C52.7119 3.07354 53.54 3.88571 54.6867 3.88571C55.8333 3.88571 56.6614 3.07354 56.6614 1.94286C56.6614 0.812178 55.8333 0 54.6867 0ZM18.5686 16.6895C15.511 16.6895 13.2974 14.4286 13.2974 10.8927C13.2974 7.29317 15.511 5.03232 18.5686 5.03232C19.9859 5.03232 21.037 5.51007 21.6581 6.44965V0.509602H24.8431V16.4347H21.6581V15.304C21.0529 16.2276 20.0019 16.6895 18.5686 16.6895ZM16.5461 10.8927C16.5461 8.91803 17.6131 7.6281 19.2375 7.6281C20.8778 7.6281 21.9288 8.90211 21.9288 10.8768C21.9288 12.8197 20.8778 14.0778 19.2375 14.0778C17.6131 14.0778 16.5461 12.8197 16.5461 10.8927ZM29.8436 10.8609C29.8436 8.90211 30.9105 7.64403 32.503 7.64403C34.1115 7.64403 35.1785 8.90211 35.1785 10.8609C35.1785 12.8197 34.1115 14.0778 32.503 14.0778C30.9105 14.0778 29.8436 12.8197 29.8436 10.8609ZM64.9424 13.393C64.9424 13.9822 64.4965 14.3326 63.3658 14.3326C62.0918 14.3326 61.2956 13.6637 61.2956 12.8515H58.1105C58.1902 15.0492 60.2763 16.6895 63.3021 16.6895C66.1686 16.6895 68 15.4155 68 13.1541C68 11.466 66.9171 10.2876 64.7672 9.85761L62.4581 9.39578C61.7574 9.25246 61.3433 8.90211 61.3433 8.44028C61.3433 7.7555 62.044 7.38923 62.9358 7.38923C64.2098 7.38923 64.7035 7.97845 64.7035 8.67916H67.7293C67.6497 6.6089 66.0253 5.03232 62.9995 5.03232C60.1808 5.03232 58.2698 6.44965 58.2698 8.59953C58.2698 10.5424 59.5279 11.4183 61.407 11.8164L63.7002 12.3101C64.4487 12.4693 64.9424 12.7878 64.9424 13.393ZM53.1101 5.28712H56.2951V16.4347H53.1101V5.28712ZM43.3639 5.28712V6.44965C44.1761 5.51007 45.259 5.03232 46.5967 5.03232C49.097 5.03232 50.7213 6.65667 50.7213 9.17283V16.4347H47.5363V9.84169C47.5363 8.48806 46.7719 7.67588 45.4501 7.67588C44.1283 7.67588 43.3639 8.48806 43.3639 9.84169V16.4347H40.1789V5.28712H43.3639ZM32.503 5.03232C29.111 5.03232 26.5948 7.48478 26.5948 10.8609C26.5948 14.237 29.111 16.6895 32.503 16.6895C35.911 16.6895 38.4272 14.237 38.4272 10.8609C38.4272 7.48478 35.911 5.03232 32.503 5.03232ZM5.94005 7.6281C4.31569 7.6281 3.24871 8.91803 3.24871 10.8927C3.24871 12.8197 4.31569 14.0778 5.94005 14.0778C7.58033 14.0778 8.63138 12.8197 8.63138 10.8768C8.63138 8.90211 7.58033 7.6281 5.94005 7.6281ZM0 10.8927C0 14.4286 2.21358 16.6895 5.25527 16.6895C6.70445 16.6895 7.73958 16.2276 8.36066 15.304V16.4347H11.5457V5.28712H8.36066V6.44965C7.72365 5.51007 6.6726 5.03232 5.25527 5.03232C2.21358 5.03232 0 7.29317 0 10.8927Z" fill="white"/>
+      </svg>
+    </span>
+
+    <span class="for-desktop">
+      <svg width="108" height="36" viewBox="0 0 108 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M0 16.3331C0 29.506 3.16017 32.6662 16.3331 32.6662C29.506 32.6662 32.6662 29.506 32.6662 16.3331C32.6662 3.16017 29.506 0 16.3331 0C3.16017 0 0 3.16017 0 16.3331ZM6.58646 19.7261L11.7093 8.08338C12.5742 6.12075 14.2374 5.05627 16.3331 5.05627C18.4288 5.05627 20.092 6.12075 20.9569 8.08338L26.0797 19.7261C26.3126 20.2916 26.5122 21.0235 26.5122 21.6555C26.5122 24.5495 24.483 26.5787 21.589 26.5787C20.6032 26.5787 19.8203 26.3271 19.0278 26.0725C18.2158 25.8116 17.3937 25.5475 16.3331 25.5475C15.2847 25.5475 14.4426 25.814 13.6145 26.076C12.8136 26.3294 12.0258 26.5787 11.0772 26.5787C8.18318 26.5787 6.15402 24.5495 6.15402 21.6555C6.15402 21.0235 6.35361 20.2916 6.58646 19.7261ZM16.3331 10.1125L11.2768 21.5557C12.7737 20.8571 14.5035 20.5245 16.3331 20.5245C18.0961 20.5245 19.8924 20.8571 21.3228 21.5557L16.3331 10.1125Z" fill="white"></path>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M94.0883 8.03894C92.9542 8.03894 92.1352 8.84223 92.1352 9.96054C92.1352 11.0788 92.9542 11.8821 94.0883 11.8821C95.2223 11.8821 96.0414 11.0788 96.0414 9.96054C96.0414 8.84223 95.2223 8.03894 94.0883 8.03894ZM58.3654 24.5458C55.3413 24.5458 53.1519 22.3097 53.1519 18.8125C53.1519 15.2523 55.3413 13.0162 58.3654 13.0162C59.7673 13.0162 60.8068 13.4887 61.4211 14.418V8.54297H64.5713V24.2938H61.4211V23.1755C60.8226 24.089 59.783 24.5458 58.3654 24.5458ZM56.3651 18.8125C56.3651 16.8594 57.4204 15.5836 59.027 15.5836C60.6493 15.5836 61.6889 16.8436 61.6889 18.7967C61.6889 20.7183 60.6493 21.9627 59.027 21.9627C57.4204 21.9627 56.3651 20.7183 56.3651 18.8125ZM69.517 18.781C69.517 16.8436 70.5723 15.5993 72.1474 15.5993C73.7382 15.5993 74.7935 16.8436 74.7935 18.781C74.7935 20.7183 73.7382 21.9627 72.1474 21.9627C70.5723 21.9627 69.517 20.7183 69.517 18.781ZM104.232 21.2854C104.232 21.8681 103.791 22.2147 102.672 22.2147C101.412 22.2147 100.625 21.5531 100.625 20.7498H97.4747C97.5535 22.9235 99.6168 24.5458 102.609 24.5458C105.445 24.5458 107.256 23.2857 107.256 21.0491C107.256 19.3795 106.185 18.214 104.059 17.7887L101.775 17.3319C101.082 17.1902 100.672 16.8436 100.672 16.3869C100.672 15.7096 101.365 15.3473 102.247 15.3473C103.507 15.3473 103.996 15.9301 103.996 16.6231H106.988C106.909 14.5755 105.303 13.0162 102.31 13.0162C99.5223 13.0162 97.6322 14.418 97.6322 16.5444C97.6322 18.466 98.8765 19.3323 100.735 19.726L103.003 20.2143C103.744 20.3718 104.232 20.6868 104.232 21.2854ZM95.6791 24.2938H92.5289V13.2682H95.6791V24.2938ZM82.8895 13.2682V14.418C83.6927 13.4887 84.7638 13.0162 86.0869 13.0162C88.5597 13.0162 90.1663 14.6228 90.1663 17.1114V24.2938H87.0162V17.7729C87.0162 16.4341 86.2601 15.6308 84.9528 15.6308C83.6455 15.6308 82.8895 16.4341 82.8895 17.7729V24.2938H79.7393V13.2682H82.8895ZM72.1474 13.0162C68.7925 13.0162 66.3039 15.4418 66.3039 18.781C66.3039 22.1202 68.7925 24.5458 72.1474 24.5458C75.5181 24.5458 78.0067 22.1202 78.0067 18.781C78.0067 15.4418 75.5181 13.0162 72.1474 13.0162ZM45.8751 15.5836C44.2685 15.5836 43.2132 16.8594 43.2132 18.8125C43.2132 20.7183 44.2685 21.9627 45.8751 21.9627C47.4974 21.9627 48.5369 20.7183 48.5369 18.7967C48.5369 16.8436 47.4974 15.5836 45.8751 15.5836ZM40 18.8125C40 22.3097 42.1894 24.5458 45.1978 24.5458C46.6311 24.5458 47.6549 24.089 48.2692 23.1755V24.2938H51.4193V13.2682H48.2692V14.418C47.6391 13.4887 46.5996 13.0162 45.1978 13.0162C42.1894 13.0162 40 15.2523 40 18.8125Z" fill="white"></path>
+      </svg>
+    </span>
+  </a>
+</div>
+
+      </div>
+
+      <nav class="header-nav">
+        <ul>
+
+              <li class="">
+                <a href="/guides/application">
+                  Guides
+                </a>
+              </li>
+
+              <li class="active">
+                <a href="/reference/database/connection">
+                  Reference guides
+                </a>
+              </li>
+        </ul>
+      </nav>
+
+      <div class="search-wrapper">
+        <button class="search-trigger" title="Open search popup" aria-label="Open search popup">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" aria-hidden="true">
+            <path d="M0 0h24v24H0z" fill="none"></path>
+            <path fill="currentColor" d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+          </svg>
+          <span class="text"> Search... </span>
+        </button>
+      </div>
+    </div>
+  </header>
+</div>
+
+<div id="sidenav-open">
+  <div class="sidebar" id="sidebar" data-maintain-scroll>
+    <div class="sidebar-container">
+
+
+
+
+              <nav>
+                <ol>
+                    <li
+                      class=""
+                    >
+                      <a href="/reference/database/connection"> Connection </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/reference/database/connection-manager"> Connection manager </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/reference/database/query-builder"> Query builder </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/reference/database/insert-query-builder"> Insert query builder </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/reference/database/raw-query-builder"> Raw query builder </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/reference/database/query-client"> Query client </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/reference/database/transaction-client"> Transaction client </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/reference/database/main"> Database </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/reference/database/schema"> Schema </a>
+                    </li>
+                </ol>
+              </nav>
+              <nav>
+                  <h3> ORM </h3>
+                <ol>
+                    <li
+                      class="active"
+                    >
+                      <a href="/reference/orm/base-model"> Base Model </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/reference/orm/query-builder"> Query builder </a>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <a href="/reference/orm/decorators"> Decorators </a>
+                    </li>
+                </ol>
+              </nav>
+    </div>
+  </div>
+
+  <a href="#" data-turbo="false" id="sidenav-close" class="sidenav-backdrop" title="Close Docs Menu" aria-label="Close Docs Menu"></a>
+</div>
+
+<main class="doc" data-turbo="false">
+  <div class="markdown">
+    <h1>Base Model</h1><p>Lucid data models extends the <a
+  href="https://github.com/adonisjs/lucid/blob/develop/src/Orm/BaseModel/index.ts"
+  target=&quot;_blank&quot;
+  rel=&quot;noopener&quot;
+>Base Model</a>
+ to inherit the properties and methods for interacting with a database table.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">import</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">BaseModel</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">from</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">@ioc:Adonis/Lucid/Orm</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"></div><div class="line"><span style="color: #C792EA;">class</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">User</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">extends</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">BaseModel</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
+</div>
+
+<h2 id="model-adapter-options"><a
+  href="#model-adapter-options"
+  
+  
+><span class="icon icon-link"></span></a>
+Model adapter options</h2>
+<p>Many of the model methods accepts the following <a
+  href="https://github.com/adonisjs/lucid/blob/0fc3e2391ba6743427fac62e0895e458d7bc8137/adonis-typings/model.ts#L293"
+  target=&quot;_blank&quot;
+  rel=&quot;noopener&quot;
+>options object</a>
+. We are writing it here once and will use the reference else where.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> modelOptions </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #F07178;">client</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> Database</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">transaction</span><span style="color: #A6ACCD;">()</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #F07178;">connection</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">pg</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #F07178;">profiler</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> profiler</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
+</div>
+
+<p>All of the object properties are optional</p>
+<ul>
+<li><code>client</code> is the reference to the database <a
+  href="/api/database/query-client"
+  
+  
+>query client</a>
+. Most of the time you will find yourself passing in the <a
+  href="/api/database/transaction-client"
+  
+  
+>transaction client</a>
+.</li>
+<li><code>connection</code> is the reference to a registered connection name. Useful when you have a multi-tenant app and wants to dynamically pass in the name of the connection used by the tenant.</li>
+<li><code>profiler</code> is reference to the profiler instance.</li>
+</ul>
+<h2 id="static-propertiesmethods"><a
+  href="#static-propertiesmethods"
+  
+  
+><span class="icon icon-link"></span></a>
+Static properties/methods</h2>
+<h4 id="static-boot"><a
+  href="#static-boot"
+  
+  
+><span class="icon icon-link"></span></a>
+static boot</h4>
+<p>Boot the model. Since the inheritance story of Javascript class is not that great with static properties. We need a custom <code>boot</code> phase to ensure that everything works as expected.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #A6ACCD;">User</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">boot</span><span style="color: #A6ACCD;">()</span></div></code></pre>
+</div>
+
+<h4 id="static-booted"><a
+  href="#static-booted"
+  
+  
+><span class="icon icon-link"></span></a>
+static booted</h4>
+<p>A boolean to know if model has been booted or not.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #C792EA;">class</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">User</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">extends</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">BaseModel</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">public</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">static</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">boot</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">()</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">if</span><span style="color: #F07178;"> (</span><span style="color: #89DDFF;">this.</span><span style="color: #A6ACCD;">booted</span><span style="color: #F07178;">) </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">      </span><span style="color: #89DDFF;">return</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">}</span></div><div class="line"></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #A6ACCD;">super</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">boot</span><span style="color: #F07178;">()</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
+</div>
+
+<h3 id="static-before"><a
+  href="#static-before"
+  
+  
+><span class="icon icon-link"></span></a>
+static before</h3>
+<p>Define a <code>before</code> hook for a specific event.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line dim"><span style="color: #A6ACCD;">public static </span><span style="color: #82AAFF;">boot</span><span style="color: #A6ACCD;"> () </span><span style="color: #89DDFF;">{</span></div><div class="line dim"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">if</span><span style="color: #F07178;"> (</span><span style="color: #89DDFF;">this.</span><span style="color: #A6ACCD;">booted</span><span style="color: #F07178;">) </span><span style="color: #89DDFF;">{</span></div><div class="line dim"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">return</span></div><div class="line dim"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span></div><div class="line dim"></div><div class="line highlight"><span style="color: #F07178;">  </span><span style="color: #A6ACCD;">super</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">boot</span><span style="color: #F07178;">()</span></div><div class="line highlight"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">this.</span><span style="color: #82AAFF;">before</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">create</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">(</span><span style="color: #A6ACCD;">user</span><span style="color: #89DDFF;">)</span><span style="color: #F07178;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">{</span></div><div class="line highlight"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span><span style="color: #F07178;">)</span></div><div class="line dim"><span style="color: #89DDFF;">}</span></div></code></pre>
+</div>
+
+<h3 id="static-after"><a
+  href="#static-after"
+  
+  
+><span class="icon icon-link"></span></a>
+static after</h3>
+<p>Define an <code>after</code> hook for a specific event.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line dim"><span style="color: #A6ACCD;">public static </span><span style="color: #82AAFF;">boot</span><span style="color: #A6ACCD;"> () </span><span style="color: #89DDFF;">{</span></div><div class="line dim"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">if</span><span style="color: #F07178;"> (</span><span style="color: #89DDFF;">this.</span><span style="color: #A6ACCD;">booted</span><span style="color: #F07178;">) </span><span style="color: #89DDFF;">{</span></div><div class="line dim"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">return</span></div><div class="line dim"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span></div><div class="line dim"></div><div class="line highlight"><span style="color: #F07178;">  </span><span style="color: #A6ACCD;">super</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">boot</span><span style="color: #F07178;">()</span></div><div class="line highlight"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">this.</span><span style="color: #82AAFF;">after</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">create</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">(</span><span style="color: #A6ACCD;">user</span><span style="color: #89DDFF;">)</span><span style="color: #F07178;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">{</span></div><div class="line highlight"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span><span style="color: #F07178;">)</span></div><div class="line dim"><span style="color: #89DDFF;">}</span></div></code></pre>
+</div>
+
+<p>Another (preferred) option is to make use of the <a
+  href="https://github.com/adonisjs/lucid/blob/0fc3e2391ba6743427fac62e0895e458d7bc8137/src/Orm/Decorators/index.ts#L67-L244"
+  target=&quot;_blank&quot;
+  rel=&quot;noopener&quot;
+>decorators</a>
+ to mark model static methods as hooks.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line dim"><span style="color: #89DDFF;">import</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line dim"><span style="color: #F07178;">  </span><span style="color: #A6ACCD;">BaseModel</span><span style="color: #89DDFF;">,</span></div><div class="line highlight"><span style="color: #F07178;">  </span><span style="color: #A6ACCD;">beforeSave</span><span style="color: #89DDFF;">,</span></div><div class="line dim"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">from</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">@ioc:Adonis/Lucid/Orm</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line dim"></div><div class="line dim"><span style="color: #C792EA;">class</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">User</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">extends</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">BaseModel</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line highlight"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">@</span><span style="color: #82AAFF;">beforeSave</span><span style="color: #A6ACCD;">()</span></div><div class="line highlight"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">public</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">static</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">hashPassword</span><span style="color: #89DDFF;">(</span><span style="color: #A6ACCD;">user</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">User</span><span style="color: #89DDFF;">)</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line highlight"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span></div><div class="line dim"><span style="color: #89DDFF;">}</span></div></code></pre>
+</div>
+
+<h3 id="static-create"><a
+  href="#static-create"
+  
+  
+><span class="icon icon-link"></span></a>
+static create</h3>
+<p>Create a new model instance and persist it to the database right away.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> user </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> User</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">create</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #F07178;">email</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">virk@adonisjs.com</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #F07178;">password</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">secret</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
+</div>
+
+<p>Optionally, you can also pass <a
+  href="#model-adapter-options"
+  
+  
+>model options</a>
+ as the 2nd argument.</p>
+<h3 id="static-createmany"><a
+  href="#static-createmany"
+  
+  
+><span class="icon icon-link"></span></a>
+static createMany</h3>
+<p>Create multiple instances of model and persist them to the database. One insert query is issued for each model instance to ensure the lifecycle of hooks works as expected.</p>
+<p>The <code>createMany</code> method accepts the same options as the <code>create</code> method.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> user </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> User</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">createMany</span><span style="color: #A6ACCD;">([</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #F07178;">email</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">virk@adonisjs.com</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #F07178;">password</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">secret</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">},</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #F07178;">email</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">romain@adonisjs.com</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #F07178;">password</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">secret</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">},</span></div><div class="line"><span style="color: #A6ACCD;">])</span></div></code></pre>
+</div>
+
+<p>Optionally, you can also pass <a
+  href="#model-adapter-options"
+  
+  
+>model options</a>
+ as the 2nd argument.</p>
+<h3 id="static-find"><a
+  href="#static-find"
+  
+  
+><span class="icon icon-link"></span></a>
+static find</h3>
+<p>Find a row from the database using the model primary key. If a row exists it will be hydrated to the model instance, otherwise <code>null</code> is returned.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> user </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> User</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">find</span><span style="color: #A6ACCD;">(</span><span style="color: #F78C6C;">1</span><span style="color: #A6ACCD;">)</span></div><div class="line"><span style="color: #89DDFF;">if</span><span style="color: #A6ACCD;"> (</span><span style="color: #89DDFF;">!</span><span style="color: #A6ACCD;">user) </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">return</span></div><div class="line"><span style="color: #89DDFF;">}</span></div><div class="line"></div><div class="line"><span style="color: #A6ACCD;">console</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">log</span><span style="color: #A6ACCD;">(user </span><span style="color: #89DDFF;">instanceof</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">User</span><span style="color: #A6ACCD;">)</span></div></code></pre>
+</div>
+
+<p>Optionally, you can also pass <a
+  href="#model-adapter-options"
+  
+  
+>model options</a>
+ as the 2nd argument.</p>
+<h3 id="static-findorfail"><a
+  href="#static-findorfail"
+  
+  
+><span class="icon icon-link"></span></a>
+static findOrFail</h3>
+<p>Same as the <code>find</code> method. But instead of returning <code>null</code> it will raise an exception when the row doesn&#x27;t exists.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> user </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> User</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">findOrFail</span><span style="color: #A6ACCD;">(</span><span style="color: #F78C6C;">1</span><span style="color: #A6ACCD;">)</span></div></code></pre>
+</div>
+
+<p>Optionally, you can also pass <a
+  href="#model-adapter-options"
+  
+  
+>model options</a>
+ as the 2nd argument.</p>
+<h3 id="static-findby"><a
+  href="#static-findby"
+  
+  
+><span class="icon icon-link"></span></a>
+static findBy</h3>
+<p>Find a row inside the database by using a key-value pair. If a row exists it will be hydrated to the model instance, otherwise <code>null</code> is returned.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> user </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> User</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">findBy</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">email</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">virk@adonisjs.com</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div></code></pre>
+</div>
+
+<p>Optionally, you can also pass <a
+  href="#model-adapter-options"
+  
+  
+>model options</a>
+ as the 3rd argument.</p>
+<h3 id="static-findbyorfail"><a
+  href="#static-findbyorfail"
+  
+  
+><span class="icon icon-link"></span></a>
+static findByOrFail</h3>
+<p>Same as the <code>findBy</code> method. But instead of returning <code>null</code> it will raise an exception when the row doesn&#x27;t exists.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> user </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> User</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">findByOrFail</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">email</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">virk@adonisjs.com</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div></code></pre>
+</div>
+
+<p>Optionally, you can also pass <a
+  href="#model-adapter-options"
+  
+  
+>model options</a>
+ as the 3rd argument.</p>
+<h3 id="static-first"><a
+  href="#static-first"
+  
+  
+><span class="icon icon-link"></span></a>
+static first</h3>
+<p>Returns the first row from the database. If a row exists it will be hydrated to the model instance, otherwise <code>null</code> is returned.</p>
+<p>[note]
+The <code>first</code> method relies on the default order of the underlying database engine.
+[/note]</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> user </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> User</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">first</span><span style="color: #A6ACCD;">()</span></div></code></pre>
+</div>
+
+<p>Optionally, you can also pass <a
+  href="#model-adapter-options"
+  
+  
+>model options</a>
+ as an argument.</p>
+<h3 id="static-firstorfail"><a
+  href="#static-firstorfail"
+  
+  
+><span class="icon icon-link"></span></a>
+static firstOrFail</h3>
+<p>Same as the <code>first</code> method.  But instead of returning <code>null</code> it will raise an exception when the row doesn&#x27;t exists.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> user </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> User</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">firstOrFail</span><span style="color: #A6ACCD;">()</span></div></code></pre>
+</div>
+
+<p>Optionally, you can also pass <a
+  href="#model-adapter-options"
+  
+  
+>model options</a>
+ as an argument.</p>
+<h3 id="static-findmany"><a
+  href="#static-findmany"
+  
+  
+><span class="icon icon-link"></span></a>
+static findMany</h3>
+<p>Find multiple model instances of an array of values for the model primary key. For example:</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> users </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> User</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">findMany</span><span style="color: #A6ACCD;">([</span><span style="color: #F78C6C;">1</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #F78C6C;">2</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #F78C6C;">3</span><span style="color: #A6ACCD;">])</span></div></code></pre>
+</div>
+
+<ul>
+<li>The results will be order by the primary key in desc order.</li>
+<li>Internally, the method uses the <code>where in</code> SQL clause. So it doesn&#x27;t fail when row for one of the ids is missing.</li>
+<li>Optionally, you can also pass <a
+  href="#model-adapter-options"
+  
+  
+>model options</a>
+ as the 2nd argument.</li>
+</ul>
+<h3 id="static-firstornew"><a
+  href="#static-firstornew"
+  
+  
+><span class="icon icon-link"></span></a>
+static firstOrNew</h3>
+<p>Returns an existing row from the database or creates a local instance of the model, when row for search criteria is not found.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> searchCriteria </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #F07178;">email</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">virk@adonisjs.com</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #89DDFF;">}</span></div><div class="line"></div><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> savePayload </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #F07178;">name</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Virk</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #F07178;">email</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">virk@adonisjs.com</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #F07178;">password</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">secret</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"><span style="color: #89DDFF;">}</span></div><div class="line"></div><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> user </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> User</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">firstOrNew</span><span style="color: #A6ACCD;">(searchCriteria</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> savePayload)</span></div><div class="line"></div><div class="line"><span style="color: #89DDFF;">if</span><span style="color: #A6ACCD;"> (user</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">$isPersisted) </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #89DDFF;">  </span><span style="color: #676E95;">// user exists in the database</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">else</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #89DDFF;">  </span><span style="color: #676E95;">// un-persisted user instance</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
+</div>
+
+<p>In the above example Lucid will first attempt to find the user using the <code>searchCriteria</code> and no rows have been found, then it will merge <code>searchCriteria</code> + <code>savePayload</code> and create a non-persisted model instance.</p>
+<p>Optionally, you can also pass <a
+  href="#model-adapter-options"
+  
+  
+>model options</a>
+ as the 3rd argument.</p>
+<h3 id="static-firstorcreate"><a
+  href="#static-firstorcreate"
+  
+  
+><span class="icon icon-link"></span></a>
+static firstOrCreate</h3>
+<p>The <code>firstOrCreate</code> is similar to the <code>firstOrNew</code> method. However, instead of just creating a local model instance. The <code>firstOrCreate</code> method also performs the insert query.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> user </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> User</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">firstOrNew</span><span style="color: #A6ACCD;">(searchCriteria</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> savePayload)</span></div><div class="line"></div><div class="line"><span style="color: #89DDFF;">if</span><span style="color: #A6ACCD;"> (user</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">$isLocal) </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #89DDFF;">  </span><span style="color: #676E95;">// no rows found in db. Hence a new one is created</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">else</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #89DDFF;">  </span><span style="color: #676E95;">// existing db row</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
+</div>
+
+<p>Optionally, you can also pass <a
+  href="#model-adapter-options"
+  
+  
+>model options</a>
+ as the 3rd argument.</p>
+<h3 id="static-updateorcreate"><a
+  href="#static-updateorcreate"
+  
+  
+><span class="icon icon-link"></span></a>
+static updateOrCreate</h3>
+<p>The <code>updateOrCreate</code> method updates the existing row or creates a new one.</p>
+<p>Think of it as a way to sync rows that must always appear once in the database table. A great example is to sync the user cart.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> searchCriteria </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #F07178;">id</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> user</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">id</span></div><div class="line"><span style="color: #89DDFF;">}</span></div><div class="line"></div><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> savePayload </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #F07178;">total</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #82AAFF;">getTotalFromSomeWhere</span><span style="color: #A6ACCD;">()</span></div><div class="line"><span style="color: #89DDFF;">}</span></div><div class="line"></div><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> cart </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> Cart</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">updateOrCreate</span><span style="color: #A6ACCD;">(searchCriteria</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> savePayload)</span></div></code></pre>
+</div>
+
+<p>Optionally, you can also pass <a
+  href="#model-adapter-options"
+  
+  
+>model options</a>
+ as the 3rd argument.</p>
+<h3 id="static-fetchornewupmany"><a
+  href="#static-fetchornewupmany"
+  
+  
+><span class="icon icon-link"></span></a>
+static fetchOrNewUpMany</h3>
+<p>The <code>fetchOrNewUpMany</code> method is similar to the <code>firstOrNew</code> method. However, it operates on multiple rows.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> keyForSearch </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">email</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> payload </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> [</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #F07178;">email</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">virk@adonisjs.com</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #F07178;">name</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Virk</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">},</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #F07178;">email</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">romain@adonisjs.com</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #F07178;">name</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Romain</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">}</span></div><div class="line"><span style="color: #A6ACCD;">]</span></div><div class="line"></div><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> users </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> User</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">fetchOrNewUpMany</span><span style="color: #A6ACCD;">(keyForSearch</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> payload)</span></div><div class="line"></div><div class="line"><span style="color: #89DDFF;">for</span><span style="color: #A6ACCD;"> (</span><span style="color: #C792EA;">let</span><span style="color: #A6ACCD;"> user </span><span style="color: #89DDFF;">of</span><span style="color: #A6ACCD;"> users) </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">if</span><span style="color: #F07178;"> (</span><span style="color: #A6ACCD;">user</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">$isPersisted</span><span style="color: #F07178;">) </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #89DDFF;">    </span><span style="color: #676E95;">// existing row in the database</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">else</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #89DDFF;">    </span><span style="color: #676E95;">// local instance</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
+</div>
+
+<p>In the above example, Lucid will search for existing users by their email <code>(keyForSearch)</code>. For missing rows a new local instance of the model will be created.</p>
+<p>Optionally, you can also pass <a
+  href="#model-adapter-options"
+  
+  
+>model options</a>
+ as the 3rd argument.</p>
+<h3 id="static-fetchorcreatemany"><a
+  href="#static-fetchorcreatemany"
+  
+  
+><span class="icon icon-link"></span></a>
+static fetchOrCreateMany</h3>
+<p>The <code>fetchOrCreateMany</code> method is similar to the <code>firstOrCreate</code> method. However, it operates on multiple rows.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> keyForSearch </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">email</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> payload </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> [</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #F07178;">email</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">virk@adonisjs.com</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #F07178;">name</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Virk</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">},</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #F07178;">email</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">romain@adonisjs.com</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #F07178;">name</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Romain</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">}</span></div><div class="line"><span style="color: #A6ACCD;">]</span></div><div class="line"></div><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> users </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> User</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">fetchOrCreateMany</span><span style="color: #A6ACCD;">(keyForSearch</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> payload)</span></div><div class="line"></div><div class="line"><span style="color: #89DDFF;">for</span><span style="color: #A6ACCD;"> (</span><span style="color: #C792EA;">let</span><span style="color: #A6ACCD;"> user </span><span style="color: #89DDFF;">of</span><span style="color: #A6ACCD;"> users) </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">if</span><span style="color: #F07178;"> (</span><span style="color: #A6ACCD;">user</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">$isLocal</span><span style="color: #F07178;">) </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #89DDFF;">    </span><span style="color: #676E95;">// local+persisted instance</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">else</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #89DDFF;">    </span><span style="color: #676E95;">// existing row in the database</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
+</div>
+
+<p>Optionally, you can also pass <a
+  href="#model-adapter-options"
+  
+  
+>model options</a>
+ as the 3rd argument.</p>
+<h3 id="static-updateorcreatemany"><a
+  href="#static-updateorcreatemany"
+  
+  
+><span class="icon icon-link"></span></a>
+static updateOrCreateMany</h3>
+<p>The <code>updateOrCreateMany</code> method is similar to the <code>updateOrCreate</code> method. However, it operates on multiple rows.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> keyForSearch </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">email</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> payload </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> [</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #F07178;">email</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">virk@adonisjs.com</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #F07178;">name</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Virk</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">},</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #F07178;">email</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">romain@adonisjs.com</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #F07178;">name</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Romain</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">}</span></div><div class="line"><span style="color: #A6ACCD;">]</span></div><div class="line"></div><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> users </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> User</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">updateOrCreateMany</span><span style="color: #A6ACCD;">(keyForSearch</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> payload)</span></div></code></pre>
+</div>
+
+<p>Optionally, you can also pass <a
+  href="#model-adapter-options"
+  
+  
+>model options</a>
+ as the 3rd argument.</p>
+<h3 id="static-all"><a
+  href="#static-all"
+  
+  
+><span class="icon icon-link"></span></a>
+static all</h3>
+<p>A shortcut method to fetch all the rows from a given database table. The rows are sorted in descending order by the primary key.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> users </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> User</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">all</span><span style="color: #A6ACCD;">()</span></div></code></pre>
+</div>
+
+<p>Optionally, you can also pass <a
+  href="#model-adapter-options"
+  
+  
+>model options</a>
+ as an argument to the <code>all</code> method.</p>
+<h3 id="static-query"><a
+  href="#static-query"
+  
+  
+><span class="icon icon-link"></span></a>
+static query</h3>
+<p>Returns an instance of the <a
+  href="/api/orm/model-query-builder"
+  
+  
+>model query builder</a>
+. Unlike the standard query builder, the result of the model query builder is an array of model instances.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> users </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> User</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">query</span><span style="color: #A6ACCD;">()</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">where</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">age</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">&gt;</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #F78C6C;">18</span><span style="color: #A6ACCD;">)</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">orderBy</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">id</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">desc</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">limit</span><span style="color: #A6ACCD;">(</span><span style="color: #F78C6C;">20</span><span style="color: #A6ACCD;">)</span></div></code></pre>
+</div>
+
+<p>Optionally, you can also pass <a
+  href="#model-adapter-options"
+  
+  
+>model options</a>
+ as an argument to the <code>query</code> method.</p>
+<h3 id="static-truncate"><a
+  href="#static-truncate"
+  
+  
+><span class="icon icon-link"></span></a>
+static truncate</h3>
+<p>A shortcut to truncate the database table. . Optionally you can also cascade foreign key references.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> User</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">truncate</span><span style="color: #A6ACCD;">()</span></div><div class="line"></div><div class="line"><span style="color: #676E95;">// cascade</span></div><div class="line"><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> User</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">truncate</span><span style="color: #A6ACCD;">(</span><span style="color: #FF9CAC;">true</span><span style="color: #A6ACCD;">)</span></div><div class="line"></div><div class="line"><span style="color: #676E95;">// custom connection</span></div><div class="line"><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> User</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">truncate</span><span style="color: #A6ACCD;">(</span><span style="color: #FF9CAC;">true</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #F07178;">connection</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">pg</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
+</div>
+
+<p>Optionally, you can also pass <a
+  href="#model-adapter-options"
+  
+  
+>model options</a>
+ as the 2nd argument.</p>
+<h3 id="static-primarykey"><a
+  href="#static-primarykey"
+  
+  
+><span class="icon icon-link"></span></a>
+static primaryKey</h3>
+<p>Define a custom primary for the model. It defaults to the <code>id</code> column.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #C792EA;">class</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">User</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">extends</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">BaseModel</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">public</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">static</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">primaryKey</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">uuid</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
+</div>
+
+<h3 id="static-connection"><a
+  href="#static-connection"
+  
+  
+><span class="icon icon-link"></span></a>
+static connection</h3>
+<p>Define a custom database connection for the model.</p>
+<p>[note]
+Use this property only when the model connection is static. You must use the query options when defining a connection at runtime.
+[/note]</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #C792EA;">class</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">User</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">extends</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">BaseModel</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">public</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">static</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">connection</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">pg</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
+</div>
+
+<h3 id="static-table"><a
+  href="#static-table"
+  
+  
+><span class="icon icon-link"></span></a>
+static table</h3>
+<p>Define a custom database table. By default, the table name is generated using the <a
+  href="/api/orm/orm-config#get-table-name"
+  
+  
+>OrmConfig.getTableName</a>
+ method.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #C792EA;">class</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">User</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">extends</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">BaseModel</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">public</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">static</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">table</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">my_users</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
+</div>
+
+<p>[note]
+The <code>$</code> prefix is used to avoid collision with the model standard properties. The idea is borrowed from <a
+  href="https://vuejs.org/v2/style-guide/#Private-property-names-essential"
+  target=&quot;_blank&quot;
+  rel=&quot;noopener&quot;
+>Vue.js</a>
+
+[/note]</p>
+<h3 id="static-adapter"><a
+  href="#static-adapter"
+  
+  
+><span class="icon icon-link"></span></a>
+static $adapter</h3>
+<p>Reference to the underlying <a
+  href="/api/orm/adapter"
+  
+  
+>Adapter</a>
+. Adapter works as a bridge between the model class and the database. Models directly do not rely on the Database.</p>
+<h3 id="static-hooks"><a
+  href="#static-hooks"
+  
+  
+><span class="icon icon-link"></span></a>
+static $hooks</h3>
+<p>Reference to the registered hooks. It value is a reference to the <a
+  href="https://github.com/poppinss/hooks"
+  target=&quot;_blank&quot;
+  rel=&quot;noopener&quot;
+>@poppinss/hooks</a>
+ package. You must use the <code>before</code> and <code>after</code> methods or decorators to define the model hooks.</p>
+<h3 id="static-configurator"><a
+  href="#static-configurator"
+  
+  
+><span class="icon icon-link"></span></a>
+static $configurator</h3>
+<p>Reference to the <a
+  href="/api/orm/orm-config"
+  
+  
+>ORM config</a>
+. By default, the <code>orm</code> property from the <code>config/database</code> file is used. However, you can override the config at the model level as well.</p>
+<h3 id="static-columnsdefinitions"><a
+  href="#static-columnsdefinitions"
+  
+  
+><span class="icon icon-link"></span></a>
+static $columnsDefinitions</h3>
+<p>The <code>$columnsDefinitions</code> property is an ES6 Map of the model column name and its meta data. For example:</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #FFCB6B;">Map</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">id</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #FFCB6B;">columnName</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">id</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #FFCB6B;">serializeAs</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">id</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #FFCB6B;">isPrimary</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #FF9CAC;">true</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
+</div>
+
+<p>The column meta data can be modified using the <code>@column</code> decorator.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #C792EA;">class</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">User</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">extends</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">BaseModel</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">@</span><span style="color: #82AAFF;">column</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">{</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">columnName</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">user_id</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">public</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">id</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">number</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
+</div>
+
+<h3 id="static-computeddefinitions"><a
+  href="#static-computeddefinitions"
+  
+  
+><span class="icon icon-link"></span></a>
+static $computedDefinitions</h3>
+<p>The <code>$computedDefinitions</code> property is an ES6 Map of the model computed property name and its meta data. For example:</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #FFCB6B;">Map</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">postsCount</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #FFCB6B;">serializeAs</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">postsCount</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
+</div>
+
+<p>The computed meta data can be modified using the <code>@computed</code> decorator.</p>
+<h3 id="static-relationsdefinitions"><a
+  href="#static-relationsdefinitions"
+  
+  
+><span class="icon icon-link"></span></a>
+static $relationsDefinitions</h3>
+<p>The <code>$relationsDefinitions</code> property is an ES6 Map of the model relationships. The key is the relationship name and value is the <a
+  href="https://github.com/adonisjs/lucid/tree/develop/src/Orm/Relations"
+  target=&quot;_blank&quot;
+  rel=&quot;noopener&quot;
+>instance of the relationship</a>
+. For example:</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #FFCB6B;">Map</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">profile</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">HasOne</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #FFCB6B;">relationName</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">profile</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #FFCB6B;">relatedModel</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> [</span><span style="color: #FFCB6B;">Function</span><span style="color: #F07178;"> (</span><span style="color: #A6ACCD;">anonymous</span><span style="color: #F07178;">)]</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #FFCB6B;">options</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">{</span><span style="color: #F07178;"> </span><span style="color: #FFCB6B;">relatedModel</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> [</span><span style="color: #FFCB6B;">Function</span><span style="color: #F07178;"> (</span><span style="color: #A6ACCD;">anonymous</span><span style="color: #F07178;">)] </span><span style="color: #89DDFF;">},</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #FFCB6B;">model</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> [</span><span style="color: #C792EA;">class</span><span style="color: #F07178;"> </span><span style="color: #FFCB6B;">User</span><span style="color: #F07178;"> </span><span style="color: #C792EA;">extends</span><span style="color: #F07178;"> </span><span style="color: #FFCB6B;">BaseModel</span><span style="color: #F07178;">] </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">      booted</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #FFCB6B;">true</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #F07178;">      primaryKey</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">id</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #F07178;">      table</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">users</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">},</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #A6ACCD;">type</span><span style="color: #F07178;">: </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">hasOne</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #A6ACCD;">booted</span><span style="color: #F07178;">: </span><span style="color: #FF9CAC;">false</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #A6ACCD;">serializeAs</span><span style="color: #F07178;">: </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">profile</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #A6ACCD;">onQueryHook</span><span style="color: #F07178;">: </span><span style="color: #89DDFF;">undefined</span></div><div class="line"><span style="color: #F07178;">  }</span></div><div class="line"><span style="color: #F07178;">}</span></div></code></pre>
+</div>
+
+<h3 id="static-createfromadapterresult"><a
+  href="#static-createfromadapterresult"
+  
+  
+><span class="icon icon-link"></span></a>
+static $createFromAdapterResult</h3>
+<p>Create model instance by consuming the database results. The method handles the use case where the column name in the database is different from the property name defined in the model.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #C792EA;">class</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">User</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">extends</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">BaseModel</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">@</span><span style="color: #82AAFF;">column</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">{</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">columnName</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">full_name</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">public</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">fullName</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">string</span></div><div class="line"><span style="color: #89DDFF;">}</span></div><div class="line"></div><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> user </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> User</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">$createFromAdapterResult</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #F07178;">id</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #F78C6C;">1</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #F07178;">full_name</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Harminder Virk</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
+</div>
+
+<p>Optionally you can also pass the <a
+  href="#sideloaded"
+  
+  
+>sideloaded</a>
+ properties and model options.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> data </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #F07178;">id</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #F78C6C;">1</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #F07178;">full_name</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Harminder Virk</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #89DDFF;">}</span></div><div class="line"></div><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> sideloaded </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #F07178;">currentUser</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> auth</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">user</span></div><div class="line"><span style="color: #89DDFF;">}</span></div><div class="line"></div><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> options </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #89DDFF;">  </span><span style="color: #676E95;">// Instance will use this query client moving forward</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #F07178;">client</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> Database</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">connection</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">pg</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div><div class="line"><span style="color: #89DDFF;">}</span></div><div class="line"></div><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> user </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> User</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">$createFromAdapterResult</span><span style="color: #A6ACCD;">(data</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> sideloaded</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> options)</span></div></code></pre>
+</div>
+
+<h3 id="static-createmultiplefromadapterresult"><a
+  href="#static-createmultiplefromadapterresult"
+  
+  
+><span class="icon icon-link"></span></a>
+static $createMultipleFromAdapterResult</h3>
+<p>Same as <code>$createFromAdapterResult</code>, but allows creating multiple model instances.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #A6ACCD;">User</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">$createFromAdapterResult</span><span style="color: #A6ACCD;">([</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #F07178;">id</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #F78C6C;">1</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #F07178;">full_name</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Harminder Virk</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">},</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #F07178;">id</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #F78C6C;">2</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #F07178;">full_name</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Romain Lanz</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">}</span></div><div class="line"><span style="color: #A6ACCD;">])</span></div></code></pre>
+</div>
+
+<h3 id="static-addcolumn"><a
+  href="#static-addcolumn"
+  
+  
+><span class="icon icon-link"></span></a>
+static $addColumn</h3>
+<p>Define a model column. The <code>@column</code> decorator uses this method to mark a property as a column.</p>
+<p>[tip]
+Model properties which are not marked as columns are never inserted to the database and also ignored when returned by a select call.
+[/tip]</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #A6ACCD;">User</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">$addColumn</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">id</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
+</div>
+
+<p>Optionally, you can also define column meta-data.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #A6ACCD;">User</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">$addColumn</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">id</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #F07178;">serializeAs</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">id</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #F07178;">isPrimary</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #FF9CAC;">true</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #F07178;">columnName</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">id</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
+</div>
+
+<h3 id="static-hascolumn"><a
+  href="#static-hascolumn"
+  
+  
+><span class="icon icon-link"></span></a>
+static $hasColumn</h3>
+<p>Find if a column with the given name exists on the model or not.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #A6ACCD;">User</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">$hasColumn</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">id</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div></code></pre>
+</div>
+
+<h3 id="static-getcolumn"><a
+  href="#static-getcolumn"
+  
+  
+><span class="icon icon-link"></span></a>
+static $getColumn</h3>
+<p>Returns the meta data for a given column.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">if</span><span style="color: #A6ACCD;">(User</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">$hasColumn</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">id</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)) </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #A6ACCD;">User</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">$getColumn</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">id</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">)</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
+</div>
+
+<h3 id="static-addcomputed"><a
+  href="#static-addcomputed"
+  
+  
+><span class="icon icon-link"></span></a>
+static $addComputed</h3>
+<p>Mark a class property as a computed property. The <code>@computed</code> decorator uses this method to mark a property as computed.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #A6ACCD;">User</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">$addComputed</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">postsCount</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #F07178;">serializeAs</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">posts_count</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
+</div>
+
+<h3 id="static-hascomputed"><a
+  href="#static-hascomputed"
+  
+  
+><span class="icon icon-link"></span></a>
+static $hasComputed</h3>
+<p>Find if a computed property with the given name exists on the model or not.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #A6ACCD;">User</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">$hasComputed</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">postsCount</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div></code></pre>
+</div>
+
+<h3 id="static-getcomputed"><a
+  href="#static-getcomputed"
+  
+  
+><span class="icon icon-link"></span></a>
+static $getComputed</h3>
+<p>Returns the meta data for a given computed property.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">if</span><span style="color: #A6ACCD;">(User</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">$hasComputed</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">id</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)) </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #A6ACCD;">User</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">$getComputed</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">id</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">)</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
+</div>
+
+<h3 id="static-addrelation"><a
+  href="#static-addrelation"
+  
+  
+><span class="icon icon-link"></span></a>
+static $addRelation</h3>
+<p>Add a new relationship to the model. The relationship decorators calls this method behind the scene to mark a property as a relationship.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #A6ACCD;">User</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">$addRelation</span><span style="color: #A6ACCD;">(</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">posts</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">hasMany</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">()</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> Post</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">{},</span></div><div class="line"><span style="color: #A6ACCD;">)</span></div></code></pre>
+</div>
+
+<p>Additional options can be passed as the fourth argument.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #A6ACCD;">User</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">$addRelation</span><span style="color: #A6ACCD;">(</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">posts</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">hasMany</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">()</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> Post</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #F07178;">localKey</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">id</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #F07178;">foreignKey</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">user_uuid</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">},</span></div><div class="line"><span style="color: #A6ACCD;">)</span></div></code></pre>
+</div>
+
+<h3 id="static-hasrelation"><a
+  href="#static-hasrelation"
+  
+  
+><span class="icon icon-link"></span></a>
+static $hasRelation</h3>
+<p>Find if a relationship exists.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #A6ACCD;">User</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">$hasRelation</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">posts</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div></code></pre>
+</div>
+
+<h3 id="static-getrelation"><a
+  href="#static-getrelation"
+  
+  
+><span class="icon icon-link"></span></a>
+static $getRelation</h3>
+<p>Returns the <a
+  href="https://github.com/adonisjs/lucid/tree/develop/src/Orm/Relations"
+  target=&quot;_blank&quot;
+  rel=&quot;noopener&quot;
+>relationship instance</a>
+ for a pre-registered relationship.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">if</span><span style="color: #A6ACCD;"> (User</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">$hasRelation</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">profile</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)) </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #A6ACCD;">User</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">$getRelation</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">profile</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">)</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
+</div>
+
+<h2 id="instance-propertiesmethods"><a
+  href="#instance-propertiesmethods"
+  
+  
+><span class="icon icon-link"></span></a>
+Instance properties/methods</h2>
+<h3 id="fill"><a
+  href="#fill"
+  
+  
+><span class="icon icon-link"></span></a>
+fill</h3>
+<p>The <code>fill</code> method allows you define the model attributes as an object. For example:</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> user </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">new</span><span style="color: #A6ACCD;"> </span><span style="color: #82AAFF;">User</span><span style="color: #A6ACCD;">()</span></div><div class="line"><span style="color: #A6ACCD;">user</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">fill</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #F07178;">email</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">virk@adonisjs.com</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #F07178;">name</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">virk</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #F07178;">password</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">secret</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div><div class="line"></div><div class="line"><span style="color: #A6ACCD;">console</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">log</span><span style="color: #A6ACCD;">(user</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">email)</span></div><div class="line"><span style="color: #A6ACCD;">console</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">log</span><span style="color: #A6ACCD;">(user</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">name)</span></div><div class="line"><span style="color: #A6ACCD;">console</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">log</span><span style="color: #A6ACCD;">(user</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">password)</span></div></code></pre>
+</div>
+
+<p>The <code>fill</code> method replaces the existing attributes with the values provided to the <code>fill</code> method.</p>
+<h3 id="merge"><a
+  href="#merge"
+  
+  
+><span class="icon icon-link"></span></a>
+merge</h3>
+<p>The <code>merge</code> method also accepts an object of attributes. However, instead of replacing the existing attributes, it performs a deep merge.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> user </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">new</span><span style="color: #A6ACCD;"> </span><span style="color: #82AAFF;">User</span><span style="color: #A6ACCD;">()</span></div><div class="line"><span style="color: #A6ACCD;">user</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">email </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">virk@adonisjs.com</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"></div><div class="line"><span style="color: #A6ACCD;">user</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">merge</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #F07178;">name</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">virk</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #F07178;">password</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">secret</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div><div class="line"></div><div class="line"><span style="color: #A6ACCD;">console</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">log</span><span style="color: #A6ACCD;">(user</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">email) </span><span style="color: #676E95;">// virk@adonisjs.com</span></div></code></pre>
+</div>
+
+<h3 id="save"><a
+  href="#save"
+  
+  
+><span class="icon icon-link"></span></a>
+save</h3>
+<p>Persist the model instance to the database. The <code>save</code> method performs an <strong>update</strong> when the model instance has already been persisted, otherwise an <strong>insert</strong> query is executed.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> user </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">new</span><span style="color: #A6ACCD;"> </span><span style="color: #82AAFF;">User</span><span style="color: #A6ACCD;">()</span></div><div class="line"></div><div class="line"><span style="color: #A6ACCD;">user</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">merge</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #F07178;">name</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">virk</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #F07178;">email</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">virk@adonisjs.com</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #F07178;">password</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">secret</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div><div class="line"></div><div class="line"><span style="color: #A6ACCD;">console</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">log</span><span style="color: #A6ACCD;">(user</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">$isPersisted) </span><span style="color: #676E95;">// false</span></div><div class="line"><span style="color: #A6ACCD;">console</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">log</span><span style="color: #A6ACCD;">(user</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">$isLocal) </span><span style="color: #676E95;">// true</span></div><div class="line"></div><div class="line"><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> user</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">save</span><span style="color: #A6ACCD;">()</span></div><div class="line"></div><div class="line"><span style="color: #A6ACCD;">console</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">log</span><span style="color: #A6ACCD;">(user</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">$isPersisted) </span><span style="color: #676E95;">// true</span></div><div class="line"><span style="color: #A6ACCD;">console</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">log</span><span style="color: #A6ACCD;">(user</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">$isLocal) </span><span style="color: #676E95;">// true</span></div></code></pre>
+</div>
+
+<h3 id="delete"><a
+  href="#delete"
+  
+  
+><span class="icon icon-link"></span></a>
+delete</h3>
+<p>Delete the row inside the database and freezes the model instance for further modifications. However, the instance can still be used for reading values.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> user </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> User</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">find</span><span style="color: #A6ACCD;">(</span><span style="color: #F78C6C;">1</span><span style="color: #A6ACCD;">)</span></div><div class="line"><span style="color: #89DDFF;">if</span><span style="color: #A6ACCD;"> (user) </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">await</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">user</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">delete</span><span style="color: #F07178;">()</span></div><div class="line"></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #A6ACCD;">console</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">log</span><span style="color: #F07178;">(</span><span style="color: #A6ACCD;">user</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">$isDeleted</span><span style="color: #F07178;">) </span><span style="color: #676E95;">// true</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
+</div>
+
+<h3 id="refresh"><a
+  href="#refresh"
+  
+  
+><span class="icon icon-link"></span></a>
+refresh</h3>
+<p>Refresh the model instance by hydrating its attributes with the values inside the database.</p>
+<p>You will find this method helpful when your columns have default values defined at the database level and you want to fetch them right after the insert query.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> user </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> User</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">create</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #F07178;">email</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">virk@adonisjs.com</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #F07178;">password</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">secret</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div><div class="line"></div><div class="line"><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> user</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">refresh</span><span style="color: #A6ACCD;">() </span><span style="color: #676E95;">// &quot;select * from users where id = user.id&quot;</span></div></code></pre>
+</div>
+
+<h3 id="attributes"><a
+  href="#attributes"
+  
+  
+><span class="icon icon-link"></span></a>
+$attributes</h3>
+<p>The <code>$attributes</code> object is the key-value pair of model properties using the <code>@column</code> decorator.</p>
+<p>The object is maintain internally to distinguish between the model regular properties and its columns. Consider the following example:</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #C792EA;">class</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">User</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">extends</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">Model</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">@</span><span style="color: #82AAFF;">column</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">{</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">isPrimary</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #FF9CAC;">true</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">public</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">id</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">number</span></div><div class="line"></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">@</span><span style="color: #82AAFF;">column</span><span style="color: #A6ACCD;">()</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">public</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">fullName</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">string</span></div><div class="line"></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">@</span><span style="color: #82AAFF;">column</span><span style="color: #A6ACCD;">()</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">public</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">password</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">string</span></div><div class="line"></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">public</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">get</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">initials</span><span style="color: #89DDFF;">()</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #C792EA;">const</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">[</span><span style="color: #A6ACCD;">firstName</span><span style="color: #89DDFF;">,</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">lastName</span><span style="color: #89DDFF;">]</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">=</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">this.</span><span style="color: #A6ACCD;">fullName</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">split</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">)</span></div><div class="line"></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">if</span><span style="color: #F07178;"> (</span><span style="color: #89DDFF;">!</span><span style="color: #A6ACCD;">lastName</span><span style="color: #F07178;">) </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">      </span><span style="color: #89DDFF;">return</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">firstName</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">charAt</span><span style="color: #F07178;">(</span><span style="color: #F78C6C;">0</span><span style="color: #F07178;">)</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">toUpperCase</span><span style="color: #F07178;">()</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">}</span></div><div class="line"></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">return</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x60;${</span><span style="color: #A6ACCD;">firstName</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">charAt</span><span style="color: #A6ACCD;">(</span><span style="color: #F78C6C;">0</span><span style="color: #A6ACCD;">)</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">toUpperCase</span><span style="color: #A6ACCD;">()</span><span style="color: #89DDFF;">}${</span><span style="color: #A6ACCD;">lastName</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">charAt</span><span style="color: #A6ACCD;">(</span><span style="color: #F78C6C;">0</span><span style="color: #A6ACCD;">)</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">toUpperCase</span><span style="color: #A6ACCD;">()</span><span style="color: #89DDFF;">}&#x60;</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
+</div>
+
+<p>Lets create a local instance of the model.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> user </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">new</span><span style="color: #A6ACCD;"> </span><span style="color: #82AAFF;">User</span><span style="color: #A6ACCD;">()</span></div><div class="line"><span style="color: #A6ACCD;">user</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">fullName </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Harminder Virk</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"><span style="color: #A6ACCD;">user</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">password </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">secret</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"></div><div class="line"><span style="color: #A6ACCD;">console</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">log</span><span style="color: #A6ACCD;">(user</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">$attributes) </span><span style="color: #676E95;">// { fullName, password }</span></div></code></pre>
+</div>
+
+<p>The <code>$attributes</code> object will not have the <code>initials</code> property, since it is not using the <code>@column</code> decorator.</p>
+<h4 id="how-does-attributes-object-gets-populated"><a
+  href="#how-does-attributes-object-gets-populated"
+  
+  
+><span class="icon icon-link"></span></a>
+How does <code>$attributes</code> object gets populated?</h4>
+<p>We make use of ES6 Proxies behind the scenes to populate the <code>$attributes</code> object.</p>
+<h3 id="original"><a
+  href="#original"
+  
+  
+><span class="icon icon-link"></span></a>
+$original</h3>
+<p>The <code>$original</code> object is a key-value pair of properties fetched from the database. The <code>$original</code> object is used to find the diff against the <code>$attributes</code>.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> user </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> User</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">find</span><span style="color: #A6ACCD;">(</span><span style="color: #F78C6C;">1</span><span style="color: #A6ACCD;">)</span></div><div class="line"></div><div class="line"><span style="color: #A6ACCD;">console</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">log</span><span style="color: #A6ACCD;">(user</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">$original </span><span style="color: #89DDFF;">===</span><span style="color: #A6ACCD;"> user</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">$attributes) </span><span style="color: #676E95;">// true</span></div><div class="line"><span style="color: #A6ACCD;">console</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">log</span><span style="color: #A6ACCD;">(user</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">$isDirty) </span><span style="color: #676E95;">// false</span></div><div class="line"></div><div class="line"><span style="color: #A6ACCD;">user</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">fullName </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Harminder Virk</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"><span style="color: #A6ACCD;">console</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">log</span><span style="color: #A6ACCD;">(user</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">$isDirty) </span><span style="color: #676E95;">// true</span></div><div class="line"><span style="color: #A6ACCD;">console</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">log</span><span style="color: #A6ACCD;">(user</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">$dirty) </span><span style="color: #676E95;">// diff between $original and $attributes</span></div><div class="line"></div><div class="line"><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> user</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">save</span><span style="color: #A6ACCD;">() </span><span style="color: #676E95;">// persist and update $original</span></div><div class="line"></div><div class="line"><span style="color: #A6ACCD;">console</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">log</span><span style="color: #A6ACCD;">(user</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">$isDirty) </span><span style="color: #676E95;">// false</span></div></code></pre>
+</div>
+
+<h3 id="preloaded"><a
+  href="#preloaded"
+  
+  
+><span class="icon icon-link"></span></a>
+$preloaded</h3>
+<p>An object of preloaded relationships.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> user </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> User</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">query</span><span style="color: #A6ACCD;">()</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">preload</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">profile</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">first</span><span style="color: #A6ACCD;">()</span></div><div class="line"></div><div class="line"><span style="color: #A6ACCD;">console</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">log</span><span style="color: #A6ACCD;">(user</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">$preloaded) </span><span style="color: #676E95;">// { profile: Profile }</span></div></code></pre>
+</div>
+
+<h3 id="sideloaded"><a
+  href="#sideloaded"
+  
+  
+><span class="icon icon-link"></span></a>
+$sideloaded</h3>
+<p>The <code>$sideloaded</code> properties are passed via the query builder to the model instances. A great example of <code>$sideloaded</code> properties is to pass down the currently logged in user to the model instance.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #C792EA;">class</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">Post</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">extends</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">BaseModel</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">@</span><span style="color: #82AAFF;">column</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">{</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">isPrimary</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #FF9CAC;">true</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">public</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">id</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">number</span></div><div class="line"></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">@</span><span style="color: #82AAFF;">column</span><span style="color: #A6ACCD;">()</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">public</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">userId</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">number</span></div><div class="line"></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">@</span><span style="color: #82AAFF;">column</span><span style="color: #A6ACCD;">()</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">public</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">title</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">number</span></div><div class="line"></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #C792EA;">public</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">get</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">ownedByCurrentUser</span><span style="color: #89DDFF;">()</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">if</span><span style="color: #F07178;"> (</span><span style="color: #89DDFF;">!this.</span><span style="color: #A6ACCD;">$sideloaded</span><span style="color: #F07178;">) </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">      </span><span style="color: #89DDFF;">return</span><span style="color: #F07178;"> </span><span style="color: #FF9CAC;">false</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">}</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">return</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">this.</span><span style="color: #A6ACCD;">$sideloaded</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">userId</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">=</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">this.</span><span style="color: #A6ACCD;">userId</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
+</div>
+
+<p>In the above example, the <code>ownedByCurrentUser</code> relies on the <code>$sideloaded.userId</code> property to know if the post is owned by the current user or not.</p>
+<p>Now, you can pass the <code>userId</code> to the model instances using the <code>sideload</code> method.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> posts </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> Post</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">query</span><span style="color: #A6ACCD;">()</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">sideload</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">{</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">userId</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> auth</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">user</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">id </span><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div><div class="line"></div><div class="line"><span style="color: #A6ACCD;">posts</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">forEach</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">(</span><span style="color: #A6ACCD;">post</span><span style="color: #89DDFF;">)</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #A6ACCD;">console</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">log</span><span style="color: #F07178;">(</span><span style="color: #A6ACCD;">post</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">ownedByCurrentUser</span><span style="color: #F07178;">)</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
+</div>
+
+<h3 id="ispersisted"><a
+  href="#ispersisted"
+  
+  
+><span class="icon icon-link"></span></a>
+$isPersisted</h3>
+<p>Find if the model instance has been persisted to the database or not.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> user </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">new</span><span style="color: #A6ACCD;"> </span><span style="color: #82AAFF;">User</span><span style="color: #A6ACCD;">()</span></div><div class="line"><span style="color: #A6ACCD;">console</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">log</span><span style="color: #A6ACCD;">(user</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">$isPersisted) </span><span style="color: #676E95;">// false</span></div><div class="line"></div><div class="line"><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> user</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">save</span><span style="color: #A6ACCD;">()</span></div><div class="line"><span style="color: #A6ACCD;">console</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">log</span><span style="color: #A6ACCD;">(user</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">$isPersisted) </span><span style="color: #676E95;">// true</span></div></code></pre>
+</div>
+
+<h3 id="isnew"><a
+  href="#isnew"
+  
+  
+><span class="icon icon-link"></span></a>
+$isNew</h3>
+<p>Opposite of the <code>$isPersisted</code> property.</p>
+<h3 id="islocal"><a
+  href="#islocal"
+  
+  
+><span class="icon icon-link"></span></a>
+$isLocal</h3>
+<p>Find if the model instance is created locally or fetched from the database.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> user </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">new</span><span style="color: #A6ACCD;"> </span><span style="color: #82AAFF;">User</span><span style="color: #A6ACCD;">()</span></div><div class="line"><span style="color: #A6ACCD;">console</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">log</span><span style="color: #A6ACCD;">(user</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">$isLocal) </span><span style="color: #676E95;">// true</span></div><div class="line"></div><div class="line"><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> user</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">save</span><span style="color: #A6ACCD;">()</span></div><div class="line"><span style="color: #A6ACCD;">console</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">log</span><span style="color: #A6ACCD;">(user</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">$isLocal) </span><span style="color: #676E95;">// STILL true</span></div></code></pre>
+</div>
+
+<p>In the following example, the model instance is created by fetching the row values from the database table.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> user </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> User</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">find</span><span style="color: #A6ACCD;">(</span><span style="color: #F78C6C;">1</span><span style="color: #A6ACCD;">)</span></div><div class="line"><span style="color: #A6ACCD;">console</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">log</span><span style="color: #A6ACCD;">(user</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">$isLocal) </span><span style="color: #676E95;">// false</span></div></code></pre>
+</div>
+
+<h3 id="dirty"><a
+  href="#dirty"
+  
+  
+><span class="icon icon-link"></span></a>
+$dirty</h3>
+<p>An object containing the diff between the <code>$original</code> and the <code>$attributes</code> object.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> user </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> User</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">find</span><span style="color: #A6ACCD;">(</span><span style="color: #F78C6C;">1</span><span style="color: #A6ACCD;">)</span></div><div class="line"><span style="color: #A6ACCD;">user</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">points </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #F78C6C;">10</span></div><div class="line"></div><div class="line"><span style="color: #A6ACCD;">console</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">log</span><span style="color: #A6ACCD;">(user</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">$dirty) </span><span style="color: #676E95;">// { points: 10 }</span></div></code></pre>
+</div>
+
+<h3 id="isdirty"><a
+  href="#isdirty"
+  
+  
+><span class="icon icon-link"></span></a>
+$isDirty</h3>
+<p>A boolean to know if the model is dirty.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> user </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> User</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">find</span><span style="color: #A6ACCD;">(</span><span style="color: #F78C6C;">1</span><span style="color: #A6ACCD;">)</span></div><div class="line"><span style="color: #A6ACCD;">user</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">points </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #F78C6C;">10</span></div><div class="line"></div><div class="line"><span style="color: #A6ACCD;">console</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">log</span><span style="color: #A6ACCD;">(user</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">$isDirty) </span><span style="color: #676E95;">// true</span></div></code></pre>
+</div>
+
+<h3 id="isdeleted"><a
+  href="#isdeleted"
+  
+  
+><span class="icon icon-link"></span></a>
+$isDeleted</h3>
+<p>Find if the model instance has been deleted or not. It is set to true after the <code>delete</code> method is invoked.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> user </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> User</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">find</span><span style="color: #A6ACCD;">(</span><span style="color: #F78C6C;">1</span><span style="color: #A6ACCD;">)</span></div><div class="line"><span style="color: #A6ACCD;">console</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">log</span><span style="color: #A6ACCD;">(user</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">$isDeleted) </span><span style="color: #676E95;">// false</span></div><div class="line"></div><div class="line"><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> user</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">delete</span><span style="color: #A6ACCD;">()</span></div><div class="line"><span style="color: #A6ACCD;">console</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">log</span><span style="color: #A6ACCD;">(user</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">$isDeleted) </span><span style="color: #676E95;">// true</span></div></code></pre>
+</div>
+
+<h3 id="trx"><a
+  href="#trx"
+  
+  
+><span class="icon icon-link"></span></a>
+$trx</h3>
+<p>Reference to the <a
+  href="/api/database/transaction-client"
+  
+  
+>transaction client</a>
+ used by the model instance. You can also set the <code>$trx</code> manually in order to perform model operations within the transaction block.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> trx </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> Database</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">transaction</span><span style="color: #A6ACCD;">()</span></div><div class="line"></div><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> user </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">new</span><span style="color: #A6ACCD;"> </span><span style="color: #82AAFF;">User</span><span style="color: #A6ACCD;">()</span></div><div class="line"><span style="color: #A6ACCD;">user</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">$trx </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> trx</span></div><div class="line"></div><div class="line"><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> user</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">save</span><span style="color: #A6ACCD;">()</span></div><div class="line"><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> trx</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">commit</span><span style="color: #A6ACCD;">()</span></div><div class="line"></div><div class="line"><span style="color: #A6ACCD;">console</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">log</span><span style="color: #A6ACCD;">(user</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">$trx) </span><span style="color: #676E95;">// undefined</span></div></code></pre>
+</div>
+
+<p>After transaction is committed or rolled back the model instance will release the <code>$trx</code> reference, so that the transaction client instance is garbage collected.</p>
+<p>The <code>$trx</code> property on the model instance is automatically defined, when the model instances are created as a result of executing a query and the query was using the transaction.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> trx </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> Database</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">transaction</span><span style="color: #A6ACCD;">()</span></div><div class="line"></div><div class="line"><span style="color: #676E95;">// select query is using trx</span></div><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> users </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> User</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">query</span><span style="color: #A6ACCD;">()</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">useTransaction</span><span style="color: #A6ACCD;">(trx)</span></div><div class="line"></div><div class="line"><span style="color: #A6ACCD;">users</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">forEach</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">(</span><span style="color: #A6ACCD;">user</span><span style="color: #89DDFF;">)</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #89DDFF;">  </span><span style="color: #676E95;">// all of the model instances uses the same trx instance</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #A6ACCD;">console</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">log</span><span style="color: #F07178;">(</span><span style="color: #A6ACCD;">user</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">$trx</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">===</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">trx</span><span style="color: #F07178;">) </span><span style="color: #676E95;">// true</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
+</div>
+
+<h3 id="options"><a
+  href="#options"
+  
+  
+><span class="icon icon-link"></span></a>
+$options</h3>
+<p>The <code>$options</code> is an object with an optional <code>connection</code> and the <code>profiler</code> property.</p>
+<p>You can use the <code>$options</code> to define a custom connection per model instance. A practical use case is to use dynamic tenant connection per HTTP request.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> users </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> User</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">query</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">{</span><span style="color: #A6ACCD;"> </span><span style="color: #F07178;">connection</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> tenant</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">connection </span><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">select</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">*</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div><div class="line"></div><div class="line"><span style="color: #A6ACCD;">users</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">forEach</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">(</span><span style="color: #A6ACCD;">user</span><span style="color: #89DDFF;">)</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #A6ACCD;">console</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">log</span><span style="color: #F07178;">(</span><span style="color: #A6ACCD;">user</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">$options</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">connection</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">===</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">tenant</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">connection</span><span style="color: #F07178;">) </span><span style="color: #676E95;">// true</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
+</div>
+
+<h3 id="usetransaction"><a
+  href="#usetransaction"
+  
+  
+><span class="icon icon-link"></span></a>
+useTransaction</h3>
+<p>The <code>useTransaction</code> is an alternative to manually set the <code>$trx</code> property.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> trx </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> Database</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">transaction</span><span style="color: #A6ACCD;">()</span></div><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> user </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">new</span><span style="color: #A6ACCD;"> </span><span style="color: #82AAFF;">User</span><span style="color: #A6ACCD;">()</span></div><div class="line"></div><div class="line"><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> user</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">useTransaction</span><span style="color: #A6ACCD;">(trx)</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">save</span><span style="color: #A6ACCD;">()</span></div></code></pre>
+</div>
+
+<h3 id="useconnection"><a
+  href="#useconnection"
+  
+  
+><span class="icon icon-link"></span></a>
+useConnection</h3>
+<p>The <code>useConnection</code> is an alternative to defining the <code>$options</code> with the <code>connection</code> property.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> user </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">new</span><span style="color: #A6ACCD;"> </span><span style="color: #82AAFF;">User</span><span style="color: #A6ACCD;">()</span></div><div class="line"></div><div class="line"><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> user</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">useConnection</span><span style="color: #A6ACCD;">(tenant</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">connection)</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">save</span><span style="color: #A6ACCD;">()</span></div></code></pre>
+</div>
+
+<h3 id="preload"><a
+  href="#preload"
+  
+  
+><span class="icon icon-link"></span></a>
+preload</h3>
+<p>Preload relationship from a model instance.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> user </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> User</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">findOrFail</span><span style="color: #A6ACCD;">(</span><span style="color: #F78C6C;">1</span><span style="color: #A6ACCD;">)</span></div><div class="line"><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> user</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">preload</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">posts</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div><div class="line"></div><div class="line"><span style="color: #A6ACCD;">console</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">log</span><span style="color: #A6ACCD;">(user</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">posts)</span></div></code></pre>
+</div>
+
+<p>You can also pass a callback as the 2nd argument to add more constraints to the relationship query.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> user</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">preload</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">posts</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">(</span><span style="color: #A6ACCD;">postsQuery</span><span style="color: #89DDFF;">)</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #A6ACCD;">postsQuery</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">where</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">status</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">published</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">)</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
+</div>
+
+<p>You can also preload multiple relationships as follows:</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> user</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">preload</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">(</span><span style="color: #A6ACCD;">preloader</span><span style="color: #89DDFF;">)</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #A6ACCD;">preloader</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">preload</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">profile</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">)</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">preload</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">posts</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">)</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
+</div>
+
+<h3 id="related"><a
+  href="#related"
+  
+  
+><span class="icon icon-link"></span></a>
+related</h3>
+<p>Returns the relationship client instance for a given relationship. You can use the <code>related</code> method to run queries by in reference to the defined relationship.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> user </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> User</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">find</span><span style="color: #A6ACCD;">(</span><span style="color: #F78C6C;">1</span><span style="color: #A6ACCD;">)</span></div><div class="line"></div><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> posts </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> user</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">related</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">posts</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">query</span><span style="color: #A6ACCD;">()</span></div><div class="line"><span style="color: #676E95;">// select * from &quot;posts&quot; where &quot;user_id&quot; = user.id</span></div></code></pre>
+</div>
+
+<p>Similarly, the related method can also be used to persist related rows.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #C792EA;">const</span><span style="color: #A6ACCD;"> user </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> User</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">find</span><span style="color: #A6ACCD;">(</span><span style="color: #F78C6C;">1</span><span style="color: #A6ACCD;">)</span></div><div class="line"></div><div class="line"><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> user</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">related</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">posts</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">create</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #F07178;">title</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Adonis 101</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div><div class="line"></div><div class="line"><span style="color: #676E95;">/**</span></div><div class="line"><span style="color: #676E95;">INSERT INTO &quot;posts&quot;</span></div><div class="line"><span style="color: #676E95;">  (&quot;user_id&quot;, &quot;title&quot;)</span></div><div class="line"><span style="color: #676E95;">VALUES</span></div><div class="line"><span style="color: #676E95;">  (user.id, &#x27;Adonis 101&#x27;)</span></div><div class="line"><span style="color: #676E95;">*/</span></div></code></pre>
+</div>
+
+<h3 id="toobject"><a
+  href="#toobject"
+  
+  
+><span class="icon icon-link"></span></a>
+toObject</h3>
+<p>Returns an object with model <code>$attributes</code>, preloaded relationships and its computed properties.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #A6ACCD;">console</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">log</span><span style="color: #A6ACCD;">(user</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">toObject</span><span style="color: #A6ACCD;">())</span></div></code></pre>
+</div>
+
+<h3 id="serialize"><a
+  href="#serialize"
+  
+  
+><span class="icon icon-link"></span></a>
+serialize</h3>
+<p>Serializes the model to its JSON representation. The serialization of models is helpful for building API servers.</p>
+<p>Make sure to read the in-depth guide on <a
+  href="/guides/models/serializing-models/"
+  
+  
+>models serialization</a>
+.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #A6ACCD;">console</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">log</span><span style="color: #A6ACCD;">(user</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">serialize</span><span style="color: #A6ACCD;">())</span></div></code></pre>
+</div>
+
+<p>The <code>serialize</code> method also accepts an object for cherry-picking fields.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #A6ACCD;">user</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">serialize</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #F07178;">fields</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #F07178;">omit</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> [</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">password</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">]</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">},</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #F07178;">relations</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #F07178;">profile</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">      </span><span style="color: #F07178;">fields</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">        </span><span style="color: #F07178;">pick</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> [</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">fullName</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">id</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">]</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">      </span><span style="color: #89DDFF;">},</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #89DDFF;">}</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">}</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
+</div>
+
+<p>The cherry picking argument can be a deeply nested tree targeting the relationships serialization as well.</p>
+<h3 id="tojson"><a
+  href="#tojson"
+  
+  
+><span class="icon icon-link"></span></a>
+toJSON</h3>
+<p>Alias for the <code>serialize</code> method but doesn&#x27;t accept any arguments. The <code>toJSON</code> is called automatically anytime you pass model instance(s) to the <code>JSON.stringify</code> method.</p>
+<h3 id="serializeattributes"><a
+  href="#serializeattributes"
+  
+  
+><span class="icon icon-link"></span></a>
+serializeAttributes</h3>
+<p>Serializes just the model attributes.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #A6ACCD;">user</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">serializeAttributes</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #F07178;">omit</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> [</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">password</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">]</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
+</div>
+
+<h3 id="serializecomputed"><a
+  href="#serializecomputed"
+  
+  
+><span class="icon icon-link"></span></a>
+serializeComputed</h3>
+<p>Serializes just the computed properties.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #A6ACCD;">user</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">serializeComputed</span><span style="color: #A6ACCD;">()</span></div></code></pre>
+</div>
+
+<h3 id="serializerelations"><a
+  href="#serializerelations"
+  
+  
+><span class="icon icon-link"></span></a>
+serializeRelations</h3>
+<p>Serializes just the preloaded relationships</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #A6ACCD;">user</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">serializeRelations</span><span style="color: #A6ACCD;">()</span></div><div class="line"></div><div class="line"><span style="color: #676E95;">// Cherry pick fields</span></div><div class="line"><span style="color: #A6ACCD;">user</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">serializeRelations</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #F07178;">profile</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #F07178;">fields</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{}</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">},</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #F07178;">posts</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #F07178;">fields</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{}</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">}</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
+</div>
+  </div>
+</main>
+
+<aside class="toc">
+    <div class="toc-container" data-turbo="false">
+      <h3> On this page </h3>
+      <nav>
+        <ul>
+<li>
+<p><a
+  href="#model-adapter-options"
+  
+  
+>Model adapter options</a>
+</p>
+</li>
+<li>
+<p><a
+  href="#static-propertiesmethods"
+  
+  
+>Static properties/methods</a>
+</p>
+<ul>
+<li><a
+  href="#static-before"
+  
+  
+>static before</a>
+</li>
+<li><a
+  href="#static-after"
+  
+  
+>static after</a>
+</li>
+<li><a
+  href="#static-create"
+  
+  
+>static create</a>
+</li>
+<li><a
+  href="#static-createmany"
+  
+  
+>static createMany</a>
+</li>
+<li><a
+  href="#static-find"
+  
+  
+>static find</a>
+</li>
+<li><a
+  href="#static-findorfail"
+  
+  
+>static findOrFail</a>
+</li>
+<li><a
+  href="#static-findby"
+  
+  
+>static findBy</a>
+</li>
+<li><a
+  href="#static-findbyorfail"
+  
+  
+>static findByOrFail</a>
+</li>
+<li><a
+  href="#static-first"
+  
+  
+>static first</a>
+</li>
+<li><a
+  href="#static-firstorfail"
+  
+  
+>static firstOrFail</a>
+</li>
+<li><a
+  href="#static-findmany"
+  
+  
+>static findMany</a>
+</li>
+<li><a
+  href="#static-firstornew"
+  
+  
+>static firstOrNew</a>
+</li>
+<li><a
+  href="#static-firstorcreate"
+  
+  
+>static firstOrCreate</a>
+</li>
+<li><a
+  href="#static-updateorcreate"
+  
+  
+>static updateOrCreate</a>
+</li>
+<li><a
+  href="#static-fetchornewupmany"
+  
+  
+>static fetchOrNewUpMany</a>
+</li>
+<li><a
+  href="#static-fetchorcreatemany"
+  
+  
+>static fetchOrCreateMany</a>
+</li>
+<li><a
+  href="#static-updateorcreatemany"
+  
+  
+>static updateOrCreateMany</a>
+</li>
+<li><a
+  href="#static-all"
+  
+  
+>static all</a>
+</li>
+<li><a
+  href="#static-query"
+  
+  
+>static query</a>
+</li>
+<li><a
+  href="#static-truncate"
+  
+  
+>static truncate</a>
+</li>
+<li><a
+  href="#static-primarykey"
+  
+  
+>static primaryKey</a>
+</li>
+<li><a
+  href="#static-connection"
+  
+  
+>static connection</a>
+</li>
+<li><a
+  href="#static-table"
+  
+  
+>static table</a>
+</li>
+<li><a
+  href="#static-adapter"
+  
+  
+>static $adapter</a>
+</li>
+<li><a
+  href="#static-hooks"
+  
+  
+>static $hooks</a>
+</li>
+<li><a
+  href="#static-configurator"
+  
+  
+>static $configurator</a>
+</li>
+<li><a
+  href="#static-columnsdefinitions"
+  
+  
+>static $columnsDefinitions</a>
+</li>
+<li><a
+  href="#static-computeddefinitions"
+  
+  
+>static $computedDefinitions</a>
+</li>
+<li><a
+  href="#static-relationsdefinitions"
+  
+  
+>static $relationsDefinitions</a>
+</li>
+<li><a
+  href="#static-createfromadapterresult"
+  
+  
+>static $createFromAdapterResult</a>
+</li>
+<li><a
+  href="#static-createmultiplefromadapterresult"
+  
+  
+>static $createMultipleFromAdapterResult</a>
+</li>
+<li><a
+  href="#static-addcolumn"
+  
+  
+>static $addColumn</a>
+</li>
+<li><a
+  href="#static-hascolumn"
+  
+  
+>static $hasColumn</a>
+</li>
+<li><a
+  href="#static-getcolumn"
+  
+  
+>static $getColumn</a>
+</li>
+<li><a
+  href="#static-addcomputed"
+  
+  
+>static $addComputed</a>
+</li>
+<li><a
+  href="#static-hascomputed"
+  
+  
+>static $hasComputed</a>
+</li>
+<li><a
+  href="#static-getcomputed"
+  
+  
+>static $getComputed</a>
+</li>
+<li><a
+  href="#static-addrelation"
+  
+  
+>static $addRelation</a>
+</li>
+<li><a
+  href="#static-hasrelation"
+  
+  
+>static $hasRelation</a>
+</li>
+<li><a
+  href="#static-getrelation"
+  
+  
+>static $getRelation</a>
+</li>
+</ul>
+</li>
+<li>
+<p><a
+  href="#instance-propertiesmethods"
+  
+  
+>Instance properties/methods</a>
+</p>
+<ul>
+<li><a
+  href="#fill"
+  
+  
+>fill</a>
+</li>
+<li><a
+  href="#merge"
+  
+  
+>merge</a>
+</li>
+<li><a
+  href="#save"
+  
+  
+>save</a>
+</li>
+<li><a
+  href="#delete"
+  
+  
+>delete</a>
+</li>
+<li><a
+  href="#refresh"
+  
+  
+>refresh</a>
+</li>
+<li><a
+  href="#attributes"
+  
+  
+>$attributes</a>
+</li>
+<li><a
+  href="#original"
+  
+  
+>$original</a>
+</li>
+<li><a
+  href="#preloaded"
+  
+  
+>$preloaded</a>
+</li>
+<li><a
+  href="#sideloaded"
+  
+  
+>$sideloaded</a>
+</li>
+<li><a
+  href="#ispersisted"
+  
+  
+>$isPersisted</a>
+</li>
+<li><a
+  href="#isnew"
+  
+  
+>$isNew</a>
+</li>
+<li><a
+  href="#islocal"
+  
+  
+>$isLocal</a>
+</li>
+<li><a
+  href="#dirty"
+  
+  
+>$dirty</a>
+</li>
+<li><a
+  href="#isdirty"
+  
+  
+>$isDirty</a>
+</li>
+<li><a
+  href="#isdeleted"
+  
+  
+>$isDeleted</a>
+</li>
+<li><a
+  href="#trx"
+  
+  
+>$trx</a>
+</li>
+<li><a
+  href="#options"
+  
+  
+>$options</a>
+</li>
+<li><a
+  href="#usetransaction"
+  
+  
+>useTransaction</a>
+</li>
+<li><a
+  href="#useconnection"
+  
+  
+>useConnection</a>
+</li>
+<li><a
+  href="#preload"
+  
+  
+>preload</a>
+</li>
+<li><a
+  href="#related"
+  
+  
+>related</a>
+</li>
+<li><a
+  href="#toobject"
+  
+  
+>toObject</a>
+</li>
+<li><a
+  href="#serialize"
+  
+  
+>serialize</a>
+</li>
+<li><a
+  href="#tojson"
+  
+  
+>toJSON</a>
+</li>
+<li><a
+  href="#serializeattributes"
+  
+  
+>serializeAttributes</a>
+</li>
+<li><a
+  href="#serializecomputed"
+  
+  
+>serializeComputed</a>
+</li>
+<li><a
+  href="#serializerelations"
+  
+  
+>serializeRelations</a>
+</li>
+</ul>
+</li>
+        </ul>
+      </nav>
+    </div>
+</aside>
+
+</body>
+</html>

@@ -125,9 +125,13 @@ export class PostsController {
 
 The `schema.create` method creates a new schema definition. You always begin by creating a new schema.
 
+---
+
 #### schema.string
 
 The `schema.string` method enforces the value to be a valid string. There are other methods to enforce different data types like `schema.boolean`, `schema.number`, etc.
+
+---
 
 #### request.validate
 
@@ -183,16 +187,17 @@ Inside the edge templates, you can access the flash messages using the `flashMes
 
 You can define custom messages for validation errors by passing a `messages` object to the `request.validate` method. For example:
 
-```ts{app/Controllers/Http/PostsController.ts}
+```ts
+// title: app/Controllers/Http/PostsController.ts
 const payload = await request.validate({
   schema: postSchema,
 
- // highlight-start
+  // highlight-start
   messages: {
     'title.required': 'Enter the post title',
     'body.required': 'Write some content for the post',
   },
- // highlight-end
+  // highlight-end
 })
 ```
 
@@ -202,7 +207,8 @@ You can define the custom messages just for the `rule` name or be more specific 
 
 The usage of flash messages is not only limited to the validation errors. You can also use them to display the success message post form submission. For example:
 
-```ts{Controller}
+```ts
+// title: Controller
 import { schema } from '@ioc:Adonis/Core/Validator'
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
@@ -234,7 +240,7 @@ export default class PostsController {
 
 ```edge
 @if(flashMessages.has('success'))
- <p>{{ flashMessages.get('success') }}</p>
+  <p>{{ flashMessages.get('success') }}</p>
 @endif
 ```
 

@@ -21,7 +21,8 @@ Route.post('add-to-cart', async ({ request, response }) => {
 
 You can tweak the configuration for cookies by modifying the `http.cookie` object inside the `config/app.ts` file.
 
-```ts{config/app.ts}
+```ts
+// title: config/app.ts
 http: {
   cookie: {
     domain: '',
@@ -68,11 +69,11 @@ Specifies the `boolean` value for the secure attribute. When truthy, the Secure 
 
 Specifies the boolean or string to be the value for the samesite attribute.
 
-- `true` will set the SameSite attribute to Strict for strict same site enforcement.
-- `false` will not set the SameSite attribute.
-- `'lax'` will set the SameSite attribute to Lax for lax same site enforcement.
-- `'none'` will set the SameSite attribute to None for an explicit cross-site cookie.
-- `'strict'` will set the SameSite attribute to Strict for strict same site enforcement.
+  - `true` will set the SameSite attribute to Strict for strict same site enforcement.
+  - `false` will not set the SameSite attribute.
+  - `'lax'` will set the SameSite attribute to Lax for lax same site enforcement.
+  - `'none'` will set the SameSite attribute to None for an explicit cross-site cookie.
+  - `'strict'` will set the SameSite attribute to Strict for strict same site enforcement.
 
 The same set of options can also be defined at runtime when setting the cookie. We will merge the inline values with the default config.
 
@@ -169,7 +170,7 @@ response.plainCookie('user_id', 1, {
 
 You can read the cookie value inside Javascript using the `document.cookie` property. Make sure to base64 decode and JSON parse the value.
 
-:::warning
+:::note
 The following example is a naive implementation for reading the cookie value for demonstration only.
 :::
 

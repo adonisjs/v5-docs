@@ -8,7 +8,7 @@ body {
 }
 ```
 
-And then access it by visiting the http://localhost:3333/style.css. You don't have to type the directory name (/public), and the files are accessible directly by their filename.
+And then access it by visiting the [http://localhost:3333/style.css](http://localhost:3333/style.css). You don't have to type the directory name (/public), and the files are accessible directly by their filename.
 
 ## Configuration
 
@@ -87,6 +87,12 @@ During this process, it also copies the files from the `public` directory, and h
   ]
 }
 ```
+
+## URL conflicts
+
+In case your static file names conflict with a registered route, AdonisJS will give preference to the static file and the route handler will never be called. 
+
+In this scenario, we recommend you to rename the static file or move it inside a sub-folder to avoid the conflict at the first place.
 
 ## Additional reading
 

@@ -4,7 +4,7 @@ AdonisJS provides you a robust and performant API for dealing with file uploads.
 
 The bodyparser middleware registered inside the `start/kernel.ts` file automatically processes all the files for `multipart/form-data` requests.
 
-You can access the files using the `request.file` method. The method accepts the field name and returns an instance of the [File](https://github.com/adonisjs/bodyparser/blob/develop/src/Multipart/File.ts) class, or null if no file was uploaded.
+You can access the files using the `request.file` method. The method accepts the field name and returns an instance of the [File](https://github.com/adonisjs/bodyparser/blob/develop/src/Multipart/File.ts) class, or `null` if no file was uploaded.
 
 ```ts
 import Route from '@ioc:Adonis/Core/Route'

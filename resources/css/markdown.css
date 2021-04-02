@@ -5,6 +5,10 @@
   font-size: var(--markdown-font-size);
 }
 
+.markdown a {
+  color: var(--brand-color);
+}
+
 .markdown li > code,
 .markdown p > code,
 .markdown td > code {
@@ -193,7 +197,7 @@
 }
 
 .markdown .alert {
-  padding: 20px;
+  padding: 25px 30px;
   background: var(--gray);
   border-radius: var(--rounded-corners-size);
   margin-bottom: var(--markdown-block-elements-margin);
@@ -206,11 +210,15 @@
 }
 
 .markdown .alert.alert-note {
-  border-left: 4px solid var(--brand-color);
+  border-top: 6px solid var(--brand-color);
 }
 
 .markdown .alert.alert-warning {
-  border-left: 4px solid #df4a4a;
+  border-top: 6px solid #df4a4a;
+}
+
+.markdown .alert.alert-tip {
+  border-top: 6px solid #70D787;
 }
 
 .table-container {
@@ -238,6 +246,7 @@
 .markdown table td,
 .markdown table th {
   padding: 10px;
+  vertical-align: top;
   border-bottom: 1px solid var(--lighter-gray);
 }
 
@@ -257,12 +266,12 @@
   right: 0;
   color: var(--mute-color);
   font-style: italic;
-  margin-bottom: 20px;
   font-size: 1.4rem;
 }
 
 .markdown figure img {
   display: block;
+  margin: auto;
 }
 
 .markdown hr {
