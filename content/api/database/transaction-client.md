@@ -1,4 +1,4 @@
-The [Transaction client](https://github.com/adonisjs/lucid/blob/master/src/TransactionClient/index.ts) extends the [Query client](/api/database/query-client) and has following extra properties on top of the standard query client.
+The [Transaction client](https://github.com/adonisjs/lucid/blob/master/src/TransactionClient/index.ts) extends the [Query client](./query-client.md) and has following extra properties on top of the standard query client.
 
 You can access the transaction query client as follows:
 
@@ -22,12 +22,16 @@ Commit the transaction
 await trx.commit()
 ```
 
+---
+
 ### rollback
 Rollback the transaction
 
 ```ts
 await trx.rollback()
 ```
+
+---
 
 ### isCompleted
 Find if the transaction has been completed or not.

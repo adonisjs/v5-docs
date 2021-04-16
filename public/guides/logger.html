@@ -22,6 +22,8 @@
   <meta name="msapplication-config" content="/icons/browserconfig.xml">
   <meta name="theme-color" content="#ffffff">
 
+  <meta name="turbo-cache-control" content="no-cache">
+
   <link
     rel="preload"
     href="/assets/fonts/UntitledSans-RegularItalic.2c343d99.woff2"
@@ -49,16 +51,16 @@
     type="font/woff2"
     crossorigin
   >
-<link rel="stylesheet" href="/assets/app.ee5a9736.css" />
-<script src="/assets/590.24d2c3b6.js" defer></script>
-<script src="/assets/app.81c426d3.js" defer></script>
+<link rel="stylesheet" href="/assets/app.6c0c2135.css" />
+<script src="/assets/342.70de04a2.js" defer></script>
+<script src="/assets/app.26949583.js" defer></script>
 </head>
 
 <body><div class="header-wrapper">
   <header class="header">
     <div class="header-container">
 
-      <div class="primary-links"><a href="#sidenav-open" title="Open Docs Menu" aria-label="Open Docs Menu" class="hamburger for-mobile">
+      <div class="primary-links"><a href="#sidenav-open" title="Open Docs Menu" aria-label="Open Docs Menu" class="hamburger for-mobile" data-turbo="false">
   <svg role="presentation" focusable="false" aria-label="Icon for open menu" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
     <line x1="4" y1="6" x2="20" y2="6" />
@@ -89,10 +91,38 @@
       <nav class="header-nav">
         <ul>
 
-              <li class="active">
-                <a href="/guides/encryption">
-                  Guides
+
+                <li class="active">
+                  <a href="/guides/context">
+                    Docs
+                  </a>
+                  <ul>
+                  </ul>
+                </li>
+
+              <li
+                class=""
+                x-data="{ active: false }"
+                :class="{ 'expand': active }"
+              >
+                <a href="#" @click.prevent="active = !active">
+                  Reference guides
+                  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-down" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <polyline points="6 9 12 15 18 9" />
+                  </svg>
                 </a>
+                <ul class="dropdown">
+                    <li>
+                      <a href="/reference/database/connection">Database</a>
+                    </li>
+                    <li>
+                      <a href="/reference/validator/schema/string">Validator</a>
+                    </li>
+                    <li>
+                      <a href="/reference/views/globals/inspect">Views &amp; Templates</a>
+                    </li>
+                </ul>
               </li>
         </ul>
       </nav>
@@ -111,444 +141,492 @@
 </div>
 
 <div id="sidenav-open">
-  <div class="sidebar" id="sidebar">
+  <div class="sidebar" id="sidebar" data-maintain-scroll>
     <div class="sidebar-container">
 
 
 
-              <nav>
-                <ol>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/introduction"> Introduction </a>
-                    </li>
-                </ol>
-              </nav>
-              <nav>
-                  <h3> Http </h3>
-                <ol>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/context"> Context </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/routing"> Routing </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/controllers"> Controllers </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/request"> Request </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/response"> Response </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/views"> Views &amp; Templates </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/forms-and-validations"> Forms &amp; Validation </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/file-uploads"> File uploads </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/middleware"> Middleware </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/session"> Session </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/cookies"> Cookies </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/hooks"> Hooks </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/exception-handling"> Exception Handling </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/static-assets"> Static assets </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/web-security"> Web security </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/cors"> CORS </a>
-                    </li>
-                </ol>
-              </nav>
-              <nav>
-                  <h3> Views &amp; Templates </h3>
-                <ol>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/views/introduction"> Introduction </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/views/rendering"> Rendering views </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/views/templates-syntax"> Template syntax </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/views/layouts-and-partials"> Layouts &amp; Partials </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/views/conditionals-and-loops"> Conditionals &amp; Loops </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/views/components"> Components </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/views/debugging"> Debugging </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/views/advanced-options"> Advanced Options </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/views/faqs"> FAQs </a>
-                    </li>
-                </ol>
-              </nav>
-              <nav>
-                  <h3> Validator </h3>
-                <ol>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/validator/introduction"> Introduction </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/validator/validations-101"> Validations 101 </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/validator/custom-messages"> Custom messages </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/validator/error-reporters"> Error reporters </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/validator/schema-caching"> Schema caching </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/validator/schema-composition"> Schema Composition </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/validator/faqs"> FAQs </a>
-                    </li>
-                </ol>
-              </nav>
-              <nav>
-                  <h3> Database </h3>
-                <ol>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/database/introduction"> Introduction </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/database/setup"> Setup </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/database/query-builder"> Query builder </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/database/transactions"> Transactions </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/database/pagination"> Pagination </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/database/migrations"> Migrations </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/database/seeders"> Seeders </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/database/connection-management"> Connection management </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/database/debugging-queries"> Debugging queries </a>
-                    </li>
-                </ol>
-              </nav>
-              <nav>
-                  <h3> Data Models </h3>
-                <ol>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/models/introduction"> Introduction </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/models/configuration"> Configuring models </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/models/crud"> CRUD </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/models/query-builder"> Model query builder </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/models/hooks"> Hooks </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/models/query-scopes"> Query scopes </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/models/factories"> Model factories </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/models/serialization"> Serializing models </a>
-                    </li>
-                </ol>
-              </nav>
-              <nav>
-                  <h3> Model relationships </h3>
-                <ol>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/relationships/introduction"> Introduction </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/relationships/belongs-to"> Belongs To </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/relationships/has-one"> Has One </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/relationships/has-many"> Has Many </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/relationships/many-to-many"> Many To Many </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/relationships/has-many-through"> Has Many Through </a>
-                    </li>
-                </ol>
-              </nav>
-              <nav>
-                  <h3> Authentication </h3>
-                <ol>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/auth/introduction"> Introduction </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/auth/setup"> Setup </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/auth/guards"> Guards </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/auth/data-providers"> Data providers </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/auth/middleware"> Middleware </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/auth/exception-handling"> Handling Exceptions </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/auth/social-auth"> Social Auth </a>
-                    </li>
-                </ol>
-              </nav>
-              <nav>
-                  <h3> Digging Deeper </h3>
-                <ol>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/events"> Events </a>
-                    </li>
-                    <li
-                      class="active"
-                    >
-                      <a href="/guides/logger"> Logger </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/helpers"> Helpers </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/http-client"> HTTP Client </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/redis"> Redis </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/mail"> Mail </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/ace-commands"> Ace Commands </a>
-                    </li>
-                </ol>
-              </nav>
-              <nav>
-                  <h3> Security </h3>
-                <ol>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/encryption"> Encryption </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/hashing"> Hashing </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/signed-urls"> Signed URLs </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/signing-values"> Signing values </a>
-                    </li>
-                </ol>
-              </nav>
+
+                <nav>
+                  <ol>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/introduction"> Introduction </a>
+                      </li>
+                  </ol>
+                </nav>
+                <nav>
+                    <h3> Fundamentals </h3>
+                  <ol>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/application"> Application </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/config"> Config </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/environment-variables"> Environment variables </a>
+                      </li>
+                  </ol>
+                </nav>
+                <nav>
+                    <h3> Http </h3>
+                  <ol>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/context"> Context </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/routing"> Routing </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/controllers"> Controllers </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/request"> Request </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/response"> Response </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/forms-and-validations"> Forms &amp; Validation </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/file-uploads"> File uploads </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/middleware"> Middleware </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/cookies"> Cookies </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/session"> Session </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/static-assets"> Static assets </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/assets-manager"> Assets manager </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/exception-handling"> Exception Handling </a>
+                      </li>
+                  </ol>
+                </nav>
+                <nav>
+                    <h3> Views &amp; Templates </h3>
+                  <ol>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/views/introduction"> Introduction </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/views/rendering"> Rendering </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/views/templating-syntax"> Templating syntax </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/views/data-flow"> Data flow </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/views/conditionals"> Conditionals </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/views/loops"> Loops </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/views/partials"> Partials </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/views/layouts"> Layouts </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/views/components"> Components </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/views/mutations"> Mutations </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/views/debugging"> Debugging </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/views/custom-tags"> Creating custom tags </a>
+                      </li>
+                  </ol>
+                </nav>
+                <nav>
+                    <h3> Validator </h3>
+                  <ol>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/validator/introduction"> Introduction </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/validator/custom-messages"> Custom messages </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/validator/error-reporters"> Error reporters </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/validator/schema-caching"> Schema caching </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/validator/extending-validator"> Extending validator </a>
+                      </li>
+                  </ol>
+                </nav>
+                <nav>
+                    <h3> Security </h3>
+                  <ol>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/security/web-security"> Web Security </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/security/encryption"> Encryption </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/security/hashing"> Hashing </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/security/signed-urls"> Signed URLs </a>
+                      </li>
+                  </ol>
+                </nav>
+                <nav>
+                    <h3> Digging deeper </h3>
+                  <ol>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/authorization"> Authorization </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/ace-commandline"> Ace </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/repl"> AdonisJS Repl </a>
+                      </li>
+                      <li
+                        class="active"
+                      >
+                        <a href="/guides/logger"> Logger </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/mailer"> Mailer </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/redis"> Redis </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/health-check"> Health check </a>
+                      </li>
+                  </ol>
+                </nav>
+
     </div>
   </div>
 
-  <a href="#" id="sidenav-close" class="sidenav-backdrop" title="Close Docs Menu" aria-label="Close Docs Menu"></a>
+  <a href="#" data-turbo="false" id="sidenav-close" class="sidenav-backdrop" title="Close Docs Menu" aria-label="Close Docs Menu"></a>
 </div>
 
-<main class="doc">
+<main class="doc" data-turbo="false">
   <div class="markdown">
-    <h1>Logger</h1><ul>
-<li>Explaining logger</li>
-</ul>  </div>
+    <h1>Logger</h1><p>The core of the framework ships with an inbuilt logger built on top of <a
+  href="https://getpino.io/#/"
+  target=&quot;_blank&quot;
+  rel=&quot;noopener&quot;
+>pino</a>
+(one of the fastest logging libraries for Node.js). You can import and use the Logger as follows:</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">import</span><span style="color: #A6ACCD;"> Logger </span><span style="color: #89DDFF;">from</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">@ioc:Adonis/Core/Logger</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"></div><div class="line"><span style="color: #A6ACCD;">Logger</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">info</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">A info message</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div><div class="line"><span style="color: #A6ACCD;">Logger</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">warn</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">A warning</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #A6ACCD;">)</span></div></code></pre>
+</div>
+
+<p>During an HTTP request, you must use the <code>ctx.logger</code> object. It is an isolated child instance of the logger that adds the unique request id to all the log messages.</p>
+<div class="alert alert-note"><p>Make sure to enable request id generation by setting <code>generateRequestId = true</code> inside <code>config/app.ts</code> file.</p></div>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">get</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">/</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">async</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">({</span><span style="color: #A6ACCD;"> logger </span><span style="color: #89DDFF;">})</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #A6ACCD;">logger</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">info</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">An info message</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">)</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">return</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">handled</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
+</div>
+
+<p><figure>
+  <img
+    data-src="https://res.cloudinary.com/adonis-js/image/upload/q_auto,w_700,f_auto,fl_lossy/v1592211987/adonisjs.com/http-logger.png"
+    alt=""
+    class="lazyload"
+    
+  >
+</figure>
+</p>
+<h2 id="config"><a
+  href="#config"
+  
+  
+><span class="icon icon-link"></span></a>
+Config</h2>
+<p>The configuration for the logger is stored inside the <code>config/app.ts</code> file under the <code>logger</code> export. The options are same as documented by <a
+  href="https://getpino.io/#/docs/api?id=options"
+  target=&quot;_blank&quot;
+  rel=&quot;noopener&quot;
+>pino logger</a>
+.</p>
+<p>Following the bare minimum options required to configure the logger.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #FFCB6B;">name</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">Env</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">get</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">APP_NAME</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">)</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #FFCB6B;">enabled</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #FF9CAC;">true</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #FFCB6B;">level</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">Env</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">get</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">LOG_LEVEL</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">info</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">)</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #FFCB6B;">prettyPrint</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">Env</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">get</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">NODE_ENV</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">) </span><span style="color: #89DDFF;">===</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">development</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
+</div>
+
+<h4 id="name"><a
+  href="#name"
+  
+  
+><span class="icon icon-link"></span></a>
+name</h4>
+<p>The name of the logger. The <code>APP_NAME</code> environment variable uses the <code>name</code> property inside the package.json file.</p>
+<hr/>
+<h4 id="enabled"><a
+  href="#enabled"
+  
+  
+><span class="icon icon-link"></span></a>
+enabled</h4>
+<p>Toggle switch to enable/disable the logger</p>
+<hr/>
+<h4 id="level"><a
+  href="#level"
+  
+  
+><span class="icon icon-link"></span></a>
+level</h4>
+<p>The current logging level. It is derived from the <code>LOG_LEVEL</code> environment variable.</p>
+<hr/>
+<h4 id="prettyprint"><a
+  href="#prettyprint"
+  
+  
+><span class="icon icon-link"></span></a>
+prettyPrint</h4>
+<p>Whether or not to pretty print the logs. We recommend to turn off pretty printing in production, as it has some performance overhead.</p>
+<h2 id="how-adonisjs-logger-works"><a
+  href="#how-adonisjs-logger-works"
+  
+  
+><span class="icon icon-link"></span></a>
+How AdonisJS Logger works?</h2>
+<p>Since, Node.js is a single threaded event-loop, it is very important to keep the main thread free from any extra work required to process or reformat logs.</p>
+<p>For this very reason, we opted for <a
+  href="http://getpino.io/#/"
+  target=&quot;_blank&quot;
+  rel=&quot;noopener&quot;
+>pino logger</a>
+, which does not perform any in-process log formatting and instead encourages you to make use a seperate process for that. In nutshell, this is how the logging works.</p>
+<ol>
+<li>You can log at different levels using the Logger API, for example: <code>Logger.info(&#x27;some message&#x27;)</code>.</li>
+<li>The logs will always be send out to <code>stdout</code>.</li>
+<li>You can redirect the <code>stdout</code> stream to a file or use a seperate process to read and format them.</li>
+</ol>
+<h2 id="logging-in-development"><a
+  href="#logging-in-development"
+  
+  
+><span class="icon icon-link"></span></a>
+Logging in Development</h2>
+<p>Since logs are always written to <code>stdout</code>, there is nothing special required in the development environment. Also, AdonisJS will automatically <a
+  href="https://github.com/pinojs/pino-pretty"
+  target=&quot;_blank&quot;
+  rel=&quot;noopener&quot;
+>pretty print</a>
+ the logs when <code>NODE_ENV=development</code>.</p>
+<h2 id="logging-in-production"><a
+  href="#logging-in-production"
+  
+  
+><span class="icon icon-link"></span></a>
+Logging in Production</h2>
+<p>In production, you would want to stream your logs to an external service like Datadog or Papertrail. Following are some of the ways to send logs to an external service.</p>
+<div class="alert alert-note"><p>There is an additional operational overhead of piping the stdout stream to a service. But, the trade off is worth the performance boost you receive. Make sure to check <a
+  href="https://getpino.io/#/docs/benchmarks"
+  target=&quot;_blank&quot;
+  rel=&quot;noopener&quot;
+>pino benchmarks</a>
+ as well.</p></div>
+<h3 id="using-pino-transports"><a
+  href="#using-pino-transports"
+  
+  
+><span class="icon icon-link"></span></a>
+Using Pino Transports</h3>
+<p>The simplest way to process the <code>stdout</code> stream is to make use of <a
+  href="https://getpino.io/#/docs/transports?id=known-transports"
+  target=&quot;_blank&quot;
+  rel=&quot;noopener&quot;
+>pino transports</a>
+. All you need to do is pipe the output to the transport of your choice.</p>
+<p>For demonstration, let&#x27;s install <code>pino-datadog</code> npm package to send logs to Datadog.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #A6ACCD;">npm i pino-datadog</span></div></code></pre>
+</div>
+
+<p>Next, start the production server and pipe the <code>stdout</code> output to <code>pino-datadog</code>.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #A6ACCD;">node build/server.js </span><span style="color: #89DDFF;">|</span><span style="color: #A6ACCD;"> ./node_modules/.bin/pino-datadog --key DD_API_KEY</span></div></code></pre>
+</div>
+
+<h3 id="streaming-to-a-file"><a
+  href="#streaming-to-a-file"
+  
+  
+><span class="icon icon-link"></span></a>
+Streaming to a File</h3>
+<p>Another approach is to forward the output of <code>stdout</code> to a physical file on the disk and then configure your logging service to read and rotate the log files.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #A6ACCD;">node build/server.js </span><span style="color: #89DDFF;">&gt;&gt;</span><span style="color: #A6ACCD;"> app.log</span></div></code></pre>
+</div>
+
+<p>Now, configure your logging service to read logs from the <code>app.log</code> file.</p>  </div>
 </main>
 
 <aside class="toc">
+    <div class="toc-container" data-turbo="false">
+      <h3> On this page </h3>
+      <nav>
+        <ul>
+<li>
+<p><a
+  href="#config"
+  
+  
+>Config</a>
+</p>
+</li>
+<li>
+<p><a
+  href="#how-adonisjs-logger-works"
+  
+  
+>How AdonisJS Logger works?</a>
+</p>
+</li>
+<li>
+<p><a
+  href="#logging-in-development"
+  
+  
+>Logging in Development</a>
+</p>
+</li>
+<li>
+<p><a
+  href="#logging-in-production"
+  
+  
+>Logging in Production</a>
+</p>
+<ul>
+<li><a
+  href="#using-pino-transports"
+  
+  
+>Using Pino Transports</a>
+</li>
+<li><a
+  href="#streaming-to-a-file"
+  
+  
+>Streaming to a File</a>
+</li>
+</ul>
+</li>
+        </ul>
+      </nav>
+    </div>
 </aside>
 
 </body>

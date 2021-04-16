@@ -907,7 +907,7 @@ export default class Greet extends BaseCommand {
 In case of errors, you can access the error using `this.error` property inside the `completed` method.
 
 ## Executing commands programmatically
-Executing other commands from the same process programmatically is actually not a good practice. Commands are not meant to be consumed by the other parts of the code as **they export a user interface** and **not a coding interface**. For example:
+Executing other commands from the same process programmatically is actually not a good practice. Commands are NOT meant to be consumed by the other parts of the code as **they export a user interface** and **not a coding interface**. For example:
 
 - You find the status of a command from the process exit code and NOT some return value.
 - Commands dump their state to the terminal directly and don't store it inside some property to be accessed programmatically.

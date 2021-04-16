@@ -6,6 +6,7 @@ import { listen } from 'quicklink'
 
 import 'normalize.css'
 import '../fonts/untitled-sans/stylesheet.css'
+import '../fonts/Calibre/stylesheet.css'
 import '../fonts/jetbrains/stylesheet.css'
 import '../css/variables.css'
 import '../css/app.css'

@@ -20,7 +20,7 @@ const modelOptions = {
 
 All of the object properties are optional
 
-- `client` is the reference to the database [query client](/api/database/query-client). Most of the time you will find yourself passing in the [transaction client](/api/database/transaction-client).
+- `client` is the reference to the database [query client](../database/query-client.md). Most of the time you will find yourself passing in the [transaction client](../database/transaction-client.md).
 - `connection` is the reference to a registered connection name. Useful when you have a multi-tenant app and wants to dynamically pass in the name of the connection used by the tenant.
 - `profiler` is reference to the profiler instance.
 
@@ -33,8 +33,10 @@ Boot the model. Since the inheritance story of Javascript class is not that grea
 User.boot()
 ```
 
+---
+
 #### static booted
-A boolean to know if model has been booted or not.
+A boolean to know if a model has been booted or not.
 
 ```ts
 class User extends BaseModel {
@@ -47,6 +49,8 @@ class User extends BaseModel {
   }
 }
 ```
+
+---
 
 ### static before
 Define a `before` hook for a specific event.
@@ -64,6 +68,8 @@ public static boot () {
   // highlight-end
 }
 ```
+
+---
 
 ### static after
 Define an `after` hook for a specific event.
@@ -101,6 +107,8 @@ class User extends BaseModel {
 }
 ```
 
+---
+
 ### static create
 Create a new model instance and persist it to the database right away.
 
@@ -111,12 +119,19 @@ const user = await User.create({
 })
 ```
 
-Optionally, you can also pass [model options](#model-adapter-options) as the 2nd argument.
+The method accepts a total of three arguments.
+
+- `data`: The data to persist to the database
+- `options`: Optionally define the [model adapter options](#model-adapter-options).
+- `allowExtraProperties`: A boolean to allow passing extra properties in the data object. When set to `false`, the method will raise an exception when the data properties are not marked as columns.
+
+---
 
 ### static createMany
-Create multiple instances of model and persist them to the database. One insert query is issued for each model instance to ensure the lifecycle of hooks works as expected.
+Create multiple instances of a model and persist them to the database. The `createMany` method accepts the same options as the [create](#static-create) method.
 
-The `createMany` method accepts the same options as the `create` method.
+- One insert query is issued for each model instance to ensure that we execute the lifecycle hooks for every individual instance.
+- All the insert queries are internally wrapped inside a transaction. In case of an error, everything will be rolled back.
 
 ```ts
 const user = await User.createMany([
@@ -131,8 +146,7 @@ const user = await User.createMany([
 ])
 ```
 
-Optionally, you can also pass [model options](#model-adapter-options) as the 2nd argument.
-
+---
 
 ### static find
 Find a row from the database using the model primary key. If a row exists it will be hydrated to the model instance, otherwise `null` is returned.
@@ -146,17 +160,23 @@ if (!user) {
 console.log(user instanceof User)
 ```
 
-Optionally, you can also pass [model options](#model-adapter-options) as the 2nd argument.
+The method accepts a total of two arguments.
 
+- `value`: The primary key value.
+- `options`: Optionally define the [model adapter options](#model-adapter-options).
+
+---
 
 ### static findOrFail
 Same as the `find` method. But instead of returning `null` it will raise an exception when the row doesn't exists.
+
+The `findOrFail` method accepts the same options as the [find](#static-find) method.
 
 ```ts
 const user = await User.findOrFail(1)
 ```
 
-Optionally, you can also pass [model options](#model-adapter-options) as the 2nd argument.
+---
 
 ### static findBy
 Find a row inside the database by using a key-value pair. If a row exists it will be hydrated to the model instance, otherwise `null` is returned.
@@ -165,31 +185,39 @@ Find a row inside the database by using a key-value pair. If a row exists it wil
 const user = await User.findBy('email', 'virk@adonisjs.com')
 ```
 
-Optionally, you can also pass [model options](#model-adapter-options) as the 3rd argument.
+The method accepts a total of three arguments.
 
+- `columName`: The column name to use in the where condition.
+- `value`: The value for the column.
+- `options`: Optionally define the [model adapter options](#model-adapter-options).
+
+---
 
 ### static findByOrFail
 Same as the `findBy` method. But instead of returning `null` it will raise an exception when the row doesn't exists.
+
+The `findByOrFail` method accepts the same options as the [findBy](#static-find-by) method.
 
 ```ts
 const user = await User.findByOrFail('email', 'virk@adonisjs.com')
 ```
 
-Optionally, you can also pass [model options](#model-adapter-options) as the 3rd argument.
-
+---
 
 ### static first
 Returns the first row from the database. If a row exists it will be hydrated to the model instance, otherwise `null` is returned.
 
-[note]
+:::note
 The `first` method relies on the default order of the underlying database engine.
-[/note]
+:::
 
 ```ts
 const user = await User.first()
 ```
 
-Optionally, you can also pass [model options](#model-adapter-options) as an argument.
+The method accepts a single arguments as the [model adapter options](#model-adapter-options).
+
+---
 
 ### static firstOrFail
 Same as the `first` method.  But instead of returning `null` it will raise an exception when the row doesn't exists.
@@ -198,7 +226,9 @@ Same as the `first` method.  But instead of returning `null` it will raise an ex
 const user = await User.firstOrFail()
 ```
 
-Optionally, you can also pass [model options](#model-adapter-options) as an argument.
+The method accepts a single arguments as the [model adapter options](#model-adapter-options).
+
+---
 
 ### static findMany
 Find multiple model instances of an array of values for the model primary key. For example:
@@ -208,8 +238,10 @@ const users = await User.findMany([1, 2, 3])
 ```
 
 - The results will be order by the primary key in desc order.
-- Internally, the method uses the `where in` SQL clause. So it doesn't fail when row for one of the ids is missing.
-- Optionally, you can also pass [model options](#model-adapter-options) as the 2nd argument.
+- Internally, the method uses the `where in` SQL clause and always returns an array.
+- Optionally, you can also pass [model adapter options](#model-adapter-options) as the second argument.
+
+---
 
 ### static firstOrNew
 Returns an existing row from the database or creates a local instance of the model, when row for search criteria is not found.
@@ -234,12 +266,19 @@ if (user.$isPersisted) {
 }
 ```
 
-In the above example Lucid will first attempt to find the user using the `searchCriteria` and no rows have been found, then it will merge `searchCriteria` + `savePayload` and create a non-persisted model instance.
+The method accepts a total of four arguments.
 
-Optionally, you can also pass [model options](#model-adapter-options) as the 3rd argument.
+- `searchCriteria`: Values to use for the select statement.
+- `savePayload`: Values to use to create a new model instance. Also we merge the `searchCriteria` with the save payload object.
+- `options`: Optionally, define the [model adapter options](#model-adapter-options).
+- `allowExtraProperties`: A boolean to allow passing extra properties in the data object. When set to `false`, the method will raise an exception when the data properties are not marked as columns.
+
+---
 
 ### static firstOrCreate
 The `firstOrCreate` is similar to the `firstOrNew` method. However, instead of just creating a local model instance. The `firstOrCreate` method also performs the insert query.
+
+The method accepts the same options as the [firstOrNew](#static-firstornew) method.
 
 ```ts
 const user = await User.firstOrNew(searchCriteria, savePayload)
@@ -251,12 +290,12 @@ if (user.$isLocal) {
 }
 ```
 
-Optionally, you can also pass [model options](#model-adapter-options) as the 3rd argument.
+---
 
 ### static updateOrCreate
-The `updateOrCreate` method updates the existing row or creates a new one.
+The `updateOrCreate` method updates the existing row or creates a new one. The method accepts the same options as the [firstOrNew](#static-firstornew) method.
 
-Think of it as a way to sync rows that must always appear once in the database table. A great example is to sync the user cart.
+This method obtains an "UPDATE lock" on the row during the select. This is done to avoid concurrent reads from getting the old values when the row is in the middle of being updated.
 
 ```ts
 const searchCriteria = {
@@ -270,9 +309,10 @@ const savePayload = {
 const cart = await Cart.updateOrCreate(searchCriteria, savePayload)
 ```
 
-Optionally, you can also pass [model options](#model-adapter-options) as the 3rd argument.
+---
 
 ### static fetchOrNewUpMany
+
 The `fetchOrNewUpMany` method is similar to the `firstOrNew` method. However, it operates on multiple rows.
 
 ```ts
@@ -301,9 +341,12 @@ for (let user of users) {
 
 In the above example, Lucid will search for existing users by their email `(keyForSearch)`. For missing rows a new local instance of the model will be created.
 
-Optionally, you can also pass [model options](#model-adapter-options) as the 3rd argument.
+The method accepts the same options as the [firstOrNew](#static-firstornew) method.
+
+---
 
 ### static fetchOrCreateMany
+
 The `fetchOrCreateMany` method is similar to the `firstOrCreate` method. However, it operates on multiple rows.
 
 ```ts
@@ -330,10 +373,15 @@ for (let user of users) {
 }
 ```
 
-Optionally, you can also pass [model options](#model-adapter-options) as the 3rd argument.
+The method accepts the same options as the [firstOrNew](#static-firstornew) method.
+
+---
 
 ### static updateOrCreateMany
+
 The `updateOrCreateMany` method is similar to the `updateOrCreate` method. However, it operates on multiple rows.
+
+This method obtains an "UPDATE lock" on the row during the select. This is done to avoid concurrent reads from getting the old values when the row is in the middle of being updated.
 
 ```ts
 const keyForSearch = 'email'
@@ -351,19 +399,25 @@ const payload = [
 const users = await User.updateOrCreateMany(keyForSearch, payload)
 ```
 
-Optionally, you can also pass [model options](#model-adapter-options) as the 3rd argument.
+The method accepts the same options as the [firstOrNew](#static-firstornew) method.
+
+---
 
 ### static all
+
 A shortcut method to fetch all the rows from a given database table. The rows are sorted in descending order by the primary key.
 
 ```ts
 const users = await User.all()
 ```
 
-Optionally, you can also pass [model options](#model-adapter-options) as an argument to the `all` method.
+Optionally, you can also pass [model adapter options](#model-adapter-options) as an argument to the `all` method.
+
+---
 
 ### static query
-Returns an instance of the [model query builder](/api/orm/model-query-builder). Unlike the standard query builder, the result of the model query builder is an array of model instances.
+
+Returns an instance of the [model query builder](./query-builder.md). Unlike the standard query builder, the result of the model query builder is an array of model instances.
 
 ```ts
 const users = await User
@@ -375,7 +429,10 @@ const users = await User
 
 Optionally, you can also pass [model options](#model-adapter-options) as an argument to the `query` method.
 
+---
+
 ### static truncate
+
 A shortcut to truncate the database table. . Optionally you can also cascade foreign key references.
 
 ```ts
@@ -392,6 +449,8 @@ await User.truncate(true, {
 
 Optionally, you can also pass [model options](#model-adapter-options) as the 2nd argument.
 
+---
+
 ### static primaryKey
 Define a custom primary for the model. It defaults to the `id` column.
 
@@ -401,12 +460,38 @@ class User extends BaseModel {
 }
 ```
 
+---
+
+### static selfAssignPrimaryKey
+A boolean to notify Lucid that you will self assign the primary key locally in your application and does not rely on the database generate one for you.
+
+A great example of this is using the **UUID** as the primary key and generating them locally in your JavaScript code.
+
+```ts
+class User extends BaseModel {
+  public static selfAssignPrimaryKey = true
+
+  @column({ isPrimary: true })
+  public userId: string
+}
+
+const user = new User()
+user.userId = uuid.v4()
+
+await user.save()
+```
+
+---
+
+
 ### static connection
 Define a custom database connection for the model.
 
-[note]
-Use this property only when the model connection is static. You must use the query options when defining a connection at runtime.
-[/note]
+:::note
+
+DO NOT use this property to switch the connection at runtime. This property is only to define a static connection name that remains same through out the lifecycle of the application.
+
+:::
 
 ```ts
 class User extends BaseModel {
@@ -414,8 +499,10 @@ class User extends BaseModel {
 }
 ```
 
+---
+
 ### static table
-Define a custom database table. By default, the table name is generated using the [OrmConfig.getTableName](/api/orm/orm-config#get-table-name) method.
+Define a custom database table. By default, the table name is generated using the [NamingStrategy.tableName](./naming-strategy.md#table-name) method.
 
 ```ts
 class User extends BaseModel {
@@ -423,18 +510,22 @@ class User extends BaseModel {
 }
 ```
 
-[note]
-The `$` prefix is used to avoid collision with the model standard properties. The idea is borrowed from [Vue.js](https://vuejs.org/v2/style-guide/#Private-property-names-essential)
-[/note]
+---
+
+### static namingStrategy
+Reference to the [NamingStrategy](./naming-strategy.md). By default, the [SnakeCaseNamingStrategy](https://github.com/adonisjs/lucid/blob/develop/src/Orm/NamingStrategies/SnakeCase.ts) is used. However, you can override it globally or for a single model.
+
+---
 
 ### static $adapter
-Reference to the underlying [Adapter](/api/orm/adapter). Adapter works as a bridge between the model class and the database. Models directly do not rely on the Database.
+Reference to the underlying [Adapter](./adapter.md). Adapter works as a bridge between the model class and the database. Models directly do not rely on the Database.
+
+---
 
 ### static $hooks
 Reference to the registered hooks. It value is a reference to the [@poppinss/hooks](https://github.com/poppinss/hooks) package. You must use the `before` and `after` methods or decorators to define the model hooks.
 
-### static $configurator
-Reference to the [ORM config](/api/orm/orm-config). By default, the `orm` property from the `config/database` file is used. However, you can override the config at the model level as well.
+---
 
 ### static $columnsDefinitions
 The `$columnsDefinitions` property is an ES6 Map of the model column name and its meta data. For example:
@@ -458,6 +549,8 @@ class User extends BaseModel {
 }
 ```
 
+---
+
 ### static $computedDefinitions
 The `$computedDefinitions` property is an ES6 Map of the model computed property name and its meta data. For example:
 
@@ -470,6 +563,8 @@ Map {
 ```
 
 The computed meta data can be modified using the `@computed` decorator.
+
+---
 
 ### static $relationsDefinitions
 The `$relationsDefinitions` property is an ES6 Map of the model relationships. The key is the relationship name and value is the [instance of the relationship](https://github.com/adonisjs/lucid/tree/develop/src/Orm/Relations). For example:
@@ -492,6 +587,8 @@ Map {
   }
 }
 ```
+
+---
 
 ### static $createFromAdapterResult
 Create model instance by consuming the database results. The method handles the use case where the column name in the database is different from the property name defined in the model.
@@ -528,6 +625,8 @@ const options = {
 const user = User.$createFromAdapterResult(data, sideloaded, options)
 ```
 
+---
+
 ### static $createMultipleFromAdapterResult
 Same as `$createFromAdapterResult`, but allows creating multiple model instances.
 
@@ -544,12 +643,16 @@ User.$createFromAdapterResult([
 ])
 ```
 
+---
+
 ### static $addColumn
 Define a model column. The `@column` decorator uses this method to mark a property as a column.
 
-[tip]
+:::tip
+
 Model properties which are not marked as columns are never inserted to the database and also ignored when returned by a select call.
-[/tip]
+
+:::
 
 ```ts
 User.$addColumn('id', {})
@@ -565,12 +668,16 @@ User.$addColumn('id', {
 })
 ```
 
+---
+
 ### static $hasColumn
 Find if a column with the given name exists on the model or not.
 
 ```ts
 User.$hasColumn('id')
 ```
+
+---
 
 ### static $getColumn
 Returns the meta data for a given column.
@@ -581,6 +688,8 @@ if(User.$hasColumn('id')) {
 }
 ```
 
+---
+
 ### static $addComputed
 Mark a class property as a computed property. The `@computed` decorator uses this method to mark a property as computed.
 
@@ -590,12 +699,16 @@ User.$addComputed('postsCount', {
 })
 ```
 
+---
+
 ### static $hasComputed
 Find if a computed property with the given name exists on the model or not.
 
 ```ts
 User.$hasComputed('postsCount')
 ```
+
+---
 
 ### static $getComputed
 Returns the meta data for a given computed property.
@@ -605,6 +718,8 @@ if(User.$hasComputed('id')) {
   User.$getComputed('id')
 }
 ```
+
+---
 
 ### static $addRelation
 Add a new relationship to the model. The relationship decorators calls this method behind the scene to mark a property as a relationship.
@@ -632,12 +747,16 @@ User.$addRelation(
 )
 ```
 
+---
+
 ### static $hasRelation
 Find if a relationship exists.
 
 ```ts
 User.$hasRelation('posts')
 ```
+
+---
 
 ### static $getRelation
 Returns the [relationship instance](https://github.com/adonisjs/lucid/tree/develop/src/Orm/Relations) for a pre-registered relationship.
@@ -666,7 +785,9 @@ console.log(user.name)
 console.log(user.password)
 ```
 
-The `fill` method replaces the existing attributes with the values provided to the `fill` method.
+The `fill` method replaces the existing attributes with the newly defined attributes. 
+
+---
 
 ### merge
 The `merge` method also accepts an object of attributes. However, instead of replacing the existing attributes, it performs a deep merge.
@@ -682,6 +803,8 @@ user.merge({
 
 console.log(user.email) // virk@adonisjs.com
 ```
+
+---
 
 ### save
 Persist the model instance to the database. The `save` method performs an **update** when the model instance has already been persisted, otherwise an **insert** query is executed.
@@ -704,8 +827,10 @@ console.log(user.$isPersisted) // true
 console.log(user.$isLocal) // true
 ```
 
+---
+
 ### delete
-Delete the row inside the database and freezes the model instance for further modifications. However, the instance can still be used for reading values.
+Delete the row inside the database and freeze the model instance for further modifications. However, the instance can still be used for reading values.
 
 ```ts
 const user = await User.find(1)
@@ -715,6 +840,8 @@ if (user) {
   console.log(user.$isDeleted) // true
 }
 ```
+
+---
 
 ### refresh
 Refresh the model instance by hydrating its attributes with the values inside the database.
@@ -730,10 +857,12 @@ const user = await User.create({
 await user.refresh() // "select * from users where id = user.id"
 ```
 
+---
+
 ### $attributes
 The `$attributes` object is the key-value pair of model properties using the `@column` decorator.
 
-The object is maintain internally to distinguish between the model regular properties and its columns. Consider the following example:
+The object is maintained internally to distinguish between the model regular properties and its columns. Consider the following example:
 
 ```ts
 class User extends Model {
@@ -771,7 +900,9 @@ console.log(user.$attributes) // { fullName, password }
 The `$attributes` object will not have the `initials` property, since it is not using the `@column` decorator.
 
 #### How does `$attributes` object gets populated?
-We make use of ES6 Proxies behind the scenes to populate the `$attributes` object.
+We make use of ES6 Proxies behind the scenes to populate the `$attributes` object. Here is the [implementation](https://github.com/adonisjs/lucid/blob/develop/src/Orm/BaseModel/proxyHandler.ts) of the Proxy handler.
+
+---
 
 ### $original
 The `$original` object is a key-value pair of properties fetched from the database. The `$original` object is used to find the diff against the `$attributes`.
@@ -791,6 +922,8 @@ await user.save() // persist and update $original
 console.log(user.$isDirty) // false
 ```
 
+---
+
 ### $preloaded
 An object of preloaded relationships.
 
@@ -799,6 +932,65 @@ const user = await User.query().preload('profile').first()
 
 console.log(user.$preloaded) // { profile: Profile }
 ```
+
+---
+
+### $extras
+The `$extras` are the values that are computed on the fly for a given model instance(s). For example: You fetch all the posts and a count of comments received on every post. The `postsCount` value we moved to `$extras` object, as it is not a database column.
+
+```ts
+const posts = await Post.query().withCount('comments')
+
+posts.forEach((post) => {
+  console.log(posts.$extras)
+})
+```
+
+---
+
+### $primaryKeyValue
+Value for the column marked as a primary key. For example:
+
+```ts
+class User extends BaseModel {
+  @column({ isPrimary: true })
+  public userId: number
+}
+
+const user = new User()
+user.userId = 1
+
+user.$primaryKeyValue // 1
+```
+
+The `user.$primaryKeyValue` will return the value of the `userId` property as it is marked as a primary key.
+
+---
+
+### $getQueryFor
+The BaseModel makes use of the [model query builder](./query-builder.md) and the [insert query builder](../database/insert-query-builder.md) to run **insert**, **update**, **delete** and **refresh** queries. 
+
+It makes use of the `$getQueryFor` method to return the appropriate query builder for a given action. You can override this method, if you want to self construct the query builder for the above mentioned actions.
+
+```ts
+import { QueryClientContract } from '@ioc:Adonis/Lucid/Database'
+import { BaseModel } from '@ioc:Adonis/Lucid/Orm'
+
+class User extends BaseModel {
+  public $getQueryFor(
+    action: 'insert' | 'update' | 'delete' | 'refresh',
+    client: QueryClientContract,
+  ) {
+    if (action === 'insert') {
+      return client.insertQuery().table(User.table)
+    }
+
+    return client.modelQuery(User).where('id', this.$primaryKeyValue)
+  }
+}
+```
+
+---
 
 ### $sideloaded
 The `$sideloaded` properties are passed via the query builder to the model instances. A great example of `$sideloaded` properties is to pass down the currently logged in user to the model instance.
@@ -837,6 +1029,8 @@ posts.forEach((post) => {
 })
 ```
 
+---
+
 ### $isPersisted
 Find if the model instance has been persisted to the database or not.
 
@@ -848,8 +1042,12 @@ await user.save()
 console.log(user.$isPersisted) // true
 ```
 
+---
+
 ### $isNew
 Opposite of the `$isPersisted` property.
+
+---
 
 ### $isLocal
 Find if the model instance is created locally or fetched from the database.
@@ -869,6 +1067,8 @@ const user = await User.find(1)
 console.log(user.$isLocal) // false
 ```
 
+---
+
 ### $dirty
 An object containing the diff between the `$original` and the `$attributes` object.
 
@@ -879,6 +1079,8 @@ user.points = 10
 console.log(user.$dirty) // { points: 10 }
 ```
 
+---
+
 ### $isDirty
 A boolean to know if the model is dirty.
 
@@ -888,6 +1090,8 @@ user.points = 10
 
 console.log(user.$isDirty) // true
 ```
+
+---
 
 ### $isDeleted
 Find if the model instance has been deleted or not. It is set to true after the `delete` method is invoked.
@@ -900,8 +1104,10 @@ await user.delete()
 console.log(user.$isDeleted) // true
 ```
 
+---
+
 ### $trx
-Reference to the [transaction client](/api/database/transaction-client) used by the model instance. You can also set the `$trx` manually in order to perform model operations within the transaction block.
+Reference to the [transaction client](../database/transaction-client.md) used by the model instance. You can also set the `$trx` manually in order to perform model operations within the transaction block.
 
 ```ts
 await trx = await Database.transaction()
@@ -931,6 +1137,8 @@ users.forEach((user) => {
 })
 ```
 
+---
+
 ### $options
 The `$options` is an object with an optional `connection` and the `profiler` property.
 
@@ -946,6 +1154,8 @@ users.forEach((user) => {
 })
 ```
 
+---
+
 ### useTransaction
 The `useTransaction` is an alternative to manually set the `$trx` property.
 
@@ -958,6 +1168,8 @@ await user
   .save()
 ```
 
+---
+
 ### useConnection
 The `useConnection` is an alternative to defining the `$options` with the `connection` property.
 
@@ -969,36 +1181,48 @@ await user
   .save()
 ```
 
-### preload
-Preload relationship from a model instance.
+---
+
+### load
+Load a relationship from a model instance.
 
 ```ts
 const user = await User.findOrFail(1)
-await user.preload('posts')
+await user.load('posts')
 
 console.log(user.posts)
 ```
 
-You can also pass a callback as the 2nd argument to add more constraints to the relationship query.
+You can also pass a callback as the second argument to add more constraints to the relationship query.
 
 ```ts
-await user.preload('posts', (postsQuery) => {
+await user.load('posts', (postsQuery) => {
   postsQuery.where('status', 'published')
 })
 ```
 
-You can also preload multiple relationships as follows:
+You can also load multiple relationships as follows:
 
 ```ts
-await user.preload((preloader) => {
-  preloader
-    .preload('profile')
-    .preload('posts')
+await user.load((loader) => {
+  loader.load('profile').load('posts')
 })
 ```
 
+The nested relations can be loaded as follows:
+
+```ts
+await user.load((loader) => {
+  loader.load('profile', (profile) => {
+    profile.load('socialAccounts')
+  }).load('posts')
+})
+```
+
+---
+
 ### related
-Returns the relationship client instance for a given relationship. You can use the `related` method to run queries by in reference to the defined relationship.
+Returns the relationship client instance for a given relationship. You can use the `related` method to run queries in reference to the defined relationship.
 
 ```ts
 const user = await User.find(1)
@@ -1024,12 +1248,16 @@ VALUES
 */
 ```
 
+---
+
 ### toObject
 Returns an object with model `$attributes`, preloaded relationships and its computed properties.
 
 ```ts
 console.log(user.toObject())
 ```
+
+---
 
 ### serialize
 Serializes the model to its JSON representation. The serialization of models is helpful for building API servers.
@@ -1059,8 +1287,12 @@ user.serialize({
 
 The cherry picking argument can be a deeply nested tree targeting the relationships serialization as well.
 
+---
+
 ### toJSON
 Alias for the `serialize` method but doesn't accept any arguments. The `toJSON` is called automatically anytime you pass model instance(s) to the `JSON.stringify` method.
+
+---
 
 ### serializeAttributes
 Serializes just the model attributes.
@@ -1071,12 +1303,16 @@ user.serializeAttributes({
 })
 ```
 
+---
+
 ### serializeComputed
 Serializes just the computed properties.
 
 ```ts
 user.serializeComputed()
 ```
+
+---
 
 ### serializeRelations
 Serializes just the preloaded relationships

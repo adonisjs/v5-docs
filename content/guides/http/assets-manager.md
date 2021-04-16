@@ -26,17 +26,23 @@ The following actions are performed to setup webpack encore:
 
 Once encore has been configured, the pre-existing commands of AdonisJS will detect it and also process your frontend assets as part of the following commands.
 
+---
+
 #### node ace serve --watch
 
 The `node ace serve --watch` command will also run the [webpack dev server](https://github.com/webpack/webpack-dev-server) within the same process to compile and serve the frontend assets.
 
 ![Log lines prefixed with "encore" are from the webpack-dev-server](https://res.cloudinary.com/adonis-js/image/upload/q_auto,f_auto/v1617015453/v5/encore-dev-server.png)
 
+---
+
 #### node ace build --production
 
 Similarly, the `node ace build --production` command will also run the `encore production` command to bundle the frontend assets alongside your AdonisJS build.
 
 ![](https://res.cloudinary.com/adonis-js/image/upload/q_auto,f_auto/v1617030130/v5/node-ace-build-encore.png)
+
+---
 
 ### Customizing output directory
 

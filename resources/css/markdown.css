@@ -1,21 +1,25 @@
 .markdown {
   max-width: var(--markdown-content-width);
   margin: auto;
-  line-height: 1.6;
+  /*line-height: 1.6;*/
+  line-height: 1.4;
   font-size: var(--markdown-font-size);
 }
 
 .markdown a {
-  color: var(--brand-color);
+  color: var(--headings-color);
+  font-weight: 500;
 }
 
-.markdown li > code,
-.markdown p > code,
-.markdown td > code {
+.markdown :not(pre) > code {
   white-space: nowrap;
   background: var(--gray);
   padding: 0px 6px;
   font-size: 1.5rem;
+}
+
+.markdown .alert :not(pre) > code {
+  padding: 0;
 }
 
 .markdown td > code {
@@ -37,6 +41,11 @@
   margin: 70px 0 20px 0;
   padding-top: 50px;
 }
+/** Required only when using Calibre */
+.markdown h2 code {
+  font-size: 2.6rem;
+}
+
 
 .markdown h3 {
   color: var(--heading-color);
@@ -44,12 +53,21 @@
   font-size: var(--markdown-h3-size);
   margin: 60px 0 10px 0;
 }
+/** Required only when using Calibre */
+.markdown h3 code {
+  font-size: 2.0rem;
+}
+
 
 .markdown h4 {
   color: var(--heading-color);
   font-weight: var(--bold-font-weight);
   font-size: var(--markdown-h4-size);
   margin: 40px 0 5px 0;
+}
+/** Required only when using Calibre */
+.markdown h4 code {
+  font-size: 1.6rem;
 }
 
 .markdown p {
@@ -172,7 +190,7 @@
 }
 
 .markdown pre .line.dim {
-  opacity: 0.4;
+  opacity: 0.3;
   transition-duration: 0.2s;
   transition-timing-function: ease;
   transition-delay: initial;
@@ -201,7 +219,7 @@
   background: var(--gray);
   border-radius: var(--rounded-corners-size);
   margin-bottom: var(--markdown-block-elements-margin);
-  font-size: 1.5rem;
+  font-size: var(--alert-font-size);
   position: relative;
 }
 
@@ -241,6 +259,10 @@
 
 .markdown table td code {
   white-space: break;
+}
+
+.markdown table td:first-child {
+  padding-right: 50px;
 }
 
 .markdown table td,
@@ -306,7 +328,7 @@ FEATURES BLOCK
   display: flex;
   justify-content: space-between;
   margin-top: 30px;
-  font-size: 1.5rem;
+  font-size: var(--features-font-size);
 }
 
 .features ul {
@@ -329,6 +351,10 @@ FEATURES BLOCK
 
 .features ul:first-child li {
   margin-bottom: 1rem;
+}
+
+.features ul:last-child {
+  width: 200px;
 }
 
 .features ul:last-child li {
@@ -368,4 +394,29 @@ SETUP BLOCK
 
 .setup .codegroup {
   margin: 0 -30px;
+}
+
+
+.fancy-codeblock {
+  position: relative;
+}
+
+.fancy-codeblock span.title {
+  position: absolute;
+  font-size: 1.4rem;
+  font-style: italic;
+  background: var(--brand-mute-color);
+  font-weight: 600;
+  line-height: 1;
+  padding: 7px 15px;
+  right: 0px;
+  top: 0px;
+}
+
+.file-errors pre .line.fatal {
+  color: #EF4444;
+}
+
+.file-errors pre .line.warning {
+  color: #EAB308;
 }

@@ -39,7 +39,7 @@ const dimerRenderer = new Renderer().use((node) => {
 Content.cache(Application.inProduction ? 'full' : 'markup')
 
 Content
-  .zone('Guides')
+  .zone('Docs')
   .baseUrl('guides')
   .baseContentPath('./content/guides')
   .template('docs')
@@ -63,6 +63,16 @@ Content
   .baseUrl('reference')
   .baseContentPath('./content/api')
   .template('docs')
+  .loadLanguage({
+    path: './resources/vscode/edge.tmLanguage.json',
+    scopeName: 'text.html.edge',
+    id: 'edge',
+  })
+  .loadLanguage({
+    path: './resources/vscode/dotenv.tmLanguage.json',
+    scopeName: 'source.env',
+    id: 'dotenv',
+  })
   .useTheme('material-theme-palenight')
   .docs(Api)
   .renderer('dimerRenderer', dimerRenderer)

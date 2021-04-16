@@ -1,8 +1,14 @@
-The [ModelQueryBuilder](https://github.com/adonisjs/lucid/blob/develop/src/Orm/QueryBuilder/index.ts) extends the standard [QueryBuilder](/api/database/query-builder) and hence all of the methods are available to the model query builder as well.
+The [ModelQueryBuilder](https://github.com/adonisjs/lucid/blob/develop/src/Orm/QueryBuilder/index.ts) extends the standard [QueryBuilder](../database/query-builder.md) and hence all of the methods are available to the model query builder as well.
+
+:::note
 
 This document just covers the additional methods/properties exclusive to the model query builder only.
 
-The `query` method on the model returns an instance of the model query builder.
+:::
+
+The model query builder always returns an array of models instances and not plain objects.
+
+Also, the model query builder is aware of the model and its relationships and hence provides an easy to use API to work with relationships.
 
 ```ts
 class User extends BaseModel {}
@@ -11,13 +17,10 @@ class User extends BaseModel {}
 User.query()
 ```
 
-:::note
-The model query builder always returns an array of models instances and not plain objects.
+## Methods/Properties
+Following is the list of the methods/properties available on the model query builder
 
-Also, the model query builder is aware of the model and its relationships and hence provides an easy to use API to work with relationships.
-:::
-
-## `preload`
+### preload
 Pre-load/Eager-load relationships for the model.
 
 ```ts
@@ -52,7 +55,9 @@ const users = await User
   })
 ```
 
-## `withCount`
+---
+
+### withCount
 The `withCount` method performs a sub query to count the total number of rows for a relationship.
 
 ```ts
@@ -87,12 +92,15 @@ const user = await User
 console.log(user.$extras.totalPosts)
 ```
 
-Finally, the `withCount` is not only limited to the count aggregate. You can also define a custom aggregate function as well. For example:
+---
+
+### withAggregate
+The `withAggregate` method allows you define a custom aggregate function. For example: `sum` the account balance.
 
 ```ts
 const user = await User
   .query()
-  .withCount('accounts', (query) => {
+  .withAggregate('accounts', (query) => {
     query.sum('balance').as('accountsBalance')
   })
   .firstOrFail()
@@ -100,7 +108,9 @@ const user = await User
 console.log(user.$extras.accountsBalance)
 ```
 
-## `has`
+---
+
+### has
 The `has` method allows you to limit the parent model rows by checking for the existence of a given relationship.
 
 For example: Get a list of users who have one or more posts.
@@ -115,15 +125,19 @@ You can also define a custom count.
 await User.query().has('posts', '>=', 2)
 ```
 
-The `has` method has following variants
+The `has` method has following variants.
 
-- `orHas`: Adds a or has clause for a given relationship.
-- `andHas`: Alias for the `has` method.
-- `doesntHave`: Opposite of the `has` method.
-- `orDoesntHave`: Opposite of the `orHas` method.
-- `andDoesntHave`: Alias for the `doesntHave` method.
+| Method | Description |
+|--------|-------------|
+| `orHas` | Adds a or has clause for a given relationship. | 
+| `andHas` | Alias for the `has` method. | 
+| `doesntHave` | Opposite of the `has` method. | 
+| `orDoesntHave` | Opposite of the `orHas` method. | 
+| `andDoesntHave` | Alias for the `doesntHave` method. | 
 
-## `whereHas`
+---
+
+### whereHas
 Similar to the `has` method. However, the `whereHas` method allows defining additional constraints by passing a callback as the 2nd argument.
 
 For example: Get a list of users who have one or more posts **published** posts.
@@ -136,13 +150,15 @@ await User.query().whereHas('posts', (postsQuery) => {
 
 The `whereHas` method has following variants
 
-- `orWhereHas`: Adds a or has clause for a given relationship.
-- `andWhereHas`: Alias for the `whereHas` method.
-- `whereDoesntHave`: Opposite of the `whereHas` method.
-- `orWhereDoesntHave`: Opposite of the `orWhereHas` method.
-- `andWhereDoesntHave`: Alias for the `whereDoesntHave` method.
+| Method | Description |
+|--------|-------------|
+| `orWhereHas`  | Adds a or has clause for a given relationship. |
+| `andWhereHas`  | Alias for the `whereHas` method. |
+| `whereDoesntHave`  | Opposite of the `whereHas` method. |
+| `orWhereDoesntHave`  | Opposite of the `orWhereHas` method. |
+| `andWhereDoesntHave`  | Alias for the `whereDoesntHave` method. |
 
-## sideload
+### sideload
 The `sideload` method works as a pipeline for passing an arbitrary object to the model instance(s) created after executing the query.
 
 For example: Passing the currently logged in user.
@@ -155,9 +171,11 @@ users.forEach((user) => {
 })
 ```
 
-The `sideloaded` value is also passed down to the preloaded relationships as well.
+The `sideloaded` value is passed down to the preloaded relationships as well.
 
-## `apply`
+---
+
+### apply
 The apply method allows you to leverage the query scopes defined on the model.
 
 Begin by defining a query scope.
@@ -189,7 +207,20 @@ Team
   .apply((scopes) => scopes.forUser(auth.user))
 ```
 
-## `model`
+---
+
+### pojo
+The `pojo` method returns the model results as an **array of plain JavaScript objects**.
+
+```ts
+const posts = await Post.query().pojo()
+
+console.log(posts[0] instanceof Post) // false
+```
+
+---
+
+### model
 Reference to the `model` from which the query instance was created.
 
 ```ts

@@ -51,7 +51,7 @@
     type="font/woff2"
     crossorigin
   >
-<link rel="stylesheet" href="/assets/app.be48d775.css" />
+<link rel="stylesheet" href="/assets/app.6c0c2135.css" />
 <script src="/assets/342.70de04a2.js" defer></script>
 <script src="/assets/app.26949583.js" defer></script>
 </head>
@@ -91,16 +91,38 @@
       <nav class="header-nav">
         <ul>
 
-              <li class="active">
-                <a href="/guides/application">
-                  Guides
-                </a>
-              </li>
 
-              <li class="">
-                <a href="/reference/database/connection">
+                <li class="active">
+                  <a href="/guides/context">
+                    Docs
+                  </a>
+                  <ul>
+                  </ul>
+                </li>
+
+              <li
+                class=""
+                x-data="{ active: false }"
+                :class="{ 'expand': active }"
+              >
+                <a href="#" @click.prevent="active = !active">
                   Reference guides
+                  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-down" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <polyline points="6 9 12 15 18 9" />
+                  </svg>
                 </a>
+                <ul class="dropdown">
+                    <li>
+                      <a href="/reference/database/connection">Database</a>
+                    </li>
+                    <li>
+                      <a href="/reference/validator/schema/string">Validator</a>
+                    </li>
+                    <li>
+                      <a href="/reference/views/globals/inspect">Views &amp; Templates</a>
+                    </li>
+                </ul>
               </li>
         </ul>
       </nav>
@@ -124,241 +146,266 @@
 
 
 
-              <nav>
-                  <h3> Fundamentals </h3>
-                <ol>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/application"> Application </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/config"> Config </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/environment-variables"> Environment variables </a>
-                    </li>
-                </ol>
-              </nav>
-              <nav>
-                  <h3> Http </h3>
-                <ol>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/context"> Context </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/routing"> Routing </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/controllers"> Controllers </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/request"> Request </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/response"> Response </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/forms-and-validations"> Forms &amp; Validation </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/file-uploads"> File uploads </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/middleware"> Middleware </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/cookies"> Cookies </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/session"> Session </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/static-assets"> Static assets </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/assets-manager"> Assets manager </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/exception-handling"> Exception Handling </a>
-                    </li>
-                </ol>
-              </nav>
-              <nav>
-                  <h3> Views &amp; Templates </h3>
-                <ol>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/views/introduction"> Introduction </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/views/rendering"> Rendering </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/views/templating-syntax"> Templating syntax </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/views/data-flow"> Data flow </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/views/conditionals"> Conditionals </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/views/loops"> Loops </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/views/partials"> Partials </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/views/layouts"> Layouts </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/views/components"> Components </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/views/mutations"> Mutations </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/views/debugging"> Debugging </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/views/custom-tags"> Creating custom tags </a>
-                    </li>
-                </ol>
-              </nav>
-              <nav>
-                  <h3> Validator </h3>
-                <ol>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/validator/introduction"> Introduction </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/validator/validations-101"> Validations 101 </a>
-                    </li>
-                    <li
-                      class="active"
-                    >
-                      <a href="/guides/validator/custom-messages"> Custom messages </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/validator/error-reporters"> Error reporters </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/validator/schema-caching"> Schema caching </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/validator/schema-composition"> Schema Composition </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/validator/faqs"> FAQs </a>
-                    </li>
-                </ol>
-              </nav>
-              <nav>
-                  <h3> Security </h3>
-                <ol>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/security/web-security"> Web Security </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/security/encryption"> Encryption </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/security/hashing"> Hashing </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/security/signed-urls"> Signed URLs </a>
-                    </li>
-                </ol>
-              </nav>
-              <nav>
-                  <h3> Digging deeper </h3>
-                <ol>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/ace-commandline"> Ace </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/repl"> AdonisJS Repl </a>
-                    </li>
-                </ol>
-              </nav>
+
+                <nav>
+                  <ol>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/introduction"> Introduction </a>
+                      </li>
+                  </ol>
+                </nav>
+                <nav>
+                    <h3> Fundamentals </h3>
+                  <ol>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/application"> Application </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/config"> Config </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/environment-variables"> Environment variables </a>
+                      </li>
+                  </ol>
+                </nav>
+                <nav>
+                    <h3> Http </h3>
+                  <ol>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/context"> Context </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/routing"> Routing </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/controllers"> Controllers </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/request"> Request </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/response"> Response </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/forms-and-validations"> Forms &amp; Validation </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/file-uploads"> File uploads </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/middleware"> Middleware </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/cookies"> Cookies </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/session"> Session </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/static-assets"> Static assets </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/assets-manager"> Assets manager </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/exception-handling"> Exception Handling </a>
+                      </li>
+                  </ol>
+                </nav>
+                <nav>
+                    <h3> Views &amp; Templates </h3>
+                  <ol>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/views/introduction"> Introduction </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/views/rendering"> Rendering </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/views/templating-syntax"> Templating syntax </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/views/data-flow"> Data flow </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/views/conditionals"> Conditionals </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/views/loops"> Loops </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/views/partials"> Partials </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/views/layouts"> Layouts </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/views/components"> Components </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/views/mutations"> Mutations </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/views/debugging"> Debugging </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/views/custom-tags"> Creating custom tags </a>
+                      </li>
+                  </ol>
+                </nav>
+                <nav>
+                    <h3> Validator </h3>
+                  <ol>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/validator/introduction"> Introduction </a>
+                      </li>
+                      <li
+                        class="active"
+                      >
+                        <a href="/guides/validator/custom-messages"> Custom messages </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/validator/error-reporters"> Error reporters </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/validator/schema-caching"> Schema caching </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/validator/extending-validator"> Extending validator </a>
+                      </li>
+                  </ol>
+                </nav>
+                <nav>
+                    <h3> Security </h3>
+                  <ol>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/security/web-security"> Web Security </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/security/encryption"> Encryption </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/security/hashing"> Hashing </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/security/signed-urls"> Signed URLs </a>
+                      </li>
+                  </ol>
+                </nav>
+                <nav>
+                    <h3> Digging deeper </h3>
+                  <ol>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/authorization"> Authorization </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/ace-commandline"> Ace </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/repl"> AdonisJS Repl </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/logger"> Logger </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/mailer"> Mailer </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/redis"> Redis </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/health-check"> Health check </a>
+                      </li>
+                  </ol>
+                </nav>
 
     </div>
   </div>
@@ -368,10 +415,225 @@
 
 <main class="doc" data-turbo="false">
   <div class="markdown">
-    <h1>Custom messages</h1><p>Discussing everything related to custom messages</p>  </div>
+    <h1>Custom messages</h1><p>You can define custom messages alongside the schema object. Messages can be defined just for the validation rule, or you can define them for individual fields as well.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line dim"><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> request</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">validate</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">{</span></div><div class="line dim"><span style="color: #A6ACCD;">  </span><span style="color: #F07178;">schema</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> schema</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">create</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">{</span></div><div class="line dim"><span style="color: #89DDFF;">    </span><span style="color: #676E95;">// ...</span></div><div class="line dim"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span><span style="color: #89DDFF;">,</span></div><div class="line highlight"><span style="color: #A6ACCD;">  </span><span style="color: #F07178;">messages</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line highlight"><span style="color: #A6ACCD;">    </span><span style="color: #F07178;">required</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">The {{ field }} is required to create a new account</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line highlight"><span style="color: #A6ACCD;">    </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">username.unique</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Username not available</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line highlight"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">}</span></div><div class="line dim"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
+</div>
+
+<ul>
+<li>Custom message for the <code>required</code> rule will be used by all the fields that fails the required validation.</li>
+<li>Whereas, the <code>username.unique</code> combination is applicable only to the <code>username</code> field, for the <code>unique</code> validation rule.</li>
+</ul>
+<p>Messages for nested objects and arrays can be defined using the dot separator.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #FFCB6B;">messages</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">user.username.required</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">: </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Missing value for username</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">tags.*.number</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">: </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Tags must be an array of numbers</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">products.*.title.required</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">: </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Each product must have a title</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span><span style="color: #F07178;">  </span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
+</div>
+
+<h2 id="dynamic-placeholders"><a
+  href="#dynamic-placeholders"
+  
+  
+><span class="icon icon-link"></span></a>
+Dynamic placeholders</h2>
+<p>You can make use of the following placeholders to reference runtime values inside your custom messages.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #FFCB6B;">messages</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #FFCB6B;">required</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">{{ field }} is required to sign up</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #FFCB6B;">enum</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">The value of {{ field }} must be in {{ options.choices }}</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Placeholder</th><th>Description</th></tr></thead><tbody><tr><td>{{ field }}</td><td>Name of the field under validation. Nested object paths are represented with a dot separator. For example: <code>user.profile.username</code></td></tr><tr><td>{{ rule }}</td><td>Name of the validation rule</td></tr><tr><td>{{ options }}</td><td>The options passed by the validation methods. For example: The <code>enum</code> rule will pass an array of <code>choices</code> and some rules may not pass any options at all</td></tr></tbody></table>
+<h2 id="wildcard-callback"><a
+  href="#wildcard-callback"
+  
+  
+><span class="icon icon-link"></span></a>
+Wildcard callback</h2>
+<p>You can also define a callback function to construct the message at runtime. The callback can only be defined as a fallback using the wildcard <code>*</code> expression.</p>
+<p>In the following example, the callback will be invoked for all the fields, except for the <code>username</code> field only when it fails the <code>required</code> validation.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #FFCB6B;">messages</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">*</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">: </span><span style="color: #89DDFF;">(</span><span style="color: #A6ACCD;">field</span><span style="color: #89DDFF;">,</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">rule</span><span style="color: #89DDFF;">,</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">arrayExpressionPointer</span><span style="color: #89DDFF;">,</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">options</span><span style="color: #89DDFF;">)</span><span style="color: #F07178;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">      </span><span style="color: #89DDFF;">return</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x60;${</span><span style="color: #A6ACCD;">rule</span><span style="color: #89DDFF;">}</span><span style="color: #C3E88D;"> validation error on </span><span style="color: #89DDFF;">${</span><span style="color: #A6ACCD;">field</span><span style="color: #89DDFF;">}&#x60;</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">},</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">username.required</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">: </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">Username is required to sign up</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
+</div>
+
+<h2 id="options-passed-to-the-message-string"><a
+  href="#options-passed-to-the-message-string"
+  
+  
+><span class="icon icon-link"></span></a>
+Options passed to the message string</h2>
+<p>Following is the list of options passed by the different validation methods to the message string.</p>
+<h4 id="date"><a
+  href="#date"
+  
+  
+><span class="icon icon-link"></span></a>
+date</h4>
+<p>The <code>date</code> validation rule will pass the <code>options.format</code>.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">date.format</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">: </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">{{ date }} must be formatted as {{ format }}</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
+</div>
+
+<h4 id="distinct"><a
+  href="#distinct"
+  
+  
+><span class="icon icon-link"></span></a>
+distinct</h4>
+<p>The <code>distinct</code> validation rule will pass the <code>field</code> on which the distinct rule is applied, along with <code>index</code> at which the duplicate value was found.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">products.distinct</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">: </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">The product at {{ options.index + 1 }} position has already been added earlier</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
+</div>
+
+<h4 id="enum--enumset"><a
+  href="#enum--enumset"
+  
+  
+><span class="icon icon-link"></span></a>
+enum / enumSet</h4>
+<p>The <code>enum</code> and <code>enumSet</code> validation rules will pass an array of <code>options.choices</code>.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">enum</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">: </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">The value must be one of {{ options.choices }}</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">enumSet</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">: </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">The values must be one of {{ options.choices }}</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
+</div>
+
+<h4 id="file"><a
+  href="#file"
+  
+  
+><span class="icon icon-link"></span></a>
+file</h4>
+<p>The file validation allows defining custom messages for the sub rules. For example:</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">file.size</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">: </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">The file size must be under {{ options.size }}</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">file.extnames</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">: </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">The file must have one of {{ options.extnames }} extension names</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
+</div>
+
+<h4 id="minlength--maxlength"><a
+  href="#minlength--maxlength"
+  
+  
+><span class="icon icon-link"></span></a>
+minLength / maxLength</h4>
+<p>The <code>minLength</code> and <code>maxLength</code> validation rules will pass the <code>options.length</code> to the message.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">minLength</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">: </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">The array must have {{ options.minLength }} items</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
+</div>
+
+<h4 id="requiredifexists--requiredifnotexists"><a
+  href="#requiredifexists--requiredifnotexists"
+  
+  
+><span class="icon icon-link"></span></a>
+requiredIfExists / requiredIfNotExists</h4>
+<p>The <code>requiredIfExists</code> and <code>requiredIfNotExists</code> validation rules will pass the <code>options.otherField</code> as a string.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">requiredIfExists</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">: </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">{{ options.otherField }} requires {{ field }}</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
+</div>
+
+<h3 id="conditional-required-rules"><a
+  href="#conditional-required-rules"
+  
+  
+><span class="icon icon-link"></span></a>
+Conditional required rules</h3>
+<p>The following <code>requiredIf*</code> rules will pass the <code>options.otherFields</code> as an array of strings.</p>
+<ul>
+<li>requiredIfExistsAll</li>
+<li>requiredIfExistsAny</li>
+<li>requiredIfNotExistsAll</li>
+<li>requiredIfNotExistsAny</li>
+</ul>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">requiredIfExistsAll</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">: </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">{{ options.otherFields }} requires {{ field }}</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
+</div>
+
+<h4 id="requiredwhen"><a
+  href="#requiredwhen"
+  
+  
+><span class="icon icon-link"></span></a>
+requiredWhen</h4>
+<p>The <code>requiredWhen</code> validation rule will pass the following options.</p>
+<ul>
+<li><code>options.otherField</code></li>
+<li><code>options.operator</code></li>
+<li><code>options.values</code></li>
+</ul>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">requiredWhen</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">: </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">{{ field }} is required when {{ otherField }}{{ operator }}{{ values }}</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
+</div>
+  </div>
 </main>
 
 <aside class="toc">
+    <div class="toc-container" data-turbo="false">
+      <h3> On this page </h3>
+      <nav>
+        <ul>
+<li>
+<p><a
+  href="#dynamic-placeholders"
+  
+  
+>Dynamic placeholders</a>
+</p>
+</li>
+<li>
+<p><a
+  href="#wildcard-callback"
+  
+  
+>Wildcard callback</a>
+</p>
+</li>
+<li>
+<p><a
+  href="#options-passed-to-the-message-string"
+  
+  
+>Options passed to the message string</a>
+</p>
+<ul>
+<li><a
+  href="#conditional-required-rules"
+  
+  
+>Conditional required rules</a>
+</li>
+</ul>
+</li>
+        </ul>
+      </nav>
+    </div>
 </aside>
 
 </body>

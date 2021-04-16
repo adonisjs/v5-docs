@@ -6,12 +6,19 @@ We created Edge as an alternative to other existing template engines and address
 
 Unlike Pug, we don't re-invent the way you write the HTML. In fact, Edge is not even tied to HTML at first place, as it can render any text based files.
 
+<div class="fancy-codeblock">
+
 ```pug
 h1= title
 p Written with love by #{author}
 p This will be safe: #{theGreat}
 ```
 
+<span class="title"> Pug </span>
+
+</div>
+
+<div class="fancy-codeblock">
 
 ```edge
 <h1> {{ title }} </h1>
@@ -19,9 +26,15 @@ p This will be safe: #{theGreat}
 <p> This will be safe: {{ theGreat }} </p>
 ```
 
+<span class="title"> Edge </span>
+
+</div>
+
 ## Edge vs Nunjucks
 
-Unlike Nunjucks, Edge feels like writing Javascript. It is quicker to type and has a small learning curve.
+Unlike Nunjucks, Edge feels like writing Javascript and not Python. Edge has a small learning curve, is quicker to type and supports all Javascript expressions.
+
+<div class="fancy-codeblock">
 
 ```nunjucks
 {% if happy and hungry %}
@@ -31,6 +44,12 @@ Unlike Nunjucks, Edge feels like writing Javascript. It is quicker to type and h
 {{ "true" if foo else "false" }}
 ```
 
+<span class="title"> Nunjucks </span>
+
+</div>
+
+<div class="fancy-codeblock">
+
 ```edge
 @if(happy && hungry)
   I am happy *and* hungry; both are true.
@@ -39,11 +58,15 @@ Unlike Nunjucks, Edge feels like writing Javascript. It is quicker to type and h
 {{ foo ? "true" : "false" }}
 ```
 
+<span class="title"> Edge </span>
+
+</div>
+
 ## Edge vs Handlebars
 
 Unlike Handlebars, Edge is not restrictive in nature. You can use any Javascript expression inside your templates and we parse them using a spec compliant JavaScript parser.
 
-Handlebars expects you to register a helper for every small functionality. The story gets even worse if you have to apply multiple helpers at the same time.
+Whereas in Handlebars, you have to define a custom helpers for every little thing. The story gets even worse when using multiple helpers together.
 
 ```js
 Handlebars.registerHelper('upperCase', function (aString) {
@@ -51,15 +74,27 @@ Handlebars.registerHelper('upperCase', function (aString) {
 })
 ```
 
+<div class="fancy-codeblock">
+
 ```hbs
 {{upperCase lastname}}
 ```
 
-Whereas, Edge leverages the existing Javascript expressions.
+<span class="title"> Handlebars </span>
+
+</div>
+
+Whereas, Edge double down on native Javascript capabilities.
+
+<div class="fancy-codeblock">
 
 ```edge
 {{ lastname.toUpperCase() }}
 ```
+
+<span class="title"> Edge </span>
+
+</div>
 
 ## Setup
 

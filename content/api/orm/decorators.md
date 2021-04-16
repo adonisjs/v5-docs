@@ -1,10 +1,19 @@
 All of the ORM decorators can be imported as follows:
 
 ```ts
-import { column, hasOne, scope } from '@ioc:Adonis/Lucid/Orm'
+import {
+  column,
+  hasOne,
+  scope,
+  beforeSave,
+  beforeFind,
+  // ... and so on
+} from '@ioc:Adonis/Lucid/Orm'
 ```
 
-## `column`
+---
+
+### column
 The `column` decorator marks a model property as a database column.
 
 ```ts
@@ -18,13 +27,15 @@ class User extends BaseModel {
 
 You can also define any of the following optional properties.
 
-- `columnName`: The name of the column inside the database.
-- `serializeAs`: The property name to be used when serializing the model. Setting the value to `null` when remove the property from the serialized object.
-- `isPrimary`: Mark column as primary. One model can only have one primary column.
-- `serialize`: A custom function to handle the column value serialization. For example: Serialize luxon date objects to a string.
-- `prepare`: A custom function to transform the value before it is saved inside the database.
-- `consume`: A custom function to transform the value after it is read from the database and but it is defined on the model.
-- `meta`: The meta object holds arbitrary meta data for the property. 3rd party libraries extending the models functionality can use this property.
+| Option | Description |
+|---------|------------|
+| `columnName` | The name of the column inside the database. If not defined, We will use the [naming strategy](./naming-strategy.md#columnname) to create the name. |
+| `serializeAs` | The property name to be used when serializing the model. Setting the value to `null` will remove the property from the serialized object. |
+| `isPrimary` | Mark column as primary. One model can only have one primary column. |
+| `serialize` | A custom function to handle the column value serialization. For example: Serialize luxon date objects to a string. |
+| `prepare` | A custom function to transform the value before it is saved inside the database. |
+| `consume` | A custom function to transform the after fetching it from the database and before defining it on the model instance. |
+| `meta` | The `meta` object holds arbitrary metadata for the property. 3rd party libraries extending the model's functionality can use this property. |
 
 ```ts
 import Encryption from '@ioc:Adonis/Core/Encryption'
@@ -44,14 +55,16 @@ class User extends BaseModel {
 }
 ```
 
-## `column.date` `column.datetime`
+---
+
+### column.date / column.datetime
 The `column.date` decorator marks the column as a date. The decorator enforces the property type to be an instance of [luxon.DateTime](https://moment.github.io/luxon/docs/class/src/datetime.js~DateTime.html).
 
 The decorator [self defines](https://github.com/adonisjs/lucid/blob/0fc3e2391ba6743427fac62e0895e458d7bc8137/src/Orm/Decorators/date.ts#L98) the `prepare`, `consume` and the `serialize` methods to ensure
 
-- You are always working with an instance of `luxon.DateTime` in your codebase
+- You are constantly working with an instance of `luxon.DateTime` in your codebase
 - The date is serialized as an ISO date
-- The date is properly formatted as per the underlying database driver.
+- The date is formatted correctly as per the underlying database driver.
 
 ```ts
 import { DateTime } from 'luxon'
@@ -77,8 +90,10 @@ class User extends BaseModel {
 }
 ```
 
-## `computed`
-The `computed` decorator marks a model property as computed. You will only need this when creating an API server and want certain properties of a model to be present in the [serialize](/api/orm/base-model#serialize) output.
+---
+
+### computed
+You can use the `computed` decorator to serialize a model property when converting the model instance to a JSON object.
 
 ```ts
 import { column, computed, BaseModel } from '@ioc:Adonis/Lucid/Orm'
@@ -114,7 +129,9 @@ console.log(user.serialize())
 */
 ```
 
-## `hasOne`
+---
+
+### hasOne
 The `hasOne` decorator marks a property as a Has one relationship. Make sure to read the [has one relationship](/guides/model-relations/has-one/) guide to learn more about the options and their impact.
 
 ```ts
@@ -126,8 +143,10 @@ class User extends Model {
 }
 ```
 
-## `hasMany`
-The `hasMany` decorator marks a property as a Has many relationship. Make sure to read the [has many relationship](/guides/model-relations/has-many/) guide to learn more about the options and their impact.
+---
+
+### hasMany
+The `hasMany` decorator marks a property as a hasMany relationship. Make sure to read the [has many relationship](/guides/model-relations/has-many/) guide to learn more about the options and their impact.
 
 ```ts
 import { hasMany, HasMany, BaseModel } from '@ioc:Adonis/Lucid/Orm'
@@ -138,8 +157,10 @@ class User extends Model {
 }
 ```
 
-## `belongsTo`
-The `belongsTo` decorator marks a property as a Belongs to relationship. Make sure to read the [belongs to relationship](/guides/model-relations/belongs-to/) guide to learn more about the options and their impact.
+---
+
+### belongsTo
+The `belongsTo` decorator marks a property as a belongsTo relationship. Make sure to read the [belongs to relationship](/guides/model-relations/belongs-to/) guide to learn more about the options and their impact.
 
 ```ts
 import { belongsTo, BelongsTo, BaseModel } from '@ioc:Adonis/Lucid/Orm'
@@ -150,7 +171,9 @@ class User extends Model {
 }
 ```
 
-## `manyToMany`
+---
+
+### manyToMany
 The `manyToMany` decorator marks a property as a many to many relationship. Make sure to read the [many to many relationship](/guides/model-relations/many-to-many/) guide to learn more about the options and their impact.
 
 ```ts
@@ -162,7 +185,9 @@ class User extends Model {
 }
 ```
 
-## `hasManyThrough`
+---
+
+### hasManyThrough
 The `hasManyThrough` decorator marks a property as a has many through relationship. Make sure to read the [has many through relationship](/guides/model-relations/guides/model-relations/has-many-through/) guide to learn more about the options and their impact.
 
 ```ts
@@ -177,7 +202,9 @@ class User extends Model {
 }
 ```
 
-## `beforeSave`
+---
+
+### beforeSave
 The `beforeSave` decorator registers a given function as a before hook invoked before the **insert** and the **update** query.
 
 ```ts
@@ -197,7 +224,9 @@ class User extends BaseModel {
 
 The after save variant is also supported using the `afterSave` decorator.
 
-## `beforeCreate`
+---
+
+### beforeCreate
 The `beforeCreate` decorator registers the function to be invoked just before the insert operation.
 
 ```ts
@@ -213,9 +242,11 @@ class User extends BaseModel {
 }
 ```
 
-The after create variant is also supported using the `afterCreate` decorator.
+You can use the `afterCreate` decorator to define a hook that runs after creating a new row.
 
-## `beforeUpdate`
+---
+
+### beforeUpdate
 The `beforeUpdate` decorator registers the function to be invoked just before the update operation.
 
 ```ts
@@ -231,9 +262,11 @@ class User extends BaseModel {
 }
 ```
 
-The after update variant is also supported using the `afterUpdate` decorator.
+You can use the `afterUpdate` decorator to define a hook that runs after updating a row.
 
-## `beforeDelete`
+---
+
+### beforeDelete
 The `beforeDelete` decorator registers the function to be invoked just before the delete operation.
 
 ```ts
@@ -249,9 +282,12 @@ class Post extends BaseModel {
 }
 ```
 
-The after delete variant is also supported using the `beforeDelete` decorator.
+You can use the `afterDelete` decorator to define a hook that runs after deleting a row.
 
-## `beforeFind`
+---
+
+### beforeFind
+
 The `beforeFind` decorator registers the function to be invoked just before the find operation.
 
 Find operations are one's that intentionally selects a single database row. For example:
@@ -273,10 +309,12 @@ class Post extends BaseModel {
 }
 ```
 
-## `afterFind`
-The `afterFind` decorator registers the function to be invoked after the find operation.
+---
 
-The after find hook receives the model instance as the only argument.
+### afterFind
+You can use the `afterFind` decorator to define a hook that runs after finding the row from the database.
+
+The hook receives the model instance as the only argument.
 
 ```ts
 import { afterFind, BaseModel } from '@ioc:Adonis/Lucid/Orm'
@@ -291,7 +329,9 @@ class Post extends BaseModel {
 }
 ```
 
-## `beforeFetch`
+---
+
+### beforeFetch
 The `beforeFetch` decorator registers the function to be invoked just before the fetch operation.
 
 All select queries except the **find operations** are considered as fetch operations.
@@ -309,7 +349,9 @@ class Post extends BaseModel {
 }
 ```
 
-## `afterFetch`
+---
+
+### afterFetch
 The `afterFetch` decorator registers the function to be invoked after the fetch operation.
 
 The after fetch hook receives an array of model instances as the only argument.
@@ -329,7 +371,9 @@ class Post extends BaseModel {
 }
 ```
 
-## `beforePaginate`
+---
+
+### beforePaginate
 The `beforePaginate` decorator registers the function to be invoked just before the paginate operation.
 
 ```ts
@@ -345,10 +389,12 @@ class Post extends BaseModel {
 }
 ```
 
-## `afterPaginate`
+---
+
+### afterPaginate
 The `afterPaginate` decorator registers the function to be invoked after the paginate operation.
 
-The after paginate hook receives an instance of the [paginator](/api/database/query-builder#pagination).
+The after paginate hook receives an instance of the [paginator](../database/query-builder.md#pagination).
 
 ```ts
 import { afterPaginate, BaseModel } from '@ioc:Adonis/Lucid/Orm'

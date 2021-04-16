@@ -1,5 +1,7 @@
 <main class="doc" data-turbo="false">
   <div class="markdown">
+    @include('partials/debug')
+
     <h1>{{ doc.title }}</h1>
     @dimerTree(file.ast.children)~
   </div>

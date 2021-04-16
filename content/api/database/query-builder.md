@@ -1,4 +1,4 @@
-The Database query builder is used to construct **select**, **update** and **delete** SQL queries. For inserting new rows you must use the [insert query builder]() and use [raw query builder]() for running raw SQL queries.
+The Database query builder is used to construct **SELECT**, **UPDATE**, and **DELETE** SQL queries. For inserting new rows you must use the [insert query builder](./insert-query-builder.md) and use [raw query builder](./raw-query-builder.md) for running raw SQL queries.
 
 You can get an instance of the database query builder using one of the following methods.
 
@@ -11,8 +11,11 @@ Database.query()
 Database.from('users')
 ```
 
-## select
-The `select` method allows selecting columns from the database table.
+## Methods/properties
+Following is the list of available methods/properties available on the Query builder instance.
+
+### select
+The `select` method allows selecting columns from the database table. You can either pass an array of columns or pass them as multiple arguments.
 
 ```ts
 Database
@@ -20,7 +23,9 @@ Database
   .select('id', 'username', 'email')
 ```
 
-You can define aliases for the columns using the `as` expression or by passing an object of key-value pair.
+#### Column aliases
+
+You can define aliases for the columns using the `as` expression or passing an object of key-value pair.
 
 ```ts
 Database
@@ -28,22 +33,20 @@ Database
   .select('id', 'email as userEmail')
 ```
 
-In the following example, the object key is the alias and value is the column real name.
-
-:::tip
-Chaining the `select` method will append to the existing set of selected columns. You can make use of `clearSelect` method to remove previously selected columns.
-:::
-
 ```ts
 Database
   .from('users')
-  .select('id')
   .select({
+    id: 'id',
+
+    // Key is alias name
     userEmail: 'email'
   })
 ```
 
-Also, you can make use of sub-queries and raw-queries for generating columns at runtime. For example, selecting the last login ip address for a user from the `user_logins` table.
+#### Using sub queries
+
+Also, you can make use of sub-queries and raw-queries for generating columns at runtime, for example, selecting the last login IP address for a user from the `user_logins` table.
 
 ```ts
 Database
@@ -55,9 +58,11 @@ Database
       .whereColumn('users.id', 'user_logins.user_id')
       .orderBy('id', 'desc')
       .limit(1)
-      .as('last_login_ip')
+      .as('last_login_ip') // 👈 This is important
   )
 ```
+
+#### Using raw queries
 
 Similar to a sub-query, you can pass an instance of the raw query as well.
 
@@ -72,7 +77,9 @@ Database
   )
 ```
 
-## from
+---
+
+### from
 The `from` method is used to define the database table for the query.
 
 ```ts
@@ -91,8 +98,12 @@ Database.from((subquery) => {
 }).avg('total_marks.total')
 ```
 
-## where
-The `where` method is used to define the where clause in your SQL queries. The query builder accepts a wide range of arguments types to let you leverage SQL complete power.
+---
+
+### where
+The `where` method is used to define the where clause in your SQL queries. The query builder accepts a wide range of arguments types to let you leverage the complete power of SQL.
+
+The following example accepts the column name as the first argument and its value as the second argument.
 
 ```ts
 Database
@@ -100,24 +111,30 @@ Database
   .where('username', 'virk')
 ```
 
-You can also define SQL operators as follows:
-
-:::tip
-You can also use `luxon` date time objects. Just make sure to format them using the `toSQLDate` method.
+You can also define SQL operators, as shown below.
 
 ```ts
-.where('created_at', '>', DateTime.local().toSQLDate())
-```
-:::
-
-```ts
-return Database
+Database
   .from('users')
   .where('created_at', '>', '2020-09-09')
 ```
 
-#### Wrapping where clause
-You can pass a callback to the `where` method in order to wrap the where condition inside a callback. For example:
+```ts
+// Using luxon to make the date
+Database
+  .from('users')
+  .where('created_at', '>', DateTime.local().toSQLDate())
+```
+
+```ts
+// Using like operator
+Database
+  .from('posts')
+  .where('title', 'like', '%Adonis 101%')
+```
+
+#### Where groups
+You can create `where` groups by passing a callback to the `where` method. For example:
 
 ```ts
 Database
@@ -132,8 +149,11 @@ Database
       .where('email', 'virk@adonisjs.com')
       .whereNull('deleted_at')
   })
+```
 
-/*
+Generated SQL
+
+```sql
 SELECT * FROM "users"
   WHERE (
     "username" = ? AND "deleted_at" IS NULL
@@ -141,48 +161,87 @@ SELECT * FROM "users"
   or (
     "email" = ? AND "deleted_at" IS NULL
   )
-*/
 ```
 
-#### Using sub queries and raw queries
+#### Using sub queries
 The `where` method value can also be a sub-query.
 
 ```ts
 Database
-  .from('users')
-  .whereIn(
-    'id',
+  .from('user_groups')
+  .where(
+    'user_id',
     Database
-      .from('user_logins')
+      .from('users')
       .select('user_id')
-      .where('created_at', '<', '2020-09-09')
+      .where('users.user_id', 1)
   )
 ```
 
-Similarly you can also define a raw query.
+#### Using raw queries
+Similarly, you can also define a raw query.
+
+```ts
+Database
+  .from('user_groups')
+  .where(
+    'user_id',
+    Database
+      .raw(`select "user_id" from "users" where "users"."user_id" = ?`, [1])
+      .wrap('(', ')')
+  )
+```
+
+---
+
+### where method variants
+Following is the list of the `where` method variations and shares the same API.
+
+| Method | Description |
+|--------|-------------|
+| `andWhere` | Alias for the `where` method |
+| `orWhere` | Adds an **or where** clause |
+| `whereNot` | Adds a **where not** clause |
+| `orWhereNot` | Adds an **or where not** clause |
+| `andWhereNot` | Alias for `whereNot` |
+
+### whereColumn
+The `whereColumn` method allows you to define a column as the value for the where clause. The method is usually helpful with queries and joins. For example:
 
 ```ts
 Database
   .from('users')
-  .whereIn(
-    'id',
-    Database.raw(
-      '(select "user_id" from "user_logins" where "created_at" < ?)',
-      ['2020-09-09']
-    )
+  .whereColumn('updated_at', '>', 'created_at')
+```
+
+```ts
+Database
+  .from('users')
+  .select(
+    Database
+      .from('user_logins')
+      .select('ip_address')
+      .whereColumn('users.id', 'user_logins.user_id') // 👈
+      .orderBy('id', 'desc')
+      .limit(1)
+      .as('last_login_ip')
   )
 ```
 
-The following variations of the `where` method follows the same API.
+### whereColumn method variants
+Following is the list of the `whereColumn` method variations and shares the same API.
 
-- `andWhere`: Alias for the `where` method
-- `orWhere`: Adds an **or where** clause
-- `whereNot`: Adds a **where not** clause
-- `orWhereNot`: Adds an **or where not** clause
-- `andWhereNot`: Alias for `whereNot`
 
-## whereIn
-The `whereIn` method is used to define the **where in** clause in your SQL queries. For example
+| Method | Description |
+|--------|-------------|
+| `andWhereColumn` | Alias for the `whereColumn` method |
+| `orWhereColumn` | Adds an **or where** clause |
+| `whereNotColumn` | Adds a **where not** clause |
+| `orWhereNotColumn` | Adds an **or where not** clause |
+| `andWhereNotColumn` | Alias for `whereNotColumn` |
+
+### whereIn
+The `whereIn` method is used to define the **wherein** SQL clause. The method accepts the column name as the first argument and an array of values as the second argument.
 
 ```ts
 Database
@@ -190,7 +249,7 @@ Database
   .whereIn('id', [1, 2, 3])
 ```
 
-You can also pass a pair of columns and their corresponding values.
+The values can also be defined for more than column. For example:
 
 ```ts
 Database
@@ -198,9 +257,12 @@ Database
   .whereIn(['id', 'email'], [
     [1, 'virk@adonisjs.com']
   ])
+
+// SQL: select * from "users" where ("id", "email") in ((?, ?))
 ```
 
-Similar to the `where` method the whereIn values can also be computed using a sub-query or a raw-query.
+#### Using sub queries
+You can also compute the `whereIn` values using a subquery.
 
 ```ts
 Database
@@ -227,7 +289,7 @@ Database
   )
 ```
 
-You can also generate a sub-query by passing a callback as the 2nd argument.
+The `whereIn` method also accepts a callback as the 2nd argument. The callback receives an instance of the subquery that you can use to compute values as runtime.
 
 ```ts
 Database
@@ -238,16 +300,21 @@ Database
   )
 ```
 
-The following variations of the `whereIn` method follows the same API.
+---
 
-- `andWhereIn`: Alias for the `whereIn` method
-- `orWhereIn`: Adds an **or where in** clause
-- `whereNotIn`: Adds a **where not in** clause
-- `orWhereNotIn`: Adds an **or where not in** clause
-- `andWhereNotIn`: Alias for `whereNotIn`
+### whereIn method variants
+Following is the list of the `whereIn` method variations and shares the same API.
 
-## whereExists
-The `whereExists` methods allows adding where constraints by checking for existence of results on a sub query. For example: Select all users who have at least logged in once.
+| Method | Description |
+|--------|-------------|
+| `andWhereIn` | Alias for the `whereIn` method |
+| `orWhereIn` | Adds an **or where in** clause |
+| `whereNotIn` | Adds a **where not in** clause |
+| `orWhereNotIn` | Adds an **or where not in** clause |
+| `andWhereNotIn` | Alias for `whereNotIn` |
+
+### whereExists
+The `whereExists` method allows adding where constraints by checking for the existence of results on a subquery. For example: Select all users who have at least logged in once.
 
 ```ts
 Database
@@ -260,7 +327,7 @@ Database
   })
 ```
 
-You can also pass in a sub-query or a raw-query as the first argument.
+You can also pass in a sub-query or a raw query as the first argument.
 
 ```ts
 Database
@@ -283,16 +350,22 @@ Database
   )
 ```
 
-The `whereExists` method also has following variations.
+---
 
-- `andWhereExists`: Alias for the `whereExists` method
-- `orWhereExists`: Adds an **or where exists** clause
-- `whereNotExists`: Adds a **where not exists** clause
-- `orWhereNotExists`: Adds an **or where not exists** clause
-- `andWhereNotExists`: Alias for the `whereNotExists` method
+### whereExists method variants
 
-## whereBetween
-The `whereBetween` method adds the **where between** clause.
+Following is the list of the `whereExists` method variations and shares the same API.
+
+| Method | Description |
+|--------|-------------|
+| `andWhereExists` |  Alias for the `whereExists` method | 
+| `orWhereExists` |  Adds an **or where exists** clause | 
+| `whereNotExists` |  Adds a **where not exists** clause | 
+| `orWhereNotExists` |  Adds an **or where not exists** clause | 
+| `andWhereNotExists` |  Alias for the `whereNotExists` method | 
+
+### whereBetween
+The `whereBetween` method adds the **where between** clause. It accepts the column name as the first argument and an array of values as the second argument.
 
 ```ts
 Database
@@ -300,7 +373,9 @@ Database
   .whereBetween('age', [18, 60])
 ```
 
-The min and max values can be derived from other tables using sub-queries.
+
+#### Using sub queries
+You can also use subqueries to derive the values from a different database table.
 
 ```ts
 Database
@@ -311,7 +386,9 @@ Database
   ])
 ```
 
-You can also make use of raw-queries for deriving values from other database tables.
+#### Using raw queries
+
+You can also make use of raw queries for deriving values from another database table.
 
 ```ts
 Database
@@ -322,43 +399,59 @@ Database
   ])
 ```
 
-The `whereBetween` method also has following variations.
+### whereBetween method variants
+Following is the list of the `whereBetween` method variations and shares the same API.
 
-- `andWhereBetween`: Alias for the `whereBetween` method
-- `orWhereBetween`: Adds an **or where between** clause
-- `whereNotBetween`: Adds a **where not between** clause
-- `orWhereNotBetween`: Adds an **or where not between** clause
-- `andWhereNotBetween`: Alias for the `whereNotBetween` method
+| Method | Description |
+|--------|-------------|
+| `andWhereBetween` | Alias for the `whereBetween` method |
+| `orWhereBetween` | Adds an **or where between** clause |
+| `whereNotBetween` | Adds a **where not between** clause |
+| `orWhereNotBetween` | Adds an **or where not between** clause |
+| `andWhereNotBetween` | Alias for the `whereNotBetween` method |
 
-## whereRaw
-You can make use of the `whereRaw` method to express conditions not covered by the query builder standard API.
+### whereRaw
+You can use the `whereRaw` method to express conditions not covered by the existing query builder methods.
 
-[warning]
+:::warning
+
 Always make sure to bind parameters and do not encode user input directly in the raw query.
-[/warning]
+
+:::
 
 
-#### Encoding user values directly (Wrong)
+#### ❌ Encoding user values directly
 ```ts
 Database
   .from('users')
   .whereRaw(`username = ${username}`)
 ```
 
-#### Using bind params (Right)
+#### ✅ Using bind params
 ```ts
 Database
   .from('users')
   .whereRaw('username = ?', [username])
 ```
 
-The `whereRaw` method also has following variations.
+You can also define the column names dynamically using `??`.
 
-- `andWhereRaw`: Alias for the `whereRaw` method
-- `orWhereRaw`: Adds an **or where raw** clause
+```ts
+Database
+  .from('users')
+  .whereRaw('?? = ?', ['users.username', username])
+```
 
-## join
-The `join` method allows to specify SQL joins between two tables. For example: Select user login `ip_address` and the `country`.
+### whereRaw method variants
+Following is the list of the `whereRaw` method variations and shares the same API.
+
+| Method | Description |
+|--------|-------------|
+| `andWhereRaw` | Alias for the `whereRaw` method |
+| `orWhereRaw` | Adds an **or where raw** clause |
+
+### join
+The `join` method allows specifying SQL joins between two tables. For example: Select the `ip_address` and the `country` columns by joining the `user_logins` table.
 
 ```ts
 Database
@@ -371,45 +464,49 @@ Database
 
 You can pass a callback as the 2nd argument to define more join constraints.
 
-```ts{3-7}
+```ts
+Database
+  .from('users')
+  // highlight-start
+  .join('user_logins', (query) => {
+    query
+      .on('users.id', '=', 'user_logins.user_id')
+      .andOn('user_logins.created_at', '>', '2020-10-09')
+  })
+  // highlight-end
+  .select('users.*')
+  .select('user_logins.ip_address')
+  .select('user_logins.country')
+```
+
+To group join constraints, you can pass a callback to the `on` method.
+
+```ts
 Database
   .from('users')
   .join('user_logins', (query) => {
     query
-      .on('users.id', '=', 'user_logins.user_id')
-      .andOn('user_logins.created_at', '>', Database.ref('2020-10-09'))
+      // highlight-start
+      .on((subquery) => {
+        subquery
+          .on('users.id', '=', 'user_logins.user_id')
+          .andOn('user_logins.created_at', '>', '2020-10-09')
+      })
+      .orOn((subquery) => {
+        subquery
+          .on('users.id', '=', 'user_logins.account_id')
+          .andOn('user_logins.created_at', '>', '2020-10-09')
+      })
+      // highlight-end
   })
   .select('users.*')
   .select('user_logins.ip_address')
   .select('user_logins.country')
 ```
 
-[comment title="To be added later"]
+Output SQL
 
-In order to group join constraints, you can pass a callback to the `on` method.
-
-```ts{5-14}
-Database
-  .from('users')
-  .join('user_logins', (query) => {
-    query
-      .on((subquery) => {
-        subquery
-          .on('users.id', '=', 'user_logins.user_id')
-          .andOn('user_logins.created_at', '>', Database.ref('2020-10-09'))
-      })
-      .orOn((subquery) => {
-        subquery
-          .on('users.id', '=', 'user_logins.account_id')
-          .andOn('user_logins.created_at', '>', Database.ref('2020-10-09'))
-      })
-  })
-  .select('users.*')
-  .select('user_logins.ip_address')
-  .select('user_logins.country')
-
-/** Output
-
+```sql
 SELECT
   "users".*,
   "user_logins"."ip_address",
@@ -421,12 +518,9 @@ FROM "users"
   or (
     "users"."id" = "user_logins"."account_id" AND "user_logins"."created_at" > ?
   )
-*/
 ```
 
-[/comment]
-
-The `join` method uses the **inner join** by default. However, you can use one of the following methods to use a more suitable join for your query.
+The `join` method uses the **inner join** by default, and you can use a different join using one of the following available methods.
 
 - `leftJoin`
 - `leftOuterJoin`
@@ -435,8 +529,15 @@ The `join` method uses the **inner join** by default. However, you can use one o
 - `fullOuterJoin`
 - `crossJoin`
 
-## joinRaw
-You can make use of the `joinRaw` method to express conditions not covered by the query builder standard API.
+---
+
+### joinRaw
+You can use the `joinRaw` method to express conditions not covered by the query builder standard API.
+
+---
+
+### On methods
+Following is the list of available `on` methods you can use with a **join query**.
 
 ```ts
 Database
@@ -444,17 +545,7 @@ Database
   .joinRaw('natural full join user_logins')
 ```
 
-## On methods
-Similar to the `where` clause, you can add the `on` clause in the join query using one of the following methods.
-
-– `onIn`
-– `onNotIn`
-– `onNull`
-– `onNotNull`
-– `onExists`
-– `onNotExists`
-– `onBetween`
-– `onNotBetween`
+#### onIn
 
 ```ts
 Database
@@ -463,6 +554,38 @@ Database
     query.onIn('user_logins.country', ['India', 'US', 'UK'])
   })
 ```
+
+#### onNotIn
+
+```ts
+Database
+  .from('users')
+  .join('user_logins', (query) => {
+    query.onNotIn('user_logins.country', ['India', 'US', 'UK'])
+  })
+```
+
+#### onNull
+
+```ts
+Database
+  .from('users')
+  .join('user_logins', (query) => {
+    query.onNull('user_logins.ip_address')
+  })
+```
+
+#### onNotNull
+
+```ts
+Database
+  .from('users')
+  .join('user_logins', (query) => {
+    query.onNotNull('user_logins.ip_address')
+  })
+```
+
+#### onExists
 
 ```ts
 Database
@@ -477,46 +600,94 @@ Database
   })
 ```
 
-## having
-The `having` method adds the **having** clause. Most of the times you will find yourself using the `havingRaw` method.
+#### onNotExists
 
-```ts{6}
+```ts
 Database
-  .from('marks')
+  .from('users')
+  .join('user_logins', (query) => {
+    query.onNotExists((subquery) => {
+      subquery
+        .select('*')
+        .from('accounts')
+        .whereRaw('users.account_id = accounts.id')
+    })
+  })
+```
+
+#### onBetween
+
+```ts
+Database
+  .from('users')
+  .join('user_logins', (query) => {
+    query.onBetween('user_logins.login_date', ['2020-10-01', '2020-12-31'])
+  })
+```
+
+#### onNotBetween
+
+```ts
+Database
+  .from('users')
+  .join('user_logins', (query) => {
+    query.onNotBetween('user_logins.login_date', ['2020-10-01', '2020-12-31'])
+  })
+```
+
+---
+
+### having
+
+The `having` method adds the **having** clause. It accepts the column name as the first argument, followed by the optional operator and the value.
+
+```ts
+Database
+  .from('exams')
   .select('user_id')
-  .sum('score as total_marks')
+  .groupBy('user_id')
+  .having('score', '>', 80)
+```
+
+### havingRaw
+Most of the time, you will find yourself using the `havingRaw` method, as you can define the aggregates for the having clause.
+
+```ts
+Database
+  .from('exams')
+  .select('user_id')
   .groupBy('user_id')
   .havingRaw('SUM(score) > ?', [200])
 ```
 
-You can use one of the following methods when the having clause does not rely on an aggregate function. Otherwise, stick to `havingRaw`.
+---
 
-```ts
-Database
-  .from('marks')
-  .select('user_id')
-  .groupBy('user_id')
-  .having('total', '>', 200)
-```
+### having method variants 
 
-Following methods have the same signature as the `where` method.
+Following is the list of all the available **having methods**.
 
-– `havingIn`
-– `havingNotIn`
-– `havingNull`
-– `havingNotNull`
-– `havingExists`
-– `havingNotExists`
-– `havingBetween`
-– `havingNotBetween`
+| Method | Description |
+|--------|-------------|
+| `havingIn` | Adds a having in clause to the query. It accepts an array of values. |
+| `havingNotIn` | Adds a having not in clause to the query. It accepts an array of values. |
+| `havingNull` |  Adds a having null clause to the query. |
+| `havingNotNull` | Adds a having not null clause to the query. |
+| `havingExists` | Adds a having exists clause to the query. |
+| `havingNotExists` | Adds a having not exists clause to the query. |
+| `havingBetween` | Adds a having between clause to the query. It accepts an array of values. |
+| `havingNotBetween` | Adds a having not between clause to the query. It accepts an array of values |
 
-## distinct
-The `distinct` method applies the **distinct** clause to the select statement.
+### distinct
+The `distinct` method applies the **distinct** clause to the select statement. You can define one or more column names as multiple arguments.
 
 ```ts
 Database
   .from('users')
   .distinct('country')
+
+Database
+  .from('users')
+  .distinct('country', 'locale')
 ```
 
 You can call the `distinct` method without any parameters to eliminate duplicate rows.
@@ -525,7 +696,7 @@ You can call the `distinct` method without any parameters to eliminate duplicate
 Database.from('users').distinct()
 ```
 
-There is another PostgreSQL only method `distinctOn`. Here's an article explaining [SELECT DISTINCT ON](https://www.geekytidbits.com/postgres-distinct-on/).
+There is another PostgreSQL-only method, `distinctOn`. Here's an article explaining [SELECT DISTINCT ON](https://www.geekytidbits.com/postgres-distinct-on/).
 
 ```ts
 Database
@@ -534,7 +705,9 @@ Database
   .orderBy('created_at', 'DESC')
 ```
 
-## groupBy
+---
+
+### groupBy
 The `groupBy` method applies the **group by** clause to the query.
 
 ```ts
@@ -544,7 +717,10 @@ Database
   .groupBy('url')
 ```
 
-You can also define a raw-query with `groupByRaw` method.
+---
+
+### groupByRaw
+The `groupByRaw` method allows writing a SQL query to define the group by statement.
 
 ```ts
 Database
@@ -553,7 +729,9 @@ Database
   .groupByRaw('year WITH ROLLUP')
 ```
 
-## orderBy
+---
+
+### orderBy
 The `orderBy` method applies the **order by** clause to the query.
 
 ```ts
@@ -562,7 +740,7 @@ Database
   .orderBy('created_at', 'desc')
 ```
 
-Multiple orders can be applied by calling the `orderBy` method for the multiple times.
+You can sort by multiple columns by calling the `orderBy` method multiple times.
 
 ```ts
 Database
@@ -588,7 +766,9 @@ Database
   ])
 ```
 
-You can also pass a sub-query instance to the `orderBy` method. For example: Order posts by the number of comments they have received.
+#### Using sub queries
+
+You can also pass a sub-query instance to the `orderBy` method — for example, Order posts by the number of comments they have received.
 
 ```ts
 const commentsCountQuery = Database
@@ -601,72 +781,67 @@ Database
   .orderBy(commentsCountQuery, 'desc')
 ```
 
-Finally, you can make use of the `orderByRaw` method to define the order by query from a SQL string.
+---
+
+### orderByRaw
+Use the `orderByRaw` method to define the sort order from a SQL string.
 
 ```ts
 const commentsCountQuery = Database
   .raw(
-    '(select count(*) from comments where posts.id = comments.post_id)'
+    'select count(*) from comments where posts.id = comments.post_id'
   )
+  .wrap('(', ')')
 
 Database
   .from('posts')
   .orderBy(commentsCountQuery, 'desc')
 ```
 
-## offset
+---
+
+### offset
 Apply offset to the SQL query
 
 ```ts
 Database.from('posts').offset(11)
 ```
 
-## limit
-Apply limit to the SQL query
+---
+
+### limit
+Apply a limit to the SQL query
 
 ```ts
 Database.from('posts').limit(20)
 ```
 
-## forPage
-The `forPage` is a convinence method to apply `offset` and `limit` using the page number.
+---
 
-[compare]
+### forPage
+The `forPage` is a convenient method to apply `offset` and `limit` using the page number. It accepts a total of two arguments.
 
-[lhs title="Without forPage"]
-```ts
-const page = request.input('page', 1)
-const limit = 20
-const offset = page === 1 ? 0 : (page - 1) * limit
+- The first argument is the page number **(not the offset)**.
+- The second argument is the number of rows to fetch. Defaults to 20
 
-Database
-  .from('posts')
-  .offset(offset)
-  .limit(limit)
-```
-[/lhs]
-
-[rhs title="With forPage"]
 ```ts
 Database
   .from('posts')
   .forPage(request.input('page', 1), 20)
 ```
-[/rhs]
-[/compare]
-
-## Aggregates
-The query builder supports of all the SQL aggregate methods as a first class citizen. The following examples uses the `count` aggregate, however the API remains the same for aggregate methods as well.
 
 ### count
 The `count` method allows you to use the **count aggregate** in your SQL queries.
 
 :::note
-The keys for the aggregate values are dialect specific and hence we recommend you to always define aliases for predictable output.
+
+The keys for the aggregate values are dialect-specific, and hence we recommend you always define aliases for predictable output.
+
 :::
 
 :::note
-In PostgreSQL, the count returns a bigint type which will be a `String` and not a `Number`.
+
+In PostgreSQL, the count method returns a string representation of a bigint data type.
 :::
 
 ```ts
@@ -701,17 +876,22 @@ console.log(users[0].total)
 console.log(users[0].active)
 ```
 
-Following is the list of other supported aggregate methods. The API is identical to the `count` method.
+---
 
-- `countDistinct`
-- `min`
-- `max`
-- `sum`
-- `sumDistinct`
-- `avg`
-- `avgDistinct`
+### Other aggregate methods
+The API for all the following aggregate methods is identical to the `count` method.
 
-## union
+| Method | Description |
+|--------|-------------|
+| `countDistinct` | Count only the distinct rows |
+| `min` | Aggregate values using the **min function** |
+| `max` | Aggregate values using the **max function** |
+| `sum` | Aggregate values using the **sum function** |
+| `sumDistinct` | Aggregate values for only distinct rows using the **sum function** |
+| `avg` | Aggregate values using the **avg function** |
+| `avgDistinct` | Aggregate values for only distinct rows using the **avg function** |
+
+### union
 The `union` method allows to you build up a union query by using multiple instances of the query builder. For example:
 
 ```ts
@@ -748,10 +928,11 @@ UNION
 
 You can pass an array of callbacks to define multiple union queries.
 
-```ts{4-11}
+```ts
 Database
   .from('users')
   .whereNull('last_name')
+  // highlight-start
   .union([
     (query) => {
       query.from('users').whereNull('first_name')
@@ -760,7 +941,9 @@ Database
       query.from('users').whereNull('email')
     },
   ], true)
+  // highlight-end
 
+// highlight-start
 /**
 SELECT * FROM "users" WHERE "last_name" IS NULL
 UNION
@@ -768,27 +951,33 @@ UNION
 UNION
 (SELECT * FROM "users" WHERE "email" IS NULL)
 */
+// highlight-end
 ```
 
-Finally, you can also pass an instance of another query builder or a raw query to the `union` method.
+#### Using sub queries
+You can also define union queries by passing an instance of a query builder.
 
-```ts{4-7}
+```ts
 Database
   .from('users')
   .whereNull('last_name')
+  // highlight-start
   .union([
     Database.from('users').whereNull('first_name'),
     Database.from('users').whereNull('email')
   ], true)
+  // highlight-end
 ```
 
-Following methods has the same API as the `union` method.
+The following methods have the same API as the `union` method.
 
 - `unionAll`
 - `intersect`
 
-## with
-The `with` method allows you to make use of CTE (Common table expression) in PostgreSQL, Oracle, SQLite3 and MSSQL databases.
+---
+
+### with
+The `with` method allows you to use CTE (Common table expression) in **PostgreSQL**, **Oracle**, **SQLite3** and the **MSSQL** databases.
 
 ```ts
 Database
@@ -807,8 +996,10 @@ SELECT * FROM "aliased_table"
 */
 ```
 
-## withRecursive
-The `withRecursive` method creates a recursive CTE (Common table expression) in PostgreSQL, Oracle, SQLite3 and MSSQL databases.
+---
+
+### withRecursive
+The `withRecursive` method creates a recursive CTE (Common table expression) in **PostgreSQL**, **Oracle**, **SQLite3** and the **MSSQL** databases.
 
 In the following example, we calculate the sum of all children accounts of a parent account. Also, we assume the following table structure.
 
@@ -841,11 +1032,13 @@ Database
   .from('tree')
 ```
 
-The above example is not meant to simplify the complexity of SQL. Instead, it demonstrates the power of the query builder to construct such SQL queries without writing it as a SQL string.
+The above example is not meant to simplify the complexity of SQL. Instead, it demonstrates the power of the query builder to construct such SQL queries without writing them as a SQL string.
 
 Here's a great article explaining the [PostgreSQL Recursive Query](https://www.postgresqltutorial.com/postgresql-recursive-query/)
 
-## update
+---
+
+### update
 The `update` method allows updating one or more database rows. You can make use of the query builder to add additional constraints when performing the update.
 
 ```ts
@@ -855,7 +1048,7 @@ const affectedRows = Database
   .update({ email: 'virk@adonisjs.com' })
 ```
 
-The return value is the number of affected rows. However when using `PostgreSQL`, `Orcale` or `MSSQL`, you can specify the return columns as well.
+The return value is the number of affected rows. However, when using `PostgreSQL`, `Orcale`, or `MSSQL`, you can specify the return columns as well.
 
 ```ts
 const rows = Database
@@ -870,7 +1063,9 @@ console.log(rows[0].id)
 console.log(rows[0].email)
 ```
 
-## increment
+---
+
+### increment
 The `increment` method allows incrementing the value for one or more columns.
 
 ```ts
@@ -909,8 +1104,10 @@ WHERE
 */
 ```
 
-## decrement
-The `decrement` method is opposite of the `increment` method. However, the API is same.
+---
+
+### decrement
+The `decrement` method is the opposite of the `increment` method. However, the API is the same.
 
 ```ts
 Database
@@ -919,7 +1116,9 @@ Database
   .decrement('balance', 10)
 ```
 
-## delete
+---
+
+### delete
 The `delete` method issues a **delete** SQL query. You can make use of the query builder to add additional constraints when performing the delete.
 
 ```ts
@@ -931,9 +1130,9 @@ Database
 
 The `delete` method also has an alias called `del`.
 
-## paginate
+---
 
-## useTransaction
+### useTransaction
 The `useTransaction` method instructs the query builder to wrap the query inside a transaction. The guide on [database transactions](/guides/database/transactions) covers different ways to create and use transactions in your application.
 
 ```ts
@@ -944,13 +1143,17 @@ Database
   .useTransaction(trx) // 👈
   .where('id', 1)
   .update({ email: 'virk@adonisjs.com' })
+
+await trx.commit()
 ```
+
+---
 
 ### forUpdate
 The `forUpdate` method acquires an update lock on the selected rows in PostgreSQL and MySQL.
 
 :::note
-Make sure to always supply the transaction object using the `useTransaction` method, before using `forUpdate` or similar locks.
+Make sure always to supply the transaction object using the `useTransaction` method before using `forUpdate` or similar locks.
 :::
 
 ```ts
@@ -961,6 +1164,8 @@ const user = Database
   .forUpdate() // 👈
   .first()
 ```
+
+---
 
 ### forShare
 The `forShare` adds a **FOR SHARE in PostgreSQL** and a **LOCK IN SHARE MODE for MySQL** during a select statement.
@@ -973,6 +1178,8 @@ const user = Database
   .forShare() // 👈
   .first()
 ```
+
+---
 
 ### skipLocked
 The `skipLocked` method skips the rows locked by another transaction. The method is only supported by MySQL 8.0+ and PostgreSQL 9.5+.
@@ -992,8 +1199,10 @@ FOR UPDATE SKIP LOCKED
 */
 ```
 
+---
+
 ### noWait
-The `noWait` method results in a failure if any of the selected rows are locked by another transaction. The method is only supported by MySQL 8.0+ and PostgreSQL 9.5+.
+The `noWait` method fails if any of the selected rows are locked by another transaction. The method is only supported by MySQL 8.0+ and PostgreSQL 9.5+.
 
 ```ts
 Database
@@ -1010,7 +1219,9 @@ FOR UPDATE NOWAIT
 */
 ```
 
-## clone
+---
+
+### clone
 The `clone` method returns a new query builder object with all constraints applied from the original query.
 
 ```ts
@@ -1021,7 +1232,9 @@ await query // select "id", "email" from "users"
 await clonedQuery // select * from "users"
 ```
 
-## debug
+---
+
+### debug
 The `debug` method allows enabling or disabling debugging at an individual query level. Here's a [complete guide](/guides/database/debugging-queries/) on debugging queries.
 
 ```ts
@@ -1030,7 +1243,9 @@ Database
   .debug(true)
 ```
 
-## timeout
+---
+
+### timeout
 Define the `timeout` for the query. An exception is raised after the timeout has been exceeded.
 
 The value of timeout is always in milliseconds.
@@ -1049,7 +1264,9 @@ Database
   .timeout(2000, { cancel: true })
 ```
 
-## toSQL
+---
+
+### toSQL
 The `toSQL` method returns the query SQL and bindings as an object.
 
 ```ts
@@ -1061,7 +1278,7 @@ const output = Database
 console.log(output)
 ```
 
-The `toSQL` object also has `toNative` method to format the SQL query as per the database dialect in use.
+The `toSQL` object also has the `toNative` method to format the SQL query as per the database dialect in use.
 
 ```ts
 const output = Database
@@ -1073,8 +1290,10 @@ const output = Database
 console.log(output)
 ```
 
-## toQuery
-Returns the SQL query as a string with bindings applied to the placeholders.
+---
+
+### toQuery
+Returns the SQL query after applying the bind params.
 
 ```ts
 const output = Database
@@ -1086,10 +1305,8 @@ console.log(output)
 // select * from "users" where "id" = 1
 ```
 
-## Execute queries
-The query builder extends the native `Promise` class. You can execute the queries using the `await` keyword or by chaining the `then/catch` methods.
-
-Unlike native promises, the query builder is not eager in nature. It means, the query is not executed until you chain `then/catch` or make use of the `await keyword`.
+## Executing queries
+The query builder extends the native `Promise` class. You can execute the queries using the `await` keyword or chaining the `then/catch` methods.
 
 ```ts
 Database
@@ -1112,8 +1329,16 @@ Also, you can execute a query by explicitly calling the `exec` method.
 const users = await Database.from('users').exec()
 ```
 
+---
+
 ### first
-The select queries always returns an array of objects, even when the query is intended to fetch a single row. However, using the `first` method will give you first row or null (when there are no rows).
+The select queries always return an array of objects, even when the query is intended to fetch a single row. However, using the `first` method will give you the first row or null (when there are no rows).
+
+:::note
+
+First does NOT mean the first row in the table. It means the first row from the results array in whatever order you fetched it from the database.
+
+:::
 
 ```ts
 const user = await Database
@@ -1126,6 +1351,8 @@ if (user) {
 }
 ```
 
+---
+
 ### firstOrFail
 The `firstOrFail` method is similar to the `first` method except, it raises an exception when no rows are found.
 
@@ -1137,7 +1364,7 @@ const user = await Database
 ```
 
 ## Pagination
-The query builder has first class support for offset based pagination. It also automatically counts the number of total rows by running a separate query behind the scenes.
+The query builder has first-class support for offset-based pagination. It also automatically counts the number of total rows by running a separate query behind the scenes.
 
 ```ts
 const page = request.input('page', 1)
@@ -1148,47 +1375,47 @@ const results = await Database
   .paginate(page, limit)
 ```
 
-The `paginate` method returns an instance of the [SimplePaginator](https://github.com/adonisjs/lucid/blob/efed38908680cca3b288d9b2a123586fab155b1d/src/Database/Paginator/SimplePaginator.ts#L20) class. The class has following properties and methods.
+The `paginate` method returns an instance of the [SimplePaginator](https://github.com/adonisjs/lucid/blob/efed38908680cca3b288d9b2a123586fab155b1d/src/Database/Paginator/SimplePaginator.ts#L20) class. The class has the following properties and methods.
 
-### firstPage
+#### firstPage
 Returns the number for the first page. It is always `1`.
 
 ```ts
 results.firstPage
 ```
 
-### perPage
+#### perPage
 Returns the value for the limit passed to the `paginate` method.
 
 ```ts
 results.perPage
 ```
 
-### currentPage
-Returns the value for the current page.
+#### currentPage
+Returns the value of the current page.
 
 ```ts
 results.currentPage
 ```
 
-### lastPage
+#### lastPage
 Returns the value for the last page by taking the total of rows into account.
 
 ```ts
 results.lastPage
 ```
 
-### total
+#### total
 Holds the value for the total number of rows in the database.
 
 ```ts
 results.total
 ```
 
-### hasPages
+#### hasPages
 A boolean to know if there are pages for pagination. You can rely on this value to decide when or when not to show the pagination links.
 
-Following is an example of the edge view
+Following is an example of the edge view.
 
 ```edge
 @if(results.hasPages)
@@ -1198,29 +1425,29 @@ Following is an example of the edge view
 @endif
 ```
 
-### hasMorePages
+#### hasMorePages
 A boolean to know if there are more pages to go after the current page.
 
 ```ts
 results.hasMorePages
 ```
 
-### all()
+#### all()
 Returns an array of rows returned by the SQL queries.
 
 ```ts
 results.all()
 ```
 
-### getUrl
-Returns the number for a given page number.
+#### getUrl
+Returns the URL for a given page number.
 
 ```ts
 result.getUrl(1) // /?page=1
 ```
 
-### getNextPageUrl
-Returns the url for the next page
+#### getNextPageUrl
+Returns the URL for the next page
 
 ```ts
 // Assuming the current page is 2
@@ -1228,8 +1455,8 @@ Returns the url for the next page
 result.getNextPageUrl() // /?page=3
 ```
 
-### getPreviousPageUrl
-Returns the url for the previous page
+#### getPreviousPageUrl
+Returns the URL for the previous page
 
 ```ts
 // Assuming the current page is 2
@@ -1237,23 +1464,25 @@ Returns the url for the previous page
 result.getPreviousPageUrl() // /?page=1
 ```
 
-### getUrlsForRange
-Returns urls for a given range. Helpful when you want to render links for a given range.
+#### getUrlsForRange
+Returns URLs for a given range. Helpful when you want to render links for a given range.
 
-Following is an example of the edge template
+Following is an example of using `getUrlsForRange` inside an edge template.
 
-```ts
-@each(link in results.getUrlsForRange(results.firstPage, results.lastPage))
+```edge
+@each(
+  link in results.getUrlsForRange(results.firstPage, results.lastPage)
+)
   <a
     href="{{ link.url }}"
     class="{{ link.isActive ? 'active' : '' }}"
-    >
+  >
     {{ link.page }}
   </a>
 @endeach
 ```
 
-### toJSON
+#### toJSON
 The `toJSON` method returns an object with `meta` and `data` properties. The output of the method is suitable for JSON API responses.
 
 ```ts
@@ -1277,8 +1506,8 @@ results.toJSON()
 */
 ```
 
-### baseUrl
-All of the URLs generated by the paginator class uses the `/` (root) URL. However, you can change this defining a custom base url.
+#### baseUrl
+All of the URLs generated by the paginator class use the `/` (root) URL. However, you can change this by defining a custom base URL.
 
 ```ts
 results.baseUrl('/posts')
@@ -1286,7 +1515,7 @@ results.baseUrl('/posts')
 results.getUrl(2) // /posts?page=2
 ```
 
-### queryString
+#### queryString
 Define query string to be appended to the URLs generated by the paginator class.
 
 
@@ -1297,15 +1526,17 @@ results.getUrl(2) // /?page=2&limit=20&sort=top
 ```
 
 ## Helpful properties and methods
-Following is the list of properties and methods that you may need occasionally when trying build something on top of the query builder.
+Following is the list of properties and methods you may occasionally need when building something on top of the query builder.
 
 ### client
-Reference to the instance of the underlying [database query client](/api/database/query-client).
+Reference to the instance of the underlying [database query client](./query-client.md).
 
 ```ts
 const query = Database.query()
 console.log(query.client)
 ```
+
+---
 
 ### knexQuery
 Reference to the instance of the underlying KnexJS query.
@@ -1315,24 +1546,30 @@ const query = Database.query()
 console.log(query.knexQuery)
 ```
 
+---
+
 ### hasAggregates
-A boolean to know if query is using any of the aggregate methods.
+A boolean to know if the query is using any of the aggregate methods.
 
 ```ts
 const query = Database.from('posts').count('* as total')
 console.log(query.hasAggregates) // true
 ```
 
+---
+
 ### hasGroupBy
-A boolean to know if query is using a group by clause.
+A boolean to know if the query is using a group by clause.
 
 ```ts
 const query = Database.from('posts').groupBy('tenant_id')
 console.log(query.hasGroupBy) // true
 ```
 
+---
+
 ### hasUnion
-A boolean to know if query is using a union.
+A boolean to know if the query is using a union.
 
 ```ts
 const query = Database
@@ -1345,6 +1582,8 @@ const query = Database
 console.log(query.hasUnion) // true
 ```
 
+---
+
 ### clearSelect
 Call this method to clear selected columns.
 
@@ -1352,6 +1591,8 @@ Call this method to clear selected columns.
 const query = Database.query().select('id', 'title')
 query.clone().clearSelect()
 ```
+
+---
 
 ### clearWhere
 Call this method to clear where clauses.
@@ -1361,6 +1602,8 @@ const query = Database.query().where('id', 1)
 query.clone().clearWhere()
 ```
 
+---
+
 ### clearOrder
 Call this method to clear the order by constraint.
 
@@ -1368,6 +1611,8 @@ Call this method to clear the order by constraint.
 const query = Database.query().orderBy('id', 'desc')
 query.clone().clearOrder()
 ```
+
+---
 
 ### clearHaving
 Call this method to clear the having clause.
@@ -1377,6 +1622,8 @@ const query = Database.query().having('total', '>', 100)
 query.clone().clearHaving()
 ```
 
+---
+
 ### clearLimit
 Call this method to clear the applied limit.
 
@@ -1384,6 +1631,8 @@ Call this method to clear the applied limit.
 const query = Database.query().limit(20)
 query.clone().clearLimit()
 ```
+
+---
 
 ### clearOffset
 Call this method to clear the applied offset.
@@ -1393,8 +1642,10 @@ const query = Database.query().offset(20)
 query.clone().clearOffset()
 ```
 
+---
+
 ### reporterData
-The query builder emits the `db:query` event and also reports the queries execution time with the framework profiler.
+The query builder emits the `db:query` event and reports the query's execution time with the framework profiler.
 
 Using the `reporterData` method, you can pass additional details to the event and the profiler.
 
@@ -1406,10 +1657,125 @@ await query
   .select('*')
 ```
 
-Now within the `db:query` event, you can access the value of `userId` as follows.
+Within the `db:query` event, you can access the value of `userId` as follows.
 
 ```ts
 Event.on('db:query', (query) => {
   console.log(query.userId)
 })
 ```
+
+---
+
+### withSchema
+Specify the PostgreSQL schema to use when executing the query.
+
+```ts
+Database
+  .from('users')
+  .withSchema('public')
+  .select('*')
+```
+
+---
+
+### as
+Specify the alias for a given query. Usually helpful when passing the query builder instance as a subquery. For example:
+
+```ts
+Database
+  .from('users')
+  .select(
+    Database
+      .from('user_logins')
+      .select('ip_address')
+      .whereColumn('users.id', 'user_logins.user_id')
+      .orderBy('id', 'desc')
+      .limit(1)
+      .as('last_login_ip') // 👈 Query alias
+  )
+```
+
+---
+
+### if
+
+The `if` helper allows you to conditionally add constraints to the query builder. For example:
+
+```ts
+Database
+  .from('users')
+  .if(searchQuery, (query) => {
+    query.where('first_name', 'like', `%${searchQuery}%`)
+    query.where('last_name', 'like', `%${searchQuery}%`)
+  })
+``` 
+
+You can define the `else` method by passing another callback as the second argument.
+
+```ts
+Database
+  .from('users')
+  .if(
+    condition,
+    (query) => {}, // if condition met
+    (query) => {}, // otherwise execute this
+  )
+```
+
+---
+
+### unless
+The `unless` method is opposite of the `if` helper.
+
+```ts
+Database
+  .from('projects')
+  .unless(filters.status, () => {
+    /**
+     * Fetch projects with "active" status when
+     * not status is defined in filters
+     */
+    query.where('status', 'active')
+  })
+``` 
+
+You can pass another callback which gets executed when the `unless` statement isn't true.
+
+```ts
+Database
+  .from('users')
+  .unless(
+    condition,
+    (query) => {}, // if condition met
+    (query) => {}, // otherwise execute this
+  )
+```
+
+---
+
+### match
+The `match` helper allows you define an array of conditional blocks to match from and execute the corresponding callback.
+
+In the following example, the query builder will go through all the conditional blocks and executes the first matching one and discards the other. **Think of it as a `switch` statement in JavaScript**.
+
+```ts
+Database
+  .query()
+  .match(
+    [
+      // Run this is user is a super user
+      auth.isSuperUser, (query) => query.whereIn('status', ['published', 'draft'])
+    ],
+    [
+      // Run this is user is loggedin
+      auth.user, (query) => query.where('user_id', auth.user.id)
+    ],
+    // Otherwise run this
+    (query) => query.where('status', 'published').where('is_public', true)
+  )
+```
+
+---
+
+### ifDialect

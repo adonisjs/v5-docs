@@ -1,4 +1,4 @@
-The insert query builder allows you to insert new rows to the database. You must use the [standard query builder](/api/database/query-builder) for **selecting**, **deleting** or **updating** rows.
+The insert query builder allows you to insert new rows into the database. You must use the [standard query builder](./query-builder.md) for **selecting**, **deleting** or **updating** rows.
 
 You can get access to the insert query builder as shown in the following example:
 
@@ -20,8 +20,8 @@ The `insert` method accepts an object of key-value pair to insert.
 The return value of the insert query is highly dependent on the underlying driver.
 
 - MySQL returns the id of the last inserted row.
-- Sqlite returns the id of the last inserted row.
-- For PostgreSQL, MSSQL and Oracle, you must use the `returning` method to fetch the value of the id.
+- SQLite returns the id of the last inserted row.
+- For PostgreSQL, MSSQL, and Oracle, you must use the `returning` method to fetch the value of the id.
 
 ```ts
 Database
@@ -34,8 +34,10 @@ Database
   })
 ```
 
+---
+
 ### multiInsert
-The `multiInsert` method accept an array of objects and inserts multiple rows at once.
+The `multiInsert` method accepts an array of objects and inserts multiple rows at once.
 
 ```ts
 Database
@@ -62,8 +64,10 @@ values
 */
 ```
 
+---
+
 ### returning
-You can the `returning` method with PostgreSQL, MSSQL, and Oracle databases to retrieve the values of one or more columns.
+You can use the `returning` method with PostgreSQL, MSSQL, and Oracle databases to retrieve one or more columns' values.
 
 ```ts
 const rows = Database
@@ -78,6 +82,8 @@ const rows = Database
 console.log(rows[0].id, rows[0].username)
 ```
 
+---
+
 ### debug
 The `debug` method allows enabling or disabling debugging at an individual query level. Here's a [complete guide](/guides/database/debugging-queries/) on debugging queries.
 
@@ -91,6 +97,8 @@ const rows = Database
     password: await Hash.make('secret'),
   })
 ```
+
+---
 
 ### timeout
 Define the `timeout` for the query. An exception is raised after the timeout has been exceeded.
@@ -121,6 +129,8 @@ Database
   })
 ```
 
+---
+
 ### toSQL
 The `toSQL` method returns the query SQL and bindings as an object.
 
@@ -137,7 +147,7 @@ const output = Database
 console.log(output)
 ```
 
-The `toSQL` object also has `toNative` method to format the SQL query as per the database dialect in use.
+The `toSQL` object also has the `toNative` method to format the SQL query as per the database dialect in use.
 
 ```ts
 const output = Database
@@ -152,6 +162,8 @@ const output = Database
 
 console.log(output)
 ```
+
+---
 
 ### toQuery
 Returns the SQL query as a string with bindings applied to the placeholders.
@@ -175,6 +187,8 @@ values
 */
 ```
 
+---
+
 ### useTransaction
 The `useTransaction` method instructs the query builder to wrap the query inside a transaction. The guide on [database transactions](/guides/database/transactions) covers different ways to create and use transactions in your application.
 
@@ -194,7 +208,7 @@ await trx.commit()
 ```
 
 ## Helpful properties and methods
-Following is the list of properties and methods that you may need occasionally when trying build something on top of the query builder.
+Following is the list of properties and methods you may occasionally need when building something on top of the query builder.
 
 ### client
 Reference to the instance of the underlying [database query client](/api/database/query-client).
@@ -204,6 +218,8 @@ const query = Database.insertQuery()
 console.log(query.client)
 ```
 
+---
+
 ### knexQuery
 Reference to the instance of the underlying KnexJS query.
 
@@ -212,8 +228,10 @@ const query = Database.insertQuery()
 console.log(query.knexQuery)
 ```
 
+---
+
 ### reporterData
-The query builder emits the `db:query` event and also reports the queries execution time with the framework profiler.
+The query builder emits the `db:query` event and reports the query's execution time with the framework profiler.
 
 Using the `reporterData` method, you can pass additional details to the event and the profiler.
 
@@ -229,7 +247,7 @@ await query
   })
 ```
 
-Now within the `db:query` event, you can access the value of `userId` as follows.
+Within the `db:query` event, you can access the value of `userId` as follows.
 
 ```ts
 Event.on('db:query', (query) => {

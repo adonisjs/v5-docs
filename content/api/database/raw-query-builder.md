@@ -1,10 +1,10 @@
 The raw query builder allows you execute queries from a SQL string. Even though you are directly executing raw SQL strings, you can still keep your queries safe from SQL injection by using placeholders for values.
 
-## Execute query
+## Executing query
 Following is an example of executing query from a SQL string.
 
 :::note
-In case of raw queries, the underlying driver return value is forwarded as it is.
+When executing raw queries, the results from the underlying driver are return as it is.
 :::
 
 ```ts
@@ -83,34 +83,6 @@ ON
 */
 ```
 
-## debug
-The `debug` method allows enabling or disabling debugging at an individual query level. Here's a [complete guide](/guides/database/debugging-queries/) on debugging queries.
-
-```ts
-await Database
-  .rawQuery('select * from users')
-  .debug(true)
-```
-
-## timeout
-Define the `timeout` for the query. An exception is raised after the timeout has been exceeded.
-
-The value of timeout is always in milliseconds.
-
-```ts
-await Database
-  .rawQuery('select * from users')
-  .timeout(2000)
-```
-
-You can also cancel the query when using timeouts with MySQL and PostgreSQL.
-
-```ts
-await Database
-  .rawQuery('select * from users')
-  .timeout(2000, { cancel: true })
-```
-
 ## Raw query vs raw
 There are two ways to create raw queries using the `Database` module.
 
@@ -135,8 +107,52 @@ await Database.select(
 )
 ```
 
-## Helpful properties and methods
-Following is the list of properties and methods that you may need occasionally when trying build something on top of the raw query builder.
+## Methods/Properties
+Following is the list of methods and properties available on the raw query builder.
+
+### wrap
+Wrap the raw query with a prefix and a suffix. Usually helpful when passing the raw query as a reference.
+
+```ts
+await Database.select(
+  'id',
+  Database
+    .raw('select ip_address from user_logins')
+    .wrap('(', ')'),
+)
+```
+
+### debug
+The `debug` method allows enabling or disabling debugging at an individual query level. Here's a [complete guide](/guides/database/debugging-queries/) on debugging queries.
+
+```ts
+await Database
+  .rawQuery('select * from users')
+  .debug(true)
+```
+
+---
+
+### timeout
+Define the `timeout` for the query. An exception is raised after the timeout has been exceeded.
+
+The value of timeout is always in milliseconds.
+
+```ts
+await Database
+  .rawQuery('select * from users')
+  .timeout(2000)
+```
+
+You can also cancel the query when using timeouts with MySQL and PostgreSQL.
+
+```ts
+await Database
+  .rawQuery('select * from users')
+  .timeout(2000, { cancel: true })
+```
+
+---
 
 ### client
 Reference to the instance of the underlying [database query client](/api/database/query-client).
@@ -146,6 +162,8 @@ const query = Database.rawQuery(sql, bindings)
 console.log(query.client)
 ```
 
+---
+
 ### knexQuery
 Reference to the instance of the underlying KnexJS query.
 
@@ -153,6 +171,8 @@ Reference to the instance of the underlying KnexJS query.
 const query = Database.rawQuery(sql, bindings)
 console.log(query.knexQuery)
 ```
+
+---
 
 ### reporterData
 The query builder emits the `db:query` event and also reports the queries execution time with the framework profiler.

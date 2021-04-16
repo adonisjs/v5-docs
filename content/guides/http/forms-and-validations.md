@@ -27,7 +27,7 @@ The validator also **extracts the static types** from the schema definition. Mea
 
 ## Creating the form
 
-:::showcase
+:::note
 
 The final example is hosted on codesandbox. [Click here](https://6zhxz.sse.codesandbox.io/posts/create) to preview the outcome or [edit the project](https://codesandbox.io/s/adonisv5-basic-form-validation-6zhxz) directly on codesandbox.
 
@@ -139,7 +139,7 @@ The `request.validate` method accepts the pre-defined schema and validates the r
 
 If the validation fails, the validator will **redirect the client back** to the form along with the error messages and the form values.
 
-If the validation succeeds, the next line of code _(`console.log(data)` in this case)_ will be executed.
+If the validation succeeds, the next line of code (`console.log(data)` in this case) will be executed.
 
 ## Displaying validation errors
 

@@ -13,7 +13,7 @@ npm i @adonisjs/shield
 
 ```sh
 // title: Configure
-node ace @adonisjs/shield
+node ace configure @adonisjs/shield
 ```
 
 ```ts

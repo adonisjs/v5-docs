@@ -51,7 +51,7 @@
     type="font/woff2"
     crossorigin
   >
-<link rel="stylesheet" href="/assets/app.ee5a9736.css" />
+<link rel="stylesheet" href="/assets/app.6c0c2135.css" />
 <script src="/assets/342.70de04a2.js" defer></script>
 <script src="/assets/app.26949583.js" defer></script>
 </head>
@@ -60,7 +60,7 @@
   <header class="header">
     <div class="header-container">
 
-      <div class="primary-links"><a href="#sidenav-open" title="Open Docs Menu" aria-label="Open Docs Menu" class="hamburger for-mobile">
+      <div class="primary-links"><a href="#sidenav-open" title="Open Docs Menu" aria-label="Open Docs Menu" class="hamburger for-mobile" data-turbo="false">
   <svg role="presentation" focusable="false" aria-label="Icon for open menu" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
     <line x1="4" y1="6" x2="20" y2="6" />
@@ -91,10 +91,38 @@
       <nav class="header-nav">
         <ul>
 
-              <li class="active">
-                <a href="/guides/validator/introduction">
-                  Guides
+
+                <li class="active">
+                  <a href="/guides/context">
+                    Docs
+                  </a>
+                  <ul>
+                  </ul>
+                </li>
+
+              <li
+                class=""
+                x-data="{ active: false }"
+                :class="{ 'expand': active }"
+              >
+                <a href="#" @click.prevent="active = !active">
+                  Reference guides
+                  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-down" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <polyline points="6 9 12 15 18 9" />
+                  </svg>
                 </a>
+                <ul class="dropdown">
+                    <li>
+                      <a href="/reference/database/connection">Database</a>
+                    </li>
+                    <li>
+                      <a href="/reference/validator/schema/string">Validator</a>
+                    </li>
+                    <li>
+                      <a href="/reference/views/globals/inspect">Views &amp; Templates</a>
+                    </li>
+                </ul>
               </li>
         </ul>
       </nav>
@@ -112,249 +140,516 @@
   </header>
 </div>
 
-<div id="sidenav-open" data-turbo-permanent>
+<div id="sidenav-open">
   <div class="sidebar" id="sidebar" data-maintain-scroll>
     <div class="sidebar-container">
 
 
 
-              <nav>
-                <ol>
-                    <li
-                      class="active"
-                    >
-                      <a href="/guides/introduction"> Introduction </a>
-                    </li>
-                </ol>
-              </nav>
-              <nav>
-                  <h3> Http </h3>
-                <ol>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/context"> Context </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/routing"> Routing </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/controllers"> Controllers </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/request"> Request </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/response"> Response </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/forms-and-validations"> Forms &amp; Validation </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/file-uploads"> File uploads </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/middleware"> Middleware </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/session"> Session </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/cookies"> Cookies </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/hooks"> Hooks </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/exception-handling"> Exception Handling </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/static-assets"> Static assets </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/web-security"> Web security </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/cors"> CORS </a>
-                    </li>
-                </ol>
-              </nav>
-              <nav>
-                  <h3> Views &amp; Templates </h3>
-                <ol>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/views/introduction"> Introduction </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/views/rendering"> Rendering views </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/views/templates-syntax"> Template syntax </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/views/layouts-and-partials"> Layouts &amp; Partials </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/views/conditionals-and-loops"> Conditionals &amp; Loops </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/views/components"> Components </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/views/debugging"> Debugging </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/views/advanced-options"> Advanced Options </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/views/faqs"> FAQs </a>
-                    </li>
-                </ol>
-              </nav>
-              <nav>
-                  <h3> Validator </h3>
-                <ol>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/validator/introduction"> Introduction </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/validator/validations-101"> Validations 101 </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/validator/custom-messages"> Custom messages </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/validator/error-reporters"> Error reporters </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/validator/schema-caching"> Schema caching </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/validator/schema-composition"> Schema Composition </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/validator/faqs"> FAQs </a>
-                    </li>
-                </ol>
-              </nav>
+
+                <nav>
+                  <ol>
+                      <li
+                        class="active"
+                      >
+                        <a href="/guides/introduction"> Introduction </a>
+                      </li>
+                  </ol>
+                </nav>
+                <nav>
+                    <h3> Fundamentals </h3>
+                  <ol>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/application"> Application </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/config"> Config </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/environment-variables"> Environment variables </a>
+                      </li>
+                  </ol>
+                </nav>
+                <nav>
+                    <h3> Http </h3>
+                  <ol>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/context"> Context </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/routing"> Routing </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/controllers"> Controllers </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/request"> Request </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/response"> Response </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/forms-and-validations"> Forms &amp; Validation </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/file-uploads"> File uploads </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/middleware"> Middleware </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/cookies"> Cookies </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/session"> Session </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/static-assets"> Static assets </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/assets-manager"> Assets manager </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/exception-handling"> Exception Handling </a>
+                      </li>
+                  </ol>
+                </nav>
+                <nav>
+                    <h3> Views &amp; Templates </h3>
+                  <ol>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/views/introduction"> Introduction </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/views/rendering"> Rendering </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/views/templating-syntax"> Templating syntax </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/views/data-flow"> Data flow </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/views/conditionals"> Conditionals </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/views/loops"> Loops </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/views/partials"> Partials </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/views/layouts"> Layouts </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/views/components"> Components </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/views/mutations"> Mutations </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/views/debugging"> Debugging </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/views/custom-tags"> Creating custom tags </a>
+                      </li>
+                  </ol>
+                </nav>
+                <nav>
+                    <h3> Validator </h3>
+                  <ol>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/validator/introduction"> Introduction </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/validator/custom-messages"> Custom messages </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/validator/error-reporters"> Error reporters </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/validator/schema-caching"> Schema caching </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/validator/extending-validator"> Extending validator </a>
+                      </li>
+                  </ol>
+                </nav>
+                <nav>
+                    <h3> Security </h3>
+                  <ol>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/security/web-security"> Web Security </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/security/encryption"> Encryption </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/security/hashing"> Hashing </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/security/signed-urls"> Signed URLs </a>
+                      </li>
+                  </ol>
+                </nav>
+                <nav>
+                    <h3> Digging deeper </h3>
+                  <ol>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/authorization"> Authorization </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/ace-commandline"> Ace </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/repl"> AdonisJS Repl </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/logger"> Logger </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/mailer"> Mailer </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/redis"> Redis </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/health-check"> Health check </a>
+                      </li>
+                  </ol>
+                </nav>
+
     </div>
   </div>
 
-  <a href="#" id="sidenav-close" class="sidenav-backdrop" title="Close Docs Menu" aria-label="Close Docs Menu"></a>
+  <a href="#" data-turbo="false" id="sidenav-close" class="sidenav-backdrop" title="Close Docs Menu" aria-label="Close Docs Menu"></a>
 </div>
 
-<main class="doc">
+<main class="doc" data-turbo="false">
   <div class="markdown">
-    <h1>Introduction</h1><div class="lead"><p>Welcome to AdonisJS. This is the official documentation for version 5.0. The documentation is divided into multiple sub sections each serving a specific use case.</p></div>
-<h2 id="tutorial"><a href="#tutorial" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Tutorial</h2>
-<p>The tutorial is a task oriented guide to help you get started with the framework by creating a todo app from scratch. We recommend starting with the tutorial, if you are new to AdonisJS or web development in general.</p>
-<h5 id="topics-covered"><a href="#topics-covered" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Topics covered</h5>
+    <h1>Introduction</h1><p>Welcome to AdonisJS. If you are just getting started with the framework, then you are at the right place.</p>
+<p>This document aims to give you a birds-eye view of the framework so that you have a rough idea about how it feels to create an AdonisJS app. When you&#x27;re ready to make a project, you can <a
+  href=""
+  
+  
+>start with the tutorial</a>
+ or <a
+  href=""
+  
+  
+>dive right into the technical guides</a>
+.</p>
+<h2 id="what-is-adonisjs"><a
+  href="#what-is-adonisjs"
+  
+  
+><span class="icon icon-link"></span></a>
+What is AdonisJS?</h2>
+<p>AdonisJS is a backend framework. It helps you create data-driven dynamic web applications. Using AdonisJS, you can <strong>handle the HTTP requests</strong>, <strong>query the database</strong>, <strong>authenticate users</strong>, <strong>upload files</strong>, <strong>send emails</strong>, <strong>render templates</strong> and do a lot more.</p>
+<p>If you have ever worked with a different backend framework like Rails, Laravel, or Django, then you can consider AdonisJS to be in the same boat.</p>
+<p>The space of frameworks is really crowded, so let us help clear some of the misceptions.</p>
 <ul>
-<li>Framework introduction</li>
-<li>Setting up the development environment</li>
-<li>Routes &amp; Controllers</li>
-<li>Creating &amp; designing pages</li>
-<li>Serving frontend assets using Webpack</li>
-<li>ORM setup and introduction</li>
-<li>Introduction to AdonisJS REPL</li>
-<li>Creating and completing the todo app</li>
-<li>Deployment using Cleavr</li>
+<li>AdonisJS is <strong>NOT a wrapper</strong> on top of any other low level Node framework. It is built from ground up with a fresh approach.</li>
+<li>It is <strong>NOT a hybrid framework</strong> like Next.js. Infact, AdonisJS doesn&#x27;t concern itself with the frontend ecosystem at all. It focuses entirely on the backend.</li>
 </ul>
-<p><a href="/tutorial"><strong>Get started with tutorial ➞</strong></a></p>
-<h2 id="guides"><a href="#guides" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Guides</h2>
-<p>Guides are the in-depth documentation covering every single supported feature. You must read the guides in order to become more proficient with the framework.</p>
-<h5 id="topics-covered-1"><a href="#topics-covered-1" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Topics covered</h5>
+<h2 id="typescript-usage"><a
+  href="#typescript-usage"
+  
+  
+><span class="icon icon-link"></span></a>
+Typescript usage</h2>
+<p>You will write your AdonisJS applications using Typescript, as we believe that static types does help mitigate errors to some extent and the intellisense improves the speed at which you write the code.</p>
+<p>We have been very particular about the way we leverage the static type system of Typescript and make sure to maintain a good balance between the visual noise and usage of static types. In a nutshell,</p>
 <ul>
-<li><a href="/guides/context">HTTP</a></li>
-<li><a href="/guides/views/introduction">Views and templates</a></li>
-<li><a href="/guides/validator/introduction">Validator</a></li>
-<li><a href="./database/introduction.md">Database</a></li>
-<li><a href="./models/introduction.md">Orm and models</a></li>
-<li><a href="./auth/introduction.md">Authentication</a></li>
-<li><a href="./security/encryption.md">Security</a></li>
+<li>We avoid manual type hinting and attempt to infer static types from the runtime code. <a
+  href="/guides/validator/introduction"
+  
+  
+>Data validator</a>
+ and <a
+  href="/guides/environment-variables#validating-environment-variables"
+  
+  
+>environment variables validation</a>
+ is a great example of it.</li>
+<li>We begin by designing the features to first have good static types/intellisense and then work backwards from there to simplify the API and remove visual noise. In other words, Typescript heavily dictates the way we design the framework APIs.</li>
+<li>We make sure that the official CLI of AdonisJS should be able to compile your Typescript code in both development and production. You should never have to install any additional build tools for it.</li>
 </ul>
-<h2 id="reference-guides"><a href="#reference-guides" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Reference guides</h2>
-<p>Topics or packages with broader API surface are covered by the reference guides. You must refer them when looking for available methods/properties for a class or object.</p>
-<h5 id="topics-covered-2"><a href="#topics-covered-2" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>Topics covered</h5>
+<h2 id="focus-on-developer-experience"><a
+  href="#focus-on-developer-experience"
+  
+  
+><span class="icon icon-link"></span></a>
+Focus on developer experience</h2>
+<p>Keywords like <strong>developer experience</strong> are subjective and that is why you see them appearing almost everywhere. So let us take a step ahead and explain our approach towards good developer experience.</p>
+<h3 id="first-what-is-not-a-good-developer-experience"><a
+  href="#first-what-is-not-a-good-developer-experience"
+  
+  
+><span class="icon icon-link"></span></a>
+First, what is not a good developer experience?</h3>
+<h4 id="a-fragmented-codebase-using-dozens-of-packages-from-different-authors"><a
+  href="#a-fragmented-codebase-using-dozens-of-packages-from-different-authors"
+  
+  
+><span class="icon icon-link"></span></a>
+A fragmented codebase using dozens of packages from different authors.</h4>
+<p>You can hardly expect any consistency in the naming conventions when the package for every little feature is written by a different author.</p>
+<h4 id="using-frameworks-with-no-opinions-or-guidance"><a
+  href="#using-frameworks-with-no-opinions-or-guidance"
+  
+  
+><span class="icon icon-link"></span></a>
+Using frameworks with no opinions or guidance.</h4>
+<p>You will create your own internal standards around directory structure, config management, deployment strategies and so on. All this will result in ever changing codebase and making it harder to hire and onboard new developers.</p>
+<h4 id="using-different-cli-programs-for-different-use-cases"><a
+  href="#using-different-cli-programs-for-different-use-cases"
+  
+  
+><span class="icon icon-link"></span></a>
+Using different CLI programs for different use cases.</h4>
+<p>Since, most of your packages are framework agnostic, they all have to ship the necessary tooling to use the package. For example:</p>
 <ul>
-<li><a href="">Database query builder</a></li>
-<li><a href="">Schema query builder</a></li>
-<li><a href="">Validation rules</a></li>
-<li><a href="">Validation schema</a></li>
-<li><a href="">View tags</a></li>
-<li><a href="">View globals</a></li>
-<li><a href="">Ace commands</a></li>
+<li>You will <code>tsc --watch</code> to compile your typescript code</li>
+<li>Run <code>typeorm migration:run</code> command to execute the TypeORM migrations</li>
+<li>And, maybe use <code>nodemon</code> to restart the HTTP server on file change</li>
 </ul>
-<h2 id="faqs"><a href="#faqs" aria-hidden=true tabindex=-1><span class="icon icon-link"></span></a>FAQs</h2>
-<details>
-  <summary> How is AdonisJS different from other frameworks? </summary>
-</details>
-<details>
-  <summary> Can I use npm packages with AdonisJS? </summary>
-</details>
-<details>
-  <summary> What&#x27;s the deal with service providers? </summary>
-</details>  </div>
+<p>The list will continue to grow as you will grab new package from npm.</p>
+<h2 id="framework-core"><a
+  href="#framework-core"
+  
+  
+><span class="icon icon-link"></span></a>
+Framework core</h2>
+<p>Creating a web application isn&#x27;t really about assembling packages from npm. AdonisJS ships with a feature rich core, so that you can get up and running in minutes (if not seconds).</p>
+<ul>
+<li>HTTP server to handle incoming requests</li>
+<li>A good and powerful router to handle requests routing and maybe serve multiple subdomains from the same codebase</li>
+<li>Ability to work with cookies and sessions</li>
+<li>Validate and sanitize the user input</li>
+<li>Handle file uploads and store them locally or sent them to a file management service like S3.</li>
+<li>Logger to write log messages for critical events.</li>
+<li>Able to quickly deploy the code and maybe do rolling deployments to avoid downtimes.</li>
+</ul>
+<h2 id="first-party-packages"><a
+  href="#first-party-packages"
+  
+  
+><span class="icon icon-link"></span></a>
+First party packages</h2>
+<p>On top of the framework core, you can use one of the following first party packages written by the AdonisJS core team.</p>
+<ul>
+<li><a
+  href=""
+  
+  
+>@adonisjs/lucid</a>
+</li>
+<li><a
+  href=""
+  
+  
+>@adonisjs/view</a>
+</li>
+<li><a
+  href=""
+  
+  
+>@adonisjs/mail</a>
+</li>
+<li><a
+  href=""
+  
+  
+>@adonisjs/shield</a>
+</li>
+<li><a
+  href=""
+  
+  
+>@adonisjs/auth</a>
+</li>
+<li><a
+  href=""
+  
+  
+>@adonisjs/bouncer</a>
+</li>
+<li><a
+  href=""
+  
+  
+>@adonisjs/ally</a>
+</li>
+<li><a
+  href=""
+  
+  
+>@adonisjs/lucid-slugify</a>
+</li>
+<li><a
+  href=""
+  
+  
+>@adonisjs/redis</a>
+</li>
+<li><a
+  href=""
+  
+  
+>@adonisjs/repl</a>
+</li>
+</ul>
+<h2 id="sponsorsed-by"><a
+  href="#sponsorsed-by"
+  
+  
+><span class="icon icon-link"></span></a>
+Sponsorsed by</h2>
+<h2 id="resources"><a
+  href="#resources"
+  
+  
+><span class="icon icon-link"></span></a>
+Resources</h2>
+<ul>
+<li><a
+  href=""
+  
+  
+>Awesome AdonisJS</a>
+</li>
+<li><a
+  href=""
+  
+  
+>AdonisJS Vscode go to controllers</a>
+</li>
+<li><a
+  href=""
+  
+  
+>AdonisJS Vscode go to view</a>
+</li>
+<li><a
+  href=""
+  
+  
+>AdonisJS Sublime text extension</a>
+</li>
+<li><a
+  href=""
+  
+  
+>Interia adapter for AdonisJS</a>
+</li>
+<li><a
+  href=""
+  
+  
+></a>
+</li>
+</ul>
+<h2 id="asking-for-help"><a
+  href="#asking-for-help"
+  
+  
+><span class="icon icon-link"></span></a>
+Asking for help</h2>
+<ul>
+<li>Github discussions</li>
+<li>Github issues</li>
+<li>Discord</li>
+<li>Twitter</li>
+</ul>  </div>
 </main>
 
 <aside class="toc">
@@ -362,10 +657,78 @@
       <h3> On this page </h3>
       <nav>
         <ul>
-<li><a href="#tutorial">Tutorial</a></li>
-<li><a href="#guides">Guides</a></li>
-<li><a href="#reference-guides">Reference guides</a></li>
-<li><a href="#faqs">FAQs</a></li>
+<li>
+<p><a
+  href="#what-is-adonisjs"
+  
+  
+>What is AdonisJS?</a>
+</p>
+</li>
+<li>
+<p><a
+  href="#typescript-usage"
+  
+  
+>Typescript usage</a>
+</p>
+</li>
+<li>
+<p><a
+  href="#focus-on-developer-experience"
+  
+  
+>Focus on developer experience</a>
+</p>
+<ul>
+<li><a
+  href="#first-what-is-not-a-good-developer-experience"
+  
+  
+>First, what is not a good developer experience?</a>
+</li>
+</ul>
+</li>
+<li>
+<p><a
+  href="#framework-core"
+  
+  
+>Framework core</a>
+</p>
+</li>
+<li>
+<p><a
+  href="#first-party-packages"
+  
+  
+>First party packages</a>
+</p>
+</li>
+<li>
+<p><a
+  href="#sponsorsed-by"
+  
+  
+>Sponsorsed by</a>
+</p>
+</li>
+<li>
+<p><a
+  href="#resources"
+  
+  
+>Resources</a>
+</p>
+</li>
+<li>
+<p><a
+  href="#asking-for-help"
+  
+  
+>Asking for help</a>
+</p>
+</li>
         </ul>
       </nav>
     </div>

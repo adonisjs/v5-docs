@@ -21,7 +21,7 @@ TOC BLOCK
 }
 
 .toc h3 {
-  font-size: 1.4rem;
+  font-size: var(--toc-title-font-size);
   font-weight: var(--bold-font-weight);
   text-transform: uppercase;
 }
@@ -49,9 +49,14 @@ TOC BLOCK
 }
 
 .toc li a {
-  font-size: 1.2rem;
+  font-size: var(--toc-link-font-size);
   color: var(--light-gray);
   text-decoration: none;
+}
+
+/** Required only when using Calibre */
+.toc code {
+  font-size: 1.2rem;
 }
 
 @media (min-width: 1280px) {

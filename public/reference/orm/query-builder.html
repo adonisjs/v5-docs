@@ -51,7 +51,7 @@
     type="font/woff2"
     crossorigin
   >
-<link rel="stylesheet" href="/assets/app.be48d775.css" />
+<link rel="stylesheet" href="/assets/app.6c0c2135.css" />
 <script src="/assets/342.70de04a2.js" defer></script>
 <script src="/assets/app.26949583.js" defer></script>
 </head>
@@ -91,16 +91,38 @@
       <nav class="header-nav">
         <ul>
 
-              <li class="">
-                <a href="/guides/application">
-                  Guides
-                </a>
-              </li>
 
-              <li class="active">
-                <a href="/reference/database/connection">
+                <li class="">
+                  <a href="/guides/context">
+                    Docs
+                  </a>
+                  <ul>
+                  </ul>
+                </li>
+
+              <li
+                class="active"
+                x-data="{ active: false }"
+                :class="{ 'expand': active }"
+              >
+                <a href="#" @click.prevent="active = !active">
                   Reference guides
+                  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-down" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <polyline points="6 9 12 15 18 9" />
+                  </svg>
                 </a>
+                <ul class="dropdown">
+                    <li>
+                      <a href="/reference/database/connection">Database</a>
+                    </li>
+                    <li>
+                      <a href="/reference/validator/schema/string">Validator</a>
+                    </li>
+                    <li>
+                      <a href="/reference/views/globals/inspect">Views &amp; Templates</a>
+                    </li>
+                </ul>
               </li>
         </ul>
       </nav>
@@ -125,75 +147,143 @@
 
 
 
-              <nav>
-                <ol>
-                    <li
-                      class=""
-                    >
-                      <a href="/reference/database/connection"> Connection </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/reference/database/connection-manager"> Connection manager </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/reference/database/query-builder"> Query builder </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/reference/database/insert-query-builder"> Insert query builder </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/reference/database/raw-query-builder"> Raw query builder </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/reference/database/query-client"> Query client </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/reference/database/transaction-client"> Transaction client </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/reference/database/main"> Database </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/reference/database/schema"> Schema </a>
-                    </li>
-                </ol>
-              </nav>
-              <nav>
-                  <h3> ORM </h3>
-                <ol>
-                    <li
-                      class=""
-                    >
-                      <a href="/reference/orm/base-model"> Base Model </a>
-                    </li>
-                    <li
-                      class="active"
-                    >
-                      <a href="/reference/orm/query-builder"> Query builder </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/reference/orm/decorators"> Decorators </a>
-                    </li>
-                </ol>
-              </nav>
+
+                <nav>
+                  <ol>
+                      <li
+                        class=""
+                      >
+                        <a href="/reference/database/connection"> Connection </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/reference/database/connection-manager"> Connection manager </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/reference/database/query-builder"> Query builder </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/reference/database/insert-query-builder"> Insert query builder </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/reference/database/raw-query-builder"> Raw query builder </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/reference/database/reference-builder"> Reference builder </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/reference/database/query-client"> Query client </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/reference/database/transaction-client"> Transaction client </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/reference/database/main"> Database </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/reference/database/schema"> Schema </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/reference/database/schema-builder"> Schema builder </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/reference/database/table-builder"> Table builder </a>
+                      </li>
+                  </ol>
+                </nav>
+                <nav>
+                    <h3> ORM </h3>
+                  <ol>
+                      <li
+                        class=""
+                      >
+                        <a href="/reference/orm/base-model"> Base Model </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/reference/orm/naming-strategy"> Naming strategy </a>
+                      </li>
+                      <li
+                        class="active"
+                      >
+                        <a href="/reference/orm/query-builder"> Query builder </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/reference/orm/decorators"> Decorators </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/reference/orm/adapter"> Adapter </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/reference/orm/preloader"> Preloader </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/reference/orm/model-factories"> Models factories </a>
+                      </li>
+                  </ol>
+                </nav>
+                <nav>
+                    <h3> Relationships </h3>
+                  <ol>
+                      <li
+                        class=""
+                      >
+                        <a href="/reference/orm/relations/has-one"> Has One </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/reference/orm/relations/has-many"> Has Many </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/reference/orm/relations/belongs-to"> Belongs To </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/reference/orm/relations/many-to-many"> Many to Many </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/reference/orm/relations/has-many-through"> Has many through </a>
+                      </li>
+                  </ol>
+                </nav>
+
+
     </div>
   </div>
 

@@ -51,7 +51,7 @@
     type="font/woff2"
     crossorigin
   >
-<link rel="stylesheet" href="/assets/app.be48d775.css" />
+<link rel="stylesheet" href="/assets/app.6c0c2135.css" />
 <script src="/assets/342.70de04a2.js" defer></script>
 <script src="/assets/app.26949583.js" defer></script>
 </head>
@@ -91,16 +91,38 @@
       <nav class="header-nav">
         <ul>
 
-              <li class="active">
-                <a href="/guides/application">
-                  Guides
-                </a>
-              </li>
 
-              <li class="">
-                <a href="/reference/database/connection">
+                <li class="active">
+                  <a href="/guides/context">
+                    Docs
+                  </a>
+                  <ul>
+                  </ul>
+                </li>
+
+              <li
+                class=""
+                x-data="{ active: false }"
+                :class="{ 'expand': active }"
+              >
+                <a href="#" @click.prevent="active = !active">
                   Reference guides
+                  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-down" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <polyline points="6 9 12 15 18 9" />
+                  </svg>
                 </a>
+                <ul class="dropdown">
+                    <li>
+                      <a href="/reference/database/connection">Database</a>
+                    </li>
+                    <li>
+                      <a href="/reference/validator/schema/string">Validator</a>
+                    </li>
+                    <li>
+                      <a href="/reference/views/globals/inspect">Views &amp; Templates</a>
+                    </li>
+                </ul>
               </li>
         </ul>
       </nav>
@@ -124,241 +146,266 @@
 
 
 
-              <nav>
-                  <h3> Fundamentals </h3>
-                <ol>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/application"> Application </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/config"> Config </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/environment-variables"> Environment variables </a>
-                    </li>
-                </ol>
-              </nav>
-              <nav>
-                  <h3> Http </h3>
-                <ol>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/context"> Context </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/routing"> Routing </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/controllers"> Controllers </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/request"> Request </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/response"> Response </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/forms-and-validations"> Forms &amp; Validation </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/file-uploads"> File uploads </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/middleware"> Middleware </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/cookies"> Cookies </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/session"> Session </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/static-assets"> Static assets </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/assets-manager"> Assets manager </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/exception-handling"> Exception Handling </a>
-                    </li>
-                </ol>
-              </nav>
-              <nav>
-                  <h3> Views &amp; Templates </h3>
-                <ol>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/views/introduction"> Introduction </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/views/rendering"> Rendering </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/views/templating-syntax"> Templating syntax </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/views/data-flow"> Data flow </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/views/conditionals"> Conditionals </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/views/loops"> Loops </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/views/partials"> Partials </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/views/layouts"> Layouts </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/views/components"> Components </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/views/mutations"> Mutations </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/views/debugging"> Debugging </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/views/custom-tags"> Creating custom tags </a>
-                    </li>
-                </ol>
-              </nav>
-              <nav>
-                  <h3> Validator </h3>
-                <ol>
-                    <li
-                      class="active"
-                    >
-                      <a href="/guides/validator/introduction"> Introduction </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/validator/validations-101"> Validations 101 </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/validator/custom-messages"> Custom messages </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/validator/error-reporters"> Error reporters </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/validator/schema-caching"> Schema caching </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/validator/schema-composition"> Schema Composition </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/validator/faqs"> FAQs </a>
-                    </li>
-                </ol>
-              </nav>
-              <nav>
-                  <h3> Security </h3>
-                <ol>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/security/web-security"> Web Security </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/security/encryption"> Encryption </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/security/hashing"> Hashing </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/security/signed-urls"> Signed URLs </a>
-                    </li>
-                </ol>
-              </nav>
-              <nav>
-                  <h3> Digging deeper </h3>
-                <ol>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/ace-commandline"> Ace </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/repl"> AdonisJS Repl </a>
-                    </li>
-                </ol>
-              </nav>
+
+                <nav>
+                  <ol>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/introduction"> Introduction </a>
+                      </li>
+                  </ol>
+                </nav>
+                <nav>
+                    <h3> Fundamentals </h3>
+                  <ol>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/application"> Application </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/config"> Config </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/environment-variables"> Environment variables </a>
+                      </li>
+                  </ol>
+                </nav>
+                <nav>
+                    <h3> Http </h3>
+                  <ol>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/context"> Context </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/routing"> Routing </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/controllers"> Controllers </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/request"> Request </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/response"> Response </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/forms-and-validations"> Forms &amp; Validation </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/file-uploads"> File uploads </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/middleware"> Middleware </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/cookies"> Cookies </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/session"> Session </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/static-assets"> Static assets </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/assets-manager"> Assets manager </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/exception-handling"> Exception Handling </a>
+                      </li>
+                  </ol>
+                </nav>
+                <nav>
+                    <h3> Views &amp; Templates </h3>
+                  <ol>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/views/introduction"> Introduction </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/views/rendering"> Rendering </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/views/templating-syntax"> Templating syntax </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/views/data-flow"> Data flow </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/views/conditionals"> Conditionals </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/views/loops"> Loops </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/views/partials"> Partials </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/views/layouts"> Layouts </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/views/components"> Components </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/views/mutations"> Mutations </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/views/debugging"> Debugging </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/views/custom-tags"> Creating custom tags </a>
+                      </li>
+                  </ol>
+                </nav>
+                <nav>
+                    <h3> Validator </h3>
+                  <ol>
+                      <li
+                        class="active"
+                      >
+                        <a href="/guides/validator/introduction"> Introduction </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/validator/custom-messages"> Custom messages </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/validator/error-reporters"> Error reporters </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/validator/schema-caching"> Schema caching </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/validator/extending-validator"> Extending validator </a>
+                      </li>
+                  </ol>
+                </nav>
+                <nav>
+                    <h3> Security </h3>
+                  <ol>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/security/web-security"> Web Security </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/security/encryption"> Encryption </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/security/hashing"> Hashing </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/security/signed-urls"> Signed URLs </a>
+                      </li>
+                  </ol>
+                </nav>
+                <nav>
+                    <h3> Digging deeper </h3>
+                  <ol>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/authorization"> Authorization </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/ace-commandline"> Ace </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/repl"> AdonisJS Repl </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/logger"> Logger </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/mailer"> Mailer </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/redis"> Redis </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/health-check"> Health check </a>
+                      </li>
+                  </ol>
+                </nav>
 
     </div>
   </div>
@@ -368,7 +415,7 @@
 
 <main class="doc" data-turbo="false">
   <div class="markdown">
-    <h1>Introduction</h1><p>AdonisJS has inbuilt support for validating data using a pre-defined validation schema. Since, the validator is baked into the core of the framework, there is no need to install any additional dependencies. Just define the schema and validate the data against it.</p>
+    <h1>Introduction</h1><p>AdonisJS has first-class support for <strong>parsing</strong> and <strong>validating</strong> the request body, and there is no need to install any 3rd party packages for the same. Just define the validation schema and validate the request body against it.</p>
 <div class="dimer-highlight">
 
 <pre><code><div class="line"><span style="color: #89DDFF;">import</span><span style="color: #A6ACCD;"> Route </span><span style="color: #89DDFF;">from</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">@ioc:Adonis/Core/Route</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"><span style="color: #89DDFF;">import</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">schema</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">from</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">@ioc:Adonis/Core/Validator</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"></div><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">post</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">posts</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">async</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">({</span><span style="color: #A6ACCD;"> request </span><span style="color: #89DDFF;">})</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #676E95;">/**</span></div><div class="line"><span style="color: #676E95;">   * Schema definition</span></div><div class="line"><span style="color: #676E95;">   */</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #C792EA;">const</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">newPostSchema</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">=</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">schema</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">create</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">    title</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">schema</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">string</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">{</span><span style="color: #F07178;"> trim</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #FF9CAC;">true</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">}</span><span style="color: #F07178;">)</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #F07178;">    body</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">schema</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">string</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">{</span><span style="color: #F07178;"> escape</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #FF9CAC;">true</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">}</span><span style="color: #F07178;">)</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #F07178;">    categories</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">schema</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">array</span><span style="color: #F07178;">()</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">members</span><span style="color: #F07178;">(</span><span style="color: #A6ACCD;">schema</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">number</span><span style="color: #F07178;">())</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span><span style="color: #F07178;">)</span></div><div class="line"></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #676E95;">/**</span></div><div class="line"><span style="color: #676E95;">   * Validate request body against schema</span></div><div class="line"><span style="color: #676E95;">   */</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #C792EA;">const</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">payload</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">=</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">await</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">request</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">validate</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">{</span><span style="color: #F07178;"> schema</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">newPostSchema</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">}</span><span style="color: #F07178;">)</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
@@ -384,12 +431,198 @@
   >
 </figure>
 </p>
-<h2 id="built-with-http-in-mind"><a
-  href="#built-with-http-in-mind"
+<h2 id="schema-composition"><a
+  href="#schema-composition"
   
   
 ><span class="icon icon-link"></span></a>
-Built with HTTP in mind</h2>  </div>
+Schema composition</h2>
+<p>The schema definition is divided into three main parts.</p>
+<ul>
+<li>The <code>schema.create</code> methods defines the shape of the data you expect.</li>
+<li>The <code>schema.string</code>, <code>schema.number</code> and other similar methods defines the data type for an individual field.</li>
+<li>Finally, you use the <code>rules</code> object to apply additional validation constraints on a given field. For example: Validating a string to be a valid email and is unique inside the database.</li>
+</ul>
+<p><figure>
+  <img
+    data-src="https://res.cloudinary.com/adonis-js/image/upload/q_auto,f_auto/v1617601990/v5/schema-101.png"
+    alt=""
+    class="lazyload"
+    
+  >
+</figure>
+</p>
+<p>If you look carefully, we have separated the <strong>format validations</strong> from <strong>core data types</strong>. For example: There is no data type called <code>schema.email</code>, instead we use the <code>rules.email</code> method to ensure a string is formatted as an email.</p>
+<p>This separation helps a lot in extending the validator with custom rules, without creating unnecessary schema types that has no meaning. For example: There is no thing called <strong>email type</strong>, it is a just a string, formatted as an email.</p>
+<h3 id="marking-fields-as-optional"><a
+  href="#marking-fields-as-optional"
+  
+  
+><span class="icon icon-link"></span></a>
+Marking fields as optional</h3>
+<p>The schema properties are required by default. However, you can mark them as optional by chaining the <code>optional</code> method. The optional variant is available for all the schema types.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #A6ACCD;">schema</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">create</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #F07178;">username</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> schema</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">string</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">optional</span><span style="color: #A6ACCD;">()</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #F07178;">password</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> schema</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">string</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">optional</span><span style="color: #A6ACCD;">()</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
+</div>
+
+<h3 id="validating-nested-objectsarrays"><a
+  href="#validating-nested-objectsarrays"
+  
+  
+><span class="icon icon-link"></span></a>
+Validating nested objects/arrays</h3>
+<p>You can validate nested objects and arrays using the <a
+  href=""
+  
+  
+>schema.array</a>
+ and <a
+  href=""
+  
+  
+>schema.object</a>
+ methods.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #A6ACCD;">schema</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">create</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #F07178;">user</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> schema</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">object</span><span style="color: #A6ACCD;">()</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">members</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">      </span><span style="color: #F07178;">username</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> schema</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">string</span><span style="color: #A6ACCD;">()</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span><span style="color: #89DDFF;">,</span></div><div class="line"></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #F07178;">tags</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> schema</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">array</span><span style="color: #A6ACCD;">()</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">members</span><span style="color: #A6ACCD;">(schema</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">string</span><span style="color: #A6ACCD;">())</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
+</div>
+
+<h2 id="validating-http-requests"><a
+  href="#validating-http-requests"
+  
+  
+><span class="icon icon-link"></span></a>
+Validating HTTP requests</h2>
+<p>You can validate the request body for a given HTTP request using the <code>request.validate</code> method. In case of a failure, the <code>validate</code> method will raise an exception.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line dim"><span style="color: #89DDFF;">import</span><span style="color: #A6ACCD;"> Route </span><span style="color: #89DDFF;">from</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">@ioc:Adonis/Core/Route</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line dim"><span style="color: #89DDFF;">import</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">schema</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">from</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">@ioc:Adonis/Core/Validator</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line dim"></div><div class="line dim"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">post</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">users</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">async</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">({</span><span style="color: #A6ACCD;"> request</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> response </span><span style="color: #89DDFF;">})</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line dim"><span style="color: #F07178;">  </span><span style="color: #C792EA;">const</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">newUserSchema</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">=</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">schema</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">create</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">{</span></div><div class="line dim"><span style="color: #89DDFF;">    </span><span style="color: #676E95;">// ... define schema</span></div><div class="line dim"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span><span style="color: #F07178;">)</span></div><div class="line dim"></div><div class="line highlight"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">try</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">{</span></div><div class="line highlight"><span style="color: #F07178;">    </span><span style="color: #C792EA;">const</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">payload</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">=</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">await</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">request</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">validate</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">{</span></div><div class="line highlight"><span style="color: #F07178;">      schema</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">newUserSchema</span></div><div class="line highlight"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">}</span><span style="color: #F07178;">)</span></div><div class="line highlight"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">catch</span><span style="color: #F07178;"> (</span><span style="color: #A6ACCD;">error</span><span style="color: #F07178;">) </span><span style="color: #89DDFF;">{</span></div><div class="line highlight"><span style="color: #F07178;">    </span><span style="color: #A6ACCD;">response</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">badRequest</span><span style="color: #F07178;">(</span><span style="color: #A6ACCD;">error</span><span style="color: #89DDFF;">.</span><span style="color: #A6ACCD;">messages</span><span style="color: #F07178;">)</span></div><div class="line highlight"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span></div><div class="line dim"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
+</div>
+
+<p>We recommend <strong>NOT self handling</strong> the exception and let AdonisJS <a
+  href="https://github.com/adonisjs/validator/blob/develop/src/ValidationException/index.ts#L25-L49"
+  target=&quot;_blank&quot;
+  rel=&quot;noopener&quot;
+>convert the exception</a>
+ to a response using content negotiation.</p>
+<p>Following is an explanation on how content negotiation works.</p>
+<h3 id="server-rendered-app"><a
+  href="#server-rendered-app"
+  
+  
+><span class="icon icon-link"></span></a>
+Server rendered app</h3>
+<p>If you are building a standard web application with server side templating, then we will redirect the client back to the form and pass the errors as session flash messages.</p>
+<p>Following is the structure of error messages inside the session&#x27;s flash store.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #FFCB6B;">errors</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #FFCB6B;">username</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> [</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">username is required</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #F07178;">]</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">}</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
+</div>
+
+<p>You can access them using <code>flashMessages</code> global helper.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">@if</span><span style="color: #A6ACCD;">(flashMessages</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">has</span><span style="color: #89DDFF;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">errors.username</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">)</span><span style="color: #A6ACCD;">)</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">&lt;</span><span style="color: #F07178;">p</span><span style="color: #89DDFF;">&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #82AAFF;">{{</span><span style="color: #A6ACCD;"> flashMessages</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">get</span><span style="color: #89DDFF;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">errors.username</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">)</span><span style="color: #A6ACCD;"> </span><span style="color: #82AAFF;">}}</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&lt;/</span><span style="color: #F07178;">p</span><span style="color: #89DDFF;">&gt;</span></div><div class="line"><span style="color: #82AAFF;">@end</span></div></code></pre>
+</div>
+
+<h3 id="requests-with-acceptapplicationjson-header"><a
+  href="#requests-with-acceptapplicationjson-header"
+  
+  
+><span class="icon icon-link"></span></a>
+Requests with <code>Accept=application/json</code> header</h3>
+<p>Requests negotiating for the JSON data type receives the error messages as an array of objects. Each error message contains the <strong>field name</strong>, the failed <strong>validation rule</strong> and the <strong>error message</strong>.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #FFCB6B;">errors</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> [</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">      field</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">title</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #F07178;">      rule</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">required</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #F07178;">      message</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">required validation failed</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">},</span></div><div class="line"><span style="color: #F07178;">  ]</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
+</div>
+
+<h3 id="json-api"><a
+  href="#json-api"
+  
+  
+><span class="icon icon-link"></span></a>
+JSON API</h3>
+<p>Requests negotiating using <code>Accept=application/vnd.api+json</code> header, recieves the error messages as per the <a
+  href="https://jsonapi.org/format/#errors"
+  target=&quot;_blank&quot;
+  rel=&quot;noopener&quot;
+>JSON API spec</a>
+.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #FFCB6B;">errors</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> [</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">      code</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">required</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #F07178;">      source</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">        pointer</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">title</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #F07178;">      </span><span style="color: #89DDFF;">},</span></div><div class="line"><span style="color: #F07178;">      title</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">required validation failed</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">}</span></div><div class="line"><span style="color: #F07178;">  ]</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
+</div>
+
+<h2 id="standalone-validator-usage"><a
+  href="#standalone-validator-usage"
+  
+  
+><span class="icon icon-link"></span></a>
+Standalone validator usage</h2>
+<p>You can also use the validator outside of an HTTP request by importing the <code>validate</code> method from the Validator module. The functional API remains the same, however you will have to manually provide the <code>data</code> to validate.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">import</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">validate</span><span style="color: #89DDFF;">,</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">schema</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">from</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">@ioc:Adonis/Core/Validator</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"></div><div class="line"><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> </span><span style="color: #82AAFF;">validate</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #F07178;">schema</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> schema</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">create</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #89DDFF;">    </span><span style="color: #676E95;">// ... define schema</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #F07178;">data</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #F07178;">email</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">virk@adonisjs.com</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #F07178;">password</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">secret</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">}</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
+</div>
+
+<p>Also, since you are performing the validation outside of an HTTP request. You will have to self handle the exception and display the errors manually.</p>
+<h2 id="validator-classes"><a
+  href="#validator-classes"
+  
+  
+><span class="icon icon-link"></span></a>
+Validator classes</h2>
+<p>Validator classes allows you extract the inline schema from your controllers and move them to a dedicated class.</p>
+<p>You can create a new validator by executing the following ace command.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #A6ACCD;">node ace make:validator CreateUser</span></div><div class="line"></div><div class="line"><span style="color: #676E95;"># CREATE: app/Validators/CreateUser.ts</span></div></code></pre>
+</div>
+
+<p>Instead of passing an object with the <code>schema</code> property, you can now pass the class constructor to the <code>request.validate</code> method.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line dim"><span style="color: #89DDFF;">import</span><span style="color: #A6ACCD;"> Route </span><span style="color: #89DDFF;">from</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">@ioc:Adonis/Core/Route</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line highlight"><span style="color: #89DDFF;">import</span><span style="color: #A6ACCD;"> CreateUser </span><span style="color: #89DDFF;">from</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">App/Validators/CreateUser</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line dim"></div><div class="line dim"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">post</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">users</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">async</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">({</span><span style="color: #A6ACCD;"> request</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> response </span><span style="color: #89DDFF;">})</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line highlight"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">await</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">request</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">validate</span><span style="color: #F07178;">(</span><span style="color: #A6ACCD;">CreateUser</span><span style="color: #F07178;">)</span></div><div class="line dim"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
+</div>
+
+<p>We create a new instance of the validator class behind the scenes and pass the current HTTP context to it. However, you can also manually construct the class instance and pass any arguments you like. For example:</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #A6ACCD;">Route</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">post</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">users</span><span style="color: #89DDFF;">&#x27;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">async</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">({</span><span style="color: #A6ACCD;"> request</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> response </span><span style="color: #89DDFF;">})</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">  </span><span style="color: #89DDFF;">await</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">request</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">validate</span><span style="color: #F07178;">(</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">new</span><span style="color: #F07178;"> </span><span style="color: #82AAFF;">CreateUser</span><span style="color: #F07178;">(</span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #F07178;">      countries</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #82AAFF;">fetchAllowedCountries</span><span style="color: #F07178;">()</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #F07178;">      states</span><span style="color: #89DDFF;">:</span><span style="color: #F07178;"> </span><span style="color: #82AAFF;">fetchAllowedStates</span><span style="color: #F07178;">()</span></div><div class="line"><span style="color: #F07178;">    </span><span style="color: #89DDFF;">}</span><span style="color: #F07178;">)</span></div><div class="line"><span style="color: #F07178;">  )</span></div><div class="line"><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div></code></pre>
+</div>
+
+<p>Following is an example of using the validator classes outside of the HTTP request.</p>
+<div class="dimer-highlight">
+
+<pre><code><div class="line"><span style="color: #89DDFF;">import</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span><span style="color: #F07178;"> </span><span style="color: #A6ACCD;">validate</span><span style="color: #F07178;"> </span><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">from</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">@ioc:Adonis/Core/Validator</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"><span style="color: #89DDFF;">import</span><span style="color: #A6ACCD;"> CreateUser </span><span style="color: #89DDFF;">from</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#x27;</span><span style="color: #C3E88D;">App/Validators/CreateUser</span><span style="color: #89DDFF;">&#x27;</span></div><div class="line"></div><div class="line"><span style="color: #89DDFF;">await</span><span style="color: #A6ACCD;"> validator</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">validate</span><span style="color: #A6ACCD;">(</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">new</span><span style="color: #A6ACCD;"> </span><span style="color: #82AAFF;">CreateUser</span><span style="color: #A6ACCD;">(</span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #F07178;">countries</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #82AAFF;">fetchAllowedCountries</span><span style="color: #A6ACCD;">()</span><span style="color: #89DDFF;">,</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #F07178;">states</span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #82AAFF;">fetchAllowedStates</span><span style="color: #A6ACCD;">()</span></div><div class="line"><span style="color: #A6ACCD;">  </span><span style="color: #89DDFF;">}</span><span style="color: #A6ACCD;">)</span></div><div class="line"><span style="color: #A6ACCD;">)</span></div></code></pre>
+</div>
+
+<h2 id="whats-next"><a
+  href="#whats-next"
+  
+  
+><span class="icon icon-link"></span></a>
+What&#x27;s next?</h2>
+<ul>
+<li>Read the blog post on validating API requests.</li>
+<li>Read the blog post on validating server rendered forms.</li>
+<li>Learn more about <a
+  href="/guides/validator/custom-messages"
+  
+  
+>custom messages</a>
+.</li>
+<li>Learn more about <a
+  href="/guides/validator/error-reporters"
+  
+  
+>error reporters</a>
+.</li>
+<li>View all the available schema types.</li>
+<li>View all the available validation rules.</li>
+</ul>  </div>
 </main>
 
 <aside class="toc">
@@ -397,11 +630,79 @@ Built with HTTP in mind</h2>  </div>
       <h3> On this page </h3>
       <nav>
         <ul>
+<li>
+<p><a
+  href="#schema-composition"
+  
+  
+>Schema composition</a>
+</p>
+<ul>
 <li><a
-  href="#built-with-http-in-mind"
+  href="#marking-fields-as-optional"
   
   
->Built with HTTP in mind</a>
+>Marking fields as optional</a>
+</li>
+<li><a
+  href="#validating-nested-objectsarrays"
+  
+  
+>Validating nested objects/arrays</a>
+</li>
+</ul>
+</li>
+<li>
+<p><a
+  href="#validating-http-requests"
+  
+  
+>Validating HTTP requests</a>
+</p>
+<ul>
+<li><a
+  href="#server-rendered-app"
+  
+  
+>Server rendered app</a>
+</li>
+<li><a
+  href="#requests-with-acceptapplicationjson-header"
+  
+  
+>Requests with <code>Accept=application/json</code> header</a>
+</li>
+<li><a
+  href="#json-api"
+  
+  
+>JSON API</a>
+</li>
+</ul>
+</li>
+<li>
+<p><a
+  href="#standalone-validator-usage"
+  
+  
+>Standalone validator usage</a>
+</p>
+</li>
+<li>
+<p><a
+  href="#validator-classes"
+  
+  
+>Validator classes</a>
+</p>
+</li>
+<li>
+<p><a
+  href="#whats-next"
+  
+  
+>What&#x27;s next?</a>
+</p>
 </li>
         </ul>
       </nav>

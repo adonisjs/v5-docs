@@ -51,7 +51,7 @@
     type="font/woff2"
     crossorigin
   >
-<link rel="stylesheet" href="/assets/app.be48d775.css" />
+<link rel="stylesheet" href="/assets/app.6c0c2135.css" />
 <script src="/assets/342.70de04a2.js" defer></script>
 <script src="/assets/app.26949583.js" defer></script>
 </head>
@@ -91,16 +91,38 @@
       <nav class="header-nav">
         <ul>
 
-              <li class="active">
-                <a href="/guides/application">
-                  Guides
-                </a>
-              </li>
 
-              <li class="">
-                <a href="/reference/database/connection">
+                <li class="active">
+                  <a href="/guides/context">
+                    Docs
+                  </a>
+                  <ul>
+                  </ul>
+                </li>
+
+              <li
+                class=""
+                x-data="{ active: false }"
+                :class="{ 'expand': active }"
+              >
+                <a href="#" @click.prevent="active = !active">
                   Reference guides
+                  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-down" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <polyline points="6 9 12 15 18 9" />
+                  </svg>
                 </a>
+                <ul class="dropdown">
+                    <li>
+                      <a href="/reference/database/connection">Database</a>
+                    </li>
+                    <li>
+                      <a href="/reference/validator/schema/string">Validator</a>
+                    </li>
+                    <li>
+                      <a href="/reference/views/globals/inspect">Views &amp; Templates</a>
+                    </li>
+                </ul>
               </li>
         </ul>
       </nav>
@@ -124,241 +146,266 @@
 
 
 
-              <nav>
-                  <h3> Fundamentals </h3>
-                <ol>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/application"> Application </a>
-                    </li>
-                    <li
-                      class="active"
-                    >
-                      <a href="/guides/config"> Config </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/environment-variables"> Environment variables </a>
-                    </li>
-                </ol>
-              </nav>
-              <nav>
-                  <h3> Http </h3>
-                <ol>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/context"> Context </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/routing"> Routing </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/controllers"> Controllers </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/request"> Request </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/response"> Response </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/forms-and-validations"> Forms &amp; Validation </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/file-uploads"> File uploads </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/middleware"> Middleware </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/cookies"> Cookies </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/session"> Session </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/static-assets"> Static assets </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/assets-manager"> Assets manager </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/exception-handling"> Exception Handling </a>
-                    </li>
-                </ol>
-              </nav>
-              <nav>
-                  <h3> Views &amp; Templates </h3>
-                <ol>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/views/introduction"> Introduction </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/views/rendering"> Rendering </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/views/templating-syntax"> Templating syntax </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/views/data-flow"> Data flow </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/views/conditionals"> Conditionals </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/views/loops"> Loops </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/views/partials"> Partials </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/views/layouts"> Layouts </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/views/components"> Components </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/views/mutations"> Mutations </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/views/debugging"> Debugging </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/views/custom-tags"> Creating custom tags </a>
-                    </li>
-                </ol>
-              </nav>
-              <nav>
-                  <h3> Validator </h3>
-                <ol>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/validator/introduction"> Introduction </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/validator/validations-101"> Validations 101 </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/validator/custom-messages"> Custom messages </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/validator/error-reporters"> Error reporters </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/validator/schema-caching"> Schema caching </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/validator/schema-composition"> Schema Composition </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/validator/faqs"> FAQs </a>
-                    </li>
-                </ol>
-              </nav>
-              <nav>
-                  <h3> Security </h3>
-                <ol>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/security/web-security"> Web Security </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/security/encryption"> Encryption </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/security/hashing"> Hashing </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/security/signed-urls"> Signed URLs </a>
-                    </li>
-                </ol>
-              </nav>
-              <nav>
-                  <h3> Digging deeper </h3>
-                <ol>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/ace-commandline"> Ace </a>
-                    </li>
-                    <li
-                      class=""
-                    >
-                      <a href="/guides/repl"> AdonisJS Repl </a>
-                    </li>
-                </ol>
-              </nav>
+
+                <nav>
+                  <ol>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/introduction"> Introduction </a>
+                      </li>
+                  </ol>
+                </nav>
+                <nav>
+                    <h3> Fundamentals </h3>
+                  <ol>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/application"> Application </a>
+                      </li>
+                      <li
+                        class="active"
+                      >
+                        <a href="/guides/config"> Config </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/environment-variables"> Environment variables </a>
+                      </li>
+                  </ol>
+                </nav>
+                <nav>
+                    <h3> Http </h3>
+                  <ol>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/context"> Context </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/routing"> Routing </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/controllers"> Controllers </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/request"> Request </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/response"> Response </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/forms-and-validations"> Forms &amp; Validation </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/file-uploads"> File uploads </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/middleware"> Middleware </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/cookies"> Cookies </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/session"> Session </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/static-assets"> Static assets </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/assets-manager"> Assets manager </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/exception-handling"> Exception Handling </a>
+                      </li>
+                  </ol>
+                </nav>
+                <nav>
+                    <h3> Views &amp; Templates </h3>
+                  <ol>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/views/introduction"> Introduction </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/views/rendering"> Rendering </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/views/templating-syntax"> Templating syntax </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/views/data-flow"> Data flow </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/views/conditionals"> Conditionals </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/views/loops"> Loops </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/views/partials"> Partials </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/views/layouts"> Layouts </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/views/components"> Components </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/views/mutations"> Mutations </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/views/debugging"> Debugging </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/views/custom-tags"> Creating custom tags </a>
+                      </li>
+                  </ol>
+                </nav>
+                <nav>
+                    <h3> Validator </h3>
+                  <ol>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/validator/introduction"> Introduction </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/validator/custom-messages"> Custom messages </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/validator/error-reporters"> Error reporters </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/validator/schema-caching"> Schema caching </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/validator/extending-validator"> Extending validator </a>
+                      </li>
+                  </ol>
+                </nav>
+                <nav>
+                    <h3> Security </h3>
+                  <ol>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/security/web-security"> Web Security </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/security/encryption"> Encryption </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/security/hashing"> Hashing </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/security/signed-urls"> Signed URLs </a>
+                      </li>
+                  </ol>
+                </nav>
+                <nav>
+                    <h3> Digging deeper </h3>
+                  <ol>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/authorization"> Authorization </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/ace-commandline"> Ace </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/repl"> AdonisJS Repl </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/logger"> Logger </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/mailer"> Mailer </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/redis"> Redis </a>
+                      </li>
+                      <li
+                        class=""
+                      >
+                        <a href="/guides/health-check"> Health check </a>
+                      </li>
+                  </ol>
+                </nav>
 
     </div>
   </div>

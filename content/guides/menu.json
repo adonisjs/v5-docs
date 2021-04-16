@@ -3,6 +3,16 @@
     "name": "root",
     "categories": [
       {
+        "name": "Root",
+        "docs": [
+          {
+            "title": "Introduction",
+            "permalink": "introduction",
+            "contentPath": "introduction.md"
+          }
+        ]
+      },
+      {
         "name": "Fundamentals",
         "docs": [
           {
@@ -167,11 +177,6 @@
             "contentPath": "validator/introduction.md"
           },
           {
-            "title": "Validations 101",
-            "permalink": "validator/validations-101",
-            "contentPath": "validator/validations-101.md"
-          },
-          {
             "title": "Custom messages",
             "permalink": "validator/custom-messages",
             "contentPath": "validator/custom-messages.md"
@@ -187,14 +192,9 @@
             "contentPath": "validator/schema-caching.md"
           },
           {
-            "title": "Schema Composition",
-            "permalink": "validator/schema-composition",
-            "contentPath": "validator/schema-composition.md"
-          },
-          {
-            "title": "FAQs",
-            "permalink": "validator/faqs",
-            "contentPath": "validator/faqs.md"
+            "title": "Extending validator",
+            "permalink": "validator/extending-validator",
+            "contentPath": "validator/extending-validator.md"
           }
         ]
       },
@@ -227,6 +227,11 @@
         "name": "Digging deeper",
         "docs": [
           {
+            "title": "Authorization",
+            "permalink": "authorization",
+            "contentPath": "digging-deeper/authorization.md"
+          },
+          {
             "title": "Ace",
             "permalink": "ace-commandline",
             "contentPath": "digging-deeper/ace.md"
@@ -235,6 +240,26 @@
             "title": "AdonisJS Repl",
             "permalink": "repl",
             "contentPath": "digging-deeper/repl.md"
+          },
+          {
+            "title": "Logger",
+            "permalink": "logger",
+            "contentPath": "digging-deeper/logger.md"
+          },
+          {
+            "title": "Mailer",
+            "permalink": "mailer",
+            "contentPath": "digging-deeper/mailer.md"
+          },
+          {
+            "title": "Redis",
+            "permalink": "redis",
+            "contentPath": "digging-deeper/redis.md"
+          },
+          {
+            "title": "Health check",
+            "permalink": "health-check",
+            "contentPath": "digging-deeper/health-check.md"
           }
         ]
       }

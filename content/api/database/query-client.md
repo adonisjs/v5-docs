@@ -1,4 +1,4 @@
-The [Query client](https://github.com/adonisjs/lucid/blob/efed38908680cca3b288d9b2a123586fab155b1d/src/QueryClient/index.ts#L38) works a bridge between the [connection](/api/database/connection) and the [query builder](/api/database/query-builder) to execute the database queries. Also, it exposes the required APIs used by the query builder to direct read queries to the read replica and writes the write replica.
+The [Query client](https://github.com/adonisjs/lucid/blob/efed38908680cca3b288d9b2a123586fab155b1d/src/QueryClient/index.ts#L38) works a bridge between the [connection](./connection.md) and the [query builder](./query-builder.md) to execute the database queries. Also, it exposes the required APIs used by the query builder to direct read queries to the read replica and writes the write replica.
 
 You can access the query client as follows:
 
@@ -16,7 +16,7 @@ const pgClient = Database.connection('pg')
 Following is the list of methods and properties available on the query client class.
 
 ### query
-Returns an instance of the [query builder](/api/database/query-builder) for a pre-selected database connection.
+Returns an instance of the [query builder](./query-builder.md) for a pre-selected database connection.
 
 ```ts
 client.query()
@@ -28,8 +28,10 @@ You can also use the `from` alias to instantiate a new query instance and select
 client.from('users')
 ```
 
+---
+
 ### insertQuery
-Returns an instance of the [insert query builder](/api/database/insert-query-builder) for a pre-selected database connection.
+Returns an instance of the [insert query builder](./insert-query-builder.md) for a pre-selected database connection.
 
 ```ts
 client.insertQuery()
@@ -41,8 +43,10 @@ You can also use the `table` alias to instantiate a new query instance and selec
 client.table('users')
 ```
 
+---
+
 ### modelQuery
-Returns an instance of the [model query builder](/api/database/model-query-builder) for a given Lucid model.
+Returns an instance of the [model query builder](../orm/query-builder.md) for a given Lucid model.
 
 ```ts
 import User from 'App/Models/User'
@@ -53,13 +57,17 @@ const user = await query.first()
 console.log(user instanceof User) // true
 ```
 
+---
+
 ### rawQuery
-Returns an instance of the [raw query builder](/api/database/raw-query-builder) for a pre-selected database connection.
+Returns an instance of the [raw query builder](./raw-query-builder.md) for a pre-selected database connection.
 
 ```ts
 await client
   .rawQuery('select * from users where id = ?', [1])
 ```
+
+---
 
 ### knexQuery
 Returns an instance of the [Knex.js query builder](http://knexjs.org/#Builder) for a pre-selected database connection.
@@ -68,6 +76,8 @@ Returns an instance of the [Knex.js query builder](http://knexjs.org/#Builder) f
 client.knexQuery().select('*')
 ```
 
+---
+
 ### knexRawQuery
 Returns an instance of the [Knex.js raw query builder](http://knexjs.org/#Raw) for a pre-selected database connection.
 
@@ -75,6 +85,8 @@ Returns an instance of the [Knex.js raw query builder](http://knexjs.org/#Raw) f
 client
   .knexRawQuery('select * from users where id = ?', [1])
 ```
+
+---
 
 ### transaction
 Creates a new transaction client instance. Transaction client **reserves a dedicated database** connection right away and hence it is very important to commit or rollback the transactions properly.
@@ -86,6 +98,8 @@ await trx.insertQuery().table('users').insert()
 await trx.commit()
 ```
 
+---
+
 ### getAllTables
 Returns an array of all the database tables.
 
@@ -94,6 +108,8 @@ const tables = await client.getAllTables()
 console.log(tables)
 ```
 
+---
+
 ### columnsInfo
 Returns a key-value pair of columns in a given database table.
 
@@ -101,6 +117,8 @@ Returns a key-value pair of columns in a given database table.
 const columns = await client.columnsInfo('users')
 console.log(columns)
 ```
+
+---
 
 ### truncate
 Truncate a database table. Optionally you can also cascade foreign key references.
@@ -112,6 +130,8 @@ await client.truncate('users')
 await client.truncate('users', true)
 ```
 
+---
+
 ### getReadClient
 Returns Knex.js instance for the read replica. The write client is returned when not using read/write replicas.
 
@@ -119,12 +139,16 @@ Returns Knex.js instance for the read replica. The write client is returned when
 const knex = client.getReadClient()
 ```
 
+---
+
 ### getWriteClient
 Returns Knex.js instance for the write replica. An exception is raised when client is instantiated in the read mode.
 
 ```ts
 const knex = client.getWriteClient()
 ```
+
+---
 
 ### getAdvisoryLock
 Calling `getAdvisoryLock` obtains an advisory lock in **PostgreSQL**, and **MySQL** databases.
@@ -140,12 +164,16 @@ await client.getAdvisoryLock('key_name')
 await client.getAdvisoryLock('key_name', 2000)
 ```
 
+---
+
 ### releaseAdvisoryLock
 Release the previously acquired advisory lock
 
 ```ts
 await client.releaseAdvisoryLock('key_name')
 ```
+
+---
 
 ### raw
 Create a raw reference query instance. The queries generated using the `raw` method can only be used as a reference in other queries and cannot be executed standalone.
@@ -155,6 +183,8 @@ await client.from(
   client.raw('select ip_address from user_logins')
 )
 ```
+
+---
 
 ### mode
 A readonly property to know the mode in which client instance was created. It is always one of the following
@@ -167,12 +197,45 @@ A readonly property to know the mode in which client instance was created. It is
 console.log(client.mode)
 ```
 
+---
+
 ### dialect
 Reference to the underlying [database dialect](https://github.com/adonisjs/lucid/tree/master/src/Dialects). Each supported database driver has its own dialect.
 
 ```ts
 console.log(client.dialect.name)
 ```
+
+---
+
+### isTransaction
+Find if the client is a transaction client. The value is always `false` for the query client.
+
+```ts
+client.isTransaction
+```
+
+---
+
+### connectionName
+The connection name for which the query client was instantiated
+
+```ts
+client.connectionName
+```
+
+---
+
+### debug
+Set the value to `true` to enable debugging for queries executed by the query client.
+
+```ts
+client.debug = true
+
+await client.from('users').select('*')
+```
+
+---
 
 ### schema
 Returns reference to the [schema builder](/api/database/schema). The `client.schema` is a getter that returns a new instance every time you access the property

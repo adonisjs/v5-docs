@@ -56,7 +56,8 @@ video {
   }
 
   :root {
-    --markdown-content-width: 54ch;
+    /*--markdown-content-width: 54ch;*/
+    --markdown-content-width: 58ch;
   }
 }
 
@@ -81,6 +82,7 @@ DOC CONTENT STYLES
   .doc {
     padding-left: var(--sidebar-width);
     padding-right: 0;
+    padding-top: 30px;
   }
 }
 
