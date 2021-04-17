@@ -116,38 +116,6 @@ node ace configure @adonisjs/view
 # UPDATE: .adonisrc.json { metaFiles += "resources/views/**/*.edge" }
 ```
 
-## Views directory
-
-AdonisJS registers the `resources/views` as the default directory for finding the Edge templates. However, you can register a custom path by modifying the `.adonisrc.json` file.
-
-After the following change, Edge will find templates inside the `./app/views` directory.
-
-```json
-{
-  "directories": {
-    "views": "./app/views"
-  }
-}
-```
-
-Also, make sure to update the `metaFiles` array in the same file to tell `@adonisjs/assembler` to copy the templates when creating the production build.
-
-```json
-{
-  "metaFiles": [
-    {
-      // delete-start
-      "pattern": "resources/views/**/*.edge",
-      // delete-end
-      // insert-start
-      "pattern": "app/views/**/*.edge",
-      // insert-end
-      "reloadServer": false
-    }
-  ],  
-}
-```
-
 ## Basic example
 
 Let's begin by creating a route that renders a given template file.
@@ -177,6 +145,44 @@ Let's open the newly created file and paste the following code snippet inside it
 Make sure to start the development server by running `node ace serve --watch` and visit http://localhost:3333 to view the contents of the template file.
 
 ![](https://res.cloudinary.com/adonis-js/image/upload/q_auto,f_auto/v1617093908/v5/view-usage.png)
+
+## Views directory
+
+AdonisJS registers the `resources/views` as the default directory for finding the Edge templates. However, you can register a custom path by modifying the `.adonisrc.json` file.
+
+After the following change, Edge will find templates inside the `./app/views` directory.
+
+:::note
+
+Read the [rendering](./rendering.md#disks) guide to learn more about registering multiple directories.
+
+:::
+
+```json
+{
+  "directories": {
+    "views": "./app/views"
+  }
+}
+```
+
+Also, make sure to update the `metaFiles` array in the same file to tell `@adonisjs/assembler` to copy the templates when creating the production build.
+
+```json
+{
+  "metaFiles": [
+    {
+      // delete-start
+      "pattern": "resources/views/**/*.edge",
+      // delete-end
+      // insert-start
+      "pattern": "app/views/**/*.edge",
+      // insert-end
+      "reloadServer": false
+    }
+  ],  
+}
+```
 
 ## Editor extensions
 

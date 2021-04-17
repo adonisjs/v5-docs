@@ -213,7 +213,7 @@ Redis.psubscribe('user:*', (event: string, user: string) => {
 ```
 
 ## Health Checks
-The Redis module uses the AdonisJS [health check](/guides/health-check) module to report the connections health. All you need to do is enable it inside the config file.
+The Redis module uses the AdonisJS [health check](./health-check.md) module to report the connections health. All you need to do is enable it inside the config file.
 
 ```ts
 // title: config/redis.ts

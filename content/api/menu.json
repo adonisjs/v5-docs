@@ -359,7 +359,7 @@
         "name": "Tags",
         "docs": [
           {
-            "title": "component",
+            "title": "component/slot",
             "permalink": "views/tags/component",
             "contentPath": "views/tags/component.md"
           },
@@ -374,29 +374,14 @@
             "contentPath": "views/tags/each.md"
           },
           {
-            "title": "else",
-            "permalink": "views/tags/else",
-            "contentPath": "views/tags/else.md"
+            "title": "if/elseif/else",
+            "permalink": "views/tags/conditionals",
+            "contentPath": "views/tags/conditionals.md"
           },
           {
-            "title": "elseif",
-            "permalink": "views/tags/else-if",
-            "contentPath": "views/tags/else-if.md"
-          },
-          {
-            "title": "if",
-            "permalink": "views/tags/if",
-            "contentPath": "views/tags/if.md"
-          },
-          {
-            "title": "include",
+            "title": "include/includeIf",
             "permalink": "views/tags/include",
             "contentPath": "views/tags/include.md"
-          },
-          {
-            "title": "includeIf",
-            "permalink": "views/tags/include-if",
-            "contentPath": "views/tags/include-if.md"
           },
           {
             "title": "inject",
@@ -404,14 +389,9 @@
             "contentPath": "views/tags/inject.md"
           },
           {
-            "title": "layout",
+            "title": "layout/section/super",
             "permalink": "views/tags/layout",
             "contentPath": "views/tags/layout.md"
-          },
-          {
-            "title": "section",
-            "permalink": "views/tags/section",
-            "contentPath": "views/tags/section.md"
           },
           {
             "title": "set",
@@ -419,39 +399,14 @@
             "contentPath": "views/tags/set.md"
           },
           {
-            "title": "slot",
-            "permalink": "views/tags/slot",
-            "contentPath": "views/tags/slot.md"
-          },
-          {
-            "title": "super",
-            "permalink": "views/tags/super",
-            "contentPath": "views/tags/super.md"
-          },
-          {
-            "title": "unless",
-            "permalink": "views/tags/unless",
-            "contentPath": "views/tags/unless.md"
-          },
-          {
-            "title": "can",
+            "title": "can/cannot",
             "permalink": "views/tags/can",
             "contentPath": "views/tags/can.md"
           },
           {
-            "title": "cannot",
-            "permalink": "views/tags/cannot",
-            "contentPath": "views/tags/cannot.md"
-          },
-          {
-            "title": "entryPointStyles",
-            "permalink": "views/tags/entry-point-styles",
-            "contentPath": "views/tags/entry-point-styles.md"
-          },
-          {
-            "title": "entryPointScripts",
-            "permalink": "views/tags/entry-point-scripts",
-            "contentPath": "views/tags/entry-point-scripts.md"
+            "title": "entryPoints",
+            "permalink": "views/tags/entry-points",
+            "contentPath": "views/tags/entry-points.md"
           }
         ]
       }

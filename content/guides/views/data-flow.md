@@ -55,7 +55,7 @@ View.global('menu', [
 
 ## Locals
 
-Locals are just like globals for a given instance of the [View renderer](./rendering-views#view-renderer). You can share locals by using the `view.share` method.
+Locals are just like globals for a given instance of the [View renderer](./rendering.md#view-renderer). You can share locals by using the `view.share` method.
 
 You will mostly find yourself using the `view.share` method within middleware to share the data with the template.
 

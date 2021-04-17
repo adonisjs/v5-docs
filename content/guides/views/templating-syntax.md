@@ -44,9 +44,9 @@ However, in situations where you trust the expression, you can **instruct edge t
 </script>
 ```
 
-## Escaping curly braces
+## Ignoring curly braces
 
-You can escape the curly braces from getting parsed by prefixing the `@` symbol. This is usually helpful, when you are using edge to generate the markup for another template engine and want edge to ignore parsing of certain mustache braces.
+You can instruct edge to ignore curly braces by prefixing the `@` symbol. This is usually helpful, when you are using edge to generate the markup for another template engine.
 
 ```edge
 Hello @{{ username }}

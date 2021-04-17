@@ -247,6 +247,11 @@
             "contentPath": "digging-deeper/logger.md"
           },
           {
+            "title": "Events",
+            "permalink": "events",
+            "contentPath": "digging-deeper/events.md"
+          },
+          {
             "title": "Mailer",
             "permalink": "mailer",
             "contentPath": "digging-deeper/mailer.md"

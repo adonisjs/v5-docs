@@ -1,6 +1,4 @@
-You can render views by importing the `View` module as shown below.
-
-The `renderAsync` method accepts the template path relative from the `views` directory and the data object to pass to the template and always returns a string value.
+You can render views calling the `View.renderAsync` method. The method accepts the template path relative from the `views` directory and the data object to pass to the template and always returns a string value.
 
 ```ts
 import View from '@ioc:Adonis/Core/View'
@@ -26,7 +24,7 @@ Route.get('/', async ({ view }) => {
 
 ## Rendering Modes
 
-Edge exposes both the sync and the async API's for rendering views. We **recommend using the async API** as the I/O operations performed by Edge does not block the Node.js event loop.
+Edge exposes both the sync and the async API's for rendering views. We **recommend using the async API**. In async mode, the I/O operations performed by Edge does not block the Node.js event loop.
 
 In the following example:
 
