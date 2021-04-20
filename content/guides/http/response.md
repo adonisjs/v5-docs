@@ -473,4 +473,4 @@ Following are some of the additional guides to learn more about the topics not c
 
 - [Cookies](./cookies.md)
 - [Session](./session.md)
-- [Views](./views.md)
+- [Views](../views/introduction.md)

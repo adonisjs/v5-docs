@@ -279,14 +279,11 @@
   position: relative;
   border-radius: var(--rounded-corners-size);
   background: var(--gray);
+  padding-bottom: 32px;
 }
 
 .markdown figure figcaption {
-  position: absolute;
-  bottom: 0;
   text-align: center;
-  left: 0;
-  right: 0;
   color: var(--mute-color);
   font-style: italic;
   font-size: 1.4rem;

@@ -12,7 +12,7 @@ Route.get('/', () => {
 })
 ```
 
-The route handler can also refer to a [controller](./controller.md) method.
+The route handler can also refer to a [controller](./controllers.md) method.
 
 ```ts
 import Route from '@ioc:Adonis/Core/Route'

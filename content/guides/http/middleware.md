@@ -178,6 +178,4 @@ A great example of this is the bodyparser middleware. It [ignores all the reques
   
 AdonisJS does not execute the middleware chain, if there is no registered route for the current HTTP request.
 
-You can use [server hooks](./hooks.md) to handle requests that may or may not have a registered route.
-
 </details>

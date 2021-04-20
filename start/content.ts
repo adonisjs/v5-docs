@@ -39,7 +39,7 @@ const dimerRenderer = new Renderer().use((node) => {
 Content.cache(Application.inProduction ? 'full' : 'markup')
 
 Content
-  .zone('Docs')
+  .zone('Guides')
   .baseUrl('guides')
   .baseContentPath('./content/guides')
   .template('docs')
@@ -59,7 +59,7 @@ Content
   .register()
 
 Content
-  .zone('Reference guides')
+  .zone('API Docs')
   .baseUrl('reference')
   .baseContentPath('./content/api')
   .template('docs')

@@ -31,6 +31,8 @@ export default staticConfig
 
 A toggle switch to enable/disable the static file server.
 
+---
+
 #### dotFiles
 
 The treatment for the dotfiles. The value can be one of the following:
@@ -39,9 +41,13 @@ The treatment for the dotfiles. The value can be one of the following:
 - `'deny'`: Deny the request with a 403 status code.
 - `'ignore'`: Pretend like the dotfile does not exist.
 
+---
+
 #### etag
 
 Whether or not to generate the ETag for the files.
+
+---
 
 #### lastModified
 
@@ -96,4 +102,4 @@ In this scenario, we recommend you to rename the static file or move it inside a
 
 ## Additional reading
 
-- Assets bundler
+- [Assets manager](./assets-manager.md)

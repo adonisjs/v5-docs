@@ -239,6 +239,21 @@
         ]
       },
       {
+        "name": "Data models",
+        "docs": [
+          {
+            "title": "Introduction",
+            "permalink": "models/introduction",
+            "contentPath": "models/introduction.md"
+          },
+          {
+            "title": "CRUD operations",
+            "permalink": "models/crud",
+            "contentPath": "models/crud.md"
+          }
+        ]
+      },
+      {
         "name": "Security",
         "docs": [
           {
