@@ -4,7 +4,7 @@ summary: API documentation for Lucid HasOne relationship
 
 The [HasOne relationship class](https://github.com/adonisjs/lucid/blob/develop/src/Orm/Relations/HasOne/index.ts) manages the has one relationship between two models.
 
-You will not find yourself directly working with this class. However, an instance of class can be access using the `Model.$getRelation` method.
+You will not find yourself directly working with this class. However, an instance of the class can be accessed using the `Model.$getRelation` method.
 
 ```ts
 import { BaseModel, hasOne, HasOne } from '@ioc:Adonis/Lucid/Orm'
@@ -40,7 +40,7 @@ User.$getRelation('profile').type // 'hasOne'
 ---
 
 ### relationName
-The relationship name. It is property name defined on the parent model.
+The relationship name. It is a property name defined on the parent model.
 
 ```ts
 class User extends BaseModel {
@@ -73,7 +73,7 @@ Find if the relationship has been booted. If not, call the `boot` method.
 ---
 
 ### boot
-Boot the relationship. Lucid models public APIs calls this method internally and you never have to manually boot the relationship.
+Boot the relationship. Lucid models public APIs call this method internally, and you never have to boot the relationship manually.
 
 ---
 
@@ -108,17 +108,81 @@ User.$getRelation('profile').relatedModel() // Profile
 ### localKey
 The `localKey` for the relationship. You must read the [NamingStrategy](../naming-strategy.md#relationlocalkey) doc to learn more about how the key name is computed.
 
+You can also define the `localKey` explicitly. Do make sure you mention the model property name and NOT the database column name.
+
+```ts
+class User extends BaseModel {
+  @column()
+  public id: number
+
+  @hasOne(() => Profile, {
+    localKey: 'id', // id column on "User" model
+  })
+  public profile: HasOne<typeof Profile>
+}
+```
+
 ---
 
 ### foreignKey
 The `foreignKey` for the relationship. You must read the [NamingStrategy](../naming-strategy.md#relationlocalkey) doc to learn more about how the key name is computed.
 
+You can also define the `foreignKey` explicitly. Do make sure you mention the model property name and NOT the database column name.
+
+```ts
+class User extends BaseModel {
+  @hasOne(() => Profile, {
+    foreignKey: 'userId', // userId column on "Profile" model
+  })
+  public profile: HasOne<typeof Profile>
+}
+```
+
+---
+
+### onQuery
+The `onQuery` method is an optional hook to modify the relationship queries. You can define it at the time of declaring the relation.
+
+```ts
+class User extends BaseModel {
+  @column()
+  public id: number
+
+  @hasOne(() => Profile, {
+    onQuery(query) {
+      query.where('visibility', 'public')
+    }
+  })
+  public profile: HasOne<typeof Profile>
+}
+```
+
+If you want to preload a nested relationship using the `onQuery` hook, then make sure to put it inside the `!query.isRelatedSubQuery` conditional because sub-queries are **NOT executed directly**, they are used inside other queries.
+
+```ts
+class User extends BaseModel {
+  @column()
+  public id: number
+
+  @hasOne(() => Profile, {
+    onQuery(query) {
+      // highlight-start
+      if (!query.isRelatedSubQuery) {
+        query.preload('socialAccounts')
+      }
+      // highlight-end
+    }
+  })
+  public profile: HasOne<typeof Profile>
+}
+```
+
 ---
 
 ### setRelated
-Set a relationship on the parent model instance. The methods accepts the parent model as the first argument and the related model instance as the second argument.
+Set a relationship on the parent model instance. The methods accept the parent model as the first argument and the related model instance as the second argument.
 
-You must ensure that both the model instances are related to each other, before calling this method.
+You must ensure that both the model instances are related to each other before calling this method.
 
 ```ts
 const user = new User()
@@ -130,7 +194,7 @@ User.$getRelation('profile').setRelated(user, profile)
 ---
 
 ### pushRelated
-The `pushRelated` method pushes the relationship to the existing relationship value array. However, for `hasOne` the method works similar to `setRelated`.
+The `pushRelated` method pushes the relationship to the existing relationship value array. However, for `hasOne`, the method works similar to `setRelated`.
 
 ---
 
@@ -175,7 +239,7 @@ Returns the reference to the [HasOneQueryClient](#query-client). The query clien
 ---
 
 ### hydrateForPersistance
-Hydrates the values for persistance by defining the foreignKey value. The method accepts the parent model as the first argument and an object or the related model instance as the second argument.
+Hydrates the values for persistence by defining the foreignKey value. The method accepts the parent model as the first argument and an object or the related model instance as the second argument.
 
 ```ts
 const user = new User()
@@ -207,7 +271,7 @@ user.related('profile') // HasOneClientContract
 ```
 
 ### create
-Create a new relationship model instance and persist it to the database right away.
+Please create a new relationship model instance and persist it to the database right away.
 
 ```ts
 const profile = await user
@@ -238,7 +302,7 @@ await trx.commit()
 ### save
 The save method persists an existing instance of the relationship.
 
-Similar to the `create` method, the `save` method also uses inherits the transaction client/connection name from the parent model.
+Like the `create` method, the `save` method also uses the transaction client/connection name from the parent model.
 
 ```ts
 const profile = new Profile()
@@ -257,7 +321,7 @@ The `firstOrCreate` method works similar to the [static firstOrCreate](../base-m
 
 :::tip
 
-You can also use this method to ensure that the user always have a single profile.
+You can also use this method to ensure that the user always has a single profile.
 
 :::
 

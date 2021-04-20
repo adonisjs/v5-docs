@@ -199,6 +199,46 @@
         ]
       },
       {
+        "name": "Database",
+        "docs": [
+          {
+            "title": "Introduction",
+            "permalink": "database/introduction",
+            "contentPath": "database/introduction.md"
+          },
+          {
+            "title": "Query builder",
+            "permalink": "database/query-builder",
+            "contentPath": "database/query-builder.md"
+          },
+          {
+            "title": "Transactions",
+            "permalink": "database/transactions",
+            "contentPath": "database/transactions.md"
+          },
+          {
+            "title": "Pagination",
+            "permalink": "database/pagination",
+            "contentPath": "database/pagination.md"
+          },
+          {
+            "title": "Schema migrations",
+            "permalink": "database/migrations",
+            "contentPath": "database/migrations.md"
+          },
+          {
+            "title": "Database seeders",
+            "permalink": "database/seeders",
+            "contentPath": "database/seeders.md"
+          },
+          {
+            "title": "Debugging",
+            "permalink": "database/debugging",
+            "contentPath": "database/debugging.md"
+          }
+        ]
+      },
+      {
         "name": "Security",
         "docs": [
           {

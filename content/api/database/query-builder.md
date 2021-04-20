@@ -313,6 +313,26 @@ Following is the list of the `whereIn` method variations and shares the same API
 | `orWhereNotIn` | Adds an **or where not in** clause |
 | `andWhereNotIn` | Alias for `whereNotIn` |
 
+### whereNull
+The `whereNull` method adds a where null clause to the query.
+
+```ts
+Database
+  .from('users')
+  .whereNull('deleted_at')
+```
+
+### whereNull method whereNull
+Following is the list of the `whereIn` method variations and shares the same API.
+
+| Method | Description |
+|--------|-------------|
+| `andWhereNull` | Alias for the `whereNull` method |
+| `orWhereNull` | Adds an **or where null** clause |
+| `whereNotNull` | Adds a **where not null** clause |
+| `orWhereNotNull` | Adds an **or where not null** clause |
+| `andWhereNotNull` | Alias for `whereNotNull` |
+
 ### whereExists
 The `whereExists` method allows adding where constraints by checking for the existence of results on a subquery. For example: Select all users who have at least logged in once.
 

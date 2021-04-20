@@ -4,7 +4,7 @@ summary: API documentation for Lucid HasMany relationship
 
 The [HasMany relationship class](https://github.com/adonisjs/lucid/blob/develop/src/Orm/Relations/HasMany/index.ts) manages the has many relationship between two models.
 
-You will not find yourself directly working with this class. However, an instance of class can be access using the `Model.$getRelation` method.
+You will not find yourself directly working with this class. However, an instance of the class can be accessed using the `Model.$getRelation` method.
 
 ```ts
 import { BaseModel, hasMany, HasMany } from '@ioc:Adonis/Lucid/Orm'
@@ -40,7 +40,7 @@ User.$getRelation('posts').type // 'hasMany'
 ---
 
 ### relationName
-The relationship name. It is property name defined on the parent model.
+The relationship name. It is a property name defined on the parent model.
 
 ```ts
 class User extends BaseModel {
@@ -73,7 +73,7 @@ Find if the relationship has been booted. If not, call the `boot` method.
 ---
 
 ### boot
-Boot the relationship. Lucid models public APIs calls this method internally and you never have to manually boot the relationship.
+Boot the relationship. Lucid models public APIs call this method internally, and you never have to boot the relationship manually.
 
 ---
 
@@ -108,17 +108,84 @@ User.$getRelation('posts').relatedModel() // Post
 ### localKey
 The `localKey` for the relationship. You must read the [NamingStrategy](../naming-strategy.md#relationlocalkey) doc to learn more about how the key name is computed.
 
+You can also define the `localKey` explicitly. Do make sure you mention the model property name and NOT the database column name.
+
+```ts
+class User extends BaseModel {
+  @column()
+  public id: number
+
+  @hasMany(() => Post, {
+    localKey: 'id', // id column on "User" model
+  })
+  public posts: HasMany<typeof Post>
+}
+```
+
 ---
 
 ### foreignKey
 The `foreignKey` for the relationship. You must read the [NamingStrategy](../naming-strategy.md#relationlocalkey) doc to learn more about how the key name is computed.
 
+You can also define the `foreignKey` explicitly. Do make sure you mention the model property name and NOT the database column name.
+
+```ts
+class User extends BaseModel {
+  @column()
+  public id: number
+
+  @hasMany(() => Post, {
+    foreignKey: 'userId', // userId column on "Post" model
+  })
+  public posts: HasMany<typeof Post>
+}
+```
+
+---
+
+### onQuery
+The `onQuery` method is an optional hook to modify the relationship queries. You can define it at the time of declaring the relation.
+
+```ts
+class User extends BaseModel {
+  @column()
+  public id: number
+
+  @hasMany(() => Post, {
+    onQuery(query) {
+      query.where('isPublished', true)
+    }
+  })
+  public posts: HasMany<typeof Post>
+}
+```
+
+If you want to preload a nested relationship using the `onQuery` hook, then make sure to put it inside the `!query.isRelatedSubQuery` conditional because sub-queries are **NOT executed directly**, they are used inside other queries.
+
+```ts
+class User extends BaseModel {
+  @column()
+  public id: number
+
+  @hasMany(() => Post, {
+    onQuery(query) {
+      // highlight-start
+      if (!query.isRelatedSubQuery) {
+        query.preload('comments')
+      }
+      // highlight-end
+    }
+  })
+  public posts: HasMany<typeof Post>
+}
+```
+
 ---
 
 ### setRelated
-Set a relationship on the parent model instance. The methods accepts the parent model as the first argument and the related model instance as the second argument.
+Set a relationship on the parent model instance. The methods accept the parent model as the first argument and the related model instance as the second argument.
 
-You must ensure that both the model instances are related to each other, before calling this method.
+You must ensure that both the model instances are related to each other before calling this method.
 
 ```ts
 const user = new User()
@@ -192,7 +259,7 @@ Returns the reference to the [HasManyQueryClient](#query-client). The query clie
 ---
 
 ### hydrateForPersistance
-Hydrates the values for persistance by defining the foreignKey value. The method accepts the parent model as the first argument and an object or the related model instance as the second argument.
+Hydrates the values for persistence by defining the foreignKey value. The method accepts the parent model as the first argument and an object or the related model instance as the second argument.
 
 ```ts
 const user = new User()
@@ -224,7 +291,7 @@ user.related('posts') // HasManyClientContract
 ```
 
 ### create
-Create a new relationship model instance and persist it to the database right away.
+Please create a new relationship model instance and persist it to the database right away.
 
 ```ts
 const post = await user
@@ -255,7 +322,7 @@ await trx.commit()
 Create multiple instances of a relationship model and persist them to the database. The method accepts an array of objects to persist.
 
 - One insert query is issued for each model instance to ensure that we execute the lifecycle hooks for every individual instance.
-- All the insert queries are internally wrapped inside a transaction. In case of an error, everything will be rolled back.
+- All the insert queries are internally wrapped inside a transaction. In case of an error, we will roll everything back.
 
 ```ts
 await user.related('posts').createMany([
@@ -273,7 +340,7 @@ await user.related('posts').createMany([
 ### save
 The save method persists an existing instance of the relationship.
 
-Similar to the `create` method, the `save` method also uses inherits the transaction client/connection name from the parent model.
+Like the `create` method, the `save` method also uses the transaction client/connection name from the parent model.
 
 ```ts
 const post = new Post()
@@ -290,7 +357,7 @@ const post = await user
 The `saveMany` method persists an array of related model instances to the database.
 
 - One insert query is issued for each model instance to ensure that we execute the lifecycle hooks for every individual instance.
-- All the insert queries are internally wrapped inside a transaction. In case of an error, everything will be rolled back.
+- All the insert queries are internally wrapped inside a transaction. In case of an error, we will roll everything back.
 
 ```ts
 const post = new Post()
@@ -384,4 +451,41 @@ await user
 ---
 
 ### query
-Returns an instance of the [HasManyQueryBuilder](https://github.com/adonisjs/lucid/blob/develop/src/Orm/Relations/HasMany/QueryBuilder.ts). The query builder has the same API as the [Model query builder](../query-builder.md).
+Returns an instance of the [HasManyQueryBuilder](#query-builder).
+
+## Query Builder
+The [HasManyQueryBuilder](https://github.com/adonisjs/lucid/blob/develop/src/Orm/Relations/HasMany/QueryBuilder.ts) has the following additional methods on top of a standard model query builder.
+
+You can access the relationship query builder as follows:
+
+```ts
+const user = await User.find(1)
+
+user.related('posts').query() // HasManyQueryBuilder
+```
+
+### groupLimit
+The `groupLimit` method uses [SQL window functions](https://www.sqlservertutorial.net/sql-server-window-functions/sql-server-row_number-function/) to add a limit to each group during relationship preloading. Please read the [preloading guide](../../guides) to learn why and when you need the `groupLimit` method.
+
+```ts
+await User.query().preload('posts', (query) => {
+  query.groupLimit(10)
+})
+```
+
+### groupOrderBy
+Add an order by clause to the group limit query. The method has the same API as the `orderBy` method on the standard query builder.
+
+:::note
+
+You only need to apply `groupOrderBy` when using the `groupLimit` method.
+
+:::
+
+```ts
+await User.query().preload('posts', (query) => {
+  query
+    .groupLimit(10)
+    .groupOrderBy('posts.created_at', 'desc')
+})
+```

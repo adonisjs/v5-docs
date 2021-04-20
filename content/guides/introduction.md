@@ -1,88 +1,87 @@
-Welcome to AdonisJS. If you are just getting started with the framework, then you are at the right place.
-
-This document aims to give you a birds-eye view of the framework so that you have a rough idea about how it feels to create an AdonisJS app. When you're ready to make a project, you can [start with the tutorial]() or [dive right into the technical guides]().
-
-## What is AdonisJS?
-
 AdonisJS is a backend framework. It helps you create data-driven dynamic web applications. Using AdonisJS, you can **handle the HTTP requests**, **query the database**, **authenticate users**, **upload files**, **send emails**, **render templates** and do a lot more.
 
-If you have ever worked with a different backend framework like Rails, Laravel, or Django, then you can consider AdonisJS to be in the same boat.
+If you have ever worked with a different backend framework like Rails, Laravel, or Django, you can consider AdonisJS to be in the same boat.
 
-The space of frameworks is really crowded, so let us help clear some of the misceptions.
+## Who is it for?
 
-- AdonisJS is **NOT a wrapper** on top of any other low level Node framework. It is built from ground up with a fresh approach.
-- It is **NOT a hybrid framework** like Next.js. Infact, AdonisJS doesn't concern itself with the frontend ecosystem at all. It focuses entirely on the backend.
+Over the years, a typical overflow for creating an app in Node.js has been.
+
+- Create an Express.js project.
+- Install a dozen of middleware for every little thing. 
+- Use your experience or read articles to come up with a project structure and naming conventions.
+- Do some more research to find the packages for interacting with the database, authenticating users, and so on.
+- If you work in a team or a dev shop, good luck documenting everything and explaining every decision.
+
+All the upfront work you do, adds almost no value to the final product. Maybe it satiates your creative hunger.
+
+---
+
+On the other hand, AdonisJS does all this hard upfront. We have created high-level packages like the **ORM**, **authentication layer**, **template engine** with extreme care and attention to detail.
+
+AdonisJS is not a wrapper we hacked together over the weekend. Instead, we have spent years getting it to the stage it is today.
+
+Finally, to answer the main question. AdonisJS is for individuals and teams.
+
+- Who wants to ship faster
+- Cares about good development experience and good documentation.
+- Wants to quickly onboard new developers without training them on a homegrown mini framework.
+- Favors opinionated choices to save valuable time.
 
 ## Typescript usage
-You will write your AdonisJS applications using Typescript, as we believe that static types does help mitigate errors to some extent and the intellisense improves the speed at which you write the code.
 
-We have been very particular about the way we leverage the static type system of Typescript and make sure to maintain a good balance between the visual noise and usage of static types. In a nutshell,
+The framework is written in Typescript and the project structure we scaffold for you is also in Typescript.
 
-- We avoid manual type hinting and attempt to infer static types from the runtime code. [Data validator](./validator/introduction.md) and [environment variables validation](./fundamentals/environment-variables.md#validating-environment-variables) is a great example of it.
-- We begin by designing the features to first have good static types/intellisense and then work backwards from there to simplify the API and remove visual noise. In other words, Typescript heavily dictates the way we design the framework APIs.
-- We make sure that the official CLI of AdonisJS should be able to compile your Typescript code in both development and production. You should never have to install any additional build tools for it.
+We have been very particular about the way we leverage the static type system of Typescript and make sure to maintain a good balance between the visual noise and usage of static types.
 
-## Focus on developer experience
-Keywords like **developer experience** are subjective and that is why you see them appearing almost everywhere. So let us take a step ahead and explain our approach towards good developer experience.
+### Infer types
 
-### First, what is not a good developer experience?
+We avoid manual type hinting and attempt to infer static types from the runtime code. Data validator and environment variables validation is an excellent example of it.
 
-#### A fragmented codebase using dozens of packages from different authors.
-You can hardly expect any consistency in the naming conventions when the package for every little feature is written by a different author.
+### Bundling experience
 
-#### Using frameworks with no opinions or guidance.
-You will create your own internal standards around directory structure, config management, deployment strategies and so on. All this will result in ever changing codebase and making it harder to hire and onboard new developers.
+We make sure that the official CLI of AdonisJS should compile your Typescript code in both development and production. You should never have to install any additional build tools for it.
 
-#### Using different CLI programs for different use cases. 
+### Typescript influence on API design
 
-Since, most of your packages are framework agnostic, they all have to ship the necessary tooling to use the package. For example: 
+We begin by designing the features to have good static types/IntelliSense and then work backward to simplify the API and remove visual noise. In other words, Typescript heavily dictates the way we design the framework APIs.
 
-- You will `tsc --watch` to compile your typescript code
-- Run `typeorm migration:run` command to execute the TypeORM migrations
-- And, maybe use `nodemon` to restart the HTTP server on file change
+## Framework core and surrounding packages
 
-The list will continue to grow as you will grab new package from npm.
+AdonisJS is not a minimalist framework. We bundle all the essentials of creating a modern web app right into the core of the framework.
 
-## Framework core
-Creating a web application isn't really about assembling packages from npm. AdonisJS ships with a feature rich core, so that you can get up and running in minutes (if not seconds).
+Also, we are not a monolith and provide extra functionality/features as first-party packages.
 
-- HTTP server to handle incoming requests
-- A good and powerful router to handle requests routing and maybe serve multiple subdomains from the same codebase
-- Ability to work with cookies and sessions
-- Validate and sanitize the user input
-- Handle file uploads and store them locally or sent them to a file management service like S3.
-- Logger to write log messages for critical events.
-- Able to quickly deploy the code and maybe do rolling deployments to avoid downtimes.
+### Baked into the core
 
-## First party packages
-On top of the framework core, you can use one of the following first party packages written by the AdonisJS core team.
+- HTTP server and middleware pipeline to handle incoming requests.
+- A powerful router with support for subdomain routing and route groups.
+- Baked in support for secure cookies and sessions.
+- A rock-solid data validator.
+- In-built support for file uploads.
+- Static file server to serve the frontend assets.
+- Modules for password hashing and encryption.
+- And, a lot more.
 
-- [@adonisjs/lucid]()
-- [@adonisjs/view]()
-- [@adonisjs/mail]()
-- [@adonisjs/shield]()
-- [@adonisjs/auth]()
-- [@adonisjs/bouncer]()
-- [@adonisjs/ally]()
-- [@adonisjs/lucid-slugify]()
-- [@adonisjs/redis]()
-- [@adonisjs/repl]()
+### ORM
 
-## Sponsorsed by
+AdonisJS is one of the rarest framework to ship with a SQL ORM built on top of the Active Record pattern.
 
-## Resources
+It comes with a query builder built on top of knex, migrations system, data models, model factories and database seeders.
 
-- [Awesome AdonisJS]()
-- [AdonisJS Vscode go to controllers]()
-- [AdonisJS Vscode go to view]()
-- [AdonisJS Sublime text extension]()
-- [Interia adapter for AdonisJS]()
-- []()
+Make sure to check the official documentation to learn more.
 
-## Asking for help
+### Authentication layer
 
-- Github discussions
-- Github issues
-- Discord
-- Twitter
+AdonisJS has a diverse authentication system. You can authenticate users using the standard sessions, or generate API tokens for stateless auth.
 
+Also, you can `@adonisjs/ally` package to authenticate users via social platforms like Twitter, Google, Github and so on.
+
+### Authorization layer
+
+Authorization support is also baked into the framework via `@adonisjs/bouncer` package. Bouncer enables you to define permissions as policies and authenticate user actions against them.
+
+### Template engine
+
+### CLI framework and REPL
+
+## Framework sponsors

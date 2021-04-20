@@ -122,6 +122,7 @@
   background: var(--pre-background);
   border-radius: var(--rounded-corners-size);
   margin-bottom: var(--markdown-block-elements-margin);
+  padding: 0;
 }
 
 .markdown .codegroup {
@@ -307,6 +308,7 @@
 
 .markdown details > summary {
   cursor: pointer;
+  margin: 20px 0;
   font-weight: var(--bold-font-weight);
 }
 
@@ -355,6 +357,7 @@ FEATURES BLOCK
 
 .features ul:last-child {
   width: 200px;
+  flex-shrink: 0;
 }
 
 .features ul:last-child li {
@@ -419,4 +422,13 @@ SETUP BLOCK
 
 .file-errors pre .line.warning {
   color: #EAB308;
+}
+
+.doc-cta-wrapper a {
+  text-decoration: none;
+  color: var(--brand-color);
+  font-family: var(--font-mono);
+  font-size: 16px;
+  font-weight: 600;
+  border-bottom: 1px solid;
 }
