@@ -250,6 +250,21 @@
             "title": "CRUD operations",
             "permalink": "models/crud",
             "contentPath": "models/crud.md"
+          },
+          {
+            "title": "Hooks",
+            "permalink": "models/hooks",
+            "contentPath": "models/hooks.md"
+          },
+          {
+            "title": "Query scopes",
+            "permalink": "models/query-scopes",
+            "contentPath": "models/query-scopes.md"
+          },
+          {
+            "title": "Serializing Models",
+            "permalink": "models/serializing-models",
+            "contentPath": "models/serialization.md"
           }
         ]
       },

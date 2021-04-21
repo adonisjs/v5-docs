@@ -126,7 +126,7 @@ Database.knexQuery()
 ---
 
 ### knexRawQuery
-Alias for the [client.knexRawQuery](/query-client.md#knex-raw-query) method.
+Alias for the [client.knexRawQuery](./query-client.md#knex-raw-query) method.
 
 ```ts
 Database
@@ -173,7 +173,7 @@ console.log(Database.primaryConnectionName)
 ---
 
 ### manager
-Returns reference to the [connections manager](/api/database/connections-manager)
+Returns reference to the [connections manager](./connection-manager.md)
 
 ```ts
 console.log(Database.manager)

@@ -26,7 +26,7 @@ All of the object properties are optional
 
 ## Static properties/methods
 
-#### static boot
+### static boot
 Boot the model. Since the inheritance story of Javascript class is not that great with static properties. We need a custom `boot` phase to ensure that everything works as expected.
 
 ```ts
@@ -35,7 +35,7 @@ User.boot()
 
 ---
 
-#### static booted
+### static booted
 A boolean to know if a model has been booted or not.
 
 ```ts
@@ -1262,7 +1262,7 @@ console.log(user.toObject())
 ### serialize
 Serializes the model to its JSON representation. The serialization of models is helpful for building API servers.
 
-Make sure to read the in-depth guide on [models serialization](/guides/models/serializing-models/).
+Make sure to read the in-depth guide on [models serialization](../../guides/models/serialization.md).
 
 ```ts
 console.log(user.serialize())

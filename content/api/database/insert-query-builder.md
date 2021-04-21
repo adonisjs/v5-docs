@@ -85,7 +85,7 @@ console.log(rows[0].id, rows[0].username)
 ---
 
 ### debug
-The `debug` method allows enabling or disabling debugging at an individual query level. Here's a [complete guide](/guides/database/debugging-queries/) on debugging queries.
+The `debug` method allows enabling or disabling debugging at an individual query level. Here's a [complete guide](../../guides/database/debugging.md) on debugging queries.
 
 ```ts
 const rows = Database
@@ -190,7 +190,7 @@ values
 ---
 
 ### useTransaction
-The `useTransaction` method instructs the query builder to wrap the query inside a transaction. The guide on [database transactions](/guides/database/transactions) covers different ways to create and use transactions in your application.
+The `useTransaction` method instructs the query builder to wrap the query inside a transaction. The guide on [database transactions](../../guides/database/transactions.md) covers different ways to create and use transactions in your application.
 
 ```ts
 const trx = await Database.transaction()
@@ -211,7 +211,7 @@ await trx.commit()
 Following is the list of properties and methods you may occasionally need when building something on top of the query builder.
 
 ### client
-Reference to the instance of the underlying [database query client](/api/database/query-client).
+Reference to the instance of the underlying [database query client](./query-client.md).
 
 ```ts
 const query = Database.insertQuery()

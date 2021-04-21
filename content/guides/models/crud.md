@@ -1,25 +1,28 @@
-Lucid models makes it very easy to perform CRUD operations and also define lifecycle hooks around each operation.
+Lucid models make it very easy to perform CRUD operations and also define lifecycle hooks around each operation.
 
-For more advanced queries, you can use the [model query builder]()
+This guide covers 80% of the use cases. However, do make sure to check the [Model API docs](../../api/orm/base-model.md) docs for all the available methods.
 
 ## Create
-You can insert new rows to the database by using the `Model.create` method or by assigning properties to the model instance. For example:
+You can create and persist new records to the database by assigning values to the model instance properties and calling the `model.save` method.
 
 ```ts
 import User from 'App/Models/User'
-
 const user = new User()
+
+// Assign username and email
 user.username = 'virk'
 user.email = 'virk@adonisjs.com'
 
+// Insert to the database
 await user.save()
+
 console.log(user.$isPersisted) // true
 ```
 
 - The `user.save` method will perform the insert query. 
-- The `user.$isPersisted` flag returns `true` when the values has been persisted to the database.
+- The `user.$isPersisted` flag returns `true` when the values are persisted to the database.
 
-Another option is to make use of the `create` method on the Model class itself.
+Another option is to make use of the `static create` method on the Model class itself.
 
 ```ts
 import User from 'App/Models/User'
@@ -28,40 +31,52 @@ const user = await User.create({
   username: 'virk',
   email: 'virk@adonisjs.com',
 })
+
 console.log(user.$isPersisted) // true
 ```
 
 ## Read
-The read operations can be performed using the shortcut methods defined on the Model or by using the query builder. Let's explore both
+You can query the database table using one of the following static methods.
 
-[note]
-All queries executed using a Model returns an **array of Model instances** and **not plain JavaScript objects**. This is one of the differences between the standard query builder and the Model query builder.
-[/note]
-
-### Using shorthand methods
-Following are some of the shorthand methods to query the table associated with the model.
+#### all
+Fetch all the users from the database. The method returns an array of model instances.
 
 ```ts
 const user = await User.all()
 // SQL: SELECT * from "users" ORDER BY "id" DESC;
 ```
 
+---
+
+#### find
+Find a record using the primary key. The method returns a model instance or null (when no records are found).
+
 ```ts
 const user = await User.find(1)
 // SQL: SELECT * from "users" WHERE "id" = 1 LIMIT 1;
 ```
+
+---
+
+#### findBy
+Find a record by a column name and its value. Similar to the `find` method, this method also returns a model instance or `null`.
 
 ```ts
 const user = await User.findBy('email', 'virk@adonisjs.com')
 // SQL: SELECT * from "users" WHERE "email" = 'virk@adonisjs.com' LIMIT 1;
 ```
 
+---
+
+#### first
+Fetch the first record from the database. Returns `null` when there are no records.
+
 ```ts
 const user = await User.first()
 // SQL: SELECT * from "users" LIMIT 1;
 ```
 
-All of the above methods except `all` comes with a `orFail` variation. Normally, when a row is not found, the query will return `null`. However, you can make it raise an exception instead of returning `null`.
+You can also use the `orFail` variation for the find methods. It raises an exception when no row is found.
 
 ```ts
 const user = await User.findOrFail(1)
@@ -69,16 +84,20 @@ const user = await User.firstOrFail()
 const user = await User.findByOrFail('email', 'virk@adonisjs.com')
 ```
 
-The `orFail` variation will raise an `E_ROW_NOT_FOUND` exception with `404` statusCode. You can also [manually handle](/guides/http/exception-handling#the-handle-method) this exception to convert it to a desired response.
+The `orFail` variation will raise an `E_ROW_NOT_FOUND` exception with `404` statusCode. You can [manually handle](../http/exception-handling.md#http-exception-handler) this exception to convert it to a desired response.
 
-### Using the Query Builder
-You can also use the standard query builder API with your models, and this makes models a lot more powerful, since you are not only limited to a handful of opinionated methods.
+---
 
-[note]
-Even when using the query builder, the result will always contain **model instance(s)** and not plain JavaScript object(s).
-[/note]
+### Using the query builder
+The above-mentioned static methods cover the common use cases for querying the database. However, you are not only limited to these methods and can also leverage the query builder API for making advanced SQL queries.
 
-You can get an instance of query builder for your model using the `.query` method.
+:::note
+
+The [model query builder](../../api/orm/query-builder.md) returns an array of model instances and not the plain JavaScript object(s).
+
+:::
+
+You can get an instance of a query builder for your model using the `.query` method.
 
 ```ts
 const users = await User
@@ -98,7 +117,7 @@ const users = await User
 ```
 
 ## Update
-The standard way to perform updates using the model is to first lookup the record and then update/persist it to the database.
+The standard way to perform updates using the model is to look up the record and then update/persist it to the database.
 
 ```ts
 const user = await User.findOrFail(1)
@@ -107,44 +126,43 @@ user.last_login_at = DateTime.local() // Luxon dateTime is used
 await user.save()
 ```
 
-### Why not use the update query directly
-Another way to update the records is to manually perform an update using the query builder. For example:
+#### Why not use the update query directly?
+Another way to update the records is to perform an update using the query builder manually. For example
 
 ```ts
-await User.query().where('id', 1).update({ last_login_at: new Date() })
+await User
+  .query()
+  .where('id', 1)
+  .update({ last_login_at: new Date() })
 ```
 
-When using the above approach, you will miss a lot of models niceties.
+However, updating records directly does not trigger any model hooks and neither auto-update the timestamps.
 
-- You will not be able to use the hooks API.
-- You cannot use the luxon `DateTime` helpers.
-- The `updated_at` column will not be updated, unless you manually update it or use a database level trigger.
-
-We recommend not stressing much on the extra `select` query unless you are dealing with millions of updates per second and happy leaving the models features. 
+We recommend not stressing much on the extra `select` query unless dealing with millions of updates per second and happy leaving the model's features.
 
 ## Delete
-Similar to the `update` operation, in order to delete a row, you first fetch it from the database. For example
+Like the `update` operation, you first fetch it from the database and then delete the row. For example
 
 ```ts
 const user = await User.findOrFail(1)
 await user.delete()
 ```
 
-Again, in order for hooks to work, Lucid needs the instance of the model first. If you decide to use the query builder directly, then no hooks will be fired.
+Again, for hooks to work, Lucid needs the instance of the model first. If you decide to use the query builder directly, then no hooks will be fired.
 
-However, the direct query builder approach can be helpful for performing bulk deletes.
+However, the direct query builder approach can help perform bulk deletes.
 
 ```ts
 await User.query().where('is_verified', false).delete()
 ```
 
-## Find Or Create
-Models come with a lot of helpful methods to simplify the record creation by first finding them inside the database and performing the create query(only when the record doesn't exists).
+## Idempotent methods
+Models come with many helpful methods to simplify the record creation by first finding them inside the database and running the create/update queries only when the record doesn't exist.
 
-### `firstOrCreate`
-Search for record inside the database or create a new one (only when the lookup fails). 
+#### firstOrCreate
+Search for a record inside the database or create a new one (only when the lookup fails).
 
-In the following example, we attempt to search a user with an email, but persist both the `email` and the `password`, when the initial lookup fails. In other words, the `searchPayload` and the `savePayload` are merged during the create call.
+In the following example, we attempt to search a user with an email but persist both the `email` and the `password`, when the initial lookup fails. In other words, the `searchPayload` and the `savePayload` are merged during the create call.
 
 ```ts
 import User from 'App/Models/User'
@@ -155,11 +173,11 @@ const savePayload = { password: 'secret' }
 await User.firstOrCreate(searchPayload, savePayload)
 ```
 
-### `fetchOrCreateMany`
-The `fetchOrCreateMany` is similar to the `firstOrCreate` method, but instead you can create more than one rows. **This method is great for creating missing records**.
+---
 
-- You need to define a unique key as the first argument. The value for this key is used to determine, if the record exists in the database or not.
-- The 2nd argument is an array of records to persist, but only the missing ones.
+#### fetchOrCreateMany
+
+The `fetchOrCreateMany` is similar to the `firstOrCreate` method, but instead, you can create more than one row. The method needs a unique key for finding the duplicate rows and an array of objects to persist (if missing inside the database).
 
 ```ts
 import User from 'App/Models/User'
@@ -179,11 +197,10 @@ const usersToCreate = [
 await User.fetchOrCreateMany('email', usersToCreate)
 ```
 
-## Update Or Create
-The update or create operations are similar in nature to the find or create, but instead, the existing rows inside the database are also updated.
+---
 
-### `updateOrCreate`
-Search for record inside the database and update it, or create a new one, when no record has been found.
+#### updateOrCreate
+The `updateOrCreate` either creates a new record or updates the existing record. Like the `firstOrCreate` method, you need to define a search payload and the attributes to insert/update.
 
 ```ts
 import User from 'App/Models/User'
@@ -194,11 +211,10 @@ const persistancePayload = { password: 'secret' }
 await User.updateOrCreate(searchPayload, persistancePayload)
 ```
 
-### `updateOrCreateMany`
-The `updateOrCreateMany` method allows syncing rows by avoiding duplicate entries.
+---
 
-- You need to define a unique key as the first argument. The value for this key is used to determine, if the record exists in the database or not.
-- The 2nd argument is an array of records to persist.
+#### updateOrCreateMany
+The `updateOrCreateMany` method allows syncing rows by avoiding duplicate entries. The method needs a unique key for finding the duplicate rows and an array of objects to persist/update.
 
 ```ts
 import User from 'App/Models/User'
@@ -217,3 +233,8 @@ const usersToCreate = [
 
 await User.updateOrCreateMany('email', usersToCreate)
 ```
+
+## Additional Reading
+
+- Checkout the [Base model API docs](../../api/orm/base-model.md) to view all the available methods and properties.
+- Also, read the API docs for the [model query builder](../../api/orm/query-builder.md).

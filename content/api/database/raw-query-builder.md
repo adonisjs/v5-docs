@@ -123,7 +123,7 @@ await Database.select(
 ```
 
 ### debug
-The `debug` method allows enabling or disabling debugging at an individual query level. Here's a [complete guide](/guides/database/debugging-queries/) on debugging queries.
+The `debug` method allows enabling or disabling debugging at an individual query level. Here's a [complete guide](../../guides/database/debugging.md) on debugging queries.
 
 ```ts
 await Database
@@ -155,7 +155,7 @@ await Database
 ---
 
 ### client
-Reference to the instance of the underlying [database query client](/api/database/query-client).
+Reference to the instance of the underlying [database query client](./query-client.md).
 
 ```ts
 const query = Database.rawQuery(sql, bindings)

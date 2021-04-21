@@ -238,7 +238,7 @@ await client.from('users').select('*')
 ---
 
 ### schema
-Returns reference to the [schema builder](/api/database/schema). The `client.schema` is a getter that returns a new instance every time you access the property
+Returns reference to the [schema builder](./schema-builder.md). The `client.schema` is a getter that returns a new instance every time you access the property
 
 ```ts
 await client.schema.createTable('users', (table) => {

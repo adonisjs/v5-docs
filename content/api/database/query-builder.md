@@ -1153,7 +1153,7 @@ The `delete` method also has an alias called `del`.
 ---
 
 ### useTransaction
-The `useTransaction` method instructs the query builder to wrap the query inside a transaction. The guide on [database transactions](/guides/database/transactions) covers different ways to create and use transactions in your application.
+The `useTransaction` method instructs the query builder to wrap the query inside a transaction. The guide on [database transactions](../../guides/database/transactions.md) covers different ways to create and use transactions in your application.
 
 ```ts
 const trx = await Database.transaction()
@@ -1255,7 +1255,7 @@ await clonedQuery // select * from "users"
 ---
 
 ### debug
-The `debug` method allows enabling or disabling debugging at an individual query level. Here's a [complete guide](/guides/database/debugging-queries/) on debugging queries.
+The `debug` method allows enabling or disabling debugging at an individual query level. Here's a [complete guide](../../guides/database/debugging.md) on debugging queries.
 
 ```ts
 Database

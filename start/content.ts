@@ -60,7 +60,7 @@ Content
 
 Content
   .zone('API Docs')
-  .baseUrl('reference')
+  .baseUrl('api')
   .baseContentPath('./content/api')
   .template('docs')
   .loadLanguage({
