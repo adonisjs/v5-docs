@@ -178,6 +178,26 @@ node ace make:validator CreateUser
 # CREATE: app/Validators/CreateUser.ts
 ```
 
+All the validation related properties including the `schema`, `messages` are defined as properties on the class.
+
+```ts
+// title: app/Validators/CreateUser.ts
+import { schema } from '@ioc:Adonis/Core/Validator'
+import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
+
+export default class CreateUser {
+  constructor (protected ctx: HttpContextContract) {
+  }
+
+  public schema = schema.create({
+  })
+
+  public messages = {}
+}
+```
+
+### Using validator
+
 Instead of passing an object with the `schema` property, you can now pass the class constructor to the `request.validate` method.
 
 ```ts
@@ -193,7 +213,9 @@ Route.post('users', async ({ request, response }) => {
 })
 ```
 
-We create a new instance of the validator class behind the scenes and pass the current HTTP context to it. However, you can also manually construct the class instance and pass any arguments you like. For example:
+During validation, a new instance of the validator class is created behind scenes. Also, the `request.validate` method will pass the current HTTP context as first constructor argument.
+
+You can also manually construct the class instance and pass any arguments you like. For example:
 
 ```ts
 Route.post('users', async ({ request, response }) => {

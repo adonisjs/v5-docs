@@ -1,6 +1,8 @@
 Along with the Database query builder, Lucid also has data models, built on top of the [Active record pattern](https://en.wikipedia.org/wiki/Active_record_pattern).
 
-The data models layer of Lucid makes it super simple to **perform CRUD operations**, **manage relationships between models**, and **define lifecycle hooks**. Hence we recommend using them extensively and reach for the standard query builder for advanced and specific use cases.
+The data models layer of Lucid makes it super simple to **perform CRUD operations**, **manage relationships between models**, and **define lifecycle hooks**. 
+
+We recommend using models extensively and reach for the standard query builder for very specific use cases.
 
 ## What is Active record pattern?
 
@@ -12,7 +14,7 @@ Whenever we say the term **Active record**, we are pointing towards the pattern 
 
 :::
 
-The Active record pattern advocates to encapsulate the database interactions to language specific objects or classes. Each database table gets its own model and each instance of that class represents a database row.
+The Active record pattern advocates to encapsulate the database interactions to language specific objects or classes. Each database table gets its own model and each instance of that class represents a table row.
 
 The data models cleans up a lot of database interactions, since you can encode most of the behavior inside your models vs writing it everywhere inside your codebase. 
 
@@ -97,7 +99,7 @@ Since, AdonisJS uses Typescript, there is no way to get around WITHOUT defining 
 - We keep the models lean and do not define database specific **constraints**, **data types** and **triggers** inside models.
 - Any option you define inside the models does not change/impact the database. You must use migrations for that.
 
-To summarize the above points - **Lucid maintains a clear separation between migrations and the models**.
+To summarize the above points - **Lucid maintains a clear separation between migrations and the models**. Migrations are meant to create/alter the tables, and models are meant to query the database or insert new records.
 
 ---
 
@@ -183,7 +185,7 @@ public id: number
 ## Models config
 Following are the configuration options to overwrite the conventional defaults.
 
-#### primaryKey
+### primaryKey
 Define a custom primary key (defaults to id). Setting the `primaryKey` on the model doesn't modify the database. Here, you are just telling Lucid to consider id as the unique value for each row.
 
 ```ts
@@ -203,7 +205,7 @@ class User extends Basemodel {
 
 ---
 
-#### table
+### table
 Define a custom database table name. [Defaults](../../api/orm/naming-strategy.md#tablename) to the plural and snake case version of the model name.
 
 ```ts
@@ -214,7 +216,7 @@ export default class User extends BaseModel {
 
 ---
 
-#### selfAssignPrimaryKey
+### selfAssignPrimaryKey
 Set this option to `true` if you don't rely on the database to generate the primary keys. For example: You want to self assign `uuid` to the new rows.
 
 ```ts
@@ -236,7 +238,7 @@ export default class User extends BaseModel {
 
 ---
 
-#### connection
+### connection
 Instruct model to use a custom database connection defined inside the `config/database` file.
 
 :::note
@@ -273,7 +275,7 @@ We do not express database types inside models. We follow the approach of **lean
 <details>
 <summary>Can I move my Models somewhere else?</summary>
 
-Yes. You are free to put your model wherever you want! If your models are inside the `app/Something` folder, you would use `App/Something/XXX` to load your model.
+Yes. You are free to put your model wherever you want! If your models are inside the `app/Something` folder, you would use `App/Something/ModelName` to load your model.
 
 </details>
 

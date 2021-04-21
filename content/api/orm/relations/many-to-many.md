@@ -293,19 +293,27 @@ const users = [
 const projects = [
   Project {
     id: 1,
-    pivot_user_id: 1,
+    $extras: {
+      pivot_user_id: 1,
+    }
   },
   Project {
     id: 2,
-    pivot_user_id: 1,
+    $extras: {
+      pivot_user_id: 1,
+    }
   },
   Project {
     id: 3,
-    pivot_user_id: 2,
+    $extras: {
+      pivot_user_id: 2,
+    }
   },
   Project {
     id: 4,
-    pivot_user_id: 3,
+    $extras: {
+      pivot_user_id: 3,
+    }
   }
 ]
 

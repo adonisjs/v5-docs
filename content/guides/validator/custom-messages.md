@@ -43,9 +43,9 @@ You can make use of the following placeholders to reference runtime values insid
 
 | Placeholder | Description |
 |-------------|-------------|
-| {{ field }} | Name of the field under validation. Nested object paths are represented with a dot separator. For example: `user.profile.username` |
-| {{ rule }} | Name of the validation rule |
-| {{ options }} | The options passed by the validation methods. For example: The `enum` rule will pass an array of `choices` and some rules may not pass any options at all |
+| `{{ field }}` | Name of the field under validation. Nested object paths are represented with a dot separator. For example: `user.profile.username` |
+| `{{ rule }}` | Name of the validation rule |
+| `{{ options }}` | The options passed by the validation methods. For example: The `enum` rule will pass an array of `choices` and some rules may not pass any options at all |
 
 ## Wildcard callback
 You can also define a callback function to construct the message at runtime. The callback can only be defined as a fallback using the wildcard `*` expression.
@@ -66,7 +66,7 @@ In the following example, the callback will be invoked for all the fields, excep
 ## Options passed to the message string
 Following is the list of options passed by the different validation methods to the message string.
 
-#### date
+### date
 The `date` validation rule will pass the `options.format`.
 
 ```ts
@@ -75,7 +75,9 @@ The `date` validation rule will pass the `options.format`.
 }
 ```
 
-#### distinct
+---
+
+### distinct
 The `distinct` validation rule will pass the `field` on which the distinct rule is applied, along with `index` at which the duplicate value was found.
 
 ```ts
@@ -84,7 +86,9 @@ The `distinct` validation rule will pass the `field` on which the distinct rule 
 }
 ```
 
-#### enum / enumSet
+---
+
+### enum / enumSet
 The `enum` and `enumSet` validation rules will pass an array of `options.choices`.
 
 ```ts
@@ -94,7 +98,9 @@ The `enum` and `enumSet` validation rules will pass an array of `options.choices
 }
 ```
 
-#### file
+---
+
+### file
 The file validation allows defining custom messages for the sub rules. For example:
 
 ```ts
@@ -104,7 +110,9 @@ The file validation allows defining custom messages for the sub rules. For examp
 }
 ```
 
-#### minLength / maxLength
+---
+
+### minLength / maxLength
 The `minLength` and `maxLength` validation rules will pass the `options.length` to the message.
 
 ```ts
@@ -114,7 +122,9 @@ The `minLength` and `maxLength` validation rules will pass the `options.length` 
 ```
 
 
-#### requiredIfExists / requiredIfNotExists
+---
+
+### requiredIfExists / requiredIfNotExists
 The `requiredIfExists` and `requiredIfNotExists` validation rules will pass the `options.otherField` as a string.
 
 ```ts
@@ -122,6 +132,8 @@ The `requiredIfExists` and `requiredIfNotExists` validation rules will pass the 
   'requiredIfExists': '{{ options.otherField }} requires {{ field }}',
 }
 ```
+
+---
 
 ### Conditional required rules
 The following `requiredIf*` rules will pass the `options.otherFields` as an array of strings.
@@ -137,7 +149,9 @@ The following `requiredIf*` rules will pass the `options.otherFields` as an arra
 }
 ```
 
-#### requiredWhen
+---
+
+### requiredWhen
 The `requiredWhen` validation rule will pass the following options.
 
 - `options.otherField`

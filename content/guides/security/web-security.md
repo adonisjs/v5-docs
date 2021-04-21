@@ -1,6 +1,8 @@
 You can protect your web applications from common web attacks like **CSRF**, **XSS**, **Content sniffing** and more using the `@adonisjs/shield` package. 
 
-It is recommended to use this package when creating a server rendered app using AdonisJS. However, if you are using AdonisJS as an API server, then you must use rely on your frontend framework's security layer.
+It is recommended to use this package when creating a server rendered app using AdonisJS.
+
+If you are using AdonisJS to create an API server, then you must use rely on your frontend framework's security layer.
 
 :::div{class="setup"}
 

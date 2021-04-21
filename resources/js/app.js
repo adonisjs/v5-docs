@@ -16,6 +16,7 @@ import '../css/toc.css'
 import '../css/markdown.css'
 
 window.initializeCodegroups = function () {
+  console.log('here>')
   return {
     activeTab: 1,
     changeTab(index, element) {
@@ -46,10 +47,10 @@ document.addEventListener('turbo:load', () => {
 /**
  * Update active link onclick
  */
-document.addEventListener('turbo:click', (event) => {
-  document.querySelectorAll('#sidebar li').forEach((element) => element.classList.remove('active'))
-  event.target.parentNode.classList.add('active')
-})
+// document.addEventListener('turbo:click', (event) => {
+//   document.querySelectorAll('#sidebar li').forEach((element) => element.classList.remove('active'))
+//   event.target.parentNode.classList.add('active')
+// })
 
 /**
  * Manage scroll position of elements

@@ -139,13 +139,19 @@ The JSON parser processes request sending the JSON string with one of the follow
 
 You can add more content types to the `json.types` array inside the `config/bodyparser.ts` file, and the JSON parser will also process them.
 
+---
+
 #### URL encoded
 
 Request sending a URL encoded string with `content-type='application/x-www-form-urlencoded'` is parsed using the URL encoding parser.
 
+---
+
 #### Multipart
 
 The multipart requests with `content-type='multipart/form-data'` are parsed using the multipart parser. Make sure to read the guide on [file uploads](./file-uploads.md) to view all available configuration options.
+
+---
 
 #### Raw
 
@@ -253,7 +259,7 @@ request.completeUrl(true)
 
 ### method
 
-Returns the HTTP method for the given request. The spoofed method is returned when [form method spoofing](./forms-and-validations.md#form-method-spoofing) is enabled.
+Returns the HTTP method for the given request. The spoofed method is returned when [form method spoofing](#form-method-spoofing) is enabled.
 
 ```ts
 request.method()
@@ -361,6 +367,22 @@ http: {
   }
 }
 ```
+
+## Form method spoofing
+
+Standard HTML forms cannot make use of all the HTTP verbs beyond `GET` and `POST`. It means you cannot create a form with the method `PUT`.
+
+However, AdonisJS allows you to spoof the HTTP method using the `_method` query string. In the following example, the request will be routed to the route listening for the `PUT` request.
+
+```html
+<form method="POST" action="/posts/1?_method=PUT"></form>
+```
+
+Form method spoofing only works:
+
+- When the value of `http.allowMethodSpoofing` is set to true inside the `config/app.ts` file.
+- And the original request method is `POST`.
+
 
 ## Content negotiation
 
@@ -618,4 +640,4 @@ Following are some of the additional guides to learn more about the topics not c
 
 - [Cookies](./cookies.md)
 - [File uploads](./file-uploads.md)
-- [Forms and validations](./forms-and-validations.md)
+- [Validations](../validator/introduction.md)

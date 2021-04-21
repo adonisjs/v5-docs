@@ -38,7 +38,7 @@ console.log(user.$isPersisted) // true
 ## Read
 You can query the database table using one of the following static methods.
 
-#### all
+### all
 Fetch all the users from the database. The method returns an array of model instances.
 
 ```ts
@@ -48,7 +48,7 @@ const user = await User.all()
 
 ---
 
-#### find
+### find
 Find a record using the primary key. The method returns a model instance or null (when no records are found).
 
 ```ts
@@ -58,7 +58,7 @@ const user = await User.find(1)
 
 ---
 
-#### findBy
+### findBy
 Find a record by a column name and its value. Similar to the `find` method, this method also returns a model instance or `null`.
 
 ```ts
@@ -68,7 +68,7 @@ const user = await User.findBy('email', 'virk@adonisjs.com')
 
 ---
 
-#### first
+### first
 Fetch the first record from the database. Returns `null` when there are no records.
 
 ```ts
@@ -159,7 +159,7 @@ await User.query().where('is_verified', false).delete()
 ## Idempotent methods
 Models come with many helpful methods to simplify the record creation by first finding them inside the database and running the create/update queries only when the record doesn't exist.
 
-#### firstOrCreate
+### firstOrCreate
 Search for a record inside the database or create a new one (only when the lookup fails).
 
 In the following example, we attempt to search a user with an email but persist both the `email` and the `password`, when the initial lookup fails. In other words, the `searchPayload` and the `savePayload` are merged during the create call.
@@ -175,7 +175,7 @@ await User.firstOrCreate(searchPayload, savePayload)
 
 ---
 
-#### fetchOrCreateMany
+### fetchOrCreateMany
 
 The `fetchOrCreateMany` is similar to the `firstOrCreate` method, but instead, you can create more than one row. The method needs a unique key for finding the duplicate rows and an array of objects to persist (if missing inside the database).
 
@@ -199,7 +199,7 @@ await User.fetchOrCreateMany('email', usersToCreate)
 
 ---
 
-#### updateOrCreate
+### updateOrCreate
 The `updateOrCreate` either creates a new record or updates the existing record. Like the `firstOrCreate` method, you need to define a search payload and the attributes to insert/update.
 
 ```ts
@@ -213,7 +213,7 @@ await User.updateOrCreate(searchPayload, persistancePayload)
 
 ---
 
-#### updateOrCreateMany
+### updateOrCreateMany
 The `updateOrCreateMany` method allows syncing rows by avoiding duplicate entries. The method needs a unique key for finding the duplicate rows and an array of objects to persist/update.
 
 ```ts

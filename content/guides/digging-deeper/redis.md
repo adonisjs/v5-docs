@@ -249,7 +249,7 @@ Route.get('health', async ({ response }) => {
 ## Closing connections
 You can close the redis connections using one of the following methods.
 
-#### quit
+### quit
 The `quit` method closes the redis connection gracefully. This method will wait for all queued commands to finish.
 
 ```ts
@@ -257,7 +257,9 @@ await Redis.quit()
 await Redis.connection('name').quit()
 ```
 
-#### disconnect
+---
+
+### disconnect
 The `disconnect` method doesn't wait for existing commands to finish and will disrupt the connection immediately.
 
 ```ts
@@ -265,14 +267,18 @@ await Redis.disconnect()
 await Redis.connection('name').disconnect()
 ```
 
-#### quitAll
+---
+
+### quitAll
 Similar to `quit`, but quits all the connections
 
 ```ts
 await Redis.quitAll()
 ```
 
-#### disconnectAll
+---
+
+### disconnectAll
 Similar to `disconnect`, but disconnects all the connections.
 
 ```ts

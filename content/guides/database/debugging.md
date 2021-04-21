@@ -1,4 +1,4 @@
-Lucid emits the `db:query` event when debugging enabled globally or for an individual query.
+Lucid emits the `db:query` event when debugging is enabled globally or for an individual query.
 
 You can enable debugging globally by setting the `debug` flag to `true` inside the `config/database.ts` file.
 

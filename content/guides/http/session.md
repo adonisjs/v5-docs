@@ -1,14 +1,16 @@
 The support for sessions is provided by the `@adonisjs/session` package. The package comes pre-configured with the `web` starter template. However, installing and configuring it is also relatively straightforward.
 
-Open the `.adonisrc.json` file and check if `@adonisjs/session` is mentioned inside the list of `providers` array. **IF NOT, then continue with the following steps:**
+:::div{class="setup"}
+
+:::codegroup
 
 ```sh
+// title: Install
 npm i @adonisjs/session
 ```
 
-Run the following `ace` command to configure the project.
-
 ```sh
+// title: Configure
 node ace configure @adonisjs/session
 
 # CREATE:  config/session.ts
@@ -16,18 +18,33 @@ node ace configure @adonisjs/session
 # UPDATE: .adonisrc.json { providers += "@adonisjs/session" }
 ```
 
-Once done, copy/paste the following line of code inside the `env.ts` file to validate the `SESSION_DRIVER` environment variable.
-
 ```ts
-// title: env.ts
+// title: Validate environment variables  
+/**
+ * Make sure to add the following validation rules to the
+ * `env.ts` file to validate the environment variables.
+ */
 export default Env.rules({
-  // ... rest of the variables
-
-  // highlight-start
+  // ...existing rules
   SESSION_DRIVER: Env.schema.string(),
-  // highlight-end
 })
 ```
+
+:::
+
+
+:::div{class="features"}
+
+- Support for multiple drivers. **Cookies**, **File** and **Redis**
+- Allows instantiating session store in read only mode (helpful during websocket requests).
+- Support for session flash messages
+
+&nbsp;
+
+- [View on npm](https://npm.im/@adonisjs/session)
+- [View on Github](https://github.com/adonisjs/session)
+
+:::
 
 ## Session configuration
 

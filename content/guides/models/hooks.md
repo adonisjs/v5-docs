@@ -62,11 +62,9 @@ Following is the list of all the available hooks. Make sure to read the [decorat
 | `beforeFind` | Invoked **before the find** query. Receives the query builder instance as the only argument. |
 | `afterFind` | Invoked **after the find** query. Receives the model instance as the only argument. |
 
-**Most of the hooks receive the model instance as the first argument, except the ones documented below.**
+**All of the hooks receive the model instance as the first argument, except the ones documented below.**
 
----
-
-#### beforeFind
+### beforeFind
 The `beforeFind` hook is invoked just before the query is executed to find a single row. This hook receives the query builder instance, and you can attach your constraints to it.
 
 ```ts
@@ -86,7 +84,7 @@ export default class User extends BaseModel {
 
 ---
 
-#### afterFind
+### afterFind
 The `afterFind` event receives the model instance.
 
 ```ts
@@ -104,7 +102,7 @@ export default class User extends BaseModel {
 
 ---
 
-#### beforeFetch
+### beforeFetch
 Similar to `beforeFind`, the `beforeFetch` hook also receives the query builder instance. However, this hook is invoked whenever a query is executed without using the `first` method.
 
 ```ts
@@ -124,7 +122,7 @@ export default class User extends BaseModel {
 
 ---
 
-#### afterFetch
+### afterFetch
 The `afterFetch` hook receives an array of model instances.
 
 ```ts
@@ -142,7 +140,7 @@ export default class User extends BaseModel {
 
 ---
 
-#### beforePaginate
+### beforePaginate
 The `beforePaginate` query is executed when you make use of the `paginate` method. The paginate method fires both the `beforeFetch` and `beforePaginate` hooks.
 
 The hook function receives an array of query builders. The first instance is for the main query, and the second is for the count's query.
@@ -168,7 +166,7 @@ export default class User extends BaseModel {
 
 ---
 
-#### afterPaginate
+### afterPaginate
 The `afterPaginate` hook receives an instance of the [SimplePaginator](../../api/database/query-builder.md#pagination) class. The `paginate` method fires both the `afterFetch` and the `afterPaginate` hooks.
 
 ```ts

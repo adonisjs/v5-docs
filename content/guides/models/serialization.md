@@ -1,6 +1,6 @@
-If you are creating an API server, you may want to convert the model instances to plain JSON objects. This process is usually known as serialization.
+If you are creating an API server, you would want to convert the model instances to plain JSON objects, before sending them to the client in response.
 
-During the serialization process, you may also want to 
+The process of transforming class instances to plain JSON objects is known as serialization. During the serialization process, you may also want to:
 
 - Convert the `camelCase` model property names to `snake_case`.
 - Hide/remove some of the properties from the API responses. For example: Removing the `password` property from the User model.

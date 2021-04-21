@@ -23,9 +23,7 @@ Route
 
 Writing middleware as inline functions is fine for some quick testing. However, we recommend extracting the middleware logic to its own file.
 
-### Make middleware command
-
-You can create a middleware by running the following ace command.
+You can create a new middleware by running the following ace command.
 
 ```sh
 node ace make:middleware LogRequest

@@ -38,7 +38,11 @@ Route.post('gallery', async ({ request }) => {
 
 You can also validate the file by specifying the rules for the file extension and the file size, and AdonisJS will perform the validations implicitly.
 
+:::note
+
 We attempt to detect the file extension using the file [magic number](<https://en.wikipedia.org/wiki/Magic_number_(programming)#Magic_numbers_in_files>) and fallback to the filename extension when unable to detect it using the magic number.
+
+:::
 
 ```ts
 const coverImage = request.file('cover_image', {
@@ -59,7 +63,7 @@ await coverImage.move(Application.tmpPath('uploads'))
 
 ## Validating files using the validator
 
-You can also use the validator to validate the user uploaded files alongside the rest of the form.
+You can also use the [validator](../validator/introduction.md) to validate the user uploaded files alongside the rest of the form.
 
 The `schema.file` method validates the input to be a valid file, along with any custom validation rules provided for the file size and the extension.
 
@@ -122,15 +126,26 @@ await coverImage.move(Application.tmpPath('uploads'), {
 
 The API for the file uploads only focuses on handling user uploaded files and not saving and serving them. However, the following is the simplest way to serve the files from a local disk.
 
-The `response.download` method streams the file to the client and returns a `404` status code when the file is missing.
+The `response.attachment` method streams the file to the client and returns a `404` status code when the file is missing.
 
 ```ts
 import Route from '@ioc:Adonis/Core/Route'
 import Application from '@ioc:Adonis/Core/Application'
 
 Route.get('uploads/:filename', async ({ params, response }) => {
-  return response.download(Application.tmpPath('uploads', params.filename))
+  return response.attachment(
+    Application.tmpPath('uploads', params.filename)
+  )
 })
+```
+
+You can also rename files during download by specifying the name as the second argument.
+
+```ts
+response.attachment(
+  Application.tmpPath('uploads', params.filename),
+  're-named.jpg'
+)
 ```
 
 ## Direct file uploads
@@ -149,6 +164,8 @@ Reference to the input file name.
 file.fieldName
 ```
 
+---
+
 ### clientName
 
 The uploaded file name. It is usually the name of the file on the user's computer.
@@ -156,6 +173,8 @@ The uploaded file name. It is usually the name of the file on the user's compute
 ```ts
 file.clientName
 ```
+
+---
 
 ### size
 
@@ -165,6 +184,8 @@ The file size in bytes. It is only available when the file stream has been consu
 file.size
 ```
 
+---
+
 ### headers
 
 The HTTP headers associated with the file
@@ -172,6 +193,8 @@ The HTTP headers associated with the file
 ```ts
 file.headers
 ```
+
+---
 
 ### tmpPath
 
@@ -181,6 +204,8 @@ The path of the file inside the computer `/tmp` directory. It is available only 
 file.tmpPath
 ```
 
+---
+
 ### filePath
 
 The file's absolute path. Available after the `move` operation.
@@ -188,6 +213,8 @@ The file's absolute path. Available after the `move` operation.
 ```ts
 file.filePath
 ```
+
+---
 
 ### fileName
 
@@ -197,6 +224,8 @@ The file's relative name. Available after the `move` operation.
 file.fileName
 ```
 
+---
+
 ### type
 
 The file [mime type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types). Available after the file stream has been consumed
@@ -204,6 +233,8 @@ The file [mime type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of
 ```ts
 file.type
 ```
+
+---
 
 ### subtype
 
@@ -213,6 +244,8 @@ The subtype from the file mime type. Available after the file stream has been co
 file.subtype
 ```
 
+---
+
 ### extname
 
 The file extension. Available after the file stream has been consumed.
@@ -220,6 +253,8 @@ The file extension. Available after the file stream has been consumed.
 ```ts
 file.extname
 ```
+
+---
 
 ### state
 
@@ -236,6 +271,8 @@ if (file.state === 'consumed') {
 }
 ```
 
+---
+
 ### isValid
 
 Find if the file has passed the validation or not.
@@ -245,6 +282,8 @@ if (!file.isValid) {
   return file.errors
 }
 ```
+
+---
 
 ### hasErrors
 
@@ -256,6 +295,8 @@ if (file.hasErrors) {
 }
 ```
 
+---
+
 ### validated
 
 Find if the file has been validated or not. Call `file.validate()` to valid it.
@@ -265,6 +306,8 @@ if (!file.validated) {
   file.validate()
 }
 ```
+
+---
 
 ### errors
 
@@ -276,17 +319,25 @@ if (file.hasErrors) {
 }
 ```
 
+---
+
 ### sizeLimit
 
 Reference to the `size` validation option.
+
+---
 
 ### allowedExtensions
 
 Reference to the `extnames` validation option.
 
+---
+
 ### validate
 
 Validate the file against the pre-defined validation options. AdonisJS implicitly calls this method when you access the file using the `request.file(s)` method.
+
+---
 
 ### toJSON
 

@@ -21,6 +21,11 @@
             "contentPath": "fundamentals/application.md"
           },
           {
+            "title": "AdonisRc file",
+            "permalink": "adonisrc-file",
+            "contentPath": "fundamentals/adonisrc-file.md"
+          },
+          {
             "title": "Config",
             "permalink": "config",
             "contentPath": "fundamentals/config.md"
@@ -60,11 +65,6 @@
             "title": "Response",
             "permalink": "response",
             "contentPath": "http/response.md"
-          },
-          {
-            "title": "Forms & Validation",
-            "permalink": "forms-and-validations",
-            "contentPath": "http/forms-and-validations.md"
           },
           {
             "title": "File uploads",

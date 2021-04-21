@@ -38,12 +38,19 @@ export default class AddressValidator {
 }
 ```
 
-If you look at the above example, the enum options for the `city` are dependent on the `selectedState` and may vary with every HTTP request. As per the caching rules, the enum options after the request will get cached and will lead to incorrect validation behavior.
+If you look at the above example, the enum options for the `city` are dependent on the `selectedState` and may vary with every HTTP request. As per the caching rules, the enum options after the first request will get cached and will not change as the user will change the state selection.
 
-#### Option 1 - Give up caching
+### Available options
+Following are some of the available options to encouter the caching caveats.
+
+---
+
+#### Give up caching
 The first option is to give up caching. This will add a delay of couple of milliseconds to your requests, but gives you the simplest API to use to runtime values within your schema definition.
 
-#### Option 2 - Create a unique key
+---
+
+#### Create a unique key
 Considering the above example, you can append the selected state to the `cacheKey` and hence each state will have its own copy of cached schema. For example:
 
 ```ts
@@ -65,7 +72,9 @@ The above approach has its own set of downsides. If there are 37 states, then th
 
 In fact, giving up caching is better than caching too many schemas with small variations.
 
-#### Option 3 - Using refs
+---
+
+#### Using refs
 Refs gives you the best of the both worlds. You can still cache your schema and also reference the runtime values inside them. Following is an example of the same:
 
 ```ts

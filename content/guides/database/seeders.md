@@ -142,3 +142,20 @@ Now you can specify the `--connection` flag on your `db:seed` command and the `U
 ```sh
 node ace db:seed --connection=tenant-1
 ```
+
+## Seeders config
+The configuration for seeders is stored inside the `config/database.ts` file under the connection config object.
+
+#### paths
+Define the paths for loading the database seeder files. You can also define path to an installed package.
+
+```ts
+{
+  mysql: {
+    client: 'mysql',
+    seeders: {
+      paths: ['./database/seeders', '@somepackage/seeders-dir']
+    }
+  }
+}
+```

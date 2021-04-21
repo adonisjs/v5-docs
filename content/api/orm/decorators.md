@@ -132,7 +132,7 @@ console.log(user.serialize())
 ---
 
 ### hasOne
-The `hasOne` decorator marks a property as a Has one relationship. Make sure to read the [has one relationship](/guides/model-relations/has-one/) guide to learn more about the options and their impact.
+The `hasOne` decorator marks a property as a Has one relationship. Make sure to read the [has one relationship](./relations/has-one.md) doc to learn more about the options and their impact.
 
 ```ts
 import { hasOne, HasOne, BaseModel } from '@ioc:Adonis/Lucid/Orm'
@@ -146,7 +146,7 @@ class User extends Model {
 ---
 
 ### hasMany
-The `hasMany` decorator marks a property as a hasMany relationship. Make sure to read the [has many relationship](/guides/model-relations/has-many/) guide to learn more about the options and their impact.
+The `hasMany` decorator marks a property as a hasMany relationship. Make sure to read the [has many relationship](./relations/has-many.md) doc to learn more about the options and their impact.
 
 ```ts
 import { hasMany, HasMany, BaseModel } from '@ioc:Adonis/Lucid/Orm'
@@ -160,7 +160,7 @@ class User extends Model {
 ---
 
 ### belongsTo
-The `belongsTo` decorator marks a property as a belongsTo relationship. Make sure to read the [belongs to relationship](/guides/model-relations/belongs-to/) guide to learn more about the options and their impact.
+The `belongsTo` decorator marks a property as a belongsTo relationship. Make sure to read the [belongs to relationship](./relations/belongs-to.md) doc to learn more about the options and their impact.
 
 ```ts
 import { belongsTo, BelongsTo, BaseModel } from '@ioc:Adonis/Lucid/Orm'
@@ -174,7 +174,7 @@ class User extends Model {
 ---
 
 ### manyToMany
-The `manyToMany` decorator marks a property as a many to many relationship. Make sure to read the [many to many relationship](/guides/model-relations/many-to-many/) guide to learn more about the options and their impact.
+The `manyToMany` decorator marks a property as a many to many relationship. Make sure to read the [many to many relationship](./relations/many-to-many.md) guide to learn more about the options and their impact.
 
 ```ts
 import { manyToMany, ManyToMany, BaseModel } from '@ioc:Adonis/Lucid/Orm'
@@ -188,7 +188,7 @@ class User extends Model {
 ---
 
 ### hasManyThrough
-The `hasManyThrough` decorator marks a property as a has many through relationship. Make sure to read the [has many through relationship](/guides/model-relations/guides/model-relations/has-many-through/) guide to learn more about the options and their impact.
+The `hasManyThrough` decorator marks a property as a has many through relationship. Make sure to read the [has many through relationship](./relations/has-many-through.md) guide to learn more about the options and their impact.
 
 ```ts
 import { hasManyThrough, HasManyThrough, BaseModel } from '@ioc:Adonis/Lucid/Orm'

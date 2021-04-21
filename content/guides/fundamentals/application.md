@@ -76,7 +76,7 @@ console.log(Application.nodeEnvironment)
 
 Also, you can make use of the following properties as a shorthand to know the current environment.
 
-#### inProduction
+### inProduction
 ```ts
 Application.inProduction
 
@@ -84,7 +84,9 @@ Application.inProduction
 Application.nodeEnvironment === 'production'
 ```
 
-#### inDev
+---
+
+### inDev
 ```ts
 Application.inDev
 
@@ -96,70 +98,88 @@ Application.nodeEnvironment === 'development'
 
 You can make use of the Application module to make an absolute path to known project directories.
 
-#### configPath
+### configPath
 Make an absolute path to a file inside the `config` directory.
 
 ```ts
 Application.configPath('shield.ts')
 ```
 
-#### publicPath
+---
+
+### publicPath
 Make an absolute path to a file inside the `public` directory.
 
 ```ts
 Application.publicPath('style.css')
 ```
 
-#### databasePath
+---
+
+### databasePath
 Make an absolute path to a file inside the `database` directory.
 
 ```ts
 Application.databasePath('seeders/Database.ts')
 ```
 
-#### migrationsPath
+---
+
+### migrationsPath
 Make an absolute path to a file inside the `migrations` directory.
 
 ```ts
 Application.migrationsPath('users.ts')
 ```
 
-#### seedsPath
+---
+
+### seedsPath
 Make an absolute path to a file inside the `seeds` directory.
 
 ```ts
 Application.seedsPath('Database.ts')
 ```
 
-#### resourcesPath
+---
+
+### resourcesPath
 Make an absolute path to a file inside the `resources` directory.
 
 ```ts
 Application.resourcesPath('scripts/app.js')
 ```
 
-#### viewsPath
+---
+
+### viewsPath
 Make an absolute path to a file inside the `views` directory.
 
 ```ts
 Application.viewsPath('welcome.edge')
 ```
 
-#### startPath
+---
+
+### startPath
 Make an absolute path to a file inside the `start` directory.
 
 ```ts
 Application.startPath('routes.ts')
 ```
 
-#### tmpPath
+---
+
+### tmpPath
 Make an absolute path to a file inside the application `tmp` directory.
 
 ```ts
 Application.tmpPath('uploads/avatar.png')
 ```
 
-#### makePath
+---
+
+### makePath
 
 Make an absolute path from the root of the application.
 
@@ -171,7 +191,7 @@ Application.makePath('app/Middleware/Auth.ts')
 
 Following is the list of properties on the application module.
 
-#### appName
+### appName
 
 Name of the application. It refers to the `name` property inside the `package.json` file of your application.
 
@@ -179,7 +199,9 @@ Name of the application. It refers to the `name` property inside the `package.js
 Application.appName
 ```
 
-#### appRoot
+---
+
+### appRoot
 
 Absolute path to the application root directory.
 
@@ -187,16 +209,20 @@ Absolute path to the application root directory.
 Application.appRoot
 ```
 
-#### rcFile
+---
 
-Reference to the parsed `.adonisrc.json` file.
+### rcFile
+
+Reference to the parsed [AdonisRc file](./adonisrc-file.md).
 
 ```ts
 Application.rcFile.providers
 Application.rcFile.raw
 ```
 
-#### container
+---
+
+### container
 
 Reference to the IoC container instance.
 
@@ -204,7 +230,9 @@ Reference to the IoC container instance.
 Application.container
 ```
 
-#### helpers
+---
+
+### helpers
 
 Reference to the helper's module.
 
@@ -220,7 +248,9 @@ import { string } from '@ioc:Adonis/Core/Helpers'
 string.snakeCase('helloWorld')
 ```
 
-#### logger
+---
+
+### logger
 
 Reference to the application logger. 
 
@@ -236,7 +266,9 @@ import Logger from '@ioc:Adonis/Core/Logger'
 Logger.info('hello world')
 ```
 
-#### config
+---
+
+### config
 
 Reference to the config module. 
 
@@ -252,7 +284,9 @@ import Config from '@ioc:Adonis/Core/Config'
 Config.get('app.secret')
 ```
 
-#### env
+---
+
+### env
 
 Reference to the env module. 
 
@@ -268,7 +302,9 @@ import Env from '@ioc:Adonis/Core/Env'
 Env.get('APP_KEY')
 ```
 
-#### isReady
+---
+
+### isReady
 
 Find if the application is in the ready state. It is used internally to stop accepting new HTTP requests when `isReady` is false.
 
@@ -276,7 +312,9 @@ Find if the application is in the ready state. It is used internally to stop acc
 Application.isReady
 ```
 
-#### isShuttingDown
+---
+
+### isShuttingDown
 
 Find if the application is in the shutdown process. 
 

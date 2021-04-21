@@ -86,19 +86,19 @@ The health checkers can also attach custom metadata to their respective nodes, a
 ## Existing health checkers
 Following is the list of existing health checkers.
 
-#### App key checker
+### App key checker
 The checker is configured implicitly and cannot be disabled. It checks for the existence of the `APP_KEY` environment variable and ensures a minimum length of **32 characters**.
 
 You can generate the app key using the `node ace generate:key` command and then use the output as the value for the `APP_KEY` environment variable.
 
 ---
 
-#### Node env checker
+### Node env checker
 Checks the existence of the `NODE_ENV` environment variable and fails if it has not been defined explicitly. You should never run your application in *unknown environment*.
 
 ---
 
-#### Lucid checker
+### Lucid checker
 The `@adonisjs/lucid` package allows to optionally enable health checks for a given or all the registered connections. It will then try to [establish a connection](https://github.com/adonisjs/lucid/blob/develop/src/Connection/index.ts#L272) with the database and reports its status.
 
 Make sure to enable health checks for a given connection by modifying the `config/database.ts` file.
@@ -142,7 +142,7 @@ In case of an error, the `meta[index].error` property will contain the error sta
 
 ---
 
-#### Redis checker
+### Redis checker
 You can also optionally enabled health checks for the `@adonisjs/redis` module by modifying the `config/redis.ts` file.
 
 ```ts

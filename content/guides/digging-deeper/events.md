@@ -77,5 +77,66 @@ node ace make:listener User
 # CREATE: app/Listeners/User.ts
 ```
 
-### About listener classes
-The 
+Open the newly created file and define the following method on the class.
+
+```ts
+import { EventsList } from '@ioc:Adonis/Core/Event'
+
+export default class User {
+  public async onNewUser(user: EventsList['new:user']) {
+    // send email to the new user
+  }
+}
+```
+
+Finally, you can bind the `onNewUser` method as the event listener inside the `start/events.ts` file. The binding process is similar to a Route controller binding and there is no need to define the complete namespace.
+
+```ts
+Event.on('new:user', 'User.onNewUser')
+```
+
+## Trapping events
+In order to make testing easier, the Event module allows you to trap a specific or all the events. The actual listener is not invoked, when there is a trap in place.
+
+You can write the following code inside your test block, just before the action that triggers the event.
+
+```ts
+import Event from '@ioc:Adonis/Core/Event'
+
+Event.trap('new:user', (user) => {
+  assert.property(user, 'id')
+  assert.property(user, 'email')
+})
+```
+
+You can also trap all the events using the `trapAll` method. The trap for a specific event gets preference over the catch all trap.
+
+```ts
+Event.trap('new:user', (data) => {
+  // called for "new:user"
+})
+
+Event.trapAll((event, data) => {
+  // only called for "send:email"
+})
+
+Event.emit('new:user', {})
+Event.emit('send:email', {})
+```
+
+Once done with the test, you must restore the trap using the `Event.restore` method. A better option will be to place this method inside the afterEach lifecycle hook of your testing framework.
+
+```ts
+afterEach(() => {
+  // Restores the trap
+  Event.restore()
+})
+```
+
+## Differences from the Node.js event emitter
+As mentioned earlier, the Event module of AdonisJS is built on top of [emittery](https://github.com/sindresorhus/emittery) and it is different from the Node.js event emitter in following ways.
+
+- Emittery is asynchronous and does not block the event loop.
+- It does not have the magic error event
+- It does not place a limit on the number of listeners you can define for a specific event.
+- **It only allows you to pass a [single argument](https://github.com/sindresorhus/emittery#can-you-support-multiple-arguments-for-emit) during the `emit` calls.**
