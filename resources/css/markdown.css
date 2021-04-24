@@ -429,3 +429,24 @@ SETUP BLOCK
   font-weight: 600;
   border-bottom: 1px solid;
 }
+
+.doc-meta {
+  display: flex;
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+.doc-meta p {
+  margin: 0;
+  color: var(--mute-color);
+  margin-left: 15px;
+  font-weight: 500;
+  font-size: 1.8rem;
+}
+
+.doc-meta img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 100%;
+}

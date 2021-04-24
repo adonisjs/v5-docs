@@ -12,7 +12,22 @@ import { Renderer } from '@dimerapp/edge'
 import Content from 'App/Services/Content'
 import Api from '../content/api/menu.json'
 import Guides from '../content/guides/menu.json'
+import Cookbooks from '../content/cookbooks/menu.json'
 import Application from '@ioc:Adonis/Core/Application'
+
+const CODE_BLOCKS_THEME = 'material-theme-palenight'
+const ADDITIONAL_LANGUAGES = [
+  {
+    path: './resources/vscode/edge.tmLanguage.json',
+    scopeName: 'text.html.edge',
+    id: 'edge',
+  },
+  {
+    path: './resources/vscode/dotenv.tmLanguage.json',
+    scopeName: 'source.env',
+    id: 'dotenv',
+  }
+]
 
 const dimerRenderer = new Renderer().use((node) => {
   if (node.tagName === 'img') {
@@ -38,42 +53,44 @@ const dimerRenderer = new Renderer().use((node) => {
 
 Content.cache(Application.inProduction ? 'full' : 'markup')
 
-Content
-  .zone('Guides')
+/**
+ * Guides
+ */
+const GuidesZone = Content.zone('Guides')
+ADDITIONAL_LANGUAGES.forEach((lang) => GuidesZone.loadLanguage({ ...lang }))
+GuidesZone
   .baseUrl('guides')
   .baseContentPath('./content/guides')
   .template('docs')
-  .loadLanguage({
-    path: './resources/vscode/edge.tmLanguage.json',
-    scopeName: 'text.html.edge',
-    id: 'edge',
-  })
-  .loadLanguage({
-    path: './resources/vscode/dotenv.tmLanguage.json',
-    scopeName: 'source.env',
-    id: 'dotenv',
-  })
-  .useTheme('material-theme-palenight')
+  .useTheme(CODE_BLOCKS_THEME)
   .docs(Guides)
   .renderer('dimerRenderer', dimerRenderer)
   .register()
 
-Content
-  .zone('API Docs')
+/**
+ * Api docs
+ */
+const ApiZone = Content.zone('API Docs')
+ADDITIONAL_LANGUAGES.forEach((lang) => ApiZone.loadLanguage({ ...lang }))
+ApiZone
   .baseUrl('api')
   .baseContentPath('./content/api')
   .template('docs')
-  .loadLanguage({
-    path: './resources/vscode/edge.tmLanguage.json',
-    scopeName: 'text.html.edge',
-    id: 'edge',
-  })
-  .loadLanguage({
-    path: './resources/vscode/dotenv.tmLanguage.json',
-    scopeName: 'source.env',
-    id: 'dotenv',
-  })
-  .useTheme('material-theme-palenight')
+  .useTheme(CODE_BLOCKS_THEME)
   .docs(Api)
   .renderer('dimerRenderer', dimerRenderer)
   .register()
+
+/**
+ * Cook books
+ */
+// const CookbooksZone = Content.zone('Cookbooks')
+// ADDITIONAL_LANGUAGES.forEach((lang) => CookbooksZone.loadLanguage({ ...lang }))
+// CookbooksZone
+//   .baseUrl('cookbooks')
+//   .baseContentPath('./content/cookbooks')
+//   .template('docs')
+//   .useTheme(CODE_BLOCKS_THEME)
+//   .docs(Cookbooks)
+//   .renderer('dimerRenderer', dimerRenderer)
+//   .register()

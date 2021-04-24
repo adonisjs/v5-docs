@@ -179,7 +179,9 @@ HEADER STYLES
   }
 
   .header-nav > ul > li.active > a,
+  .header-nav > ul > li.expand > a,
   .header-nav  > ul > li > a:hover {
     color: #fff;
+    background: rgba(0, 0, 0, 0.2);
   }
 }

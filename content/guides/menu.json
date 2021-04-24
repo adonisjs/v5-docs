@@ -34,6 +34,11 @@
             "title": "Environment variables",
             "permalink": "environment-variables",
             "contentPath": "fundamentals/environment-variables.md"
+          },
+          {
+            "title": "Typescript build process",
+            "permalink": "typescript-build-process",
+            "contentPath": "fundamentals/typescript-build-process.md"
           }
         ]
       },

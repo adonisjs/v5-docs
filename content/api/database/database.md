@@ -135,6 +135,58 @@ Database
 
 ---
 
+### ref
+The `ref` method allows you to reference a database column name as a value. For example:
+
+```ts
+Database
+  .from('users')
+  .where('users.id', '=', Database.ref('user_logins.user_id'))
+```
+
+---
+
+### raw
+The `raw` method creates an instance of the [RawBuilder](https://github.com/adonisjs/lucid/blob/develop/src/Database/StaticBuilder/Raw.ts). This query is meant to be used as a reference inside another query.
+
+#### What is the difference between `rawQuery` and `raw`?
+You can execute the query created using `rawQuery` method. Whereas, the query created using `raw` method can only be passed as a reference.
+
+```ts
+Database
+  .from('users')
+  .select('*')
+  .select(
+    Database
+      .raw('select "ip_address" from "user_logins" where "users.id" = "user_logins.user_id" limit 1')
+      .wrap('(', ')')
+  )
+```
+
+---
+
+### from
+A shortcut method to get an instance of the [Query builder](./query-builder) for the primary connection.
+
+```ts
+Database.from('users')
+// Is same as
+Database.connection().from('users')
+```
+
+---
+
+### table
+A shortcut method to get an instance of the [Insert Query builder](./insert-query-builder) for the primary connection.
+
+```ts
+Database.table('users')
+// Is same as
+Database.connection().table('users')
+```
+
+---
+
 ### transaction
 Alias for the [client.transaction](./query-client.md#transaction) method.
 

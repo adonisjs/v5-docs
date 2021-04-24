@@ -25,6 +25,7 @@
                 class="{{ name === doc.zone ? 'active' : '' }}"
                 x-data="{ active: false }"
                 :class="{ 'expand': active }"
+                @click.away="active = false"
               >
                 <a href="#" @click.prevent="active = !active">
                   {{ name }}

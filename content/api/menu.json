@@ -32,11 +32,6 @@
             "contentPath": "database/raw-query-builder.md"
           },
           {
-            "title": "Reference builder",
-            "permalink": "database/reference-builder",
-            "contentPath": "database/reference-builder.md"
-          },
-          {
             "title": "Query client",
             "permalink": "database/query-client",
             "contentPath": "database/query-client.md"
@@ -359,7 +354,7 @@
         "name": "Tags",
         "docs": [
           {
-            "title": "component/slot",
+            "title": "component/slot/inject",
             "permalink": "views/tags/component",
             "contentPath": "views/tags/component.md"
           },
@@ -382,11 +377,6 @@
             "title": "include/includeIf",
             "permalink": "views/tags/include",
             "contentPath": "views/tags/include.md"
-          },
-          {
-            "title": "inject",
-            "permalink": "views/tags/inject",
-            "contentPath": "views/tags/inject.md"
           },
           {
             "title": "layout/section/super",

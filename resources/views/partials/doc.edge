@@ -1,8 +1,14 @@
 <main class="doc" data-turbo="false">
   <div class="markdown">
     @include('partials/debug')
-
     <h1>{{ doc.title }}</h1>
+    @if(file.frontmatter.author)
+      <div class="doc-meta">
+        <img src="{{ file.frontmatter.avatarUrl }}" title="{{ file.frontmatter.author }}" alt="Author - {{ file.frontmatter.author }}">
+        <p>Published on <span class="doc-published-at">{{ file.frontmatter.datetime.toDateString() }}</span></p>
+      </div>
+    @endif
+
     @dimerTree(file.ast.children)~
   </div>
 </main>

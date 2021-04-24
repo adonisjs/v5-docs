@@ -1,0 +1,38 @@
+[
+  {
+    "name": "root",
+    "categories": [
+      {
+        "name": "Deployment",
+        "docs": [
+          {
+            "title": "Cleavr",
+            "permalink": "deploy-to-cleavr",
+            "contentPath": "deployment/cleavr.md",
+            "isLandingDoc": true
+          },
+          {
+            "title": "Heroku",
+            "permalink": "deploy-to-heroku",
+            "contentPath": "deployment/heroku.md"
+          },
+          {
+            "title": "Digital ocean apps",
+            "permalink": "deploy-to-digial-ocean",
+            "contentPath": "deployment/digial-ocean.md"
+          },
+          {
+            "title": "Linux server",
+            "permalink": "deploy-to-linux",
+            "contentPath": "deployment/linux-server.md"
+          },
+          {
+            "title": "Using Docker image",
+            "permalink": "deploy-as-docker-image",
+            "contentPath": "deployment/docker-image.md"
+          }
+        ]
+      }
+    ]
+  }
+]
