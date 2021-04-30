@@ -49,7 +49,7 @@ if (!['memory', 'file', 'redis'].includes(driver)) {
 }
 ```
 
-Now imagine writing these conditionals everywhere inside your codebase? Well, not a great development experience.
+Now imagine writing these conditionals everywhere inside your codebase? **Well, not a great development experience**.
 
 ## Validating environment variables
 
@@ -71,7 +71,7 @@ export default Env.rules({
 })
 ```
 
-AdonisJS extracts the static type information from the validation rules and provides IntelliSense for the validated properties.
+Also, AdonisJS extracts the static type information from the validation rules and provides IntelliSense for the validated properties.
 
 ![](https://res.cloudinary.com/adonis-js/image/upload/q_auto,f_auto/v1617158425/v5/adonis-env-intellisense.jpg)
 
@@ -79,7 +79,7 @@ AdonisJS extracts the static type information from the validation rules and prov
 
 Following is the list of available methods to validate the environment variables. 
 
-#### Env.schema.string
+### Env.schema.string
 Validates the value to exist and be a valid string. Empty strings fail the validations, and you must use the optional variant to allow empty strings.
 
 ```ts
@@ -112,7 +112,9 @@ When validating for the `url` format, you can also define additional options to 
 Env.schema.string({ format: 'url', tld: false, protocol: false })
 ```
 
-#### Env.schema.boolean
+---
+
+### Env.schema.boolean
 
 Enforces the value to be a valid string representation of a boolean. Following values are considered as valid booleans and get casted to `true` or `false`.
 
@@ -130,7 +132,9 @@ Enforces the value to be a valid string representation of a boolean. Following v
 }
 ```
 
-#### Env.schema.number
+---
+
+### Env.schema.number
 
 Enforces the value to be a valid string representation of a number.
 
@@ -145,7 +149,9 @@ Enforces the value to be a valid string representation of a number.
 }
 ```
 
-#### Env.schema.enum
+---
+
+### Env.schema.enum
 
 Forces the value to be one of the pre-defined values.
 
@@ -165,7 +171,9 @@ Forces the value to be one of the pre-defined values.
 }
 ```
 
-#### Custom functions
+---
+
+### Custom functions
 For every other validation use case, you can define your own custom functions.
 
 ```ts

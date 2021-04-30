@@ -248,5 +248,5 @@ await validator.validate(
 - Read the blog post on validating server rendered forms.
 - Learn more about [custom messages](./custom-messages.md).
 - Learn more about [error reporters](./error-reporters.md).
-- View all the available schema types.
-- View all the available validation rules.
+- View all the [available schema types](../../api/validator/schema/string.md).
+- View all the [available validation rules](../../api/validator/rules/alpha.md).

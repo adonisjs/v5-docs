@@ -2,21 +2,24 @@ The runtime configuration of your AdonisJS application is stored inside the `con
 
 We also recommend storing all the custom config required by your app inside this directory versus storing them in multiple places.
 
-## Access config
-
-Within your application codebase, you can directly import the config file using the `import` statement. For example:
+## Access config inside application
+You can import the configuration files within your application codebase using the `import` statement. For example:
 
 ```ts
-import { appKey } from 'Config/app' 
+import { appKey } from 'Config/app'
 ```
 
-However, a package should never rely on the path of the config file directly and instead make use of the `Config` provider.
+Since, we have registered the `config` directory as an [alias](./adonisrc-file.md#aliases) inside the `.adonisrc.json` and the `tsconfig.json` files, you can import files without the relative paths as well.
 
-Relying on the Config provider inside a package creates a loose coupling with the application codebase. Hence, your package will not break if the end-user decides to store the config files in a separate directory altogether.
+## Access config inside a package
+
+A package should never rely on the path of the config file directly and instead make use of the `Config` provider.
+
+Relying on the Config provider inside a package creates a loose coupling with the application codebase, and, your package will not break if the end-user decides to store the config files in a separate directory altogether.
 
 ### Using the config provider
 
-Assuming you are creating a package for AdonisJS and your package relies on the `config/dummy.ts` file. You can access it using the Config provider and the contents for the config file as follows.
+Assuming your package relies on the `config/dummy.ts` file. You can access its value using the Config provider as follows.
 
 ```ts
 export default class DummyPackageProvider {
@@ -66,7 +69,7 @@ The config provider will automatically read the file from the newly configured d
 
 The config provider reads all the configuration files inside the `config` directory during the application boot, and hence you cannot have IoC container-specific imports inside your config files.
 
-If any part of your config relies on the IoC container imports, you must lazy load them just like the [Auth package does](https://github.com/adonisjs/auth/blob/develop/templates/config/partials/user-provider-lucid.txt#L45).
+If any part of your config relies on the IoC container imports, then you must lazy load them just like the [Auth package does](https://github.com/adonisjs/auth/blob/develop/templates/config/partials/user-provider-lucid.txt#L45).
 
 However, there is an exception to this rule for the `Application` and the `Env` providers. They are configured before reading the config files in the [boot lifecycle](./application.md#boot-lifecycle) of the application.
 

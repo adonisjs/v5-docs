@@ -6,9 +6,14 @@
         "name": "Root",
         "docs": [
           {
-            "title": "Introduction",
-            "permalink": "introduction",
-            "contentPath": "introduction.md"
+            "title": "Installation",
+            "permalink": "installation",
+            "contentPath": "installation.md"
+          },
+          {
+            "title": "Release process",
+            "permalink": "release-process",
+            "contentPath": "release-process.md"
           }
         ]
       },
@@ -165,11 +170,6 @@
             "title": "Debugging",
             "permalink": "views/debugging",
             "contentPath": "views/debugging.md"
-          },
-          {
-            "title": "Creating custom tags",
-            "permalink": "views/custom-tags",
-            "contentPath": "views/custom-tags.md"
           }
         ]
       },
@@ -195,11 +195,6 @@
             "title": "Schema caching",
             "permalink": "validator/schema-caching",
             "contentPath": "validator/schema-caching.md"
-          },
-          {
-            "title": "Extending validator",
-            "permalink": "validator/extending-validator",
-            "contentPath": "validator/extending-validator.md"
           }
         ]
       },
@@ -244,7 +239,7 @@
         ]
       },
       {
-        "name": "Data models",
+        "name": "ORM",
         "docs": [
           {
             "title": "Introduction",
@@ -270,6 +265,41 @@
             "title": "Serializing Models",
             "permalink": "models/serializing-models",
             "contentPath": "models/serialization.md"
+          }
+        ]
+      },
+      {
+        "name": "Authentication",
+        "docs": [
+          {
+            "title": "Introduction",
+            "permalink": "auth/introduction",
+            "contentPath": "auth/introduction.md"
+          },
+          {
+            "title": "Web guard",
+            "permalink": "auth/web-guard",
+            "contentPath": "auth/web-guard.md"
+          },
+          {
+            "title": "API tokens",
+            "permalink": "auth/api-tokens-guard",
+            "contentPath": "auth/api-tokens-guard.md"
+          },
+          {
+            "title": "Basic auth",
+            "permalink": "auth/basic-auth-guard",
+            "contentPath": "auth/basic-auth-guard.md"
+          },
+          {
+            "title": "Auth middleware",
+            "permalink": "auth/middleware",
+            "contentPath": "auth/middleware.md"
+          },
+          {
+            "title": "Social authentication",
+            "permalink": "auth/social",
+            "contentPath": "auth/social.md"
           }
         ]
       },

@@ -279,7 +279,7 @@
   position: relative;
   border-radius: var(--rounded-corners-size);
   background: var(--gray);
-  padding-bottom: 32px;
+  /* padding-bottom: 32px; */
 }
 
 .markdown figure figcaption {
@@ -287,11 +287,15 @@
   color: var(--mute-color);
   font-style: italic;
   font-size: 1.4rem;
+  margin-top: 22px;
+  position: relative;
+  top: -32px;
 }
 
 .markdown figure img {
   display: block;
   margin: auto;
+  border-radius: var(--rounded-corners-size);
 }
 
 .markdown hr {

@@ -1,18 +1,18 @@
-Ace is a command line framework embedded into the core of AdonisJS. Commands like `node ace serve` or `node ace make:controller` are powered by the ace CLI.
+Ace is a command-line framework embedded into the core of AdonisJS. Commands like `node ace serve` or `node ace make:controller` is powered by the ace CLI.
 
-Ace, also allows you to create custom commands by storing them locally within your project codebase.
+Ace also allows you to create custom commands by storing them locally within your project codebase.
 
 ## Why we use ace instead of npm scripts?
 
-Majority of the Node.js projects extensively make use of the [npm scripts](https://docs.npmjs.com/cli/v7/using-npm/scripts). Npm scripts are great, as they allow you define scripts on per project basis vs defining them globally somewhere on your computer.
+The majority of the Node.js projects extensively make use of the [npm scripts](https://docs.npmjs.com/cli/v7/using-npm/scripts). Npm scripts are great, as they allow you to define scripts on a per-project basis vs. defining them globally somewhere on your computer.
 
-However, npm scripts doesn't give you any tooling to create the CLI commands. You still have to manually parse the CLI arguments/flags, and also manage the command lifecycle.
+However, npm scripts don't give you any tooling to create the CLI commands. You still have to manually parse the CLI arguments/flags and also manage the command lifecycle.
 
 On the other hand, Ace is a proper framework for creating CLI interfaces.
 
 ## Usage
 
-Ace comes pre-configured with every new AdonisJS application and you can run it using the `ace` file stored in the root of your project.
+Ace comes pre-configured with every new AdonisJS application, and you can run it using the `ace` file stored at the root of your project.
 
 ```sh
 node ace
@@ -20,7 +20,7 @@ node ace
 
 ![Help screen](https://res.cloudinary.com/adonis-js/image/upload/v1617207298/v5/ace-help.png)
 
-The `ace` is an extension less Javascript file that you execute like any other Node.js program. Running this file will boot the command line framework and execute the mentioned command.
+The `ace` is an extension-less Javascript file that you can execute like any other Node.js program. Running this file will boot the command line framework and execute the mentioned command.
 
 You can list all the commands by running `node ace --help`, and view help for a particular command using `node ace <command-name> --help`.
 
@@ -40,7 +40,7 @@ Ace allows you and the packages you install to contribute commands. They are def
 
 Every entry inside the array must point to a file that [exports an ace command](https://github.com/adonisjs/core/blob/develop/commands/GenerateKey.ts). Or it can export an [additional array of commands](https://github.com/adonisjs/core/blob/develop/commands/index.ts).
 
-The first entry `./commands` is reference to the commands directory of your project. Files inside this directory are scanned and registered as commands.
+The first entry, `./commands` is a reference to the commands directory of your project. Files inside this directory are scanned and registered as commands.
 
 ## Creating a new command
 
@@ -52,7 +52,7 @@ node ace make:command Greet
 # CREATE: commands/Greet.ts
 ```
 
-Before you can run the newly created command, you will have to get it indexed by running the following command. [Learn why indexing is required](#why-generate-the-ace-manifest-file)
+Before you can run the newly created command, you will have to get it indexed by running the following command. [Learn why indexing is required](#generating-the-ace-manifest-file)
 
 ```sh
 node ace generate:manifest
@@ -68,7 +68,7 @@ node ace greet
 
 ## Commands structure
 
-Ace commands are represented as classes and extends the `BaseCommand` class. You define the command name and description as static properties on the class itself.
+Ace commands are represented as classes and extend the `BaseCommand` class. You define the command name and description as static properties on the class itself.
 
 ```ts
 import { BaseCommand } from '@adonisjs/core/build/standalone'
@@ -91,13 +91,13 @@ export default class Greet extends BaseCommand {
 
 #### commandName
 
-The name of the command someone types to run the command. It should always be a string.
+The name of the command one should type to run the command. It should always be a string.
 
 ---
 
 #### description
 
-The command description is shown in the help output. Use this property to briefly explain what the command does.
+The command description is shown in the help output. Use this property to explain what the command does briefly.
 
 ---
 
@@ -108,7 +108,7 @@ The settings property controls the runtime behavior of the command.
 | Option | Description |
 |---------|---------------|
 | **loadApp** | Instructs ace to boot the application before running the method. By default, commands do NOT load the application and are executed as independent scripts. |
-| **stayAlive** | Instructs ace to NOT kill the process after executing the command. However do make sure to manually kill the process using `await this.exit()` |
+| **stayAlive** | Instructs ace to NOT kill the process after running the command. However, do make sure to manually kill the process using `await this.exit()` |
 
 #### aliases
 
@@ -128,6 +128,69 @@ export default class Greet extends BaseCommand {
 #### run
 
 Every command must implement the `run` method and write the logic to handle the command inside it.
+
+---
+
+### Booting the app within the command
+Ace commands do not boot your application before running the command. If your command relies on the application code, you must instruct the command to load the application first and then execute the `run` method.
+
+```ts
+export default class Greet extends BaseCommand {
+  public static commandName = 'greet'
+  // highlight-start
+  public static settings = {
+    loadApp: true
+  }
+  // highlight-end
+}
+```
+
+---
+
+### Top-level imports are not allowed
+Top-level imports relying on the IoC container or the application codebase are not allowed, and you must move them inside the `run` method. For example:
+
+#### ❌ Does not work
+```ts
+import User from 'App/Models/User'
+
+export default class CreateUser extends BaseCommand {
+  public static commandName = 'create:user'
+  public static settings = {
+    loadApp: true
+  }
+
+  public async run() {
+    await User.create({})
+  }
+}
+```
+
+#### ✅ Works, after the import is moved inside the `run` method
+```ts
+export default class CreateUser extends BaseCommand {
+  public static commandName = 'create:user'
+  public static settings = {
+    loadApp: true
+  }
+
+  public async run() {
+    const { default: User } = await import('App/Models/User')
+    await User.create()
+  }
+}
+```
+
+#### 🤷‍♂️ Reasoning
+
+Let's try to visualize the command lifecycle to understand why top-level imports are not allowed.
+
+- The `User` model import internally imports the Lucid ORM from the IoC container.
+- Since the application is not booted yet, the Lucid ORM is not available.
+- To load the application, Ace will first have to reach the `settings.loadApp` property defined on the command constructor.
+- However, it cannot because the top-level import results in an error.
+
+There are other ways to design this workflow, but we think moving the imports inside the `run` method is worth the hassle of keeping all the command settings and metadata inside a single file.
 
 ## CLI arguments
 
@@ -171,7 +234,7 @@ node ace greet --help
 
 ### Arguments
 
-Command arguments are positional in nature and they are accepted in the same order as you define them on your class. For example:
+Command arguments are positional, and they are accepted in the same order as you define them in your class. For example:
 
 ```ts
 export default class Greet extends BaseCommand {
@@ -193,7 +256,7 @@ node ace greet <name> <age> <height>
 
 #### args.string
 
-Marks the property as a command line argument. Note: The command arguments are always represented as string. You will have to perform type casting yourself, if expecting a non-string value.
+Marks the property as a command-line argument. Note: The command arguments are always represented as a string. You will have to perform typecasting yourself if expecting a non-string value.
 
 ```ts
 @args.string({
@@ -205,7 +268,7 @@ public name: string
 
 #### args.spread
 
-The `@args.spread` method allows you define a catch all argument. It is like the [rest parameters ](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters) in Javascript and must always be the last argument.
+The `@args.spread` method allows you to define a catch-all argument. It is like the [rest parameters ](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters) in Javascript and must always be the last argument.
 
 ```ts
 import { BaseCommand, args } from '@adonisjs/core/build/standalone'
@@ -236,12 +299,12 @@ Output will be
 
 #### Options
 
-All of the `@args` method accepts the following options.
+All of the `@args` methods accept the following options.
 
 | Option | Description |
 |--------|-------------|
 | **description** | The help description for the argument |
-| **name** | Define public name for the argument (the one that appears in the help output). |
+| **name** | Define a public name for the argument (the one that appears in the help output). |
 
 ## Flags
 
@@ -265,7 +328,7 @@ The value for the boolean flag defaults to `false`, unless the flag has been spe
 public interactive: boolean
 ```
 
-To disable the flag at runtime, you must negate it with `--no` keyword.
+To disable the flag at runtime, you must negate it with the `--no` keyword.
 
 ```sh
 node ace greet virk --no-interactive
@@ -307,7 +370,7 @@ console.log(this.files)
 
 #### flags.number
 
-Define a flag that accept a number value.
+Define a flag that accepts a number value.
 
 ```ts
 @flags.number({ alias: 'i' })
@@ -325,12 +388,12 @@ public counters: number[]
 
 #### Options
 
-All of the `@flags` decorators accepts the following options
+All of the `@flags` decorators accept the following options.
 
 | Option | Description |
 |--------|-------------|
 | **alias** | The shorthand name for the flag. The shorthand names are always defined using a single dash `-` |
-| **default** | The default value to use, when the flag is not defined |
+| **default** | The default value to use when the flag is not defined |
 | **description** | The help description for the flag |
 | **name** | Public name for the flag (the one that appears in the help output). |
 
@@ -459,7 +522,7 @@ await this.prompt.multiple('Select base dependencies', [
 ])
 ```
 
-Or pass the choice as an object
+Or pass the choice as an object.
 
 ```ts
 await this.prompt.multiple('Select base dependencies', [
@@ -535,7 +598,7 @@ await this.prompt.enum('Define tags', {
 
 ```ts
 {
-  hint: 'Email will be used for login'
+  hint: 'Email will be used for login.'
 }
 ```
 
@@ -627,18 +690,18 @@ export default class Greet extends BaseCommand {
 
 ![](https://res.cloudinary.com/adonis-js/image/upload/q_auto,f_auto/v1617272056/v5/ace-logger-output.png)
 
-All of the logger methods also receives an optional value for the log message `prefix` and `suffix`.
+All logger methods also receive an optional value for the log message `prefix` and `suffix`.
 
 ```ts
 this.logger.info('hello world', 'prefix', 'suffix')
 ```
 
 ### Actions
-Along with the standard log messages, you can also display log messages for a certain action. For example: An action to create the file can use the following code to show its status.
+Along with the standard log messages, you can also display log messages for a specific action. For example, An action to create the file can use the following code to show its status.
 
 :::note
 
-The logger actions are used to only display the UI. You still have to perform the action
+The logger actions are used only to display the UI. You still have to perform the action
 yourself.
 
 :::
@@ -654,9 +717,9 @@ this.logger.action('create').failed(filePath, 'Something went wrong')
 ![](https://res.cloudinary.com/adonis-js/image/upload/q_auto,f_auto/v1617281150/v5/logger-actions.png)
 
 ### Update existing log line
-The logger also allows you to log messages by updating the existing log line. Using this method, you can draw textual and ascii progress bars.
+The logger also allows you to log messages by updating the existing logline. Using this method, you can draw textual and ASCII progress bars.
 
-Everytime you run the `logUpdate` method, it will update the existing log line with the new message. You can persist and move to the new line using the `logUpdatePersist` method.
+Every time you run the `logUpdate` method, it will update the existing logline with the new message. You can persist and move to the new line using the `logUpdatePersist` method.
 
 Following is a complete working example of displaying a progress bar.
 
@@ -690,7 +753,7 @@ export default class Greet extends BaseCommand {
 ::video{url="https://res.cloudinary.com/adonis-js/video/upload/q_auto/v1617273444/v5/progress-bar-ace.mov" controls}
 
 ## CLI UI
-Along with the logger, Ace also has a lot of built in primitives to enhance the UI of your command line. It includes the ability to **draw tables**, **render instructions inside a box**, and **animate progress for tasks**.
+The CLI UI exposes the API to **draw tables**, **render instructions inside a box**, and **animate progress for tasks**.
 
 ### Tables
 You can draw tables using the `this.ui.table` property. Following is an example of the same.
@@ -714,7 +777,7 @@ table.render()
 - You create a new table instance using the `this.ui.table()` method.
 - Create the table head using the `.head()` method and pass an array of columns to create.
 - Add new rows using the `.row()` method.
-- And finally render the table using the `.render()` method.
+- And finally, render the table using the `.render()` method.
 
 ![](https://res.cloudinary.com/adonis-js/image/upload/q_auto,f_auto/v1617281322/v5/ui-table.png)
 
@@ -751,9 +814,9 @@ this.ui
 ![](https://res.cloudinary.com/adonis-js/image/upload/q_auto,f_auto/v1617282627/v5/logger-sticker.png)
 
 ### Tasks renderer
-You can make use of tasks renderer to display the output of multiple actions. AdonisJS itself uses it to display the UI when scaffolding a new app.
+You can make use of the task renderer to display the output of multiple actions. AdonisJS itself uses it to show the UI when scaffolding a new app.
 
-The tasks renderer has two output modes, ie `minimal` and `verbose`. We automatically switch to `verbose` mode when the shell is [not interactive](https://github.com/poppinss/cliui/blob/develop/api.ts#L28-L30).
+The task renderer has two output modes, i.e.,` minimal` and `verbose`. We automatically switch to `verbose` mode when the shell is [not interactive](https://github.com/poppinss/cliui/blob/develop/api.ts#L28-L30).
 
 ```ts
 const tasksManager = this.ui.tasks()
@@ -762,7 +825,7 @@ const tasksManager = this.ui.tasks()
 const tasksManager = this.ui.tasks.verbose()
 ```
 
-After creating the tasks renderer, you add a new task by calling the `.add` method and perform the actual task work inside it. Once done performing the task, you must call `task.complete` or `task.fail` to move to the next task in the queue.
+After creating the task renderer, you add a new task by calling the `.add` method and perform the actual task work inside it. Once done performing the task, you must call `task.complete` or `task.fail` to move to the next task in the queue.
 
 ```ts
 tasksManager
@@ -810,11 +873,11 @@ export default class Greet extends BaseCommand {
 ```
 
 - The `generator.addFile` method initiates the process to create a new file.
-- Using its fluent API, you can define the file destination, its stub and data to pass to the stub
+- Using its fluent API, you can define the file destination, its stub, and data to pass to the stub
 - Finally execute the `this.generator.run` to create all the files added using `.addFile` method.
 
 #### addFile
-The method creates a new instance of the [GeneratorFile](https://github.com/adonisjs/ace/blob/develop/src/Generator/File.ts) class. It accepts a total of two arguments, first the file name (with or without the extension) and second is an object of options.
+The method creates a new instance of the [GeneratorFile](https://github.com/adonisjs/ace/blob/develop/src/Generator/File.ts) class. It accepts two arguments; first, the file name (with or without the extension), and second is an object of options.
 
 ```ts
 this.generator.addFile(
@@ -839,7 +902,7 @@ this.generator.addFile(
 ```
 
 #### destinationDir
-Define the destination directory in which the file should be created. You can also pull the directory name from the `.adonisrc.json` file as follows:
+Define the destination directory in which you want to create the file. You can also pull the directory name from the `.adonisrc.json` file as follows:
 
 ```ts
 // Get path to the config directory
@@ -861,7 +924,7 @@ file.appRoot(this.application.appRoot)
 ```
 
 #### stub
-Define an absolute path to the stub template. You can write templates using ES6 template literals or use [mustache](https://mustache.github.io/) by first calling `useMustache` method.
+Define an absolute path to the stub template. You can write templates using ES6 template literals or use [mustache](https://mustache.github.io/) by first calling the `useMustache` method.
 
 ```ts
 file
@@ -870,7 +933,7 @@ file
 ```
 
 #### apply
-Share data with the mustache template. The current filename (after applying all the transformations) is shared with the template as the `filename` property
+Share data with the mustache template. The current filename (after applying all the transformations) is shared with the template as the `filename` property.
 
 ```ts
 file.apply({
@@ -879,14 +942,17 @@ file.apply({
 ```
 
 #### run
-The `generator.run` method begins the process of creating the files defined using the `.addFile` method. The generator skips the file, if the destination path already exists.
+The `generator.run` method begins creating the files defined using the `.addFile` method. The generator skips the file if the destination path already exists.
 
 ```ts
 await this.generator.run()
 ```
 
 ## Lifecycle hooks
-Commands can define the prepare and the completed lifecycle hooks. The `prepare` method is executed before running the run method and the `completed` method is executed after the run method.
+Commands can define the following lifecycle hooks. 
+
+The `prepare` method is executed before running the run method.
+And the `completed` method is executed after the run method.
 
 ```ts
 export default class Greet extends BaseCommand {
@@ -904,10 +970,10 @@ export default class Greet extends BaseCommand {
 }
 ```
 
-In case of errors, you can access the error using `this.error` property inside the `completed` method.
+You can access the error using the `this.error` property inside the `completed` method in case of errors.
 
 ## Executing commands programmatically
-Executing other commands from the same process programmatically is actually not a good practice. Commands are NOT meant to be consumed by the other parts of the code as **they export a user interface** and **not a coding interface**. For example:
+Executing other commands in the same process is not a good practice. Commands are NOT meant to be consumed by the different parts of the code as **they export a user interface** and **not a coding interface**. For example:
 
 - You find the status of a command from the process exit code and NOT some return value.
 - Commands dump their state to the terminal directly and don't store it inside some property to be accessed programmatically.
@@ -937,7 +1003,7 @@ export default class Greet extends BaseCommand {
 ```
 
 ### Execute command within the same process
-Another option is to make use the Ace kernel to execute the command within the same process. In the following example, there is no way to know the exit code for the command.
+Another option is to make use of the Ace kernel to execute the command within the same process. In the following example, there is no way to know the exit code for the command.
 
 ```ts
 import { BaseCommand } from '@adonisjs/core/build/standalone'
@@ -951,4 +1017,20 @@ export default class Greet extends BaseCommand {
     // highlight-end
   }
 }
+```
+
+## Generating the ace manifest file
+Ace manifest is a JSON index of all the registered commands. It allows ace to look up the command, the argument/flags it accepts without loading all the command files.
+
+Generating an index is essential for performance. Otherwise, importing all the commands, compiling them using the in-memory typescript compiler will take a lot of time, even to print the help screen.
+
+AdonisJS automatically updates the `ace-manifest.json` file during the following events.
+
+- Every time you install and configure a package using the `node ace configure` command.
+- When the file watcher runs, and you change a command file stored inside the `commands` directory.
+
+These two events alone cover the majority of use cases. However, you can also manually update the manifest file by running the following command.
+
+```sh
+node ace generate:manifest
 ```

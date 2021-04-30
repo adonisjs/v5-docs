@@ -124,7 +124,7 @@ The parent template can define them as follows
 
 The slots have access to the state of the template in which they are defined (aka the parent template).
 
-#### Component template
+Following is the markup for the button component
 
 ```edge
 // title: components/button.edge
@@ -135,7 +135,7 @@ The slots have access to the state of the template in which they are defined (ak
 </button>
 ```
 
-#### Parent template
+The parent template attempting to access the `title` property defined inside the `component`.
 
 ```edge
 // title: home.edge
@@ -144,15 +144,14 @@ The slots have access to the state of the template in which they are defined (ak
 @end
 ```
 
-#### Output
-
 ```html
+// title: Output
 <button>
   <span>undefined</span>
 </button>
 ```
 
-In order to pass data from the component to the parent, we can pass them as arguments to the slots. For example
+You can pass the data from the component to the parent as arguments to the `slot` method.
 
 ```edge
 // title: components/button.edge
@@ -191,19 +190,21 @@ The goal is to simplify the communication between the components inside a tree. 
 
 Let's start with the most basic example to see the injection API in action. Once, you understand the basics, you can view our screencasts on creating functional components using this API.
 
-#### 1. Create components/parent.edge template
+You can make use of the `@inject` tag to share an object with the component tree.
 
 ```edge
 {{-- Declare a local variable --}}
 @set('counter', { value: 0 })
 
 {{-- Inject it to the components tree --}}
-@share({ counter })
+@inject({ counter })
 
 {{{ await $slots.main() }}}
 ```
 
-#### 2. Create and write the following contents to the `home.edge` file
+Since the `@inject` tag shares the object by reference, any part of the component tree can mutate it's properties, as shown in the following snippet.
+
+The injected values are available on the `$context` variable.
 
 ```edge
 @component('components/parent')
@@ -216,4 +217,40 @@ Let's start with the most basic example to see the injection API in action. Once
 @end
 ```
 
-The values injected by the component are available inside the tree using the `$context` variable. The `$context` object is shared among the entire tree and other components can add/update its value.
+## Components as tags
+Edge allows you reference the components stored inside the `./resources/views/components` directory as edge tags.
+
+Let's create the following template inside the `resources/views/components/button.edge` file.
+
+```edge
+// title: resources/views/components/button.edge
+<button type="{{ type }}">
+  {{ text }}
+</button>
+```
+
+Now, instead of referencing the button component using the `@component` tag. You can also reference it as `@button` tag.
+
+```edge
+@!button({
+  type: 'primary',
+  text: 'Login'
+})
+```
+
+You can reference the components inside the nested directories with a dot notation. For example, the file stored inside the `./components/form/input.edge` is referenced as follows:
+
+```edge
+@!form.input({
+  type: 'text',
+  placeholder: 'Enter username'
+})
+```
+
+Following is a reference table to understand the transformations applied to the component path to compute the tag name.
+
+| Template path | Tag name |
+|---------------|-----------|
+| form/input.edge | `@form.input` |
+| tool_tip.edge | `@toolTip` |
+| checkout_form/input.edge | `@checkoutForm.input` |

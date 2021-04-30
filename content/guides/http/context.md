@@ -39,7 +39,7 @@ Following is the list of properties available on the HTTP context. As you will i
 
 ![Output of ctx.inspect({ depth: 0 })](https://res.cloudinary.com/adonis-js/image/upload/f_auto,q_auto/v1609928565/v5/context-inspect.png)
 
-#### request
+### request
 
 Reference to the [HTTP request](./request.md)
 
@@ -47,7 +47,9 @@ Reference to the [HTTP request](./request.md)
 Route.get('/', async ({ request }) => {})
 ```
 
-#### response
+---
+
+### response
 
 Reference to the [HTTP response](./response.md)
 
@@ -55,7 +57,9 @@ Reference to the [HTTP response](./response.md)
 Route.get('/', async ({ response }) => {})
 ```
 
-#### logger
+---
+
+### logger
 
 Reference to the logger instance. A [child logger](../digging-deeper/logger.md#child_logger) instance with a unique [request id](./request.md#request-id) is created for every HTTP request.
 
@@ -63,7 +67,9 @@ Reference to the logger instance. A [child logger](../digging-deeper/logger.md#c
 Route.get('/', async ({ logger }) => {})
 ```
 
-#### route
+---
+
+### route
 
 Reference to the matched route for the current HTTP request. The route object has the following properties.
 
@@ -76,7 +82,9 @@ Reference to the matched route for the current HTTP request. The route object ha
 Route.get('/', async ({ route }) => {})
 ```
 
-#### params
+---
+
+### params
 
 An object of route params.
 
@@ -86,7 +94,9 @@ Route.get('users/:id', async ({ params }) => {
 })
 ```
 
-#### subdomains
+---
+
+### subdomains
 
 An object of route subdomains. Only available when the route is registered with a domain.
 
@@ -98,7 +108,9 @@ Route.group(() => {
 }).domain(':tenant.adonisjs.com')
 ```
 
-#### session
+---
+
+### session
 
 Reference to the [session object](./session.md). Available only when `@adonisjs/session` package is installed.
 
@@ -108,7 +120,9 @@ Route.get('/', async ({ session }) => {
 })
 ```
 
-#### auth
+---
+
+### auth
 
 Reference to the [auth object](../auth/introduction.md). Available only when `@adonisjs/auth` package is installed.
 
@@ -118,13 +132,39 @@ Route.get('/', async ({ auth }) => {
 })
 ```
 
-#### view
+---
+
+### view
 
 Reference to the [view renderer object](../views/introduction.md). Available only when `@adonisjs/view` package is installed.
 
 ```ts
 Route.get('/', async ({ view }) => {
   return view.render('welcome')
+})
+```
+
+---
+
+### ally
+
+Reference to the [ally object](../auth/social.md). Available only when `@adonisjs/ally` package is installed.
+
+```ts
+Route.get('/', async ({ ally }) => {
+  return ally.use('github').redirect()
+})
+```
+
+---
+
+### bouncer
+
+Reference to the [bouncer object](../digging-deeper/authorization.md). Available only when `@adonisjs/bouncer` package is installed.
+
+```ts
+Route.get('/', async ({ bouncer }) => {
+  await bouncer.authorize('viewPost', post)
 })
 ```
 

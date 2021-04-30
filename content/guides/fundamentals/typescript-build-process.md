@@ -21,18 +21,18 @@ The simplest way to compile your Typescript code to JavaScript is using the offi
 ### Using ts-node
 Ts node does improve the development experience, as it compiles code in memory and does not output it on the disk. You can combine `tsnode` and `nodemon` and run your typescript code as a first-class citizen.
 
-However, for larger applications, `tsnode` may get slow as it has to recompile the entire project on every file change. In contrast, `tsc` was re-building the changed file.
+However, for larger applications, `tsnode` may get slow as it has to recompile the entire project on every file change. In contrast, `tsc` was re-building only the changed file.
 
-Also, do not `tsnode` is a development only tool. You still have to compile your code to JavaScript using `tsc` and write custom scripts to copy static files for production.
+Do note, `tsnode` is a development only tool. For production, you still have to compile your code to JavaScript using `tsc` and write custom scripts to copy static files.
 
 ---
 
 ### Using Webpack
 After trying the above approaches, you may decide to give Webpack a try. Webpack is a build tool and has a lot to offer. But, it comes with its own set of downsides.
 
-- Very first, using Webpack to bundle the backend code is an overkill. You don't even need 90% of the webpack features created by keeping the frontend projects and build process in mind.
-- You may have to repeat some of the configurations in the `webpack.config.js` config and `tsconfig.json` file especially, which files to watch and ignore.
-- Also, we are not even sure if you can instruct [Webpack not to bundle](https://stackoverflow.com/questions/40096470/get-webpack-not-to-bundle-files) the entire backend into a single file.
+- Very first, using Webpack to bundle the backend code is an overkill. You may not even need 90% of the webpack features, that were created to serve the frontend ecosystem.
+- You may have to repeat some of the configurations in the `webpack.config.js` config and `tsconfig.json` file. Especially, which files to watch and ignore.
+- Also, we are not even sure if you can instruct [Webpack NOT TO bundle](https://stackoverflow.com/questions/40096470/get-webpack-not-to-bundle-files) the entire backend into a single file.
 
 ## AdonisJS approach
 We are not a big fan of over-complicated build tools and bleeding-edge compilers. Having a calm development experience is way more valuable than exposing config to tune every single knob.
@@ -50,7 +50,7 @@ Similar to ts-node, we created [@adonisjs/require-ts](https://github.com/adonisj
 
 However, `@adonisjs/require-ts` is slightly different from `ts-node` in the following ways.
 
-- We do not type check the code using the in-memory compiler. Type checking is offloaded to your editor, as we don't check the terminal for Typescript errors anyways. This results in a faster compilation.
+- We do not perform any type checking during development and expect you to rely on your code editor for same.
 - We store the [compiled output](https://github.com/adonisjs/require-ts/blob/develop/src/Compiler/index.ts#L179-L208) in a cache folder. So the next time when your server restarts, we do not recompile the unchanged files. This does improve the speed dramatically.
 - The cached files have to be deleted at some point. The `@adonisjs/require-ts` module exposes the [helper methods](https://github.com/adonisjs/require-ts/blob/develop/index.ts#L43-L57) that AdonisJS file watcher uses to clear the cache for the recently changed file.
 - Clearing cache is only essential for claiming the disk space. It does not impact the behavior of the program.

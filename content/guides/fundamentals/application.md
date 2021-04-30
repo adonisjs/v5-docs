@@ -6,7 +6,12 @@ Whereas running the `node ace repl` command boots the application in the **repl*
 
 The environment of the application plays an essential role in deciding which actions to perform. For example, The **web** environment does not register or boot the ace providers.
 
-You can access the current environment of the application using the `environment` property.
+You can access the current environment of the application using the `environment` property. Following is the list of known application environments.
+
+- `web` environment refers to the process started for HTTP server.
+- `console` environment refers to the ace commands except the repl command.
+- `repl` environment refers to the process started using node ace repl command.
+- `test` environment is reserved for the future, when AdonisJS will have the inbuilt test runner.
 
 ```ts
 import Application from '@ioc:Adonis/Core/Application'
@@ -16,6 +21,10 @@ console.log(Application.environment)
 ## Boot Lifecycle
 
 Following is the boot lifecycle of the application. 
+
+:::note
+You can access the IoC container bindings once the application state is set to `booted` or `ready`. Trying to access the container bindings before the booted state results in an exception.
+:::
 
 ::img[]{src="https://res.cloudinary.com/adonis-js/image/upload/q_auto,f_auto/v1617132548/v5/application-boot-lifecycle.png" width="300px"}
 
@@ -32,8 +41,6 @@ G - -> H[/Shutdown method invoked/]
 H - ->|Execute providers shutdown method| I(state:shutdown)
 
 -->
-
-You can access the IoC container bindings once the application state is set to booted or ready. Trying to access the container bindings before the `booted` state results in an exception.
 
 ## Version
 

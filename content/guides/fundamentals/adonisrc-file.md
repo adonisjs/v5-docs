@@ -5,9 +5,9 @@ previewCode: >
 summary: The adonisrc.json file configures the workspace and some of the runtime settings of an AdonisJS application. It also allows you to override the default conventions around the file structure.
 ---
 
-The `.adonisrc.json` in the root of your project configures the workspace and some of the runtime settings of the application. It also allows you to override the default conventions around the file structure.
+The `.adonisrc.json` file in the root of your project configures the workspace and some of the runtime settings of the application. It also allows you to override the default conventions around the file structure.
 
-By default, the file contains the minimal config required to run your application. However, you can view the file contents along with the defaults by running the following ace command.
+By default, the file only contains the values required to run your application. However, you can view the file contents along with the defaults by running the following ace command.
 
 ```sh
 node ace dump:rcfile

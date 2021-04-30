@@ -23,6 +23,11 @@ const ADDITIONAL_LANGUAGES = [
     id: 'edge',
   },
   {
+    path: './resources/vscode/shell.tmLanguage.json',
+    scopeName: 'source.shell',
+    id: 'sh',
+  },
+  {
     path: './resources/vscode/dotenv.tmLanguage.json',
     scopeName: 'source.env',
     id: 'dotenv',
