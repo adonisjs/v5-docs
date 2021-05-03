@@ -14,26 +14,6 @@
             "title": "Digital ocean apps",
             "permalink": "deploy-to-digial-ocean",
             "contentPath": "deployment/digial-ocean.md"
-          },
-          {
-            "title": "Using Docker image",
-            "permalink": "deploy-as-docker-image",
-            "contentPath": "deployment/docker-image.md"
-          }
-        ]
-      },
-      {
-        "name": "File uploads",
-        "docs": [
-          {
-            "title": "Uploading and serving files",
-            "permalink": "uploading-and-serving-files",
-            "contentPath": "file-uploads/uploading-and-serving-files.md"
-          },
-          {
-            "title": "Direct file uploads",
-            "permalink": "direct-file-uploads",
-            "contentPath": "file-uploads/direct-file-uploads.md"
           }
         ]
       }
