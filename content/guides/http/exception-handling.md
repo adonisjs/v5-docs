@@ -1,3 +1,7 @@
+---
+summary: Learn how to manage exceptions that occurred during an HTTP request effectively.
+---
+
 AdonisJS uses exceptions for flow control. Meaning, instead of writing too many conditionals, we prefer raising exceptions and then handle them to return an appropriate response. For example:
 
 #### Instead of writing the following code

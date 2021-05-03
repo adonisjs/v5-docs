@@ -1,3 +1,7 @@
+---
+summary: Use the Redis module of AdonisJS to interact with a Redis database.
+---
+
 AdonisJS has its own first party package for working with Redis databases. It internally uses [ioredis](https://github.com/luin/ioredis) but improves the **pub/sub layer** and provides first class support for **connections management** and **health checks**.
 
 The first step is  to install and configure the package using the following instructions.

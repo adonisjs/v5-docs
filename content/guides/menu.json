@@ -44,6 +44,11 @@
             "title": "Typescript build process",
             "permalink": "typescript-build-process",
             "contentPath": "fundamentals/typescript-build-process.md"
+          },
+          {
+            "title": "Deployment",
+            "permalink": "deployment",
+            "contentPath": "fundamentals/deployment.md"
           }
         ]
       },
@@ -265,6 +270,16 @@
             "title": "Serializing Models",
             "permalink": "models/serializing-models",
             "contentPath": "models/serialization.md"
+          },
+          {
+            "title": "Relationships",
+            "permalink": "models/relationships",
+            "contentPath": "models/relationships.md"
+          },
+          {
+            "title": "Model factories",
+            "permalink": "models/factories",
+            "contentPath": "models/factories.md"
           }
         ]
       },
@@ -355,6 +370,11 @@
             "title": "Events",
             "permalink": "events",
             "contentPath": "digging-deeper/events.md"
+          },
+          {
+            "title": "Helpers",
+            "permalink": "helpers",
+            "contentPath": "digging-deeper/helpers.md"
           },
           {
             "title": "Mailer",

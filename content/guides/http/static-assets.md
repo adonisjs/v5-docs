@@ -1,3 +1,7 @@
+---
+summary: Learn how to serve static assets from your AdonisJS application.
+---
+
 AdonisJS ships with a static file server to serve the files from a given directory. It is as simple as dropping a file inside the `./public` directory and then accessing it by its filename. For example:
 
 Create a file named `public/style.css` with the following contents.

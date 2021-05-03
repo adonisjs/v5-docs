@@ -1,3 +1,7 @@
+---
+summary: HTTP request context holds all the relevant information related to a given HTTP request.
+---
+
 HTTP context is a request-specific object that holds the information like the `request body`, `cookies`, `headers`, the currently `logged in user`, and much more for a given HTTP request.
 
 The HTTP context is passed by reference to the route handler, middleware, HTTP hooks, and exception handler.

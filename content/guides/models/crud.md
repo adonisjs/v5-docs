@@ -1,3 +1,7 @@
+---
+summary: Perform CRUD operations using the Lucid data models.
+---
+
 Lucid models make it very easy to perform CRUD operations and also define lifecycle hooks around each operation.
 
 This guide covers 80% of the use cases. However, do make sure to check the [Model API docs](../../api/orm/base-model.md) docs for all the available methods.

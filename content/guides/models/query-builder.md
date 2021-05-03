@@ -1,3 +1,0 @@
-- What is model query builder
-- How it is different from the standard query builder
-- Get raw objects from the model query builder

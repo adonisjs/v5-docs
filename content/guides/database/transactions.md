@@ -1,3 +1,7 @@
+---
+summary: Reference to SQL transactions and save points with Lucid ORM
+---
+
 Lucid has first class support for transactions and save points. You can create a new transaction by calling the `Database.transaction` method.
 
 ```ts

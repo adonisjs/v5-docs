@@ -1,3 +1,7 @@
+---
+summary: An introduction to the HTTP middleware pipeline. AdonisJS divides middleware into route middleware and global middleware.
+---
+
 Middleware are a series of functions that are executed during an HTTP request before it reaches the route handler. Every function in the chain has the ability to end the request or forward it to the `next` function.
 
 ## Basic Example

@@ -1,3 +1,7 @@
+---
+summary: Reference to the HTTP request class. You can access data for the current HTTP request, including the **request body**, **uploaded files**, **cookies** and much more.
+---
+
 The instance of the [request class](https://github.com/adonisjs/http-server/blob/develop/src/Request/index.ts) allows you to access data for the current HTTP request, including the **request body**, **uploaded files**, **cookies** and much more.
 
 You can access the `request` object from the HTTP context instance passed to the route handler, middleware, and exception handler.

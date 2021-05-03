@@ -1,3 +1,7 @@
+---
+summary: Use the mailer module to send transactional emails from your application. The package has **SparkPost**, **SES**, **Mailgun** and **Smtp** drivers.
+---
+
 You can send emails from your application using the Mailer module of AdonisJS. It is built on top of [nodemailer](https://nodemailer.com/about/) with a few additions like **previewing emails** and the ability to **trap emails during tests**.
 
 Before you can start sending emails, make sure to install and configure the package using the following instructions.

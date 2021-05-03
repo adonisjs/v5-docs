@@ -1,3 +1,7 @@
+---
+summary: Authenticate requests using HTTP Basic authentication
+---
+
 The basic auth guard uses the [HTTP basic authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication#basic_authentication_scheme) for authenticating the requests.
 
 There is no concept of **explicit login and logout** with basic auth. The credentials for authentication are sent on every request and you can validate them using the `auth.authenticate` method.

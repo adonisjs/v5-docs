@@ -1,3 +1,7 @@
+---
+summary: Using database seeders to add seed database with dummy or initial data
+---
+
 Database seeding is a way to setup your application with some initial data that is required to run and use the application. For example:
 
 - Creating a seeder to insert **countries**, **states** and **cities** before deploying and running your application.

@@ -1,3 +1,7 @@
+---
+summary: The config module to manage and provide application config to the installed packages.
+---
+
 The runtime configuration of your AdonisJS application is stored inside the `config` directory. The framework core and many of the installed packages rely on these configuration files. Make sure to go through the configuration files and tweak any settings (if necessary).
 
 We also recommend storing all the custom config required by your app inside this directory versus storing them in multiple places.

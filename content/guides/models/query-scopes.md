@@ -1,3 +1,7 @@
+---
+summary: Learn, how to use query scopes to define reusable query builder functions.
+---
+
 Query scopes are the reusable function to apply to a query builder instance to modify the query.
 
 The methods are defined as static properties on the model class and receive the current query as the first argument. For example:

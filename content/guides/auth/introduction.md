@@ -1,3 +1,7 @@
+---
+summary: Introduction to the AdonisJS authentication package. It has support for authenticating users using sessions, API tokens, or basic auth
+---
+
 AdonisJS comes with a fully fledged authentication system to authenticate the users of your application using **sessions**, **basic auth** or **API tokens**.
 
 The support for authentication is added by the `@adonisjs/auth` package and it must be installed separately.

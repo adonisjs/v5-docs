@@ -1,7 +1,10 @@
+---
+summary: Access and validate user-uploaded files.
+---
+
 AdonisJS provides you a robust and performant API for dealing with file uploads. Not only can you process and store uploaded files locally, but you can also **stream them directly to the cloud services like S3, Cloudinary, or Google cloud storage**.
 
-## Retrieving uploaded files
-
+## Accessing uploaded files
 The bodyparser middleware registered inside the `start/kernel.ts` file automatically processes all the files for `multipart/form-data` requests.
 
 You can access the files using the `request.file` method. The method accepts the field name and returns an instance of the [File](https://github.com/adonisjs/bodyparser/blob/develop/src/Multipart/File.ts) class, or `null` if no file was uploaded.
@@ -93,7 +96,7 @@ Route.post('posts', async ({ request }) => {
 It is always recommended to rename the user uploaded files during the `move` operation. The renamed file name can be anything suitable for your app, or you can use the `cuid` helper method to create random file names.
 
 ```ts
-import Helpers from '@ioc:Adonis/Core/Helpers'
+import { cuid } from '@ioc:Adonis/Core/Helpers'
 
 const coverImage = request.file('cover_image', {
   size: '2mb',
@@ -105,7 +108,7 @@ if (!coverImage) {
 }
 
 // highlight-start
-const fileName = `${Helpers.cuid()}.${coverImage.extname}`
+const fileName = `${cuid()}.${coverImage.extname}`
 
 await coverImage.move(Application.tmpPath('uploads'), {
   name: fileName,
@@ -126,7 +129,7 @@ await coverImage.move(Application.tmpPath('uploads'), {
 
 The API for the file uploads only focuses on handling user uploaded files and not saving and serving them. However, the following is the simplest way to serve the files from a local disk.
 
-The `response.attachment` method streams the file to the client and returns a `404` status code when the file is missing.
+The `response.attachment` method streams the file to the client or returns a `404` status code when the file is missing.
 
 ```ts
 import Route from '@ioc:Adonis/Core/Route'
@@ -148,9 +151,36 @@ response.attachment(
 )
 ```
 
-## Direct file uploads
+## Moving files to the cloud storage
+You can move files to the cloud storage services like S3, Digital ocean or Cloudinary using their official SDKs.
 
-Check out this [in-depth tutorial]() to learn more about direct file uploads.
+You can access the temporary path to the upload file using the `file.tmpPath` property.
+
+:::note
+
+The `file.move` method moves the file locally from its `tmpPath` to the given location. This method cannot be used when moving files to a cloud service.
+
+:::
+
+```ts
+const coverImage = request.file('cover_image', {
+  size: '2mb',
+  extnames: ['jpg', 'png', 'gif'],
+})
+
+const fileName = `${cuid()}.${coverImage.extname}`
+
+// highlight-start
+await s3.upload({
+  Key: fileName,
+  Bucket: 's3-bucket-name',
+  Body: fs.createReadStream(coverImage.tmpPath) // 👈
+})
+// highlight-end
+```
+
+## Direct file uploads
+[HAS TO BE A SCREENCAST. RECORD TONIGHT]
 
 ## File properties
 

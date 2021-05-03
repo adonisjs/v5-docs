@@ -1,3 +1,7 @@
+---
+summary: Learn how AdonisJS builds your Typescript application in both development and production both.
+---
+
 One of the framework's goals is to provide first-class support for Typescript. This goes beyond the static types and IntelliSense you can enjoy while writing the code.
 
 **We also ensure that you never have to install any additional build tools to compile your code during development or for production.**

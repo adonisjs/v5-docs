@@ -1,3 +1,7 @@
+---
+summary: Learn how to define and validate environment variables in AdonisJS
+---
+
 Instead of maintaining multiple config files, one for each environment, AdonisJS uses [environment variables](https://en.wikipedia.org/wiki/Environment_variable) for values that often change between your local and the production environment. For example, The database credentials, a boolean flag to toggle templates caching, and so on.
 
 ## Access environment variables

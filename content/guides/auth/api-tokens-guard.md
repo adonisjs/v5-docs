@@ -1,3 +1,7 @@
+---
+summary: Authenticate requests using Opaque access tokens
+---
+
 The API guard uses the database backend **opaque access token** to authenticate the user requests. 
 
 You must use this guard to implement stateless authentication, meaning no state is stored inside cookies or sessions by the AdonisJS application. Also, with stateless authentication, it is the responsibility of the client to keep the tokens secure.

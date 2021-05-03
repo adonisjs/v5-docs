@@ -1,3 +1,7 @@
+---
+summary: Reference to the HTTP response class.
+---
+
 The instance of the [response class](https://github.com/adonisjs/http-server/blob/develop/src/Response/index.ts) allows you to respond to the HTTP requests. AdonisJS out of the box supports sending **HTML fragments**, **JSON objects**, **streams** and much more.
 
 You can access the `response` object from the HTTP context instance passed to the route handler, middleware, and exception handler.

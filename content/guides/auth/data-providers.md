@@ -1,4 +1,0 @@
-- Explaining the concept of data providers
-- User provider vs token provider
-- The purpose of providers
-- Creating new providers

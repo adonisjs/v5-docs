@@ -1,3 +1,7 @@
+---
+summary: Learn how to use controllers and resourceful routes in AdonisJS
+---
+
 Controllers are the de facto way of handling HTTP requests in AdonisJS. They enable you to clean up the routes file by moving all the inline route handlers to their dedicated controller files.
 
 In AdonisJS, the controllers are stored inside (but not limited to) the `app/Controllers/Http` directory and each file represents a single controller. For example:

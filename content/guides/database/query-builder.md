@@ -1,3 +1,7 @@
+---
+summary: Reference to the database query builder
+---
+
 Lucid query builder allows you to write and execute SQL queries. It is built on top of [Knex.js](https://knexjs.org/#) with few opinionated changes.
 
 We have divided the query builders into following categories

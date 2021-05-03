@@ -1,3 +1,7 @@
+---
+summary: The application module of AdonisJS is responsible for booting the app and managing its lifecycle.
+---
+
 The application module of AdonisJS is responsible for booting the app in different known environments.
 
 When you start the HTTP server from the `server.ts` file or by running the `node ace serve` command, the application is booted for the **web** environment.

@@ -1,3 +1,7 @@
+---
+summary: Use migrations to create and modify SQL tables
+---
+
 So far, you have learned about the ways to fetch or persist data using the database query builder. We take a step further in this guide and explore schema migrations for **creating/altering** database tables.
 
 ## Migrations Overview

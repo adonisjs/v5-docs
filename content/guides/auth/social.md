@@ -1,3 +1,7 @@
+---
+summary: OAuth-based social authentication using the `@adonisjs/ally` package.
+---
+
 Along with the standard authentication, AdonisJS also ships with a package to help you implement social authentication with OAuth providers like **Google**, **Twitter**, **Github**, and so on.
 
 :::div{class="setup"}

@@ -1,3 +1,7 @@
+---
+summary: Using the data model hooks to perform actions on specific events.
+---
+
 Hooks are the actions that you can perform during a pre-defined life cycle event. Using hooks, you can encapsulate specific actions within your models vs. writing them everywhere inside the codebase.
 
 A great example of hooks is password hashing. Instead of hashing the user password everywhere inside your codebase, you can write it as a hook and then guarantee that user passwords will be persisted as plain text.

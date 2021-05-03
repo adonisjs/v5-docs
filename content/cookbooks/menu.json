@@ -6,12 +6,6 @@
         "name": "Deployment",
         "docs": [
           {
-            "title": "Cleavr",
-            "permalink": "deploy-to-cleavr",
-            "contentPath": "deployment/cleavr.md",
-            "isLandingDoc": true
-          },
-          {
             "title": "Heroku",
             "permalink": "deploy-to-heroku",
             "contentPath": "deployment/heroku.md"
@@ -22,14 +16,24 @@
             "contentPath": "deployment/digial-ocean.md"
           },
           {
-            "title": "Linux server",
-            "permalink": "deploy-to-linux",
-            "contentPath": "deployment/linux-server.md"
-          },
-          {
             "title": "Using Docker image",
             "permalink": "deploy-as-docker-image",
             "contentPath": "deployment/docker-image.md"
+          }
+        ]
+      },
+      {
+        "name": "File uploads",
+        "docs": [
+          {
+            "title": "Uploading and serving files",
+            "permalink": "uploading-and-serving-files",
+            "contentPath": "file-uploads/uploading-and-serving-files.md"
+          },
+          {
+            "title": "Direct file uploads",
+            "permalink": "direct-file-uploads",
+            "contentPath": "file-uploads/direct-file-uploads.md"
           }
         ]
       }

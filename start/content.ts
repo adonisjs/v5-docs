@@ -75,10 +75,10 @@ GuidesZone
 /**
  * Api docs
  */
-const ApiZone = Content.zone('API Docs')
+const ApiZone = Content.zone('Reference')
 ADDITIONAL_LANGUAGES.forEach((lang) => ApiZone.loadLanguage({ ...lang }))
 ApiZone
-  .baseUrl('api')
+  .baseUrl('reference')
   .baseContentPath('./content/api')
   .template('docs')
   .useTheme(CODE_BLOCKS_THEME)
@@ -89,13 +89,13 @@ ApiZone
 /**
  * Cook books
  */
-// const CookbooksZone = Content.zone('Cookbooks')
-// ADDITIONAL_LANGUAGES.forEach((lang) => CookbooksZone.loadLanguage({ ...lang }))
-// CookbooksZone
-//   .baseUrl('cookbooks')
-//   .baseContentPath('./content/cookbooks')
-//   .template('docs')
-//   .useTheme(CODE_BLOCKS_THEME)
-//   .docs(Cookbooks)
-//   .renderer('dimerRenderer', dimerRenderer)
-//   .register()
+const CookbooksZone = Content.zone('Cookbooks')
+ADDITIONAL_LANGUAGES.forEach((lang) => CookbooksZone.loadLanguage({ ...lang }))
+CookbooksZone
+  .baseUrl('cookbooks')
+  .baseContentPath('./content/cookbooks')
+  .template('docs')
+  .useTheme(CODE_BLOCKS_THEME)
+  .docs(Cookbooks)
+  .renderer('dimerRenderer', dimerRenderer)
+  .register()

@@ -1,3 +1,7 @@
+---
+summary: Guard routes from unauthenticated users using the Auth middleware
+---
+
 During the setup process, the auth package creates the following two middleware inside the `./app/Middleware` directory. You can use these middleware to guard the routes against the un-authenticated requests.
 
 ## Auth middleware

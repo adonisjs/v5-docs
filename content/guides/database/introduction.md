@@ -1,3 +1,7 @@
+---
+summary: Introduction to the Lucid ORM. It ships with an implementation of an Active record pattern, a database query builder, support for migrations, seeders, and model factories.
+---
+
 AdonisJS is one of the few Node.js frameworks (if not the only one) that has first class support for SQL databases. The data layer of the framework is powered by Lucid and the package must be installed separately.
 
 :::div{class="setup"}

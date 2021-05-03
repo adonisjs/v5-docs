@@ -1,3 +1,7 @@
+---
+summary: Learn how to access and set values in the session store. The session module of AdonisJS has support for **cookies**, **file**, and **redis** based storage drivers.
+---
+
 The support for sessions is provided by the `@adonisjs/session` package. The package comes pre-configured with the `web` starter template. However, installing and configuring it is also relatively straightforward.
 
 :::div{class="setup"}

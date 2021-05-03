@@ -1,3 +1,7 @@
+---
+summary: The assets manager module allows referencing compiled frontend assets in your edge templates.
+---
+
 AdonisJS makes use of [webpack encore](https://www.npmjs.com/package/@symfony/webpack-encore) to compile and serve the frontend assets. Webpack Encore is a wrapper on top of [webpack](https://webpack.js.org/) to make it easier to work with the Webpack config.
 
 :::note

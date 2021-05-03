@@ -1,3 +1,7 @@
+---
+summary: Learn, how to serialize model instances to plain JavaScript objects.
+---
+
 If you are creating an API server, you would want to convert the model instances to plain JSON objects, before sending them to the client in response.
 
 The process of transforming class instances to plain JSON objects is known as serialization. During the serialization process, you may also want to:

@@ -1,3 +1,7 @@
+---
+summary: Introduction to the async event emitter of AdonisJS.
+---
+
 AdonisJS ships with an event emitter module built on top of [emittery](https://github.com/sindresorhus/emittery). It differs from the Node.js native Events module in following ways.
 
 - It is asynchronous in nature, whereas the Node.js events module emits events synchronously. Make sure to also [read the emittery](https://github.com/sindresorhus/emittery#how-is-this-different-than-the-built-in-eventemitter-in-nodejs) explanation on this as well.

@@ -132,7 +132,7 @@ console.log(user.serialize())
 ---
 
 ### hasOne
-The `hasOne` decorator marks a property as a Has one relationship. Make sure to read the [has one relationship](./relations/has-one.md) doc to learn more about the options and their impact.
+The `hasOne` decorator marks a property as a Has one relationship. It accepts a callback as the first argument. The callback must return the relationship model.
 
 ```ts
 import { hasOne, HasOne, BaseModel } from '@ioc:Adonis/Lucid/Orm'
@@ -143,10 +143,17 @@ class User extends Model {
 }
 ```
 
----
+Optionally, you can define following options as the 2nd argument.
+
+| Option | Description |
+|---------|------------|
+| `foreignKey` | The foreign key for the relationship. You must define the model property name here and Lucid will infer the table column name automatically. |
+| `localKey` | The local key is the property name on the current model that forms a relationship with the foreign key |
+| `serializeAs` | The property name to be used when serializing the relationship. Setting the value to `null` will remove the relationship from the serialized object. |
+| `onQuery` | A callback to modify all relationship queries. The callback will run for all the **select**, **update** and **delete** operations executed using the relationship query builder. |
 
 ### hasMany
-The `hasMany` decorator marks a property as a hasMany relationship. Make sure to read the [has many relationship](./relations/has-many.md) doc to learn more about the options and their impact.
+The `hasMany` decorator marks a property as a hasMany relationship. It accepts a callback as the first argument. The callback must return the relationship model.
 
 ```ts
 import { hasMany, HasMany, BaseModel } from '@ioc:Adonis/Lucid/Orm'
@@ -157,10 +164,17 @@ class User extends Model {
 }
 ```
 
----
+Optionally, you can define following options as the 2nd argument.
+
+| Option | Description |
+|---------|------------|
+| `foreignKey` | The foreign key for the relationship. You must define the model property name here and Lucid will infer the table column name automatically. |
+| `localKey` | The local key is the property name on the current model that forms a relationship with the foreign key |
+| `serializeAs` | The property name to be used when serializing the relationship. Setting the value to `null` will remove the relationship from the serialized object. |
+| `onQuery` | A callback to modify all relationship queries. The callback will run for all the **select**, **update** and **delete** operations executed using the relationship query builder. |
 
 ### belongsTo
-The `belongsTo` decorator marks a property as a belongsTo relationship. Make sure to read the [belongs to relationship](./relations/belongs-to.md) doc to learn more about the options and their impact.
+The `belongsTo` decorator marks a property as a belongsTo relationship. It accepts a callback as the first argument. The callback must return the relationship model.
 
 ```ts
 import { belongsTo, BelongsTo, BaseModel } from '@ioc:Adonis/Lucid/Orm'
@@ -171,10 +185,15 @@ class User extends Model {
 }
 ```
 
----
+| Option | Description |
+|---------|------------|
+| `foreignKey` | The foreign key for the relationship. In case of belongs to, the foreignKey must be on the current model |
+| `localKey` | The local key is the property name on the related model that forms a relationship with the foreign key |
+| `serializeAs` | The property name to be used when serializing the relationship. Setting the value to `null` will remove the relationship from the serialized object. |
+| `onQuery` | A callback to modify all relationship queries. The callback will run for all the **select**, **update** and **delete** operations executed using the relationship query builder. |
 
 ### manyToMany
-The `manyToMany` decorator marks a property as a many to many relationship. Make sure to read the [many to many relationship](./relations/many-to-many.md) guide to learn more about the options and their impact.
+The `manyToMany` decorator marks a property as a many to many relationship. It accepts a callback as the first argument. The callback must return the relationship model.
 
 ```ts
 import { manyToMany, ManyToMany, BaseModel } from '@ioc:Adonis/Lucid/Orm'
@@ -185,24 +204,41 @@ class User extends Model {
 }
 ```
 
----
+| Option | Description |
+|---------|------------|
+| `pivotForeignKey` | The foreign key of the current model inside the pivot table. |
+| `pivotRelatedForeignKey` | The foreign key of the related model inside the pivot table. |
+| `localKey` | The local key is the property name on the current model that forms a relationship with the foreign key |
+| `relatedKey` | The related key is the property name on the related model that forms a relationship with the foreign key |
+| `serializeAs` | The property name to be used when serializing the relationship. Setting the value to `null` will remove the relationship from the serialized object. |
+| `onQuery` | A callback to modify all relationship queries. The callback will run for all the **select**, **update** and **delete** operations executed using the relationship query builder. |
 
 ### hasManyThrough
-The `hasManyThrough` decorator marks a property as a has many through relationship. Make sure to read the [has many through relationship](./relations/has-many-through.md) guide to learn more about the options and their impact.
+The `hasManyThrough` decorator marks a property as a has many through relationship. It accepts an array of callbacks as the first argument.
+
+- The first callback returns the related model
+- The second callback returns the through model
 
 ```ts
 import { hasManyThrough, HasManyThrough, BaseModel } from '@ioc:Adonis/Lucid/Orm'
 
-class User extends Model {
+class Country extends Model {
   @hasManyThrough([
-    () => Project,
-    () => Team,
+    () => Post,
+    () => User,
   ])
-  public projects: HasManyThrough<typeof Project>
+  public posts: HasManyThrough<typeof Post>
 }
 ```
 
----
+| Option | Description |
+|---------|------------|
+| `foreignKey` | The foreign key for the relationship. The foreign key forms the relationship between the current model and the through model. ie. The `countryId` on the `User` model. |
+| `localKey` | The local key is the property name on the current model that forms a relationship with the foreign key |
+| `throughForeignKey` | The foreign key that forms the relationship between the through and the related model. ie. The `userId` on the `Post` model. |
+| `throughLocalKey` | The local key on the through model that forms a relationship with the `throughForeignKey`. |
+| `serializeAs` | The property name to be used when serializing the relationship. Setting the value to `null` will remove the relationship from the serialized object. |
+| `onQuery` | A callback to modify all relationship queries. The callback will run for all the **select**, **update** and **delete** operations executed using the relationship query builder. |
 
 ### beforeSave
 The `beforeSave` decorator registers a given function as a before hook invoked before the **insert** and the **update** query.

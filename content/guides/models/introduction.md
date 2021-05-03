@@ -1,3 +1,7 @@
+---
+summary: An introduction to the Lucid ORM data models, built on top of the Active record pattern.
+---
+
 Along with the Database query builder, Lucid also has data models, built on top of the [Active record pattern](https://en.wikipedia.org/wiki/Active_record_pattern).
 
 The data models layer of Lucid makes it super simple to **perform CRUD operations**, **manage relationships between models**, and **define lifecycle hooks**. 
