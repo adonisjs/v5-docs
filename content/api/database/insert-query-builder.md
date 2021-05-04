@@ -1,3 +1,7 @@
+---
+summary: Insert query builder API reference
+---
+
 The insert query builder allows you to insert new rows into the database. You must use the [standard query builder](./query-builder.md) for **selecting**, **deleting** or **updating** rows.
 
 You can get access to the insert query builder as shown in the following example:

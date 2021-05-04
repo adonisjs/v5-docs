@@ -1,3 +1,7 @@
+---
+summary: Reference guide for the Hash module.
+---
+
 AdonisJS Hash module allows you to hash the values using Bcrypt or Argon2, with the option to add a custom hashing driver.
 
 You can configure the driver of your choice inside the `config/hash.ts` file.

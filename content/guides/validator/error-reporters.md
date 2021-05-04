@@ -1,3 +1,7 @@
+---
+summary: Reference to the edge error reporters for customizing the shape of the error
+---
+
 Error formatters are helpful when you are writing an API server following a pre-defined spec like [JSON\:API](https://jsonapi.org/)
 
 Without error formatters, you have to manually loop over the error messages and re-shape them as per the spec followed by your API team. Whereas, error formatters exposes an API to collect and structure error messages within the validation lifecycle (without any extra performance overhead).

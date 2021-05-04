@@ -90,11 +90,6 @@
             "title": "Adapter",
             "permalink": "orm/adapter",
             "contentPath": "orm/adapter.md"
-          },
-          {
-            "title": "Models factories",
-            "permalink": "orm/model-factories",
-            "contentPath": "orm/model-factories.md"
           }
         ]
       },

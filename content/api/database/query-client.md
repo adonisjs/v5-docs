@@ -1,3 +1,7 @@
+---
+summary: Query client complete API reference
+---
+
 The [Query client](https://github.com/adonisjs/lucid/blob/efed38908680cca3b288d9b2a123586fab155b1d/src/QueryClient/index.ts#L38) works a bridge between the [connection](./connection.md) and the [query builder](./query-builder.md) to execute the database queries. Also, it exposes the required APIs used by the query builder to direct read queries to the read replica and writes the write replica.
 
 You can access the query client as follows:

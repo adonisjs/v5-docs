@@ -1,3 +1,7 @@
+---
+summary: Reference to the templates data flow and their scope at which they are available
+---
+
 Edge exposes different APIs for sharing the data with the templates. Each API changes the scope at which the data is available inside the templates.
 
 ## Template state
@@ -9,7 +13,7 @@ const state = {
   user: { id: 1, username: 'virk' },
 }
 
-await view.renderAsync('user', state)
+await view.render('user', state)
 ```
 
 The template state is available to the rendered template, its partials and the layout it use. In other words, the template state is not shared with the components.
@@ -62,7 +66,7 @@ You will mostly find yourself using the `view.share` method within middleware to
 ```ts
 Route
   .get('/', ({ view }) => {
-    await view.renderAsync('home')
+    await view.render('home')
   })
   .middleware(({ view }, next) => {
     view.share({

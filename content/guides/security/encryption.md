@@ -1,3 +1,7 @@
+---
+summary: Reference guide for the Encryption module
+---
+
 You can make use of the AdonisJS encryption module to encrypt/decrypt the values in your application.
 
 ```ts

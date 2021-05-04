@@ -12,12 +12,12 @@ SIDEBAR STYLES
   bottom: 0;
   width: var(--sidebar-width);
   overflow: scroll;
-  z-index: 2;
+  z-index: 3;
   transform: translateX(-110vw);
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), visibility 0s linear 0.6s;
 }
 
-#sidenav-open:target .sidebar {
+#sidenav-open.opened .sidebar {
   visibility: visible;
   transform: translateX(0);
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
@@ -76,10 +76,20 @@ SIDEBAR STYLES
   transition: opacity 0.6s ease, visibility 0s linear 0.4s;
 }
 
-#sidenav-open:target .sidenav-backdrop {
+#sidenav-open.opened .sidenav-backdrop {
   visibility: visible;
   opacity: 1;
   transition: opacity 0.4s ease;
+}
+
+/*
+--------------------------------
+MOBILE ONLY
+--------------------------------
+*/
+.mobile-main-nav {
+  padding: 0 var(--space-x);
+  margin-bottom: 30px;
 }
 
 @media (min-width: 1024px) {
@@ -89,6 +99,10 @@ SIDEBAR STYLES
   }
 
   .sidenav-backdrop {
+    display: none;
+  }
+
+  .mobile-main-nav {
     display: none;
   }
 }

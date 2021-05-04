@@ -6,6 +6,11 @@
         "name": "Root",
         "docs": [
           {
+            "title": "Introduction",
+            "permalink": "introduction",
+            "contentPath": "introduction.md"
+          },
+          {
             "title": "Installation",
             "permalink": "installation",
             "contentPath": "installation.md"

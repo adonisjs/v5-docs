@@ -1,7 +1,11 @@
+---
+summary: Learn how to loop over objects and arrays in Edge
+---
+
 You can loop over `objects` and `arrays` using the `@each` tag. It works similar to the `for of` loop in Javascript.
 
 ```ts
-view.renderAsync('users', {
+view.render('users', {
   users: [
     {
       username: 'virk',
@@ -25,7 +29,7 @@ view.renderAsync('users', {
 Similarly you can also loop over an object and access its key and value.
 
 ```ts
-view.renderAsync('recipes', {
+view.render('recipes', {
   food: {
     ketchup: '5 tbsp',
     mustard: '1 tbsp',
@@ -43,17 +47,17 @@ view.renderAsync('recipes', {
 The `@each` tag works just fine with async code inside it. Here's an example of the same.
 
 ```ts
-view.renderAsync('users', {
-    users: [
-        {
-            username: 'virk',
-            posts: async () => [{ title: 'Adonis 101' }],
-        },
-        {
-            username: 'romain',
-            posts: async () => [{ title: 'Flydrive 101' }],
-        }
-    ]
+view.render('users', {
+  users: [
+    {
+      username: 'virk',
+      posts: async () => [{ title: 'Adonis 101' }],
+    },
+    {
+      username: 'romain',
+      posts: async () => [{ title: 'Flydrive 101' }],
+    }
+  ]
 })
 ```
 

@@ -4,13 +4,13 @@
 <head>
   <meta charset="utf-8">
   <title>{{ doc.title }}</title>
-  <meta name="description" content="{{ file.excerpt }}">
+  @if(file.excerpt)
+    <meta name="description" content="{{ file.excerpt }}">
+  @end
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <meta property="og:title" content="">
-  <meta property="og:type" content="">
-  <meta property="og:url" content="">
-  <meta property="og:image" content="">
+  <meta property="og:title" content="{{ file.excerpt }}">
+  <meta property="og:type" content="article">
 
   <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
@@ -26,20 +26,27 @@
 
   <link
     rel="preload"
-    href="{{ asset('assets/fonts/UntitledSans-RegularItalic.woff2') }}"
+    href="{{ asset('assets/fonts/Calibre.woff2') }}"
     as="font"
     type="font/woff2" crossorigin
   >
   <link
     rel="preload"
-    href="{{ asset('assets/fonts/UntitledSans-Regular.woff2') }}"
+    href="{{ asset('assets/fonts/Calibre-Medium.woff2') }}"
     as="font"
     type="font/woff2"
     crossorigin
   >
   <link
     rel="preload"
-    href="{{ asset('assets/fonts/UntitledSans-Medium.woff2') }}"
+    href="{{ asset('assets/fonts/Calibre-Semibold.woff2') }}"
+    as="font"
+    type="font/woff2"
+    crossorigin
+  >
+  <link
+    rel="preload"
+    href="{{ asset('assets/fonts/Calibre-Bold.woff2') }}"
     as="font"
     type="font/woff2"
     crossorigin
@@ -56,7 +63,7 @@
   @entryPointScripts('app')
 </head>
 
-<body>
+<body x-data="{ isSideNavOpen: false }">
   @include('partials/header')
   @include('partials/sidebar')
   @include('partials/doc')

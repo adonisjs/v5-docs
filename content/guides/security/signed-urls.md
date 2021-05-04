@@ -1,3 +1,7 @@
+---
+summary: Learn how to create signed URLs using the Route module
+---
+
 Signed URLs provide a neat way to generate URLs with a hash signature appended to them. The hash ensures that the generated URL is not modified or tampered with.
 
 :::note

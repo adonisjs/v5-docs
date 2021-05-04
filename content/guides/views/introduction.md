@@ -1,3 +1,7 @@
+---
+summary: Introduction to the AdonisJS template engine - "Edge".
+---
+
 The Views layer of AdonisJS is powered by a home grown template engine called [Edge](https://github.com/edge-js/edge). Edge is a logical and batteries included template engine for Node.js. It can render any text based format, whether is **HTML**, **Markdown** or **plain text** files.
 
 We created Edge as an alternative to other existing template engines and address the pain points we had with them.
@@ -123,7 +127,7 @@ Let's begin by creating a route that renders a given template file.
 ```ts
 // title: start/routes.ts
 Route.get('/', async ({ view }) => {
-  return view.renderAsync('home')
+  return view.render('home')
 })
 ```
 

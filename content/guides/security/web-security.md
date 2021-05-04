@@ -1,3 +1,7 @@
+---
+summary: A complete guide to securing web applications in AdonisJS
+---
+
 You can protect your web applications from common web attacks like **CSRF**, **XSS**, **Content sniffing** and more using the `@adonisjs/shield` package. 
 
 It is recommended to use this package when creating a server rendered app using AdonisJS.

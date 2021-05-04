@@ -1,4 +1,4 @@
-@if(file.messages.length)
+@if(file.messages.length && app.env.get('DEBUG_DOCS'))
   <div class="file-errors">
     <pre><code>
 @each(message in file.messages)~

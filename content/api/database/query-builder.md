@@ -1,3 +1,7 @@
+---
+summary: Database query builder API reference
+---
+
 The Database query builder is used to construct **SELECT**, **UPDATE**, and **DELETE** SQL queries. For inserting new rows you must use the [insert query builder](./insert-query-builder.md) and use [raw query builder](./raw-query-builder.md) for running raw SQL queries.
 
 You can get an instance of the database query builder using one of the following methods.

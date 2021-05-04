@@ -156,3 +156,28 @@ posts.namingStrategy = {
 
 return posts.toJSON()
 ```
+
+The naming strategy can also be assigned to the `SimplePaginator` class constructor to override it globally. The following code must go inside a provider or a [preload file](../fundamentals/adonisrc-file.md#preloads).
+
+```ts
+import { ApplicationContract } from '@ioc:Adonis/Core/Application'
+
+export default class AppProvider {
+  constructor(protected app: ApplicationContract) {}
+
+  public async ready() {
+    // highlight-start
+    const Db = this.app.container.use('Adonis/Lucid/Database')
+
+    Db.SimplePaginator.namingStrategy = {
+      paginationMetaKeys() {
+        return {
+          // ... same as above
+        }
+      }
+    }
+    // highlight-end
+  }
+}
+
+```

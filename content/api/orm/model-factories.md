@@ -1,3 +1,7 @@
+---
+summary: Base model class complete reference guide
+---
+
 You can define a model factory for a given model using the `Factory.define` method. The method accepts the model reference as the first argument and a callback to configure the default values as the second argument.
 
 ```ts

@@ -1,3 +1,7 @@
+---
+summary: ORM adapter class complete reference guide
+---
+
 The BaseModel class DOES NOT interact with the query builders directly. Instead, it relies on the [Model adapter class](https://github.com/adonisjs/lucid/blob/develop/src/Orm/Adapter/index.ts) to construct the query builder instances for different database operation.
 
 This separation allows you swap the adapter with your custom implementation to cover advanced use cases.

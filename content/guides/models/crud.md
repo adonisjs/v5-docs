@@ -26,6 +26,9 @@ console.log(user.$isPersisted) // true
 - The `user.save` method will perform the insert query. 
 - The `user.$isPersisted` flag returns `true` when the values are persisted to the database.
 
+---
+
+### create
 Another option is to make use of the `static create` method on the Model class itself.
 
 ```ts
@@ -37,6 +40,28 @@ const user = await User.create({
 })
 
 console.log(user.$isPersisted) // true
+```
+
+---
+
+### createMany
+Create multiple instances of a model and persist them to the database. The `createMany` method accepts the same options as the `create` method.
+
+:::note
+One insert query is issued for each model instance to ensure that we execute the lifecycle hooks for every individual instance.
+:::
+
+```ts
+const user = await User.createMany([
+  {
+    email: 'virk@adonisjs.com',
+    password: 'secret',
+  },
+  {
+    email: 'romain@adonisjs.com',
+    password: 'secret',
+  },
+])
 ```
 
 ## Read
@@ -80,6 +105,9 @@ const user = await User.first()
 // SQL: SELECT * from "users" LIMIT 1;
 ```
 
+---
+
+### orFail variation
 You can also use the `orFail` variation for the find methods. It raises an exception when no row is found.
 
 ```ts
@@ -240,5 +268,5 @@ await User.updateOrCreateMany('email', usersToCreate)
 
 ## Additional Reading
 
-- Checkout the [Base model API docs](../../api/orm/base-model.md) to view all the available methods and properties.
-- Also, read the API docs for the [model query builder](../../api/orm/query-builder.md).
+- Checkout the [Base model reference guide](../../api/orm/base-model.md) to view all the available methods and properties.
+- Also, read the reference docs for the [model query builder](../../api/orm/query-builder.md).

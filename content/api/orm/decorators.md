@@ -1,3 +1,7 @@
+---
+summary: ORM decorators complete reference guide
+---
+
 All of the ORM decorators can be imported as follows:
 
 ```ts

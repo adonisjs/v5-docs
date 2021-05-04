@@ -1,3 +1,7 @@
+---
+summary: Connection class complete API reference
+---
+
 The [connection class](https://github.com/adonisjs/lucid/blob/efed38908680cca3b288d9b2a123586fab155b1d/src/Connection/index.ts#L27) is responsible for managing the lifecycle of a given database connection. You can access the connection instance using the `Database.manager` property.
 
 ```ts

@@ -1,3 +1,7 @@
+---
+summary: Learn how to create and use layouts in edge
+---
+
 Layouts in edge allows you define a master layout for your pages and then override specific sections as needed.
 
 ## Basic example

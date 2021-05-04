@@ -2,6 +2,7 @@
 datetime: 2020-04-22
 author: Virk
 avatarUrl: https://res.cloudinary.com/adonis-js/image/upload/v1619103621/adonisjs-authors-avatars/DYO4KUru_400x400_shujhw.jpg
+summary: Cookbook to deploy AdonisJS application to Digital ocean apps platform
 ---
 
 This guide covers the action steps for deploying an AdonisJS application to [Digital ocean apps platform](https://docs.digitalocean.com/products/app-platform/).

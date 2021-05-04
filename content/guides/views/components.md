@@ -1,3 +1,7 @@
+---
+summary: Reference guide for the template components
+---
+
 The Edge components system is highly inspired by the frontend frameworks like Vue or Svelte. It borrows the concept of **reusability**, **isolated state**, **props** and **slots** from them.
 
 However, do note that Edge is a backend template engine and hence some of the principles cannot be replicated because of the server side environment and the design of Edge. It includes
@@ -188,11 +192,10 @@ The goal is to simplify the communication between the components inside a tree. 
 
 ### Basic example
 
-Let's start with the most basic example to see the injection API in action. Once, you understand the basics, you can view our screencasts on creating functional components using this API.
-
-You can make use of the `@inject` tag to share an object with the component tree.
+Let's start with the most basic example to see the injection API in action. You can make use of the `@inject` tag to share an object with the component tree.
 
 ```edge
+// title: Component file
 {{-- Declare a local variable --}}
 @set('counter', { value: 0 })
 

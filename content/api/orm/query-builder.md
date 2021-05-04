@@ -1,3 +1,7 @@
+---
+summary: Data models query builder complete reference guide
+---
+
 The [ModelQueryBuilder](https://github.com/adonisjs/lucid/blob/develop/src/Orm/QueryBuilder/index.ts) extends the standard [QueryBuilder](../database/query-builder.md) and hence all of the methods are available to the model query builder as well.
 
 :::note

@@ -1,7 +1,6 @@
 .markdown {
   max-width: var(--markdown-content-width);
   margin: auto;
-  /*line-height: 1.6;*/
   line-height: 1.4;
   font-size: var(--markdown-font-size);
 }
@@ -400,7 +399,11 @@ SETUP BLOCK
   margin: 0 -30px;
 }
 
-
+/*
+--------------------------------
+FANCY Codeblock
+--------------------------------
+*/
 .fancy-codeblock {
   position: relative;
 }
@@ -417,6 +420,11 @@ SETUP BLOCK
   top: 0px;
 }
 
+/*
+--------------------------------
+Development only file errors
+--------------------------------
+*/
 .file-errors pre .line.fatal {
   color: #EF4444;
 }
@@ -425,6 +433,11 @@ SETUP BLOCK
   color: #EAB308;
 }
 
+/*
+--------------------------------
+Docs cta wrapper
+--------------------------------
+*/
 .doc-cta-wrapper a {
   text-decoration: none;
   color: var(--brand-color);
@@ -434,6 +447,11 @@ SETUP BLOCK
   border-bottom: 1px solid;
 }
 
+/*
+--------------------------------
+Author details for the coobook
+--------------------------------
+*/
 .doc-meta {
   display: flex;
   align-items: center;

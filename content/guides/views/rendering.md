@@ -1,9 +1,13 @@
-You can render views calling the `View.renderAsync` method. The method accepts the template path relative from the `views` directory and the data object to pass to the template and always returns a string value.
+---
+summary: Reference to partials in edge
+---
+
+You can render views calling the `View.render` method. The method accepts the template path relative from the `views` directory and the data object to pass to the template and always returns a string value.
 
 ```ts
 import View from '@ioc:Adonis/Core/View'
 
-const html = await View.renderAsync('welcome', {
+const html = await View.render('welcome', {
   greeting: 'Hello'
 })
 ```
@@ -14,7 +18,7 @@ The `ctx.view` is an isolated instance of the View module created for that speci
 
 ```ts
 Route.get('/', async ({ view }) => {
-  const html = await view.renderAsync('welcome', {
+  const html = await view.render('welcome', {
     greeting: 'Hello'
   })
   
@@ -33,15 +37,15 @@ In the following example:
 - The template cannot use the `await` keyword. For example: `{{ await getUser() }}` will NOT work.
 
 ```ts
-view.render('user', {
+view.renderSync('user', {
   getUser: async () => {},
 })
 ```
 
-Whereas, the `view.renderAsync` method is free from all the caveats of synchronous rendering.
+Whereas, the `view.render` method is free from all the caveats of synchronous rendering.
 
 ```ts
-await view.renderAsync('user', {
+await view.render('user', {
   getUser: async () => {},
 })
 ```
@@ -68,10 +72,10 @@ You can render the views from the named disks by prefixing the disk name.
 
 ```ts
 // renders themes/material/user.edge
-view.renderAsync('material::user')
+view.render('material::user')
 
 // renders themes/elegant/user.edge
-view.renderAsync('elegant::user')
+view.render('elegant::user')
 ```
 
 Similarly, you can prefix the disk name when including partials or components.
@@ -120,7 +124,7 @@ The in-memory templates are given preference over the on-disk templates in case 
 Edge also exposes the API to render raw string values directly as a template. However do note, that raw strings do not enjoy the benefits of template caching as there are not associated with a unique path.
 
 ```ts
-View.renderRaw(
+await View.renderRaw(
   `
   <p> Hello {{ username }} </p>
 `,
@@ -130,10 +134,10 @@ View.renderRaw(
 )
 ```
 
-Use the `renderRawAsync` method to render the raw string asynchronously.
+Use the `renderRawSync` method to render the raw string synchronously.
 
 ```ts
-await View.renderRawAsync(
+View.renderRawSync(
   `
   <p> Hello {{ username }} </p>
 `,
@@ -154,7 +158,7 @@ import View from '@ioc:Adonis/Core/View'
 const view = View.getRenderer()
 
 view.share({ url: '/', user: auth.user })
-await view.renderAsync('home')
+await view.render('home')
 ```
 
 The `ctx.view` object is an instance of the `ViewRenderer` class.

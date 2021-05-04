@@ -1,3 +1,7 @@
+---
+summary: Reference guide to naming strategies in Lucid ORM
+---
+
 The [NamingStrategy](https://github.com/adonisjs/lucid/blob/develop/src/Orm/NamingStrategies/SnakeCase.ts) class allows you to override the conventional names used by the ORM. For example: Instead of using the `snake_case` for the column names, you can provide your own custom `camelCase` naming strategy.
 
 Every naming strategy must implement the `NamingStrategyContract` contract and define all the required methods.

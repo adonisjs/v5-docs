@@ -16,6 +16,16 @@
             "contentPath": "deployment/digial-ocean.md"
           }
         ]
+      },
+      {
+        "name": "Validator",
+        "docs": [
+          {
+            "title": "Validating server side forms",
+            "permalink": "validating-server-rendered-forms",
+            "contentPath": "validator/validating-server-rendered-forms.md"
+          }
+        ]
       }
     ]
   }

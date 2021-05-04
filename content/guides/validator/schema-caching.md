@@ -1,3 +1,7 @@
+---
+summary: A 101 guide to schema caching in AdonisJS and covering the topics around caching caveats and using refs.
+---
+
 The schema created using `schema.create` method is first complied to an executable function and then executed to validate the data against the defined rules.
 
 The compilation process does take a couple of milliseconds before the validation begins. Based upon the performance expectations you have, you may want to consider caching the compiled schema and hence don't pay the compilation penalty on every request.

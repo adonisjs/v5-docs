@@ -1,3 +1,7 @@
+---
+summary: Base model class complete reference guide
+---
+
 Lucid data models extends the [Base Model](https://github.com/adonisjs/lucid/blob/develop/src/Orm/BaseModel/index.ts) to inherit the properties and methods for interacting with a database table.
 
 ```ts

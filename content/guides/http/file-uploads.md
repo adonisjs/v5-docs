@@ -179,9 +179,6 @@ await s3.upload({
 // highlight-end
 ```
 
-## Direct file uploads
-[HAS TO BE A SCREENCAST. RECORD TONIGHT]
-
 ## File properties
 
 Following is the list of properties on the [File](https://github.com/adonisjs/bodyparser/blob/develop/src/Multipart/File.ts) class.

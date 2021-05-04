@@ -1,3 +1,7 @@
+---
+summary: Learn how to define custom messages for the validation errors
+---
+
 You can define custom messages alongside the schema object. Messages can be defined just for the validation rule, or you can define them for individual fields as well.
 
 ```ts

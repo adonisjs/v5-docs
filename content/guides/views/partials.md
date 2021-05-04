@@ -1,3 +1,7 @@
+---
+summary: Reference to partials in edge
+---
+
 Partials as the name suggest is a way to extract a chunk of markup to its own file and then re-use it across multiple templates.
 
 Keeping the website header, logo, footer and sidebar in its own file are some common use cases for partials.

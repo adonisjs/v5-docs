@@ -1,3 +1,7 @@
+---
+summary: Raw query builder complete API reference
+---
+
 The raw query builder allows you execute queries from a SQL string. Even though you are directly executing raw SQL strings, you can still keep your queries safe from SQL injection by using placeholders for values.
 
 ## Executing query

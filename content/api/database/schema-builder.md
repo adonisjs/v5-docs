@@ -1,3 +1,7 @@
+---
+summary: Database schema builder complete API reference
+---
+
 The schema builder allows you **create**, **alter**, **drop**, and perform other SQL DDL operations.
 
 You can access the schema builder instance using the `this.schema` property in your migration files.

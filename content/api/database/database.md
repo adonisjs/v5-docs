@@ -1,3 +1,7 @@
+---
+summary: Database class complete API reference
+---
+
 The database module exposes the APIs to interact with the SQL databases. You can import the module as follows:
 
 ```ts

@@ -1,3 +1,7 @@
+---
+summary: A 101 guide to the edge templating syntax
+---
+
 With Edge, we ensure not to introduce too many new concepts and instead rely on the Javascript language features.
 
 The syntax of Edge revolves around the two main primitives.

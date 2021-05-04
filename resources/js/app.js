@@ -5,7 +5,6 @@ import '@hotwired/turbo'
 import { listen } from 'quicklink'
 
 import 'normalize.css'
-import '../fonts/untitled-sans/stylesheet.css'
 import '../fonts/Calibre/stylesheet.css'
 import '../fonts/jetbrains/stylesheet.css'
 import '../css/variables.css'
@@ -16,7 +15,6 @@ import '../css/toc.css'
 import '../css/markdown.css'
 
 window.initializeCodegroups = function () {
-  console.log('here>')
   return {
     activeTab: 1,
     changeTab(index, element) {
@@ -36,6 +34,17 @@ window.initializeCodegroups = function () {
 }
 
 /**
+ * Navigates from a select box
+ */
+window.selectBoxNavigate = function () {
+  return {
+    navigateTo(e) {
+      window.location = e.target.value
+    }
+  }
+}
+
+/**
  * Trigger quick links preloading
  */
 document.addEventListener('turbo:load', () => {
@@ -43,14 +52,6 @@ document.addEventListener('turbo:load', () => {
     el: document.querySelector('#sidebar'),
   })
 })
-
-/**
- * Update active link onclick
- */
-// document.addEventListener('turbo:click', (event) => {
-//   document.querySelectorAll('#sidebar li').forEach((element) => element.classList.remove('active'))
-//   event.target.parentNode.classList.add('active')
-// })
 
 /**
  * Manage scroll position of elements

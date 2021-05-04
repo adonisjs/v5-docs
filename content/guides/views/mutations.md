@@ -1,3 +1,7 @@
+---
+summary: Reference guide to mutations in Edge using the `@set` tag
+---
+
 Edge allows you to define local variables or mutate the value of an existing property using the `@set` tag.
 
 Ideally, it is best to avoid too many inline local variables and pre process your data before passing it to the template.

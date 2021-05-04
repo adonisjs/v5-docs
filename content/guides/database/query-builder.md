@@ -95,5 +95,3 @@ const user = await Database
 [Raw query builder reference guide →](../../api/database/raw-query-builder.md)
 
 </div>
-
-## Extending the query builder

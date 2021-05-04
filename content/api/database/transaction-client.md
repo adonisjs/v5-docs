@@ -1,3 +1,7 @@
+---
+summary: Transaction client complete API reference
+---
+
 The [Transaction client](https://github.com/adonisjs/lucid/blob/master/src/TransactionClient/index.ts) extends the [Query client](./query-client.md) and has following extra properties on top of the standard query client.
 
 You can access the transaction query client as follows:

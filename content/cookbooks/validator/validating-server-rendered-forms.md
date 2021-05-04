@@ -1,3 +1,10 @@
+---
+datetime: 2020-05-05
+author: Virk
+avatarUrl: https://res.cloudinary.com/adonis-js/image/upload/v1619103621/adonisjs-authors-avatars/DYO4KUru_400x400_shujhw.jpg
+summary: Validating server rendered forms using the AdonisJS validator
+---
+
 This guide covers the usage of validator to validate the forms rendered on the server using Edge templates. Checkout the [validating API requests](#validating-api-requests) guide, if you are creating an API server.
 
 ## Creating the form

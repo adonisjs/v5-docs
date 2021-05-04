@@ -1,3 +1,7 @@
+---
+summary: Connection manager class complete API reference
+---
+
 The [connections manager class](https://github.com/adonisjs/lucid/blob/efed38908680cca3b288d9b2a123586fab155b1d/src/Connection/Manager.ts#L32) is responsible for managing one or more [database connection](./connection.md) instances. You can access the `manager` from the Database module.
 
 ```ts

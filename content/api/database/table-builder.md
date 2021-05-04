@@ -1,3 +1,7 @@
+---
+summary: Database table builder complete API reference
+---
+
 The table builder allows you to **create**, **drop**, or **rename** columns on a selected database table.
 
 You get access to the table builder instance by calling one of the following schema builder methods.

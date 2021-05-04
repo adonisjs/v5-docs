@@ -1,3 +1,7 @@
+---
+summary: Introduction for the AdonisJS schema based validator
+---
+
 AdonisJS has first-class support for **parsing** and **validating** the request body, and there is no need to install any 3rd party packages for the same. Just define the validation schema and validate the request body against it.
 
 ```ts

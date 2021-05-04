@@ -1,3 +1,7 @@
+---
+summary: Database schema classes complete API reference
+---
+
 Schema migration classes must extend the [Base Schema class](https://github.com/adonisjs/lucid/blob/master/src/Schema/index.ts) class to run SQL DDL operations as code.
 
 You can create a new schema migration by running the `node ace make:migration` command.
