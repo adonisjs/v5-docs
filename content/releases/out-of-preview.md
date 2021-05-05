@@ -1,25 +1,25 @@
 ---
-summary: After almost five months from the last release and over one year from the initial preview release. I am happy to announce that we are going out of preview and v5 will be main version of the framework.
+summary: After almost five months from the last release and over one year from the initial preview release. I am happy to announce that we are going out of preview, and v5 will be the main version of the framework.
 ---
 
 Finally 😅
 
-After almost five months from the last release and over one year from the initial preview release. I am happy to announce that we are going out of preview and v5 will be main version of the framework starting today.
+After almost five months from the last release and over one year from the initial preview release, I am happy to announce that we are going out of preview, and v5 will be the main version of the framework starting today.
 
 :::note
 
-If you are using v4 of the framework, then we not recommend upgrading on existing applications, since there is no easy upgrade path from v4 to v5.
+If you are using v4 of the framework, we do not recommend upgrading existing applications since there is no easy upgrade path from v4 to v5.
 
-The documentation for v4 has been moved to http://legacy.adonisjs.com. We will still continue pushing security updates and minor patches to v4 for entire 2021 
+The documentation for v4 has been moved to http://legacy.adonisjs.com. We will continue pushing security updates and minor patches to v4 for the entire 2021 
 
 :::
 
-In order to make sure, we have a smooth journey moving forward, I have to comeup with a few breaking changes in this release. Most of changes are small and Typescript static type checking will also help you along the way. 
+To ensure we have a smooth journey moving forward, I have to come up with a few breaking changes in this release. Most of the changes are small, and Typescript static type checking will also help you along the way. 
 
-**But first, lets celebrate new additions to the framework.**
+**But first, let's celebrate new additions to the framework.**
 
 ## Social authentication
-You can implement social authentication in your applications using `@adonisjs/ally` package. Just like everything else, the API for ally is really simple and boilerplate free.
+You can implement social authentication in your applications using the `@adonisjs/ally` package. Just like everything else, the API for ally is boilerplate-free and straightforward.
 
 ```ts
 Route.get('/github/redirect', async ({ ally }) => {
@@ -32,7 +32,7 @@ Route.get('/github/callback', async ({ ally }) => {
 })
 ```
 
-Also, we make sure to provide intellisense for the available scopes for a given OAuth provider. 
+Also, we make sure to provide IntelliSense for the available scopes for a given OAuth provider. 
 
 ![](https://res.cloudinary.com/adonis-js/image/upload/q_auto,f_auto/v1619637422/v5/ally-intellisense.jpg)
 
@@ -43,7 +43,7 @@ Also, we make sure to provide intellisense for the available scopes for a given 
 </div>
 
 ## Authorization
-The `@adonisjs/bouncer` packages adds support for authorizing user actions. The main goal of the bouncer package is to help you extract the authorization logic to the Bouncer actions or policies vs. writing it everywhere in your codebase.
+The `@adonisjs/bouncer` packages add support for authorizing user actions. The main goal of the bouncer package is to help you extract the authorization logic to the Bouncer actions or policies vs. writing it everywhere in your codebase.
 
 Following is an example of expressing the authorization checks as bouncer actions.
 
@@ -81,9 +81,9 @@ Route.get('posts/:id', async ({ bouncer, request }) => {
 ## Assets manager
 You can optionally configure webpack encore to bundle your frontend assets. 
 
-We make use of package detection to check if `@symfony/webpack-encore` is installed and start the webpack dev server from the `node ace serve --watch` command. Meaning, you can start both the AdonisJS development server and the webpack dev server from a single command.
+We use package detection to check if `@symfony/webpack-encore` is installed and start the webpack dev server from the `node ace serve --watch` command. Meaning, you can start both the AdonisJS development server and the webpack dev server from a single command.
 
-Also, we have added new tags and helper methods to reference the compiled assets inside Edge templates. Following is a standard template to reference the frontend assets inside the edge templates
+Also, we have added new tags and helper methods to reference the compiled assets inside Edge templates. Following is a standard template to reference the frontend assets inside the edge templates.
 
 ```edge
 <!DOCTYPE html>
@@ -105,9 +105,9 @@ Also, we have added new tags and helper methods to reference the compiled assets
 </div>
 
 ## Ace command aliases
-You can now define the aliases for the ace commands inside the `.adonisrc.json` file. The goal is help you create short and memorizable aliases.
+You can now define the aliases for the ace commands inside the `.adonisrc.json` file. The goal is to help you create short and memorizable aliases.
 
-Following is an example of defining `migrate` alias for the `migration:run` command.
+Following is an example of defining the `migrate` alias for the `migration:run` command.
 
 ```json
 {
@@ -115,7 +115,7 @@ Following is an example of defining `migrate` alias for the `migration:run` comm
 }
 ```
 
-And now run the migrations as follows
+And now run the migrations as follows.
 
 ```sh
 node ace migrate
@@ -139,21 +139,21 @@ string.camelCase('hello-world') // helloWorld
 </div>
 
 ## New documentation website
-Improving documentation was a long pending task. With this release, I have almost rewritten the entire documentation from scratch and make sure to cover most of the topics.
+Improving documentation was a long pending task. With this release, I have almost rewritten the complete documentation from scratch and covered most topics.
 
-To begin with, we have divided the documentation in multiple sub-groups, each trying to solve a specific use case
+To begin with, we have divided the documentation into multiple sub-groups, each trying to solve a specific use case.
 
 - The **technical guides** are the in-depth documentation of the framework and cover every single topic and feature of the framework.
-- Modules with larger API surfaces like **Database** and **Validator** are also documented inside the reference guides. Here you find all of the available validation methods, database query methods and so on.
+- Modules with larger API surfaces like **Database** and **Validator** are also documented inside the reference guides. Here you find all of the available validation methods, database query methods, and so on.
 - **Cookbooks** are the actionable guides to help you achieve a practical task. Everything that was a blog post earlier will now be under cookbooks.
 
-Since, the documentation website is now decoupled with the main marketing website. Individuals interested in translating the docs can just fork the repo of the docs website and create a translated version of it.
+Since the documentation website is now decoupled with the main marketing website, individuals interested in translating the docs can fork the repo of the docs website and create a translated version of it.
 
 ## Upgrading to the latest versions
-You can upgrade to the latest versions of all the packages by either using the `npm update` command or manually installing packages with the `@latest` tag.
+You can upgrade to the latest versions of all the packages using the `npm update` command or manually installing packages with the `@latest` tag.
 
 :::note
-Make sure to double check the `package.json` file  of your application and then only re-install the required packages
+Make sure to double-check the `package.json` file of your application and then only re-install the required packages.
 :::
 
 ```sh
@@ -171,11 +171,11 @@ npm i -D @adonisjs/assembler@latest
 ```
 
 ## Breaking changes
-It's already if you are getting errors right now, we will walk through the breaking changes together and fix them.
+If you are getting errors right now, we will walk through the breaking changes together and fix them.
 
 ---
 
-### Making middleware type safe
+### Making middleware type-safe
 Open the pre-existing `start/kernel.ts` file and remove the string based middleware references with the import statement as follows:
 
 ```ts
@@ -193,7 +193,7 @@ Server.middleware.register([
 ])
 ```
 
-Similarly update the auth middleware to also use import statements.
+Similarly, update the auth middleware also to use import statements.
 
 ```ts
 Server.middleware.registerNamed({
@@ -206,7 +206,7 @@ Server.middleware.registerNamed({
 })
 ```
 
-Import based middleware ensure that the Typescript compiler can report the invalid references in advance. 
+Import-based middleware ensures that the Typescript compiler can report the invalid references in advance. 
 
 ---
 
@@ -214,7 +214,7 @@ Import based middleware ensure that the Typescript compiler can report the inval
 Open the `config/app.ts` file and replace the `forceContentNegotiationToJSON` with the following code.
 
 :::note
-The change is only applicable if the `forceContentNegotiationToJSON` property existing inside the config file. Feel free to configure the change, if there is no property in first place.
+The change is only applicable if the `forceContentNegotiationToJSON` property was existing inside the config file. Feel free to configure the change if there is no property in the first place.
 :::
 
 ```ts
@@ -235,11 +235,11 @@ The old flag `forceContentNegotiationToJSON` forced the request `Accept` header 
 ---
 
 ### Async views rendering
-The `view.render` method now retuns a promise that resolves to a string value. Earlier this method was synchronous.
+The `view.render` method now returns a promise that resolves to a string value. Earlier, this method was synchronous.
 
 The change was required because of the following reasons:
 
-- Rendering templates synchronously blocks the event loop of Node.js and also limits the views from using the `await` keyword. 
+- Rendering templates synchronously block the event loop of Node.js and also limit the views from using the `await` keyword. 
 - The [authorization checks](../guides/digging-deeper/authorization.md#usage-inside-the-edge-templates) are async and in order to use the `@can` and `@cannot` tags, we need async rendering of templates.
 
 You have a couple of options to make this change. 
@@ -263,7 +263,7 @@ If you decide to opt into async rendering, then you will have to also update the
 ### Removing the `orm` config property
 The `orm` config property inside the `config/database.ts` file has been removed in favor of [Naming strategy](../api/orm/naming-strategy.md)
 
-You can define a custom naming strategy inside a preload file and assing it to the `BaseModel` to have the same impact as the `orm` config property.
+You can define a custom naming strategy inside a preload file and assign it to the `BaseModel` to have the same impact as the `orm` config property.
 
 ```ts
 import { BaseModel, NamingStrategyContract } from '@ioc:Adonis/Lucid/Orm'
@@ -280,9 +280,9 @@ Make sure to read the  [Naming strategy](../api/orm/naming-strategy.md) doc to v
 ---
 
 ### Application bootstrap process
-The application bootstrap process has been changed to be completely async. This change will not impact you, unless you were manually booting the AdonisJS app for a specific use case. Make sure to read the [github release notes](https://github.com/adonisjs/application/releases/tag/v4.0.0) to understand the change and it's impact.
+The application bootstrap process has been changed to be completely async. This change will not impact you unless you manually booted the AdonisJS app for a specific use case. Make sure to read the [github release notes](https://github.com/adonisjs/application/releases/tag/v4.0.0) to understand the change and its impact.
 
-Along with this change, the service providers now receives an instance of the [Application class](../guides/fundamentals/application.md) and not the IoC container. So make sure to update your service provider to reference the container as follows.
+Along with this change, the service providers now receive an instance of the [Application class](../guides/fundamentals/application.md) and not the IoC container. So make sure to update your service provider to reference the container as follows.
 
 ```ts
 // delete-start
@@ -315,7 +315,7 @@ export default class AppProvider {
 ---
 
 ### Validator
-We have renamed a certain validation options and the `blacklist` rule to `notIn`. The changes are made so that we are not using a color for defining what is allowed and not allowed.
+We have renamed a few validation options and the `blacklist` rule to `notIn`. The changes are made to not use color for defining what is allowed and not allowed.
 
 The `blacklist` rule has been renamed to `notIn`
 
@@ -352,7 +352,7 @@ The `hostWhitelist` and `hostBlacklist` properties of the `url` validation rules
 ---
 
 ### Auth
-Open the `config/auth.ts` file and rename the `list` property to `guards`. The **guards** keyword is more specific over the generic list keyword.
+Open the `config/auth.ts` file and rename the `list` property to `guards`. The **guards** keyword is more specific than the generic list keyword.
 
 ```ts
 {
@@ -392,7 +392,7 @@ Route.makeUrl('PostsController.show', {
 })
 ```
 
-If you were creating the routes for a specific domain, then you will have to make following adjustments.
+If you were creating the routes for a specific domain, you would have to make the following adjustments.
 
 ```ts
 Route.makeUrl(
@@ -409,7 +409,7 @@ Route.makeUrl(
 )
 ```
 
-Also the `prefixDomain` and the `domainParams` have been removed and you should instead use the prefixUrl option. Following is the new ideal API.
+Also, the `prefixDomain` and the `domainParams` have been removed, and you should use the prefixUrl option. Following is the new ideal API.
 
 ```ts
 // Pass params as an array
@@ -432,7 +432,7 @@ Route.makeUrl(
 Both the headers are deprecated by the HTTP standards. One must use CSP to protect against XSS attacks. AdonisJS already [supports CSP](../guides/security/web-security.md#csp)
 
 ## Additions
-Following are the new additions to the existing packages
+Following are the new additions to the existing packages.
 
 ---
 
