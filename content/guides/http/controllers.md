@@ -56,20 +56,13 @@ Ensure to require them in your route declaration correctly.
 When having different locations for your controller, it may be convenient to define the namespace of your controllers by route groups.
 
 ```ts
-Route
-  .group(() => {
-    Route.get('/', 'Controller.index')
-  })
-  .namespace('App/Post')
-
-Route
-  .group(() => {
-    Route.get('/', 'Controller.index')
-  })
-  .namespace('App/Users')
+Route.group(() => {
+  Route.get('cart', 'CartController.index')
+  Route.put('cart', 'CartController.update')
+}).namespace('App/Modules/Checkout')
 ```
 
-In those examples, controllers will be imported from `App/Posts/Controller` and `App/Users/Controller`.
+In this example, the `CartController` will be imported from `App/Modules/Checkout`.
 
 :::note
 The namespace should be an absolute path from the root of your application.
