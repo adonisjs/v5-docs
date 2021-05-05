@@ -1,4 +1,4 @@
-Validates the property to be one from the available choices. The return value data type for the `enum` type is a Typescript union.
+Validates the property to be one from the available choices. The return value data type for the `enum` type is a TypeScript union.
 
 ```ts
 import { schema } from '@ioc:Adonis/Core/Validator'
@@ -12,7 +12,7 @@ import { schema } from '@ioc:Adonis/Core/Validator'
 
 ![](https://res.cloudinary.com/adonis-js/image/upload/q_auto,f_auto/v1618248238/v5/literal-union-enum.jpg)
 
-You can also make use of Typescript enums.
+You can also make use of TypeScript enums.
 
 ```ts
 enum SocialAccounts {

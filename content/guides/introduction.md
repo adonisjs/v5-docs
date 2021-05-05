@@ -8,13 +8,13 @@ This is the official documentation website for the framework. We have divided th
 
 Please read the [AdonisJS at a glance](https://adonisjs.com/adonisjs-at-glance) document if you are unsure whether AdonisJS will fit your needs or match the programming style.
 
-## Typescript usage
+## TypeScript usage
 
-AdonisJS is a backend framework for Node.js. The framework is written in Typescript, and the application you will create using AdonisJS is also going to be in Typescript.
+AdonisJS is a backend framework for Node.js. The framework is written in TypeScript, and the application you will create using AdonisJS is also going to be in TypeScript.
 
-We are very particular about how we leverage Typescript and maintain a good balance between the static type safety and the visual noise.
+We are very particular about how we leverage TypeScript and maintain a good balance between the static type safety and the visual noise.
 
-If you have never used Typescript, we recommend learning the basics of the language first and then using AdonisJS.
+If you have never used TypeScript, we recommend learning the basics of the language first and then using AdonisJS.
 
 ## Familiarity with Node.js 
 
@@ -39,7 +39,7 @@ Cookbooks are actionable guides to help you achieve a practical task. Also, feel
 
 ## Editor extensions
 
-Editors with support for Typescript are all you need to work with your AdonisJS applications. However, the following is the list of extensions to enhance your developer experience.
+Editors with support for TypeScript are all you need to work with your AdonisJS applications. However, the following is the list of extensions to enhance your developer experience.
 
 :::note
 

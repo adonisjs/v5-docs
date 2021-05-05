@@ -592,7 +592,7 @@ For example, if your driver needs access to the Encryption module, it should acc
 ```ts
 /**
  * The following is type-only import and gets removed
- * once Typescript is compiled to JavaScript.
+ * once TypeScript is compiled to JavaScript.
  *
  * So ideally, you are not relying on any top level
  * imports, just using the interface for type hinting.

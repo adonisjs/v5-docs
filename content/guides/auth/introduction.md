@@ -106,7 +106,7 @@ Following is the list of available drivers for user lookup. Rest of the config v
 ---
 
 ### Configuring new guards/providers
-You can also configure new guards and the providers after initial setup. The first step is to register them inside the `contracts/auth.ts` file to inform the Typescript static compiler.
+You can also configure new guards and the providers after initial setup. The first step is to register them inside the `contracts/auth.ts` file to inform the TypeScript static compiler.
 
 You can add a new provider inside the `ProvidersList` interface. The key is the name of provider, alongside the types for both the config and the implementation.
 
@@ -143,7 +143,7 @@ declare module '@ioc:Adonis/Addons/Auth' {
 }
 ```
 
-Once, you have added the new guard(s) or provider(s) inside the contracts file, the Typescript compiler will automatically validate the config file, forcing you to define the configuration for it as well.
+Once, you have added the new guard(s) or provider(s) inside the contracts file, the TypeScript compiler will automatically validate the config file, forcing you to define the configuration for it as well.
 
 ## Migrations
 

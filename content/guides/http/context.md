@@ -196,7 +196,7 @@ Here we have added a custom `location` property to the `ctx`, which you can acce
 
 ### Informing typescript about the custom property
 
-The `location` property is added at the runtime; hence Typescript does not know about it. To inform the Typescript, we will use [declaration merging](https://www.typescriptlang.org/docs/handbook/declaration-merging.html#merging-interfaces) and add the property to the `HttpContextContract` interface.
+The `location` property is added at the runtime; hence TypeScript does not know about it. To inform the TypeScript, we will use [declaration merging](https://www.typescriptlang.org/docs/handbook/declaration-merging.html#merging-interfaces) and add the property to the `HttpContextContract` interface.
 
 Create a new file at path `contracts/context.ts` (the filename is not important) and paste the following contents inside it.
 
@@ -211,7 +211,7 @@ declare module '@ioc:Adonis/Core/HttpContext' {
 }
 ```
 
-That's all! Now, Typescript will not complain about the missing property on the `ctx` object.
+That's all! Now, TypeScript will not complain about the missing property on the `ctx` object.
 
 ### Using getters and macros
 

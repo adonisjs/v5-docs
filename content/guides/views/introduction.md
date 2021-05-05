@@ -36,7 +36,7 @@ p This will be safe: #{theGreat}
 
 ## Edge vs Nunjucks
 
-Unlike Nunjucks, Edge feels like writing Javascript and not Python. Edge has a small learning curve, is quicker to type and supports all Javascript expressions.
+Unlike Nunjucks, Edge feels like writing JavaScript and not Python. Edge has a small learning curve, is quicker to type and supports all JavaScript expressions.
 
 <div class="fancy-codeblock">
 
@@ -68,7 +68,7 @@ Unlike Nunjucks, Edge feels like writing Javascript and not Python. Edge has a s
 
 ## Edge vs Handlebars
 
-Unlike Handlebars, Edge is not restrictive in nature. You can use any Javascript expression inside your templates and we parse them using a spec compliant JavaScript parser.
+Unlike Handlebars, Edge is not restrictive in nature. You can use any JavaScript expression inside your templates and we parse them using a spec compliant JavaScript parser.
 
 Whereas in Handlebars, you have to define a custom helpers for every little thing. The story gets even worse when using multiple helpers together.
 
@@ -88,7 +88,7 @@ Handlebars.registerHelper('upperCase', function (aString) {
 
 </div>
 
-Whereas, Edge double down on native Javascript capabilities.
+Whereas, Edge double down on native JavaScript capabilities.
 
 <div class="fancy-codeblock">
 

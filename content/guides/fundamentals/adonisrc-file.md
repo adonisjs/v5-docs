@@ -115,7 +115,7 @@ Following is the output of the file, along with the defaults and you can overrid
 ```
 
 ### typescript
-The `typescript` property informs the framework and the ace commands, that your application is using Typescript. Currently, this value is always set to `true`. However, we will later allow applications to be written in JavaScript as well.
+The `typescript` property informs the framework and the ace commands, that your application is using TypeScript. Currently, this value is always set to `true`. However, we will later allow applications to be written in JavaScript as well.
 
 ---
 
@@ -216,7 +216,7 @@ In the following example, the `App` is an alias for the `./app` directory and re
 import 'App/Models/User'
 ```
 
-AdonisJS aliases are for runtime only. You will also have to register the same alias inside the `tsconfig.json` file for the Typescript compiler to work.
+AdonisJS aliases are for runtime only. You will also have to register the same alias inside the `tsconfig.json` file for the TypeScript compiler to work.
 
 ```json
 {

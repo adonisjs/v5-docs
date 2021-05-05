@@ -1,4 +1,4 @@
-The global helper to inspect a value or the entire state of the template. The helper method can pretty print the following Javascript primitives.
+The global helper to inspect a value or the entire state of the template. The helper method can pretty print the following JavaScript primitives.
 
 ```edge
 {{

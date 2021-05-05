@@ -182,7 +182,7 @@ You can define the authentication options for the SMTP connections as follows:
 ### Configuring new mailers 
 You can also configure new mailers after the initial setup. Use the [config stub](https://github.com/adonisjs/mail/blob/develop/templates/config.txt) as a reference to copy the default options for all the drivers.
 
-Also, you must define the mailers inside the `contracts/mail.ts` file before you can define its config or use it to send emails. The contracts file is a way to inform the Typescript static compiler about the existence of the mailer.
+Also, you must define the mailers inside the `contracts/mail.ts` file before you can define its config or use it to send emails. The contracts file is a way to inform the TypeScript static compiler about the existence of the mailer.
 
 ```ts
 declare module '@ioc:Adonis/Addons/Mail' {

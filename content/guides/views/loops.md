@@ -2,7 +2,7 @@
 summary: Learn how to loop over objects and arrays in Edge
 ---
 
-You can loop over `objects` and `arrays` using the `@each` tag. It works similar to the `for of` loop in Javascript.
+You can loop over `objects` and `arrays` using the `@each` tag. It works similar to the `for of` loop in JavaScript.
 
 ```ts
 view.render('users', {

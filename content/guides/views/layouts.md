@@ -111,4 +111,4 @@ In the following example, the layout renders the scripts tags inside the `script
 - The name for all the section tags must be unique.
 - The section name has to be static and cannot be defined using runtime variables.
 - You cannot have nested sections.
-- All section must be at the top level. This constraint is similar to ESM exports in Javascript, where each `export` statement is at the **top level**, and **unique**.
+- All section must be at the top level. This constraint is similar to ESM exports in JavaScript, where each `export` statement is at the **top level**, and **unique**.

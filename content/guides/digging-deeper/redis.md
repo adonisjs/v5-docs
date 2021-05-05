@@ -88,7 +88,7 @@ A list of available connections that you are planning to use in your application
 ---
 
 ### Add a new connection
-When using multiple redis connections, you will have to first register the connection with the `RedisConnectionsList` Typescript interface. This will make the Typescript static compiler to validate the config automatically and complain if the config is not in sync with the `contracts` file.
+When using multiple redis connections, you will have to first register the connection with the `RedisConnectionsList` TypeScript interface. This will make the TypeScript static compiler to validate the config automatically and complain if the config is not in sync with the `contracts` file.
 
 ```ts
 // title: contracts/redis.ts

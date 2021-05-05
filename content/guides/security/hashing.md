@@ -246,7 +246,7 @@ declare module '@ioc:Adonis/Core/Hash' {
 
 ### Updating the config
 
-After updating the contract, Typescript will complain about the missing `fakeHasher` inside the config file, and hence you must define it.
+After updating the contract, TypeScript will complain about the missing `fakeHasher` inside the config file, and hence you must define it.
 
 ```ts
 // title: config/hash.ts

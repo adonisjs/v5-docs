@@ -571,7 +571,7 @@ types.isFloat(-22) // false
 ### isDecimal
 Find if the given value has a decimal. The value can be a string or a number. The number values are casted to a string by calling the `toString()` method on the value itself.
 
-The string conversion is performed to test the value against a regex since there is no way to find a decimal value in Javascript natively.
+The string conversion is performed to test the value against a regex since there is no way to find a decimal value in JavaScript natively.
 
 ```ts
 import { types } from '@ioc:Adonis/Core/Helpers'
@@ -698,9 +698,9 @@ interpolate('hello {{ scores.0 }}', {
 ```
 
 ## compose
-Javascript doesn't have a concept of inheriting multiple classes together, and neither does Typescript. However, the [official documentation](https://www.typescriptlang.org/docs/handbook/mixins.html) of Typescript does talks about the concept of mixins.
+JavaScript doesn't have a concept of inheriting multiple classes together, and neither does TypeScript. However, the [official documentation](https://www.typescriptlang.org/docs/handbook/mixins.html) of TypeScript does talks about the concept of mixins.
 
-As per the Typescript docs, you can create and apply mixins as follows.
+As per the TypeScript docs, you can create and apply mixins as follows.
 
 ```ts
 type Constructor = new (...args: any[]) => any
@@ -750,9 +750,9 @@ class User extends compose(
 ```
 
 #### Mixins gotchas
-Typescript has an [open issue](https://github.com/microsoft/TypeScript/issues/37142) related to the constructor arguments of the mixin class or the base class.
+TypeScript has an [open issue](https://github.com/microsoft/TypeScript/issues/37142) related to the constructor arguments of the mixin class or the base class.
 
-Typescript expects all classes used in the mixin chain to have a constructor with only one argument of `...args: any[]`. For example: **The following code will work fine at runtime, but the typescript compiler complains about it**.
+TypeScript expects all classes used in the mixin chain to have a constructor with only one argument of `...args: any[]`. For example: **The following code will work fine at runtime, but the typescript compiler complains about it**.
 
 ```ts
 class BaseModel {

@@ -23,7 +23,7 @@ The Jest explanation will get too long. If you want, you can skip to [Introducin
 
 :::
 
-Jest is a very popular testing framework in the Javascript community. In fact, many individuals have expressed their interest in using Jest with AdonisJS.
+Jest is a very popular testing framework in the JavaScript community. In fact, many individuals have expressed their interest in using Jest with AdonisJS.
 
 Respecting the community opinions, I myself dig into using Jest and realized, most of the Jest features are not required for testing a backend application. Of course, you can still use Jest and ignore those features, but as Jest is not my first choice, I decided not to use it (at least for now).
 
@@ -63,7 +63,7 @@ Features like **parallel tests** and **snapshot assertions** are not bad feature
 
 On the personal level, there are some things, I don't like about Jest.
 
-- Typescript support is provided using Babel and I am not a big fan of adding too many build processes and config inside a single project.
+- TypeScript support is provided using Babel and I am not a big fan of adding too many build processes and config inside a single project.
 - Also not a big fan of polluting the global namespace with methods like `describe`, `test`, `it` and so on.
 
 ### Jest good parts
@@ -81,7 +81,7 @@ Japa is a small and embeddable test runner, written just for Node.js. It means, 
 
 Following are some of my favorites of Japa (I have written it, so I am bit biased as well)
 
-- There is no CLI to run tests. You can run your Javascript files directly and it will execute the tests.
+- There is no CLI to run tests. You can run your JavaScript files directly and it will execute the tests.
 - Uses [chai assert module](https://www.chaijs.com/guide/styles/#assert) for assertions
 - Boot time is [quicker](https://github.com/thetutlage/japa#faster-boot-time-) than Mocha and Ava. I have not benchmarked it against Jest yet.
 - Has pretty robust API for managing and creating tests. For example:
@@ -91,7 +91,7 @@ Following are some of my favorites of Japa (I have written it, so I am bit biase
   - Group tests
   - Ability to write regression tests
   - Allows assertion planning
-- Written in Typescript, so intellisense works out of the box.
+- Written in TypeScript, so intellisense works out of the box.
 
 ## Setup for AdonisJS
 

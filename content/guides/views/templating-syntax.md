@@ -2,7 +2,7 @@
 summary: A 101 guide to the edge templating syntax
 ---
 
-With Edge, we ensure not to introduce too many new concepts and instead rely on the Javascript language features.
+With Edge, we ensure not to introduce too many new concepts and instead rely on the JavaScript language features.
 
 The syntax of Edge revolves around the two main primitives.
 
@@ -11,7 +11,7 @@ The syntax of Edge revolves around the two main primitives.
 
 ## Curly braces
 
-Edge uses the popular approach of double curly braces (aka mustache) to evaluate the Javascript expressions. You can use any valid [Javascript expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#expressions) inside the curly braces and Edge will evaluate it for you.
+Edge uses the popular approach of double curly braces (aka mustache) to evaluate the JavaScript expressions. You can use any valid [JavaScript expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#expressions) inside the curly braces and Edge will evaluate it for you.
 
 ```edge
 {{ user.username }}

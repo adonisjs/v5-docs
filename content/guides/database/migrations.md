@@ -23,7 +23,7 @@ Another option is to create SQL scripts and run them during the deployment proce
 ### Using Schema Migrations
 Schema migrations address the above issues and offer a robust API for evolving and tracking database changes. Many tools are available for schema migrations ranging from framework-agnostic tools like [flywaydb](https://flywaydb.org/) to framework-specific tooling offered by Rails, Laravel, and so on.
 
-Similarly, AdonisJS also has its own migrations system. You can create/modify a database by just writing Javascript.
+Similarly, AdonisJS also has its own migrations system. You can create/modify a database by just writing JavaScript.
 
 ## Creating Your First Migration
 Let's begin by executing the following ace command to create a new migration file.

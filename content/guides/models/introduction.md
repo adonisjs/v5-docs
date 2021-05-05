@@ -94,7 +94,7 @@ export default class User extends BaseModel {
 ## Columns
 You will have to define your database columns as properties on the class and decorate them using the `@column` decorator. 
 
-Since, AdonisJS uses Typescript, there is no way to get around WITHOUT defining the columns explicitly on the class, otherwise the Typescript compiler will complain with the following error.
+Since, AdonisJS uses TypeScript, there is no way to get around WITHOUT defining the columns explicitly on the class, otherwise the TypeScript compiler will complain with the following error.
 
 ![](https://res.cloudinary.com/adonis-js/image/upload/q_auto,f_auto/v1618899190/v5/models-property-error.png)
 

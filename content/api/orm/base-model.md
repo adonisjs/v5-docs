@@ -31,7 +31,7 @@ All of the object properties are optional
 ## Static properties/methods
 
 ### static boot
-Boot the model. Since the inheritance story of Javascript class is not that great with static properties. We need a custom `boot` phase to ensure that everything works as expected.
+Boot the model. Since the inheritance story of JavaScript class is not that great with static properties. We need a custom `boot` phase to ensure that everything works as expected.
 
 ```ts
 User.boot()

@@ -24,7 +24,7 @@ node ace
 
 ![Help screen](https://res.cloudinary.com/adonis-js/image/upload/v1617207298/v5/ace-help.png)
 
-The `ace` is an extension-less Javascript file that you can execute like any other Node.js program. Running this file will boot the command line framework and execute the mentioned command.
+The `ace` is an extension-less JavaScript file that you can execute like any other Node.js program. Running this file will boot the command line framework and execute the mentioned command.
 
 You can list all the commands by running `node ace --help`, and view help for a particular command using `node ace <command-name> --help`.
 
@@ -272,7 +272,7 @@ public name: string
 
 #### args.spread
 
-The `@args.spread` method allows you to define a catch-all argument. It is like the [rest parameters ](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters) in Javascript and must always be the last argument.
+The `@args.spread` method allows you to define a catch-all argument. It is like the [rest parameters ](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters) in JavaScript and must always be the last argument.
 
 ```ts
 import { BaseCommand, args } from '@adonisjs/core/build/standalone'

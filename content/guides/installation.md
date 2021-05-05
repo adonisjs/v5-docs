@@ -61,7 +61,7 @@ After creating the application, you can start the development server by running 
 node ace serve --watch
 ```
 
-- The `serve` command starts the HTTP server and performs in-memory compilition of Typescript to JavaScript. 
+- The `serve` command starts the HTTP server and performs in-memory compilition of TypeScript to JavaScript. 
 - The `--watch` flag is meant to watch the file system for changes and restart the server automatically.
 
 ## Compiling for production

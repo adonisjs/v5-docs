@@ -2,7 +2,7 @@
 summary: Learn how to write conditionals inside edge templates
 ---
 
-You can write conditionals using the `@if`, `@elseif` and the `@else` tags. All three tags works similar to the Javascript if/else statements.
+You can write conditionals using the `@if`, `@elseif` and the `@else` tags. All three tags works similar to the JavaScript if/else statements.
 
 ```edge
 @if(user)

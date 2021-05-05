@@ -104,10 +104,10 @@ The string-based reference provides the best of both worlds. The controllers are
 
 However, it comes with the downside of not being type-safe. IDE doesn't complain if the controller or the method is missing or has a typo.
 
-On the brighter side, making the string expression type-safe is not impossible. Typescript is already making progress in that direction. We need two things to achieve type safety when referencing the `'Controller.method'` as a string expression.
+On the brighter side, making the string expression type-safe is not impossible. TypeScript is already making progress in that direction. We need two things to achieve type safety when referencing the `'Controller.method'` as a string expression.
 
-- The ability to tokenize the string expression and create a full path to the controller and its method. It is achievable with Typescript 4.1 and onwards. Here is a [proof of concept](https://www.typescriptlang.org/play?ts=4.1.3#code/MYewdgzgLgBASiArlApjAvDA3gKBjAcxSgB4AJAQzABMAbFAJxhQA9UaIZoGBLMAgHwAKAA4UoqBmABcXKL34AaGAAsqdRrMo16DAJSyY2jU1btqnAAYASLHwBmjGAEEAvgDpbDpwCFXlmAB+bDx8GFAweRBaXVlLZxERAHoAYXAomMYIJLIJZNs3S0VQ-ABbYhUQalkfUNcYWUQwAGswEAB3MBxXHF6kpKMQADcnYacoFTQAIgYkVCmYIYpeCgAjehh1LhQ0CfEYdrRlo-XdkBgxBggjuQUCGD4oc6fmlEgcCOgYWeQ0TARfu4iFAhAByJKg5SgsggcppSKzTIMdx8aisUF6IA) for the same.
-- Next is the ability to have an Import type with support for generics. There is [an open issue](https://github.com/microsoft/TypeScript/issues/31090) for it, and we are optimistic that it will make its way to the Typescript in the future, as it adheres to the Typescript design goals.
+- The ability to tokenize the string expression and create a full path to the controller and its method. It is achievable with TypeScript 4.1 and onwards. Here is a [proof of concept](https://www.typescriptlang.org/play?ts=4.1.3#code/MYewdgzgLgBASiArlApjAvDA3gKBjAcxSgB4AJAQzABMAbFAJxhQA9UaIZoGBLMAgHwAKAA4UoqBmABcXKL34AaGAAsqdRrMo16DAJSyY2jU1btqnAAYASLHwBmjGAEEAvgDpbDpwCFXlmAB+bDx8GFAweRBaXVlLZxERAHoAYXAomMYIJLIJZNs3S0VQ-ABbYhUQalkfUNcYWUQwAGswEAB3MBxXHF6kpKMQADcnYacoFTQAIgYkVCmYIYpeCgAjehh1LhQ0CfEYdrRlo-XdkBgxBggjuQUCGD4oc6fmlEgcCOgYWeQ0TARfu4iFAhAByJKg5SgsggcppSKzTIMdx8aisUF6IA) for the same.
+- Next is the ability to have an Import type with support for generics. There is [an open issue](https://github.com/microsoft/TypeScript/issues/31090) for it, and we are optimistic that it will make its way to the TypeScript in the future, as it adheres to the TypeScript design goals.
 
 ## CRUD operations
 

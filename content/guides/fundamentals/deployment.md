@@ -10,9 +10,9 @@ For a frictionless deployment experience, you can try Cleavr. It is a server pro
 **Disclaimer - Cleavr is also a sponsor of AdonisJS**
 :::
 
-## Compiling Typescript to JavaScript
+## Compiling TypeScript to JavaScript
 
-AdonisJS applications are written in Typescript and must be compiled to JavaScript during deployment. You can either compile your application directly on the production server or perform the build step in a CI/CD pipeline.
+AdonisJS applications are written in TypeScript and must be compiled to JavaScript during deployment. You can either compile your application directly on the production server or perform the build step in a CI/CD pipeline.
 
 You can build your [code for production](./typescript-build-process.md#standalone-production-builds) by running the following ace command. The compiled JavaScript output is written to the `build` directory.
 

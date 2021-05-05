@@ -35,7 +35,7 @@ The `inspect` helper pretty prints the value in the same output. You can think o
 
 ## The `@debugger` tag
 
-The `@debugger` tag drops a debugger break point inside the compiled Javascript code and you can debug the output function using the standard [Node.js debugging methods](https://nodejs.org/api/debugger.html)
+The `@debugger` tag drops a debugger break point inside the compiled JavaScript code and you can debug the output function using the standard [Node.js debugging methods](https://nodejs.org/api/debugger.html)
 
 Just drop the `@debugger` in the position where you want the debugger to pause.
 

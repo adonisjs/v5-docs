@@ -226,8 +226,8 @@ export const hsts: ShieldConfig['hsts'] = {
 |--------------------------------------------------------------------------
 |
 | Browsers have a habit of sniffing content-type of a response. Which means
-| files with .txt extension containing Javascript code will be executed as
-| Javascript. You can disable this behavior by setting nosniff to false.
+| files with .txt extension containing JavaScript code will be executed as
+| JavaScript. You can disable this behavior by setting nosniff to false.
 |
 | Learn more at https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options
 |

@@ -14,7 +14,7 @@ The documentation for v4 has been moved to http://legacy.adonisjs.com. We will c
 
 :::
 
-To ensure we have a smooth journey moving forward, I have to come up with a few breaking changes in this release. Most of the changes are small, and Typescript static type checking will also help you along the way. 
+To ensure we have a smooth journey moving forward, I have to come up with a few breaking changes in this release. Most of the changes are small, and TypeScript static type checking will also help you along the way. 
 
 **But first, let's celebrate new additions to the framework.**
 
@@ -206,7 +206,7 @@ Server.middleware.registerNamed({
 })
 ```
 
-Import-based middleware ensures that the Typescript compiler can report the invalid references in advance. 
+Import-based middleware ensures that the TypeScript compiler can report the invalid references in advance. 
 
 ---
 

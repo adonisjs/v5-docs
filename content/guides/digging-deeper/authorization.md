@@ -102,7 +102,7 @@ export const { actions } = Bouncer
 
 ### Using different User models
 
-You are not only limited to use the `User` model. You can also define actions that need a different user model, and Bouncer will use the Typescript types inference to filter down the actions applicable for a given user type.
+You are not only limited to use the `User` model. You can also define actions that need a different user model, and Bouncer will use the TypeScript types inference to filter down the actions applicable for a given user type.
 
 Check out the following video as an example of the same.
 

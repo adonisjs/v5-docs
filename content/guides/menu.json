@@ -46,7 +46,7 @@
             "contentPath": "fundamentals/environment-variables.md"
           },
           {
-            "title": "Typescript build process",
+            "title": "TypeScript build process",
             "permalink": "typescript-build-process",
             "contentPath": "fundamentals/typescript-build-process.md"
           },
@@ -348,7 +348,7 @@
           }
         ]
       },
-       {
+      {
         "name": "Digging deeper",
         "docs": [
           {

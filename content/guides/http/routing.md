@@ -209,7 +209,7 @@ Route.where('id', ^/[0-9]+/$)
 
 Parameters part of the URL are always represented as a string. For example: In the URL `/posts/1`, the value `1` is a string and not a number since there is no direct way to infer data types for the URI segments.
 
-However, you can manually cast the params to their actual Javascript data type by defining a `cast` property with the param matcher.
+However, you can manually cast the params to their actual JavaScript data type by defining a `cast` property with the param matcher.
 
 ```ts
 Route
@@ -573,7 +573,7 @@ Route
 
 ### Informing typescript about the method
 
-The `mustBeSigned` property is added at the runtime, and hence Typescript does not know about it. To inform the Typescript, we will use [declaration merging](https://www.typescriptlang.org/docs/handbook/declaration-merging.html#merging-interfaces) and add the property to the `RouteContract` interface.
+The `mustBeSigned` property is added at the runtime, and hence TypeScript does not know about it. To inform the TypeScript, we will use [declaration merging](https://www.typescriptlang.org/docs/handbook/declaration-merging.html#merging-interfaces) and add the property to the `RouteContract` interface.
 
 Create a new file at path `contracts/route.ts` (the filename is not important) and paste the following contents inside it.
 

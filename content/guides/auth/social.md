@@ -120,7 +120,7 @@ declare module '@ioc:Adonis/Addons/Ally' {
 }
 ```
 
-Once you have added the new provider inside the contracts file, the Typescript compiler will automatically validate the config file, forcing you to define the configuration for it as well.
+Once you have added the new provider inside the contracts file, the TypeScript compiler will automatically validate the config file, forcing you to define the configuration for it as well.
 
 ## Authenticate requests
 After the setup process, you can access the `ally` object inside your route handlers using the `ctx.ally` property and redirect the user to the OAuth provider website.
@@ -238,7 +238,7 @@ Route.get('/github/redirect', async ({ ally }) => {
 })
 ```
 
-The scopes will vary based upon the underlying OAuth provider. However, you can rely on the Typescript IntelliSense to list all the available options for you.
+The scopes will vary based upon the underlying OAuth provider. However, you can rely on the TypeScript IntelliSense to list all the available options for you.
 
 Also, for some of the drivers (e.g., Google), the list of the scopes is too long, and hence we do not provide IntelliSense for all of them, and you must consult the OAuth provider documentation.
 

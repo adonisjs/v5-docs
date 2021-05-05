@@ -87,7 +87,7 @@ Finally, you can also define inline variables within the template files using th
 <title> {{ title }} </title>
 ```
 
-The inline variables have the same scope as you define a variable in Javascript. For example: If the variable is defined inside the each block, you cannot access it outside the each block.
+The inline variables have the same scope as you define a variable in JavaScript. For example: If the variable is defined inside the each block, you cannot access it outside the each block.
 
 ```edge
 @each(item in cart)

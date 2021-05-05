@@ -51,7 +51,7 @@ declare module '@ioc:Adonis/Core/Event' {
 }
 ```
 
-Now, the Typescript static compiler will make sure that all `Event.emit` calls for the `new:user` event are type safe.
+Now, the TypeScript static compiler will make sure that all `Event.emit` calls for the `new:user` event are type safe.
 
 ![](https://res.cloudinary.com/adonis-js/image/upload/q_auto,f_auto/v1618599912/v5/type-safe-events.jpg)
 

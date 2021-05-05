@@ -1,24 +1,24 @@
 ---
-summary: Learn how AdonisJS builds your Typescript application in both development and production both.
+summary: Learn how AdonisJS builds your TypeScript application in both development and production both.
 ---
 
-One of the framework's goals is to provide first-class support for Typescript. This goes beyond the static types and IntelliSense you can enjoy while writing the code.
+One of the framework's goals is to provide first-class support for TypeScript. This goes beyond the static types and IntelliSense you can enjoy while writing the code.
 
 **We also ensure that you never have to install any additional build tools to compile your code during development or for production.**
 
 :::note
-This guide assumes that you have some knowledge about Typescript and the build tools ecosystem.
+This guide assumes that you have some knowledge about TypeScript and the build tools ecosystem.
 :::
 
 ## Common bundling approaches
-Following are some of the common approaches for developing a Node.js application with Typescript.
+Following are some of the common approaches for developing a Node.js application with TypeScript.
 
 ### Using tsc
-The simplest way to compile your Typescript code to JavaScript is using the official `tsc` command line.
+The simplest way to compile your TypeScript code to JavaScript is using the official `tsc` command line.
 
 - During development, you can compile your code in the watch mode using the `tsc --watch` command.
 - Next, you may grab `nodemon` to watch the compiled output (JavaScript code) and restart the HTTP server on every change. By this time, you have two watchers running.
-- Also, you may have to write [custom scripts to copy static files](https://github.com/microsoft/TypeScript/issues/30835) like **templates** to the build folder so that your runtime Javascript code can find and reference it.
+- Also, you may have to write [custom scripts to copy static files](https://github.com/microsoft/TypeScript/issues/30835) like **templates** to the build folder so that your runtime JavaScript code can find and reference it.
 
 ---
 
@@ -43,14 +43,14 @@ We are not a big fan of over-complicated build tools and bleeding-edge compilers
 
 We started with the following set of goals.
 
-- Stick to the official compiler of TypeScript and do not use any other tools like `esbuild` or `swc`. They are great alternatives, but they don't support some of the Typescript features.
+- Stick to the official compiler of TypeScript and do not use any other tools like `esbuild` or `swc`. They are great alternatives, but they don't support some of the TypeScript features.
 - All the configuration should be managed by the existing `tsconfig.json` file.
 - If the code runs in development, then it should run in production too. Meaning, do not use two completely different development and production tools and then teach people how to adjust their code.
 - Add lightweight support for copying static files to the final build folder. Usually, these will be the edge templates.
-- **Make sure the REPL can also run the Typescript code as first class citizen. All of the above approaches, except `ts-node` cannot compile and evaluate the Typescript code directly.** 
+- **Make sure the REPL can also run the TypeScript code as first class citizen. All of the above approaches, except `ts-node` cannot compile and evaluate the TypeScript code directly.** 
 
 ## In-memory development compiler
-Similar to ts-node, we created [@adonisjs/require-ts](https://github.com/adonisjs/require-ts) module. It uses the Typescript compiler API, meaning all the Typescript features works, and your `tsconfig.json` file is the single source of truth.
+Similar to ts-node, we created [@adonisjs/require-ts](https://github.com/adonisjs/require-ts) module. It uses the TypeScript compiler API, meaning all the TypeScript features works, and your `tsconfig.json` file is the single source of truth.
 
 However, `@adonisjs/require-ts` is slightly different from `ts-node` in the following ways.
 
@@ -66,7 +66,7 @@ You build your code production by running the `node ace build --production` comm
 
 - Clean the existing `build` directory (if any).
 - Build your frontend assets using Webpack encore (only if it is installed).
-- Use the Typescript compiler API to compile the Typescript code to JavaScript and write it inside the `build` folder. **This time, we do perform type checking and report the Typescript errors**.
+- Use the TypeScript compiler API to compile the TypeScript code to JavaScript and write it inside the `build` folder. **This time, we do perform type checking and report the TypeScript errors**.
 - Copy all the static files to the `build` folder. The static files are registered inside the `.adonisrc.json` file under the `metaFiles` array.
 - Copy the `package.json` and `package-lock.json/yarn.lock` to the `build` folder. 
 - Generate the `ace-manifest.json` file. It contains an index of all the commands your project is using.
@@ -77,7 +77,7 @@ You build your code production by running the `node ace build --production` comm
 #### Why do we call it a standalone build?
 After running the `build` command, the output folder has everything you need to deploy your application in production. 
 
-You can copy the `build` folder without your Typescript source code, and your application will work just fine.
+You can copy the `build` folder without your TypeScript source code, and your application will work just fine.
 
 Creating a standalone `build` folder does help in reducing the size of code that you deploy on your production server. This is usually helpful when you package your app as a Docker image. There is no need to have both the source and build output in your Docker image and keep it lightweight.
 

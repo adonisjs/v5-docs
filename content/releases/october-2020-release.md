@@ -12,7 +12,7 @@ Alright! Here we go with another release of AdonisJS. This is a big one in terms
 
 ## Highlights
 
-- Add support for [in-memory compilation](#in-memory-typescript-compilation) of Typescript. In other words, the compiled Javascript is not written to the disk anymore.
+- Add support for [in-memory compilation](#in-memory-typescript-compilation) of TypeScript. In other words, the compiled JavaScript is not written to the disk anymore.
 - Introduce [@adonisjs/repl](#introducing-adonisjs-repl) to quickly test out your application code.
 - Add support for [validating Environment variables](#validating-environment-variables).
 - Add support for conditional query constraints using the `if`, `unless`, and the `match` helpers.
@@ -77,15 +77,15 @@ Before we dive into the specifics and the motivation behind the changes. Let's q
 
 8. Finally, we have deprecated the `Env.getOrFail` method in favor of the Env validations. You just need to find its usages and replace it with `Env.get` to avoid getting deprecation warnings.
 
-9. Using Japa as your test runner? [Here are the instructions](#using-japa) to upgrade the test runner to run tests using the Typescript source directly.
+9. Using Japa as your test runner? [Here are the instructions](#using-japa) to upgrade the test runner to run tests using the TypeScript source directly.
 
-## In-memory Typescript compilation
+## In-memory TypeScript compilation
 
-I am not a big fan of build tools or adding an additional step to prepare my code for getting executed. However, when using Typescript there is no way to escape the process of compiling Typescript to JavaScript since v8 is meant to run Javascript only.
+I am not a big fan of build tools or adding an additional step to prepare my code for getting executed. However, when using TypeScript there is no way to escape the process of compiling TypeScript to JavaScript since v8 is meant to run JavaScript only.
 
-Initially, we did add a build step in which we compile Typescript to JavaScript before starting the development server.
+Initially, we did add a build step in which we compile TypeScript to JavaScript before starting the development server.
 
-In the following screenshot, the first five steps involve compiling the code to Javascript and copying some files to the `build` folder to start the HTTP server.
+In the following screenshot, the first five steps involve compiling the code to JavaScript and copying some files to the `build` folder to start the HTTP server.
 
 ![](https://res.cloudinary.com/adonis-js/image/upload/v1603450209/adonisjs.com/serve.png)
 
@@ -112,7 +112,7 @@ Ts-Node is a library to run typescript code directly without transpiling it firs
 Now that you are aware of the reasons for not using the ts-node, let's expand upon how in-memory compilation works and also the entire cache mechanism built to make subsequent runs faster.
 
 - Node.js has a thing called [require extensions](https://gist.github.com/jamestalmage/df922691475cff66c7e6). Using this you can tell Node to call a function anytime a file with the given extension is required. Babel, ts-node, and many other libraries use this to hook into the `require` lifecycle of Node.js
-- Typescript compiler API has a [transpileModule](https://github.com/Microsoft/TypeScript/wiki/Using-the-Compiler-API#a-simple-transform-function) method. You can pass the typescript source code as a string to this method and it will return you the compiled Javascript.
+- TypeScript compiler API has a [transpileModule](https://github.com/Microsoft/TypeScript/wiki/Using-the-Compiler-API#a-simple-transform-function) method. You can pass the typescript source code as a string to this method and it will return you the compiled JavaScript.
 
 So, if you combine the above two you can compile the typescript code on the fly. However, typescript does take some time to compile the code and this can make restarts slow. Let's visualize a standard development workflow.
 
@@ -137,7 +137,7 @@ To counter that, we [expose an API](https://github.com/adonisjs/require-ts/blob/
 
 ### Result
 
-Finally, we end up with a development workflow that can run Typescript source code directly and uses cache for faster restarts.
+Finally, we end up with a development workflow that can run TypeScript source code directly and uses cache for faster restarts.
 
 [video url="https://res.cloudinary.com/adonis-js/video/upload/v1603462870/adonisjs.com/quick-restart_cgjdfa.mp4", controls]
 

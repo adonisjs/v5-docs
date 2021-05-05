@@ -9,10 +9,10 @@ This guide covers the action steps for deploying an AdonisJS application to [Dig
 
 Deploying an AdonisJS application is no different from deploying a standard Node.js application. You just have to keep a few things in mind:
 
-- You build your Typescript source to JavaScript, before deploying the app.
+- You build your TypeScript source to JavaScript, before deploying the app.
 - You will have to start the server from the `build` folder and not the project root. Same is true for running migrations any other Node.js apps.
 
-You can build your project for production by running the following ace command. Learn more about the [Typescript build process](../../guides/fundamentals/typescript-build-process.md)
+You can build your project for production by running the following ace command. Learn more about the [TypeScript build process](../../guides/fundamentals/typescript-build-process.md)
 
 ```sh
 node ace build --production

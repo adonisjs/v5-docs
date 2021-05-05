@@ -625,7 +625,7 @@ Route.get('/', ({ request }) => {
 
 ### Informing typescript about the method
 
-The `wantsJSON` property is added at the runtime, and hence Typescript does not know about it. To inform the Typescript, we will use [declaration merging](https://www.typescriptlang.org/docs/handbook/declaration-merging.html#merging-interfaces) and add the property to the `RequestContract` interface.
+The `wantsJSON` property is added at the runtime, and hence TypeScript does not know about it. To inform the TypeScript, we will use [declaration merging](https://www.typescriptlang.org/docs/handbook/declaration-merging.html#merging-interfaces) and add the property to the `RequestContract` interface.
 
 Create a new file at path `contracts/request.ts` (the filename is not important) and paste the following contents inside it.
 

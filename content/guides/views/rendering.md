@@ -165,7 +165,7 @@ The `ctx.view` object is an instance of the `ViewRenderer` class.
 
 ## Caching
 
-Compiling a template to a Javascript function is a time taking process and hence it is recommended to cache the compiled templates in production.
+Compiling a template to a JavaScript function is a time taking process and hence it is recommended to cache the compiled templates in production.
 
 You can control the templates caching using the `CACHE_VIEWS` environment variable. Just make sure to set the value to `true` in the production environment.
 

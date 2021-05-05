@@ -154,7 +154,7 @@ Route.get('/', async ({ request }) => {
 
 ## Plain cookies
 
-Plain cookies hold base64 encoded values with no signature or encryption in place. They are usually helpful when you want to access the cookie on frontend Javascript and read/write its value.
+Plain cookies hold base64 encoded values with no signature or encryption in place. They are usually helpful when you want to access the cookie on frontend JavaScript and read/write its value.
 
 You can define a plain cookie using the `plainCookie` method. For example:
 
@@ -164,7 +164,7 @@ Route.get('/', async ({ response }) => {
 })
 ```
 
-If you want to access this cookie inside frontend Javascript, do make sure to disable the `httpOnly` flag.
+If you want to access this cookie inside frontend JavaScript, do make sure to disable the `httpOnly` flag.
 
 ```ts
 response.plainCookie('user_id', 1, {
@@ -172,7 +172,7 @@ response.plainCookie('user_id', 1, {
 })
 ```
 
-You can read the cookie value inside Javascript using the `document.cookie` property. Make sure to base64 decode and JSON parse the value.
+You can read the cookie value inside JavaScript using the `document.cookie` property. Make sure to base64 decode and JSON parse the value.
 
 :::note
 The following example is a naive implementation for reading the cookie value for demonstration only.

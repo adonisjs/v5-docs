@@ -10,7 +10,7 @@ import { schema, rules } from '@ioc:Adonis/Core/Validator'
 }
 ```
 
-The `rules.before` method accepts a **duration** and the **offset** for the duration. Following are some of the examples for the same. You can use the Typescript intellisense to discover rest of the available offsets.
+The `rules.before` method accepts a **duration** and the **offset** for the duration. Following are some of the examples for the same. You can use the TypeScript intellisense to discover rest of the available offsets.
 
 ```ts
 rules.before(2, 'days')
