@@ -50,7 +50,7 @@ Once you have enabled debugging, you can listen for the `db:query` event using t
 // title: start/events.ts
 import Event from '@ioc:Adonis/Core/Event'
 
-Event.on('db:query', function ({ sql, binings }) {
+Event.on('db:query', function ({ sql, bindings }) {
   console.log(sql, bindings)
 })
 ```
