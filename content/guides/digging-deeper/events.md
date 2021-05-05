@@ -14,7 +14,7 @@ We recommend you to define all the event listeners inside a dedicated file, just
 For the purpose of this guide, lets define the event listeners inside the `start/events.ts` file. You can create this file manually or run the following ace command.
 
 ```sh
-node ace make:prdlfile events
+node ace make:prldfile events
 
 # SELECT ALL THE ENVIRONMENTS
 ```
