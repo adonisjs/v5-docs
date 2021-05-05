@@ -170,7 +170,7 @@ Database
 ---
 
 ### from
-A shortcut method to get an instance of the [Query builder](./query-builder) for the primary connection.
+A shortcut method to get an instance of the [Query builder](./query-builder.md) for the primary connection.
 
 ```ts
 Database.from('users')
@@ -181,7 +181,7 @@ Database.connection().from('users')
 ---
 
 ### table
-A shortcut method to get an instance of the [Insert Query builder](./insert-query-builder) for the primary connection.
+A shortcut method to get an instance of the [Insert Query builder](./insert-query-builder.md) for the primary connection.
 
 ```ts
 Database.table('users')

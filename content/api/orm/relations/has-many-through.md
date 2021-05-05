@@ -344,7 +344,7 @@ country.related('posts').query() // HasManyThroughQueryBuilder
 ```
 
 ### groupLimit
-The `groupLimit` method uses [SQL window functions](https://www.sqlservertutorial.net/sql-server-window-functions/sql-server-row_number-function/) to add a limit to each group during relationship preloading. Please read the [preloading guide](../../guides) to learn why and when you need the `groupLimit` method.
+The `groupLimit` method uses [SQL window functions](https://www.sqlservertutorial.net/sql-server-window-functions/sql-server-row_number-function/) to add a limit to each group during relationship preloading. Please read the [preloading guide](../../../guides/models/relationships.md#preload-relationship) to learn why and when you need the `groupLimit` method.
 
 ```ts
 await Country.query().preload('posts', (query) => {

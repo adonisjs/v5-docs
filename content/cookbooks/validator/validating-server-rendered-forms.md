@@ -5,7 +5,7 @@ avatarUrl: https://res.cloudinary.com/adonis-js/image/upload/v1619103621/adonisj
 summary: Validating server rendered forms using the AdonisJS validator
 ---
 
-This guide covers the usage of validator to validate the forms rendered on the server using Edge templates. Checkout the [validating API requests](#validating-api-requests) guide, if you are creating an API server.
+This guide covers the usage of validator to validate the forms rendered on the server using Edge templates. We will use using [session flash messages](../../guides/http/session.md#session-flash-messages) to access the validator errors.
 
 ## Creating the form
 
@@ -52,7 +52,7 @@ The following is the HTML form to create a new blog post by accepting the post *
 </html>
 ```
 
-As you can notice, the entire document is vanilla HTML with no special syntax inside it. As a small improvement, you can replace the hard-coded form action `/posts` with the [route helper](../http/routing.md#url-generation) method.
+As you can notice, the entire document is vanilla HTML with no special syntax inside it. As a small improvement, you can replace the hard-coded form action `/posts` with the [route helper](../../guides/http/routing.md#url-generation) method.
 
 Assuming the following route declarations.
 
@@ -125,7 +125,7 @@ If the validation succeeds, you can access the validated properties as the metho
 
 ## Displaying validation errors
 
-The validation errors are shared with the form using [session flash messages](./session.md#flash-messages). Inside your edge templates, you can access them using the `flashMessages` global property.
+The validation errors are shared with the form using [session flash messages](../../guides/http/session.md#flash-messages). Inside your edge templates, you can access them using the `flashMessages` global property.
 
 #### Errors structure inside flash messages
 
