@@ -258,7 +258,7 @@
           },
           {
             "title": "CRUD operations",
-            "permalink": "models/crud",
+            "permalink": "models/crud-operations",
             "contentPath": "models/crud.md"
           },
           {
