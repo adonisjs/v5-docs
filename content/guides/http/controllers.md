@@ -46,6 +46,35 @@ Conventionally, the controllers are stored inside the `app/Controllers/Http` dir
 
 Now, AdonisJS will find the controllers inside the `App/Controllers` directory. Also, the `make:controller` command will create them inside the correct location.
 
+:::note
+Your controller does not need to be inside only one directory. You can freely move them around inside your application structure.
+Ensure to require them in your route declaration correctly.
+:::
+
+### Route namespacing
+
+When having different locations for your controller, it may be convenient to define the namespace of your controllers by route groups.
+
+```ts
+Route
+  .group(() => {
+    Route.get('/', 'Controller.index')
+  })
+  .namespace('App/Post')
+
+Route
+  .group(() => {
+    Route.get('/', 'Controller.index')
+  })
+  .namespace('App/Users')
+```
+
+In those examples, controllers will be imported from `App/Posts/Controller` and `App/Users/Controller`.
+
+:::note
+The namespace should be an absolute path from the root of your application.
+:::
+
 ## Make controller command
 
 You can make use of `node ace` to create a new controller. For example:
