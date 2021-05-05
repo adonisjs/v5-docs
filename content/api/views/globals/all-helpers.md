@@ -66,12 +66,15 @@ Returns the value for the `nonce` to be used with inline script tags. Make sure 
 ---
 
 ### auth
-TBD
+Reference to the [ctx.auth](../../../guides/auth/introduction.md#usage) instance. You can use it to display the specific portion of your markup conditionally.
+
+```edge
+@if(auth.isLoggedIn)
+  <p> Hello {{ auth.user.username }} </p>
+@endif
+```
 
 ---
 
 ### bouncer
-TBD
-
----
-
+Reference to the [ctx.bouncer](../../../guides/digging-deeper/authorization.md#basic-example) instance. You can make use of the [@can/@cannot](../tags/can.md) tags to conditionally display markup inside your templates.

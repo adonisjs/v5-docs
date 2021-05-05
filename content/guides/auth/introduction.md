@@ -184,6 +184,15 @@ Beyond the basic usage, we recommend you to read the guides for the individual g
 - [API tokens guard usage](./api-tokens-guard.md)
 - [Basic auth guard usage](./basic-auth-guard.md)
 
+## Reference inside templates
+The `ctx.auth` property is also shared with the templates. You can use it to display the specific portion of your markup conditionally.
+
+```edge
+@if(auth.isLoggedIn)
+  <p> Hello {{ auth.user.username }} </p>
+@endif
+```
+
 ## Providers config reference
 Following is the reference of user providers config and contracts.
 
