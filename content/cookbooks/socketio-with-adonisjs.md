@@ -111,7 +111,7 @@ Route.on('/').render('welcome')
 
 Now, start the development server by running `node ace serve --watch` and open [http://localhost:3333](http://localhost:3333) in the browser to see the console messages being logged.
 
-[video url="https://res.cloudinary.com/adonis-js/video/upload/v1591543846/adonisjs.com/blog/socket-io_i4qe6n.mp4", controls]
+::video{url="https://res.cloudinary.com/adonis-js/video/upload/v1591543846/adonisjs.com/blog/socket-io_i4qe6n.mp4" controls}
 
 ## Extracting socket.io to a Service Object
 Socket.io allows you to emit/broadcast socket events from anywhere inside your codebase, given you can access the `io` object.

@@ -99,11 +99,13 @@ Enough of theory, let's begin with some action. Run the following command to ins
 
 :::codegroup
 
-```sh{}{Npm}
+```sh
+// title: Npm
 npm i -D japa execa get-port
 ```
 
-```sh{}{Yarn}
+```sh
+// title: Yarn
 yarn add -D japa execa get-port
 ```
 
@@ -111,7 +113,8 @@ yarn add -D japa execa get-port
 
 Next, create `japaFile.ts` file inside the project root and paste following contents inside it.
 
-```ts{}{japaFile.ts}
+```ts
+// title: japaFile.ts
 import 'reflect-metadata'
 import { join } from 'path'
 import getPort from 'get-port'
@@ -147,7 +150,8 @@ mkdir test
 touch test/example.spec.ts
 ```
 
-```ts{}{test/example.spec.ts}
+```ts
+// title: test/example.spec.ts
 import test from 'japa'
 
 test.group('Example', () => {
@@ -163,7 +167,7 @@ Run the following command to execute the tests.
 node -r @adonisjs/assembler/build/register japaFile.ts
 ```
 
-[video url="https://res.cloudinary.com/adonis-js/video/upload/v1603652743/adonisjs.com/blog/japa-test-run_g8on69.mp4", controls]
+::video{url="https://res.cloudinary.com/adonis-js/video/upload/v1603652743/adonisjs.com/blog/japa-test-run_g8on69.mp4" controls}
 
 ### Understanding `japaFile`
 
@@ -182,11 +186,13 @@ First, we need to install [supertest](https://npm.im/supertest) and [jsdom](http
 
 :::codegroup
 
-```sh{}{Npm}
+```sh
+// title: Npm
 npm i -D supertest @types/supertest jsdom @types/jsdom
 ```
 
-```sh{}{Yarn}
+```sh
+// title: Yarn
 yarn add -D supertest @types/supertest jsdom @types/jsdom
 ```
 
@@ -194,7 +200,8 @@ yarn add -D supertest @types/supertest jsdom @types/jsdom
 
 Open the `test/example.spec.ts` file and replace its contents with the following code snippet.
 
-```ts{}{test/example.spec.ts}
+```ts
+// title: test/example.spec.ts
 import test from 'japa'
 import { JSDOM } from 'jsdom'
 import supertest from 'supertest'
@@ -226,7 +233,8 @@ Now, re-run the tests by executing `node -r @adonisjs/assembler/build/register j
 
 The next step is to write a test that interacts the database. But first, let's update the `japaFile.ts` file to run and rollback migrations everytime we run the tests. This way, we will ensure that we are always starting from a clean database.
 
-```ts{}{japaFile.ts}
+```ts
+// title: japaFile.ts
 import 'reflect-metadata'
 // highlight-start
 import execa from 'execa'
@@ -279,7 +287,8 @@ configure({
 
 Next, re-open the `test/example.spec.ts` file and create a new test that interacts with the database.
 
-```ts{}{test/example.spec.ts}
+```ts
+// title: test/example.spec.ts
 import test from 'japa'
 import { JSDOM } from 'jsdom'
 import supertest from 'supertest'
@@ -314,7 +323,7 @@ test.group('Welcome', () => {
 
 Let's re-run the tests.
 
-[video url="https://res.cloudinary.com/adonis-js/video/upload/v1603652985/adonisjs.com/blog/japa-db-run_onhyjn.mp4", controls]
+::video{url="https://res.cloudinary.com/adonis-js/video/upload/v1603652985/adonisjs.com/blog/japa-db-run_onhyjn.mp4" controls}
 
 ## Running a single test
 
@@ -345,7 +354,8 @@ test.group('Welcome', () => {
 
 You can also run a single test file by modifying the `files` glob. Re-open the `japaFile.ts` file and adding the following method inside it.
 
-```ts{}{japaFile.ts}
+```ts
+// title: japaFile.ts
 // Add this method to the file
 function getTestFiles() {
   let userDefined = process.argv.slice(2)[0]
@@ -359,7 +369,8 @@ function getTestFiles() {
 
 Next, replace the `files` glob with the output of the `getTestFiles` method.
 
-```ts{}{japaFile.ts}
+```ts
+// title: japaFile.ts
 configure({
   // highlight-start
   files: getTestFiles(),
@@ -377,7 +388,8 @@ touch test/hello.spec.ts
 
 Open the newly created file and paste the following contents inside it.
 
-```ts{}{test/hello.spec.ts}
+```ts
+// title: test/hello.spec.ts
 import test from 'japa'
 
 test.group('Japa', () => {
@@ -393,7 +405,7 @@ Finally, run the following command to execute just the `hello.spec.ts` file.
 node -r @adonisjs/assembler/build/register japaFile.ts test/hello.spec.ts
 ```
 
-[video url="https://res.cloudinary.com/adonis-js/video/upload/v1603653465/adonisjs.com/blog/japa-specific-files_kn3rkf.mp4", controls]
+::video{url="https://res.cloudinary.com/adonis-js/video/upload/v1603653465/adonisjs.com/blog/japa-specific-files_kn3rkf.mp4" controls}
 
 ## Wrapping up
 

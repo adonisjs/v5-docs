@@ -19,7 +19,7 @@ There are no breaking changes in this release, so expect everything to work smoo
 
 ## Auth tokens Redis provider
 
-We have added another provider for storing [api tokens](/guides/auth/api-guard#where-tokens-are-saved) to Redis. This is how we expect you to choose between the `database` and the `redis` provider.
+We have added another provider for storing [api tokens](../guides/auth/api-tokens-guard.md#where-tokens-are-saved) to Redis. This is how we expect you to choose between the `database` and the `redis` provider.
 
 - Use the `database` provider, when the **api tokens** are the secondary way of authenticating users. For example, You let the users of your app generate personal access tokens that they can use as an alternative to authenticate.
 
@@ -86,7 +86,7 @@ Finally, run the following ace command to generate a manifest file of all the co
 node ace generate:manifest
 ```
 
-After this, you can create mailer classes by running the `node ace make:mailer` command. Also make sure to read the [docs](/guides/mail#mailer-classes) as well.
+After this, you can create mailer classes by running the `node ace make:mailer` command. Also make sure to read the [docs](../guides/digging-deeper/mailer.md#mailer-classes) as well.
 
 ## New syntax for Edge components
 
@@ -117,9 +117,9 @@ The components inside nested directories are accessible using the dot `.` separa
 
 ## Other improvements
 
-- Add [url validation rule](/guides/validator/rules#rulesurl) to the validator.
-- Add [`updateOrCreateMany`](/guides/model-relations/has-many#updateorcreatemany) method to the has many relationship.
-- Add support for [serializing](/guides/models/serializing-models#serializing-extras) the model `$extras` object.
+- Add [url validation rule](../api/validator/rules/url.md) to the validator.
+- Add [`updateOrCreateMany`](../guides/models/relationships.md#updateorcreatemany) method to the has many relationship.
+- Add support for [serializing](../guides/models/serialization.md#serializing-extras) the model `$extras` object.
 - Crash process on `uncaughtException` exception. As per [Node.js](https://nodejs.org/api/process.html#process_warning_using_uncaughtexception_correctly) **"It is not safe to resume normal operation after 'uncaughtException'"** and hence AdonisJS now listens for this event and calls the `process.exit` method.
 
 ## Bug fixes
