@@ -1,0 +1,32 @@
+[
+  {
+    "name": "root",
+    "categories": [
+      {
+        "name": "Root",
+        "docs": [
+          {
+            "title": "Out of preview",
+            "permalink": "out-of-preview",
+            "contentPath": "out-of-preview.md"
+          },
+          {
+            "title": "December release - 2020",
+            "permalink": "december-2020-release",
+            "contentPath": "december-2020-release.md"
+          },
+          {
+            "title": "October release - 2020",
+            "permalink": "october-2020-release",
+            "contentPath": "october-2020-release.md"
+          },
+          {
+            "title": "August release - 2020",
+            "permalink": "august-2020-release",
+            "contentPath": "august-2020-release.md"
+          }
+        ]
+      }
+    ]
+  }
+]

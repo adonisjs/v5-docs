@@ -13,6 +13,7 @@ import Content from 'App/Services/Content'
 import Api from '../content/api/menu.json'
 import Guides from '../content/guides/menu.json'
 import Cookbooks from '../content/cookbooks/menu.json'
+import Releases from '../content/releases/menu.json'
 import Application from '@ioc:Adonis/Core/Application'
 
 const CODE_BLOCKS_THEME = 'material-theme-palenight'
@@ -97,5 +98,19 @@ CookbooksZone
   .template('docs')
   .useTheme(CODE_BLOCKS_THEME)
   .docs(Cookbooks)
+  .renderer('dimerRenderer', dimerRenderer)
+  .register()
+
+/**
+ * Releases zone
+ */
+const ReleasesZone = Content.zone('Releases')
+ADDITIONAL_LANGUAGES.forEach((lang) => ReleasesZone.loadLanguage({ ...lang }))
+ReleasesZone
+  .baseUrl('releases')
+  .baseContentPath('./content/releases')
+  .template('docs')
+  .useTheme(CODE_BLOCKS_THEME)
+  .docs(Releases)
   .renderer('dimerRenderer', dimerRenderer)
   .register()
