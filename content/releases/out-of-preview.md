@@ -38,7 +38,7 @@ Also, we make sure to provide IntelliSense for the available scopes for a given 
 
 <div class="doc-cta-wrapper">
 
-[Read ally documentation →]((../guides/auth/social.md))
+[Read ally documentation →](../guides/auth/social.md)
 
 </div>
 
@@ -74,7 +74,7 @@ Route.get('posts/:id', async ({ bouncer, request }) => {
 
 <div class="doc-cta-wrapper">
 
-[Read authorization documentation →]((../guides/digging-deeper/authorization.md))
+[Read authorization documentation →](../guides/digging-deeper/authorization.md)
 
 </div>
 
@@ -100,7 +100,7 @@ Also, we have added new tags and helper methods to reference the compiled assets
 
 <div class="doc-cta-wrapper">
 
-[Read assets manager documentation →]((../guides/http/assets-manager.md))
+[Read assets manager documentation →](../guides/http/assets-manager.md)
 
 </div>
 
@@ -134,7 +134,7 @@ string.camelCase('hello-world') // helloWorld
 
 <div class="doc-cta-wrapper">
 
-[Read helpers documentation →]((../guides/digging-deeper/helpers.md))
+[Read helpers documentation →](../guides/digging-deeper/helpers.md)
 
 </div>
 
