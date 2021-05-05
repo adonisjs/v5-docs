@@ -1,4 +1,4 @@
-import { outputFile } from 'fs-extra'
+import { outputFile, copy } from 'fs-extra'
 import { BaseCommand } from '@adonisjs/core/build/standalone'
 
 export default class BuildStatic extends BaseCommand {
@@ -57,5 +57,7 @@ export default class BuildStatic extends BaseCommand {
     for (let doc of docs) {
       await this.generateHtmlFile(doc)
     }
+
+    await copy(this.application.makePath('_redirects'), this.application.publicPath('_redirects'))
   }
 }
