@@ -1,3 +1,7 @@
+---
+summary: After almost five months from the last release and over one year from the initial preview release. I am happy to announce that we are going out of preview and v5 will be main version of the framework.
+---
+
 Finally 😅
 
 After almost five months from the last release and over one year from the initial preview release. I am happy to announce that we are going out of preview and v5 will be main version of the framework starting today.
@@ -168,6 +172,8 @@ npm i -D @adonisjs/assembler@latest
 
 ## Breaking changes
 It's already if you are getting errors right now, we will walk through the breaking changes together and fix them.
+
+---
 
 ### Making middleware type safe
 Open the pre-existing `start/kernel.ts` file and remove the string based middleware references with the import statement as follows:
@@ -361,8 +367,74 @@ Open the `config/auth.ts` file and rename the `list` property to `guards`. The *
 }
 ```
 
+---
+
+### Route.makeUrl
+The `route.makeUrl` was overloaded with too many options. We tried improving the API and also introduce a new URL builder API.
+
+For the most common use case, there are no breaking changes. But a few, if you are generating URLs for a specific domain.
+
+**The following examples will continue to work**
+
+```ts
+// Will continue to work
+Route.makeUrl('PostsController.show', { id: 1 })
+Route.makeUrl('PostsController.show', {
+  id: 1,
+  qs: { published: true }
+})
+
+// Will continue to work
+Route.makeUrl('PostsController.show', { params: { id: 1 } })
+Route.makeUrl('PostsController.show', {
+  params: { id: 1 },
+  qs: { published: true }
+})
+```
+
+If you were creating the routes for a specific domain, then you will have to make following adjustments.
+
+```ts
+Route.makeUrl(
+  'PostsController.show',
+  { id: 1 },
+  // delete-start
+  'blog.adonisjs.com'
+  // delete-end
+  // insert-start
+  {
+    'blog.adonisjs.com'
+  }
+  // insert-end
+)
+```
+
+Also the `prefixDomain` and the `domainParams` have been removed and you should instead use the prefixUrl option. Following is the new ideal API.
+
+```ts
+// Pass params as an array
+Route.makeUrl('/posts/:id', [1])
+
+// Pass params as an object
+Route.makeUrl('/posts/:id', { id: 1 })
+
+// Options as 3rd argument
+Route.makeUrl(
+  '/posts/:id',
+  { id: 1 },
+  { qs: { published: true } }
+)
+```
+
+---
+
+### Remove `X-Download-Options` and `X-XSS-Protection` headers support
+Both the headers are deprecated by the HTTP standards. One must use CSP to protect against XSS attacks. AdonisJS already [supports CSP](../guides/security/web-security.md#csp)
+
 ## Additions
 Following are the new additions to the existing packages
+
+---
 
 ### Convert empty strings to null
 You can now configure bodyparser to convert empty strings to null. The goal of the addition is to handle the native behavior of the browsers.
@@ -401,6 +473,34 @@ Add `request.matchesRoute` method to check if the current request URL matches a 
 
 ```ts
 if (request.matchesRoute('PostsController.show')) {
-
 }
 ```
+
+Add `route.redirect` method to register a route that redirects to another route or a URL.
+
+```ts
+Route.get('guides/:doc', 'GuidesController.show')
+Route.on('docs/:doc').redirect('GuidesController.show')
+```
+
+To redirect to an exact URL, you can make use of the `redirectToPath` method.
+
+```ts
+Route.on('blog/:slug').redirectToPath('https://medium.com/my-blog')
+```
+
+## Bug fixes and other small improvements
+
+- Wrap relationship where constraints to its own group [6b55d5d8d4](https://github.com/adonisjs/lucid/commit/6b55d5d8d4bf56979f2be54cc17ed605ca527e01)
+- add `withSchema` method insert query builder [c917fecb02fa4](https://github.com/adonisjs/lucid/commit/c917fecb02fa4675d86472151f479731373f2f71)
+- deprecate `model.preload` in favor of `model.load` [be4e0d2f6b1a8](https://github.com/adonisjs/lucid/commit/be4e0d2f6b1a8f4846236f6acbd345ae1ee89253)
+- add `withAggregate` query builder method [d59ed5c88ab](https://github.com/adonisjs/lucid/commit/d59ed5c88ab11b5e88828db85c917ad20fd81ebe)
+- add support for `wherePivotNull` variant [b623f6b4388](https://github.com/adonisjs/lucid/commit/b623f6b4388028f91f802ef5199f81f8223785d7)
+- add support to get `pojo` from model queries [4ef559215a0961](https://github.com/adonisjs/lucid/commit/4ef559215a09619ce848fe15cc94f3451a5d82f4)
+- add option to sort migrations with naturalSort option [cbf0f3c88ce01](https://github.com/adonisjs/lucid/commit/cbf0f3c88ce01126408bb0a4872605e8c6540c9d)
+- wrap relationship where clause to its own group [6b55d5d8d4bf](https://github.com/adonisjs/lucid/commit/6b55d5d8d4bf56979f2be54cc17ed605ca527e01)
+- Fix issue where group middleware we applied in wrong order [334d0f92a530](https://github.com/adonisjs/http-server/commit/334d0f92a530c267c697d490d03ac2dc75bb4326)
+- rename cookie name to all caps XSRF-TOKEN [789fd0d3ee](https://github.com/adonisjs/shield/commit/789fd0d3ee156910bb349b95dff7130271e843b0)
+- redis pub/sub layer now accepts any data type [a2f2cc980f2573bbf](https://github.com/adonisjs/redis/commit/a2f2cc980f2573bbf137f42ed43ecc9906111e5d)
+- auth - add support to define custom connection for tokens provider [ea71af573c85373](https://github.com/adonisjs/auth/commit/ea71af573c85373694d0ae75a5c88fa895df383b)
+- add revoke method to api tokens guard [a48cee194596d](https://github.com/adonisjs/auth/commit/a48cee194596d0096de38fba86f5b39f5a759861)
