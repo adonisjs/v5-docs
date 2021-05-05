@@ -22,7 +22,7 @@ If you are comfortable with the command line, then we recommend using [nvm](http
 You can create a new project using [npm init](https://docs.npmjs.com/cli/v7/commands/npm-init) or [yarn create](https://classic.yarnpkg.com/en/docs/cli/create/). Both of these tools will download the AdonisJS starter package and starts the installation process.
 
 ```sh
-npm init adonis-ts-app hello-world
+npm init adonis-ts-app@latest hello-world
 
 # If using yarn
 yarn create adonis-ts-app hello-world
