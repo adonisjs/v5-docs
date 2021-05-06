@@ -214,12 +214,26 @@ Team
 ---
 
 ### pojo
-The `pojo` method returns the model results as an **array of plain JavaScript objects**.
+The `pojo` method returns the model results as an **array of plain JavaScript objects** and not an array of model instances.
+
+Also, no lifecycle hooks are executed when using the `pojo` method, since hooks needs model instances to work.
 
 ```ts
 const posts = await Post.query().pojo()
 
 console.log(posts[0] instanceof Post) // false
+```
+
+---
+
+### paginate
+The `paginate` method on the ORM query builder returns an instancer of the [ModelPaginator](https://github.com/adonisjs/lucid/blob/develop/src/Orm/Paginator/index.ts). The Model paginator class has an additional `.serialize` method to serialize the models.
+
+```ts
+const posts = await Post.query().paginate(1)
+const paginationJSON = posts.serialize({
+  fields: ['title', 'id']
+})
 ```
 
 ---

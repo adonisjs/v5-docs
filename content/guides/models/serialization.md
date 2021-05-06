@@ -35,6 +35,23 @@ const posts = await Post.all()
 const postsJSON = posts.map((post) => post.serialize())
 ```
 
+### Serializing paginated results
+When working with paginated results, you can serialize the models by calling the `.serialize` method on the paginator instance.
+
+The `paginator.serialize` method returns an object with `meta` and `data` properties. The `meta` is the [pagination metadata](../database/pagination.md#serializing-to-json) and `data` is an array of serialized models.
+
+```ts
+const posts = await Post.query().paginate(1)
+const paginationJSON = posts.serialize()
+
+/**
+ {
+    meta: {},
+    data: []
+ }
+ */
+```
+
 ### Computed properties
 
 During the serialization process, the model returns an object with properties using the `@column` decorator. If you want to serialize any additional properties, then make use of the `@computed` decorator.
