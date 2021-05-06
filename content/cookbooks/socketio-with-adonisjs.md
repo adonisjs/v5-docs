@@ -7,7 +7,7 @@ summary: Learn how to use socket.io with AdonisJS
 
 [Socket.io](https://socket.io/) is a very popular library for real-time and bidirectional communication. In this guide, we will learn how to use socket.io with AdonisJS.
 
-Let's begin with the most simplest approach of integrating socket.io with AdonisJS. The first step is to install the package from the npm package registry.
+The first step is to install the package from the npm package registry. We will also grab the Typescript types for the package.
 
 :::codegroup
 
@@ -22,22 +22,46 @@ yarn add socket.io @types/socket.io
 ```
 :::
 
-Next, manually create a `start/socket.ts` file and paste the following contents inside it.
+Next, let's create a service class that will be responsible for starting the socketio server and also provide us a reference to it.
+
+The code for the service can be anywhere inside your codebase. I personally prefer keeping it inside `./app/Services` directory.
+
+```ts
+// title: app/Services/Ws.ts
+import { Server } from 'socket.io'
+import AdonisServer from '@ioc:Adonis/Core/Server'
+
+class Ws {
+  public io: Server
+  private booted = false
+
+  public boot() {
+    /**
+     * Ignore multiple calls to the boot method
+     */
+    if (this.booted) {
+      return
+    }
+
+    this.booted = true
+    this.io = new Server(AdonisServer.instance!)
+  }
+}
+
+export default new Ws()
+```
+
+Next, let's create `start/socket.ts` file and paste the following contents inside it. Just like the `routes` file, we will use this file to listen for the incoming socket connections.
 
 ```ts
 // title: start/socket.ts
-import socketIo from 'socket.io'
-import Server from '@ioc:Adonis/Core/Server'
+import Ws from 'App/Services/Ws'
+Ws.boot()
 
 /**
- * Pass AdonisJS http server instance to socketIo.
+ * Listen for incoming socket connections
  */
-const io = socketIo(Server.instance!)
-
-/**
- * Standard business from here
- */
-io.on('connection', (socket) => {
+Ws.io.on('connection', (socket) => {
   socket.emit('news', { hello: 'world' })
 
   socket.on('my other event', (data) => {
@@ -46,30 +70,19 @@ io.on('connection', (socket) => {
 })
 ```
 
-Finally, import the above created file inside the `providers/AppProvider.ts` file under the `ready` method.
+Finally, import the above created file inside the `providers/AppProvider.ts` file under the `ready` method. 
 
-:::tip
-
-The `ready` method is by called when the HTTP server is ready to accept Incoming requests.
-
-:::
+The `ready` method runs after the AdonisJS HTTP server is ready and this is when we should establish the socketio connection as well.
 
 ```ts
 // title: providers/AppProvider.ts
-import { IocContract } from '@adonisjs/fold'
+import { ApplicationContract } from '@ioc:Adonis/Core/Application'
 
 export default class AppProvider {
-  constructor (protected container: IocContract) {
-  }
+  constructor(protected app: ApplicationContract) {}
 
-  public async ready () {
-    const App = await import('@ioc:Adonis/Core/Application')
-
-    /**
-     * Only import socket file, when environment is `web`. In other
-     * words do not import during ace commands.
-     */
-    if (App.default.environment === 'web') {
+  public async ready() {
+    if (this.app.environment === 'web') {
       await import('../start/socket')
     }
   }
@@ -78,140 +91,72 @@ export default class AppProvider {
 
 That's all you need to do in order to setup socket.io. Let's take a step further and also test that we are able to establish a connection from the browser.
 
-Open/create `resources/views/welcome.edge` file and paste the following HTML snippet inside it.
+## Client setup
+We will use the CDN build of socketio-client to keep things simple. Let's open the `resources/views/welcome.edge` and add the following scripts to the page.
 
 ```edge
 // title: resources/views/welcome.edge
-<!DOCTYPE html>
-<html lang="en">
-<head>
-</head>
+
 <body>
+  <!-- Rest of markup -->
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.dev.js"></script>
-
-  <script>
-    const socket = io('http://localhost:3333');
-    socket.on('news', (data) => {
-      console.log(data);
-      socket.emit('my other event', { my: 'data' });
-    });
-  </script>
-
+  // highlight-start
+    <script src="https://cdn.socket.io/4.0.1/socket.io.min.js"></script>
+    <script>
+      const socket = io()
+      socket.on('news', (data) => {
+        console.log(data)
+        socket.emit('my other event', { my: 'data' })
+      })
+    </script>
+  // highlight-end
 </body>
 </html>
 ```
 
-Register the following route to render the `welcome` view.
-
-```ts
-// title: start/routes.ts
-Route.on('/').render('welcome')
-```
-
-Now, start the development server by running `node ace serve --watch` and open [http://localhost:3333](http://localhost:3333) in the browser to see the console messages being logged.
+Let's start the development server by running `node ace serve --watch` and open [http://localhost:3333](http://localhost:3333) in the browser to test the integration.
 
 ::video{url="https://res.cloudinary.com/adonis-js/video/upload/v1591543846/adonisjs.com/blog/socket-io_i4qe6n.mp4" controls}
 
-## Extracting socket.io to a Service Object
-Socket.io allows you to emit/broadcast socket events from anywhere inside your codebase, given you can access the `io` object.
-
-In our example, we instantiated the `io` inside the `start/socket.ts` file, but never exported it.
-
-```ts
-const io = socketIo(Server.instance!)
-```
-
-One option is to export it from this file and then import the `start/socket.ts` file anywhere we want to access the `io` object. However, I would like to avoid it for following reasons.
-
-- First time we import this file to create the socket io server. And, in subsequent imports, we are importing it to access the `io` variable. This alone doesn't feel hygienic.
-- The files inside the `start` folder of AdonisJS are meant to perform one time only operations. However, in this case, we are also planning to import this file elsewhere inside our codebase.
-- Finally, by wrapping socket.io inside a service object, we can make our code more intentful.
-
-### Creating service object
-Service object is just a fancy word of a class stored inside the `app/Services` folder. So lets begin by creating one and paste the following code snippet inside it
-
-```ts
-// title: app/Services/Ws.ts
-import socketIo from 'socket.io'
-import Server from '@ioc:Adonis/Core/Server'
-
-class Ws {
-  public isReady = false
-  public io: socketIo.Server
-
-  public start (callback: (socket: socketIo.Socket) => void) {
-    this.io = socketIo(Server.instance!)
-    this.io.on('connection', callback)
-    this.isReady = true
-  }
-}
-
-/**
- * This makes our service a singleton
- */
-export default new Ws()
-```
-
-Next, open the existing `start/socket.ts` file and replace its contents with the following code snippet.
+## Broadcast from anywhere
+Since, we have abstracted the socketio setup to its own service class, you can import it from anywhere inside your codebase to broadcast events. For example:
 
 ```ts
 import Ws from 'App/Services/Ws'
 
-Ws.start((socket) => {
-  socket.emit('news', { hello: 'world' })
-
-  socket.on('my other event', (data) => {
-    console.log(data)
-  })
-})
+class UsersController {
+  public async store() {
+    Ws.io.emit('new:user', { username: 'virk' })
+  }
+}
 ```
 
-That's all! Your code should work as it is. However, now we have a much nicer API.
+## Configure CORS
+The socketio connection uses the underlying Node.js HTTP server directly and hence the AdonisJS CORS setup will not work with it.
 
-- The `start/socket.ts` file just have one job, ie: To initiate the socket.io server.
-- The `Ws` service doesn't perform any actions implicitly. You must call the `start` method explicitly to start the server.
-- Also, you can now import the `Ws` service anywhere inside your codebase and access `.io` property to emit events.
-  ```ts
-  import Ws from 'App/Services/Ws'
-
-  Ws.io.emit('hello', 'everyone')
-  ```
-
-## Adding `getClients` helper
-Since, we have wrapped the socket.io inside a service object, we can add our own helpers to simplify certain tasks. For demonstration, let's add a method to fetch a list of connected client ids.
-
-Open `app/Services/Ws.ts` file and add the following `getClients` method to it.
+However, you can configure [cors with socketio directly](https://socket.io/docs/v4/handling-cors/) as follows.
 
 ```ts
 class Ws {
-  public getClients (namespace?: string, room?: string): Promise<string[]> {
-    let namespaceInstance = this.io.of(namespace || '/')
-    if (room) {
-      namespaceInstance = namespaceInstance.in(room)
+  public io: Server
+  private booted = false
+
+  public boot() {
+    /**
+     * Ignore multiple calls to the boot method
+     */
+    if (this.booted) {
+      return
     }
 
-    return new Promise((resolve, reject) => {
-      namespaceInstance.clients((error: Error, clients: string[]) => {
-        if (error) {
-          reject(error)
-        } else {
-          resolve(clients)
-        }
-      })
+    this.booted = true
+    // highlight-start
+    this.io = new Server(AdonisServer.instance!, {
+      cors: {
+        origin: '*'
+      }
     })
+    // highlight-end
   }
-
-  //  ... rest of the service
 }
-```
-
-And use it as follows:
-
-```ts
-import Ws from 'App/Services/Ws'
-
-await Ws.getClients()
-await Ws.getClients('some-namespace')
-await Ws.getClients('some-namespace', 'some-room')
 ```
