@@ -22,9 +22,9 @@ yarn add socket.io @types/socket.io
 ```
 :::
 
-Next, let's create a service class that will be responsible for starting the socketio server and also provide us a reference to it.
+Next, let's create a service class responsible for starting the socketio server and provide us a reference to it.
 
-The code for the service can be anywhere inside your codebase. I personally prefer keeping it inside `./app/Services` directory.
+The code for the service can be anywhere inside your codebase. I prefer keeping it inside the `./app/Services` directory.
 
 ```ts
 // title: app/Services/Ws.ts
@@ -51,7 +51,7 @@ class Ws {
 export default new Ws()
 ```
 
-Next, let's create `start/socket.ts` file and paste the following contents inside it. Just like the `routes` file, we will use this file to listen for the incoming socket connections.
+Next, let's create a `start/socket.ts` file and paste the following contents inside it. Like the `routes` file, we will use this file to listen to the incoming socket connections.
 
 ```ts
 // title: start/socket.ts
@@ -70,9 +70,9 @@ Ws.io.on('connection', (socket) => {
 })
 ```
 
-Finally, import the above created file inside the `providers/AppProvider.ts` file under the `ready` method. 
+Finally, import the above-created file inside the `providers/AppProvider.ts` file under the `ready` method. 
 
-The `ready` method runs after the AdonisJS HTTP server is ready and this is when we should establish the socketio connection as well.
+The `ready` method runs after the AdonisJS HTTP server is ready, and this is when we should establish the socketio connection.
 
 ```ts
 // title: providers/AppProvider.ts
@@ -89,7 +89,7 @@ export default class AppProvider {
 }
 ```
 
-That's all you need to do in order to setup socket.io. Let's take a step further and also test that we are able to establish a connection from the browser.
+That's all you need to do to set up socket.io. Let's take a step further and also test that we can establish a connection from the browser.
 
 ## Client setup
 We will use the CDN build of socketio-client to keep things simple. Let's open the `resources/views/welcome.edge` and add the following scripts to the page.
@@ -119,7 +119,7 @@ Let's start the development server by running `node ace serve --watch` and open 
 ::video{url="https://res.cloudinary.com/adonis-js/video/upload/v1591543846/adonisjs.com/blog/socket-io_i4qe6n.mp4" controls}
 
 ## Broadcast from anywhere
-Since, we have abstracted the socketio setup to its own service class, you can import it from anywhere inside your codebase to broadcast events. For example:
+Since we have abstracted the socketio setup to a service class, you can import it from anywhere inside your codebase to broadcast events. For example:
 
 ```ts
 import Ws from 'App/Services/Ws'
@@ -132,7 +132,7 @@ class UsersController {
 ```
 
 ## Configure CORS
-The socketio connection uses the underlying Node.js HTTP server directly and hence the AdonisJS CORS setup will not work with it.
+The socketio connection uses the underlying Node.js HTTP server directly, and hence the AdonisJS CORS setup will not work with it.
 
 However, you can configure [cors with socketio directly](https://socket.io/docs/v4/handling-cors/) as follows.
 
