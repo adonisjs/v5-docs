@@ -171,7 +171,9 @@ npm i -D @adonisjs/assembler@latest
 ```
 
 ## Breaking changes
-If you are getting errors right now, we will walk through the breaking changes together and fix them.
+You will start receiving some errors right after upgrading the packages. It is alright, as we will walk through the breaking changes together and fix them.
+
+As the first step, do check your Node.js version and ensure you are running `Node >= 14.15.4`. The preview release worked with Node 12 as well, but now **AdonisJS needs 14.15.4 and above**.
 
 ---
 
