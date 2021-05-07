@@ -4,7 +4,7 @@ summary: Perform CRUD operations using the Lucid data models.
 
 Lucid models make it very easy to perform CRUD operations and also define lifecycle hooks around each operation.
 
-This guide covers 80% of the use cases. However, do make sure to check the [Model API docs](../../api/orm/base-model.md) docs for all the available methods.
+This guide covers 80% of the use cases. However, do make sure to check the [Model API docs](../../reference/orm/base-model.md) docs for all the available methods.
 
 ## Create
 You can create and persist new records to the database by assigning values to the model instance properties and calling the `model.save` method.
@@ -125,7 +125,7 @@ The above-mentioned static methods cover the common use cases for querying the d
 
 :::note
 
-The [model query builder](../../api/orm/query-builder.md) returns an array of model instances and not the plain JavaScript object(s).
+The [model query builder](../../reference/orm/query-builder.md) returns an array of model instances and not the plain JavaScript object(s).
 
 :::
 
@@ -268,5 +268,5 @@ await User.updateOrCreateMany('email', usersToCreate)
 
 ## Additional Reading
 
-- Checkout the [Base model reference guide](../../api/orm/base-model.md) to view all the available methods and properties.
-- Also, read the reference docs for the [model query builder](../../api/orm/query-builder.md).
+- Checkout the [Base model reference guide](../../reference/orm/base-model.md) to view all the available methods and properties.
+- Also, read the reference docs for the [model query builder](../../reference/orm/query-builder.md).

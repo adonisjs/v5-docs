@@ -138,7 +138,7 @@ export default class User extends BaseModel {
 }
 ```
 
-The `@column` decorator additionally accepts [options](../../api/orm/decorators.md#column) to configure the property behavior.
+The `@column` decorator additionally accepts [options](../../reference/orm/decorators.md#column) to configure the property behavior.
 
 - The `isPrimary` option marks the property as the primary key for the given database table.
 - And, the `serializeAs: null` option removes the property when you serialize the model to JSON.
@@ -176,7 +176,7 @@ await User.create({ avatarUrl: 'foo.jpg' })
 ```
 
 #### Overwrite column names globally
-If you are not using the `snake_case` convention in your database, then you can override the default behavior of Lucid by defining a custom [Naming Strategy](../../api/orm/naming-strategy.md)
+If you are not using the `snake_case` convention in your database, then you can override the default behavior of Lucid by defining a custom [Naming Strategy](../../reference/orm/naming-strategy.md)
 
 #### Overwrite column names inline
 You can also define the database column names explicitly within the `@column` decorator. This is usually helpful for bypassing the convention in specific use cases.
@@ -210,7 +210,7 @@ class User extends Basemodel {
 ---
 
 ### table
-Define a custom database table name. [Defaults](../../api/orm/naming-strategy.md#tablename) to the plural and snake case version of the model name.
+Define a custom database table name. [Defaults](../../reference/orm/naming-strategy.md#tablename) to the plural and snake case version of the model name.
 
 ```ts
 export default class User extends BaseModel {
@@ -285,6 +285,6 @@ Yes. You are free to put your model wherever you want! If your models are inside
 
 ## Additional reading
 
-- Make sure to read the [models reference guide](../../api/orm/base-model.md).
+- Make sure to read the [models reference guide](../../reference/orm/base-model.md).
 - [CRUD operations](./crud.md) using models.
 - How to [serialize models](./serialization.md) to JSON.

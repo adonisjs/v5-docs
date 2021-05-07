@@ -1,0 +1,24 @@
+@each((groups, name) in zones)
+  @if(name === doc.zone)
+    @each(group in groups)
+      @if(group.name === 'root' || group.name === doc.group)
+        @each(category in group.categories)
+          <nav>
+            @if(category.name !== 'root')
+              <h3> {{ category.name }} </h3>
+            @end
+            <ol>
+              @each(categoryDoc in category.docs)
+                <li
+                  class="{{ doc.url === categoryDoc.url ? 'active' : '' }}"
+                >
+                  <a href="{{ categoryDoc.url }}"> {{ categoryDoc.title }} </a>
+                </li>
+              @end
+            </ol>
+          </nav>
+        @end
+      @end
+    @end
+  @end
+@end

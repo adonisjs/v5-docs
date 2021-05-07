@@ -10,40 +10,31 @@
 
 import { Renderer } from '@dimerapp/edge'
 import Content from 'App/Services/Content'
-import Api from '../content/api/menu.json'
-import Guides from '../content/guides/menu.json'
-import Cookbooks from '../content/cookbooks/menu.json'
-import Releases from '../content/releases/menu.json'
-import Application from '@ioc:Adonis/Core/Application'
+import { zones, codeBlocksTheme, markdownLanguages } from 'Config/markdown'
 
-const CODE_BLOCKS_THEME = 'material-theme-palenight'
-const ADDITIONAL_LANGUAGES = [
-  {
-    path: './resources/vscode/edge.tmLanguage.json',
-    scopeName: 'text.html.edge',
-    id: 'edge',
-  },
-  {
-    path: './resources/vscode/shell.tmLanguage.json',
-    scopeName: 'source.shell',
-    id: 'sh',
-  },
-  {
-    path: './resources/vscode/dotenv.tmLanguage.json',
-    scopeName: 'source.env',
-    id: 'dotenv',
-  }
-]
-
+/**
+ * Renderer makes the markdown AST and convert them to HTML by processing
+ * each node through edge templates. This allows you hook into the
+ * rendering process and use custom templates for any node
+ */
 const dimerRenderer = new Renderer().use((node) => {
+  /**
+   * Render images using "elements/img.edge" file
+   */
   if (node.tagName === 'img') {
     return ['elements/img', { node }]
   }
 
+  /**
+   * Render anchor tags using "elements/a.edge" file
+   */
   if (node.tagName === 'a') {
     return ['elements/a', { node }]
   }
 
+  /**
+   * Render pre tags using "elements/code.edge" file
+   */
   if (node.tagName === 'pre') {
     return ['elements/code', { node }]
   }
@@ -52,65 +43,32 @@ const dimerRenderer = new Renderer().use((node) => {
     return
   }
 
+  /**
+   * Render codegroup using "elements/codegroup.edge" file
+   */
   if (node.properties!.className.includes('codegroup')) {
     return ['elements/codegroup', { node }]
   }
 })
 
-Content.cache(Application.inProduction ? 'full' : 'markup')
+/**
+ * Cache markup and do not re-compile unchanged files
+ */
+Content.cache('markup')
 
 /**
- * Guides
+ * Registering zones with the `@dimerapp/content` module.
  */
-const GuidesZone = Content.zone('Guides')
-ADDITIONAL_LANGUAGES.forEach((lang) => GuidesZone.loadLanguage({ ...lang }))
-GuidesZone
-  .baseUrl('guides')
-  .baseContentPath('./content/guides')
-  .template('docs')
-  .useTheme(CODE_BLOCKS_THEME)
-  .docs(Guides)
-  .renderer('dimerRenderer', dimerRenderer)
-  .register()
+zones.forEach(({ title, baseUrl, template, menu, contentPath }) => {
+  const zone = Content.zone(title)
+  markdownLanguages.forEach((lang) => zone.loadLanguage({ ...lang }))
 
-/**
- * Api docs
- */
-const ApiZone = Content.zone('Reference')
-ADDITIONAL_LANGUAGES.forEach((lang) => ApiZone.loadLanguage({ ...lang }))
-ApiZone
-  .baseUrl('reference')
-  .baseContentPath('./content/api')
-  .template('docs')
-  .useTheme(CODE_BLOCKS_THEME)
-  .docs(Api)
-  .renderer('dimerRenderer', dimerRenderer)
-  .register()
-
-/**
- * Cook books
- */
-const CookbooksZone = Content.zone('Cookbooks')
-ADDITIONAL_LANGUAGES.forEach((lang) => CookbooksZone.loadLanguage({ ...lang }))
-CookbooksZone
-  .baseUrl('cookbooks')
-  .baseContentPath('./content/cookbooks')
-  .template('docs')
-  .useTheme(CODE_BLOCKS_THEME)
-  .docs(Cookbooks)
-  .renderer('dimerRenderer', dimerRenderer)
-  .register()
-
-/**
- * Releases zone
- */
-const ReleasesZone = Content.zone('Releases')
-ADDITIONAL_LANGUAGES.forEach((lang) => ReleasesZone.loadLanguage({ ...lang }))
-ReleasesZone
-  .baseUrl('releases')
-  .baseContentPath('./content/releases')
-  .template('docs')
-  .useTheme(CODE_BLOCKS_THEME)
-  .docs(Releases)
-  .renderer('dimerRenderer', dimerRenderer)
-  .register()
+    zone
+    .baseUrl(baseUrl)
+    .baseContentPath(contentPath)
+    .template(template)
+    .useTheme(codeBlocksTheme)
+    .docs(menu)
+    .renderer('dimerRenderer', dimerRenderer)
+    .register()
+})

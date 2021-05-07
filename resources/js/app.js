@@ -1,9 +1,12 @@
 import 'lazysizes'
-import 'alpine-hotwire-turbo-adapter'
 import 'alpinejs'
 import '@hotwired/turbo'
+import 'alpine-hotwire-turbo-adapter'
 import { listen } from 'quicklink'
 
+/**
+ * Css imports. Do not change the order
+ */
 import 'normalize.css'
 import '../fonts/Calibre/stylesheet.css'
 import '../fonts/jetbrains/stylesheet.css'
@@ -14,6 +17,9 @@ import '../css/sidebar.css'
 import '../css/toc.css'
 import '../css/markdown.css'
 
+/**
+ * Alpine component for codegroup tabs
+ */
 window.initializeCodegroups = function () {
   return {
     activeTab: 1,
@@ -34,7 +40,7 @@ window.initializeCodegroups = function () {
 }
 
 /**
- * Navigates from a select box
+ * Alpine component to navigate from a select box
  */
 window.selectBoxNavigate = function () {
   return {
@@ -70,6 +76,9 @@ document.addEventListener('turbo:render', () => {
   })
 })
 
+/**
+ * Scroll the active sidebar item into the view on page load
+ */
 document.querySelector('.sidebar li.active').scrollIntoView({
   block: 'center',
 })

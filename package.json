@@ -33,7 +33,7 @@
   "dependencies": {
     "@adonisjs/core": "^5.1.6",
     "@adonisjs/repl": "^3.1.2",
-    "@adonisjs/shield": "^7.0.1",
+    "@adonisjs/shield": "^7.0.2",
     "@adonisjs/view": "^6.0.1",
     "@dimerapp/content": "^2.0.3",
     "proxy-addr": "^2.0.6",

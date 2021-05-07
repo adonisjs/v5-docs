@@ -47,7 +47,7 @@ During the update, you may have updated other properties and not the user passwo
 The `$dirty` object only contains the changed values. So, you can check if the password was changed and then hash the new value.
 
 ## Available Hooks
-Following is the list of all the available hooks. Make sure to read the [decorators API docs](../../api/orm/decorators.md) as well.
+Following is the list of all the available hooks. Make sure to read the [decorators API docs](../../reference/orm/decorators.md) as well.
 
 | Hook | Description |
 |-------|------------|
@@ -171,7 +171,7 @@ export default class User extends BaseModel {
 ---
 
 ### afterPaginate
-The `afterPaginate` hook receives an instance of the [SimplePaginator](../../api/database/query-builder.md#pagination) class. The `paginate` method fires both the `afterFetch` and the `afterPaginate` hooks.
+The `afterPaginate` hook receives an instance of the [SimplePaginator](../../reference/database/query-builder.md#pagination) class. The `paginate` method fires both the `afterFetch` and the `afterPaginate` hooks.
 
 ```ts
 import {

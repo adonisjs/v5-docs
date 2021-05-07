@@ -263,7 +263,7 @@ If you decide to opt into async rendering, then you will have to also update the
 ---
 
 ### Removing the `orm` config property
-The `orm` config property inside the `config/database.ts` file has been removed in favor of [Naming strategy](../api/orm/naming-strategy.md)
+The `orm` config property inside the `config/database.ts` file has been removed in favor of [Naming strategy](../reference/orm/naming-strategy.md)
 
 You can define a custom naming strategy inside a preload file and assign it to the `BaseModel` to have the same impact as the `orm` config property.
 
@@ -277,7 +277,7 @@ class CamelCaseStrategy implements NamingStrategyContract {
 BaseModel.namingStrategy = new CamelCaseStrategy()
 ```
 
-Make sure to read the  [Naming strategy](../api/orm/naming-strategy.md) doc to view the available methods.
+Make sure to read the  [Naming strategy](../reference/orm/naming-strategy.md) doc to view the available methods.
 
 ---
 
@@ -466,7 +466,7 @@ You can now enable timestamps for the pivot table using the `timestamps` propert
 public skills: ManyToMany<typeof Skill>
 ```
 
-Also, during the `create` and `save` calls for a many to many relationship, you can also define pivot columns to insert. [Learn more](../api/orm/relations/many-to-many.md#create)
+Also, during the `create` and `save` calls for a many to many relationship, you can also define pivot columns to insert. [Learn more](../reference/orm/relations/many-to-many.md#create)
 
 ---
 

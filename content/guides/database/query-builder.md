@@ -34,7 +34,7 @@ const users = await Database
 
 <div class="doc-cta-wrapper">
 
-[Query builder reference guide →](../../api/database/query-builder.md)
+[Query builder reference guide →](../../reference/database/query-builder.md)
 
 </div>
 
@@ -74,7 +74,7 @@ await Database.table('users').multiInsert([
 
 <div class="doc-cta-wrapper">
 
-[Insert query builder reference guide →](../../api/database/insert-query-builder.md)
+[Insert query builder reference guide →](../../reference/database/insert-query-builder.md)
 
 </div>
 
@@ -92,6 +92,6 @@ const user = await Database
 
 <div class="doc-cta-wrapper">
 
-[Raw query builder reference guide →](../../api/database/raw-query-builder.md)
+[Raw query builder reference guide →](../../reference/database/raw-query-builder.md)
 
 </div>

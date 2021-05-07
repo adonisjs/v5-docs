@@ -62,7 +62,7 @@ export default class Profiles extends BaseSchema {
 ### Defining relationship on the model
 Once you have created the tables with the required columns, you will have to define the relationship on the Lucid model as well.
 
-The has one relationship is defined using the [@hasOne](../../api/orm/decorators.md#hasone) decorator on a model property.
+The has one relationship is defined using the [@hasOne](../../reference/orm/decorators.md#hasone) decorator on a model property.
 
 ```ts
 import Profile from 'App/Models/Profile'
@@ -161,7 +161,7 @@ export default class Posts extends BaseSchema {
 ### Defining relationship on the model
 Once you have created the tables with the required columns, you will have to define the relationship on the Lucid model as well.
 
-The has many relationship is defined using the [@hasMany](../../api/orm/decorators.md#hasmany) decorator on a model property.
+The has many relationship is defined using the [@hasMany](../../reference/orm/decorators.md#hasmany) decorator on a model property.
 
 ```ts
 import Post from 'App/Models/Post'
@@ -208,7 +208,7 @@ Belongs to relationship is the inverse of the `hasOne` and the `hasMany` relatio
 
 You can leverage the same table structure and the same foreign key conventions to define a belongsTo relationship.
 
-The belongs to relationship is defined using the [@belongsTo](../../api/orm/decorators.md#belongsto) decorator on a model property.
+The belongs to relationship is defined using the [@belongsTo](../../reference/orm/decorators.md#belongsto) decorator on a model property.
 
 ```ts
 import User from 'App/Models/User'
@@ -307,7 +307,7 @@ export default class SkillUsers extends BaseSchema {
 ### Defining relationship on the model
 Once you have created the tables with the required columns, you will have to define the relationship on the Lucid model as well.
 
-The many to many relationship is defined using the [@manyToMany](../../api/orm/decorators.md#manytomany) decorator on a model property.
+The many to many relationship is defined using the [@manyToMany](../../reference/orm/decorators.md#manytomany) decorator on a model property.
 
 :::note
 
@@ -493,7 +493,7 @@ export default class Posts extends BaseSchema {
 ### Defining relationship on the model
 Once you have created the tables with the required columns, you will have to define the relationship on the Lucid model as well.
 
-The has many through relationship is defined using the [@hasManyThrough](../../api/orm/decorators.md#hasmanythrough) decorator on a model property.
+The has many through relationship is defined using the [@hasManyThrough](../../reference/orm/decorators.md#hasmanythrough) decorator on a model property.
 
 ```ts
 import Post from 'App/Models/Post'
@@ -636,7 +636,7 @@ await user.load((loader) => {
 ## Relationship query builder
 
 :::note
-Make sure to read the [relationship API docs](../../api/orm/relations/has-one.md) to view all the available methods/properties available on the query builder.
+Make sure to read the [relationship API docs](../../reference/orm/relations/has-one.md) to view all the available methods/properties available on the query builder.
 :::
 
 You can also access the query builder for a relationship using the `related` method. The relationship queries are always scoped to a given parent model instance.
@@ -799,7 +799,7 @@ export default class User extends BaseModel {
 ```
 
 ## Create relationships
-You can create relationships between two models using the relationships persistence API. Make sure to also check out the [API docs](../../api/orm/relations/has-one.md#query-client) to view all the available methods.
+You can create relationships between two models using the relationships persistence API. Make sure to also check out the [API docs](../../reference/orm/relations/has-one.md#query-client) to view all the available methods.
 
 ### create
 

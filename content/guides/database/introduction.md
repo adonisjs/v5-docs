@@ -332,7 +332,7 @@ You can configure the pool settings for a given connection inside the `config/da
 ```
 
 ## Switching between multiple connections
-You can switch between the connections defined inside the `config/database.ts` file using the `.connection` method. It accepts the connection name and returns an instance of the [Query client](../../api/database/query-client.md)
+You can switch between the connections defined inside the `config/database.ts` file using the `.connection` method. It accepts the connection name and returns an instance of the [Query client](../../reference/database/query-client.md)
 
 ```ts
 import Database from '@ioc:Adonis/Lucid/Database'

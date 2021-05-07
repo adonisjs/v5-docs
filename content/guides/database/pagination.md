@@ -14,7 +14,7 @@ const posts = await Database.from('posts').paginate(page, limit)
 console.log(posts)
 ```
 
-The `paginate` method returns an instance of the [SimplePaginatorClass](../../api/database/query-builder.md#pagination). It holds the meta data for the pagination, alongside the fetched `rows`.
+The `paginate` method returns an instance of the [SimplePaginatorClass](../../reference/database/query-builder.md#pagination). It holds the meta data for the pagination, alongside the fetched `rows`.
 
 ```ts
 SimplePaginator {
@@ -109,7 +109,7 @@ The `getUrlsForRange` method accepts a range of pages and returns an array of ob
 ![](https://res.cloudinary.com/adonis-js/image/upload/v1596970976/adonisjs.com/lucid-pagination.png)
 
 ## Serializing to JSON
-You can also serialize the paginator results to JSON by calling the `toJSON` method. It returns the key names in `snake_case` by default. However, you can pass a [naming strategy](../../api/orm/naming-strategy.md#paginationmetakeys) to override the default convention.
+You can also serialize the paginator results to JSON by calling the `toJSON` method. It returns the key names in `snake_case` by default. However, you can pass a [naming strategy](../../reference/orm/naming-strategy.md#paginationmetakeys) to override the default convention.
 
 ```ts
 const posts = await Database.from('posts').paginate(page, limit)

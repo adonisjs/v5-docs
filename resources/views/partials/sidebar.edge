@@ -1,44 +1,18 @@
 <div id="sidenav-open" :class="{ opened: isSideNavOpen }">
   <div class="sidebar" id="sidebar" data-maintain-scroll>
     <div class="sidebar-container">
-      <div class="mobile-main-nav">
-        <select x-data="selectBoxNavigate()" @change="navigateTo">
-          @each((groups, name) in zones)
-            @each(group in groups)
-              <option value="{{ group.landingDoc.url }}">
-                {{ groups.length === 1 ? name : group.name }}
-              </option>
-            @endeach
-          @endeach
-        </select>
-      </div>
-
-      @each((groups, name) in zones)
-        @if(name === doc.zone)
-          @each(group in groups)
-            @if(group.name === 'root' || group.name === doc.group)
-              @each(category in group.categories)
-                <nav>
-                  @if(category.name !== 'Root')
-                    <h3> {{ category.name }} </h3>
-                  @end
-                  <ol>
-                    @each(categoryDoc in category.docs)
-                      <li
-                        class="{{ doc.url === categoryDoc.url ? 'active' : '' }}"
-                      >
-                        <a href="{{ categoryDoc.url }}"> {{ categoryDoc.title }} </a>
-                      </li>
-                    @end
-                  </ol>
-                </nav>
-              @end
-            @end
-          @end
-        @end
-      @end
+      @include('partials/mobile-main-nav')
+      @include('partials/sidebar-menu')
     </div>
   </div>
 
-  <a href="" @click.prevent="isSideNavOpen = false" data-turbo="false" id="sidenav-close" class="sidenav-backdrop" title="Close Docs Menu" aria-label="Close Docs Menu"></a>
+  <a
+    href=""
+    @click.prevent="isSideNavOpen = false"
+    data-turbo="false"
+    id="sidenav-close"
+    class="sidenav-backdrop"
+    title="Close Docs Menu"
+    aria-label="Close Docs Menu"
+  ></a>
 </div>

@@ -1,0 +1,11 @@
+<div class="mobile-main-nav">
+  <select x-data="selectBoxNavigate()" @change="navigateTo">
+    @each((groups, name) in zones)
+      @each(group in groups)
+        <option value="{{ group.landingDoc.url }}">
+          {{ groups.length === 1 ? name : group.name }}
+        </option>
+      @endeach
+    @endeach
+  </select>
+</div>

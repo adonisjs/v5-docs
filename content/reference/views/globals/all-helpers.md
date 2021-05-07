@@ -1,3 +1,7 @@
+---
+summary: List of available Edge template helpers
+---
+
 Following is the list of all other available view helpers.
 
 ---

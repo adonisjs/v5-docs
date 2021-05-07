@@ -117,7 +117,7 @@ The components inside nested directories are accessible using the dot `.` separa
 
 ## Other improvements
 
-- Add [url validation rule](../api/validator/rules/url.md) to the validator.
+- Add [url validation rule](../reference/validator/rules/url.md) to the validator.
 - Add [`updateOrCreateMany`](../guides/models/relationships.md#updateorcreatemany) method to the has many relationship.
 - Add support for [serializing](../guides/models/serialization.md#serializing-extras) the model `$extras` object.
 - Crash process on `uncaughtException` exception. As per [Node.js](https://nodejs.org/api/process.html#process_warning_using_uncaughtexception_correctly) **"It is not safe to resume normal operation after 'uncaughtException'"** and hence AdonisJS now listens for this event and calls the `process.exit` method.

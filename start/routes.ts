@@ -21,13 +21,30 @@
 import Route from '@ioc:Adonis/Core/Route'
 import Content from 'App/Services/Content'
 
-Route.get('*', async ({ request, response }) => {
+/**
+ * There is no homepage for docs
+ */
+Route.get('/', ({ response }) => {
+  response.redirect('/guides/introduction')
+})
+
+/**
+ * Render a 404 template
+ */
+Route.get('/404', ({ view }) => {
+  return view.render('errors.404')
+})
+
+/**
+ * Process all other routes via `@dimerapp/content` module
+ */
+Route.get('*', async ({ request, response, view }) => {
   const { html, error } = await Content.render(request.url())
 
   if (error && error.includes('Unable to lookup')) {
-    response.notFound('Doc not found')
+    return response.redirect('/404')
   } else if (error) {
-    response.badGateway(error)
+    return view.render('errors.500', { error })
   } else {
     response.send(html)
   }
