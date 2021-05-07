@@ -35,7 +35,7 @@ You can choose between one of the following project structures.
 
 - `web` project structure is ideal for creating classic server rendered applications. We configure the support for sessions and also install the AdonisJS template engine.
 - `api` project structure is ideal for creating an API server.
-- `slim` project structure creates a smallest possible AdonisJS application and does not install any additional packages, except the framework core.
+- `slim` project structure creates the smallest possible AdonisJS application and does not install any additional packages, except the framework core.
 
 ---
 
