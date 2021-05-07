@@ -91,3 +91,40 @@ DOC CONTENT STYLES
     padding-right: var(--toc-width);
   }
 }
+
+.banner {
+  display: flex;
+  max-width: 700px;
+  margin: auto;
+  color: var(--text-color);
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - var(--header-height));
+}
+
+.banner div:first-child {
+  border-right: 1px solid var(--lighter-gray);
+  padding-right: 60px;
+  margin-right: 60px;
+}
+
+.banner h1 {
+  font-size: 6.8rem;
+  font-weight: 600;
+}
+
+.banner h2 {
+  font-size: 4rem;
+  font-weight: 600;
+  margin: 0 0 20px 0;
+  line-height: 1;
+}
+
+.banner p {
+  font-size: 2.2rem;
+  margin: 0;
+}
+
+.banner a {
+  color: var(--brand-color);
+}

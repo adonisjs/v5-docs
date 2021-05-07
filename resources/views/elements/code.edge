@@ -4,7 +4,7 @@
       {{ node.properties.dataTitle }}
     </div>
   @endif
-{{-- Keep the pre and its contents to the edge --}}
+{{-- Do not indent pre and its contents --}}
 <pre>
 @dimerTree(node.children)~
 </pre>

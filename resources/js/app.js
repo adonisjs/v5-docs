@@ -87,6 +87,9 @@ document.addEventListener('turbo:render', () => {
 /**
  * Scroll the active sidebar item into the view on page load
  */
-document.querySelector('.sidebar li.active').scrollIntoView({
-  block: 'center',
-})
+const activeSidebarItem = document.querySelector('.sidebar li.active')
+if (activeSidebarItem) {
+  activeSidebarItem.scrollIntoView({
+    block: 'center',
+  })
+}

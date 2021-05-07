@@ -25,6 +25,24 @@
   padding: 2px 6px;
 }
 
+.markdown h1 a, .markdown h2 a, .markdown h3 a, .markdown h4 a {
+  color: var(--mute-color);
+  margin-left: -1em;
+  opacity: 0;
+  padding-right: 0.2em;
+  text-decoration: none;
+}
+
+.markdown h1 .icon:before, .markdown h2 .icon:before, .markdown h3 .icon:before, .markdown h4 .icon:before {
+  content: '#';
+}
+.markdown h1:hover a,
+.markdown h2:hover a,
+.markdown h3:hover a,
+.markdown h4:hover a {
+  opacity: 1;
+}
+
 .markdown h1 {
   color: var(--heading-color);
   font-size: var(--markdown-h1-size);
@@ -39,6 +57,7 @@
   border-top: 1px solid var(--lighter-gray);
   margin: 70px 0 20px 0;
   padding-top: 50px;
+  position: relative;
 }
 /** Required only when using Calibre */
 .markdown h2 code {
@@ -51,18 +70,19 @@
   font-weight: var(--bold-font-weight);
   font-size: var(--markdown-h3-size);
   margin: 60px 0 10px 0;
+  position: relative;
 }
 /** Required only when using Calibre */
 .markdown h3 code {
   font-size: 2.0rem;
 }
 
-
 .markdown h4 {
   color: var(--heading-color);
   font-weight: var(--bold-font-weight);
   font-size: var(--markdown-h4-size);
   margin: 40px 0 5px 0;
+  position: relative;
 }
 /** Required only when using Calibre */
 .markdown h4 code {
