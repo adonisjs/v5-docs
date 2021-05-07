@@ -44,7 +44,7 @@ window.initializeCodegroups = function () {
  */
 window.selectBoxNavigate = function () {
   return {
-    init() {
+    mounted() {
       this.$el.querySelectorAll('option').forEach((element) => {
         if (element.value === window.location.pathname) {
           element.selected = 'selected'
