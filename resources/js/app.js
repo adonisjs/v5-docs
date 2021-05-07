@@ -1,7 +1,7 @@
 import 'lazysizes'
-import 'alpinejs'
 import '@hotwired/turbo'
 import 'alpine-hotwire-turbo-adapter'
+import 'alpinejs'
 import { listen } from 'quicklink'
 
 /**
