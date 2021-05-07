@@ -44,6 +44,14 @@ window.initializeCodegroups = function () {
  */
 window.selectBoxNavigate = function () {
   return {
+    init() {
+      this.$el.querySelectorAll('option').forEach((element) => {
+        if (element.value === window.location.pathname) {
+          element.selected = 'selected'
+        }
+      })
+    },
+
     navigateTo(e) {
       window.location = e.target.value
     }
