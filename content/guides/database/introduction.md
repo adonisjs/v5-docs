@@ -28,9 +28,9 @@ node ace configure @adonisjs/lucid
 // title: Validate environment variables
 /**
  * Depending upon the database driver you are using, you must validate
- * get environment varaibles for its config
+ * the environment variables defined.
  *
- * Following is an example with PostgreSQL
+ * The following is an example for PostgreSQL.
  */
 export default Env.rules({
   PG_HOST: Env.schema.string({ format: 'host' }),
