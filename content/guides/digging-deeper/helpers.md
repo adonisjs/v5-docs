@@ -13,7 +13,7 @@ The string helpers expose the following transformation methods.
 Convert a string to its `camelCase` version.
 
 ```ts
-import { string } from 'ioc:Adonis/Core/Helpers'
+import { string } from '@ioc:Adonis/Core/Helpers'
 
 string.camelCase('hello-world') // helloWorld
 ```
@@ -24,7 +24,7 @@ string.camelCase('hello-world') // helloWorld
 Convert a string to its `snake_case` version.
 
 ```ts
-import { string } from 'ioc:Adonis/Core/Helpers'
+import { string } from '@ioc:Adonis/Core/Helpers'
 
 string.snakeCase('helloWorld') // hello_world
 ```
@@ -35,7 +35,7 @@ string.snakeCase('helloWorld') // hello_world
 Convert a string to its `dash-case` version. Optionally, you can also capitalize the first letter of each segment.
 
 ```ts
-import { string } from 'ioc:Adonis/Core/Helpers'
+import { string } from '@ioc:Adonis/Core/Helpers'
 
 string.dashCase('helloWorld') // hello-world
 string.dashCase('helloWorld', { capitalize: true }) // Hello-World
@@ -47,7 +47,7 @@ string.dashCase('helloWorld', { capitalize: true }) // Hello-World
 Convert a string to its `PascalCase` version. 
 
 ```ts
-import { string } from 'ioc:Adonis/Core/Helpers'
+import { string } from '@ioc:Adonis/Core/Helpers'
 
 string.pascalCase('helloWorld') // HelloWorld
 ```
@@ -58,7 +58,7 @@ string.pascalCase('helloWorld') // HelloWorld
 Capitalize a string
 
 ```ts
-import { string } from 'ioc:Adonis/Core/Helpers'
+import { string } from '@ioc:Adonis/Core/Helpers'
 
 string.capitalCase('helloWorld') // Hello World
 ```
@@ -69,7 +69,7 @@ string.capitalCase('helloWorld') // Hello World
 Convert string to a sentence
 
 ```ts
-import { string } from 'ioc:Adonis/Core/Helpers'
+import { string } from '@ioc:Adonis/Core/Helpers'
 
 string.sentenceCase('hello-world') // Hello world
 ```
@@ -80,7 +80,7 @@ string.sentenceCase('hello-world') // Hello world
 Convert string to its `dot.case` version.
 
 ```ts
-import { string } from 'ioc:Adonis/Core/Helpers'
+import { string } from '@ioc:Adonis/Core/Helpers'
 
 string.dotCase('hello-world') // hello.world
 ```
@@ -91,7 +91,7 @@ string.dotCase('hello-world') // hello.world
 Remove all sorts of casing
 
 ```ts
-import { string } from 'ioc:Adonis/Core/Helpers'
+import { string } from '@ioc:Adonis/Core/Helpers'
 
 string.noCase('hello-world') // hello world
 string.noCase('hello_world') // hello world
@@ -104,7 +104,7 @@ string.noCase('helloWorld') // hello world
 Convert a sentence to title case
 
 ```ts
-import { string } from 'ioc:Adonis/Core/Helpers'
+import { string } from '@ioc:Adonis/Core/Helpers'
 
 string.titleCase('Here is a fox') // Here Is a fox
 ```
@@ -115,7 +115,7 @@ string.titleCase('Here is a fox') // Here Is a fox
 Pluralize a word.
 
 ```ts
-import { string } from 'ioc:Adonis/Core/Helpers'
+import { string } from '@ioc:Adonis/Core/Helpers'
 
 string.pluralize('box') // boxes
 string.pluralize('i') // we
@@ -124,7 +124,7 @@ string.pluralize('i') // we
 You can also define your own irregular rules using the `defineIrregularRule` method. The method accepts the singular version as the first argument and the plural version as the second argument.
 
 ```ts
-import { string } from 'ioc:Adonis/Core/Helpers'
+import { string } from '@ioc:Adonis/Core/Helpers'
 
 string.defineIrregularRule('auth', 'auth')
 string.plural('auth') // auth
@@ -133,7 +133,7 @@ string.plural('auth') // auth
 You can also define your own uncountable rules using the `defineUncountableRule` method.
 
 ```ts
-import { string } from 'ioc:Adonis/Core/Helpers'
+import { string } from '@ioc:Adonis/Core/Helpers'
 
 string.defineUncountableRule('login')
 string.plural('login') // home
@@ -145,7 +145,7 @@ string.plural('login') // home
 Truncate a string after a given number of characters
 
 ```ts
-import { string } from 'ioc:Adonis/Core/Helpers'
+import { string } from '@ioc:Adonis/Core/Helpers'
 
 string.truncate(
   'This is a very long, maybe not that long title',
@@ -184,7 +184,7 @@ string.truncate(
 The `excerpt` method is the same as the `truncate` method. However, it strips the HTML from the string.
 
 ```ts
-import { string } from 'ioc:Adonis/Core/Helpers'
+import { string } from '@ioc:Adonis/Core/Helpers'
 
 string.excerpt(
   '<p>This is a <strong>very long</strong>, maybe not that long title</p>',
@@ -198,7 +198,7 @@ string.excerpt(
 Condense whitespaces from a given string. The method removes the whitespace from the `left`, `right`, and multiple whitespaces between the words.
 
 ```ts
-import { string } from 'ioc:Adonis/Core/Helpers'
+import { string } from '@ioc:Adonis/Core/Helpers'
 
 string.condenseWhitespace(' hello  world ')
 // hello world
@@ -210,7 +210,7 @@ string.condenseWhitespace(' hello  world ')
 Escape HTML from the string
 
 ```ts
-import { string } from 'ioc:Adonis/Core/Helpers'
+import { string } from '@ioc:Adonis/Core/Helpers'
 
 string.escapeHTML('<p> foo © bar </p>')
 // &lt;p&gt; foo © bar &lt;/p&gt;
@@ -219,7 +219,7 @@ string.escapeHTML('<p> foo © bar </p>')
 Additionally, you can also encode non-ASCII symbols.
 
 ```ts
-import { string } from 'ioc:Adonis/Core/Helpers'
+import { string } from '@ioc:Adonis/Core/Helpers'
 
 string.escapeHTML(
   '<p> foo © bar </p>',
@@ -236,7 +236,7 @@ string.escapeHTML(
 Encode symbols. Checkout [he](https://npm.im/he) for available options
 
 ```ts
-import { string } from 'ioc:Adonis/Core/Helpers'
+import { string } from '@ioc:Adonis/Core/Helpers'
 
 string.encodeSymbols('foo © bar')
 // foo &#xA9; bar
@@ -248,7 +248,7 @@ string.encodeSymbols('foo © bar')
 Join an array of words with a separator. 
 
 ```ts
-import { string } from 'ioc:Adonis/Core/Helpers'
+import { string } from '@ioc:Adonis/Core/Helpers'
 
 string.toSentence([
   'route',
@@ -285,7 +285,7 @@ string.toSentence([
 Convert bytes value to a human-readable string. For options, reference the [bytes](https://www.npmjs.com/package/bytes) package.
 
 ```ts
-import { string } from 'ioc:Adonis/Core/Helpers'
+import { string } from '@ioc:Adonis/Core/Helpers'
 
 string.prettyBytes(1024) // 1KB
 string.prettyBytes(1024, { unitSeparator: ' ' }) // 1 KB
@@ -297,7 +297,7 @@ string.prettyBytes(1024, { unitSeparator: ' ' }) // 1 KB
 Convert human-readable string to bytes. This method is the opposite of the `prettyBytes` method.
 
 ```ts
-import { string } from 'ioc:Adonis/Core/Helpers'
+import { string } from '@ioc:Adonis/Core/Helpers'
 
 string.toBytes('1KB') // 1024
 ```
@@ -308,7 +308,7 @@ string.toBytes('1KB') // 1024
 Convert time in milliseconds to a human-readable string
 
 ```ts
-import { string } from 'ioc:Adonis/Core/Helpers'
+import { string } from '@ioc:Adonis/Core/Helpers'
 
 string.prettyMs(60000) // 1min
 string.prettyMs(60000, { long: true }) // 1 minute
@@ -320,7 +320,7 @@ string.prettyMs(60000, { long: true }) // 1 minute
 Convert human-readable string to milliseconds. This method is the opposite of the `prettyMs` method.
 
 ```ts
-import { string } from 'ioc:Adonis/Core/Helpers'
+import { string } from '@ioc:Adonis/Core/Helpers'
 
 string.toMs('1min') // 60000
 ```
@@ -331,7 +331,7 @@ string.toMs('1min') // 60000
 Ordinalize a string or a number value
 
 ```ts
-import { string } from 'ioc:Adonis/Core/Helpers'
+import { string } from '@ioc:Adonis/Core/Helpers'
 
 string.ordinalize(1) // 1st
 string.ordinalize(99) // 99th
@@ -343,7 +343,7 @@ string.ordinalize(99) // 99th
 Generate a cryptographically strong random string
 
 ```ts
-import { string } from 'ioc:Adonis/Core/Helpers'
+import { string } from '@ioc:Adonis/Core/Helpers'
 
 string.generateRandom(32)
 ```
@@ -354,7 +354,7 @@ string.generateRandom(32)
 Find if a value is empty. Also checks for empty strings with all whitespace
 
 ```ts
-import { string } from 'ioc:Adonis/Core/Helpers'
+import { string } from '@ioc:Adonis/Core/Helpers'
 
 string.isEmpty('') // true
 string.isEmpty('      ') // true

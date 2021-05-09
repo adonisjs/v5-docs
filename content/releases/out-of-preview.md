@@ -127,7 +127,7 @@ We have collected all the small utilities used by the framework and the ecosyste
 Since these utilities are already installed and used by the framework, the helpers module does not add any additional bloat to your `node_modules`.
 
 ```ts
-import { string } from 'ioc:Adonis/Core/Helpers'
+import { string } from '@ioc:Adonis/Core/Helpers'
 
 string.camelCase('hello-world') // helloWorld
 ```
