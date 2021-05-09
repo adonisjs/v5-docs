@@ -20,7 +20,7 @@ import '../css/markdown.css'
 /**
  * Alpine component for codegroup tabs
  */
-window.initializeCodegroups = function () {
+window.initializeCodegroups = function initializeCodegroups () {
   return {
     activeTab: 1,
     changeTab(index, element) {
@@ -36,6 +36,24 @@ window.initializeCodegroups = function () {
         }
       })
     },
+  }
+}
+
+window.initializeSearch = function initializeSearch (apiKey) {
+  return {
+    init() {
+      Promise.all([
+        import(/* webpackChunkName: "docsearch" */ '@docsearch/js'),
+        import(/* webpackChunkName: "docsearch" */ '@docsearch/css')
+      ]).then(([docsearch]) => {
+        docsearch = docsearch.default
+        docsearch({
+          apiKey: apiKey,
+          indexName: 'adonisjs_next',
+          container: '#algolia-search-input',
+        })
+      }).catch(console.error)
+    }
   }
 }
 

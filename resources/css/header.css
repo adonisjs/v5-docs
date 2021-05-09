@@ -80,10 +80,12 @@ HEADER STYLES
   position: relative;
   top: 1px;
   display: block;
+  stroke-width: 1.6;
 }
 
 .search-trigger span.text {
-  margin-left: 10px;
+  margin-left: 16px;
+  font-weight: 500;
   display: none;
 }
 
@@ -157,7 +159,7 @@ HEADER STYLES
 
   .header-nav li a {
     display: block;
-    padding: 8px 16px;
+    padding: 6px 14px;
     letter-spacing: 0.5px;
     white-space: nowrap;
     color: inherit;
@@ -184,4 +186,29 @@ HEADER STYLES
     color: #fff;
     background: rgba(0, 0, 0, 0.2);
   }
+}
+
+.search-wrapper .DocSearch-Button {
+  background: transparent;
+  height: auto;
+  padding: 0;
+  margin: 0;
+}
+
+.search-wrapper {
+  --docsearch-text-color: '#fff';
+  --docsearch-searchbox-background: 'transparent';
+  --docsearch-searchbox-focus-background: 'transparent';
+  --docsearch-searchbox-shadow: none;
+  --docsearch-muted-color: '#fff';
+}
+
+.search-wrapper .DocSearch-Button-Placeholder {
+  font-family: inherit;
+  font-size: inherit;
+  margin-left: 10px;
+}
+
+.search-wrapper .DocSearch-Button-Key {
+  display: none;
 }

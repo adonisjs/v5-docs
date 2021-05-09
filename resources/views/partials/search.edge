@@ -1,9 +1,26 @@
-<div class="search-wrapper">
-  <button class="search-trigger" title="Open search popup" aria-label="Open search popup">
-    <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" aria-hidden="true">
-      <path d="M0 0h24v24H0z" fill="none"></path>
-      <path fill="currentColor" d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
-    </svg>
-    <span class="text"> Search... </span>
-  </button>
-</div>
+@if(app.env.get('ALGOLIA_API_KEY'))
+  <div
+    class="search-wrapper"
+    x-data="initializeSearch('{{ app.env.get('ALGOLIA_API_KEY') }}')"
+    x-init="init"
+  >
+    <button
+      class="search-trigger"
+      title="Open search popup"
+      aria-label="Open search popup"
+      id="algolia-search-input"
+    >
+      <svg width="20" height="20" class="DocSearch-Search-Icon" viewBox="0 0 20 20">
+        <path
+          d="M14.386 14.386l4.0877 4.0877-4.0877-4.0877c-2.9418 2.9419-7.7115 2.9419-10.6533 0-2.9419-2.9418-2.9419-7.7115 0-10.6533 2.9418-2.9419 7.7115-2.9419 10.6533 0 2.9419 2.9418 2.9419 7.7115 0 10.6533z"
+          stroke="currentColor"
+          fill="none"
+          fill-rule="evenodd"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        ></path>
+      </svg>
+      <span class="text"> Search </span>
+    </button>
+  </div>
+@end
