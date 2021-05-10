@@ -89,7 +89,10 @@ export default class BuildStatic extends BaseCommand {
       await this.generateHtmlFile(doc)
     }
 
-    await this.createRedirectsFile()
+    if (this.application.env.get('COPY_REDIRECTS_FILE')) {
+      await this.createRedirectsFile()
+    }
+
     await this.createErrorPages()
   }
 }

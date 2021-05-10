@@ -21,4 +21,5 @@ export default Env.rules({
   APP_NAME: Env.schema.string(),
   CACHE_VIEWS: Env.schema.boolean(),
   NODE_ENV: Env.schema.enum(['development', 'production', 'testing'] as const),
+  COPY_REDIRECTS_FILE: Env.schema.boolean.optional(),
 })

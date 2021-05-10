@@ -1,7 +1,13 @@
-# AdonisJS Docs
-> The repo contains the documentation and source code for [docs.adonisjs.com](https://docs.adonisjs.com)
+<div align="center">
+  <img src="https://res.cloudinary.com/adonisjs/image/upload/q_100/v1558612869/adonis-readme_zscycu.jpg" width="600px">
+</div>
 
-It is an AdonisJS project that renders the markdown to HTML using the edge templates during development. In production, we pre-compile everything to HTML and deploy it to Cloudflare pages.
+<br />
+
+<div align="center">
+  <h3>AdonisJS official documentation</h3>
+  <p>Source code and documentation for the official documentation website hosted on [docs.adonisjs.com](https://docs.adonisjs.com)</p>
+</div>
 
 ## Setup
 Follow the below mentioned steps to setup the project on your local.
@@ -9,13 +15,32 @@ Follow the below mentioned steps to setup the project on your local.
 - Fork the repo
 - Pull the repo on your local
 - Install all dependencies using `npm install`.
-- Start the AdonisJS development server using `node ace serve --watch`.
+- Start the AdonisJS development server using `node ace serve --watch`
 
 **We do not follow any build process for rendering markdown to HTML**. Instead, we compile markdown files on every page request. This ensures, we do not have to run any background compilers to compile markdown and then re-compile everything on a single change. The process is as simple as
 
 ```
 --> New HTTP request --> Finding markdown file for the url --> Compile and serve it
 ```
+
+## Environment variables
+
+Following environment variables are required to start the development server or create the production build.
+
+```
+PORT=3333
+HOST=0.0.0.0
+NODE_ENV=development
+APP_KEY=iPbHJ0Wdr8_hA4DLTj83lKedQP9I5rJO
+CACHE_VIEWS=false
+DEBUG_DOCS=true
+ALGOLIA_API_KEY=
+COPY_REDIRECTS_FILE=false
+```
+
+The `ALGOLIA_API_KEY` environment variable is optional and required only if you want to enable search.
+
+If you are deploying a translated version of the docs, then set the `COPY_REDIRECTS_FILE=false`. Since the redirects file is applicable only for the official documentation to avoid breaking the `preview.adonisjs.com` URLs.
 
 ## Content structure
 
@@ -91,6 +116,24 @@ The `@hotwire/turbo` is used to navigate between pages without doing a complete 
 Re-rendering HTML pages resets the scroll position of the sidebar, which is kind of annoying. So we make use of turbo  events `turbo:before-render` and `turbo:render` to store the sidebar position and then restore it after navigation.
 
 On first page visit, we scroll the active sidebar item into the view using the `scrollIntoView` method.
+
+## Deployment
+
+Run the following command to create the production build. 
+
+```
+npm run build
+```
+
+The output is written to the `public` directory and you can deploy it on any host capable of serving static files.
+
+The official website is hosted on [pages.cloudflare.com](https://pages.cloudflare.com/)
+
+### Important environment variables
+
+The `ALGOLIA_API_KEY` environment variable is optional and required only if you want to enable search.
+
+If you are deploying a translated version of the docs, then set the `COPY_REDIRECTS_FILE=false`. Since the redirects file is applicable only for the official documentation to avoid breaking the `preview.adonisjs.com` URLs.
 
 ## Translating docs to different languages
 
