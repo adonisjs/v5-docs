@@ -100,8 +100,8 @@ You are free to fork this repo and translate docs to different languages and pub
 
 ### Process for translating docs
 
-- Notify everyone about the translated docs on this [pinned issue]().
+- Notify everyone about the translated docs on this [pinned issue](https://github.com/adonisjs/docs.adonisjs.com/issues/1).
 - We can issue you a subdomain for the language once you have translated more than 50% of the docs.
-- As the documentation is updated on the official website, we will drop a link to the PR on the [pinned issue]() and you can pull back those changes.
+- As the documentation is updated on the official website, we will drop a link to the PR on the [pinned issue](https://github.com/adonisjs/docs.adonisjs.com/issues/1) and you can pull back those changes.
 - We recommend not localizing the URLs. Just translate the docs content.
 - Feel free to send a PR to Algolia for indexing the translated website. Here is a [reference to algolia config](https://github.com/algolia/docsearch-configs/blob/master/configs/adonisjs_next.json) for the official website.
