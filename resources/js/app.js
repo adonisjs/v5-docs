@@ -39,6 +39,30 @@ window.initializeCodegroups = function initializeCodegroups () {
   }
 }
 
+function prefixZoneName(title, docUrl) {
+  if (!title) {
+    return title
+  }
+
+  if (docUrl.includes('https://docs.adonisjs.com/reference/')) {
+    return `Reference / ${title}`
+  }
+
+  if (docUrl.includes('https://docs.adonisjs.com/guides/')) {
+    return `Guides / ${title}`
+  }
+
+  if (docUrl.includes('https://docs.adonisjs.com/cookbooks/')) {
+    return `Cookbooks / ${title}`
+  }
+
+  if (docUrl.includes('https://docs.adonisjs.com/releases/')) {
+    return `Releases / ${title}`
+  }
+
+  return title
+}
+
 window.initializeSearch = function initializeSearch (apiKey) {
   return {
     init() {
@@ -51,6 +75,12 @@ window.initializeSearch = function initializeSearch (apiKey) {
           apiKey: apiKey,
           indexName: 'adonisjs_next',
           container: '#algolia-search-input',
+          transformItems: (items) => {
+            return items.map((item) => {
+              item.hierarchy.lvl0 = prefixZoneName(item.hierarchy.lvl0, item.url)
+              return item
+            })
+          },
         })
       }).catch(console.error)
     }

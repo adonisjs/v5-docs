@@ -3,7 +3,7 @@
     "name": "Database",
     "categories": [
       {
-        "name": "Root",
+        "name": "root",
         "docs": [
           {
             "title": "Connection",
