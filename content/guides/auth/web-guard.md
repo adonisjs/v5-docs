@@ -30,7 +30,7 @@ Route.post('login', async ({ auth, request, response }) => {
     // highlight-end
   } catch {
     return response.badRequest('Invalid credentials')
-  } 
+  }
 })
 ```
 
@@ -94,7 +94,7 @@ await auth.use('web').loginViaId(1, rememberMe)
 If the user session expires, the remember me cookie will be used to create another session for the user. The remember me token is stored inside the `users` table itself and currently only one remember me token is allowed.
 
 ## Authenticate subsequent requests
-Once the user is logged-in with the login session, you can authenticate the subsequent requests using the `auth.authenticate` method. It will verify the user session and lookup the user inside the database. 
+Once the user is logged-in with the login session, you can authenticate the subsequent requests using the `auth.authenticate` method. It will verify the user session and lookup the user inside the database.
 
 The [AuthenticationException](https://github.com/adonisjs/auth/blob/develop/src/Exceptions/AuthenticationException.ts) is raised, if the session is invalid or the user does not exists inside the database.
 
