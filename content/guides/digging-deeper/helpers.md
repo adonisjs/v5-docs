@@ -44,7 +44,7 @@ string.dashCase('helloWorld', { capitalize: true }) // Hello-World
 ---
 
 ### pascalCase
-Convert a string to its `PascalCase` version. 
+Convert a string to its `PascalCase` version.
 
 ```ts
 import { string } from '@ioc:Adonis/Core/Helpers'
@@ -245,7 +245,7 @@ string.encodeSymbols('foo © bar')
 ---
 
 ### toSentence
-Join an array of words with a separator. 
+Join an array of words with a separator.
 
 ```ts
 import { string } from '@ioc:Adonis/Core/Helpers'
@@ -388,7 +388,7 @@ Find if the given value is null
 ```ts
 import { types } from '@ioc:Adonis/Core/Helpers'
 
-types.isNull(null)) // true
+types.isNull(null) // true
 ```
 
 ---
@@ -399,7 +399,7 @@ Find if the given value is a boolean
 ```ts
 import { types } from '@ioc:Adonis/Core/Helpers'
 
-types.isBoolean(true)) // true
+types.isBoolean(true) // true
 ```
 
 ---
@@ -410,7 +410,7 @@ Find if the given value is a buffer
 ```ts
 import { types } from '@ioc:Adonis/Core/Helpers'
 
-types.isBuffer(new Buffer())) // true
+types.isBuffer(new Buffer()) // true
 ```
 
 ---
@@ -421,7 +421,7 @@ Find if the given value is a number
 ```ts
 import { types } from '@ioc:Adonis/Core/Helpers'
 
-types.isNumber(100)) // true
+types.isNumber(100) // true
 ```
 
 ---
@@ -432,7 +432,7 @@ Find if the given value is a string
 ```ts
 import { types } from '@ioc:Adonis/Core/Helpers'
 
-types.isString('hello')) // true
+types.isString('hello') // true
 ```
 
 ---
@@ -444,7 +444,7 @@ Find if the given value is an arguments object
 import { types } from '@ioc:Adonis/Core/Helpers'
 
 function foo() {
-  types.isArguments(arguments)) // true
+  types.isArguments(arguments) // true
 }
 ```
 
@@ -456,7 +456,7 @@ Find if the given value is a plain object
 ```ts
 import { types } from '@ioc:Adonis/Core/Helpers'
 
-types.isObject({})) // true
+types.isObject({}) // true
 ```
 
 ---
@@ -467,7 +467,7 @@ Find if the given value is a date object
 ```ts
 import { types } from '@ioc:Adonis/Core/Helpers'
 
-types.isDate(new Date())) // true
+types.isDate(new Date()) // true
 ```
 
 ---
@@ -478,7 +478,7 @@ Find if the given value is an array
 ```ts
 import { types } from '@ioc:Adonis/Core/Helpers'
 
-types.isArray([1, 2, 3])) // true
+types.isArray([1, 2, 3]) // true
 ```
 
 ---
@@ -489,7 +489,7 @@ Find if the given value is a regular expression
 ```ts
 import { types } from '@ioc:Adonis/Core/Helpers'
 
-types.isRegexp(/[a-z]+/)) // true
+types.isRegexp(/[a-z]+/) // true
 ```
 
 ---
@@ -501,8 +501,8 @@ Find if the given value is an instance of the error object.
 import { types } from '@ioc:Adonis/Core/Helpers'
 import { Exception } from '@poppinss/utils'
 
-types.isError(new Error('foo'))) // true
-types.isError(new Exception('foo'))) // true
+types.isError(new Error('foo')) // true
+types.isError(new Exception('foo')) // true
 ```
 
 ---
@@ -513,7 +513,7 @@ Find if the given value is a function
 ```ts
 import { types } from '@ioc:Adonis/Core/Helpers'
 
-types.isFunction(function foo() {})) // true
+types.isFunction(function foo() {}) // true
 ```
 
 ---
@@ -674,7 +674,7 @@ base64.decode(encoded, 'binary')
 ```
 
 ## interpolate
-A lightweight helper method to interpolate curly braces inside a string. This method is not a replacement for any template engines. 
+A lightweight helper method to interpolate curly braces inside a string. This method is not a replacement for any template engines.
 
 ```ts
 import { interpolate } from '@ioc:Adonis/Core/Helpers'

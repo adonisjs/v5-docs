@@ -29,7 +29,7 @@ node ace configure @adonisjs/ally
 /**
  * Make sure to validate the environment variables required
  * by the configured social drivers.
- * 
+ *
  * Following is an example of validating the env vars for
  * the google provider
  */
@@ -390,7 +390,7 @@ const token = await ally.use('github').accessToken()
 Find if the redirect request has the authorization code.
 
 ```ts
-if(ally.use('github').hasCode())) {
+if(ally.use('github').hasCode()) {
 }
 ```
 
@@ -400,7 +400,7 @@ if(ally.use('github').hasCode())) {
 Returns the authorization code.
 
 ```ts
-if(ally.use('github').hasCode())) {
+if(ally.use('github').hasCode()) {
   console.log(ally.use('github').getCode())
 }
 ```
