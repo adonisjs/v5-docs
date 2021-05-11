@@ -433,6 +433,25 @@ Route.makeUrl(
 ### Remove `X-Download-Options` and `X-XSS-Protection` headers support
 Both the headers are deprecated by the HTTP standards. One must use CSP to protect against XSS attacks. AdonisJS already [supports CSP](../guides/security/web-security.md#csp)
 
+---
+
+### Change on `Model.query().count()` behaviour
+
+The model query builder now always returns an array of models instances or directly a model instance and not plain objects.
+The following code will not work anymore since it needs extra properties to access the count.
+
+```ts
+const count = await SomeModel.query().count('id')
+console.log(count[0].count) // undefined
+```
+
+To make it work, you need to use the new [`pojo`](https://docs.adonisjs.com/reference/orm/query-builder#pojo) method.
+
+```ts
+const count = await SomeModel.query().pojo<{ total: number }>().count('id as total')
+console.log(count[0].total) // X
+```
+
 ## Additions
 Following are the new additions to the existing packages.
 
