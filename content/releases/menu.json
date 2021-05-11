@@ -24,6 +24,11 @@
             "title": "August release - 2020",
             "permalink": "august-2020-release",
             "contentPath": "august-2020-release.md"
+          },
+          {
+            "title": "Introducing AdonisJS V5 Preview",
+            "permalink": "introducing-adonisjs-v5-preview",
+            "contentPath": "introducing-adonisjs-v5-preview.md"
           }
         ]
       }

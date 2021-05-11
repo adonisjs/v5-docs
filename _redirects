@@ -3,6 +3,14 @@
 /cookbooks/ /cookbooks/socketio-with-adonisjs 302
 /releases/ /releases/out-of-preview 302
 
+/blog/socketio-with-adonisjs-v5 /cookbooks/socketio-with-adonisjs 301
+/blog/running-tests-in-adonisjs-v5 /cookbooks/testing-adonisjs-apps 301
+
+/blog/august-2020-release /releases/august-2020-release 301
+/blog/october-2020-release /releases/october-2020-release 301
+/blog/december-2020-release /releases/december-2020-release 301
+/blog/introducing-adonisjs-v5 /releases/introducing-adonisjs-v5-preview 301
+
 / /guides/introduction 301
 /guides/quick-start /guides/introduction 301
 /guides/http/introduction /guides/context 301
