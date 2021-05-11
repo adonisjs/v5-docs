@@ -156,6 +156,9 @@ const user = await User.findOrFail(1)
 user.last_login_at = DateTime.local() // Luxon dateTime is used
 
 await user.save()
+
+// OR
+// await user.merge({ last_login_at: DateTime.local() }).save()
 ```
 
 #### Why not use the update query directly?
