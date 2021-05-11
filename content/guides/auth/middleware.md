@@ -30,9 +30,7 @@ The auth middleware optionally accepts the guards to use for authenticating the 
 ```ts
 Route.group(() => {
   
-}).middleware('auth', {
-  guards: ['web', 'api']
-})
+}).middleware('auth:auth,api')
 ```
 
 ## Silent Auth middleware

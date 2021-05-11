@@ -161,7 +161,7 @@ In the above example, the Auth middleware accepts an optional `guards` array. Th
 ```ts
 Route
   .get('dashboard', 'DashboardController.index')
-  .middleware('auth', ['web', 'api'])
+  .middleware('auth:web,api')
 ```
 
 ## FAQs
