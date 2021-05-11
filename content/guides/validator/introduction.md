@@ -38,6 +38,14 @@ The schema definition is divided into three main parts.
 
 ![](https://res.cloudinary.com/adonis-js/image/upload/q_auto,f_auto/v1617601990/v5/schema-101.png)
 
+:::note
+The `rules` object is imported from `@ioc:Adonis/Core/Validator`
+
+```ts
+import { schema, rules } from '@ioc:Adonis/Core/Validator'
+```
+:::
+
 If you look carefully, we have separated the **format validations** from **core data types**. For example: There is no data type called `schema.email`, instead we use the `rules.email` method to ensure a string is formatted as an email.
 
 This separation helps a lot in extending the validator with custom rules, without creating unnecessary schema types that has no meaning. For example: There is no thing called **email type**, it is a just a string, formatted as an email.
