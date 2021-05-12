@@ -26,6 +26,12 @@ Env.get('HOST', '0.0.0.0')
 Env.get('PORT', 3333)
 ```
 
+## Environment variables while testing
+
+When running tests, you may want to overwrite some of your environment variables, to access another database. You can achieve that by creating an `.env.testing` file.
+
+All variables contained inside this file will be merged with your `.env` file.
+
 ## Why validate environment variables?
 
 Environment variables are injected from outside-in to your application, and you have little or no control over them within your codebase.
