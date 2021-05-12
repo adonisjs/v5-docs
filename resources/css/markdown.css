@@ -145,6 +145,28 @@
   position: relative;
 }
 
+.markdown .ctc-action {
+  background-color: transparent;
+  border: 0;
+  color:  var(--pre-header-color);
+  cursor:  pointer;
+  font-size: 1.4rem;
+  position: absolute;
+  top:  0;
+  right: 0;
+  margin: 10px;
+  opacity: .5;
+  transition: opacity 100ms ease-in-out, color 100ms ease-in-out;
+}
+
+.markdown .dimer-highlight:hover .ctc-action {
+  opacity: 1;
+}
+
+.markdown .ctc-action:hover {
+  color: var(--accent-color);
+}
+
 .markdown .codegroup {
   background: var(--pre-background);
   border-radius: var(--rounded-corners-size);

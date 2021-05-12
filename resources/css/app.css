@@ -128,20 +128,3 @@ DOC CONTENT STYLES
 .banner a {
   color: var(--brand-color);
 }
-
-.ctc-action {
-  background-color: transparent;
-  border: 0;
-  color:  var(--pre-header-color);
-  cursor:  pointer;
-  font-size: 1.4rem;
-  position: absolute;
-  top:  0;
-  right: 0;
-  margin: 10px;
-  transition: color 100ms ease-in-out;
-}
-
-.ctc-action:hover {
-  color: var(--accent-color);
-}
