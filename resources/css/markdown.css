@@ -145,6 +145,10 @@
   position: relative;
 }
 
+.markdown .codeblock-title ~ .ctc-action {
+  margin-top: 40px;
+}
+
 .markdown .ctc-action {
   background-color: transparent;
   border: 0;
