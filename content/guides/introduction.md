@@ -6,7 +6,7 @@ Welcome to AdonisJS!
 
 This is the official documentation website for the framework. We have divided the documentation into multiple groups, each trying to address a specific use case or audience.
 
-Please read the [AdonisJS at a glance](https://adonisjs.com/adonisjs-at-glance) document if you are unsure whether AdonisJS will fit your needs or match the programming style.
+Please read the [AdonisJS at a glance](https://adonisjs.com/adonisjs-at-a-glance) document if you are unsure whether AdonisJS will fit your needs or match the programming style.
 
 ## TypeScript usage
 
