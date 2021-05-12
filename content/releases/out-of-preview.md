@@ -10,7 +10,7 @@ After almost five months from the last release and over one year from the initia
 
 If you are using v4 of the framework, we do not recommend upgrading existing applications since there is no easy upgrade path from v4 to v5.
 
-The documentation for v4 has been moved to http://legacy.adonisjs.com. We will continue pushing security updates and minor patches to v4 for the entire 2021 
+The documentation for v4 has been moved to https://legacy.adonisjs.com. We will continue pushing security updates and minor patches to v4 for the entire 2021 
 
 :::
 

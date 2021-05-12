@@ -74,7 +74,7 @@ await client
 ---
 
 ### knexQuery
-Returns an instance of the [Knex.js query builder](http://knexjs.org/#Builder) for a pre-selected database connection.
+Returns an instance of the [Knex.js query builder](https://knexjs.org/#Builder) for a pre-selected database connection.
 
 ```ts
 client.knexQuery().select('*')
@@ -83,7 +83,7 @@ client.knexQuery().select('*')
 ---
 
 ### knexRawQuery
-Returns an instance of the [Knex.js raw query builder](http://knexjs.org/#Raw) for a pre-selected database connection.
+Returns an instance of the [Knex.js raw query builder](https://knexjs.org/#Raw) for a pre-selected database connection.
 
 ```ts
 client

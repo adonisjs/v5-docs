@@ -71,7 +71,7 @@ Whether or not to pretty-print the logs. We recommend turning off pretty printin
 ## How AdonisJS Logger works?
 Since Node.js is a single-threaded event-loop, it is very important to keep the main thread free from any extra work required to process or reformat logs. 
 
-For this very reason, we opted for [pino logger](http://getpino.io/#/), which does not perform any in-process log formatting and instead encourages you to use a separate process for that. In a nutshell, this is how logging works.
+For this very reason, we opted for [pino logger](https://getpino.io/), which does not perform any in-process log formatting and instead encourages you to use a separate process for that. In a nutshell, this is how logging works.
 
 1. You can log at different levels using the Logger API, for example: `Logger.info('some message')`.
 2. The logs are always sent out to `stdout`.
