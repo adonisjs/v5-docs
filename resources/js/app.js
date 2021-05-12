@@ -39,6 +39,18 @@ window.initializeCodegroups = function initializeCodegroups () {
   }
 }
 
+window.initializeCode = () => ({
+  copyToClipboard() {
+    const code = this.$el.querySelector('pre').innerText
+    navigator.clipboard.writeText(code);
+
+    this.$refs.copyButton.innerText = 'Copied'
+    setTimeout(() =>
+      this.$refs.copyButton.innerText = 'Copy to Clipboard'
+    , 1000)
+  }
+})
+
 function prefixZoneName(title, docUrl) {
   if (!title) {
     return title
