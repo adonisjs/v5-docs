@@ -20,24 +20,24 @@ import '../css/markdown.css'
 /**
  * Alpine component for codegroup tabs
  */
-window.initializeCodegroups = function initializeCodegroups () {
-  return {
-    activeTab: 1,
-    changeTab(index, element) {
-      this.$refs.highlighter.style.left = `${element.offsetLeft}px`
-      this.$refs.highlighter.style.width = `${element.clientWidth}px`
-      this.activeTab = index
-    },
-    mounted() {
-      this.changeTab(1, this.$refs.firstTab)
-      setTimeout(() => {
-        if (this.$el.classList) {
-          this.$el.classList.add('ready')
-        }
-      })
-    },
+window.initializeCodegroups = () => ({
+  activeTab: 1,
+
+  changeTab(index, element) {
+    this.$refs.highlighter.style.left = `${element.offsetLeft}px`
+    this.$refs.highlighter.style.width = `${element.clientWidth}px`
+    this.activeTab = index
+  },
+
+  mounted() {
+    this.changeTab(1, this.$refs.firstTab)
+    setTimeout(() => {
+      if (this.$el.classList) {
+        this.$el.classList.add('ready')
+      }
+    })
   }
-}
+})
 
 window.initializeCode = () => ({
   copyToClipboard() {
@@ -75,48 +75,44 @@ function prefixZoneName(title, docUrl) {
   return title
 }
 
-window.initializeSearch = function initializeSearch (apiKey) {
-  return {
-    init() {
-      Promise.all([
-        import(/* webpackChunkName: "docsearch" */ '@docsearch/js'),
-        import(/* webpackChunkName: "docsearch" */ '@docsearch/css')
-      ]).then(([docsearch]) => {
-        docsearch = docsearch.default
-        docsearch({
-          apiKey: apiKey,
-          indexName: 'adonisjs_next',
-          container: '#algolia-search-input',
-          transformItems: (items) => {
-            return items.map((item) => {
-              item.hierarchy.lvl0 = prefixZoneName(item.hierarchy.lvl0, item.url)
-              return item
-            })
-          },
-        })
-      }).catch(console.error)
-    }
+window.initializeSearch = (apiKey) => ({
+  mounted() {
+    Promise.all([
+      import(/* webpackChunkName: "docsearch" */ '@docsearch/js'),
+      import(/* webpackChunkName: "docsearch" */ '@docsearch/css')
+    ]).then(([docsearch]) => {
+      docsearch = docsearch.default
+      docsearch({
+        apiKey: apiKey,
+        indexName: 'adonisjs_next',
+        container: '#algolia-search-input',
+        transformItems: (items) => {
+          return items.map((item) => {
+            item.hierarchy.lvl0 = prefixZoneName(item.hierarchy.lvl0, item.url)
+            return item
+          })
+        },
+      })
+    }).catch(console.error)
   }
-}
+})
 
 /**
  * Alpine component to navigate from a select box
  */
-window.selectBoxNavigate = function () {
-  return {
-    mounted() {
-      this.$el.querySelectorAll('option').forEach((element) => {
-        if (element.value === window.location.pathname) {
-          element.selected = 'selected'
-        }
-      })
-    },
+window.selectBoxNavigate = () => ({
+  mounted() {
+    this.$el.querySelectorAll('option').forEach((element) => {
+      if (element.value === window.location.pathname) {
+        element.selected = 'selected'
+      }
+    })
+  },
 
-    navigateTo(e) {
-      window.location = e.target.value
-    }
+  navigateTo(e) {
+    window.location = e.target.value
   }
-}
+})
 
 /**
  * Trigger quick links preloading
