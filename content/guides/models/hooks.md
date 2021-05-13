@@ -2,16 +2,15 @@
 summary: Using the data model hooks to perform actions on specific events.
 ---
 
-Hooks are the actions that you can perform during a pre-defined life cycle event. Using hooks, you can encapsulate specific actions within your models vs. writing them everywhere inside the codebase.
+Hooks are the **actions that you can perform against a model instance** during a pre-defined life cycle event. Using hooks, you can encapsulate specific actions within your models vs. writing them everywhere inside your codebase.
 
-A great example of hooks is password hashing. Instead of hashing the user password everywhere inside your codebase, you can write it as a hook and then guarantee that user passwords will be persisted as plain text.
-
-## Creating your first hook
-Let's build on the password hashing example and define a hook to hash the user password before saving it to the database.
+A great example of hooks is password hashing. You can define a hook that runs before the `save` call and converts the plain text password to a hash. 
 
 ```ts
 // title: app/Models/User.ts
+// highlight-start
 import Hash from '@ioc:Adonis/Core/Hash'
+// highlight-end
 import { column, beforeSave, BaseModel } from '@ioc:Adonis/Lucid/Orm'
 
 export default class User extends BaseModel {
@@ -35,14 +34,17 @@ export default class User extends BaseModel {
 }
 ```
 
-- The `beforeSave` hook is invoked before the `insert` and the `update` queries.
+- The `beforeSave` hook is invoked before the **INSERT** and the **UPDATE** queries.
 - Hooks can be async. So you can use the `await` keyword inside them.
-Hooks are always defined as static functions and receive the model's instance as the first argument.
+- Hooks are always defined as static functions and receive the model's instance as the first argument.
+
+---
 
 #### Understanding the `$dirty` property
+
 The `beforeSave` hook is called every time a new user is **created** or **updated** using the model instance. 
 
-During the update, you may have updated other properties and not the user password. Hence there is no need to re-hash the existing hash, which is the reason behind using the `$dirty` object.
+During the update, you may have updated other properties but NOT the user password. Hence there is no need to re-hash the existing hash, which is the reason behind using the `$dirty` object.
 
 The `$dirty` object only contains the changed values. So, you can check if the password was changed and then hash the new value.
 
@@ -66,7 +68,7 @@ Following is the list of all the available hooks. Make sure to read the [decorat
 | `beforeFind` | Invoked **before the find** query. Receives the query builder instance as the only argument. |
 | `afterFind` | Invoked **after the find** query. Receives the model instance as the only argument. |
 
-**All of the hooks receive the model instance as the first argument, except the ones documented below.**
+**All of the hooks receives the model instance as the first argument, except the ones documented below.**
 
 ### beforeFind
 The `beforeFind` hook is invoked just before the query is executed to find a single row. This hook receives the query builder instance, and you can attach your constraints to it.
