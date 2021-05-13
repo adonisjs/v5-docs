@@ -8,10 +8,10 @@ You can access the transaction query client as follows:
 
 ```ts
 import Database from '@ioc:Adonis/Lucid/Database'
-await trx = await Database.transaction()
+const trx = await Database.transaction()
 
 // for a given connection
-await trx = await Database
+const trx = await Database
   .connection('pg')
   .transaction()
 ```
