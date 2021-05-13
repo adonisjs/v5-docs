@@ -26,12 +26,6 @@ Env.get('HOST', '0.0.0.0')
 Env.get('PORT', 3333)
 ```
 
-## Environment variables while testing
-
-When running tests, you may want to overwrite some of your environment variables. For example, you need to access another database to avoid crushing your data. You can achieve that by creating an `.env.testing` file.
-
-All variables contained inside this file will be merged automatically with your `.env` file.
-
 ## Why validate environment variables?
 
 Environment variables are injected from outside-in to your application, and you have little or no control over them within your codebase.
@@ -206,7 +200,7 @@ For every other validation use case, you can define your own custom functions.
 - The return value can be different from the initial input value.
 - We infer the static type from the return value. In this case, `Env.get('PORT')` is a number.
 
-## Defining variables in the development
+## Defining variables in development
 
 During development, you can define environment variables inside the `.env` file stored in your project's root and AdonisJS will automatically process it.
 
@@ -260,6 +254,12 @@ The `.env` file can be at any location on your server. For example, You can stor
 ```sh
 ENV_PATH=/etc/myapp/.env node server.js
 ```
+
+## Defining variables while testing
+
+AdonisJS will look for `.env.testing` file when the application is started with the `NODE_ENV=testing` environment variable.
+
+The variables defined inside the `.env.testing` file are automatically merged with the `.env` file. This allows you to use a different database, or a different session driver when writing tests.
 
 ## Defining variables in production
 
