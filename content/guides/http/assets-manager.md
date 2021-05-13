@@ -73,6 +73,15 @@ node ace serve --watch --no-assets
 node ace build --productions --no-assets
 ```
 
+## Customize dev server port and host
+Webpack dev server runs on `localhost:8080` by default. If the port is in use, AdonisJS will find a random port to start the webpack dev server. However, you can also define a custom port using the `--encore-args` flag.
+
+```sh
+node ace serve --watch --encore-args="--port 5000"
+```
+
+As of now, you cannot define the port for the webpack dev server inside the `webpack.config.js` file. This is the limitation enforced by the [symfony encore package](https://github.com/symfony/webpack-encore/issues/941#issuecomment-787568811).
+
 ## Assets view helpers
 
 Depending upon your webpack config, the output files may not have the same as the input file. For example, The `Encore.enableVersioning()` method appends the file hash to the output file name.
