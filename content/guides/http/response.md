@@ -159,7 +159,7 @@ response.safeHeader('Content-type', 'application/json')
 
 ### status
 
-The `response.status` defines the status for the HTTP response.
+The `response.status` method defines the status for the HTTP response. You can also use the [descriptive methods](#descriptive-response-methods) to set the status and the response body together.
 
 ```ts
 response.status(401)
@@ -416,6 +416,7 @@ The response class has a bunch of descriptive methods (one of each HTTP status) 
 ```ts
 response.badRequest({ error: 'Invalid login credentials' })
 response.forbidden({ error: 'Unauthorized' })
+response.created({ data: user })
 ```
 
 [Here's](https://github.com/adonisjs/http-server/blob/ea55c2a65fd388373d0b4e35ae45bee9cb096d02/src/Response/index.ts#L937-L1145) the list of all the available methods.
