@@ -36,19 +36,17 @@ window.initializeCodegroups = () => ({
         this.$el.classList.add('ready')
       }
     })
-  }
+  },
 })
 
 window.initializeCode = () => ({
   copyToClipboard() {
-    const code = this.$el.querySelector('pre').innerText
-    navigator.clipboard.writeText(code);
+    const code = this.$el.querySelector('pre').textContent
+    navigator.clipboard.writeText(code)
 
     this.$refs.copyButton.innerText = 'Copied'
-    setTimeout(() =>
-      this.$refs.copyButton.innerText = 'Copy to Clipboard'
-    , 1000)
-  }
+    setTimeout(() => (this.$refs.copyButton.innerText = 'Copy to Clipboard'), 1000)
+  },
 })
 
 function prefixZoneName(title, docUrl) {
@@ -79,22 +77,24 @@ window.initializeSearch = (apiKey) => ({
   mounted() {
     Promise.all([
       import(/* webpackChunkName: "docsearch" */ '@docsearch/js'),
-      import(/* webpackChunkName: "docsearch" */ '@docsearch/css')
-    ]).then(([docsearch]) => {
-      docsearch = docsearch.default
-      docsearch({
-        apiKey: apiKey,
-        indexName: 'adonisjs_next',
-        container: '#algolia-search-input',
-        transformItems: (items) => {
-          return items.map((item) => {
-            item.hierarchy.lvl0 = prefixZoneName(item.hierarchy.lvl0, item.url)
-            return item
-          })
-        },
+      import(/* webpackChunkName: "docsearch" */ '@docsearch/css'),
+    ])
+      .then(([docsearch]) => {
+        docsearch = docsearch.default
+        docsearch({
+          apiKey: apiKey,
+          indexName: 'adonisjs_next',
+          container: '#algolia-search-input',
+          transformItems: (items) => {
+            return items.map((item) => {
+              item.hierarchy.lvl0 = prefixZoneName(item.hierarchy.lvl0, item.url)
+              return item
+            })
+          },
+        })
       })
-    }).catch(console.error)
-  }
+      .catch(console.error)
+  },
 })
 
 /**
@@ -111,7 +111,7 @@ window.selectBoxNavigate = () => ({
 
   navigateTo(e) {
     window.location = e.target.value
-  }
+  },
 })
 
 /**
