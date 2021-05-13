@@ -259,13 +259,13 @@ request.multipart.onFile('catPhotos', {}, async (file) => {
   const fileContent = await getStream.buffer(file)
 
   catFiles.push(fileContent)
-});
+})
 
 request.multipart?.onFile('dogPhotos', {}, async (file) => {
   const fileContent = await getStream.buffer(file)
 
   dogFiles.push(fileContent)
-});
+})
 
 await request.multipart?.process()
 
@@ -277,7 +277,7 @@ const uploadCatPromises = files.map((file, index) => {
   }
 
   return s3.upload(params).promise()
-});
+})
 
 const uploadDogPromises = files.map((file, index) => {
   const params = {
