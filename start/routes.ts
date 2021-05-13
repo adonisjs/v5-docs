@@ -32,7 +32,7 @@ Route.get('/', ({ response }) => {
  * Render a 404 template
  */
 Route.get('/404', ({ view }) => {
-  return view.render('errors.404')
+  return view.render('errors/404')
 })
 
 /**
