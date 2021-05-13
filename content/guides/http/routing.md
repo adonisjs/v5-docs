@@ -459,6 +459,40 @@ Route
   .as('api')
 ```
 
+## Route domains
+Using the route module, you can also define routes for a specific domain or a subdomain. In the following example, the routes will only match if the current [request hostname](./request.md#hostname) is `blog.adonisjs.com`.
+
+:::note
+
+You still have to configure your proxy server to handle requests for the registered subdomains and forward them to your AdonisJS server.
+
+:::
+
+```ts
+Route
+  .group(() => {
+    Route.get('/', 'PostsController.index')
+    Route.get('/:id', 'PostsController.show')
+  })
+  .domain('blog.adonisjs.com')
+```
+
+The domains can be also accept dynamic parameters. For example, a domain that accepts the tenant subdomain.
+
+```ts
+Route
+  .group(() => {
+    Route.get('/', ({ subdomains }) => {
+      // highlight-start
+      console.log(subdomains.tenant)
+      // highlight-end
+    })
+  })
+  // highlight-start
+  .domain(':tenant.adonisjs.com')
+  // highlight-end
+```
+
 ## Brisk routes
 
 Brisk routes are defined without any explicit route handler. You can think of them as a shortcut for certain behaviors.
