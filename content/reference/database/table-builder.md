@@ -206,12 +206,12 @@ Adds a DateTime column to the database table. The method accepts the column name
 this.schema.createTable('users', (table) => {
   table
     .dateTime('some_time', { useTz: true })
-    .defaultsTo(this.now())
+    .defaultTo(this.now())
 
   // Or define the precision
   table
     .dateTime('some_time', { precision: 6 })
-    .defaultsTo(this.now(6))
+    .defaultTo(this.now(6))
 })
 ```
 
@@ -665,12 +665,12 @@ In MSSQL a constraintName option may be passed to ensure a specific constraint n
 
 ```ts
 this.schema.table('posts', (table) => {
-  table.boolean('is_published').defaultsTo(false)
+  table.boolean('is_published').defaultTo(false)
   
   // For MSSQL
   table
     .boolean('is_published')
-    .defaultsTo(false, { constraintName: 'df_table_value' })
+    .defaultTo(false, { constraintName: 'df_table_value' })
 })
 ```
 
