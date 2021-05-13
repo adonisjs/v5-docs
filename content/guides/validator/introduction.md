@@ -187,17 +187,17 @@ You can create a new validator by executing the following ace command.
 ```sh
 node ace make:validator CreateUser
 
-# CREATE: app/Validators/CreateUser.ts
+# CREATE: app/Validators/CreateUserValidator.ts
 ```
 
 All the validation related properties including the `schema`, `messages` are defined as properties on the class.
 
 ```ts
-// title: app/Validators/CreateUser.ts
+// title: app/Validators/CreateUserValidator.ts
 import { schema } from '@ioc:Adonis/Core/Validator'
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
-export default class CreateUser {
+export default class CreateUserValidator {
   constructor (protected ctx: HttpContextContract) {
   }
 
@@ -215,7 +215,7 @@ Instead of passing an object with the `schema` property, you can now pass the cl
 ```ts
 import Route from '@ioc:Adonis/Core/Route'
 // highlight-start
-import CreateUser from 'App/Validators/CreateUser'
+import CreateUser from 'App/Validators/CreateUserValidator'
 // highlight-end
 
 Route.post('users', async ({ request, response }) => {
@@ -244,7 +244,7 @@ Following is an example of using the validator classes outside of the HTTP reque
 
 ```ts
 import { validate } from '@ioc:Adonis/Core/Validator'
-import CreateUser from 'App/Validators/CreateUser'
+import CreateUser from 'App/Validators/CreateUserValidator'
 
 await validator.validate(
   new CreateUser({
@@ -256,9 +256,8 @@ await validator.validate(
 
 ## What's next?
 
-- Read the blog post on validating API requests.
-- Read the blog post on validating server rendered forms.
-- Learn more about [custom messages](./custom-messages.md).
-- Learn more about [error reporters](./error-reporters.md).
-- View all the [available schema types](../../reference/validator/schema/string.md).
-- View all the [available validation rules](../../reference/validator/rules/alpha.md).
+- Read the cookbook on [validating server rendered forms](../../cookbooks/validator/validating-server-rendered-forms.md)
+- Learn more about [custom messages](./custom-messages.md)
+- Learn more about [error reporters](./error-reporters.md)
+- View all the [available schema types](../../reference/validator/schema/string.md)
+- View all the [available validation rules](../../reference/validator/rules/alpha.md)
