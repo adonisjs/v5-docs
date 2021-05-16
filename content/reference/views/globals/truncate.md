@@ -25,7 +25,7 @@ The `truncate` method doesn't chop the words in between and let them get complet
 }}
 
 // highlight-start
-<!-- Output: This is a very long... -->
+<!-- Output: This is a very lon... -->
 // highlight-end
 ```
 
