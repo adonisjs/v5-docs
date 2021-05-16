@@ -37,6 +37,11 @@ Fitting all the validation rules, the database query builder methods within guid
 
 Cookbooks are actionable guides to help you achieve a practical task. Also, feel free to contribute to cookbooks by sending a PR.
 
+## Awesome list
+A [Github repository](https://github.com/adonisjs-community/awesome-adonisjs) holding a curated list of **awesome AdonisJS packages**, **articles**, **meetups** and other resources created by the community members.
+
+Feel free to explore and find the packages you need or [submit your work](https://github.com/adonisjs-community/awesome-adonisjs/blob/master/CONTRIBUTING.md) to the list.
+
 ## Editor extensions
 
 Editors with support for TypeScript are all you need to work with your AdonisJS applications. However, the following is the list of extensions to enhance your developer experience.
