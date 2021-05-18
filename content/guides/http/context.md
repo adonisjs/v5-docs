@@ -4,7 +4,7 @@ summary: HTTP request context holds all the relevant information related to a gi
 
 HTTP context is a request-specific object that holds the information like the `request body`, `cookies`, `headers`, the currently `logged in user`, and much more for a given HTTP request.
 
-The HTTP context is passed by reference to the route handler, middleware, HTTP hooks, and exception handler.
+The HTTP context is passed by reference to the route handler, middleware, HTTP hooks, and the exception handler.
 
 ```ts
 Route.get('/', ({ request, auth, response }) => {
@@ -29,6 +29,18 @@ Route.get('/', ({ request, auth, response }) => {
    */
   console.log(auth.user)
 })
+```
+
+Make sure to define the HTTP context type explicitly when accessing the context inside a controller method.
+
+```ts
+import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
+
+class HomeController {
+  public async index({ request, response }: HttpContextContract) {
+
+  }
+}
 ```
 
 ## Differences from the express `req` and `res` objects?
