@@ -30,8 +30,7 @@
   "providers": [
     "./providers/AppProvider",
     "@adonisjs/core",
-    "@adonisjs/view",
-    "@adonisjs/shield"
+    "@adonisjs/view"
   ],
   "metaFiles": [
     {
