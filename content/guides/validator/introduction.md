@@ -273,21 +273,6 @@ export default class CreateUserValidator {
 }
 ```
 
-Following is an example of using the validator classes outside of the HTTP request.
-
-```ts
-import { validate } from '@ioc:Adonis/Core/Validator'
-import CreateUser from 'App/Validators/CreateUserValidator'
-
-await validator.validate(
-  new CreateUser({
-    countries: 
-    owedCountries(),
-    states: fetchAllowedStates()
-  })
-)
-```
-
 ## What's next?
 
 - Read the cookbook on [validating server rendered forms](../../cookbooks/validator/validating-server-rendered-forms.md)
