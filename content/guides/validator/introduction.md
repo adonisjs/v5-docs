@@ -244,7 +244,6 @@ Your validator class would look like the following:
 
 ```ts
 import { schema } from '@ioc:Adonis/Core/Validator'
-import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
 interface Country {
   id: number
