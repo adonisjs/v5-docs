@@ -240,6 +240,39 @@ Route.post('users', async ({ request, response }) => {
 })
 ```
 
+Your validator class would look like the following:
+
+```ts
+// title: app/Validators/CreateUserValidator.ts
+import { schema } from '@ioc:Adonis/Core/Validator'
+import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
+
+interface Country {
+  id: number
+  name: string
+}
+
+interface State {
+  id: number
+  name: string
+}
+
+interface CreateUser {
+  countries: Country[]
+  states: State[]
+}
+
+export default class CreateUserValidator {
+  constructor (public createUser: CreateUser) {
+  }
+
+  public schema = schema.create({
+  })
+
+  public messages = {}
+}
+```
+
 Following is an example of using the validator classes outside of the HTTP request.
 
 ```ts
@@ -248,7 +281,8 @@ import CreateUser from 'App/Validators/CreateUserValidator'
 
 await validator.validate(
   new CreateUser({
-    countries: fetchAllowedCountries(),
+    countries: 
+    owedCountries(),
     states: fetchAllowedStates()
   })
 )
