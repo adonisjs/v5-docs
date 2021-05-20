@@ -29,7 +29,7 @@ export const markdownLanguages = [
     path: './resources/vscode/dotenv.tmLanguage.json',
     scopeName: 'source.env',
     id: 'dotenv',
-  }
+  },
 ]
 
 /*
@@ -80,5 +80,5 @@ export const zones = [
     template: 'docs',
     contentPath: './content/releases',
     menu: Releases,
-  }
+  },
 ]
