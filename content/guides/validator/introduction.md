@@ -215,12 +215,12 @@ Instead of passing an object with the `schema` property, you can now pass the cl
 ```ts
 import Route from '@ioc:Adonis/Core/Route'
 // highlight-start
-import CreateUser from 'App/Validators/CreateUserValidator'
+import CreateUserValidator from 'App/Validators/CreateUserValidator'
 // highlight-end
 
 Route.post('users', async ({ request, response }) => {
   // highlight-start
-  await request.validate(CreateUser)
+  await request.validate(CreateUserValidator)
   // highlight-end
 })
 ```
@@ -232,7 +232,7 @@ You can also manually construct the class instance and pass any arguments you li
 ```ts
 Route.post('users', async ({ request, response }) => {
   await request.validate(
-    new CreateUser({
+    new CreateUserValidator({
       countries: fetchAllowedCountries(),
       states: fetchAllowedStates()
     })
@@ -243,7 +243,6 @@ Route.post('users', async ({ request, response }) => {
 Your validator class would look like the following:
 
 ```ts
-// title: app/Validators/CreateUserValidator.ts
 import { schema } from '@ioc:Adonis/Core/Validator'
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
