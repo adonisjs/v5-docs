@@ -2,7 +2,7 @@
 summary: Authenticate requests using Opaque access tokens
 ---
 
-The API guard uses the database backend **opaque access token** to authenticate the user requests. 
+The API guard uses the database backend **opaque access token** to authenticate the user requests.
 
 You must use this guard to implement stateless authentication, meaning no state is stored inside cookies or sessions by the AdonisJS application. Also, with stateless authentication, it is the responsibility of the client to keep the tokens secure.
 
@@ -33,7 +33,7 @@ Configuration for tokens is managed inside the `config/auth.ts` file under the g
 ```
 
 #### type
-The type property holds the type of the token you are generating. Make sure to give it a unique name when you have multiple API token guards in use. 
+The type property holds the type of the token you are generating. Make sure to give it a unique name when you have multiple API token guards in use.
 
 The unique name ensures that two guards generating the token for the same user does not have overlap or any conflicts.
 
@@ -78,7 +78,7 @@ Configuration for tokens is managed inside the `config/auth.ts` file under the g
 ```
 
 #### type
-The type property holds the type of the token you are generating. Make sure to give it a unique name when you have multiple API token guards in use. 
+The type property holds the type of the token you are generating. Make sure to give it a unique name when you have multiple API token guards in use.
 
 The unique name ensures that two guards generating the token for the same user does not have overlap or any conflicts.
 
@@ -119,7 +119,7 @@ Route.post('login', async ({ auth, request, response }) => {
     // highlight-end
   } catch {
     return response.badRequest('Invalid credentials')
-  } 
+  }
 })
 ```
 
@@ -165,7 +165,7 @@ Route.post('login', async ({ auth, request, response }) => {
 
 ---
 
-### Manging tokens expiry
+### Managing tokens expiry
 You can also define the expiry for the token at the time of the generating it.
 
 ```ts
