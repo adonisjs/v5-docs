@@ -1,4 +1,6 @@
-<aside class="toc">
+<aside
+  x-data="asideHighlights()" x-init="init" class="toc"
+>
   @if(file.toc)
     <div class="toc-container" data-turbo="false">
       <h3> On this page </h3>

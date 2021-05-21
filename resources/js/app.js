@@ -149,3 +149,126 @@ if (activeSidebarItem) {
     block: 'center',
   })
 }
+
+/**
+ * Intersection Observer to highlight the in-page header links
+ * Directly uses the Browser's IntersectionObserver API. No dependencies.
+ */
+window.asideHighlights = () => ({
+  /**
+   * Initialise the intersection observer
+   */
+  init() {
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 1.0,
+    }
+
+    let observer = new IntersectionObserver(callback, observerOptions)
+
+    /**
+     * State to track all elements currently in the viewport.
+     * Useful for long sections which may cause the tracked element
+     * to leave the view before the next element comes into viewport.
+     * Or for short sections which may cause multiple tracked element
+     * to be within the viewport.
+     * @type HTMLElement[]
+     */
+    let activeElements = []
+    /**
+     * The latest element in the viewport
+     * @type HTMLElement
+     */
+    let latestElement
+    /**
+     * Used to track elements which were not removed before they had long sections
+     * @type HTMLElement[]
+     */
+    let skippedElements = []
+
+    const asideLinksSelector = 'aside > div > nav > ul li a'
+    /**
+     * Get all links on the aside (TOC)
+     */
+    const asideLinks = document.querySelectorAll(asideLinksSelector)
+    /**
+     * The aside links hrefs
+     * @type {string[]}
+     */
+    const asideLinksHrefs = []
+    asideLinks.forEach((link) => asideLinksHrefs.push(link.getAttribute('href')))
+
+    /**
+     * The intersection observer callback
+     * @param {IntersectionObserverEntry[]} entries List of IntersectionObserverEntry objects
+     */
+    function callback(entries) {
+      entries.forEach((entry) => {
+        const href = entry.target.getAttribute('href')
+        /**
+         * The targeted aside link element
+         */
+        const asideLink = document.querySelector(`${asideLinksSelector}[href="${href}"]`)
+        /**
+         * Get the parent element of the aside link
+         * The active class will be applied to the element
+         */
+        const asideLinkParent = asideLink?.parentElement
+
+        if (entry.isIntersecting) {
+          if (asideLinkParent) {
+            activeElements.push(asideLinkParent)
+            latestElement = asideLinkParent
+            asideLinkParent?.classList.add('active')
+          }
+
+          // Check if there is an element in the `skippedElements` array
+          if (skippedElements.length) {
+            skippedElements.forEach((element) => {
+              element.classList.remove('active')
+            })
+            skippedElements.length = 0
+          }
+        } else {
+          // Don't remove the active class until another link enters the view
+          activeElements = activeElements.filter((activeElement) => {
+            if (
+              activeElement &&
+              asideLinkParent &&
+              activeElement.innerText === asideLinkParent.innerText
+            ) {
+              // Check if the tracked element leaving the viewport is the same
+              // as the `latestElement`. That is, the next tracked element has
+              // not entered the viewport yet. This is an header with a long section
+              if (latestElement && latestElement.innerText === activeElement.innerText) {
+                // Add to skippedElements array
+                skippedElements.push(activeElement)
+                return true
+              }
+              // Else remove the `active` class and remove from the list
+              activeElement?.classList.remove('active')
+              return false
+            }
+            return true
+          })
+        }
+      })
+    }
+
+    /**
+     * Get all in-page header links
+     * These are the targets to be observed
+     */
+    const pageHeaderLinksSelector = 'main a[href^="#"]'
+    const pageHeaderLinks = document.querySelectorAll(pageHeaderLinksSelector)
+    if (pageHeaderLinks.length) {
+      // Only observe in-page links which also are on the TOC.
+      pageHeaderLinks.forEach((link) => {
+        if (asideLinksHrefs.some((href) => href === link.getAttribute('href'))) {
+          observer.observe(link)
+        }
+      })
+    }
+  },
+})
