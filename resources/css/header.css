@@ -182,7 +182,7 @@ HEADER STYLES
 
   .header-nav > ul > li.active > a,
   .header-nav > ul > li.expand > a,
-  .header-nav  > ul > li > a:hover {
+  .header-nav > ul > li > a:hover {
     color: #fff;
     background: rgba(0, 0, 0, 0.2);
   }
@@ -193,7 +193,7 @@ HEADER STYLES
   height: auto;
   padding: 0;
   margin: 0;
-  width:  100%;
+  width: 100%;
 }
 
 .search-wrapper {

@@ -25,7 +25,10 @@
   padding: 2px 6px;
 }
 
-.markdown h1 a, .markdown h2 a, .markdown h3 a, .markdown h4 a {
+.markdown h1 a,
+.markdown h2 a,
+.markdown h3 a,
+.markdown h4 a {
   color: var(--mute-color);
   margin-left: -1em;
   opacity: 0;
@@ -33,7 +36,10 @@
   text-decoration: none;
 }
 
-.markdown h1 .icon:before, .markdown h2 .icon:before, .markdown h3 .icon:before, .markdown h4 .icon:before {
+.markdown h1 .icon:before,
+.markdown h2 .icon:before,
+.markdown h3 .icon:before,
+.markdown h4 .icon:before {
   content: '#';
 }
 .markdown h1:hover a,
@@ -64,7 +70,6 @@
   font-size: 2.6rem;
 }
 
-
 .markdown h3 {
   color: var(--heading-color);
   font-weight: var(--bold-font-weight);
@@ -74,7 +79,7 @@
 }
 /** Required only when using Calibre */
 .markdown h3 code {
-  font-size: 2.0rem;
+  font-size: 2rem;
 }
 
 .markdown h4 {
@@ -156,14 +161,14 @@
 .markdown .ctc-action {
   background-color: transparent;
   border: 0;
-  color:  var(--pre-header-color);
-  cursor:  pointer;
+  color: var(--pre-header-color);
+  cursor: pointer;
   font-size: 1.4rem;
   position: absolute;
-  top:  0;
+  top: 0;
   right: 0;
   margin: 10px;
-  opacity: .5;
+  opacity: 0.5;
   transition: opacity 100ms ease-in-out, color 100ms ease-in-out;
 }
 
@@ -287,7 +292,7 @@
 }
 
 .markdown .alert.alert-tip {
-  border-top: 6px solid #70D787;
+  border-top: 6px solid #70d787;
 }
 
 .table-container {
@@ -477,11 +482,11 @@ Development only file errors
 --------------------------------
 */
 .file-errors pre .line.fatal {
-  color: #EF4444;
+  color: #ef4444;
 }
 
 .file-errors pre .line.warning {
-  color: #EAB308;
+  color: #eab308;
 }
 
 /*
