@@ -179,8 +179,8 @@ The `sideloaded` value is passed down to the preloaded relationships as well.
 
 ---
 
-### apply
-The apply method allows you to leverage the query scopes defined on the model.
+### withScopes
+The `withScopes` method allows you to leverage the query scopes defined on the model.
 
 Begin by defining a query scope.
 
@@ -204,6 +204,18 @@ export default class Team extends BaseModel {
 The `forUser` property is a query scope that accepts the `user` object to fetch the teams of the currently logged in user.
 
 Now you can use the query scope as follows
+
+```ts
+Team
+  .query()
+  .withScopes((scopes) => scopes.forUser(auth.user))
+```
+
+---
+
+### apply
+
+Alias for the [`withScopes`](./query-builder.md#withscopes) method.
 
 ```ts
 Team

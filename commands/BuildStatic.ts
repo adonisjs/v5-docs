@@ -3,7 +3,6 @@ import { ProcessedDoc } from '@dimerapp/content'
 import { BaseCommand } from '@adonisjs/core/build/standalone'
 
 export default class BuildStatic extends BaseCommand {
-
   /**
    * Command Name is used to run the command
    */
@@ -72,7 +71,7 @@ export default class BuildStatic extends BaseCommand {
   /**
    * Run command
    */
-  public async run () {
+  public async run() {
     const Content = (await import('App/Services/Content')).default
     const docs: any[] = []
 
