@@ -145,6 +145,10 @@
   position: relative;
 }
 
+.markdown .fancy-codeblock .ctc-action {
+  margin-top: 33px;
+}
+
 .markdown .codeblock-title ~ .ctc-action {
   margin-top: 40px;
 }
