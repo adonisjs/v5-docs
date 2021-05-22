@@ -2,13 +2,7 @@
 summary: Authenticate requests using Opaque access tokens
 ---
 
-The API guard uses an **opaque access token** to authenticate the user requests. You may want to use the api guard when **creating an API that should be accessed by third-party client**, or for **any other system that does not support cookies**.
-
-:::note
-
-It is the responsibility of the client to keep the tokens secure.
-
-:::
+The API guard uses the database backed **opaque access token** to authenticate the user requests. You may want to use the api guard when creating an API that should be accessed by a third-party client, or for any other system that does not support cookies.
 
 ## Tokens storage
 The API tokens guard allows you store tokens either in a SQL database or store them inside Redis. Both the storage options have their own use cases.
