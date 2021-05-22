@@ -320,6 +320,11 @@
             "title": "Social authentication",
             "permalink": "auth/social",
             "contentPath": "auth/social.md"
+          },
+          {
+            "title": "Custom user provider",
+            "permalink": "auth/custom-user-provider",
+            "contentPath": "auth/custom-user-provider.md"
           }
         ]
       },
