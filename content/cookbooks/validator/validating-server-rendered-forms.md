@@ -192,7 +192,7 @@ export default class PostsController {
   public async store({ request }: HttpContextContract) {
   // delete-end
   // insert-start
-  public async store({ request, session }: HttpContextContract) {
+  public async store({ request, session, response }: HttpContextContract) {
   // insert-end
 
     // ... Collapsed existing code
