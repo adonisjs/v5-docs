@@ -45,7 +45,7 @@ export default class AddressValidator {
 If you look at the above example, the enum options for the `city` are dependent on the `selectedState` and may vary with every HTTP request. As per the caching rules, the enum options after the first request will get cached and will not change as the user will change the state selection.
 
 ### Available options
-Following are some of the available options to encouter the caching caveats.
+Following are some of the available options to encounter the caching caveats.
 
 ---
 

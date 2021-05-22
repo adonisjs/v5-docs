@@ -195,7 +195,7 @@ export default class PostsController {
   public async store({ request, session }: HttpContextContract) {
   // insert-end
 
-    // ... Collpased existing code
+    // ... Collapsed existing code
     console.log(payload)
 
     // delete-start

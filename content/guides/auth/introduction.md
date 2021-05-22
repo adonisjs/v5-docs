@@ -110,7 +110,7 @@ You can also configure new guards and the providers after initial setup. The fir
 
 You can add a new provider inside the `ProvidersList` interface. The key is the name of provider, alongside the types for both the config and the implementation.
 
-The `GuardsList` interface is the list of all the guards you want to use. The key is the name of the guard, alonside the types for both the guard config and its implementation.
+The `GuardsList` interface is the list of all the guards you want to use. The key is the name of the guard, alongside the types for both the guard config and its implementation.
 
 ```ts
 // title: contracts/auth.ts
@@ -149,11 +149,11 @@ Once, you have added the new guard(s) or provider(s) inside the contracts file, 
 
 The setup process also creates the migration files for the `users` table and optionally for the `tokens` table (if using the API tokens guard with SQL storage).
 
- The filename of the migrations uses the current timestamp and is placed after all the existing migrations. 
- 
- There are chances that some of your tables needs to create a foreign key constraint with the `users` table, hence the `users` table migration must run before those migrations. 
- 
- In this scanerio, you can manually rename the `users` table migration file and use a smaller timestamp to move it ahead of the other migration files.
+ The filename of the migrations uses the current timestamp and is placed after all the existing migrations.
+
+ There are chances that some of your tables needs to create a foreign key constraint with the `users` table, hence the `users` table migration must run before those migrations.
+
+ In this scenario, you can manually rename the `users` table migration file and use a smaller timestamp to move it ahead of the other migration files.
 
 ## Usage
 You can access the `auth` instance inside your route handlers using the `ctx.auth` property. The auth object allows you to both login users and authenticate subsequent requests.
