@@ -240,7 +240,7 @@ Route.post('users', async ({ request, response }) => {
 })
 ```
 
-Your validator class would look like the following:
+The following is an example of using a validator class, without an HTTP `request` object.
 
 ```ts
 import { schema } from '@ioc:Adonis/Core/Validator'
