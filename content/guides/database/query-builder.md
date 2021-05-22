@@ -81,7 +81,7 @@ await Database.table('users').multiInsert([
 ## Raw queries
 Raw queries allows to execute a SQL statement from a string input. This is usually helpful, when you want to execute complex queries that are not supported by the standard query builder.
 
-You can create an instance of the raw query builder using the `.rawQuery` metho. It accepts the SQL string as the first argument and its positional/named bindings as the second argument.
+You can create an instance of the raw query builder using the `.rawQuery` method. It accepts the SQL string as the first argument and its positional/named bindings as the second argument.
 
 ```ts
 import Database from '@ioc:Adonis/Lucid/Database'

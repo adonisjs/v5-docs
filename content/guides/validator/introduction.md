@@ -51,7 +51,7 @@ If you look carefully, we have separated the **format validations** from **core 
 This separation helps a lot in extending the validator with custom rules, without creating unnecessary schema types that has no meaning. For example: There is no thing called **email type**, it is a just a string, formatted as an email.
 
 ### Marking fields as optional
- 
+
 The schema properties are required by default. However, you can mark them as optional by chaining the `optional` method. The optional variant is available for all the schema types.
 
 ```ts
@@ -144,7 +144,7 @@ Requests negotiating for the JSON data type receives the error messages as an ar
 ```
 
 ### JSON API
-Requests negotiating using `Accept=application/vnd.api+json` header, recieves the error messages as per the [JSON API spec](https://jsonapi.org/format/#errors).
+Requests negotiating using `Accept=application/vnd.api+json` header, receives the error messages as per the [JSON API spec](https://jsonapi.org/format/#errors).
 
 ```ts
 {

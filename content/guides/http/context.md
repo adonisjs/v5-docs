@@ -204,7 +204,7 @@ export default class UserLocationMiddleware {
 }
 ```
 
-Here we have added a custom `location` property to the `ctx`, which you can access inside the route handler or the upcoming middlewares.
+Here we have added a custom `location` property to the `ctx`, which you can access inside the route handler or the upcoming middleware.
 
 ### Informing typescript about the custom property
 

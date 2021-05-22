@@ -47,7 +47,7 @@ We started with the following set of goals.
 - All the configuration should be managed by the existing `tsconfig.json` file.
 - If the code runs in development, then it should run in production too. Meaning, do not use two completely different development and production tools and then teach people how to adjust their code.
 - Add lightweight support for copying static files to the final build folder. Usually, these will be the edge templates.
-- **Make sure the REPL can also run the TypeScript code as first class citizen. All of the above approaches, except `ts-node` cannot compile and evaluate the TypeScript code directly.** 
+- **Make sure the REPL can also run the TypeScript code as first class citizen. All of the above approaches, except `ts-node` cannot compile and evaluate the TypeScript code directly.**
 
 ## In-memory development compiler
 Similar to ts-node, we created [@adonisjs/require-ts](https://github.com/adonisjs/require-ts) module. It uses the TypeScript compiler API, meaning all the TypeScript features works, and your `tsconfig.json` file is the single source of truth.
@@ -68,14 +68,14 @@ You build your code production by running the `node ace build --production` comm
 - Build your frontend assets using Webpack encore (only if it is installed).
 - Use the TypeScript compiler API to compile the TypeScript code to JavaScript and write it inside the `build` folder. **This time, we do perform type checking and report the TypeScript errors**.
 - Copy all the static files to the `build` folder. The static files are registered inside the `.adonisrc.json` file under the `metaFiles` array.
-- Copy the `package.json` and `package-lock.json/yarn.lock` to the `build` folder. 
+- Copy the `package.json` and `package-lock.json/yarn.lock` to the `build` folder.
 - Generate the `ace-manifest.json` file. It contains an index of all the commands your project is using.
 - That is all.
 
 ---
 
 #### Why do we call it a standalone build?
-After running the `build` command, the output folder has everything you need to deploy your application in production. 
+After running the `build` command, the output folder has everything you need to deploy your application in production.
 
 You can copy the `build` folder without your TypeScript source code, and your application will work just fine.
 
@@ -91,9 +91,9 @@ Creating a standalone `build` folder does help in reducing the size of code that
   cd build
   node server.js
   ```
-- You must install production-only dependencies inside the `build` folder. 
+- You must install production-only dependencies inside the `build` folder.
   ```sh
   cd build
   npm ci --production
   ```
-- We do not copy the `.env` file to the output folder. Because the environment variables are not transferrable, you must define environment variables for production separately.
+- We do not copy the `.env` file to the output folder. Because the environment variables are not transferable, you must define environment variables for production separately.

@@ -33,7 +33,7 @@ At the time of deploying your application to the DO apps platform, you will be p
 ![](https://res.cloudinary.com/adonis-js/image/upload/q_auto,f_auto/v1619105542/v5/do-start-screen.jpg)
 
 ## Using database
-You can also add the database as a component to your app and then update the environment variables with the database credentials. 
+You can also add the database as a component to your app and then update the environment variables with the database credentials.
 
 We find Digital ocean database environment variables very generic and recommend re-mapping them as follows:
 
@@ -47,7 +47,7 @@ DATABASE=
 ```
 
 #### Re-mapping them to be specific
-You must re-map the enviroment variables to be more specific. For example
+You must re-map the environment variables to be more specific. For example
 
 ![](https://res.cloudinary.com/adonis-js/image/upload/q_auto,f_auto/v1619105542/v5/do-remmaped-env-vars.jpg)
 
@@ -61,6 +61,6 @@ Also, make sure to update the **Run command** to `node build/ace make:migration 
 ![](https://res.cloudinary.com/adonis-js/image/upload/q_auto,f_auto/v1619105809/v5/do-job-component.jpg)
 
 ## Managing user uploaded files
-Digital ocean apps do not have peristant storage and hence you cannot save the user uploaded files on the server filesystem. This leaves you with only one option of saving the uploaded files to an external service like Digital ocean spaces.
+Digital ocean apps do not have persistent storage and hence you cannot save the user uploaded files on the server filesystem. This leaves you with only one option of saving the uploaded files to an external service like Digital ocean spaces.
 
 We are currently working on a module that allows you to use the local filesystem during development and then switch to an external filesystem like Digital ocean spaces for production. Do all this without changing a single line of code.

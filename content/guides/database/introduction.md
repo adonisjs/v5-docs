@@ -204,7 +204,7 @@ Route.get('posts', async ({ request }) => {
 })
 ```
 
-You are not only limited to the select queries. You can also use the query builder to perform **upates**, **inserts** and **deletes**.
+You are not only limited to the select queries. You can also use the query builder to perform **updates**, **inserts** and **deletes**.
 
 #### Insert a new row
 

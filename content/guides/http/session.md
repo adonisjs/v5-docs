@@ -23,7 +23,7 @@ node ace configure @adonisjs/session
 ```
 
 ```ts
-// title: Validate environment variables  
+// title: Validate environment variables
 /**
  * Make sure to add the following validation rules to the
  * `env.ts` file to validate the environment variables.
@@ -445,7 +445,7 @@ Find if the store has been initiated in `readonly` mode or not.
 
 :::note
 
-During HTTP requests, the store is **NEVER** in read-only mode. This flag is reserved for the future to have a read-only session for Websockets connections.
+During HTTP requests, the store is **NEVER** in read-only mode. This flag is reserved for the future to have a read-only session for WebSocket connections.
 
 :::
 
