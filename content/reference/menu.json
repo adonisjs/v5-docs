@@ -286,6 +286,11 @@
             "title": "equalTo",
             "permalink": "validator/rules/equal-to",
             "contentPath": "validator/rules/equal-to.md"
+          },
+          {
+            "title": "custom",
+            "permalink": "validator/rules/custom",
+            "contentPath": "validator/rules/custom.md"
           }
         ]
       }
