@@ -173,19 +173,19 @@ window.asideHighlights = () => ({
      * to leave the view before the next element comes into viewport.
      * Or for short sections which may cause multiple tracked element
      * to be within the viewport.
-     * @type HTMLElement[]
-     */
-    let activeElements = []
-    /**
-     * The latest element in the viewport
      * @type HTMLElement
      */
-    let latestElement
+    let activeElement
     /**
-     * Used to track elements which were not removed before they had long sections
+     * All elements in the viewport
      * @type HTMLElement[]
      */
-    let skippedElements = []
+    let inViewElements = []
+    /**
+     * Used to track elements which were not removed before they had long sections
+     * @type HTMLElement
+     */
+    let skippedElement
 
     const asideLinksSelector = 'aside > div > nav > ul li a'
     /**
@@ -212,46 +212,56 @@ window.asideHighlights = () => ({
         const asideLink = document.querySelector(`${asideLinksSelector}[href="${href}"]`)
         /**
          * Get the parent element of the aside link
-         * The active class will be applied to the element
+         * The active class will be applied to the element.
          */
         const asideLinkParent = asideLink?.parentElement
 
         if (entry.isIntersecting) {
           if (asideLinkParent) {
-            activeElements.push(asideLinkParent)
-            latestElement = asideLinkParent
-            asideLinkParent?.classList.add('active')
+            activeElement = asideLinkParent
+            activeElement.classList.add('active')
+            inViewElements.push(asideLinkParent)
+
+            // Whenever a new header enters the view, remove the `active` class from
+            // all elements but the last element in the `inViewElements` array.
+            if (inViewElements && inViewElements.length) {
+              if (inViewElements.length > 1) {
+                inViewElements.map((inViewElement, index, array) => {
+                  if (index < array.length - 1) {
+                    inViewElement.classList.remove('active')
+                  }
+                })
+              }
+            }
           }
 
-          // Check if there is an element in the `skippedElements` array
-          if (skippedElements.length) {
-            skippedElements.forEach((element) => {
-              element.classList.remove('active')
-            })
-            skippedElements.length = 0
+          // Check if there is a `skippedElement`
+          if (skippedElement) {
+            skippedElement.classList.remove('active')
+            skippedElement = null
           }
         } else {
           // Don't remove the active class until another link enters the view
-          activeElements = activeElements.filter((activeElement) => {
+          if (
+            activeElement &&
+            asideLinkParent &&
+            activeElement.innerText === asideLinkParent.innerText
+          ) {
+            // Check if the tracked element leaving the viewport is the same
+            // as the `latestElement` (last element in the `inViewElements` array).
+            // That is, the next tracked element has not entered the viewport yet.
+            // This is an header with a long section
             if (
-              activeElement &&
-              asideLinkParent &&
-              activeElement.innerText === asideLinkParent.innerText
+              inViewElements &&
+              inViewElements.length &&
+              inViewElements[inViewElements.length - 1].innerText === activeElement.innerText
             ) {
-              // Check if the tracked element leaving the viewport is the same
-              // as the `latestElement`. That is, the next tracked element has
-              // not entered the viewport yet. This is an header with a long section
-              if (latestElement && latestElement.innerText === activeElement.innerText) {
-                // Add to skippedElements array
-                skippedElements.push(activeElement)
-                return true
-              }
-              // Else remove the `active` class and remove from the list
-              activeElement?.classList.remove('active')
-              return false
+              // Assign to skippedElement
+              skippedElement = activeElement
+              // Reset the inViewElements
+              inViewElements.length = 0
             }
-            return true
-          })
+          }
         }
       })
     }
