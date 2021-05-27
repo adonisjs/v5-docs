@@ -573,6 +573,35 @@ const users = await User
   })
 ```
 
+### Caveat for when you cherry-pick columns
+
+If you decide to cherry-pick (i.e. select few) columns from a Model before preloading a belongsTo relationship, make sure that you also add the foreign key of the relationship to the columns selected. In the example below, the User model belongsTo a Role model (i.e. the Role model hasMany User models). You should make sure that the role_id column (foreign key) is selected too.
+
+```ts
+const user = await User.query()
+  .select( // Cherry-picking of few columns
+    'users.id',
+    'users.email',
+    'users.login_status',
+    'users.is_account_activated',
+    'users.is_email_verified',
+    'users.role_id' // Add 'role_id' to the columns selected
+  )
+  .where('email', email)
+  .preload('companies', (companiesQuery) => companiesQuery.select('id', 'name'))
+  .preload('profile', (profileQuery) =>
+    profileQuery.select(...['id', 'first_name', 'last_name', 'profile_picture'])
+  )
+  .preload('role', (roleQuery) => roleQuery.select('name')) // `belongsTo` relationship
+  .first()
+  ```
+  
+This will save you from this kind of teeth-gnashing error:
+
+```log
+Cannot preload "role", value of "User.roleId" is undefined. Make sure to set "null" as the default value for foreign keys
+```
+
 ### Many to many pivot columns
 When preloading a manyToMany relationship, the pivot table columns are moved to the `$extras` object on the relationship instance.
 
