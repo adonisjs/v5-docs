@@ -1218,7 +1218,7 @@ The nested relations can be loaded as follows:
 ```ts
 await user.load((loader) => {
   loader.load('profile', (profile) => {
-    profile.load('socialAccounts')
+    profile.preload('socialAccounts')
   }).load('posts')
 })
 ```
