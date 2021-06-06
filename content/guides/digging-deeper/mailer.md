@@ -696,6 +696,30 @@ afterEach(() => {
 })
 ```
 
+## Monitory mailer queue
+The emails sent using `Mail.sendLater` method are moved into an in-memory queue. You can monitor this queue using the `Mail.monitorQueue` method.
+
+If you do not monitor the queue explicitly, then the Mail module will log the errors using the [logger](./logger.md).
+
+You can write the following code inside a [preload file](../fundamentals/adonisrc-file.md#preloads).
+
+```ts
+// title: start/mail.ts
+import Mail from '@ioc:Adonis/Addons/Mail'
+
+Mail.monitorQueue((error, result) => {
+  if (error) {
+    console.log('Unable to send email')
+    console.log(error.mail)
+    return
+  }
+
+  console.log('Email sent')
+  console.log(result.mail)
+  console.log(result.response)
+})
+```
+
 ## Events
 The mail module emits the `mail:sent` event that you can listen to observe the outgoing emails. You can place the code for the event listener inside a [preload]() file.
 
