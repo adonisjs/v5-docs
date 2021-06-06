@@ -337,6 +337,11 @@
             "contentPath": "security/web-security.md"
           },
           {
+            "title": "CORS",
+            "permalink": "security/cors",
+            "contentPath": "security/cors.md"
+          },
+          {
             "title": "Encryption",
             "permalink": "security/encryption",
             "contentPath": "security/encryption.md"
