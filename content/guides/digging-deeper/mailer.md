@@ -327,7 +327,8 @@ You can also send a Buffer or a stream directly as an attachment using the `mess
 
 :::note
 
-Make sure to define the filename explicitly when passing a buffer or a stream.
+- Make sure to define the filename explicitly when passing a buffer or a stream.
+- You cannot use `attachData` method with `Mail.sendLater` as streams and buffers cannot be serialized into queue jobs.
 
 :::
 
@@ -371,6 +372,12 @@ Inside the edge template, you can use the earlier defined unique id as the `img`
 ```
 
 Similar to the [message.attachData](#streams-and-buffers-as-attachments), you can also embed a Buffer or a stream directly using the `embedData` method.
+
+:::note
+
+You cannot use `embedData` method with `Mail.sendLater` as streams and buffers cannot be serialized into queue jobs.
+
+:::
 
 ```ts
 message.embedData(
