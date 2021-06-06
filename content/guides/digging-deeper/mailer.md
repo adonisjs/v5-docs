@@ -133,7 +133,7 @@ The sparkpost driver optionally accepts the following options.
 | `skipSuppression` | skip_suppression |
 | `ipPool` | ip_pool |
 
-You can also define all of the configuration options at runtime during the `Mail.send` call.
+You can also define all configuration options at runtime during the `Mail.send` call.
 
 ```ts
 await Mail.use('sparkpost').send((message) => {
@@ -328,7 +328,7 @@ You can also send a Buffer or a stream directly as an attachment using the `mess
 :::note
 
 - Make sure to define the filename explicitly when passing a buffer or a stream.
-- You cannot use `attachData` method with `Mail.sendLater` as streams and buffers cannot be serialized into queue jobs.
+- You cannot use the `attachData` method with `Mail.sendLater` as streams and buffers cannot be serialized into queue jobs.
 
 :::
 
@@ -351,9 +351,9 @@ message.attachData(
 ```
 
 ## Embedding images
-There are [multiple ways](https://blog.mailtrap.io/embedding-images-in-html-email-have-the-rules-changed) to render images inside the email body. One of them is sending the image as an attachment and then adding it to the HTML using its Content-Id (CID).
+There are [multiple ways](https://blog.mailtrap.io/embedding-images-in-html-email-have-the-rules-changed) to render images inside the email body. One example is sending the image as an attachment and then adding it to the HTML using it's Content-Id (CID).
 
-You can use the `message.embed` method and pass it the absolute path of the file, along with a unique id as the second argument.
+You can use the `message.embed` method and pass it the file's absolute path, along with a unique id as the second argument.
 
 ```ts
 await Mail.sendLater((message) => {
@@ -375,7 +375,7 @@ Similar to the [message.attachData](#streams-and-buffers-as-attachments), you ca
 
 :::note
 
-You cannot use `embedData` method with `Mail.sendLater` as streams and buffers cannot be serialized into queue jobs.
+You cannot use the `embedData` method with `Mail.sendLater` as streams and buffers cannot be serialized into queue jobs.
 
 :::
 
@@ -390,7 +390,7 @@ message.embedData(
 Following is the list of available methods on the `message` object.
 
 #### from
-Define the sender for the email.
+Define the sender of the email.
 
 ```ts
 message.from('admin@example.com')
@@ -511,7 +511,7 @@ Define the email HTML as a string directly. You must use either `html` or the `h
 message.html(`<p> Welcome </p>`)
 ```
 
-Make use of the `text` and the `watch` methods to define the email body from a raw string.
+Use the `text` and the `watch` methods to define the email body from a raw string.
 
 ---
 
@@ -650,7 +650,7 @@ await new VerifyEmail().preview()
 ```
 
 ## Preview emails
-You can preview your emails by sending them to a [fake SMTP server](https://ethereal.email/). This allows you to check if your email has any broken links or attachments before sending it to the actual users.
+You can preview your emails by sending them to a [fake SMTP server](https://ethereal.email/). This allows you to check if your email has any broken links or attachments before sending them to the actual users.
 
 All you need to do is, replace the `sendLater` method with the `preview` method.
 
@@ -697,9 +697,9 @@ afterEach(() => {
 ```
 
 ## Monitory mailer queue
-The emails sent using `Mail.sendLater` method are moved into an in-memory queue. You can monitor this queue using the `Mail.monitorQueue` method.
+The emails sent using the `Mail.sendLater` method are moved into an in-memory queue. You can monitor this queue using the `Mail.monitorQueue` method.
 
-If you do not monitor the queue explicitly, then the Mail module will log the errors using the [logger](./logger.md).
+If you do not explicitly monitor the queue, the Mail module will log the errors using the [logger](./logger.md).
 
 You can write the following code inside a [preload file](../fundamentals/adonisrc-file.md#preloads).
 
@@ -721,7 +721,7 @@ Mail.monitorQueue((error, result) => {
 ```
 
 ## Events
-The mail module emits the `mail:sent` event that you can listen to observe the outgoing emails. You can place the code for the event listener inside a [preload]() file.
+The mail module emits the `mail:sent` event to listen to observe the outgoing emails. You can place the code for the event listener inside a [preload]() file.
 
 ```ts
 // title: start/events.ts
