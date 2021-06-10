@@ -386,6 +386,57 @@ message.embedData(
 )
 ```
 
+## Calendar events
+You can attach calendar events (.ics files) using the `message.icalEvent` method. The method accepts the invite content as a string or a callback to generate the content programmatically.
+
+```ts
+message.icalEvent(eventContent, {
+  method: 'PUBLISH',
+  filename: 'invite.ics',
+})
+```
+
+Or generate the content using the calendar's fluent API. The `calendar` object passed to the callback is an instance of [ICalCalendar](https://sebbo2002.github.io/ical-generator/develop/reference/classes/icalcalendar.html) class from the [ical-generator](https://www.npmjs.com/package/ical-generator) package.
+
+```ts
+import { DateTime } from 'luxon'
+
+message.icalEvent((calendar) => {
+  calendar
+    .createEvent({
+      summary: 'Adding support for ALS',
+      start: DateTime.local().plus({ minutes: 30 }),
+      end: DateTime.local().plus({ minutes: 60 }),
+    })
+})
+```
+
+### icalEventFromFile
+You can attach a pre-existing `.ics` file using the `message.icalEventFromFile` method. The first argument is the absolute path to the file.
+
+```ts
+message.icalEventFromFile(
+  Application.resourcesPath('calendar-invites/invite.ics'),
+  {
+    filename: 'invite.ics',
+    method: 'PUBLISH'
+  }
+)
+```
+
+### icalEventFromUrl
+You can attach the event from a URL that returns the content for the invite.
+
+```ts
+message.icalEventFromUrl(
+  'https://myapp.com/users/1/invite'
+  {
+    filename: 'invite.ics',
+    method: 'PUBLISH'
+  }
+)
+```
+
 ## Messages API
 Following is the list of available methods on the `message` object.
 

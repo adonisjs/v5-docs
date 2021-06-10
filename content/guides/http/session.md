@@ -367,6 +367,27 @@ The `session.flashExcept` method is the opposite of the `flashOnly` method and a
 session.flashExcept(['_csrf', 'submit'])
 ```
 
+### reflash
+The `session.reflash` method flashes the data from the previous request.
+
+```ts
+session.reflash()
+```
+
+### reflashOnly
+The `session.reflashOnly` method reflashes only the selected keys.
+
+```ts
+session.reflashOnly(['errors'])
+```
+
+### reflashExcept
+The `session.reflashExcept` method reflashes all the data except the mentioned keys.
+
+```ts
+session.reflashExcept(['success', 'username', 'password'])
+```
+
 ### Accessing flash messages
 
 You can access the flash messages set by the previous request using the `session.flashMessages` property or the `flashMessages` helper inside the edge templates.

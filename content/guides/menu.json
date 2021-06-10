@@ -54,6 +54,11 @@
             "title": "Deployment",
             "permalink": "deployment",
             "contentPath": "fundamentals/deployment.md"
+          },
+          {
+            "title": "Async local storage",
+            "permalink": "async-local-storage",
+            "contentPath": "fundamentals/async-local-storage.md"
           }
         ]
       },
