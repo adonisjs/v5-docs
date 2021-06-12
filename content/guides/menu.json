@@ -97,6 +97,11 @@
             "contentPath": "http/file-uploads.md"
           },
           {
+            "title": "Direct file uploads",
+            "permalink": "direct-file-uploads",
+            "contentPath": "http/direct-file-uploads.md"
+          },
+          {
             "title": "Middleware",
             "permalink": "middleware",
             "contentPath": "http/middleware.md"
