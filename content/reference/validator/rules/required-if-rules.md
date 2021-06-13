@@ -1,4 +1,4 @@
-The `requiredIf` rules allows you to mark a field as required when a certain condition is met. When using the `requiredIf` rules, you must mark the field as options first.
+The `requiredIf` rules allows you to mark a field as required when a certain condition is met. When using the `requiredIf` rules, you must mark the field as optional first.
 
 ## requiredIfExists
 
