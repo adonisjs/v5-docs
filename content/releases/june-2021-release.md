@@ -2,6 +2,12 @@ This is the first release after the major release of v5. So, this is special as 
 
 As always, let's start with the highlights of the release.
 
+:::note
+
+[Here's the summary](https://trello.com/c/1qTLaVPl/44-may-2021) of all the completed tasks and their related commits/PRs.
+
+:::
+
 ## Upgrading to the latest versions
 The following packages have been updated during the current release.
 
