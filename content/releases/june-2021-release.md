@@ -6,9 +6,9 @@ As always, let's start with the highlights of the release.
 The following packages have been updated during the current release.
 
 - Updated `@adonisjs/assembler` from version `5.1.1 -> 5.3.1`
-- Updated `@adonisjs/ally` from version `3.2.1 -> 4.0.0`
-- Updated `@adonisjs/lucid` from version `14.0.0 -> 15.0.0`
-- Updated `@adonisjs/mail` from version ` 7.1.1 -> 7.2.0`
+- Updated `@adonisjs/ally` from version `3.2.1 -> 4.0.2`
+- Updated `@adonisjs/lucid` from version `14.0.0 -> 15.0.1`
+- Updated `@adonisjs/mail` from version ` 7.1.1 -> 7.2.1`
 - Updated `@adonisjs/core` from version ` 5.1.6 -> 5.1.8`
 
 You can upgrade to the latest versions of all the packages using the `npm update` command or manually installing packages with the `@latest` tag.
