@@ -334,6 +334,11 @@
             "contentPath": "views/globals/session.md"
           },
           {
+            "title": "stringify",
+            "permalink": "views/globals/stringify",
+            "contentPath": "views/globals/stringify.md"
+          },
+          {
             "title": "String helpers",
             "permalink": "views/globals/string-helpers",
             "contentPath": "views/globals/string-helpers.md"

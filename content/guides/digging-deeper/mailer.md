@@ -133,7 +133,7 @@ The sparkpost driver optionally accepts the following options.
 | `skipSuppression` | skip_suppression |
 | `ipPool` | ip_pool |
 
-You can also define all of the configuration options at runtime during the `Mail.send` call.
+You can also define all configuration options at runtime during the `Mail.send` call.
 
 ```ts
 await Mail.use('sparkpost').send((message) => {
@@ -327,7 +327,8 @@ You can also send a Buffer or a stream directly as an attachment using the `mess
 
 :::note
 
-Make sure to define the filename explicitly when passing a buffer or a stream.
+- Make sure to define the filename explicitly when passing a buffer or a stream.
+- You cannot use the `attachData` method with `Mail.sendLater` as streams and buffers cannot be serialized into queue jobs.
 
 :::
 
@@ -350,9 +351,9 @@ message.attachData(
 ```
 
 ## Embedding images
-There are [multiple ways](https://blog.mailtrap.io/embedding-images-in-html-email-have-the-rules-changed) to render images inside the email body. One of them is sending the image as an attachment and then adding it to the HTML using its Content-Id (CID).
+There are [multiple ways](https://blog.mailtrap.io/embedding-images-in-html-email-have-the-rules-changed) to render images inside the email body. One example is sending the image as an attachment and then adding it to the HTML using it's Content-Id (CID).
 
-You can use the `message.embed` method and pass it the absolute path of the file, along with a unique id as the second argument.
+You can use the `message.embed` method and pass it the file's absolute path, along with a unique id as the second argument.
 
 ```ts
 await Mail.sendLater((message) => {
@@ -372,6 +373,12 @@ Inside the edge template, you can use the earlier defined unique id as the `img`
 
 Similar to the [message.attachData](#streams-and-buffers-as-attachments), you can also embed a Buffer or a stream directly using the `embedData` method.
 
+:::note
+
+You cannot use the `embedData` method with `Mail.sendLater` as streams and buffers cannot be serialized into queue jobs.
+
+:::
+
 ```ts
 message.embedData(
   fs.createReadStream('file.txt'),
@@ -379,11 +386,62 @@ message.embedData(
 )
 ```
 
+## Calendar events
+You can attach calendar events (.ics files) using the `message.icalEvent` method. The method accepts the invite content as a string or a callback to generate the content programmatically.
+
+```ts
+message.icalEvent(eventContent, {
+  method: 'PUBLISH',
+  filename: 'invite.ics',
+})
+```
+
+Or generate the content using the calendar's fluent API. The `calendar` object passed to the callback is an instance of [ICalCalendar](https://sebbo2002.github.io/ical-generator/develop/reference/classes/icalcalendar.html) class from the [ical-generator](https://www.npmjs.com/package/ical-generator) package.
+
+```ts
+import { DateTime } from 'luxon'
+
+message.icalEvent((calendar) => {
+  calendar
+    .createEvent({
+      summary: 'Adding support for ALS',
+      start: DateTime.local().plus({ minutes: 30 }),
+      end: DateTime.local().plus({ minutes: 60 }),
+    })
+})
+```
+
+### icalEventFromFile
+You can attach a pre-existing `.ics` file using the `message.icalEventFromFile` method. The first argument is the absolute path to the file.
+
+```ts
+message.icalEventFromFile(
+  Application.resourcesPath('calendar-invites/invite.ics'),
+  {
+    filename: 'invite.ics',
+    method: 'PUBLISH'
+  }
+)
+```
+
+### icalEventFromUrl
+You can attach the event from a URL that returns the content for the invite.
+
+```ts
+message.icalEventFromUrl(
+  'https://myapp.com/users/1/invite'
+  {
+    filename: 'invite.ics',
+    method: 'PUBLISH'
+  }
+)
+```
+
 ## Messages API
 Following is the list of available methods on the `message` object.
 
 #### from
-Define the sender for the email.
+Define the sender of the email.
 
 ```ts
 message.from('admin@example.com')
@@ -504,7 +562,7 @@ Define the email HTML as a string directly. You must use either `html` or the `h
 message.html(`<p> Welcome </p>`)
 ```
 
-Make use of the `text` and the `watch` methods to define the email body from a raw string.
+Use the `text` and the `watch` methods to define the email body from a raw string.
 
 ---
 
@@ -643,7 +701,7 @@ await new VerifyEmail().preview()
 ```
 
 ## Preview emails
-You can preview your emails by sending them to a [fake SMTP server](https://ethereal.email/). This allows you to check if your email has any broken links or attachments before sending it to the actual users.
+You can preview your emails by sending them to a [fake SMTP server](https://ethereal.email/). This allows you to check if your email has any broken links or attachments before sending them to the actual users.
 
 All you need to do is, replace the `sendLater` method with the `preview` method.
 
@@ -689,8 +747,32 @@ afterEach(() => {
 })
 ```
 
+## Monitory mailer queue
+The emails sent using the `Mail.sendLater` method are moved into an in-memory queue. You can monitor this queue using the `Mail.monitorQueue` method.
+
+If you do not explicitly monitor the queue, the Mail module will log the errors using the [logger](./logger.md).
+
+You can write the following code inside a [preload file](../fundamentals/adonisrc-file.md#preloads).
+
+```ts
+// title: start/mail.ts
+import Mail from '@ioc:Adonis/Addons/Mail'
+
+Mail.monitorQueue((error, result) => {
+  if (error) {
+    console.log('Unable to send email')
+    console.log(error.mail)
+    return
+  }
+
+  console.log('Email sent')
+  console.log(result.mail)
+  console.log(result.response)
+})
+```
+
 ## Events
-The mail module emits the `mail:sent` event that you can listen to observe the outgoing emails. You can place the code for the event listener inside a [preload]() file.
+The mail module emits the `mail:sent` event to listen to observe the outgoing emails. You can place the code for the event listener inside a [preload]() file.
 
 ```ts
 // title: start/events.ts

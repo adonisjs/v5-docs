@@ -91,7 +91,7 @@ request.param('id', 1)
 
 ### Request body
 
-The request body is parsed using the pre-configured bodyparser middleware. Open the `start/kernel.ts` file and ensure that the following middleware is registered inside the list of the global middlewares.
+The request body is parsed using the pre-configured bodyparser middleware. Open the `start/kernel.ts` file and ensure that the following middleware is registered inside the list of the global middleware.
 
 ```ts
 // title: start/kernel.ts
@@ -353,7 +353,7 @@ The `request.ips()` method returns an array of IP addresses starting from the mo
 request.ips()
 ```
 
-### Custom IP reterval method
+### Custom IP retrieval method
 
 If the trusted proxy settings are not enough to determine the correct IP address, you can implement your own custom `getIp` method.
 
@@ -564,7 +564,7 @@ The following methods from the request class rely on a trusted proxy to return t
 
 - **hostname**: The value of `request.hostname()` is derived from the `X-Forwarded-Host` header.
 - **protocol**: The value of `request.protocol()` is derived from the `X-Forwarded-Proto` header.
-- **ip/ips**: The value of `request.ips()` and `request.ip()` is derived from the `X-Forwaded-For` header. However, the `http.getIp` configuration method takes precendence when defined. [Learn more](#custom-ip-reterval-method)
+- **ip/ips**: The value of `request.ips()` and `request.ip()` is derived from the `X-Forwaded-For` header. However, the `http.getIp` configuration method takes precedence when defined. [Learn more](#custom-ip-reterval-method)
 
 ## CORS
 

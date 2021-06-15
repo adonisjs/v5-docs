@@ -71,7 +71,7 @@ The `Hash.make` method accepts a string value to a hash.
 
 ```ts
 import Hash from '@ioc:Adonis/Core/Hash'
-const hashedPassword = await Hash.hash(user.password)
+const hashedPassword = await Hash.make(user.password)
 ```
 
 Most of the time, you will be hashing the user's password, so it is better to use a model hook to perform the hashing.

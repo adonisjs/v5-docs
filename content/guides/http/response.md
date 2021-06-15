@@ -64,7 +64,7 @@ The automatic **content type** header is only defined when you don't set it expl
 :::
 
 - Content type is set to `application/json` for arrays and objects.
-- It is set to `text/html` for HTML fragements.
+- It is set to `text/html` for HTML fragments.
 - JSONP responses are sent with the `text/javascript` content type.
 - For everything else, we set the content type to `text/plain`.
 

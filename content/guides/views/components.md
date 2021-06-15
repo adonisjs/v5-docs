@@ -36,6 +36,41 @@ Components do not have access to the state of the parent template. However, they
 
 :::
 
+## Props
+The props are passed to a component as the second argument as an object of key-value pairs. You can access the props directly within the component file by using the object property name. For example:
+
+```edge
+@!component('button', {
+  text: 'Login',
+  type: 'submit'
+})
+```
+
+Then `button` component can access the `text` and the `type` props as follows.
+
+```edge
+<button type="{{ type }}">{{ text }}</button>
+```
+
+### $props
+Another way to access the props is to use the `$props` property. It is an instance of the [Props class](https://github.com/edge-js/edge/blob/develop/src/Component/Props.ts) and comes with a few extra capabilities to make components authoring easier.
+
+In the following example, the `serializeExcept` method will convert all the props, except the `text` prop into HTML attributes.
+
+```edge
+<button {{ $props.serializeExcept(['text']) }}>{{ text }}</button>
+```
+
+```edge
+@!component('button', {
+  text: 'Login',
+  type: 'submit',
+  class: 'py-2 px-8 text-white bg-gray-800',
+})
+```
+
+Similar to the `serializeExcept` method, you can use the `serializeOnly` method to serialize selected props only or use the `serialize` method to convert all props to HTML attributes.
+
 ## Slots
 
 Along with the props, components can also accept `slots`. Slots are named outlets, that the parent component can define markup for.

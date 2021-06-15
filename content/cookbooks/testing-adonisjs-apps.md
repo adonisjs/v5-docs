@@ -235,7 +235,7 @@ The next step is to write a test that interacts the database. But first, let's u
 
 :::tip
 
-You can also configure a separate database for testing by creating `.env.testing` file in the project root and [overwriting the neccessary](../guides/fundamentals/environment-variables.md#defining-variables-while-testing) environment variables.
+You can also configure a separate database for testing by creating `.env.testing` file in the project root and [overwriting the necessary](../guides/fundamentals/environment-variables.md#defining-variables-while-testing) environment variables.
 
 :::
 

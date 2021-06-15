@@ -23,7 +23,7 @@ node ace configure @adonisjs/session
 ```
 
 ```ts
-// title: Validate environment variables  
+// title: Validate environment variables
 /**
  * Make sure to add the following validation rules to the
  * `env.ts` file to validate the environment variables.
@@ -367,6 +367,27 @@ The `session.flashExcept` method is the opposite of the `flashOnly` method and a
 session.flashExcept(['_csrf', 'submit'])
 ```
 
+### reflash
+The `session.reflash` method flashes the data from the previous request.
+
+```ts
+session.reflash()
+```
+
+### reflashOnly
+The `session.reflashOnly` method reflashes only the selected keys.
+
+```ts
+session.reflashOnly(['errors'])
+```
+
+### reflashExcept
+The `session.reflashExcept` method reflashes all the data except the mentioned keys.
+
+```ts
+session.reflashExcept(['success', 'username', 'password'])
+```
+
 ### Accessing flash messages
 
 You can access the flash messages set by the previous request using the `session.flashMessages` property or the `flashMessages` helper inside the edge templates.
@@ -445,7 +466,7 @@ Find if the store has been initiated in `readonly` mode or not.
 
 :::note
 
-During HTTP requests, the store is **NEVER** in read-only mode. This flag is reserved for the future to have a read-only session for Websockets connections.
+During HTTP requests, the store is **NEVER** in read-only mode. This flag is reserved for the future to have a read-only session for WebSocket connections.
 
 :::
 

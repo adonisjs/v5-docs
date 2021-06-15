@@ -22,9 +22,10 @@ The template state is available to the rendered template, its partials and the l
 
 Globals are available to all the templates, including the components. You will usually use them to share helpers or the application wide metadata.
 
-You can register a global using the `view.global` method
+You can register a global using the `View.global` method. You can write the following code inside a [preloaded file](../fundamentals/adonisrc-file.md#preloads) or a service provider boot method.
 
 ```ts
+// title: start/view.ts
 import View from '@ioc:Adonis/Core/View'
 
 View.global('nl2br', function (text) {

@@ -279,12 +279,32 @@
   position: relative;
 }
 
-.markdown .alert > :last-child {
+.markdown .alert > :last-child, .markdown blockquote > :last-child {
   margin-bottom: 0;
 }
 
 .markdown .alert.alert-note {
   border-top: 6px solid var(--brand-color);
+}
+
+.markdown blockquote {
+  border-left: 6px solid var(--light-gray);
+  margin-left: 0;
+  padding: 25px 30px;
+  position: relative;
+  font-size: 2.2rem;
+  background: var(--gray);
+  border-radius: var(--rounded-corners-size);
+  width: 100%;
+}
+
+.markdown blockquote::before {
+  content: "\201C";
+  color: var(--light-gray);
+  font-size: 8rem;
+  position: absolute;
+  left: 10px;
+  top: -40px;
 }
 
 .markdown .alert.alert-warning {
@@ -334,7 +354,6 @@
   position: relative;
   border-radius: var(--rounded-corners-size);
   background: var(--gray);
-  /* padding-bottom: 32px; */
 }
 
 .markdown figure figcaption {

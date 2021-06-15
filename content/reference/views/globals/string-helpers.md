@@ -200,3 +200,35 @@ Ordinalize a string or a number value.
 {{ ordinalize(1) }} <!-- 1st -->
 {{ ordinalize(99) }} <!-- 99th -->
 ```
+
+---
+
+### nl2br
+Convert the newline charcaters with a `<br>` tag.
+
+```ts
+{{{ nl2br(post.content) }}}
+```
+
+When using the `nl2br` helper, you will have to use three curly braces to render the `<br>` tag a HTML instead of escaping it.
+
+However, this will also render the HTML tags from the `post.content` variable. To overcome this situation, we recommend you to separately escape the user input before passing it to the `nl2br` method.
+
+:::note
+Following is the correct way of using the `nl2br` method. This ensures, the user input is always escaped.
+:::
+
+```ts
+{{{ nl2br(e(post.content)) }}}
+```
+
+---
+
+### e
+Escape HTML inside a string value. The double curly braces already escape the value, so use this method only when you are not using the double curly braces.
+
+```ts
+{{{ e(post.content) }}}
+```
+
+---

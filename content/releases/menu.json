@@ -6,6 +6,11 @@
         "name": "root",
         "docs": [
           {
+            "title": "June release - 2021",
+            "permalink": "june-2021-release",
+            "contentPath": "june-2021-release.md"
+          },
+          {
             "title": "Out of preview",
             "permalink": "out-of-preview",
             "contentPath": "out-of-preview.md"
