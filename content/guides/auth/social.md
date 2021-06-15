@@ -45,7 +45,7 @@ export default Env.rules({
 
 :::div{class="features"}
 
-- Support for multiple providers. **Google**, **Twitter**, and **Github**
+- Support for multiple providers. **Google**, **Twitter**, **LinkedIn**, **Facebook**, **Discord**, and **Github**
 - Extensible API to add custom social providers
 
 &nbsp;
@@ -83,6 +83,9 @@ Name of the driver to use. It must always be one of the following available driv
 - `google`
 - `twitter`
 - `github`
+- `discord`
+- `facebook`
+- `linkedin`
 
 ---
 
@@ -465,3 +468,6 @@ twitter: {
 ```
 
 </details>
+
+## Adding custom drivers
+Ally is extensible and allows you to add your own custom drivers as well. We have created a [boilerplate repo](https://github.com/adonisjs-community/ally-driver-boilerplate) to help you create a custom driver from scratch and publish it as a package on npm.

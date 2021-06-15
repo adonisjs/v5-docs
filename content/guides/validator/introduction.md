@@ -164,9 +164,9 @@ Requests negotiating using `Accept=application/vnd.api+json` header, receives th
 You can also use the validator outside of an HTTP request by importing the `validate` method from the Validator module. The functional API remains the same, however you will have to manually provide the `data` to validate.
 
 ```ts
-import { validate, schema } from '@ioc:Adonis/Core/Validator'
+import { validator, schema } from '@ioc:Adonis/Core/Validator'
 
-await validate({
+await validator.validate({
   schema: schema.create({
     // ... define schema
   }),

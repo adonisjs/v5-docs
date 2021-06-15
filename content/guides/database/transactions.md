@@ -82,6 +82,33 @@ const userId = await Database.transaction(async (trx) => {
 })
 ```
 
+## Isolation levels
+You can define the isolation level of a transaction when calling the `Database.transaction` method.
+
+```ts
+await Database.transaction({
+  isolationLevel: 'read uncommitted'
+})
+```
+
+Following is an example of defining the isolation level with a managed transaction.
+
+```ts
+await Database.transaction(async (trx) => {
+  // use trx here
+}, {
+  isolationLevel: 'read committed'
+})
+```
+
+Following is the list of available isolation levels.
+
+- **"read uncommitted"**
+- **"read committed"**
+- **"snapshot"**
+- **"repeatable read"**
+- **"serializable"**
+
 ## Passing transaction as a reference
 The transactions API is not only limited to creating a query builder instance from a transaction object. You can also pass it around to existing query builder instances or models.
 
