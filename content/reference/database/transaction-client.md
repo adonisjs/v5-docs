@@ -16,6 +16,22 @@ const trx = await Database
   .transaction()
 ```
 
+You can also define the transaction isolation level as follows.
+
+```ts
+await Database.transaction({
+  isolationLevel: 'read uncommitted'
+})
+```
+
+Following is the list of available isolation levels.
+
+- **"read uncommitted"**
+- **"read committed"**
+- **"snapshot"**
+- **"repeatable read"**
+- **"serializable"**
+
 ## Methods/Properties
 Following is the list of methods and properties available on the transaction client class.
 

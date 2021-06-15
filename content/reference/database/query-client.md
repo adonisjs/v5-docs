@@ -93,7 +93,7 @@ client
 ---
 
 ### transaction
-Creates a new transaction client instance. Transaction client **reserves a dedicated database** connection right away and hence it is very important to commit or rollback the transactions properly.
+Creates a new [transaction client](./transaction-client.md) instance. Transaction client **reserves a dedicated database** connection right away and hence it is very important to commit or rollback the transactions properly.
 
 ```ts
 const trx = await client.transaction()

@@ -12,7 +12,7 @@ TOC BLOCK
   top: var(--header-height);
   bottom: 0;
   width: var(--toc-width);
-  overflow: scroll;
+  overflow-y: scroll;
   border-left: 1px solid var(--lighter-gray);
 }
 
@@ -67,8 +67,5 @@ TOC BLOCK
 
 .toc .active a {
   color: var(--brand-color);
-  display: inline-block;
-  border: var(--accent-color) 2px solid;
-  border-radius: var(--rounded-corners-size);
-  padding: 2px 10px;
+  font-weight: 600;
 }

@@ -78,7 +78,7 @@ import {
   BaseModel,
   beforeFind,
   ModelQueryBuilderContract,
-} from '@ioc:Adonis/Lucid/Model'
+} from '@ioc:Adonis/Lucid/Orm'
 
 export default class User extends BaseModel {
   @beforeFind()
@@ -97,7 +97,7 @@ The `afterFind` event receives the model instance.
 import {
   BaseModel,
   afterFind,
-} from '@ioc:Adonis/Lucid/Model'
+} from '@ioc:Adonis/Lucid/Orm'
 
 export default class User extends BaseModel {
   @afterFind()
@@ -116,7 +116,7 @@ import {
   BaseModel,
   beforeFetch,
   ModelQueryBuilderContract,
-} from '@ioc:Adonis/Lucid/Model'
+} from '@ioc:Adonis/Lucid/Orm'
 
 export default class User extends BaseModel {
   @beforeFetch()
@@ -135,7 +135,7 @@ The `afterFetch` hook receives an array of model instances.
 import {
   BaseModel,
   afterFetch,
-} from '@ioc:Adonis/Lucid/Model'
+} from '@ioc:Adonis/Lucid/Orm'
 
 export default class User extends BaseModel {
   @afterFetch()
@@ -156,7 +156,7 @@ import {
   BaseModel,
   beforePaginate,
   ModelQueryBuilderContract,
-} from '@ioc:Adonis/Lucid/Model'
+} from '@ioc:Adonis/Lucid/Orm'
 
 export default class User extends BaseModel {
   @beforePaginate()
@@ -179,7 +179,7 @@ The `afterPaginate` hook receives an instance of the [SimplePaginator](../../ref
 import {
   BaseModel,
   afterPaginate,
-} from '@ioc:Adonis/Lucid/Model'
+} from '@ioc:Adonis/Lucid/Orm'
 
 import {
   SimplePaginatorContract
