@@ -200,6 +200,27 @@ window.asideHighlights = () => ({
     asideLinks.forEach((link) => asideLinksHrefs.push(link.getAttribute('href')))
 
     /**
+     * The `aside` element. Parent element for the TOC.
+     */
+    const asideElement = document.querySelector('aside.toc')
+
+    /**
+     * Get the coordinates of the child element relative to the TOC `aside` element
+     * @param {Element} childElement The child element who relative position
+     * to the TOC `aside` is sought
+     */
+    const getRelativePosToAsideToc = function (childElement) {
+      const relativePos = {}
+
+      relativePos.top =
+        childElement.getBoundingClientRect().top - asideElement.getBoundingClientRect().top
+      relativePos.left =
+        childElement.getBoundingClientRect().left - asideElement.getBoundingClientRect().left
+
+      return relativePos
+    }
+
+    /**
      * The intersection observer callback
      * @param {IntersectionObserverEntry[]} entries List of IntersectionObserverEntry objects
      */
@@ -235,6 +256,10 @@ window.asideHighlights = () => ({
             }
           }
 
+          const asideLinkParentRelativePos = getRelativePosToAsideToc(asideLinkParent)
+          // Keep the active element in view
+          asideElement.scrollTo({ behavior: 'smooth', ...asideLinkParentRelativePos })
+
           // Check if there is a `skippedElement`
           if (skippedElement) {
             skippedElement.classList.remove('active')
@@ -264,6 +289,7 @@ window.asideHighlights = () => ({
           } else {
             // remove the link leaving the view from the inViewElements array
             inViewElements = inViewElements.filter((el) => {
+              if (!el) return false
               if (
                 el.innerText.toLowerCase().trim() === asideLinkParent.innerText.toLowerCase().trim()
               ) {
