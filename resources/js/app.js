@@ -261,6 +261,16 @@ window.asideHighlights = () => ({
               // Reset the inViewElements
               inViewElements.length = 0
             }
+          } else {
+            // remove the link leaving the view from the inViewElements array
+            inViewElements = inViewElements.filter((el) => {
+              if (
+                el.innerText.toLowerCase().trim() === asideLinkParent.innerText.toLowerCase().trim()
+              ) {
+                el.classList.remove('active')
+                return false
+              } else return true
+            })
           }
         }
       })
