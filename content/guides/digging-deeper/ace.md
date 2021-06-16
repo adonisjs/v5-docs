@@ -75,7 +75,7 @@ node ace greet
 Ace commands are represented as classes and extend the `BaseCommand` class. You define the command name and description as static properties on the class itself.
 
 ```ts
-import { BaseCommand } from '@adonisjs/core/build/standalone'
+import { BaseCommand } from '@adonisjs/core/standalone'
 
 export default class Greet extends BaseCommand {
   public static commandName = 'greet'
@@ -205,7 +205,7 @@ import {
   BaseCommand,
   args,
   flags
-} from '@adonisjs/core/build/standalone'
+} from '@adonisjs/core/standalone'
 
 export default class Greet extends BaseCommand {
   public static commandName = 'greet'
@@ -275,7 +275,7 @@ public name: string
 The `@args.spread` method allows you to define a catch-all argument. It is like the [rest parameters ](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters) in JavaScript and must always be the last argument.
 
 ```ts
-import { BaseCommand, args } from '@adonisjs/core/build/standalone'
+import { BaseCommand, args } from '@adonisjs/core/standalone'
 
 export default class FileReader extends BaseCommand {
   public static commandName = 'read'
@@ -408,7 +408,7 @@ Ace has inbuilt support for creating interactive prompts on the terminal. You ca
 Following is an example of using multiple prompts together.
 
 ```ts
-import { BaseCommand } from '@adonisjs/core/build/standalone'
+import { BaseCommand } from '@adonisjs/core/standalone'
 
 export default class CreateUser extends BaseCommand {
   public static commandName = 'create:user'
@@ -728,7 +728,7 @@ Every time you run the `logUpdate` method, it will update the existing logline w
 Following is a complete working example of displaying a progress bar.
 
 ```ts
-import { BaseCommand } from '@adonisjs/core/build/standalone'
+import { BaseCommand } from '@adonisjs/core/standalone'
 
 export default class Greet extends BaseCommand {
   public static commandName = 'greet'
@@ -853,7 +853,7 @@ Ace has an inbuilt lightweight template generator. You can use it to generate fi
 
 ```ts
 import { join } from 'path'
-import { BaseCommand } from '@adonisjs/core/build/standalone'
+import { BaseCommand } from '@adonisjs/core/standalone'
 
 export default class Greet extends BaseCommand {
   public static commandName = 'greet'
@@ -991,7 +991,7 @@ The recommended approach is to execute the command in a separate child process. 
 // highlight-start
 import execa from 'execa'
 // highlight-end
-import { BaseCommand } from '@adonisjs/core/build/standalone'
+import { BaseCommand } from '@adonisjs/core/standalone'
 
 export default class Greet extends BaseCommand {
   public static commandName = 'greet'
@@ -1010,7 +1010,7 @@ export default class Greet extends BaseCommand {
 Another option is to make use of the Ace kernel to execute the command within the same process. In the following example, there is no way to know the exit code for the command.
 
 ```ts
-import { BaseCommand } from '@adonisjs/core/build/standalone'
+import { BaseCommand } from '@adonisjs/core/standalone'
 
 export default class Greet extends BaseCommand {
   public static commandName = 'greet'

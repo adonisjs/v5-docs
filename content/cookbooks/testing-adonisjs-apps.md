@@ -126,7 +126,7 @@ process.env.ADONIS_ACE_CWD = join(__dirname)
 sourceMapSupport.install({ handleUncaughtExceptions: false })
 
 async function startHttpServer() {
-  const { Ignitor } = await import('@adonisjs/core/build/src/Ignitor')
+  const { Ignitor } = await import('@adonisjs/core/Ignitor')
   process.env.PORT = String(await getPort())
   await new Ignitor(__dirname).httpServer().start()
 }
@@ -269,7 +269,7 @@ async function rollbackMigrations() {
 // highlight-end
 
 async function startHttpServer() {
-  const { Ignitor } = await import('@adonisjs/core/build/src/Ignitor')
+  const { Ignitor } = await import('@adonisjs/core/Ignitor')
   process.env.PORT = String(await getPort())
   await new Ignitor(__dirname).httpServer().start()
 }

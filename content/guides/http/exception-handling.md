@@ -196,7 +196,7 @@ You can self-handle this exception by implementing the `handle` method on the ex
 
 ```ts
 // title: app/Exceptions/UnAuthorizedException.ts
-import { Exception } from '@adonisjs/core/build/standalone'
+import { Exception } from '@adonisjs/core/standalone'
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
 export default class UnAuthorizedException extends Exception {
@@ -212,7 +212,7 @@ Optionally, implement the `report` method to report the exception to a logging o
 
 ```ts
 // title: app/Exceptions/UnAuthorizedException.ts
-import { Exception } from '@adonisjs/core/build/standalone'
+import { Exception } from '@adonisjs/core/standalone'
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
 export default class UnAuthorizedException extends Exception {
