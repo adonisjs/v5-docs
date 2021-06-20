@@ -190,7 +190,7 @@ Route
 
 Route
   .get('/posts/:slug', async ({ params }) => {
-    return `Viewing post using slug ${params.id}`
+    return `Viewing post using slug ${params.slug}`
   })
   .where('slug', ^/[a-z0-9_-]+/$)
 ```
