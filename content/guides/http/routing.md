@@ -186,13 +186,13 @@ Route
   .get('/posts/:id', async ({ params }) => {
     return `Viewing post using id ${params.id}`
   })
-  .where('id', ^/[0-9]+/$)
+  .where('id', /^[0-9]+$/)
 
 Route
   .get('/posts/:slug', async ({ params }) => {
-    return `Viewing post using slug ${params.id}`
+    return `Viewing post using slug ${params.slug}`
   })
-  .where('slug', ^/[a-z0-9_-]+/$)
+  .where('slug', /^[a-z0-9_-]+$/)
 ```
 
 - The requests passing a numeric id to the `/posts` URL will be forwarded to the first route. For example: `/posts/1` or `/posts/300`
@@ -202,7 +202,7 @@ Route
 You can also define params matchers globally using the `Route.where` method. The global matchers are applied to all the routes unless overridden specifically at the route level.
 
 ```ts
-Route.where('id', ^/[0-9]+/$)
+Route.where('id', /^[0-9]+$/)
 ```
 
 ## Params casting

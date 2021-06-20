@@ -54,6 +54,11 @@
             "title": "Deployment",
             "permalink": "deployment",
             "contentPath": "fundamentals/deployment.md"
+          },
+          {
+            "title": "Async local storage",
+            "permalink": "async-local-storage",
+            "contentPath": "fundamentals/async-local-storage.md"
           }
         ]
       },
@@ -90,6 +95,11 @@
             "title": "File uploads",
             "permalink": "file-uploads",
             "contentPath": "http/file-uploads.md"
+          },
+          {
+            "title": "Direct file uploads",
+            "permalink": "direct-file-uploads",
+            "contentPath": "http/direct-file-uploads.md"
           },
           {
             "title": "Middleware",
@@ -335,6 +345,11 @@
             "title": "Web Security",
             "permalink": "security/web-security",
             "contentPath": "security/web-security.md"
+          },
+          {
+            "title": "CORS",
+            "permalink": "security/cors",
+            "contentPath": "security/cors.md"
           },
           {
             "title": "Encryption",
