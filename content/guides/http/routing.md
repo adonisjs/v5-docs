@@ -215,7 +215,7 @@ However, you can manually cast the params to their actual JavaScript data type b
 Route
   .get('posts/:id', 'PostsController.show')
   .where('id', {
-    match: ^/[0-9]+/$,
+    match: /^[0-9]+$/,
     cast: (id) => Number(id),
   })
 ```
