@@ -17,7 +17,7 @@ TOC BLOCK
 }
 
 .toc-container {
-  padding: 40px 0;
+  margin: 40px 0;
 }
 
 .toc h3 {
@@ -35,6 +35,11 @@ TOC BLOCK
 .toc ul li ul {
   margin-left: 10px;
   margin-top: 5px;
+  display: none;
+}
+
+.toc.show_nested ul li ul {
+  display: block;
 }
 
 .toc ul {

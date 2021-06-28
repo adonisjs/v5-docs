@@ -16,6 +16,7 @@ import '../css/header.css'
 import '../css/sidebar.css'
 import '../css/toc.css'
 import '../css/markdown.css'
+import '../css/carbon-ads.css'
 
 /**
  * Alpine component for codegroup tabs
