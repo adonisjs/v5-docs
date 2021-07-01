@@ -6,7 +6,7 @@ The Lucid data models have out of box support for working with relationships. Yo
 
 
 ## Has one
-Has one creates a one to one relationship between two models. For example, **A user has a profile**. The has one relationship needs a foreign key in the related table. 
+Has one creates a one to one relationship between two models. For example, **A user has a profile**. The has one relationship needs a foreign key in the related table.
 
 Following is an example table structure for the has one relationship. The `profiles.user_id` is the foreign key and forms the relationship with the `users.id` column.
 
@@ -28,7 +28,8 @@ export default class Users extends BaseSchema {
       // highlight-start
       table.increments('id').primary()
       // highlight-end
-      table.timestamps(true)
+      table.timestamp('created_at', { useTz: true })
+      table.timestamp('updated_at', { useTz: true })
     })
   }
 }
@@ -51,7 +52,8 @@ export default class Profiles extends BaseSchema {
         .references('users.id')
         .onDelete('CASCADE') // delete profile when user is deleted
       // highlight-end
-      table.timestamps(true)
+      table.timestamp('created_at', { useTz: true })
+      table.timestamp('updated_at', { useTz: true })
     })
   }
 }
@@ -127,7 +129,8 @@ export default class Users extends BaseSchema {
       // highlight-start
       table.increments('id').primary()
       // highlight-end
-      table.timestamps(true)
+      table.timestamp('created_at', { useTz: true })
+      table.timestamp('updated_at', { useTz: true })
     })
   }
 }
@@ -150,7 +153,8 @@ export default class Posts extends BaseSchema {
         .references('users.id')
         .onDelete('CASCADE') // delete post when user is deleted
       // highlight-end
-      table.timestamps(true)
+      table.timestamp('created_at', { useTz: true })
+      table.timestamp('updated_at', { useTz: true })
     })
   }
 }
@@ -258,7 +262,8 @@ export default class Users extends BaseSchema {
       // highlight-start
       table.increments('id').primary()
       // highlight-end
-      table.timestamps(true)
+      table.timestamp('created_at', { useTz: true })
+      table.timestamp('updated_at', { useTz: true })
     })
   }
 }
@@ -276,7 +281,8 @@ export default class Skills extends BaseSchema {
       // highlight-start
       table.increments('id').primary()
       // highlight-end
-      table.timestamps(true)
+      table.timestamp('created_at', { useTz: true })
+      table.timestamp('updated_at', { useTz: true })
     })
   }
 }
@@ -296,7 +302,8 @@ export default class SkillUsers extends BaseSchema {
       table.integer('user_id').unsigned().references('users.id')
       table.integer('skill_id').unsigned().references('skills.id')
       // highlight-end
-      table.timestamps(true)
+      table.timestamp('created_at', { useTz: true })
+      table.timestamp('updated_at', { useTz: true })
     })
   }
 }
@@ -378,7 +385,7 @@ public skills: ManyToMany<typeof Skill>
 ```
 
 ### Pivot table timestamps
-You can enable the support for **created at** and **updated at** timestamps for your pivot tables using the `pivotTimestamps` property. 
+You can enable the support for **created at** and **updated at** timestamps for your pivot tables using the `pivotTimestamps` property.
 
 - Once defined, Lucid will automatically set/update these timestamps on insert and update queries.
 - Converts them to an instance of [Luxon Datetime](https://moment.github.io/luxon/docs/class/src/datetime.js~DateTime.html) class during fetch.
@@ -396,7 +403,7 @@ Settings `pivotTimestamps = true` assumes the column names are defined as `creat
 @manyToMany(() => Skill, {
   pivotTimestamps: {
     createdAt: 'creation_date',
-    updatedAt: 'updation_date'    
+    updatedAt: 'updation_date'
   }
 })
 public skills: ManyToMany<typeof Skill>
@@ -408,14 +415,14 @@ To disable a particular timestamp, you can set its value to `false`.
 @manyToMany(() => Skill, {
   pivotTimestamps: {
     createdAt: 'creation_date',
-    updatedAt: false // turn off update at timestamp field    
+    updatedAt: false // turn off update at timestamp field
   }
 })
 public skills: ManyToMany<typeof Skill>
 ```
 
 ## Has many through
-Has many through relationship is similar to a `hasMany` relationship but creates the relationship through an intermediate model. For example, **A country has many posts, through users**. 
+Has many through relationship is similar to a `hasMany` relationship but creates the relationship through an intermediate model. For example, **A country has many posts, through users**.
 
 - This relationship needs the through model (i.e., User) to have a foreign key reference with the current model (i.e., Country).
 The related model (i.e., Post) has a foreign key reference with the through model (i.e., User).
@@ -438,7 +445,8 @@ export default class Countries extends BaseSchema {
       // highlight-start
       table.increments('id').primary()
       // highlight-end
-      table.timestamps(true)
+      table.timestamp('created_at', { useTz: true })
+      table.timestamp('updated_at', { useTz: true })
     })
   }
 }
@@ -460,7 +468,8 @@ export default class Users extends BaseSchema {
         .unsigned()
         .references('countries.id')
       // highlight-end
-      table.timestamps(true)
+      table.timestamp('created_at', { useTz: true })
+      table.timestamp('updated_at', { useTz: true })
     })
   }
 }
@@ -482,7 +491,8 @@ export default class Posts extends BaseSchema {
         .unsigned()
         .references('users.id')
       // highlight-end
-      table.timestamps(true)
+      table.timestamp('created_at', { useTz: true })
+      table.timestamp('updated_at', { useTz: true })
     })
   }
 }
@@ -498,7 +508,7 @@ The has many through relationship is defined using the [@hasManyThrough](../../r
 ```ts
 import Post from 'App/Models/Post'
 import User from 'App/Models/User'
-import { 
+import {
   BaseModel,
   column,
   // highlight-start

@@ -31,7 +31,8 @@ class UserSchema extends BaseSchema {
     this.schema.createTable('users', (table) => {
       table.increments()
       table.string('name')
-      table.timestamps()
+      table.timestamp('created_at', { useTz: true })
+      table.timestamp('updated_at', { useTz: true })
     })
     // highlight-end
   }
@@ -190,7 +191,8 @@ class UserSchema extends BaseSchema {
       .createTable('users', (table) => {
         table.increments()
         table.string('name')
-        table.timestamps()
+        table.timestamp('created_at', { useTz: true })
+        table.timestamp('updated_at', { useTz: true })
       })
   }
 }
