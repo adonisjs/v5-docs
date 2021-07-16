@@ -106,3 +106,12 @@ MOBILE ONLY
     display: none;
   }
 }
+
+@media (prefers-reduced-motion) {
+  #sidenav-open.opened .sidebar,
+  #sidenav-open.opened .sidenav-backdrop,
+  .sidebar,
+  .sidenav-backdrop {
+    transition: none !important;
+  }
+}
