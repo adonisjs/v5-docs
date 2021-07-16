@@ -891,7 +891,7 @@ this.generator.addFile(
     form: 'plural',
 
     // define ".ts" extension when not already defined
-    extname: 'ts',
+    extname: '.ts',
 
     // re-format the name to "camelCase"
     pattern: 'camelcase',
