@@ -1,4 +1,4 @@
-Validates the property to be a valid date object or a string representing a date. The values are casted to an instance of [luxon.DateTime](https://moment.github.io/luxon/docs/manual/tour.html#creating-a-datetime)
+Validates the property to be a valid date object or a string representing a date. The values are casted to an instance of [luxon.DateTime](https://moment.github.io/luxon/#/tour?id=creating-a-datetime~)
 
 ```ts
 import { schema } from '@ioc:Adonis/Core/Validator'
@@ -26,7 +26,7 @@ Or use the following shorthand codes for standardized date/time formats.
     format: 'rfc2822',
   })
 }
-
+~
 // OR
 {
   published_at: schema.date({
