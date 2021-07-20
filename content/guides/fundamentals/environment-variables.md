@@ -168,7 +168,7 @@ Forces the value to be one of the pre-defined values.
 
 // Mark it as optional
 {
-  PORT: Env
+  NODE_ENV: Env
     .schema
     .enum
     .optional(['development', 'production'] as const)
@@ -200,7 +200,7 @@ For every other validation use case, you can define your own custom functions.
 - The return value can be different from the initial input value.
 - We infer the static type from the return value. In this case, `Env.get('PORT')` is a number.
 
-## Defining variables in the development
+## Defining variables in development
 
 During development, you can define environment variables inside the `.env` file stored in your project's root and AdonisJS will automatically process it.
 
@@ -254,6 +254,12 @@ The `.env` file can be at any location on your server. For example, You can stor
 ```sh
 ENV_PATH=/etc/myapp/.env node server.js
 ```
+
+## Defining variables while testing
+
+AdonisJS will look for `.env.testing` file when the application is started with the `NODE_ENV=testing` environment variable.
+
+The variables defined inside the `.env.testing` file are automatically merged with the `.env` file. This allows you to use a different database, or a different session driver when writing tests.
 
 ## Defining variables in production
 

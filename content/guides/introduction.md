@@ -6,7 +6,7 @@ Welcome to AdonisJS!
 
 This is the official documentation website for the framework. We have divided the documentation into multiple groups, each trying to address a specific use case or audience.
 
-Please read the [AdonisJS at a glance](https://adonisjs.com/adonisjs-at-glance) document if you are unsure whether AdonisJS will fit your needs or match the programming style.
+Please read the [AdonisJS at a glance](https://adonisjs.com/adonisjs-at-a-glance) document if you are unsure whether AdonisJS will fit your needs or match the programming style.
 
 ## TypeScript usage
 
@@ -36,6 +36,11 @@ Fitting all the validation rules, the database query builder methods within guid
 ## Cookbooks
 
 Cookbooks are actionable guides to help you achieve a practical task. Also, feel free to contribute to cookbooks by sending a PR.
+
+## Awesome list
+A [Github repository](https://github.com/adonisjs-community/awesome-adonisjs) holding a curated list of **awesome AdonisJS packages**, **articles**, **meetups** and other resources created by the community members.
+
+Feel free to explore and find the packages you need or [submit your work](https://github.com/adonisjs-community/awesome-adonisjs/blob/master/CONTRIBUTING.md) to the list.
 
 ## Editor extensions
 

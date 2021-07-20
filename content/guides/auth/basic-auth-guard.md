@@ -26,7 +26,7 @@ Route
   })
 ```
 
-You can also make use of the [auth middleware]() to guard routes using the basic auth guard.
+You can also make use of the [auth middleware](./middleware.md) to guard routes using the basic auth guard.
 
 ```ts
 import Route from '@ioc:Adonis/Core/Route'

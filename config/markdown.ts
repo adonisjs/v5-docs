@@ -29,7 +29,7 @@ export const markdownLanguages = [
     path: './resources/vscode/dotenv.tmLanguage.json',
     scopeName: 'source.env',
     id: 'dotenv',
-  }
+  },
 ]
 
 /*
@@ -40,7 +40,7 @@ export const markdownLanguages = [
 | Themes used for codeblocks
 |
 */
-export const codeBlocksTheme = 'material-theme-palenight'
+export const codeBlocksTheme = 'material-palenight'
 
 /*
 |--------------------------------------------------------------------------
@@ -80,5 +80,5 @@ export const zones = [
     template: 'docs',
     contentPath: './content/releases',
     menu: Releases,
-  }
+  },
 ]

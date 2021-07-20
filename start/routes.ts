@@ -32,7 +32,7 @@ Route.get('/', ({ response }) => {
  * Render a 404 template
  */
 Route.get('/404', ({ view }) => {
-  return view.render('errors.404')
+  return view.render('errors/404')
 })
 
 /**
@@ -44,7 +44,7 @@ Route.get('*', async ({ request, response, view }) => {
   if (error && error.includes('Unable to lookup')) {
     return response.redirect('/404')
   } else if (error) {
-    return view.render('errors.500', { error })
+    return view.render('errors/500', { error })
   } else {
     response.send(html)
   }

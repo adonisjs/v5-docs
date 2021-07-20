@@ -36,7 +36,7 @@ However, with AdonisJS you can define types for your events and we will ensure t
 
 ### Extending AdonisJS Core
 
-Extending classes or objects at runtime with typed languages is not fun. Infact, this is one of the places, where majority of Typescript driven frameworks falls short.
+Extending classes or objects at runtime with typed languages is not fun. In fact, this is one of the places, where majority of Typescript driven frameworks falls short.
 
 However, we have put extra care to ensure that you can extend every piece of the framework at both runtime and static fronts. For fun, let's extend the Response class of AdonisJS
 
@@ -58,7 +58,7 @@ The HTTP server has been extracted from the core to its own repo. Running this s
 
 ### Validator
 
-The validator has received some crazy performance gains. Infact, it is the fastest data validator in its own league (ignoring JSON schema validator like ajv).
+The validator has received some crazy performance gains. In fact, it is the fastest data validator in its own league (ignoring JSON schema validator like ajv).
 
 - It is faster than Joi (A popular validation library for Node.js)
 - And also faster than its predecessor Indicative

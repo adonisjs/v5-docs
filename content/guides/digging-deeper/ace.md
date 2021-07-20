@@ -209,7 +209,7 @@ import {
 
 export default class Greet extends BaseCommand {
   public static commandName = 'greet'
-    
+
   // highlight-start
   @args.string({ description: 'Name of the person to greet' })
   public name: string
@@ -585,7 +585,7 @@ await this.prompt.enum('Define tags', {
 <tr>
 <td><strong>default</strong></td>
 <td>
-<p>The default value to use, when no inout has been provided</p>
+<p>The default value to use, when no input has been provided</p>
 
 ```ts
 {
@@ -652,7 +652,7 @@ await this.prompt.enum('Define tags', {
     if (!value) {
       return 'Enter value'
     }
-    
+
     return true
   }
 }
@@ -679,13 +679,13 @@ export default class Greet extends BaseCommand {
     this.logger.debug('Something just happened')
     this.logger.success('Account created')
     this.logger.info('Message with time prefix', '%time%')
-    
+
     const spinner = this.logger.await(
       'installing dependencies'
       undefined,
       'npm install --production'
     )
-    
+
     // perform some task
     spinner.stop()
   }
@@ -891,7 +891,7 @@ this.generator.addFile(
     form: 'plural',
 
     // define ".ts" extension when not already defined
-    extname: 'ts',
+    extname: '.ts',
 
     // re-format the name to "camelCase"
     pattern: 'camelcase',
@@ -953,7 +953,7 @@ await this.generator.run()
 ```
 
 ## Lifecycle hooks
-Commands can define the following lifecycle hooks. 
+Commands can define the following lifecycle hooks.
 
 The `prepare` method is executed before running the run method.
 And the `completed` method is executed after the run method.

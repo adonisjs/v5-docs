@@ -186,13 +186,13 @@ Route
   .get('/posts/:id', async ({ params }) => {
     return `Viewing post using id ${params.id}`
   })
-  .where('id', ^/[0-9]+/$)
+  .where('id', /^[0-9]+$/)
 
 Route
   .get('/posts/:slug', async ({ params }) => {
-    return `Viewing post using slug ${params.id}`
+    return `Viewing post using slug ${params.slug}`
   })
-  .where('slug', ^/[a-z0-9_-]+/$)
+  .where('slug', /^[a-z0-9_-]+$/)
 ```
 
 - The requests passing a numeric id to the `/posts` URL will be forwarded to the first route. For example: `/posts/1` or `/posts/300`
@@ -202,7 +202,7 @@ Route
 You can also define params matchers globally using the `Route.where` method. The global matchers are applied to all the routes unless overridden specifically at the route level.
 
 ```ts
-Route.where('id', ^/[0-9]+/$)
+Route.where('id', /^[0-9]+$/)
 ```
 
 ## Params casting
@@ -215,7 +215,7 @@ However, you can manually cast the params to their actual JavaScript data type b
 Route
   .get('posts/:id', 'PostsController.show')
   .where('id', {
-    matches: ^/[0-9]+/$,
+    match: /^[0-9]+$/,
     cast: (id) => Number(id),
   })
 ```
@@ -457,6 +457,40 @@ Route
   })
   .prefix('v1')
   .as('api')
+```
+
+## Route domains
+Using the route module, you can also define routes for a specific domain or a subdomain. In the following example, the routes will only match if the current [request hostname](./request.md#hostname) is `blog.adonisjs.com`.
+
+:::note
+
+You still have to configure your proxy server to handle requests for the registered subdomains and forward them to your AdonisJS server.
+
+:::
+
+```ts
+Route
+  .group(() => {
+    Route.get('/', 'PostsController.index')
+    Route.get('/:id', 'PostsController.show')
+  })
+  .domain('blog.adonisjs.com')
+```
+
+The domains can be also accept dynamic parameters. For example, a domain that accepts the tenant subdomain.
+
+```ts
+Route
+  .group(() => {
+    Route.get('/', ({ subdomains }) => {
+      // highlight-start
+      console.log(subdomains.tenant)
+      // highlight-end
+    })
+  })
+  // highlight-start
+  .domain(':tenant.adonisjs.com')
+  // highlight-end
 ```
 
 ## Brisk routes

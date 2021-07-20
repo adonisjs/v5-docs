@@ -2,7 +2,7 @@
 summary: Reference guide for the Hash module.
 ---
 
-AdonisJS Hash module allows you to hash the values using Bcrypt or Argon2, with the option to add a custom hashing driver.
+AdonisJS Hash module allows you to hash the values using **Bcrypt** or **Argon2**, along with the option to add a custom hashing driver.
 
 You can configure the driver of your choice inside the `config/hash.ts` file.
 
@@ -11,6 +11,12 @@ const hashConfig: HashConfig = {
   default: Env.get('HASH_DRIVER', 'argon'),
 
   list: {
+    /**
+     * Make sure to install the driver from npm
+     * ------------------------------------
+     * npm i phc-argon2
+     * ------------------------------------
+     */
     argon: {
       driver: 'argon2',
       variant: 'id',
@@ -19,6 +25,13 @@ const hashConfig: HashConfig = {
       parallelism: 1,
       saltSize: 16,
     },
+
+    /**
+     * Make sure to install the driver from npm
+     * ------------------------------------
+     * npm i phc-bcrypt
+     * ------------------------------------
+     */
     bcrypt: {
       driver: 'bcrypt',
       rounds: 10,
@@ -58,7 +71,7 @@ The `Hash.make` method accepts a string value to a hash.
 
 ```ts
 import Hash from '@ioc:Adonis/Core/Hash'
-const hashedPassword = await Hash.hash(user.password)
+const hashedPassword = await Hash.make(user.password)
 ```
 
 Most of the time, you will be hashing the user's password, so it is better to use a model hook to perform the hashing.
@@ -85,6 +98,8 @@ export default class User extends BaseModel {
 }
 ```
 
+---
+
 ### verify
 
 You cannot convert hashed values back to a plain string, and you can only verify that a given plain-text string corresponds to a given hash.
@@ -94,6 +109,8 @@ if (await Hash.verify(hashedValue, plainTextValue)) {
   // verified
 }
 ```
+
+---
 
 ### needsReHash
 

@@ -53,7 +53,7 @@ Returns the hidden input element for the CSRF token. The helper is only availabl
 
 ```edge
 <form method="POST" action="posts">
-  {{ csrfField }}
+  {{ csrfField() }}
 </form>
 ```
 

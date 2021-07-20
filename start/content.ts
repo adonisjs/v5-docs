@@ -63,7 +63,7 @@ zones.forEach(({ title, baseUrl, template, menu, contentPath }) => {
   const zone = Content.zone(title)
   markdownLanguages.forEach((lang) => zone.loadLanguage({ ...lang }))
 
-    zone
+  zone
     .baseUrl(baseUrl)
     .baseContentPath(contentPath)
     .template(template)

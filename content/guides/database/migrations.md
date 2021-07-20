@@ -46,7 +46,8 @@ export default class Users extends BaseSchema {
       table.increments('id').primary()
       table.string('email').unique().notNullable()
       table.string('password').notNullable()
-      table.timestamps(true, true)
+      table.timestamp('created_at', { useTz: true })
+      table.timestamp('updated_at', { useTz: true })
     })
   }
 
@@ -75,7 +76,7 @@ node ace migration:run
 ### How it works?
 
 - The `make:migration` command creates a new migration file prefixed with the timestamp. The timestamp is important because the migrations are executed in ascending order by name.
-- Migration files are not only limited to creating a new table. You can also `alter` table, define database triggers, and so on.
+- Migration files are not only limited to creating a new table. You can also `alter` the table, define database triggers, and so on.
 - The `migration:run` command executes all the pending migrations. Pending migrations are those, which are never executed using the `migration:run` command.
 - A migration file is either in a `pending` state or in a `completed` state.
 - Once a migration file has been successfully executed, we will track it inside the `adonis_schema` database table to avoid running it multiple times.
@@ -93,7 +94,7 @@ node ace migration:rollback
 
 ### How rollback works?
 - Every migration class has two methods, `up` and `down`. The `down` is called during the rollback process.
-- You (the developer) are responsible for writing correct instructions to undo the changes made by the `up` method. For example, if the `up` method creates a table, then the `down` method must drop.
+- You (the developer) are responsible for writing correct instructions to undo the `up` method changes. For example, if the `up` method creates a table, then the `down` method must drop.
 - After the rollback, Lucid considers the migration file as pending, and running `migration:run` will re-run it. So you can modify this file and then re-run it.
 
 ## Avoiding Rollbacks
@@ -193,3 +194,77 @@ Disable migration rollback in production. It is recommended that you should neve
 #### disableTransactions
 
 Set the value to `true` to not wrap migration statements inside a transaction. By default, Lucid will run each migration file in its transaction.
+
+## Running migrations programmatically
+Using the `Migrator` module, you can run migrations programmatically. This is usually helpful when you want to run migrations from a web interface and not the command line.
+
+Following is an example of running the migrations from a route and returning a list of migrated files in the response.
+
+```ts
+import Route from '@ioc:Adonis/Core/Route'
+import Database from '@ioc:Adonis/Lucid/Database'
+import Application from '@ioc:Adonis/Core/Application'
+import Migrator from '@ioc:Adonis/Lucid/Migrator'
+
+Route.get('/', async () => {
+  const migrator = new Migrator(Database, Application, {
+    direction: 'up',
+    dryRun: false,
+    // connectionName: 'pg',
+  })
+
+  await migrator.run()
+  return migrator.migratedFiles
+})
+```
+
+- The `direction = up` means to run the `up` method inside the migration files. You can set the `direction = down` to roll back the migrations.
+- Enabling the `dryRun` will not execute the queries but instead collect them inside the `queries` array.
+- You can also optionally define the `connectionName` property to execute the migrations against a specific database connection.
+
+### migratedFiles
+The `migrator.migratedFiles` is an object. The key is the unique name (derived from the file path), and the value is another object of migration file properties.
+
+```json
+{
+  "database/migrations/1623289360244_users": {
+    "status": "completed",
+    "queries": [],
+    "file": {
+      "filename": "1623289360244_users.ts",
+      "absPath": "/path/to/project/database/migrations/1623289360244_users.ts",
+      "name": "database/migrations/1623289360244_users"
+    },
+    "batch": 1
+  }
+}
+```
+
+- The `status` will be one of **"pending"**, **"completed"**, or **"error"**.
+- The `queries` array contains an array of executed queries. Only when `dryRun` is enabled.
+- The `file` property holds the information for the migration file.
+- The `batch` property tells the batch in which the migration was executed.
+
+### getList
+The `migrator.getList` method returns a list of all the migrations, including the completed and the pending ones. This is the same list you see when you run the `node ace migration:list` command.
+
+```ts
+await migrator.getList()
+```
+
+```json
+[
+  {
+    "name": "database/migrations/1623289360244_users",
+    "status": "pending"
+  }
+]
+```
+
+### status
+Returns the current `status` of the migrator. It will always be one of the following.
+
+- The `pending` status means no the `migrator.run` method has not been called yet.
+- The `completed` status means the migrations were successfully executed.
+- The `error` status means there was an error in the migration process. You can read the actual error from the `migrator.error` property in case of error status.
+- The `skipped` status means there were no migrations to run or roll back.

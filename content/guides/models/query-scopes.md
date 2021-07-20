@@ -62,3 +62,44 @@ Project
   .query()
   .withScopes((scopes) => scopes.visibleTo(auth.user))
 ```
+
+## Calling scopes within the scopes
+Since the scope method receives an instance of the [Model query builder](../../reference/database/orm/query-builder.md), you can also reference other model scopes within the scope callback. For example:
+
+```ts
+import {
+  scope,
+  column,
+  BaseModel,
+  ModelQueryBuilderContract,
+} from '@ioc:Adonis/Lucid/Orm'
+
+type Builder = ModelQueryBuilderContract<typeof User>
+
+export default class Post extends BaseModel {
+  public static firstScope = scope((query: Builder) => {
+    query.withScopes((scopes) => scopes.secondScope())
+  })
+
+  public static secondScope = scope((query) => {
+    query.whereNull('deletedAt')
+  })
+}
+```
+
+#### Noticed the `Builder` type we created above?
+
+The `scope` method is not aware of the Model it is used inside (a TypeScript limitation) and hence it cannot infer the Query builder type for the model as well. Therefore, we need to type hint the `builder` property as follow:
+
+```ts
+// highlight-start
+type Builder = ModelQueryBuilderContract<typeof User>
+// highlight-end
+
+public static firstScope = scope(
+  // highlight-start
+  (query: Builder) => {
+  // highlight-end
+  }
+)
+```

@@ -7,7 +7,9 @@ Lucid models make it very easy to perform CRUD operations and also define lifecy
 This guide covers 80% of the use cases. However, do make sure to check the [Model API docs](../../reference/orm/base-model.md) docs for all the available methods.
 
 ## Create
-You can create and persist new records to the database by assigning values to the model instance properties and calling the `model.save` method.
+You can create and persist new records to the database by first assigning values to the model instance and then calling the `save` method.
+
+The `save` method performs the **INSERT** query when persisting the model instance for the first time and performs the **UPDATE** query when model has already been persisted.
 
 ```ts
 import User from 'App/Models/User'
@@ -23,13 +25,20 @@ await user.save()
 console.log(user.$isPersisted) // true
 ```
 
-- The `user.save` method will perform the insert query. 
-- The `user.$isPersisted` flag returns `true` when the values are persisted to the database.
+Also, you can make use of the `fill` method to define all the attributes as once and then call the `save` method.
+
+```ts
+await user
+  .fill({ username: 'virk', email: 'virk@adonisjs.com' })
+  .save()
+
+console.log(user.$isPersisted) // true
+```
 
 ---
 
 ### create
-Another option is to make use of the `static create` method on the Model class itself.
+The `static create` method creates the model instance and persists it to database in one go.
 
 ```ts
 import User from 'App/Models/User'
@@ -156,6 +165,14 @@ const user = await User.findOrFail(1)
 user.last_login_at = DateTime.local() // Luxon dateTime is used
 
 await user.save()
+```
+
+Also, you can make use of the `merge` method to define all the attributes as once and then call the `save` method.
+
+```ts
+await user
+  .merge({ last_login_at: DateTime.local() })
+  .save()
 ```
 
 #### Why not use the update query directly?

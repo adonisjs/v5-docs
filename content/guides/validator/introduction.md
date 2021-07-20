@@ -38,12 +38,20 @@ The schema definition is divided into three main parts.
 
 ![](https://res.cloudinary.com/adonis-js/image/upload/q_auto,f_auto/v1617601990/v5/schema-101.png)
 
+:::note
+The `rules` object is imported from `@ioc:Adonis/Core/Validator`
+
+```ts
+import { schema, rules } from '@ioc:Adonis/Core/Validator'
+```
+:::
+
 If you look carefully, we have separated the **format validations** from **core data types**. For example: There is no data type called `schema.email`, instead we use the `rules.email` method to ensure a string is formatted as an email.
 
 This separation helps a lot in extending the validator with custom rules, without creating unnecessary schema types that has no meaning. For example: There is no thing called **email type**, it is a just a string, formatted as an email.
 
 ### Marking fields as optional
- 
+
 The schema properties are required by default. However, you can mark them as optional by chaining the `optional` method. The optional variant is available for all the schema types.
 
 ```ts
@@ -136,7 +144,7 @@ Requests negotiating for the JSON data type receives the error messages as an ar
 ```
 
 ### JSON API
-Requests negotiating using `Accept=application/vnd.api+json` header, recieves the error messages as per the [JSON API spec](https://jsonapi.org/format/#errors).
+Requests negotiating using `Accept=application/vnd.api+json` header, receives the error messages as per the [JSON API spec](https://jsonapi.org/format/#errors).
 
 ```ts
 {
@@ -156,9 +164,9 @@ Requests negotiating using `Accept=application/vnd.api+json` header, recieves th
 You can also use the validator outside of an HTTP request by importing the `validate` method from the Validator module. The functional API remains the same, however you will have to manually provide the `data` to validate.
 
 ```ts
-import { validate, schema } from '@ioc:Adonis/Core/Validator'
+import { validator, schema } from '@ioc:Adonis/Core/Validator'
 
-await validate({
+await validator.validate({
   schema: schema.create({
     // ... define schema
   }),
@@ -179,17 +187,17 @@ You can create a new validator by executing the following ace command.
 ```sh
 node ace make:validator CreateUser
 
-# CREATE: app/Validators/CreateUser.ts
+# CREATE: app/Validators/CreateUserValidator.ts
 ```
 
 All the validation related properties including the `schema`, `messages` are defined as properties on the class.
 
 ```ts
-// title: app/Validators/CreateUser.ts
+// title: app/Validators/CreateUserValidator.ts
 import { schema } from '@ioc:Adonis/Core/Validator'
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
-export default class CreateUser {
+export default class CreateUserValidator {
   constructor (protected ctx: HttpContextContract) {
   }
 
@@ -207,7 +215,7 @@ Instead of passing an object with the `schema` property, you can now pass the cl
 ```ts
 import Route from '@ioc:Adonis/Core/Route'
 // highlight-start
-import CreateUser from 'App/Validators/CreateUser'
+import CreateUser from 'App/Validators/CreateUserValidator'
 // highlight-end
 
 Route.post('users', async ({ request, response }) => {
@@ -236,7 +244,7 @@ Following is an example of using the validator classes outside of the HTTP reque
 
 ```ts
 import { validate } from '@ioc:Adonis/Core/Validator'
-import CreateUser from 'App/Validators/CreateUser'
+import CreateUser from 'App/Validators/CreateUserValidator'
 
 await validator.validate(
   new CreateUser({
@@ -248,9 +256,8 @@ await validator.validate(
 
 ## What's next?
 
-- Read the blog post on validating API requests.
-- Read the blog post on validating server rendered forms.
-- Learn more about [custom messages](./custom-messages.md).
-- Learn more about [error reporters](./error-reporters.md).
-- View all the [available schema types](../../reference/validator/schema/string.md).
-- View all the [available validation rules](../../reference/validator/rules/alpha.md).
+- Read the cookbook on [validating server rendered forms](../../cookbooks/validator/validating-server-rendered-forms.md)
+- Learn more about [custom messages](./custom-messages.md)
+- Learn more about [error reporters](./error-reporters.md)
+- View all the [available schema types](../../reference/validator/schema/string.md)
+- View all the [available validation rules](../../reference/validator/rules/alpha.md)

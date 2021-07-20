@@ -101,7 +101,7 @@ You can migrate your production database using the `node ace migration:run --for
 
 ### When to migrate
 
-Also, you must always run the migrations before restarting the server. If the migration fails, then do not restart the server. 
+Also, you must always run the migrations before restarting the server. If the migration fails, then do not restart the server.
 
 If you are using a managed service like Cleavr or Heroku, they can automatically handle this use case. Otherwise, you will have to run the migration script inside a CI/CD pipeline or run it manually by SSHing to the server.
 
@@ -129,7 +129,7 @@ When deploying your AdonisJS application on multiple servers, make sure to run t
 For MySQL and PostgreSQL, Lucid will obtain [advisory locks](https://www.postgresql.org/docs/9.4/explicit-locking.html#ADVISORY-LOCKS) to ensure that concurrent migration is not allowed. However, it is better to avoid running migrations from multiple servers in the first place.
 
 ## Persistent storage for file uploads
-Modern-day deployment platforms like ECS, Heroku, or Digital ocean apps run your application code inside [ephemeral filesystem](https://devcenter.heroku.com/articles/dynos#ephemeral-filesystem), which means that each deployment will nuke the existing filesystem and creates a fresh one.
+Modern-day deployment platforms like AWS ECS, Heroku, or Digital ocean apps run your application code inside [ephemeral filesystem](https://devcenter.heroku.com/articles/dynos#ephemeral-filesystem), which means that each deployment will nuke the existing filesystem and creates a fresh one.
 
 You will lose the user uploaded files if they are stored within the same storage as your application code. Hence, it is better to use [third party cloud storage](../http/file-uploads.md#moving-files-to-the-cloud-storage) for storing user-uploaded files.
 
@@ -156,7 +156,7 @@ import Application from '@ioc:Adonis/Core/Application'
 
 Event.on('db:query', (query) => {
   if (Application.inProduction) {
-    Logger.debug(query)    
+    Logger.debug(query)
   } else {
     Database.prettyPrint(query)
   }

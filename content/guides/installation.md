@@ -2,7 +2,7 @@
 summary: Getting started by creating and running a new AdonisJS application
 ---
 
-AdonisJS is a Node.js framework and hence it requires Node.js to be installed on your computer. To be precise, we require `Node.js >= 14.15.4`, along with `npm >= 6.0.0`.
+AdonisJS is a Node.js framework and hence it requires Node.js to be installed on your computer. To be precise, we require the latest version of `Node.js 14`, along with `npm >= 6.0.0`.
 
 You can check the Node.js and npm versions by running the following commands.
 
@@ -50,7 +50,7 @@ Optionally, you can configure Eslint and prettier. Both the packages are configu
 ---
 
 #### Configure webpack encore
-Optionally, you can also configure [webpack encore](./http/assets-manager.md) to bundle and serve frontend dependencies. 
+Optionally, you can also configure [webpack encore](./http/assets-manager.md) to bundle and serve frontend dependencies.
 
 Do note, AdonisJS is a backend framework and does not concern itself with frontend build tools. Hence the webpack setup is optional.
 
@@ -61,7 +61,7 @@ After creating the application, you can start the development server by running 
 node ace serve --watch
 ```
 
-- The `serve` command starts the HTTP server and performs in-memory compilition of TypeScript to JavaScript. 
+- The `serve` command starts the HTTP server and performs in-memory compilation of TypeScript to JavaScript.
 - The `--watch` flag is meant to watch the file system for changes and restart the server automatically.
 
 ## Compiling for production

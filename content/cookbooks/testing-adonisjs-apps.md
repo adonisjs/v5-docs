@@ -233,6 +233,12 @@ Now, re-run the tests by executing `node -r @adonisjs/assembler/build/register j
 
 The next step is to write a test that interacts the database. But first, let's update the `japaFile.ts` file to run and rollback migrations everytime we run the tests. This way, we will ensure that we are always starting from a clean database.
 
+:::tip
+
+You can also configure a separate database for testing by creating `.env.testing` file in the project root and [overwriting the necessary](../guides/fundamentals/environment-variables.md#defining-variables-while-testing) environment variables.
+
+:::
+
 ```ts
 // title: japaFile.ts
 import 'reflect-metadata'

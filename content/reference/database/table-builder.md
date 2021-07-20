@@ -206,12 +206,12 @@ Adds a DateTime column to the database table. The method accepts the column name
 this.schema.createTable('users', (table) => {
   table
     .dateTime('some_time', { useTz: true })
-    .defaultsTo(this.now())
+    .defaultTo(this.now())
 
   // Or define the precision
   table
     .dateTime('some_time', { precision: 6 })
-    .defaultsTo(this.now(6))
+    .defaultTo(this.now(6))
 })
 ```
 
@@ -244,6 +244,50 @@ this.schema.createTable('users', (table) => {
 
   // Use precision with MySQL
   table.timestamp('created_at', { precision: 6 })
+})
+```
+
+---
+
+### timestamps
+Adds `created_at` and `updated_at` columns to the database table.
+
+:::warning
+
+Since AdonisJS uses knex.js under the hood, your editor autocomplete feature will list the `timestamps` method in list of available methods.
+
+However, we recommend not using this method and instead use the `timestamp` method for following reasons.
+
+- The `timestamps` method is not chainable. Meaning you cannot add additional constraints like `index` or `nullable` to the column.
+- You can create columns of type `timestampz` or `Datetime2`.
+
+:::
+
+```ts
+this.schema.createTable('users', (table) => {
+  table.timestamps()
+})
+```
+
+By default, the `timestamps` method creates a **DATETIME** column. However, you can change it to a **TIMESTAMP** column by passing `true` as the first argument.
+
+```ts
+this.schema.createTable('users', (table) => {
+  /**
+   * Creates timestamp column
+   */
+  table.timestamps(true)
+})
+```
+
+```ts
+this.schema.createTable('users', (table) => {
+  /**
+   * Creates timestamp column
+   * +
+   * Set the default value to "CURRENT_TIMESTAMP"
+   */
+  table.timestamps(true, true)
 })
 ```
 
@@ -665,12 +709,12 @@ In MSSQL a constraintName option may be passed to ensure a specific constraint n
 
 ```ts
 this.schema.table('posts', (table) => {
-  table.boolean('is_published').defaultsTo(false)
+  table.boolean('is_published').defaultTo(false)
   
   // For MSSQL
   table
     .boolean('is_published')
-    .defaultsTo(false, { constraintName: 'df_table_value' })
+    .defaultTo(false, { constraintName: 'df_table_value' })
 })
 ```
 

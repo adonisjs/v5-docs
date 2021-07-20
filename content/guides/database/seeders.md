@@ -2,9 +2,9 @@
 summary: Using database seeders to add seed database with dummy or initial data
 ---
 
-Database seeding is a way to setup your application with some initial data that is required to run and use the application. For example:
+Database seeding is a way to set up your application with some initial data required to run and use the application. For example:
 
-- Creating a seeder to insert **countries**, **states** and **cities** before deploying and running your application.
+- Creating a seeder to insert **countries**, **states**, and **cities** before deploying and running your application.
 - Or a seeder to insert users inside the database for local development.
 
 The seeders are stored inside the `database/seeders` directory. You can create a new seeder file by running the following ace command.
@@ -43,14 +43,14 @@ export default class UserSeeder extends BaseSeeder {
 ```
 
 ## Running seeders
-You can execute all or selected database seeders by the running the following ace command.
+You can execute all or selected database seeders by running the following ace command.
 
 ```sh
 # runs all
 node ace db:seed
 ```
 
-You can define the `--files` flag multiple times to run more than one files. Also, you will have to define the complete path to the seeder file. **We opted for complete path, because your terminal shell can autocomplete the path for you.**
+You can define the `--files` flag multiple times to run more than one file. Also, you will have to define the complete path to the seeder file. **We opted for the complete path because your terminal shell can autocomplete the path for you.**
 
 ```sh
 node ace db:seed --files "./database/seeders/User.ts"
@@ -67,7 +67,7 @@ node ace db:seed -i
 ## Development only seeders
 Lucid allows you to mark a seeder file as development only by setting the `developmentOnly` property to `true`. This ensures that you don't seed your production database with dummy data by mistake.
 
-The seeders using the `developmentOnly` flag will only run when `NODE_ENV` environment variable is set to `development`.
+The seeders using the `developmentOnly` flag will only run when the `NODE_ENV` environment variable is set to `development`.
 
 ```ts
 import BaseSeeder from '@ioc:Adonis/Lucid/Seeder'
@@ -85,10 +85,10 @@ export default class UserSeeder extends BaseSeeder {
 
 Based upon the nature of a seeder, you may or may not want this behavior. For example:
 
-- It is okay to run a `PostSeeder` for multiple times and increase the number of posts you have in the database.
-- On the other hand, you would want the `CountrySeeder` to perform inserts only once. These kind of seeders are idempotent in nature.
+- It is okay to run a `PostSeeder` multiple times and increase the number of posts you have in the database.
+- On the other hand, you would want the `CountrySeeder` to perform inserts only once. These kinds of seeders are idempotent.
 
-Fortunately, Lucid models has inbuilt support for idempotent operations using methods like `updateOrCreate` or `fetchOrCreateMany`. Continuing with the `CountrySeeder`, following is an example of creating countries only once.
+Fortunately, Lucid models have inbuilt support for idempotent operations using `updateOrCreate` or `fetchOrCreateMany`. Continuing with the `CountrySeeder`, the following is an example of creating countries only once.
 
 ```ts
 import BaseSeeder from '@ioc:Adonis/Lucid/Seeder'
@@ -121,7 +121,7 @@ export default class CountrySeeder extends BaseSeeder {
 In the above example, the `updateOrCreateMany` method will look for existing rows inside the database using the `isoCode` code and only inserts the missing ones and hence running the `CountrySeeder` for multiple times will not insert duplicate rows.
 
 ## Customizing database connection
-The `db:seed` command accepts an optional `--connection` flag and forwards it to the seeder files as a `connection` property. From there on, you can use this property to set the appropriate connection during your models interactions. For example:
+The `db:seed` command accepts an optional `--connection` flag and forwards it to the seeder files as a `connection` property. From there on, you can use this property to set the appropriate connection during your model interactions. For example:
 
 ```ts
 import BaseSeeder from '@ioc:Adonis/Lucid/Seeder'
@@ -141,7 +141,7 @@ export default class UserSeeder extends BaseSeeder {
 }
 ```
 
-Now you can specify the `--connection` flag on your `db:seed` command and the `UserSeeder` will use it.
+Now you can specify the `--connection` flag on your `db:seed` command, and the `UserSeeder` will use it.
 
 ```sh
 node ace db:seed --connection=tenant-1
@@ -151,7 +151,7 @@ node ace db:seed --connection=tenant-1
 The configuration for seeders is stored inside the `config/database.ts` file under the connection config object.
 
 #### paths
-Define the paths for loading the database seeder files. You can also define path to an installed package.
+Define the paths for loading the database seeder files. You can also define a path to an installed package.
 
 ```ts
 {
@@ -162,4 +162,81 @@ Define the paths for loading the database seeder files. You can also define path
     }
   }
 }
+```
+
+## Customizing seeders order
+The `db:seed` command runs all the seeders in the order they are stored on the filesystem. 
+
+If you want certain seeders to run before the other seeders, then either you can **prefix a counter to file names** or **you can create a Main seeder directory** as follows.
+
+#### Step 1. Create the main seeder
+Create the main seeder file by running the following ace command.
+
+```sh
+node ace make:seeder MainSeeder/index
+
+# CREATE: database/seeders/MainSeeder/Index.ts
+```
+
+---
+
+#### Step 2. Register its path inside the `seeders` config
+Open the `config/database.ts` file and register the path to the **Main seeder** directory inside the connection config.
+
+After the following change, the `db:seed` command will scan the `./database/seeders/MainSeeder` directory.
+
+```ts
+{
+  mysql: {
+    client: 'mysql',
+    // ... rest of the config
+    seeders: {
+      paths: ['./database/seeders/MainSeeder']
+    }
+  }  
+}
+```
+
+---
+
+#### Step 3. Import other seeders inside the main seeder
+Now, you can manually import all the seeders inside the **Main seeder** file and execute them in any order you want.
+
+:::note
+Following is an example implementation of the Main seeder. Feel free to customize it as per your requirements.
+:::
+
+```ts
+import BaseSeeder from '@ioc:Adonis/Lucid/Seeder'
+import Application from '@ioc:Adonis/Core/Application'
+
+export default class IndexSeeder extends BaseSeeder {
+  private async runSeeder(seeder: { default: typeof BaseSeeder }) {
+    /**
+     * Do not run when not in dev mode and seeder is development
+     * only
+     */
+    if (seeder.default.developmentOnly && !Application.inDev) {
+      return
+    }
+
+    await new seeder.default(this.client).run()
+  }
+
+  public async run() {
+    await this.runSeeder(await import('../Category'))
+    await this.runSeeder(await import('../User'))
+    await this.runSeeder(await import('../Post'))
+  }
+}
+```
+
+---
+
+#### Step 4. Run the `db:seed` command
+
+```sh
+node ace db:seed
+
+# completed database/seeders/MainSeeder/Index
 ```

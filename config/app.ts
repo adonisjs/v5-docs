@@ -164,7 +164,7 @@ export const logger: LoggerConfig = {
   | can have huge impact on performance.
   |
   */
-  prettyPrint: false //Env.get('NODE_ENV') === 'development',
+  prettyPrint: false, //Env.get('NODE_ENV') === 'development',
 }
 
 /*

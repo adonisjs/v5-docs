@@ -2,7 +2,7 @@
 summary: Learn how to create and use layouts in edge
 ---
 
-Layouts in edge allows you define a master layout for your pages and then override specific sections as needed.
+Layouts in edge allows you define a main layout for your pages and then override specific sections as needed.
 
 ## Basic example
 
@@ -14,14 +14,14 @@ Let's create a standard webpage using layouts.
 .
 ├── views
 │   ├── layouts
-│   │   └── master.edge
+│   │   └── main.edge
 │   └── home.edge
 ```
 
 #### 2. Paste the following markup to the layout file.
 
 ```edge
-// title: resources/views/layouts/master.edge
+// title: resources/views/layouts/main.edge
 <!DOCTYPE html>
 <html>
   <head>
@@ -46,7 +46,7 @@ Let's create a standard webpage using layouts.
 
 ```edge
 // title: resources/views/home.edge
-@layout('layouts/master')
+@layout('layouts/main')
 @set('title', 'Home page')
 
 @section('body')

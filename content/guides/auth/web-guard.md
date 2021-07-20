@@ -2,7 +2,7 @@
 summary: Authenticate requests using session and cookies
 ---
 
-The web guard uses sessions/cookies to login a user. You must use the web guard when **creating a server rendered application**, or even for an **SPA running on same domain/sub-domain**.
+The web guard uses sessions/cookies to login a user. You must use the web guard when **creating a server rendered application**, or for **an API having a first-party client running on the same domain/sub-domain**.
 
 :::note
 

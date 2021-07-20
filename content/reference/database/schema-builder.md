@@ -31,7 +31,8 @@ class UserSchema extends BaseSchema {
     this.schema.createTable('users', (table) => {
       table.increments()
       table.string('name')
-      table.timestamps()
+      table.timestamp('created_at', { useTz: true })
+      table.timestamp('updated_at', { useTz: true })
     })
     // highlight-end
   }
@@ -97,7 +98,7 @@ class UserSchema extends BaseSchema {
 ---
 
 ### dropTable
-Drop an existing SQL table. The method accepts the table name as the only argument. 
+Drop an existing SQL table. The method accepts the table name as the only argument.
 
 ```ts
 class UserSchema extends BaseSchema {
@@ -112,7 +113,7 @@ class UserSchema extends BaseSchema {
 ---
 
 ### dropTableIfExists
-Similar to the `dropTable` method, but conditionally drop the table if it does not exist.
+Similar to the `dropTable` method, but conditionally drop the table if it exists.
 
 ```ts
 class UserSchema extends BaseSchema {
@@ -127,7 +128,7 @@ class UserSchema extends BaseSchema {
 ---
 
 ### dropSchema
-Drop an existing PostgreSQL schema. The method accepts the schema name as the only argument. 
+Drop an existing PostgreSQL schema. The method accepts the schema name as the only argument.
 
 ```ts
 class FoundationSchema extends BaseSchema {
@@ -142,7 +143,7 @@ class FoundationSchema extends BaseSchema {
 ---
 
 ### dropSchemaIfExists
-Similar to the `dropSchema` method, but conditionally drop the table if it does not exist.
+Similar to the `dropSchema` method, but conditionally drop the schema if it exists.
 
 ```ts
 class FoundationSchema extends BaseSchema {
@@ -190,7 +191,8 @@ class UserSchema extends BaseSchema {
       .createTable('users', (table) => {
         table.increments()
         table.string('name')
-        table.timestamps()
+        table.timestamp('created_at', { useTz: true })
+        table.timestamp('updated_at', { useTz: true })
       })
   }
 }

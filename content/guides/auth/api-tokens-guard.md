@@ -2,9 +2,7 @@
 summary: Authenticate requests using Opaque access tokens
 ---
 
-The API guard uses the database backend **opaque access token** to authenticate the user requests. 
-
-You must use this guard to implement stateless authentication, meaning no state is stored inside cookies or sessions by the AdonisJS application. Also, with stateless authentication, it is the responsibility of the client to keep the tokens secure.
+The API guard uses the database backed **opaque access token** to authenticate the user requests. You may want to use the api guard when creating an API that should be accessed by a third-party client, or for any other system that does not support cookies.
 
 ## Tokens storage
 The API tokens guard allows you store tokens either in a SQL database or store them inside Redis. Both the storage options have their own use cases.
@@ -12,7 +10,7 @@ The API tokens guard allows you store tokens either in a SQL database or store t
 ### SQL storage
 The SQL storage is suited when api tokens are not primary mode of authentication. For example: You may want to allow the users of your application to create personal access tokens (just like the way github does) and authenticate the API requests using that.
 
-In this scanerio, you will not generate too many tokens in bulk and also most of the tokens will live forever.
+In this scenario, you will not generate too many tokens in bulk and also most of the tokens will live forever.
 
 Configuration for tokens is managed inside the `config/auth.ts` file under the guard config object.
 
@@ -33,7 +31,7 @@ Configuration for tokens is managed inside the `config/auth.ts` file under the g
 ```
 
 #### type
-The type property holds the type of the token you are generating. Make sure to give it a unique name when you have multiple API token guards in use. 
+The type property holds the type of the token you are generating. Make sure to give it a unique name when you have multiple API token guards in use.
 
 The unique name ensures that two guards generating the token for the same user does not have overlap or any conflicts.
 
@@ -57,7 +55,7 @@ The foreign key to build the relationship between the user and the token. Later,
 ### Redis storage
 The redis storage is suitable when API tokens are the primary mode of authentication. For example: You authenticate the requests from your mobile app using token based authentication.
 
-In this scanerio, you would also want tokens to expire after a given period of time and redis can automatically clear the expired tokens from its storage.
+In this scenario, you would also want tokens to expire after a given period of time and redis can automatically clear the expired tokens from its storage.
 
 Configuration for tokens is managed inside the `config/auth.ts` file under the guard config object.
 
@@ -78,7 +76,7 @@ Configuration for tokens is managed inside the `config/auth.ts` file under the g
 ```
 
 #### type
-The type property holds the type of the token you are generating. Make sure to give it a unique name when you have multiple API token guards in use. 
+The type property holds the type of the token you are generating. Make sure to give it a unique name when you have multiple API token guards in use.
 
 The unique name ensures that two guards generating the token for the same user does not have overlap or any conflicts.
 
@@ -119,7 +117,7 @@ Route.post('login', async ({ auth, request, response }) => {
     // highlight-end
   } catch {
     return response.badRequest('Invalid credentials')
-  } 
+  }
 })
 ```
 
@@ -165,7 +163,7 @@ Route.post('login', async ({ auth, request, response }) => {
 
 ---
 
-### Manging tokens expiry
+### Managing tokens expiry
 You can also define the expiry for the token at the time of the generating it.
 
 ```ts
@@ -371,7 +369,7 @@ Reference to the underlying user provider used by the guard.
 
 ---
 
-### tokenProvidier
+### tokenProvider
 Reference to the underlying token provider used by the guard.
 
 ---

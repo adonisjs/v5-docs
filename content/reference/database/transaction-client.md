@@ -8,13 +8,29 @@ You can access the transaction query client as follows:
 
 ```ts
 import Database from '@ioc:Adonis/Lucid/Database'
-await trx = await Database.transaction()
+const trx = await Database.transaction()
 
 // for a given connection
-await trx = await Database
+const trx = await Database
   .connection('pg')
   .transaction()
 ```
+
+You can also define the transaction isolation level as follows.
+
+```ts
+await Database.transaction({
+  isolationLevel: 'read uncommitted'
+})
+```
+
+Following is the list of available isolation levels.
+
+- **"read uncommitted"**
+- **"read committed"**
+- **"snapshot"**
+- **"repeatable read"**
+- **"serializable"**
 
 ## Methods/Properties
 Following is the list of methods and properties available on the transaction client class.

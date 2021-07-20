@@ -74,7 +74,7 @@ await client
 ---
 
 ### knexQuery
-Returns an instance of the [Knex.js query builder](http://knexjs.org/#Builder) for a pre-selected database connection.
+Returns an instance of the [Knex.js query builder](https://knexjs.org/#Builder) for a pre-selected database connection.
 
 ```ts
 client.knexQuery().select('*')
@@ -83,7 +83,7 @@ client.knexQuery().select('*')
 ---
 
 ### knexRawQuery
-Returns an instance of the [Knex.js raw query builder](http://knexjs.org/#Raw) for a pre-selected database connection.
+Returns an instance of the [Knex.js raw query builder](https://knexjs.org/#Raw) for a pre-selected database connection.
 
 ```ts
 client
@@ -93,7 +93,7 @@ client
 ---
 
 ### transaction
-Creates a new transaction client instance. Transaction client **reserves a dedicated database** connection right away and hence it is very important to commit or rollback the transactions properly.
+Creates a new [transaction client](./transaction-client.md) instance. Transaction client **reserves a dedicated database** connection right away and hence it is very important to commit or rollback the transactions properly.
 
 ```ts
 const trx = await client.transaction()

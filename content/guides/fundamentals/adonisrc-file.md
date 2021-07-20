@@ -16,7 +16,7 @@ node ace dump:rcfile
 Following is the output of the file, along with the defaults and you can override any property as per your requirements.
 
 ```json
-// collpase: 16
+// collapse: 16
 {
   "typescript": true,
   "directories": {
@@ -236,7 +236,7 @@ AdonisJS aliases are for runtime only. You will also have to register the same a
 The `metaFiles` array accepts the files that you want AdonisJS to copy to the `build` folder, when creating the production build.
 
 - You can define the file paths as a glob pattern and we will copy all the matching files for that pattern.
-- Also, you can instruct the development server to reload, if any of the files inside the matching pattern changes. 
+- Also, you can instruct the development server to reload, if any of the files inside the matching pattern changes.
 
 ```json
 {
@@ -297,7 +297,7 @@ An array of service providers to load during the application boot cycle. The pro
   "providers": [
     "./providers/AppProvider",
     "@adonisjs/core"
-  ],  
+  ],
 }
 ```
 

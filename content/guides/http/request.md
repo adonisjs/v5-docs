@@ -91,7 +91,7 @@ request.param('id', 1)
 
 ### Request body
 
-The request body is parsed using the pre-configured bodyparser middleware. Open the `start/kernel.ts` file and ensure that the following middleware is registered inside the list of the global middlewares.
+The request body is parsed using the pre-configured bodyparser middleware. Open the `start/kernel.ts` file and ensure that the following middleware is registered inside the list of the global middleware.
 
 ```ts
 // title: start/kernel.ts
@@ -353,7 +353,7 @@ The `request.ips()` method returns an array of IP addresses starting from the mo
 request.ips()
 ```
 
-### Custom IP reterval method
+### Custom IP retrieval method
 
 If the trusted proxy settings are not enough to determine the correct IP address, you can implement your own custom `getIp` method.
 
@@ -394,7 +394,7 @@ Form method spoofing only works:
 
 The client making the request can negotiate for the **resource representation**, **charset**, **language**, and **encoding** using different `Accept` headers, and you can handle them as follows.
 
-### request.accepts
+### accepts
 
 The `request.accepts` method takes an array of content types (including shorthands) and returns the most appropriate content type by inspecting the `Accept` header. You can find the list of supported content types [here](https://github.com/jshttp/mime-db/blob/master/db.json).
 
@@ -417,7 +417,18 @@ Route.get('posts', async ({ request, view }) => {
 })
 ```
 
-### request.language
+---
+
+### types
+The `request.types` method returns an array of content types by inspecting the `Accept` header. The array is ordered by the client's preference (most preferred first).
+
+```ts
+const types = request.types()
+```
+
+---
+
+### language
 
 Negotiate for the requested language based upon the `Accept-language` header.
 
@@ -431,7 +442,19 @@ if (language) {
 return view.render('posts/en/index')
 ```
 
-### request.encoding
+---
+
+### languages
+
+The `languages` method returns an array of accepted languages by inspecting the `Accept-language` header. The array is ordered by the client's preference (most preferred first).
+
+```ts
+const languages = request.languages()
+```
+
+---
+
+### encoding
 
 Find the best encoding using the `Accept-encoding` header.
 
@@ -446,13 +469,33 @@ switch (request.encoding(['gzip', 'br'])) {
 }
 ```
 
-### request.charset
+---
+
+### encodings
+The `encodings` method returns an array of accepted encoding by inspecting the `Accept-encoding` header. The array is ordered by the client's preference (most preferred first).
+
+```ts
+const encodings = request.encodings()
+```
+
+---
+
+### charset
 
 Find the best charset using the `Accept-charset` header.
 
 ```ts
 const charset = request.charset(['utf-8', 'hex', 'ascii'])
 return Buffer.from('hello-world').toString(charset || 'utf-8')
+```
+
+---
+
+### charset
+The `charset` method returns an array of accepted charsets by inspecting the `Accept-charset` header. The array is ordered by the client's preference (most preferred first).
+
+```ts
+const charsets = request.charsets()
 ```
 
 ## Trusted proxy
@@ -521,7 +564,7 @@ The following methods from the request class rely on a trusted proxy to return t
 
 - **hostname**: The value of `request.hostname()` is derived from the `X-Forwarded-Host` header.
 - **protocol**: The value of `request.protocol()` is derived from the `X-Forwarded-Proto` header.
-- **ip/ips**: The value of `request.ips()` and `request.ip()` is derived from the `X-Forwaded-For` header. However, the `http.getIp` configuration method takes precendence when defined. [Learn more](#custom-ip-reterval-method)
+- **ip/ips**: The value of `request.ips()` and `request.ip()` is derived from the `X-Forwaded-For` header. However, the `http.getIp` configuration method takes precedence when defined. [Learn more](#custom-ip-reterval-method)
 
 ## CORS
 
@@ -540,6 +583,62 @@ The config file is extensively documented. Make sure to go through all the optio
 ## Other methods and properties
 
 Following is the list of other available methods and properties on the Request class.
+
+### hostname
+Returns the request hostname. If [proxy headers](#trusted-proxy) are trusted, then `X-Forwarded-Host` is given priority over the `Host` header.
+
+```ts
+request.hostname()
+```
+
+---
+
+### ajax
+Find if the request header `X-Requested-With` is set to `'xmlhttprequest'`.
+
+```ts
+if (request.ajax()) {
+  // return response for ajax request
+}
+```
+
+---
+
+### matchesRoute
+Find if the current request is for a given route. The method accepts the route identifier as the only argument. The identifier can be the **route pattern**, **controller.method name** or the **route name**.
+
+```ts
+if (request.matchesRoute('posts.show')) {
+}
+```
+
+You can also match against the multiple routes. The method returns `true` if the returns URL matches any of the defined identifiers.
+
+```ts
+if (request.matchesRoute(['posts.show', 'posts.edit'])) {
+}
+```
+
+---
+
+### is
+Returns the best matching content type of the request by matching against the given types.
+
+The content type is picked from the `Content-Type` header and request must have body.
+
+```ts
+const contentType = request.is(['json', 'xml'])
+
+if (contentType === 'json') {
+  // process body as JSON
+}
+
+if (contentType === 'xml') {
+  // process body as XML
+}
+```
+
+---
 
 ### updateBody
 
@@ -643,5 +742,6 @@ declare module '@ioc:Adonis/Core/Request' {
 Following are some of the additional guides to learn more about the topics not covered in this document.
 
 - [Cookies](./cookies.md)
+- [Signed URLs](../security/signed-urls.md)
 - [File uploads](./file-uploads.md)
 - [Validations](../validator/introduction.md)

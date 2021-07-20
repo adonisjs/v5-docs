@@ -74,6 +74,6 @@ pg: {
 :::
 
 ## Managing user uploaded files
-Heroku does not have [persistant storage](https://help.heroku.com/K1PPS2WM/why-are-my-file-uploads-missing-deleted), and you cannot save the user uploaded files on the server filesystem. This leaves you with only one option of saving the uploaded files to an external service like S3.
+Heroku does not have [persistent storage](https://help.heroku.com/K1PPS2WM/why-are-my-file-uploads-missing-deleted), and you cannot save the user uploaded files on the server filesystem. This leaves you with only one option of saving the uploaded files to an external service like S3.
 
 We are currently working on a module that allows you to use the local filesystem during development and then switch to an external filesystem like S3 for production. Do all this without changing a single line of code.

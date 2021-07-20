@@ -12,7 +12,7 @@ Moving forward, we will strictly follow [semantic versioning](https://semver.org
 ## Introducing breaking changes
 As AdonisJS is getting mature, we take more responsibility of not introducing breaking changes every then and now and all breaking changes **should go through a deprecation and RFC phase**.
 
-Before introducing any breaking change, we will publish an [RFC](http://github.com/adonisjs/rfcs) discussing the motivations behind the change. If there is not a major push back, we will go ahead with the change.
+Before introducing any breaking change, we will publish an [RFC](https://github.com/adonisjs/rfcs) discussing the motivations behind the change. If there is not a major push back, we will go ahead with the change.
 
 The initial phase of the change will deprecate the existing APIs during a minor release. Running your application after this change will get a lot of warnings, but nothing will break and continue to work as it is.
 
