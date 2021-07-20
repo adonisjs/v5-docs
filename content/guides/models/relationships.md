@@ -301,6 +301,7 @@ export default class SkillUsers extends BaseSchema {
       // highlight-start
       table.integer('user_id').unsigned().references('users.id')
       table.integer('skill_id').unsigned().references('skills.id')
+      table.unique(['user_id', 'skill_id'])
       // highlight-end
       table.timestamp('created_at', { useTz: true })
       table.timestamp('updated_at', { useTz: true })
