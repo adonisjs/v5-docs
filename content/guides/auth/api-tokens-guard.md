@@ -192,7 +192,7 @@ The user for which the token was generated. The value of the user relies on the 
 ---
 
 ### expiresAt
-An instance of the [luxon Datetime](https://moment.github.io/luxon/docs/class/src/datetime.js~DateTime.html) representing a static time at which the token will expire. Only exists, if have explicitly defined the expiry for the token.
+An instance of the [luxon Datetime](https://moment.github.io/luxon/api-docs/index.html#datetime) representing a static time at which the token will expire. Only exists, if have explicitly defined the expiry for the token.
 
 ---
 
