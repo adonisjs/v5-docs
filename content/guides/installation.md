@@ -2,7 +2,7 @@
 summary: Getting started by creating and running a new AdonisJS application
 ---
 
-AdonisJS is a Node.js framework and hence it requires Node.js to be installed on your computer. To be precise, we require the latest version of `Node.js 14`, along with `npm >= 6.0.0`.
+AdonisJS is a Node.js framework and hence it requires Node.js to be installed on your computer. To be precise, we require at least the latest release of `Node.js 14`, along with `npm >= 6.0.0`.
 
 You can check the Node.js and npm versions by running the following commands.
 
