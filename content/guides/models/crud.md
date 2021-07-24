@@ -243,7 +243,7 @@ const usersToCreate = [
   }
 ]
 
-await User.fetchOrCreateMany('email', usersToCreate)
+await User.fetchOrCreateMany(usersToCreate, 'email')
 ```
 
 ---
@@ -280,7 +280,7 @@ const usersToCreate = [
   }
 ]
 
-await User.updateOrCreateMany('email', usersToCreate)
+await User.updateOrCreateMany(usersToCreate, 'email')
 ```
 
 ## Additional Reading
