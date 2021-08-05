@@ -149,7 +149,7 @@ export default class User extends BaseModel {
 ### beforePaginate
 The `beforePaginate` query is executed when you make use of the `paginate` method. The paginate method fires both the `beforeFetch` and `beforePaginate` hooks.
 
-The hook function receives an array of query builders. The first instance is for the main query, and the second is for the count's query.
+The hook function receives an array of query builders. The first instance is for the count's query, and the second is for the main query.
 
 ```ts
 import {
@@ -161,8 +161,8 @@ import {
 export default class User extends BaseModel {
   @beforePaginate()
   public static ignoreDeleted ([
-    query: ModelQueryBuilderContract<typeof User>,
     countQuery: ModelQueryBuilderContract<typeof User>,
+    query: ModelQueryBuilderContract<typeof User>,
   ]) {
     query.whereNull('is_deleted')
     countQuery.whereNull('is_deleted')

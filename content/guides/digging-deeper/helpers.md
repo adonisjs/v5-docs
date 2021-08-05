@@ -106,7 +106,7 @@ Convert a sentence to title case
 ```ts
 import { string } from '@ioc:Adonis/Core/Helpers'
 
-string.titleCase('Here is a fox') // Here Is a fox
+string.titleCase('Here is a fox') // Here Is a Fox
 ```
 
 ---

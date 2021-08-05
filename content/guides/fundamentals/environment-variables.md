@@ -168,7 +168,7 @@ Forces the value to be one of the pre-defined values.
 
 // Mark it as optional
 {
-  PORT: Env
+  NODE_ENV: Env
     .schema
     .enum
     .optional(['development', 'production'] as const)

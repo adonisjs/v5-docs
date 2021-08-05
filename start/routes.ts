@@ -44,7 +44,7 @@ Route.get('*', async ({ request, response, view }) => {
   if (error && error.includes('Unable to lookup')) {
     return response.redirect('/404')
   } else if (error) {
-    return view.render('errors.500', { error })
+    return view.render('errors/500', { error })
   } else {
     response.send(html)
   }

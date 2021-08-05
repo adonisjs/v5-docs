@@ -1,14 +1,20 @@
 <aside
-  x-data="asideHighlights()" x-init="init" class="toc"
+  x-data="asideHighlights()"
+  x-init="init"
+  class="toc {{ doc.group === 'Database' && doc.zone === 'Reference' ? 'show_nested' : '' }}"
 >
   @if(file.toc)
-    <div class="toc-container" data-turbo="false">
-      <h3> On this page </h3>
-      <nav>
-        <ul>
-          @dimerTree(file.toc.children)~
-        </ul>
-      </nav>
-    </div>
+  <div
+    class="toc-container"
+    data-turbo="false"
+  >
+    <h3> On this page </h3>
+    <nav>
+      <ul>
+        @dimerTree(file.toc.children)~
+      </ul>
+    </nav>
+  </div>
   @end
+  @include('partials/carbon-ads')
 </aside>

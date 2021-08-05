@@ -110,7 +110,7 @@ The file validation allows defining custom messages for the sub rules. For examp
 ```ts
 {
   'file.size': 'The file size must be under {{ options.size }}',
-  'file.extnames': 'The file must have one of {{ options.extnames }} extension names',
+  'file.extname': 'The file must have one of {{ options.extnames }} extension names',
 }
 ```
 

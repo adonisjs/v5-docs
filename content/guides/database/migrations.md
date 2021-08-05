@@ -46,7 +46,8 @@ export default class Users extends BaseSchema {
       table.increments('id').primary()
       table.string('email').unique().notNullable()
       table.string('password').notNullable()
-      table.timestamps(true, true)
+      table.timestamp('created_at', { useTz: true })
+      table.timestamp('updated_at', { useTz: true })
     })
   }
 
@@ -242,7 +243,7 @@ The `migrator.migratedFiles` is an object. The key is the unique name (derived f
 - The `status` will be one of **"pending"**, **"completed"**, or **"error"**.
 - The `queries` array contains an array of executed queries. Only when `dryRun` is enabled.
 - The `file` property holds the information for the migration file.
-- The `batch` property tells the batch in which the migration was executed. 
+- The `batch` property tells the batch in which the migration was executed.
 
 ### getList
 The `migrator.getList` method returns a list of all the migrations, including the completed and the pending ones. This is the same list you see when you run the `node ace migration:list` command.
