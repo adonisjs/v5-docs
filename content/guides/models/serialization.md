@@ -326,7 +326,7 @@ const post = await Post
   .preload('author')
   .first()
 
-posts.serialize({
+post.serialize({
   fields: {
     pick: ['id', 'title', 'body'],
   },
