@@ -26,6 +26,11 @@
             "contentPath": "deployment/heroku.md"
           },
           {
+            "title": "Docker",
+            "permalink": "deploy-to-docker",
+            "contentPath": "deployment/docker.md"
+          },
+          {
             "title": "Digital ocean apps",
             "permalink": "deploy-to-digial-ocean",
             "contentPath": "deployment/digial-ocean.md"
