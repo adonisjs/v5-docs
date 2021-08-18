@@ -226,13 +226,13 @@ Also, make sure to install the appropriate loaders for them.
 
 ```sh
 # For SASS
-npm i -D sass-loader
+npm i -D sass-loader sass
 
 # For Less
-npm i -D less-loader
+npm i -D less-loader less
 
 # For Stylus
-npm i -D stylus-loader
+npm i -D stylus-loader stylus
 ```
 
 ## Copying & referencing images
