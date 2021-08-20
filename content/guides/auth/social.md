@@ -247,6 +247,13 @@ Also, for some of the drivers (e.g., Google), the list of the scopes is too long
 
 ![](https://res.cloudinary.com/adonis-js/image/upload/q_auto,f_auto/v1619637422/v5/ally-intellisense.jpg)
 
+:::warning
+
+If you want to customize the Discord driver, it require to have the `identify` scope present to work properly.
+You can find more informations about it [here](https://discord.com/developers/docs/resources/user#get-current-user).
+
+:::
+
 ## Define other query string params
 You can also define custom query string params on the redirect request using the `redirectRequest.param` method. For example: Define the `prompt` and the `access_type` for the Google provider.
 
