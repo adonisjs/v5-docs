@@ -76,7 +76,7 @@ This approach ensures that the last call to `response.send` always wins. In most
 
 Following is an example of converting the `camelCase` object keys to `snake_case`.
 
-:::warn
+:::warning
 
 The following example is not the best way to transform response. It is just a demonstration of how post-processing a response looks like
 
