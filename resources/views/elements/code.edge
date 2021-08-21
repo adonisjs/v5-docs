@@ -1,17 +1,16 @@
-<div
-  x-data="initializeCode()"
-  class="dimer-highlight"
->
+<div x-data="copyToClipboard" class="dimer-highlight">
   @if(node.properties.dataTitle)
     <div class="codeblock-title">
       {{ node.properties.dataTitle }}
     </div>
   @endif
 
-  <button class="ctc-action" x-ref="copyButton" @click="copyToClipboard">Copy to Clipboard</button>
+  <button class="ctc-action" x-ref="handler" @click="copy">
+    Copy to Clipboard
+  </button>
 
 {{-- Do not indent pre and its contents --}}
-<pre>
+<pre x-ref="content">
 @dimerTree(node.children)~
 </pre>
 </div>
