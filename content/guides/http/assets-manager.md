@@ -299,15 +299,15 @@ npm i -D @babel/preset-react
 
 Next, enable the react preset inside the `webpack.config.js` file.
 
-:::warn
+```ts
+Encore.enableReactPreset()
+```
+
+:::warning
 
 If you are using the `.babelrc` file, you must enable the react preset inside it, as Encore can no longer configure babel.
 
 :::
-
-```ts
-Encore.enableReactPreset()
-```
 
 ## Configuring Vue
 You can configure Vue by first enabling the vue loader inside the `webpack.config.js` file. 
