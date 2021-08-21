@@ -130,7 +130,7 @@ HEADER STYLES
   .header-nav li ul.dropdown {
     position: absolute;
     padding: 10px 0;
-    top: -7px;
+    top: -9px;
     z-index: 2;
     border-radius: 0 0 var(--rounded-corners-size) var(--rounded-corners-size);
     margin-top: var(--header-height);

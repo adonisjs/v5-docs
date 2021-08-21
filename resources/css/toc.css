@@ -59,6 +59,10 @@ TOC BLOCK
   text-decoration: none;
 }
 
+.toc li a:hover {
+  color: inherit;
+}
+
 /** Required only when using Calibre */
 .toc code {
   font-size: 1.2rem;

@@ -59,6 +59,10 @@ SIDEBAR STYLES
   padding: 2px 10px;
 }
 
+.sidebar nav li a:hover {
+  color: inherit;
+}
+
 .sidebar nav li a.up-current {
   color: var(--brand-color);
   border-color: var(--accent-color);
