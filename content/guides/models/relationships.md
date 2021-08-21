@@ -389,7 +389,7 @@ public skills: ManyToMany<typeof Skill>
 You can enable the support for **created at** and **updated at** timestamps for your pivot tables using the `pivotTimestamps` property.
 
 - Once defined, Lucid will automatically set/update these timestamps on insert and update queries.
-- Converts them to an instance of [Luxon Datetime](https://moment.github.io/luxon/docs/class/src/datetime.js~DateTime.html) class during fetch.
+- Converts them to an instance of [Luxon Datetime](https://moment.github.io/luxon/api-docs/index.html#datetime) class during fetch.
 
 ```ts
 @manyToMany(() => Skill, {

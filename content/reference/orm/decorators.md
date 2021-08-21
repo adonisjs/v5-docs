@@ -62,7 +62,7 @@ class User extends BaseModel {
 ---
 
 ### column.date / column.datetime
-The `column.date` decorator marks the column as a date. The decorator enforces the property type to be an instance of [luxon.DateTime](https://moment.github.io/luxon/docs/class/src/datetime.js~DateTime.html).
+The `column.date` decorator marks the column as a date. The decorator enforces the property type to be an instance of [luxon.DateTime](https://moment.github.io/luxon/api-docs/index.html#datetime).
 
 The decorator [self defines](https://github.com/adonisjs/lucid/blob/0fc3e2391ba6743427fac62e0895e458d7bc8137/src/Orm/Decorators/date.ts#L98) the `prepare`, `consume` and the `serialize` methods to ensure
 
