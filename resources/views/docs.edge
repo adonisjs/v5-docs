@@ -66,8 +66,13 @@
 
 <body x-data="{ isSideNavOpen: false }">
   @include('partials/header')
-  @include('partials/sidebar')
-  @include('partials/doc')
-  @include('partials/toc')
+  <div up-main>
+    @include('partials/sidebar')
+
+    <div id="document" up-main>
+      @include('partials/doc')
+      @include('partials/toc')
+    </div>
+  </div>
 </body>
 </html>

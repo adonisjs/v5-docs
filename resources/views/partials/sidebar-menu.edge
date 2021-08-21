@@ -9,10 +9,16 @@
             @end
             <ol>
               @each(categoryDoc in category.docs)
-                <li
-                  class="{{ doc.url === categoryDoc.url ? 'active' : '' }}"
-                >
-                  <a href="{{ categoryDoc.url }}"> {{ categoryDoc.title }} </a>
+                <li>
+                  <a
+                    href="{{ categoryDoc.url }}"
+                    class="{{ doc.url === categoryDoc.url ? 'up-current' : '' }}"
+                    up-follow
+                    up-target="#document"
+                    up-preload
+                  >
+                    {{ categoryDoc.title }}
+                  </a>
                 </li>
               @end
             </ol>

@@ -1,10 +1,12 @@
 import 'lazysizes'
+import 'unpoly'
 import Alpine from 'alpinejs'
 
 /**
  * Css imports. Do not change the order
  */
 import 'normalize.css'
+import 'unpoly/unpoly.css'
 import '../fonts/Calibre/stylesheet.css'
 import '../fonts/jetbrains/stylesheet.css'
 import '../css/variables.css'

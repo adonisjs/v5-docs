@@ -59,7 +59,7 @@ SIDEBAR STYLES
   padding: 2px 10px;
 }
 
-.sidebar nav li.active a {
+.sidebar nav li a.up-current {
   color: var(--brand-color);
   border-color: var(--accent-color);
 }
