@@ -70,12 +70,13 @@ Alpine.data('codegroups', function () {
 
 Alpine.data('copyToClipboard', function () {
   return {
+    copied: false,
     copy() {
       const code = this.$refs.content.textContent
       navigator.clipboard.writeText(code)
 
-      this.$refs.handler.innerText = 'Copied'
-      setTimeout(() => (this.$refs.handler.innerText = 'Copy to Clipboard'), 1000)
+      this.copied = true
+      setTimeout(() => (this.copied = false), 1500)
     },
   }
 })
