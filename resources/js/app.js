@@ -125,4 +125,19 @@ Alpine.data('selectBoxNavigate', function () {
   }
 })
 
+Alpine.data('carbonAd', function (zoneId) {
+  return {
+    init() {
+      const script = document.createElement('script')
+      script.setAttribute('type', 'text/javascript')
+      script.setAttribute(
+        'src',
+        `//cdn.carbonads.com/carbon.js?serve=${zoneId}&placement=adonisjscom`
+      )
+      script.setAttribute('id', '_carbonads_js')
+      this.$el.appendChild(script)
+    },
+  }
+})
+
 Alpine.start()

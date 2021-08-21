@@ -1,5 +1,7 @@
 @if(app.env.get('CARBON_ADS_ID'))
-<div class="carbonads_wrapper">
-  <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve={{ app.env.get('CARBON_ADS_ID') }}&placement=adonisjscom" id="_carbonads_js"></script>
-  @end
-</div>
+  <div
+    class="carbonads_wrapper"
+    x-data="carbonAd('{{ app.env.get('CARBON_ADS_ID') }}')"
+  >
+  </div>
+@end
