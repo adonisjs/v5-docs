@@ -1,13 +1,19 @@
 <div class="mobile-main-nav">
-  <select x-data="selectBoxNavigate()" x-init="mounted" @change="navigateTo">
+  <select x-data="selectBoxNavigate()" @change="visitUrl">
     @each((groups, name) in zones)
-      <optgroup label="{{ name }}">
-        @each(group in groups)
-          <option value="{{ group.landingDoc.url }}">
-            {{ groups.length === 1 ? name : group.name }}
-          </option>
-        @endeach
-      </optgroup>
-    @endeach
+      @if(groups.length > 1)
+        <optgroup label="{{ name }}">
+          @each(group in groups)
+            <option value="{{ group.landingDoc.url }}">
+              {{ group.name }}
+            </option>
+          @end
+        </optgroup>
+      @else
+        <option value="{{ groups[0].landingDoc.url }}">
+          {{ name }}
+        </option>
+      @end
+    @end
   </select>
 </div>

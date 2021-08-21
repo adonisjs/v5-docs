@@ -112,7 +112,7 @@ Alpine.data('search', function (apiKey) {
  */
 Alpine.data('selectBoxNavigate', function () {
   return {
-    mounted() {
+    init() {
       this.$el.querySelectorAll('option').forEach((element) => {
         if (element.value === window.location.pathname) {
           element.selected = 'selected'
@@ -120,8 +120,8 @@ Alpine.data('selectBoxNavigate', function () {
       })
     },
 
-    navigateTo(e) {
-      window.location = e.target.value
+    visitUrl(e) {
+      up.navigate({ url: e.target.value })
     },
   }
 })
@@ -137,6 +137,18 @@ Alpine.data('carbonAd', function (zoneId) {
       )
       script.setAttribute('id', '_carbonads_js')
       this.$el.appendChild(script)
+    },
+  }
+})
+
+Alpine.data('offCanvasMenu', function () {
+  return {
+    opened: false,
+    open() {
+      this.opened = true
+    },
+    close() {
+      this.opened = false
     },
   }
 })

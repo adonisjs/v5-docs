@@ -55,6 +55,12 @@
     type="font/woff2"
     crossorigin
   >
+  <link
+    rel="preload"
+    href="{{ asset('assets/docsearch.css') }}"
+    as="style"
+    crossorigin
+  >
 
   @entryPointStyles('app')
   @entryPointScripts('app')
@@ -65,7 +71,7 @@
   ></script>
 </head>
 
-<body x-data="{ isSideNavOpen: false }">
+<body>
   @include('partials/header')
   <div up-main>
     @include('partials/sidebar')
