@@ -6,7 +6,7 @@
 
 <div align="center">
   <h3>AdonisJS official documentation</h3>
-  <p>Source code and documentation for the official documentation website hosted on [docs.adonisjs.com](https://docs.adonisjs.com)</p>
+  <p>Source code and documentation for the official documentation website hosted on <a href="https://docs.adonisjs.com">docs.adonisjs.com</a></p>
 </div>
 
 ## Setup
