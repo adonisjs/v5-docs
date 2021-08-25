@@ -250,7 +250,7 @@ Encore.copyFiles({
 Also, make sure to use the `asset` helper to reference the image inside an `img` tag.
 
 ```edge
-<img src="{{ asset('logo.png') }}" />
+<img src="{{ asset('assets/images/logo.png') }}" />
 ```
 
 ## Configuring Babel
