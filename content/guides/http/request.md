@@ -96,7 +96,7 @@ The request body is parsed using the pre-configured bodyparser middleware. Open 
 ```ts
 // title: start/kernel.ts
 Server.middleware.register([
-  () => import('@ioc:Adonis/Core/BodyParserMiddleware')
+  () => import('@ioc:Adonis/Core/BodyParser')
 ])
 ```
 
