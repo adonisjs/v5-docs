@@ -97,7 +97,6 @@ Following is a dummy implementation of a custom error reporter. Feel free to twe
 
 ```ts
 // title: app/Validators/Reporters/MyReporter.ts
-// collapse: 6
 import {
   ValidationException,
   MessagesBagContract,

@@ -493,7 +493,6 @@ You can also use the official [s3](https://github.com/adonisjs/drive-s3) or [gcs
 :::
 
 ```ts
-// collapse: 17
 interface DriverContract {
   name: string
   

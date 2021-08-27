@@ -16,7 +16,6 @@ node ace dump:rcfile
 Following is the output of the file, along with the defaults and you can override any property as per your requirements.
 
 ```json
-// collapse: 16
 {
   "typescript": true,
   "directories": {
