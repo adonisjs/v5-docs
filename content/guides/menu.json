@@ -377,6 +377,11 @@
             "contentPath": "digging-deeper/authorization.md"
           },
           {
+            "title": "Drive",
+            "permalink": "drive",
+            "contentPath": "digging-deeper/drive.md"
+          },
+          {
             "title": "Ace",
             "permalink": "ace-commandline",
             "contentPath": "digging-deeper/ace.md"
