@@ -1,6 +1,7 @@
 import 'lazysizes'
 import 'unpoly'
 import Alpine from 'alpinejs'
+import { listen } from 'quicklink'
 
 /**
  * Css imports. Do not change the order
@@ -149,6 +150,16 @@ Alpine.data('offCanvasMenu', function () {
     },
     close() {
       this.opened = false
+    },
+  }
+})
+
+Alpine.data('prefetch', function () {
+  return {
+    init() {
+      listen({
+        el: this.$el,
+      })
     },
   }
 })

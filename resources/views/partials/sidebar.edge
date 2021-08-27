@@ -5,7 +5,7 @@
   :class="{ opened: opened }"
 >
   <div class="sidebar">
-    <div class="sidebar-container" up-nav>
+    <div class="sidebar-container" up-nav x-data="prefetch">
       @include('partials/mobile-main-nav')
       @include('partials/sidebar-menu')
     </div>
