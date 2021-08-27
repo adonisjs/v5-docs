@@ -145,6 +145,8 @@ Encore.configureDevServerOptions((options) => {
     directory: join(__dirname, './resources/views'),
     watch: true,
   })
+
+  delete options.client.host
 })
 
 /*
