@@ -157,7 +157,7 @@ const {
 
 ModelQueryBuilder.macro('getCount', async function () {
   const result = await this.count('* as total')
-  return BigInt(result[0].total)
+  return BigInt(result[0].$extras.total)
 })
 ```
 

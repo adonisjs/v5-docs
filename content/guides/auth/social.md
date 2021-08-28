@@ -45,7 +45,7 @@ export default Env.rules({
 
 :::div{class="features"}
 
-- Support for multiple providers. **Google**, **Twitter**, **LinkedIn**, **Facebook**, **Discord**, and **Github**
+- Support for multiple providers. **Google**, **Twitter**, **LinkedIn**, **Facebook**, **Discord**, **Spotify**, and **Github**
 - Extensible API to add custom social providers
 
 &nbsp;
@@ -86,6 +86,7 @@ Name of the driver to use. It must always be one of the following available driv
 - `discord`
 - `facebook`
 - `linkedin`
+- `spotify`
 
 ---
 
@@ -284,6 +285,7 @@ console.log(user.email)
 
 #### id
 A unique id returned by the OAuth provider.
+
 ---
 
 #### nickName
@@ -471,6 +473,91 @@ twitter: {
   clientId: '',
   clientSecret: '',
   callbackUrl: '',
+}
+```
+
+</details>
+
+---
+
+<details>
+  <summary>Discord</summary>
+
+```ts
+google: {
+  driver: 'discord',
+  clientId: '',
+  clientSecret: '',
+  callbackUrl: '',
+
+  // Discord specific
+  prompt: 'consent' | 'none',
+  guildId: '',
+  disableGuildSelect: false,
+  permissions: 10,
+  // identify scope is always required
+  scopes: ['identify', 'email'],
+}
+```
+
+</details>
+
+---
+
+<details>
+  <summary>LinkedIn</summary>
+
+```ts
+google: {
+  driver: 'linkedin',
+  clientId: '',
+  clientSecret: '',
+  callbackUrl: '',
+
+  // Linkedin specific
+  scopes: ['r_emailaddress', 'r_liteprofile'],
+}
+```
+
+</details>
+
+---
+
+<details>
+  <summary>Facebook</summary>
+
+```ts
+google: {
+  driver: 'facebook',
+  clientId: '',
+  clientSecret: '',
+  callbackUrl: '',
+
+  // Facebook specific
+  scopes: ['email', 'user_photos'],
+  userFields: ['first_name', 'picture', 'email'],
+  display: '',
+  authType: '',
+}
+```
+
+</details>
+
+---
+
+<details>
+  <summary>Spotify</summary>
+
+```ts
+google: {
+  driver: 'spotify',
+  clientId: '',
+  clientSecret: '',
+  callbackUrl: '',
+
+  // Spotify specific
+  scopes: ['user-read-email', 'streaming'],
+  showDialog: false
 }
 ```
 

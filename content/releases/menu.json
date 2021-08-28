@@ -6,6 +6,11 @@
         "name": "root",
         "docs": [
           {
+            "title": "September release - 2021",
+            "permalink": "september-2021-release",
+            "contentPath": "september-2021-release.md"
+          },
+          {
             "title": "June release - 2021",
             "permalink": "june-2021-release",
             "contentPath": "june-2021-release.md"
