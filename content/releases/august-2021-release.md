@@ -8,6 +8,7 @@ The following packages have been updated during the current release.
 - Updated `@adonisjs/view` from version `6.0.3 -> 6.1.0`
 - Updated `@adonisjs/repl` from version `3.1.2 -> 3.1.6`
 - :span[[Breaking change](#breaking-change)]{class="badge badge-danger"} &nbsp; Updated `@adonisjs/lucid` from version `15.0.1 -> 16.0.0`
+- Updated `@adonisjs/auth` from version `8.0.5 -> 8.0.9`
 
 You can upgrade to the latest packages using the `npm update` command or manually install packages with the `@latest` tag.
 
@@ -23,6 +24,7 @@ npm i @adonisjs/ally@latest
 npm i @adonisjs/view@latest
 npm i @adonisjs/repl@latest
 npm i @adonisjs/lucid@latest
+npm i @adonisjs/auth@latest
 ```
 
 ## Drive
