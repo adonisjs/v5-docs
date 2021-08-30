@@ -1,4 +1,29 @@
-This release introduces [AdonisJS drive](#drive) (a new official package), along with some bug fixes and minor improvements.
+This release introduces [AdonisJS drive](#drive) (a new official package), along with some bug fixes, minor improvements and a breaking change.
+
+## Upgrading to the latest versions
+The following packages have been updated during the current release.
+
+- Updated `@adonisjs/core` from version ` 5.1.8 -> 5.3.2`
+- Updated `@adonisjs/ally` from version `4.0.2 -> 4.1.1`
+- Updated `@adonisjs/view` from version `6.0.3 -> 6.1.0`
+- Updated `@adonisjs/repl` from version `3.1.2 -> 3.1.6`
+- :span[[Breaking change](#breaking-change)]{class="badge badge-danger"} &nbsp; Updated `@adonisjs/lucid` from version `15.0.1 -> 16.0.0`
+
+You can upgrade to the latest packages using the `npm update` command or manually install packages with the `@latest` tag.
+
+:::note
+
+Even though the following packages have received new features/bug fixes. We still recommend updating all of your AdonisJS packages.
+
+:::
+
+```sh
+npm i @adonisjs/core@latest
+npm i @adonisjs/ally@latest
+npm i @adonisjs/view@latest
+npm i @adonisjs/repl@latest
+npm i @adonisjs/lucid@latest
+```
 
 ## Drive
 [AdonisJS Drive](../guides/digging-deeper/drive.md) makes it super simple to manage user uploaded files and save them to cloud storage services like **S3**, **Digital ocean spaces** or **Google cloud storage**.
@@ -10,15 +35,30 @@ New AdonisJS applications are pre-configured with drive. However, you can also a
 
 :::note
 
-Double-check you are using `@adonisjs/core@5.3.0`
+Double-check you are using `@adonisjs/core >= 5.3.0`
 
 :::
 
 - Create a `contracts/drive.ts` file and copy-paste the [contracts stub](https://raw.githubusercontent.com/adonisjs/core/master/templates/contracts/drive.txt) inside it. Feel free to uncomment the `s3` and `gcs` blocks (if using them).
 - Create a `config/drive.ts` file and copy-paste the [config stub](https://raw.githubusercontent.com/adonisjs/core/master/templates/config/drive.txt) inside it.
+- Define the `DRIVE_DISK` environment variable inside the `.env` file.
+  
+  ```dotenv
+  DRIVE_DISK=local
+  ```
 
-#### Installing gcs and s3 drivers
+---
+
+### Validating environment variables
+
+Optionally, you can also validate the environment variables inside the `env.ts` file. Just inspect your drive config file and define the validation rules for the environment variables you are using.
+
+---
+
+### Installing gcs and s3 drivers
 Make sure to install the `gcs` and `s3` drivers when planning to use these services.
+
+The `configure` command for both the packages will guide you to make necessary changes to the config and the contracts file.
 
 ```sh
 # For s3 and digital ocean spaces
@@ -30,16 +70,12 @@ npm i @adonisjs/drive-gcs
 node ace configure @adonisjs/drive-gcs
 ```
 
-That's all you need to do. 
-
-#### Validating environment variables
-
-Optionally, you can also validate the environment variables inside the `env.ts` file. Just inspect your drive config file and define the validation rules for the environment variables you are using.
+That's all you need to do.
 
 ## Ally Spotify driver
 Ally now ships with the Spotify driver as well. It was [contributed](https://github.com/adonisjs/ally/pull/123) by [romch007](https://github.com/romch007).
 
-To start using the spotify driver, you must update the `contracts/ally.ts` file to include spotify mapping.
+To start using the Spotify driver, you must update the `contracts/ally.ts` file to include Spotify mapping.
 
 ```ts
 // title: contracts/ally.ts
@@ -65,6 +101,30 @@ const allyConfig: AllyConfig = {
 }
 ```
 
+## Lazy loading relationship aggregates
+Lucid now allows you to lazy load relationship aggregates using the `loadCount` and `loadAggregate` methods.
+
+```ts
+const post = await Post.firstOrFail()
+await post.loadCount('comments')
+
+console.log(post.$extras.comments_count)
+```
+
+The `loadAggregate` method allows you to define a custom aggregate method. For example:
+
+```ts
+const user = await User.firstOrFail()
+  
+user.loadAggregate('exams', (query) => {
+  query.sum('marks').as('totalMarks')
+})
+
+console.log(user.$extras.totalMarks)
+```
+
+[Here's](../guides/models/relationships.md#relationship-aggregates) the complete documentation for relationship aggregates.
+
 ## Template `env` and `config` globals
 The edge templates can now access the `env` and the `config` globals to access environment variables and application config.
 
@@ -76,7 +136,7 @@ The edge templates can now access the `env` and the `config` globals to access e
 {{ config('app.key') }}
 ```
 
-## Breaking changes
+## Breaking change
 This is a subtle change in how Lucid models consume the database response of a query. Before this change, we moved all unknown properties (not defined as columns on the model) to the `$extras` object. For example:
 
 ```ts
@@ -96,13 +156,13 @@ const users = await User
   .innerJoin('user_logins', 'users.id', 'user_logins.user_id')
 ```
 
-Before this change, we will move the `ip_address` value to the `$extras` object on the User model instance, and you can use it as follows.
+Before this change, we will move the `ip_address` value to the `$extras` object on the User model instance, and you can access it as follows.
 
 ```ts
 users[0].$extras.ip_address
 ```
 
-However, if you define `ip_address` as a regular property on the User model, Lucid will set its value and not move `ip_address` to the `$extras` object.
+Now, if you define `ip_address` as a regular property on the User model, Lucid will set its value and not move `ip_address` to the `$extras` object.
 
 ```ts
 class User extends BaseModel {
@@ -118,13 +178,13 @@ class User extends BaseModel {
 }
 ```
 
-Now, you can access the `ip_address` as a regular property from the User model instance.
+And you can access the `ip_address` as a regular property from the User model instance.
 
 ```ts
 users[0].ip_address
 ```
 
-You also must enable [useDefineForClassFields](https://www.typescriptlang.org/tsconfig/useDefineForClassFields.html) inside the `tsconfig.json` file for this behavior to work as expected.
+You also must enable [useDefineForClassFields](https://www.typescriptlang.org/tsconfig/useDefineForClassFields.html) inside the `tsconfig.json` file for this feature to work as expected.
 
 ```json
 {
@@ -133,6 +193,10 @@ You also must enable [useDefineForClassFields](https://www.typescriptlang.org/ts
   }
 }
 ```
+
+## Upgrade luxon
+
+AdonisJS packages that rely on [luxon](https://moment.github.io/luxon/#/) have been updated to use `luxon@2`. We recommend you to upgrade the luxon version in your applications as well.
  
 ## Other improvements
 

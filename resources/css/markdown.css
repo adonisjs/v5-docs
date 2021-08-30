@@ -554,3 +554,13 @@ Author details for the coobook
   object-fit: cover;
   border-radius: 100%;
 }
+
+.markdown .badge {
+  border-radius: 6px;
+  padding: 1px 8px 3px 8px;
+  font-size: var(--features-font-size);
+}
+
+.markdown .badge.badge-danger {
+  background: var(--danger-badge-color);
+}
