@@ -1,7 +1,7 @@
 ---
 datetime: 2021-08-01
 author: Ayman Atmeh
-avatarUrl: https://scontent.famm2-3.fna.fbcdn.net/v/t1.6435-9/67686711_10156288264381674_357541686496198656_n.jpg?_nc_cat=102&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=OVMfyIlqRnkAX-xEwTb&_nc_ht=scontent.famm2-3.fna&oh=cf417afe2504a69203f5da7e13fe486b&oe=612D4B91
+avatarUrl: https://res.cloudinary.com/ayman-personal/image/upload/v1630580345/uploads/67686711_10156288264381674_357541686496198656_n_fbmtmg.jpg
 summary: Cookbook to deploy AdonisJS application to Laravel Forge
 ---
 
@@ -25,17 +25,7 @@ npm run build
 
 Select your prefered provider and create a server
 
-Once server is ready :
-- navigate to **Network** Tab on the side menu
-- Type a name for your rule i.e AdonisjsApp 
-- Enter a port you are using i.e 3333
-- Rule Type : Allow
-
-![](https://res.cloudinary.com/ayman-personal/image/upload/v1627990930/uploads/Firewall_entry_ka1u4n.jpg)
-
-**The end result should look something like this.**
-
-![](https://res.cloudinary.com/ayman-personal/image/upload/v1627990930/uploads/firewall_end-result_ypiejc.jpg)
+Once server is ready . Create a database user (optional)
 
 ### Create Database user 
 
