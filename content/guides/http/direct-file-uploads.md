@@ -9,7 +9,7 @@ Since you pipe the stream directly, your AdonisJS application does not have to a
 ## When not to use direct file uploads?
 As you will notice later in this guide, direct file uploads are complex as you deal with the streams directly.
 
-We recommend sticking to [standard file uploads](./file-uploads.md) if your application does not deal with big file uploads. However, sometimes writing simpler code wins over small performance gains.
+We recommend sticking to [standard file uploads](./file-uploads.md) if your application does not deal with big file uploads. Do remember, sometimes writing the simpler code wins over small performance gains.
 
 ## Usage
 The first step is to **disable the autoprocessing** of files inside the `config/bodyparser.ts` file. Once autoprocessing is disabled, the bodyparser middleware will forward the multipart stream to your controller so that you can process it manually.
@@ -89,7 +89,7 @@ request.multipart.onFile(
 ```
 
 - First, you have to define the validation rules for the `extname` and the `size`.
-- Next, make use of the `reportChunk` method and report every chunk to an internal helper function. 
+- Next, use the `reportChunk` method and report every chunk to an internal helper function. 
 - The `reportChunk` method will monitor the stream as it flows and emits an error if any validation rules are unmet.
 - As soon as an error is emitted by the `reportChunk` method on the readable stream, the writable stream (your SDK) will/should abort the upload process.
 
@@ -137,7 +137,7 @@ console.log(file.meta) // { url: '...' }
 ```
 
 ## Caveats
-When working with the stream directly, you cannot access the form input fields before the entire stream has been processed. This is because the form fields and files are both parts of a single stream, and hence they are available only when the stream is processed.
+When working with the stream directly, you cannot access the form input fields before processing the entire stream. This is because the form fields and files are both parts of a single stream, and hence they are available only when the stream is processed.
 
 #### ❌ Incorrect
 ```ts
@@ -168,7 +168,7 @@ request.input('some_field')
 ## How is it different from AWS direct uploads?
 AWS [allows direct file uploads](https://aws.amazon.com/blogs/compute/uploading-to-amazon-s3-directly-from-a-web-or-mobile-application/) directly from the browser, without even hitting your server.
 
-AdonisJS direct uploads are an alternative to AWS direct uploads, but both approaches have their own up and downsides, as listed below.
+AdonisJS direct uploads are an alternative to AWS direct uploads, but both approaches have their upsides and downsides, as listed below.
 
 ### AWS direct uploads
 

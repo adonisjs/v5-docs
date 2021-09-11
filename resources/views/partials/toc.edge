@@ -1,9 +1,11 @@
-<aside class="toc {{ doc.group === 'Database' && doc.zone === 'Reference' ? 'show_nested' : '' }}">
+@set('showNested', (doc.group === 'Database' && doc.zone === 'Reference') || file.options.tocDepth >= 3)
+
+<aside class="toc {{ showNested ? 'show_nested' : '' }}">
   @if(file.toc)
     <div class="toc-container">
       <h3> On this page </h3>
       <nav>
-        <ul>
+        <ul x-data="tocMenu">
           @dimerTree(file.toc.children)~
         </ul>
       </nav>

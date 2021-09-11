@@ -2,7 +2,7 @@
 summary: Learn how to create and use layouts in edge
 ---
 
-Layouts in edge allows you define a main layout for your pages and then override specific sections as needed.
+Layouts in edge allow you to define the main layout for your pages and then override specific sections as needed.
 
 ## Basic example
 
@@ -13,9 +13,9 @@ Let's create a standard webpage using layouts.
 ```
 .
 ├── views
-│   ├── layouts
-│   │   └── main.edge
-│   └── home.edge
+│   ├── layouts
+│   │   └── main.edge
+│   └── home.edge
 ```
 
 #### 2. Paste the following markup to the layout file.
@@ -63,7 +63,7 @@ Let's create a standard webpage using layouts.
 @end
 ```
 
-#### 4. Render the view and you will end up with the following result
+#### 4. Render the view, and you will end up with the following result
 
 ![](https://res.cloudinary.com/adonis-js/image/upload/q_auto,f_auto/v1617089516/v5/edge-layout.png)
 
@@ -71,15 +71,15 @@ Let's create a standard webpage using layouts.
 
 The layout tag is used to define the layout for a given template.
 
-- It must appear on the first line of the template, otherwise it will be ignored.
+- It must appear on the first line of the template. Otherwise, it will be ignored.
 - You can only use one layout per template
 - The layout name has to be static and cannot be defined using runtime variables.
 
 ## The `section` tag
 
-The section tag is a placeholder exposed by a layout for injecting content. A layout can define as many sections as it wants and the parent template can override them when necessary.
+The section tag is a placeholder exposed by a layout for injecting content. A layout can define as many sections as it wants, and the parent template can override them when necessary.
 
-In the following example, the layout renders the scripts tags inside the `scripts` section. This allows all the pages to use these script or override them completely by re-defining the same section with different script tags
+In the following example, the layout renders the scripts tags inside the `scripts` section. This allows all the pages to use these scripts or override them completely by re-defining the same section with different script tags.
 
 #### Layout
 
@@ -111,4 +111,4 @@ In the following example, the layout renders the scripts tags inside the `script
 - The name for all the section tags must be unique.
 - The section name has to be static and cannot be defined using runtime variables.
 - You cannot have nested sections.
-- All section must be at the top level. This constraint is similar to ESM exports in JavaScript, where each `export` statement is at the **top level**, and **unique**.
+- All sections must be at the top level. This constraint is similar to ESM exports in JavaScript, where each `export` statement is at the **top level** and **unique**.

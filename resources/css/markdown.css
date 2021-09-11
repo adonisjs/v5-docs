@@ -493,13 +493,14 @@ FANCY Codeblock
 .fancy-codeblock span.title {
   position: absolute;
   font-size: 1.4rem;
-  font-style: italic;
-  background: var(--brand-mute-color);
+  background: #434963;
   font-weight: 600;
   line-height: 1;
-  padding: 7px 15px;
-  right: 0px;
-  top: 0px;
+  color: #fff;
+  padding: 5px 11px;
+  right: 18px;
+  top: 11px;
+  border-radius: 6px;
 }
 
 /*

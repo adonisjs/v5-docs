@@ -251,14 +251,12 @@ The `beforeSave` decorator registers a given function as a before hook invoked b
 import { beforeSave, BaseModel } from '@ioc:Adonis/Lucid/Orm'
 
 class User extends BaseModel {
-
   @beforeSave()
   public static async hashPassword(user: User) {
     if (user.$dirty.password) {
       user.password = await Hash.make(user.password)
     }
   }
-
 }
 ```
 
@@ -273,12 +271,10 @@ The `beforeCreate` decorator registers the function to be invoked just before th
 import { beforeCreate, BaseModel } from '@ioc:Adonis/Lucid/Orm'
 
 class User extends BaseModel {
-
   @beforeCreate()
   public static assignAvatar(user: User) {
     user.avatarUrl = getRandomAvatar()
   }
-
 }
 ```
 
@@ -293,12 +289,10 @@ The `beforeUpdate` decorator registers the function to be invoked just before th
 import { beforeUpdate, BaseModel } from '@ioc:Adonis/Lucid/Orm'
 
 class User extends BaseModel {
-
   @beforeUpdate()
   public static async assignAvatar(user: User) {
     user.avatarUrl = getRandomAvatar()
   }
-
 }
 ```
 
@@ -313,12 +307,10 @@ The `beforeDelete` decorator registers the function to be invoked just before th
 import { beforeDelete, BaseModel } from '@ioc:Adonis/Lucid/Orm'
 
 class Post extends BaseModel {
-
   @beforeDelete()
   public static async removeFromCache(post: Post) {
     await Cache.remove(`post-${post.id}`)
   }
-
 }
 ```
 
@@ -337,15 +329,19 @@ Find operations are one's that intentionally selects a single database row. For 
 - `Model.first()`
 
 ```ts
-import { beforeFind, BaseModel } from '@ioc:Adonis/Lucid/Orm'
+import {
+  beforeFind,
+  BaseModel,
+  ModelQueryBuilderContract
+} from '@ioc:Adonis/Lucid/Orm'
+
+type PostQuery = ModelQueryBuilderContract<typeof Post>
 
 class Post extends BaseModel {
-
   @beforeFind()
-  public static withoutSoftDeletes(query) {
+  public static withoutSoftDeletes(query: PostQuery) {
     query.whereNull('deleted_at')
   }
-
 }
 ```
 
@@ -360,12 +356,10 @@ The hook receives the model instance as the only argument.
 import { afterFind, BaseModel } from '@ioc:Adonis/Lucid/Orm'
 
 class Post extends BaseModel {
-
   @afterFind()
   public static async processMarkdown(post) {
     post.html = await markdownIt(post.body)
   }
-
 }
 ```
 
@@ -377,15 +371,19 @@ The `beforeFetch` decorator registers the function to be invoked just before the
 All select queries except the **find operations** are considered as fetch operations.
 
 ```ts
-import { beforeFetch, BaseModel } from '@ioc:Adonis/Lucid/Orm'
+import {
+  beforeFetch,
+  BaseModel,
+  ModelQueryBuilderContract
+} from '@ioc:Adonis/Lucid/Orm'
+
+type PostQuery = ModelQueryBuilderContract<typeof Post>
 
 class Post extends BaseModel {
-
   @beforeFetch()
-  public static withoutSoftDeletes(query) {
+  public static withoutSoftDeletes(query: PostQuery) {
     query.whereNull('deleted_at')
   }
-
 }
 ```
 
@@ -400,14 +398,12 @@ The after fetch hook receives an array of model instances as the only argument.
 import { afterFetch, BaseModel } from '@ioc:Adonis/Lucid/Orm'
 
 class Post extends BaseModel {
-
   @afterFetch()
   public static async processMarkdown(posts: Post[]) {
     await Promise.all(posts.map((post) => {
       return markdownIt(post.body)
     }))
   }
-
 }
 ```
 
@@ -417,15 +413,22 @@ class Post extends BaseModel {
 The `beforePaginate` decorator registers the function to be invoked just before the paginate operation.
 
 ```ts
-import { beforePaginate, BaseModel } from '@ioc:Adonis/Lucid/Orm'
+import {
+  beforePaginate,
+  BaseModel,
+  ModelQueryBuilderContract
+} from '@ioc:Adonis/Lucid/Orm'
+
+type PostQuery = ModelQueryBuilderContract<typeof Post>
 
 class Post extends BaseModel {
-
   @beforePaginate()
-  public static withoutSoftDeletes(query) {
+  public static withoutSoftDeletes(
+    [countQuery, query]: [PostQuery, PostQuery]
+  ) {
+    countQuery.whereNull('deleted_at')
     query.whereNull('deleted_at')
   }
-
 }
 ```
 
@@ -437,21 +440,20 @@ The `afterPaginate` decorator registers the function to be invoked after the pag
 The after paginate hook receives an instance of the [paginator](../database/query-builder.md#pagination).
 
 ```ts
-import { afterPaginate, BaseModel } from '@ioc:Adonis/Lucid/Orm'
 import {
-  SimplePaginatorContract,
-} from '@ioc:Adonis/Lucid/DatabaseQueryBuilder'
+  afterPaginate,
+  BaseModel,
+  ModelPaginatorContract
+} from '@ioc:Adonis/Lucid/Orm'
+
+type PostPaginator = ModelPaginatorContract<Post>
 
 class Post extends BaseModel {
-
   @afterPaginate()
-  public static async processMarkdown(
-    paginator: SimplePaginatorContract<Post>
-  ) {
+  public static async processMarkdown(paginator: PostPaginator) {
     await Promise.all(paginator.all().map((post) => {
       return markdownIt(post.body)
     }))
   }
-
 }
 ```

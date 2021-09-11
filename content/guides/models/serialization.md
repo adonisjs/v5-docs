@@ -1,8 +1,8 @@
 ---
-summary: Learn, how to serialize model instances to plain JavaScript objects.
+summary: Learn how to serialize model instances to plain JavaScript objects.
 ---
 
-If you are creating an API server, you would want to convert the model instances to plain JSON objects, before sending them to the client in response.
+If you create an API server, you want to convert the model instances to plain JSON objects before sending them to the client in response.
 
 The process of transforming class instances to plain JSON objects is known as serialization. During the serialization process, you may also want to:
 
@@ -79,6 +79,10 @@ export default class Post extends BaseModel {
 
 ### Re-naming properties
 You can rename the serialized property names by using the `serializeAs` option. You will still access the property by its actual name on the model, but the serialized output will use the `serializeAs` name. For example:
+
+:::note
+Make use of [Model naming strategy](../../reference/orm/naming-strategy.md#serializedname) if you want to overwrite the naming convention for all serialized properties.
+:::
 
 ```ts
 import { DateTime } from 'luxon'
@@ -168,7 +172,7 @@ export default class Post extends BaseModel {
 ```
 
 ## Serializing relationships
-The `preloaded` relationships are automatically serialized everytime you serialize a model instance. For example:
+The `preloaded` relationships are automatically serialized every time you serialize a model instance. For example:
 
 ```ts
 const posts = await Post
@@ -178,7 +182,7 @@ const posts = await Post
 const postsJSON = posts.map((post) => post.serialize())
 ```
 
-In the above example, the `comments` for all the posts will get serialized and to the post object. For example:
+In the above example, the `comments` for all the posts will be serialized to the post object. For example:
 
 ```ts
 {
@@ -235,7 +239,7 @@ If you don't want to serialize a relationship, you can set the `serializeAs = nu
 ## Serializing `$extras` object
 The query result values which are not defined as columns on the model are moved to the `$extras` object.
 
-For example, in the following query, we fetch the `category_name` using a subquery. Your model has no knowledge about this on the fly `category_name` column, and hence we will move its value to the `$extras` object.
+For example, in the following query, we fetch the `category_name` using a subquery. However, your model has no knowledge about this on the fly `category_name` column, and hence we will move its value to the `$extras` object.
 
 ```ts
 const post = await Post
@@ -289,7 +293,7 @@ The cherry-picking API is designed by keeping the consumer of the API in mind. S
 ---
 
 ### Picking/omitting fields
-You can pass a tree of field/relationships to pick or omit from the final results during the serialization process. For example:
+You can pass a tree of fields/relationships to pick or omit from the final results during the serialization process. For example:
 
 ```ts
 const post = await Post.find(1)
@@ -301,7 +305,7 @@ posts.serialize({
 })
 ```
 
-Instead of picking fields, you can also define the fields to `omit`. When both are defined, the `omit` will win over the `pick` array.
+Instead of picking fields, you can also define the fields to `omit`. When both are specified, the `omit` will win over the `pick` array.
 
 ```ts
 const post = await Post.find(1)
@@ -341,14 +345,12 @@ post.serialize({
 })
 ```
 
-The serialization tree may look verbose at first. However, most of the API servers do not define the fields or pick/omit by hand and usually compute it from the URL query string.
+The serialization tree may look verbose at first. However, most API servers do not define the fields or pick/omit by hand and usually compute it from the URL query string.
 
 ---
 
 ### Points to note
 
 - The cherry-picking API **uses the serialization property names** and **not the model property names**. 
-
-  Again, if we think from the API consumer point of view, they don't know the property name you have defined on the model. They can only see the JSON response and cherry-pick using the same property names.
-
+- Again, from the API consumer point of view, they don't know the property name you have defined on the model. They can only see the JSON response and cherry-pick using the same property names.
 - The cherry-picking API cannot override the `serializeAs = null` option. Otherwise, someone can define the `password` field in the URL query string to view all the hashed passwords.

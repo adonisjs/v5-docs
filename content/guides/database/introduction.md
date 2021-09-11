@@ -2,7 +2,7 @@
 summary: Introduction to the Lucid ORM. It ships with an implementation of an Active record pattern, a database query builder, support for migrations, seeders, and model factories.
 ---
 
-AdonisJS is one of the few Node.js frameworks (if not the only one) that has first class support for SQL databases. The data layer of the framework is powered by Lucid and the package must be installed separately.
+AdonisJS is one of the few Node.js frameworks (if not the only one) with first-class support for SQL databases. Lucid powers the data layer of the framework, and you must install the package separately.
 
 :::div{class="setup"}
 
@@ -99,7 +99,7 @@ The `connection` property defines the default connection to use for making datab
 ---
 
 #### connections
-The `connections` object defines one or more database connection you want to use in your application. You can define multiple connections using the same or the different database driver.
+The `connections` object defines one or more database connections you want to use in your application. You can define multiple connections using the same or the different database driver.
 
 ---
 
@@ -122,7 +122,7 @@ The `migrations` property configures the settings for the database migrations. I
 <td><strong>paths</strong></td>
 <td>
   <p>
-    An array of paths to lookup for migrations. You can also define path to an installed package. For example:
+    An array of paths to look up for migrations. You can also define a path to an installed package. For example:
   </p>
 
 ```ts
@@ -162,7 +162,7 @@ A boolean to globally enable query debugging. You must read the [debugging guide
 ---
 
 #### seeders
-The `seeders` object allows you to define the paths for loading the database seeder files. You can also define path to an installed package. For example:
+The `seeders` object allows you to define the paths for loading the database seeder files. You can also specify a path to an installed package. For example:
 
 ```ts
 {
@@ -173,7 +173,7 @@ The `seeders` object allows you to define the paths for loading the database see
 ```
 
 ## Usage
-The easiest way to make SQL queries is to use the Database query builder. It allows you construct simple and complex SQL queries using JavaScript methods.
+The easiest way to make SQL queries is to use the Database query builder. It allows you to construct simple and complex SQL queries using JavaScript methods.
 
 In the following example, we select all the posts from the `posts` table.
 
@@ -237,11 +237,11 @@ const deletedRowsCount = await Database
 ```
 
 ## Read/write replicas
-AdonisJS supports **read/write replicas** as first class citizen. You can configure one write database server, along with multiple read servers. All read queries are sent to the read servers in **round-robin fashion** and write queries are sent to the write server.
+AdonisJS supports **read/write replicas** as a first-class citizen. You can configure one write database server, along with multiple read servers. All read queries are sent to the read servers in **round-robin fashion**, and write queries are sent to the write server.
 
 :::note
 
-Lucid does not perform any data replication for you. You have to still rely on your database server for that.
+Lucid does not perform any data replication for you. So you still have to rely on your database server for that.
 
 
 :::
@@ -284,11 +284,11 @@ Following is the example config for defining read/write connections. We merge th
 ## Connection pooling
 [Connection pooling](https://en.wikipedia.org/wiki/Connection_pool) is a standard practice of maintaining minimum and maximum connections with the database server.
 
-The **minimum connections** are maintained for improving the application performance. Establishing a new connection every time is an expensive operation and hence it is recommended to always have couple of connections ready to execute the database queries.
+The **minimum connections** are maintained for improving the application performance. Since establishing a new connection is an expensive operation, it is always recommended to have a couple of connections ready to execute the database queries.
 
-The **maximum connections** are defined to ensure that your application doesn't overwhelms the database server with too many concurrent connections.
+The **maximum connections** are defined to ensure that your application doesn't overwhelm the database server with too many concurrent connections.
 
-When the pool is full, Lucid will queue new queries and waits for the pool to have free resources until the configured timeout. The default timeout is set to **60 seconds** and can be configured using `pool.acquireTimeoutMillis` property.
+Lucid will queue new queries when the pool is full and waits for the pool to have free resources until the configured timeout. The default timeout is set to **60 seconds** and can be configured using the `pool.acquireTimeoutMillis` property.
 
 ```ts
 {
@@ -306,7 +306,7 @@ When the pool is full, Lucid will queue new queries and waits for the pool to ha
 
 :::tip
 
-Bigger the pool size, the better the performance is a mis-conception. We recommend you to read this [document](https://github.com/brettwooldridge/HikariCP/wiki/About-Pool-Sizing) to understand how smaller pool size can boost the application performance.
+Bigger the pool size, the better the performance is a misconception. We recommend you read this [document](https://github.com/brettwooldridge/HikariCP/wiki/About-Pool-Sizing) to understand how the smaller pool size is can boost the application performance.
 
 :::
 
@@ -332,7 +332,7 @@ You can configure the pool settings for a given connection inside the `config/da
 ```
 
 ## Switching between multiple connections
-You can switch between the connections defined inside the `config/database.ts` file using the `.connection` method. It accepts the connection name and returns an instance of the [Query client](../../reference/database/query-client.md)
+Using the ' .connection ' method, you can switch between the connections defined inside the `config/database.ts` file using the `.connection` method. It accepts the connection name and returns an instance of the [Query client](../../reference/database/query-client.md)
 
 ```ts
 import Database from '@ioc:Adonis/Lucid/Database'
@@ -344,7 +344,7 @@ Database
 ```
 
 ## Closing connections
-You can close the opened database connections using the `.close` method. Usually, you should let the connections stay for better performance, unless you are have a specific reason for closing them.
+You can close the opened database connections using the `.close` method. Usually, you should let the connections stay for better performance unless you have a specific reason for closing them.
 
 ```ts
 // Close a specific connection
@@ -423,7 +423,7 @@ mysql: {
 }
 ```
 
-You can also connect to a MySQL database using the unix domain socket.
+You can also connect to a MySQL database using the Unix domain socket.
 
 ```ts
 mysql: {

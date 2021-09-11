@@ -2,14 +2,14 @@
 summary: HTTP request context holds all the relevant information related to a given HTTP request.
 ---
 
-HTTP context is a request-specific object that holds the information like the `request body`, `cookies`, `headers`, the currently `logged in user`, and much more for a given HTTP request.
+HTTP context is a request-specific object that holds the information like the **request body**, **cookies**, **headers**, the currently **logged in user**, and much more for a given HTTP request.
 
-The HTTP context is passed by reference to the route handler, middleware, HTTP hooks, and the exception handler.
+The HTTP context is passed by reference to the route handler, middleware, HTTP hooks, and exception handler.
 
 ```ts
 Route.get('/', ({ request, auth, response }) => {
   /**
-   * Request url
+   * Request URL
    */
   console.log(request.url())
 
@@ -45,9 +45,30 @@ class HomeController {
 
 ## Differences from the express `req` and `res` objects?
 
-You will not see any `req` or `res` objects in AdonisJS. Everything, including the request and the response is part of the HTTP context.
+You will not see any `req` or `res` objects in AdonisJS. This is because everything, including the request and the response, is part of the HTTP context.
 
-Also, you are encouraged to add your custom properties to the `ctx` object and NOT to the `request` object.
+Also, you are encouraged to add your custom properties to the `ctx` object and NOT to the `request` object. See [extending Http context](#extending-context)
+
+## Access HTTP context from anywhere
+AdonisJS uses the Node.js [async local storage](https://nodejs.org/dist/latest-v16.x/docs/api/async_hooks.html#async_hooks_class_asynclocalstorage) to make the HTTP context available anywhere inside your application.
+
+You can access the context for the current request as follows.
+
+:::warning
+
+Make sure to thoroughly read the [async local storage](../fundamentals/async-local-storage.md) guide before using the `HttpContext.get` method.
+
+:::
+
+```ts
+import HttpContext from '@ioc:Adonis/Core/HttpContext'
+
+class SomeService {
+  public async someOperation() {
+    const ctx = HttpContext.get()
+  }
+}
+```
 
 ## Http Context Properties
 
@@ -225,6 +246,8 @@ declare module '@ioc:Adonis/Core/HttpContext' {
 
 That's all! Now, TypeScript will not complain about the missing property on the `ctx` object.
 
+---
+
 ### Using getters and macros
 
 You can also use getters and macros for adding custom properties to the `ctx` object. In the previous example, we added an **instance property** to the `ctx` object. However, getters and macros add the property on the **prototype of the class**.
@@ -256,7 +279,7 @@ export default class AppProvider {
 }
 ```
 
-By default, the getters are evaluated on every access. However, you can also mark them as a singleton, as shown in the following example.
+By default, the getters are evaluated on every access. However, you can also mark them as singleton, as shown in the following example.
 
 ```ts
 HttpContext.getter(
@@ -267,6 +290,8 @@ HttpContext.getter(
   true // 👈 register as singleton
 )
 ```
+
+---
 
 ### Macros
 

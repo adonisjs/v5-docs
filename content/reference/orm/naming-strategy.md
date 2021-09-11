@@ -7,9 +7,9 @@ The [NamingStrategy](https://github.com/adonisjs/lucid/blob/develop/src/Orm/Nami
 Every naming strategy must implement the `NamingStrategyContract` contract and define all the required methods.
 
 ```ts
-import { NamingStrategyContract } from '@ioc:Adonis/Lucid/Orm'
+import { SnakeCaseNamingStrategy } from '@ioc:Adonis/Lucid/Orm'
 
-class CamelCaseNamingStrategy implements NamingStrategyContract {
+class CamelCaseNamingStrategy extends SnakeCaseNamingStrategy {
   //... define all the required methods
 }
 ```
@@ -39,9 +39,9 @@ Return the default table name for the model. The default naming strategy convert
 
 ```ts
 import { string } from '@ioc:Adonis/Core/Helpers'
-import { NamingStrategyContract, BaseModel } from '@ioc:Adonis/Lucid/Orm'
+import { SnakeCaseNamingStrategy, BaseModel } from '@ioc:Adonis/Lucid/Orm'
 
-class CamelCaseNamingStrategy implements NamingStrategyContract {
+class CamelCaseNamingStrategy extends SnakeCaseNamingStrategy {
   public tableName(model: typeof BaseModel) {
     return string.pluralize(string.snakeCase(model.name))
   }
@@ -56,9 +56,9 @@ Return the database column name for a given model property. The default naming s
 
 ```ts
 import { string } from '@ioc:Adonis/Core/Helpers'
-import { NamingStrategyContract, BaseModel } from '@ioc:Adonis/Lucid/Orm'
+import { SnakeCaseNamingStrategy, BaseModel } from '@ioc:Adonis/Lucid/Orm'
 
-class CamelCaseNamingStrategy implements NamingStrategyContract {
+class CamelCaseNamingStrategy extends SnakeCaseNamingStrategy {
   public columnName(_model: typeof BaseModel, propertyName: string) {
     return string.snakeCase(propertyName)
   }
@@ -73,9 +73,9 @@ Return name to be used when serializing the model properties to JSON. The defaul
 
 ```ts
 import { string } from '@ioc:Adonis/Core/Helpers'
-import { NamingStrategyContract, BaseModel } from '@ioc:Adonis/Lucid/Orm'
+import { SnakeCaseNamingStrategy, BaseModel } from '@ioc:Adonis/Lucid/Orm'
 
-class CamelCaseNamingStrategy implements NamingStrategyContract {
+class CamelCaseNamingStrategy extends SnakeCaseNamingStrategy {
   public serializedName(_model: typeof BaseModel, propertyName: string) {
     return string.snakeCase(propertyName)
   }
@@ -90,9 +90,9 @@ Return the local key for a given relationship. The default behavior is to use th
 
 ```ts
 import { string } from '@ioc:Adonis/Core/Helpers'
-import { NamingStrategyContract, BaseModel } from '@ioc:Adonis/Lucid/Orm'
+import { SnakeCaseNamingStrategy, BaseModel } from '@ioc:Adonis/Lucid/Orm'
 
-class CamelCaseNamingStrategy implements NamingStrategyContract {
+class CamelCaseNamingStrategy extends SnakeCaseNamingStrategy {
   public relationLocalKey(
     relation: string,
     model: typeof BaseModel,
@@ -120,9 +120,9 @@ The foreignKey points to the model property and not the database column name. We
 
 ```ts
 import { string } from '@ioc:Adonis/Core/Helpers'
-import { NamingStrategyContract, BaseModel } from '@ioc:Adonis/Lucid/Orm'
+import { SnakeCaseNamingStrategy, BaseModel } from '@ioc:Adonis/Lucid/Orm'
 
-class CamelCaseNamingStrategy implements NamingStrategyContract {
+class CamelCaseNamingStrategy extends SnakeCaseNamingStrategy {
   public relationForeignKey(
     relation: string,
     model: typeof BaseModel,
@@ -144,9 +144,9 @@ Return the pivot table name for the `manyToMany` relationship. The default namin
 
 ```ts
 import { string } from '@ioc:Adonis/Core/Helpers'
-import { NamingStrategyContract, BaseModel } from '@ioc:Adonis/Lucid/Orm'
+import { SnakeCaseNamingStrategy, BaseModel } from '@ioc:Adonis/Lucid/Orm'
 
-class CamelCaseNamingStrategy implements NamingStrategyContract {
+class CamelCaseNamingStrategy extends SnakeCaseNamingStrategy {
   public relationPivotTable(
     _relation: 'manyToMany',
     model: typeof BaseModel,
@@ -168,9 +168,9 @@ Return the foreign key name inside the pivot table. The method is invoked for bo
 
 ```ts
 import { string } from '@ioc:Adonis/Core/Helpers'
-import { NamingStrategyContract, BaseModel } from '@ioc:Adonis/Lucid/Orm'
+import { SnakeCaseNamingStrategy, BaseModel } from '@ioc:Adonis/Lucid/Orm'
 
-class CamelCaseNamingStrategy implements NamingStrategyContract {
+class CamelCaseNamingStrategy extends SnakeCaseNamingStrategy {
   public relationPivotForeignKey(
     _relation: 'manyToMany',
     model: typeof BaseModel
@@ -187,9 +187,9 @@ Return the keys to generate the metadata for the paginator. The default naming s
 
 ```ts
 import { string } from '@ioc:Adonis/Core/Helpers'
-import { NamingStrategyContract, BaseModel } from '@ioc:Adonis/Lucid/Orm'
+import { SnakeCaseNamingStrategy, BaseModel } from '@ioc:Adonis/Lucid/Orm'
 
-class CamelCaseNamingStrategy implements NamingStrategyContract {
+class CamelCaseNamingStrategy extends SnakeCaseNamingStrategy {
   public paginationMetaKeys() {
     return {
       total: 'total',

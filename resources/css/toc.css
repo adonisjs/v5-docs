@@ -59,7 +59,7 @@ TOC BLOCK
   text-decoration: none;
 }
 
-.toc li a:hover {
+.toc li a:hover, .toc li a.up-current {
   color: inherit;
 }
 

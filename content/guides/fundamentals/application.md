@@ -4,18 +4,18 @@ summary: The application module of AdonisJS is responsible for booting the app a
 
 The application module of AdonisJS is responsible for booting the app in different known environments.
 
-When you start the HTTP server from the `server.ts` file or by running the `node ace serve` command, the application is booted for the **web** environment.
+When you start the HTTP server from the `server.ts` file or run the `node ace serve` command, the application is booted for the **web** environment.
 
-Whereas running the `node ace repl` command boots the application in the **repl** environment. All other commands boots the application in the **console** environment.
+Whereas running the `node ace repl` command boots the application in the **repl** environment. All other commands boot the application in the **console** environment.
 
 The environment of the application plays an essential role in deciding which actions to perform. For example, The **web** environment does not register or boot the ace providers.
 
 You can access the current environment of the application using the `environment` property. Following is the list of known application environments.
 
-- `web` environment refers to the process started for HTTP server.
-- `console` environment refers to the ace commands except the repl command.
+- `web` environment refers to the process started for the HTTP server.
+- `console` environment refers to the ace commands except for the repl command.
 - `repl` environment refers to the process started using node ace repl command.
-- `test` environment is reserved for the future, when AdonisJS will have the inbuilt test runner.
+- `test` environment is reserved for the future when AdonisJS will have the inbuilt test runner.
 
 ```ts
 import Application from '@ioc:Adonis/Core/Application'
@@ -25,10 +25,6 @@ console.log(Application.environment)
 ## Boot Lifecycle
 
 Following is the boot lifecycle of the application. 
-
-:::note
-You can access the IoC container bindings once the application state is set to `booted` or `ready`. Trying to access the container bindings before the booted state results in an exception.
-:::
 
 ::img[]{src="https://res.cloudinary.com/adonis-js/image/upload/q_auto,f_auto/v1617132548/v5/application-boot-lifecycle.png" width="300px"}
 
@@ -46,11 +42,45 @@ H - ->|Execute providers shutdown method| I(state:shutdown)
 
 -->
 
+You can access the IoC container bindings once the application state is set to `booted` or `ready`. An attempt to access the container bindings before the booted state results in an exception.
+
+For example, if you have a service provider who wants to resolve the container's bindings, you should write the import statements inside the `boot` or the `ready` methods.
+
+#### ❌ Top-level import will not work
+
+```ts
+import { ApplicationContract } from '@ioc:Adonis/Core/Application'
+import Route from '@ioc:Adonis/Core/Route'
+
+export default class AppProvider {
+  constructor(protected app: ApplicationContract) {}
+
+  public async boot() {
+    Route.get('/', async () => {})
+  }
+}
+```
+
+#### ✅ Move import inside the boot method
+
+```ts
+import { ApplicationContract } from '@ioc:Adonis/Core/Application'
+
+export default class AppProvider {
+  constructor(protected app: ApplicationContract) {}
+
+  public async boot() {
+    const { default: Route } = await import('@ioc:Adonis/Core/Route')
+    Route.get('/', async () => {})
+  }
+}
+```
+
 ## Version
 
 You can access the application and the framework version using the `version` and `adonisVersion` properties.
 
-The `version` property refers to the version inside the `package.json` file of your app. Whereas the `adonisVersion` property refers to the installed version of the `@adonisjs/core` package.
+The `version` property refers to the version inside the `package.json` file of your app. The `adonisVersion` property refers to the installed version of the `@adonisjs/core` package.
 
 ```ts
 import Application from '@ioc:Adonis/Core/Application'

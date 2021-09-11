@@ -571,6 +571,32 @@ this.schema.alterTable('posts', (table) => {
 })
 ```
 
+---
+
+### setNullable
+Set the column to be nullable.
+
+```ts
+this.schema.alterTable('posts', (table) => {
+  table.setNullable('full_name')
+})
+```
+
+---
+
+### dropNullable
+Drop the nullable constraint from the column.
+
+:::warning
+The operation will fail, when the column already has null values.
+:::
+
+```ts
+this.schema.alterTable('posts', (table) => {
+  table.dropNullable('full_name')
+})
+```
+
 ## Chainable methods
 
 Following is the list of methods you can chain on the schema building methods as modifiers to the column. 
@@ -738,6 +764,10 @@ this.schema.table('posts', (table) => {
 ### notNullable
 Mark the current column as NOT nullable.
 
+:::note
+Consider using [dropNullable](#dropnullable) method when altering the column. 
+:::
+
 ```ts
 this.schema.table('users', (table) => {
   table.integer('email').notNullable()
@@ -748,6 +778,10 @@ this.schema.table('users', (table) => {
 
 ### nullable
 Mark the current column as nullable.
+
+:::note
+Consider using [setNullable](#setnullable) method when altering the column. 
+:::
 
 ```ts
 this.schema.table('users', (table) => {

@@ -1,10 +1,10 @@
 ---
-summary: Reference to the HTTP request class. You can access data for the current HTTP request, including the **request body**, **uploaded files**, **cookies** and much more.
+summary: Reference to the HTTP request class. You can access the current HTTP request data, including the **request body**, **uploaded files**, **cookies**, and much more.
 ---
 
-The instance of the [request class](https://github.com/adonisjs/http-server/blob/develop/src/Request/index.ts) allows you to access data for the current HTTP request, including the **request body**, **uploaded files**, **cookies** and much more.
+The instance of the [request class](https://github.com/adonisjs/http-server/blob/develop/src/Request/index.ts) holds data for the current HTTP request including the **request body**, **uploaded files**, **cookies** and much more.
 
-You can access the `request` object from the HTTP context instance passed to the route handler, middleware, and exception handler.
+You can access the `request` object from the HTTP context passed to the route handler, middleware, and exception handler.
 
 ```ts
 Route.get('/', (ctx) => {
@@ -20,52 +20,17 @@ Route.get('/', async ({ request }) => {
 })
 ```
 
-## Request data
-
-You can access the request data using one of the following methods.
-
-```ts
-Route.post('posts', async ({ request }) => {
-  /**
-   * Access the entire request body
-   */
-  console.log(request.body())
-
-  /**
-   * Access the parsed query string object
-   */
-  console.log(request.qs())
-
-  /**
-   * A merged copy of the request body and the query
-   * string
-   */
-  console.log(request.all())
-
-  /**
-   * Cherry pick fields from the "request.all()" output
-   */
-  console.log(request.only(['title', 'description']))
-
-  /**
-   * Omit fields from the "request.all()" output
-   */
-  console.log(request.except(['csrf_token', 'submit']))
-
-  /**
-   * Access value for a single field
-   */
-  console.log(request.input('title'))
-  console.log(request.input('description'))
-})
-```
-
-### Query string and params
-
+## Query string and route params
 The parsed query string can be accessed using the `request.qs()` method.
 
 ```ts
-request.qs()
+Route.get('/', async ({ request }) => {
+  /*
+   * URL: /?username=virk
+   * qs: { username: 'virk' }
+   */
+  request.qs()
+})
 ```
 
 The `request.params()` method returns the route parameters.
@@ -76,7 +41,7 @@ Route.get('/posts/:id/:slug', async ({ request }) => {
    * URL: /posts/1/hello-world
    * Params: { id: '1', slug: 'hello-world' }
    */
-  console.log(request.params())
+  request.params()
 })
 ```
 
@@ -89,9 +54,58 @@ request.param('id')
 request.param('id', 1)
 ```
 
-### Request body
+## Request body
+You can access the request body using the `request.body` method.
 
-The request body is parsed using the pre-configured bodyparser middleware. Open the `start/kernel.ts` file and ensure that the following middleware is registered inside the list of the global middleware.
+```ts
+Route.post('/', async ({ request }) => {
+  request.body()
+})
+```
+
+#### request.all
+
+Also, you can use the `request.all` method. It returns a merged copy of the request body and the request query string.
+
+```ts
+request.all()
+```
+
+---
+
+#### request.input
+
+You can use the `request.input` method to read value for a single input field. The method also supports reading nested values using a dot notation.
+
+```ts
+request.input('title')
+
+// Read nested value.
+request.input('user.profile.username')
+```
+
+You can also define a default value to be returned when the actual value is `null` or `undefined`.
+
+```ts
+// Returns "Hello world" title is missing
+request.input('title', 'Hello world')
+```
+
+---
+
+#### request.only/request.except
+You can use the `request.only` and `request.except` methods to cherry-pick/filter specific keys from the request body.
+
+```ts
+// Cherry pick
+const body = request.only(['title', 'description'])
+
+// Omit
+const body = request.except(['submit', 'csrf_token'])
+```
+
+## Bodyparser & supported content types
+The request body is parsed using the pre-configured bodyparser middleware. It is registered as a global middleware inside the `start/kernel.ts` file.
 
 ```ts
 // title: start/kernel.ts
@@ -100,32 +114,28 @@ Server.middleware.register([
 ])
 ```
 
-Once the bodyparser middleware has been registered, you can use one of the following methods to access the request body.
+The configuration for bodyparser is stored inside the `config/bodyparser.ts` file. The config file is self-documented, so feel free to get familiar with all the options available to you.
+
+### Convert empty strings to null
+HTML forms submit an empty string for input fields with no value. You can normalize all **empty string values to null** by enabling the `convertEmptyStringsToNull` flag.
+
+:::note
+The option is available only for `multipart` and `urlencoded` form submissions.
+:::
 
 ```ts
-request.body()
+// title: config/bodyparser.ts
+{
+  form: {
+    // ... rest of the config
+    convertEmptyStringsToNull: true
+  },
 
-// A merged copy of query string and the request body
-request.all()
-```
-
-The `request.input` method allows reading value for a single field. Optionally, you can define a default value to be returned when the actual value is `null` or `undefined`.
-
-```ts
-request.input('title')
-
-// If title is missing
-request.input('title', 'Hello world')
-```
-
-The `request.only` and `request.except` method allows selecting or ignoring specific fields.
-
-```ts
-// Cherry pick
-const body = request.only(['title', 'description'])
-
-// Omit
-const body = request.except(['submit', 'csrf_token'])
+  multipart: {
+    // ... rest of the config
+    convertEmptyStringsToNull: true
+  }
+}
 ```
 
 ### Supported content types
@@ -199,7 +209,7 @@ Route
 
 ## Request route
 
-The `request` class holds the current matching route for the HTTP request and you can access it as follows:
+The `request` class holds the current matching route for the HTTP request, and you can access it as follows:
 
 ```ts
 Route.get('/', ({ request }) => {
@@ -219,7 +229,7 @@ Route.get('/', ({ request }) => {
   console.log(request.route.middleware)
 
   /**
-   * Route name (exists if route is named)
+   * Route name (exists if the route is named)
    */
   console.log(request.route.name)
 })
@@ -323,7 +333,7 @@ Route.get('/', ({ logger }) => {
 
 ## Request headers
 
-The `request.headers()` and the `request.header()` method gives you access to the request headers.
+The `request.headers()` and the `request.header()` method allow access to the request headers.
 
 ```ts
 // all headers
@@ -355,7 +365,7 @@ request.ips()
 
 ### Custom IP retrieval method
 
-If the trusted proxy settings are not enough to determine the correct IP address, you can implement your own custom `getIp` method.
+If the trusted proxy settings are insufficient to determine the correct IP address, you can implement your own custom `getIp` method.
 
 Open the `config/app.ts` file and define the `getIp` method as follows:
 
@@ -374,7 +384,7 @@ http: {
 
 ## Form method spoofing
 
-Standard HTML forms cannot make use of all the HTTP verbs beyond `GET` and `POST`. It means you cannot create a form with the method `PUT`.
+Standard HTML forms cannot use all the HTTP verbs beyond `GET` and `POST`. So, for example, it means you cannot create a form with the method `PUT`.
 
 However, AdonisJS allows you to spoof the HTTP method using the `_method` query string. In the following example, the request will be routed to the route listening for the `PUT` request.
 
@@ -390,7 +400,7 @@ Form method spoofing only works:
 
 ## Content negotiation
 
-[Content negotiation](https://developer.mozilla.org/en-US/docs/Web/HTTP/Content_negotiation) is a mechanism that is used for serving different representations of a resource from the same URL.
+[Content negotiation](https://developer.mozilla.org/en-US/docs/Web/HTTP/Content_negotiation) is a mechanism used to serve different representations of a resource from the same URL.
 
 The client making the request can negotiate for the **resource representation**, **charset**, **language**, and **encoding** using different `Accept` headers, and you can handle them as follows.
 
@@ -517,7 +527,7 @@ You can control which proxies to trust by modifying the `http.trustProxy` value 
 
 ### Boolean values
 
-Setting the value to `true` will trust the left-most entry in the `X-Forwarded-*` header. Whereas the `false` assumes the application directly faces the Internet and value for `request.connection.remoteAddress` is used.
+Setting the value to `true` will trust the left-most entry in the `X-Forwarded-*` header. The `false` assumes the application directly faces the Internet and value for `request.connection.remoteAddress` is used.
 
 ```ts
 {
@@ -540,7 +550,7 @@ You can also define a single or an array of proxy server IP addresses to trust.
 }
 ```
 
-The following shorthand keywords can also be used in place of IP addresses.
+You can also use the following shorthand keywords in place of IP addresses.
 
 - `loopback`: Pv4 and IPv6 loopback addresses (like `::1` and `127.0.0.1`).
 - `linklocal`: IPv4 and IPv6 link-local addresses (like `fe80::1:1:1:1` and `169.254.0.1`).
@@ -578,7 +588,7 @@ AdonisJS has in-built support for responding to the [CORS](https://developer.moz
 }
 ```
 
-The config file is extensively documented. Make sure to go through all the options and read the associated comments to understand its usage.
+The config file is extensively documented. Make sure to go through all the options and read the associated comments to understand their usage.
 
 ## Other methods and properties
 
@@ -624,7 +634,7 @@ if (request.matchesRoute(['posts.show', 'posts.edit'])) {
 ### is
 Returns the best matching content type of the request by matching against the given types.
 
-The content type is picked from the `Content-Type` header and request must have body.
+The content type is picked from the `Content-Type` header, and the request must have a body.
 
 ```ts
 const contentType = request.is(['json', 'xml'])
@@ -642,7 +652,7 @@ if (contentType === 'xml') {
 
 ### updateBody
 
-Allows you to update the request body with a custom payload. It would be best if you weren't doing it unless creating a package that purposefully mutates the request body.
+Allows you to update the request body with a custom payload. It would be best to do it unless creating a package that purposefully mutates the request body.
 
 ```ts
 request.updateBody(myCustomPayload)
@@ -726,7 +736,7 @@ Route.get('/', ({ request }) => {
 
 The `wantsJSON` property is added at the runtime, and hence TypeScript does not know about it. To inform the TypeScript, we will use [declaration merging](https://www.typescriptlang.org/docs/handbook/declaration-merging.html#merging-interfaces) and add the property to the `RequestContract` interface.
 
-Create a new file at path `contracts/request.ts` (the filename is not important) and paste the following contents inside it.
+Create a new file at path `contracts/request.ts` (the filename is not essential) and paste the following contents inside it.
 
 ```ts
 // title: contracts/request.ts

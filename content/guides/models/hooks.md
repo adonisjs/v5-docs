@@ -1,5 +1,6 @@
 ---
 summary: Using the data model hooks to perform actions on specific events.
+tocDepth: 3
 ---
 
 Hooks are the **actions that you can perform against a model instance** during a pre-defined life cycle event. Using hooks, you can encapsulate specific actions within your models vs. writing them everywhere inside your codebase.
@@ -44,7 +45,7 @@ export default class User extends BaseModel {
 
 The `beforeSave` hook is called every time a new user is **created** or **updated** using the model instance. 
 
-During the update, you may have updated other properties but NOT the user password. Hence there is no need to re-hash the existing hash, which is the reason behind using the `$dirty` object.
+During the update, you may have updated other properties but NOT the user password. Hence there is no need to re-hash the existing hash, which is why using the `$dirty` object.
 
 The `$dirty` object only contains the changed values. So, you can check if the password was changed and then hash the new value.
 
@@ -61,14 +62,14 @@ Following is the list of all the available hooks. Make sure to read the [decorat
 | `afterUpdate` | Invoked only **after the update** query. Receives the model instance as the only argument.|
 | `beforeDelete` | Invoked **before the delete** query. Receives the model instance as the only argument.|
 | `afterDelete` | Invoked **after the delete** query. Receives the model instance as the only argument. |
-| `beforePaginate` | Invoked **before the paginate** query. Receives the query main builder instance, alongside the count query builder instance. |
+| `beforePaginate` | Invoked **before the paginate** query. Receives the query main builder instance alongside the count query builder instance. |
 | `afterPaginate` | Invoked **after the paginate** query. Receives an instance of the simple paginator class. |
 | `beforeFetch` | Invoked **before the fetch** query. Receives the query builder instance as the only argument. |
 | `afterFetch` | Invoked **after the fetch** query. Receives an array of model instances |
 | `beforeFind` | Invoked **before the find** query. Receives the query builder instance as the only argument. |
 | `afterFind` | Invoked **after the find** query. Receives the model instance as the only argument. |
 
-**All of the hooks receives the model instance as the first argument, except the ones documented below.**
+**All hooks receive the model instance as the first argument, except the ones documented below.**
 
 ### beforeFind
 The `beforeFind` hook is invoked just before the query is executed to find a single row. This hook receives the query builder instance, and you can attach your constraints to it.

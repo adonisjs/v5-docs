@@ -45,6 +45,47 @@ function prefixZoneName(title, docUrl) {
   return title
 }
 
+class CustomFeedbackURLs extends up.LinkFeedbackURLs {
+  isCurrent(url) {
+    if (this.href && this.href.includes('#')) {
+      return super.isCurrent(url)
+    }
+    return super.isCurrent(url.split('#')[0])
+  }
+}
+
+/**
+ * Custom hack to make un-poly add "up-current" class to correct
+ * anchor tags. So here's the deal with unpoly
+ *
+ * - It ignores the hash (#) fragment from the "href" property
+ *   of an anchor tag
+ * - It considers the hash (#) fragment from the URL address bar
+ *
+ * As a result the equality check fails on both the TOC link and
+ * the sidebar link. For example:
+ *
+ * - Sidebar anchor href = "/guides/redis"
+ * - window.location.url = "/guides/redis#connections"
+ * ------------------------------------------------------------
+ *    Check fails
+ * ------------------------------------------------------------
+ *
+ *
+ *
+ * - toc anchor href = "/guides/redis#connections"
+ * - window.location.url = "/guides/redis#connections"
+ * ------------------------------------------------------------------
+ *  Check still fails, as unpoly ignores the hash from the toc anchor
+ * ------------------------------------------------------------------
+ */
+up.LinkFeedbackURLs = CustomFeedbackURLs
+up.feedback.normalizeURL = function (url) {
+  if (url) {
+    return up.util.normalizeURL(url, { stripTrailingSlash: true, hash: true })
+  }
+}
+
 /**
  * Alpine component for codegroup tabs
  */
@@ -163,5 +204,29 @@ Alpine.data('prefetch', function () {
     },
   }
 })
+
+Alpine.data('tocMenu', function () {
+  return {
+    init() {
+      const anchors = this.$el.querySelectorAll('a')
+      anchors.forEach((link) => {
+        link.onclick = function () {
+          anchors.forEach((anchor) => anchor.classList.remove('up-current'))
+          link.classList.add('up-current')
+        }
+      })
+    },
+  }
+})
+
+/**
+ * Scroll the active sidebar item into the view on page load
+ */
+const activeSidebarItem = document.querySelector('.sidebar a.up-current')
+if (activeSidebarItem) {
+  activeSidebarItem.scrollIntoView({
+    block: 'center',
+  })
+}
 
 Alpine.start()
