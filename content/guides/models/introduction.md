@@ -203,7 +203,7 @@ Or use the `primaryKey` column option.
 
 ```ts
 class User extends Basemodel {
-  @column({ primaryKey: true })
+  @column({ isPrimary: true })
   public email: string
 }
 ```
@@ -231,7 +231,7 @@ import { BaseModel, beforeCreate } from '@ioc:Adonis/Lucid/Orm'
 export default class User extends BaseModel {
   public static selfAssignPrimaryKey = true
 
-  @column({ primaryKey: true })
+  @column({ isPrimary: true })
   public id: string
 
   @beforeCreate()
