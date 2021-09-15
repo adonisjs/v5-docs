@@ -326,10 +326,8 @@ public interactive: boolean
 The value for the boolean flag defaults to `false`, unless the flag has been specified. However, you can also define the default value yourself.
 
 ```ts
-@flags.boolean({
-  default: true
-})
-public interactive: boolean
+@flags.boolean()
+public interactive: boolean = true
 ```
 
 To disable the flag at runtime, you must negate it with the `--no` keyword.
@@ -397,7 +395,6 @@ All of the `@flags` decorators accept the following options.
 | Option | Description |
 |--------|-------------|
 | **alias** | The shorthand name for the flag. The shorthand names are always defined using a single dash `-` |
-| **default** | The default value to use when the flag is not defined |
 | **description** | The help description for the flag |
 | **name** | Public name for the flag (the one that appears in the help output). |
 
