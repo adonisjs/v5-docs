@@ -174,7 +174,7 @@ Route.get('dashboard', async ({ auth }) => {
   await auth.use('web').authenticate()
 
   // ✅ Request authenticated
-  console.log(auth.user!)
+  console.log(auth.user)
 })
 ```
 
