@@ -27,8 +27,8 @@ validator.rule('camelCase', (value, _, options) => {
   if (value !== string.camelCase(value)) {
     options.errorReporter.report(
       options.pointer,
-      ruleName,
-      defaultMessage,
+      'camelCase',
+      'camelCase validation failed',
       options.arrayExpressionPointer
     )
   }
@@ -106,7 +106,7 @@ validator.rule('camelCase', (
        // highlight-start
       'camelCase.maxLength', // 👈 Keep an eye on this
        // highlight-end
-      'Value must be in camelcase',
+      'camelCase.maxLength validation failed',
       options.arrayExpressionPointer,
       { maxLength }
     )
