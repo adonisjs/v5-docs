@@ -19,13 +19,18 @@ Open the newly created file and paste the following code inside it.
 import { string } from '@ioc:Adonis/Core/Helpers'
 import { validator } from '@ioc:Adonis/Core/Validator'
 
-validator.rule('camelCase', (value, [], { arrayExpressionPointer, pointer, errorReporter }) => {
+validator.rule('camelCase', (value, _, options) => {
   if (typeof value !== 'string') {
     return
   }
 
   if (value !== string.camelCase(value)) {
-    errorReporter.report(pointer, 'camelCase', 'Value must be in camelcase', arrayExpressionPointer)
+    options.errorReporter.report(
+      options.pointer,
+      ruleName,
+      defaultMessage,
+      options.arrayExpressionPointer
+    )
   }
 })
 ```
@@ -92,17 +97,17 @@ validator.rule('camelCase', (
   // highlight-start
   [maxLength],
   // highlight-end
-  { arrayExpressionPointer, pointer, errorReporter }
+  options
 ) => {
   // Rest of the validation
   if (maxLength && value.length > maxLength) {
-    errorReporter.report(
-      pointer,
+    options.errorReporter.report(
+      options.pointer,
        // highlight-start
       'camelCase.maxLength', // 👈 Keep an eye on this
        // highlight-end
       'Value must be in camelcase',
-      arrayExpressionPointer,
+      options.arrayExpressionPointer,
       { maxLength }
     )
   }
