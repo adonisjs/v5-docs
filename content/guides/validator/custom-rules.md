@@ -2,11 +2,9 @@
 summary: Learn how you can create custom rules for the AdonisJS validator
 ---
 
-You can extend the validator rules set by adding your custom rules to it. You can add a new rule using the `validator.rule` method.
+You can add custom rules to the validator using the `validator.rule` method. Rules should be registered only once. Hence we recommend you register them inside a service provider or a [preload file](../fundamentals/adonisrc-file.md#preloads).
 
-## Creating your first rule
-
-The best place to register custom rules is inside a [preload file](../fundamentals/adonisrc-file.md#preloads). So let's create a new preload file inside the `start` directory using the following ace command and select the environment as **"During HTTP server"**.
+Throughout this guide, we will keep them inside the `start/validator.ts` file. You can create this file by running the following ace command and select the environment as **"During HTTP server"**.
 
 ```sh
 node ace make:prldfile validator
@@ -33,7 +31,7 @@ validator.rule('camelCase', (value, [], { arrayExpressionPointer, pointer, error
 ```
 
 - The `validator.rule` method accepts the rule name as the first argument.
-- The second argument is the rule implementation. The function receives the field's value under validation, along with the rule options and an object representing the schema tree.
+- The second argument is the rule implementation. The function receives the field's value under validation, the rule options, and an object representing the schema tree.
 
 In the above example, we create a `camelCase` rule that checks if the field value is the same as its camelCase version or not. If not, we will report an error using the [errorReporter](https://github.com/adonisjs/validator/blob/develop/src/ErrorReporter/Vanilla.ts#L39) class instance.
 
