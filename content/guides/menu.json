@@ -215,6 +215,11 @@
             "title": "Schema caching",
             "permalink": "validator/schema-caching",
             "contentPath": "validator/schema-caching.md"
+          },
+          {
+            "title": "Custom validation rules",
+            "permalink": "validator/custom-rules",
+            "contentPath": "validator/custom-rules.md"
           }
         ]
       },
