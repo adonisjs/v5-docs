@@ -1,3 +1,7 @@
+---
+summary: Learn how you can create custom rules for the AdonisJS validator
+---
+
 You can extend the validator rules set by adding your custom rules to it. You can add a new rule using the `validator.rule` method.
 
 ## Creating your first rule
