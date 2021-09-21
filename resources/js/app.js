@@ -18,7 +18,7 @@ import '../css/toc.css'
 import '../css/markdown.css'
 import '../css/carbon-ads.css'
 
-up.feedback.config.navSelectors = ['up-nav']
+up.feedback.config.navSelectors = ['[up-nav]']
 
 /**
  * Prefix zone name to the search results
