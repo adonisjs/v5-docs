@@ -102,6 +102,9 @@ const coverImage = request.file('cover_image', {
 
 // highlight-start
 await coverImage.moveToDisk('./')
+
+// Get the name of the saved file; to store it in your database, for example.
+const fileName = coverImage.fileName;
 // highlight-end
 ```
 
