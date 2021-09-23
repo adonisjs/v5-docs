@@ -222,7 +222,7 @@ class UserSchema extends BaseSchema {
     })
     // highlight-end
 
-    this.schema.table('users', (table) => {
+    this.schema.alterTable('users', (table) => {
       table.dropColumn('email')
     })
   }
