@@ -2,13 +2,13 @@
 summary: Introduction to the AdonisJS template engine - "Edge".
 ---
 
-The Views layer of AdonisJS is powered by a home grown template engine called [Edge](https://github.com/edge-js/edge). Edge is a logical and batteries included template engine for Node.js. It can render any text based format, whether is **HTML**, **Markdown** or **plain text** files.
+The Views layer of AdonisJS is powered by a homegrown template engine called [Edge](https://github.com/edge-js/edge). Edge is a logical and batteries included template engine for Node.js. It can render any text-based format, whether is **HTML**, **Markdown** or **plain text** files.
 
-We created Edge as an alternative to other existing template engines and address the pain points we had with them.
+We created Edge as an alternative to other existing template engines and address the pain points with them.
 
-## Edge vs Pug
+## Edge vs. Pug
 
-Unlike Pug, we don't re-invent the way you write the HTML. In fact, Edge is not even tied to HTML at first place, as it can render any text based files.
+Unlike Pug, we don't re-invent the way you write the HTML. Edge is not even tied to HTML in the first place, and it can render any text-based files.
 
 <div class="fancy-codeblock">
 
@@ -34,9 +34,9 @@ p This will be safe: #{theGreat}
 
 </div>
 
-## Edge vs Nunjucks
+## Edge vs. Nunjucks
 
-Unlike Nunjucks, Edge feels like writing JavaScript and not Python. Edge has a small learning curve, is quicker to type and supports all JavaScript expressions.
+Unlike Nunjucks, Edge feels like writing JavaScript and not Python. As a result, the edge has a small learning curve, is quicker to type, and supports all JavaScript expressions.
 
 <div class="fancy-codeblock">
 
@@ -66,11 +66,11 @@ Unlike Nunjucks, Edge feels like writing JavaScript and not Python. Edge has a s
 
 </div>
 
-## Edge vs Handlebars
+## Edge vs. Handlebars
 
-Unlike Handlebars, Edge is not restrictive in nature. You can use any JavaScript expression inside your templates and we parse them using a spec compliant JavaScript parser.
+Unlike Handlebars, Edge is not restrictive. For example, you can use any JavaScript expression inside your templates, and we parse them using a spec-compliant JavaScript parser.
 
-Whereas in Handlebars, you have to define a custom helpers for every little thing. The story gets even worse when using multiple helpers together.
+Whereas in Handlebars, you have to define custom helpers for every little thing. The story gets even worse when using multiple helpers together.
 
 ```js
 Handlebars.registerHelper('upperCase', function (aString) {
@@ -88,7 +88,7 @@ Handlebars.registerHelper('upperCase', function (aString) {
 
 </div>
 
-Whereas, Edge double down on native JavaScript capabilities.
+In comparison to Handlebars, Edge doubles down on native JavaScript capabilities.
 
 <div class="fancy-codeblock">
 
@@ -104,7 +104,7 @@ Whereas, Edge double down on native JavaScript capabilities.
 
 Edge comes pre-configured with the `web` starter template. However, installing and configuring it is also relatively straightforward.
 
-Open the `.adonisrc.json` file and check if `@adonisjs/view` is mentioned inside the list of `providers` array. **IF NOT, then continue with the following steps:**
+Open the `.adonisrc.json` file and check if `@adonisjs/view` is mentioned inside the `providers` array list. **IF NOT, then continue with the following steps:**
 
 ```sh
 npm i @adonisjs/view
@@ -131,7 +131,7 @@ Route.get('/', async ({ view }) => {
 })
 ```
 
-Next step is to create the `home.edge` template. You can manually create a file inside the views folder, or use the following ace command to create one.
+The next step is to create the `home.edge` template. You can manually create a file inside the views folder or use the following ace command to create one.
 
 ```sh
 node ace make:view home

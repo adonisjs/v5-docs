@@ -10,7 +10,7 @@ The validation rule is added by `@adonisjs/lucid` package. So make sure it is [i
 import { schema, rules } from '@ioc:Adonis/Core/Validator'
 
 {
-  email: schema.string([
+  email: schema.string({}, [
     rules.unique({ table: 'users', column: 'email' })
   ])
 }
@@ -44,7 +44,7 @@ Additionally, you can also define `where` and `whereNot` constraints as an objec
 
 ```ts
 {
-  email: schema.string([
+  email: schema.string({}, [
     rules.unique({
       table: 'users',
       column: 'email',

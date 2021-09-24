@@ -20,13 +20,12 @@
   <meta name="msapplication-config" content="/icons/browserconfig.xml">
   <meta name="theme-color" content="#ffffff">
 
-  <meta name="turbo-cache-control" content="no-cache">
-
   <link
     rel="preload"
     href="{{ asset('assets/fonts/Calibre.woff2') }}"
     as="font"
-    type="font/woff2" crossorigin
+    type="font/woff2"
+    crossorigin
   >
   <link
     rel="preload"
@@ -66,10 +65,15 @@
   ></script>
 </head>
 
-<body x-data="{ isSideNavOpen: false }">
+<body>
   @include('partials/header')
-  @include('partials/sidebar')
-  @include('partials/doc')
-  @include('partials/toc')
+  <div up-main>
+    @include('partials/sidebar')
+
+    <div id="document" up-main>
+      @include('partials/doc')
+      @include('partials/toc')
+    </div>
+  </div>
 </body>
 </html>

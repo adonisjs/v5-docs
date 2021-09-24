@@ -57,7 +57,7 @@ Now imagine writing these conditionals everywhere inside your codebase? **Well, 
 
 ## Validating environment variables
 
-AdonisJS allows you to **optionally validate** the environment variables very early in the lifecycle of booting your application and refuses to start if any of the validation fails.
+AdonisJS allows you to **optionally validate** the environment variables very early in the lifecycle of booting your application and refuses to start if any validation fails.
 
 You begin by defining the validation rules inside the `env.ts` file.
 
@@ -110,7 +110,7 @@ Env.schema.string({ format: 'url' })
 Env.schema.string({ format: 'email' })
 ```
 
-When validating for the `url` format, you can also define additional options to force/ignore the `tld` and `protocol`.
+When validating the `url` format, you can also define additional options to force/ignore the `tld` and `protocol`.
 
 ```ts
 Env.schema.string({ format: 'url', tld: false, protocol: false })
@@ -120,7 +120,7 @@ Env.schema.string({ format: 'url', tld: false, protocol: false })
 
 ### Env.schema.boolean
 
-Enforces the value to be a valid string representation of a boolean. Following values are considered as valid booleans and get casted to `true` or `false`.
+Enforces the value to be a valid string representation of a boolean. Following values are considered as valid booleans and will be converted `true` or `false`.
 
 - `'1', 'true'` are casted to `Boolean(true)`
 - `'0', 'false'` are casted to `Boolean(false)`
@@ -168,7 +168,7 @@ Forces the value to be one of the pre-defined values.
 
 // Mark it as optional
 {
-  PORT: Env
+  NODE_ENV: Env
     .schema
     .enum
     .optional(['development', 'production'] as const)
@@ -178,7 +178,7 @@ Forces the value to be one of the pre-defined values.
 ---
 
 ### Custom functions
-For every other validation use case, you can define your own custom functions.
+For every other validation use case, you can define your custom functions.
 
 ```ts
 {
@@ -200,9 +200,9 @@ For every other validation use case, you can define your own custom functions.
 - The return value can be different from the initial input value.
 - We infer the static type from the return value. In this case, `Env.get('PORT')` is a number.
 
-## Defining variables in development
+## Defining variables in the development
 
-During development, you can define environment variables inside the `.env` file stored in your project's root and AdonisJS will automatically process it.
+During development, you can define environment variables inside the `.env` file stored in your project's root, and AdonisJS will automatically process it.
 
 ```dotenv
 // title: .env
@@ -226,7 +226,7 @@ URL=$HOST:$PORT
 // highlight-end
 ```
 
-All `letter`, `numbers`, and the underscore (`_`) after the dollar (`$`) sign is parsed as a variable reference. If your variable contains any other character, then you must wrap it inside the curly braces `{}`.
+All `letter`, `numbers`, and the underscore (`_`) after the dollar (`$`) sign are parsed as variables. If your variable contains any other character, then you must wrap it inside the curly braces `{}`.
 
 ```sh
 REDIS-USER=foo
@@ -237,7 +237,7 @@ REDIS-URL=localhost@${REDIS-USER}
 
 ### Escape the `$` sign
 
-If the value of a variable contains a `$` sign, then you must escape it to prevent variable substitution. 
+If the value of a variable contains a `$` sign, you must escape it to prevent variable substitution. 
 
 ```sh
 PASSWORD=pa\$\$word
@@ -257,9 +257,9 @@ ENV_PATH=/etc/myapp/.env node server.js
 
 ## Defining variables while testing
 
-AdonisJS will look for `.env.testing` file when the application is started with the `NODE_ENV=testing` environment variable.
+AdonisJS will look for the `.env.testing` file when the application is started with the `NODE_ENV=testing` environment variable.
 
-The variables defined inside the `.env.testing` file are automatically merged with the `.env` file. This allows you to use a different database, or a different session driver when writing tests.
+The variables defined inside the `.env.testing` file are automatically merged with the `.env` file. This allows you to use a different database or a different session driver when writing tests.
 
 ## Defining variables in production
 

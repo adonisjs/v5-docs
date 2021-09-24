@@ -97,22 +97,22 @@
         "name": "Relationships",
         "docs": [
           {
-            "title": "Has One",
+            "title": "Has one",
             "permalink": "orm/relations/has-one",
             "contentPath": "orm/relations/has-one.md"
           },
           {
-            "title": "Has Many",
+            "title": "Has many",
             "permalink": "orm/relations/has-many",
             "contentPath": "orm/relations/has-many.md"
           },
           {
-            "title": "Belongs To",
+            "title": "Belongs to",
             "permalink": "orm/relations/belongs-to",
             "contentPath": "orm/relations/belongs-to.md"
           },
           {
-            "title": "Many to Many",
+            "title": "Many to many",
             "permalink": "orm/relations/many-to-many",
             "contentPath": "orm/relations/many-to-many.md"
           },
@@ -332,6 +332,11 @@
             "title": "session",
             "permalink": "views/globals/session",
             "contentPath": "views/globals/session.md"
+          },
+          {
+            "title": "stringify",
+            "permalink": "views/globals/stringify",
+            "contentPath": "views/globals/stringify.md"
           },
           {
             "title": "String helpers",

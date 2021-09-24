@@ -45,7 +45,7 @@ export default Env.rules({
 
 :::div{class="features"}
 
-- Support for multiple providers. **Google**, **Twitter**, and **Github**
+- Support for multiple providers. **Google**, **Twitter**, **LinkedIn**, **Facebook**, **Discord**, **Spotify**, and **Github**
 - Extensible API to add custom social providers
 
 &nbsp;
@@ -83,6 +83,10 @@ Name of the driver to use. It must always be one of the following available driv
 - `google`
 - `twitter`
 - `github`
+- `discord`
+- `facebook`
+- `linkedin`
+- `spotify`
 
 ---
 
@@ -244,6 +248,13 @@ Also, for some of the drivers (e.g., Google), the list of the scopes is too long
 
 ![](https://res.cloudinary.com/adonis-js/image/upload/q_auto,f_auto/v1619637422/v5/ally-intellisense.jpg)
 
+:::warning
+
+If you want to customize the Discord driver, it require to have the `identify` scope present to work properly.
+You can find more informations about it [here](https://discord.com/developers/docs/resources/user#get-current-user).
+
+:::
+
 ## Define other query string params
 You can also define custom query string params on the redirect request using the `redirectRequest.param` method. For example: Define the `prompt` and the `access_type` for the Google provider.
 
@@ -274,6 +285,7 @@ console.log(user.email)
 
 #### id
 A unique id returned by the OAuth provider.
+
 ---
 
 #### nickName
@@ -465,3 +477,91 @@ twitter: {
 ```
 
 </details>
+
+---
+
+<details>
+  <summary>Discord</summary>
+
+```ts
+google: {
+  driver: 'discord',
+  clientId: '',
+  clientSecret: '',
+  callbackUrl: '',
+
+  // Discord specific
+  prompt: 'consent' | 'none',
+  guildId: '',
+  disableGuildSelect: false,
+  permissions: 10,
+  // identify scope is always required
+  scopes: ['identify', 'email'],
+}
+```
+
+</details>
+
+---
+
+<details>
+  <summary>LinkedIn</summary>
+
+```ts
+google: {
+  driver: 'linkedin',
+  clientId: '',
+  clientSecret: '',
+  callbackUrl: '',
+
+  // Linkedin specific
+  scopes: ['r_emailaddress', 'r_liteprofile'],
+}
+```
+
+</details>
+
+---
+
+<details>
+  <summary>Facebook</summary>
+
+```ts
+google: {
+  driver: 'facebook',
+  clientId: '',
+  clientSecret: '',
+  callbackUrl: '',
+
+  // Facebook specific
+  scopes: ['email', 'user_photos'],
+  userFields: ['first_name', 'picture', 'email'],
+  display: '',
+  authType: '',
+}
+```
+
+</details>
+
+---
+
+<details>
+  <summary>Spotify</summary>
+
+```ts
+google: {
+  driver: 'spotify',
+  clientId: '',
+  clientSecret: '',
+  callbackUrl: '',
+
+  // Spotify specific
+  scopes: ['user-read-email', 'streaming'],
+  showDialog: false
+}
+```
+
+</details>
+
+## Adding custom drivers
+Ally is extensible and allows you to add your own custom drivers as well. We have created a [boilerplate repo](https://github.com/adonisjs-community/ally-driver-boilerplate) to help you create a custom driver from scratch and publish it as a package on npm.

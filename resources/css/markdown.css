@@ -165,10 +165,12 @@
   cursor: pointer;
   font-size: 1.4rem;
   position: absolute;
+  opacity: 0;
   top: 0;
   right: 0;
-  margin: 10px;
-  opacity: 0.5;
+  margin: 15px;
+  padding: 6px 6px 3px 6px;
+  border-radius: var(--rounded-corners-size);
   transition: opacity 100ms ease-in-out, color 100ms ease-in-out;
 }
 
@@ -177,7 +179,12 @@
 }
 
 .markdown .ctc-action:hover {
-  color: var(--accent-color);
+  background: #1a1d29;
+}
+
+.markdown .ctc-action:focus {
+  opacity: 1;
+  box-shadow: inset 0 0 0 1px #e5f2fe44, 0 0 0 1px #e5f2fe44;
 }
 
 .markdown .codegroup {
@@ -279,12 +286,32 @@
   position: relative;
 }
 
-.markdown .alert > :last-child {
+.markdown .alert > :last-child, .markdown blockquote > :last-child {
   margin-bottom: 0;
 }
 
 .markdown .alert.alert-note {
   border-top: 6px solid var(--brand-color);
+}
+
+.markdown blockquote {
+  border-left: 6px solid var(--light-gray);
+  margin-left: 0;
+  padding: 25px 30px;
+  position: relative;
+  font-size: 2.2rem;
+  background: var(--gray);
+  border-radius: var(--rounded-corners-size);
+  width: 100%;
+}
+
+.markdown blockquote::before {
+  content: "\201C";
+  color: var(--light-gray);
+  font-size: 8rem;
+  position: absolute;
+  left: 10px;
+  top: -40px;
 }
 
 .markdown .alert.alert-warning {
@@ -334,7 +361,6 @@
   position: relative;
   border-radius: var(--rounded-corners-size);
   background: var(--gray);
-  /* padding-bottom: 32px; */
 }
 
 .markdown figure figcaption {
@@ -467,13 +493,14 @@ FANCY Codeblock
 .fancy-codeblock span.title {
   position: absolute;
   font-size: 1.4rem;
-  font-style: italic;
-  background: var(--brand-mute-color);
+  background: #434963;
   font-weight: 600;
   line-height: 1;
-  padding: 7px 15px;
-  right: 0px;
-  top: 0px;
+  color: #fff;
+  padding: 5px 11px;
+  right: 18px;
+  top: 11px;
+  border-radius: 6px;
 }
 
 /*
@@ -527,4 +554,14 @@ Author details for the coobook
   height: 40px;
   object-fit: cover;
   border-radius: 100%;
+}
+
+.markdown .badge {
+  border-radius: 6px;
+  padding: 1px 8px 3px 8px;
+  font-size: var(--features-font-size);
+}
+
+.markdown .badge.badge-danger {
+  background: var(--danger-badge-color);
 }

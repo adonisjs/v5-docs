@@ -26,7 +26,7 @@ rules.after('today')
 rules.after('tomorrow')
 ```
 
-For more advanced use cases, you can pass an instance of the [luxon DateTime](https://moment.github.io/luxon/docs/class/src/datetime.js~DateTime.html) object. **Do make sure to pass the value as a ref**.
+For more advanced use cases, you can pass an instance of the [luxon DateTime](https://moment.github.io/luxon/api-docs/index.html#datetime) object. **Do make sure to pass the value as a ref**.
 
 ```ts
 // highlight-start

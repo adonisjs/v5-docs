@@ -2,7 +2,7 @@
 summary: Reference to partials in edge
 ---
 
-You can render views calling the `View.render` method. The method accepts the template path relative from the `views` directory and the data object to pass to the template and always returns a string value.
+You can render views by calling the `View.render` method. The method accepts the template path relative to the `views` directory and the data object to pass to the template and always returns a string value.
 
 ```ts
 import View from '@ioc:Adonis/Core/View'
@@ -12,9 +12,9 @@ const html = await View.render('welcome', {
 })
 ```
 
-During the HTTP requests, it is recommended to use the `ctx.view` object, instead of the top level import.
+During the HTTP requests, it is recommended to use the `ctx.view` object instead of the top-level import.
 
-The `ctx.view` is an isolated instance of the View module created for that specific request and shares the request specific data with the templates.
+The `ctx.view` is an isolated instance of the View module created for that specific request and shares the request-specific data with the templates.
 
 ```ts
 Route.get('/', async ({ view }) => {
@@ -28,7 +28,7 @@ Route.get('/', async ({ view }) => {
 
 ## Rendering Modes
 
-Edge exposes both the sync and the async API's for rendering views. We **recommend using the async API**. In async mode, the I/O operations performed by Edge does not block the Node.js event loop.
+Edge exposes both the sync and the async API for rendering views. We **recommend using the async API**. In async mode, the I/O operations performed by Edge do not block the Node.js event loop.
 
 In the following example:
 
@@ -42,7 +42,7 @@ view.renderSync('user', {
 })
 ```
 
-Whereas, the `view.render` method is free from all the caveats of synchronous rendering.
+Whereas the `view.render` method is free from all the caveats of synchronous rendering.
 
 ```ts
 await view.render('user', {
@@ -52,9 +52,9 @@ await view.render('user', {
 
 ## Disks
 
-Edge allows you to specify **multiple root directories** for finding the templates. We call this concept as mounting disk.
+Edge allows you to specify **multiple root directories** for finding the templates. We call this concept a mounting disk.
 
-We mount the `./resources/views` directory as the default disk for you implicitly. If required, you can also mount additional directories, each with a unique name.
+We mount the `./resources/views` directory as the default disk for you implicitly. However, if required, you can also mount additional directories, each with a unique name.
 
 You can write the following code inside a [preload file](link-to-preloading-files).
 
@@ -89,7 +89,7 @@ Similarly, you can prefix the disk name when including partials or components.
 
 ## In-memory templates
 
-Edge allows you to register in-memory templates without creating any file on the disk. You may find it useful, when you want to provide some templates as part of an npm package.
+Edge allows you to register in-memory templates without creating any file on the disk. You may find it helpful when you want to provide some templates as part of an npm package.
 
 ```ts
 import View from '@ioc:Adonis/Core/View'
@@ -103,7 +103,7 @@ View.registerTemplate('uikit/button', {
 })
 ```
 
-Now, you can render the template directly, or use it as a component with the exact name given to the `View.registerTemplate` method.
+You can render the template directly or use it as a component with the exact name given to the `View.registerTemplate` method.
 
 ```edge
 @!component('uikit/button', {
@@ -115,7 +115,7 @@ Now, you can render the template directly, or use it as a component with the exa
 
 :::note
 
-The in-memory templates are given preference over the on-disk templates in case of the path conflict.
+The in-memory templates are given preference over the on-disk templates in case of a path conflict.
 
 :::
 
@@ -149,7 +149,7 @@ View.renderRawSync(
 
 ## View renderer instances
 
-Views in edge are rendered using the [ViewRenderer](https://github.com/edge-js/edge/blob/develop/src/Renderer/index.ts) class. Every time you run the `View.render` method, we create a new instance of the `ViewRenderer` and then call the `render` method on it.
+Views in edge are rendered using the [ViewRenderer](https://github.com/edge-js/edge/blob/develop/src/Renderer/index.ts) class. So every time you run the `View.render` method, we create a new instance of the `ViewRenderer` and then call the `render` method on it.
 
 You can also get the renderer instance by calling the `View.getRenderer()` method and use the `share` method to share data with the view.
 
@@ -165,14 +165,14 @@ The `ctx.view` object is an instance of the `ViewRenderer` class.
 
 ## Caching
 
-Compiling a template to a JavaScript function is a time taking process and hence it is recommended to cache the compiled templates in production.
+Compiling a template to a JavaScript function is a time-consuming process, and hence it is recommended to cache the compiled templates in production.
 
-You can control the templates caching using the `CACHE_VIEWS` environment variable. Just make sure to set the value to `true` in the production environment.
+You can control the template caching using the `CACHE_VIEWS` environment variable. Just make sure to set the value to `true` in the production environment.
 
 ```sh
 CACHE_VIEWS=true
 ```
 
-All of the templates are cached within the memory. Currently, we do not have any plans to support on-disk caching. Since, the value provided for the efforts is too low.
+All of the templates are cached within the memory. Currently, we do not have any plans to support on-disk caching since the value provided for the efforts is too low.
 
-Raw text does not take up too much space and even keeping thousands of pre-compiled templates in memory should not be a problem.
+The raw text does not take up too much space, and even keeping thousands of pre-compiled templates in memory should not be a problem.

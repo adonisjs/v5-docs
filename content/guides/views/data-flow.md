@@ -1,5 +1,5 @@
 ---
-summary: Reference to the templates data flow and their scope at which they are available
+summary: Reference to the templates data flow and the scope at which they are available
 ---
 
 Edge exposes different APIs for sharing the data with the templates. Each API changes the scope at which the data is available inside the templates.
@@ -16,15 +16,16 @@ const state = {
 await view.render('user', state)
 ```
 
-The template state is available to the rendered template, its partials and the layout it use. In other words, the template state is not shared with the components.
+The template state is available to the rendered template, its partials, and the layout it uses. In other words, the template state is not shared with the components.
 
 ## Globals
 
-Globals are available to all the templates, including the components. You will usually use them to share helpers or the application wide metadata.
+Globals are available to all the templates, including the components. You will usually use them to share helpers or application-wide metadata.
 
-You can register a global using the `view.global` method
+You can register a global using the `View.global` method. For example, you can write the following code inside a [preloaded file](../fundamentals/adonisrc-file.md#preloads) or a service provider boot method.
 
 ```ts
+// title: start/view.ts
 import View from '@ioc:Adonis/Core/View'
 
 View.global('nl2br', function (text) {
@@ -59,7 +60,7 @@ View.global('menu', [
 
 ## Locals
 
-Locals are just like globals for a given instance of the [View renderer](./rendering.md#view-renderer). You can share locals by using the `view.share` method.
+Locals are like globals for a given instance of the [View renderer](./rendering.md#view-renderer). You can share locals by using the `view.share` method.
 
 You will mostly find yourself using the `view.share` method within middleware to share the data with the template.
 

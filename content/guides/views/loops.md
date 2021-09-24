@@ -26,6 +26,14 @@ view.render('users', {
 @end
 ```
 
+You can access the loop index as shown in the following example
+
+```edge
+@each((user, index) in users)
+  <li> {{ index + 1 }} {{ user.username }} </li>
+@end
+```
+
 Similarly you can also loop over an object and access its key and value.
 
 ```ts

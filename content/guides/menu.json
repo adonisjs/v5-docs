@@ -54,6 +54,11 @@
             "title": "Deployment",
             "permalink": "deployment",
             "contentPath": "fundamentals/deployment.md"
+          },
+          {
+            "title": "Async local storage",
+            "permalink": "async-local-storage",
+            "contentPath": "fundamentals/async-local-storage.md"
           }
         ]
       },
@@ -90,6 +95,11 @@
             "title": "File uploads",
             "permalink": "file-uploads",
             "contentPath": "http/file-uploads.md"
+          },
+          {
+            "title": "Direct file uploads",
+            "permalink": "direct-file-uploads",
+            "contentPath": "http/direct-file-uploads.md"
           },
           {
             "title": "Middleware",
@@ -205,6 +215,11 @@
             "title": "Schema caching",
             "permalink": "validator/schema-caching",
             "contentPath": "validator/schema-caching.md"
+          },
+          {
+            "title": "Custom validation rules",
+            "permalink": "validator/custom-rules",
+            "contentPath": "validator/custom-rules.md"
           }
         ]
       },
@@ -337,6 +352,11 @@
             "contentPath": "security/web-security.md"
           },
           {
+            "title": "CORS",
+            "permalink": "security/cors",
+            "contentPath": "security/cors.md"
+          },
+          {
             "title": "Encryption",
             "permalink": "security/encryption",
             "contentPath": "security/encryption.md"
@@ -360,6 +380,11 @@
             "title": "Authorization",
             "permalink": "authorization",
             "contentPath": "digging-deeper/authorization.md"
+          },
+          {
+            "title": "Drive",
+            "permalink": "drive",
+            "contentPath": "digging-deeper/drive.md"
           },
           {
             "title": "Ace",

@@ -262,7 +262,7 @@ async function runMigrations() {
 }
 
 async function rollbackMigrations() {
-  await execa.node('ace', ['migration:rollback'], {
+  await execa.node('ace', ['migration:rollback', '--batch=0'], {
     stdio: 'inherit',
   })
 }

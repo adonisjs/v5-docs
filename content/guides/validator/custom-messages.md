@@ -2,7 +2,7 @@
 summary: Learn how to define custom messages for the validation errors
 ---
 
-You can define custom messages alongside the schema object. Messages can be defined just for the validation rule, or you can define them for individual fields as well.
+The `validate` method accepts the custom messages alongside the validation schema object. You can define messages just for the validation rules, or you can specify them for individual fields as well.
 
 ```ts
 await request.validate({
@@ -18,8 +18,8 @@ await request.validate({
 })
 ```
 
-- Custom message for the `required` rule will be used by all the fields that fails the required validation.
-- Whereas, the `username.unique` combination is applicable only to the `username` field, for the `unique` validation rule.
+- The custom message for the `required` rule will be used by all the fields that fail the required validation.
+- The `username.unique` combination applies only to the `username` field for the `unique` validation rule.
 
 Messages for nested objects and arrays can be defined using the dot separator.
 
@@ -49,12 +49,12 @@ You can make use of the following placeholders to reference runtime values insid
 |-------------|-------------|
 | `{{ field }}` | Name of the field under validation. Nested object paths are represented with a dot separator. For example: `user.profile.username` |
 | `{{ rule }}` | Name of the validation rule |
-| `{{ options }}` | The options passed by the validation methods. For example: The `enum` rule will pass an array of `choices` and some rules may not pass any options at all |
+| `{{ options }}` | The options passed by the validation methods. For example, The `enum` rule will pass an array of `choices`, and some rules may not pass any options at all |
 
 ## Wildcard callback
 You can also define a callback function to construct the message at runtime. The callback can only be defined as a fallback using the wildcard `*` expression.
 
-In the following example, the callback will be invoked for all the fields, except for the `username` field only when it fails the `required` validation.
+The callback will be invoked for all the fields in the following example, except for the `username` field only when it fails the `required` validation.
 
 ```ts
 {
@@ -82,7 +82,7 @@ The `date` validation rule will pass the `options.format`.
 ---
 
 ### distinct
-The `distinct` validation rule will pass the `field` on which the distinct rule is applied, along with `index` at which the duplicate value was found.
+The `distinct` validation rule will pass the `field` on which the distinct rule is applied, along with the `index` at which the duplicate value was found.
 
 ```ts
 {
@@ -105,12 +105,12 @@ The `enum` and `enumSet` validation rules will pass an array of `options.choices
 ---
 
 ### file
-The file validation allows defining custom messages for the sub rules. For example:
+The file validation allows defining custom messages for the sub-rules. For example:
 
 ```ts
 {
   'file.size': 'The file size must be under {{ options.size }}',
-  'file.extnames': 'The file must have one of {{ options.extnames }} extension names',
+  'file.extname': 'The file must have one of {{ options.extnames }} extension names',
 }
 ```
 

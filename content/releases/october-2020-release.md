@@ -62,16 +62,19 @@ Before we dive into the specifics and the motivation behind the changes. Let's q
 
    So begin by removing the top level import statement
 
-   ```ts{}{config/auth.ts}
+   ```ts
+   // title: config/auth.ts
    import User from 'App/Models/User'
    ```
 
    And move it inline next to the model property as follows:
 
-   ```ts{3}
+   ```ts
    provider: {
    driver: 'lucid',
+   // highlight-start
    model: () => import('App/Models/User')
+   // highlight-end
    }
    ```
 
@@ -139,7 +142,7 @@ To counter that, we [expose an API](https://github.com/adonisjs/require-ts/blob/
 
 Finally, we end up with a development workflow that can run TypeScript source code directly and uses cache for faster restarts.
 
-[video url="https://res.cloudinary.com/adonis-js/video/upload/v1603462870/adonisjs.com/quick-restart_cgjdfa.mp4", controls]
+::video{url="https://res.cloudinary.com/adonis-js/video/upload/v1603462870/adonisjs.com/quick-restart_cgjdfa.mp4" controls}
 
 ## Validating environment variables
 
@@ -153,7 +156,8 @@ We believe that validating the environment variable early in the lifecycle of ru
 
 To get started, create an `env.ts` file in the root of your application and paste the following code snippet inside it.
 
-```ts{}{env.ts}
+```ts
+// title: env.ts
 import Env from '@ioc:Adonis/Core/Env'
 
 export default Env.rules({
@@ -171,7 +175,8 @@ Since we are already performing the runtime validations, wouldn't it be great if
 
 Begin by creating a new file `contracts/env.ts` and paste the following code snippet inside it.
 
-```ts{}{contracts/env.ts}
+```ts
+// title: contracts/env.ts
 declare module '@ioc:Adonis/Core/Env' {
   type CustomTypes = typeof import('../env').default
   interface EnvTypes extends CustomTypes {}
@@ -189,21 +194,23 @@ Now, you will get proper IntelliSense when using the `Env` module.
 
 REPL stands **read–eval–print loop**, a way to quickly execute single-line inputs and return the result. Node.js also has its REPL and to give it try, you can open up your terminal, type `node`, and press enter.
 
-[video url="https://res.cloudinary.com/adonis-js/video/upload/v1603467681/adonisjs.com/node-repl_s6hsuz.mp4", controls]
+::video{url="https://res.cloudinary.com/adonis-js/video/upload/v1603467681/adonisjs.com/node-repl_s6hsuz.mp4" controls}
 
 Similar to the Node.js REPL, AdonisJS now also has its REPL with first-class primitives to let you interact with your application. To begin, install the [@adonisjs/repl](https://github.com/adonisjs/repl) package from the registry.
 
-[codegroup]
+:::codegroup
 
-```sh{}{npm}
+```sh
+// title: npm
 npm i @adonisjs/repl
 ```
 
-```sh{}{yarn}
+```sh
+// title: yarn
 yarn add @adonisjs/repl
 ```
 
-[/codegroup]
+:::
 
 Next, run the following command to set up the package.
 
@@ -213,7 +220,7 @@ node ace invoke @adonisjs/repl
 
 That's all! Now you can run the `node ace repl` command to start the REPL session.
 
-[video url="https://res.cloudinary.com/adonis-js/video/upload/v1603469977/adonisjs.com/adonis-repl_yiqo3z.mp4", controls]
+::video{url="https://res.cloudinary.com/adonis-js/video/upload/v1603469977/adonisjs.com/adonis-repl_yiqo3z.mp4" controls}
 
 ## Using Japa?
 
@@ -221,7 +228,8 @@ Projects setup to use [Japa test runner](../cookbooks/testing-adonisjs-apps.md) 
 
 - Update the files glob to remove the `build` prefix and use `.ts` as the file extension.
 
-  ```ts{}{japaFile.ts}
+  ```ts
+  // title: japaFile.ts
   configure({
     files: ['test/**/*.spec.ts'],
     // ...

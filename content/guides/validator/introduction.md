@@ -1,8 +1,8 @@
 ---
-summary: Introduction for the AdonisJS schema based validator
+summary: Introduction for the AdonisJS schema-based validator
 ---
 
-AdonisJS has first-class support for **parsing** and **validating** the request body, and there is no need to install any 3rd party packages for the same. Just define the validation schema and validate the request body against it.
+AdonisJS has first-class support for **parsing** and **validating** the request body, and there is no need to install any 3rd party packages for the same. Instead, define the validation schema and validate the request body against it.
 
 ```ts
 import Route from '@ioc:Adonis/Core/Route'
@@ -19,7 +19,7 @@ Route.post('posts', async ({ request }) => {
   })
 
   /**
-   * Validate request body against schema
+   * Validate request body against the schema
    */
   const payload = await request.validate({ schema: newPostSchema })
 })
@@ -32,8 +32,8 @@ The validator also **extracts the static types** from the schema definition. Mea
 ## Schema composition
 The schema definition is divided into three main parts.
 
-- The `schema.create` methods defines the shape of the data you expect.
-- The `schema.string`, `schema.number` and other similar methods defines the data type for an individual field.
+- The `schema.create` method defines the shape of the data you expect.
+- The `schema.string`, `schema.number`, and other similar methods define the data type for an individual field.
 - Finally, you use the `rules` object to apply additional validation constraints on a given field. For example: Validating a string to be a valid email and is unique inside the database.
 
 ![](https://res.cloudinary.com/adonis-js/image/upload/q_auto,f_auto/v1617601990/v5/schema-101.png)
@@ -46,9 +46,9 @@ import { schema, rules } from '@ioc:Adonis/Core/Validator'
 ```
 :::
 
-If you look carefully, we have separated the **format validations** from **core data types**. For example: There is no data type called `schema.email`, instead we use the `rules.email` method to ensure a string is formatted as an email.
+If you look carefully, we have separated the **format validations** from **core data types**. So, for example, there is no data type called `schema.email`. Instead, we use the `rules.email` method to ensure a string is formatted as an email.
 
-This separation helps a lot in extending the validator with custom rules, without creating unnecessary schema types that has no meaning. For example: There is no thing called **email type**, it is a just a string, formatted as an email.
+This separation helps extend the validator with custom rules without creating unnecessary schema types that have no meaning. For example, there is no thing called **email type**; it is just a string, formatted as an email.
 
 ### Marking fields as optional
 
@@ -102,13 +102,13 @@ Route.post('users', async ({ request, response }) => {
 })
 ```
 
-We recommend **NOT self handling** the exception and let AdonisJS [convert the exception](https://github.com/adonisjs/validator/blob/develop/src/ValidationException/index.ts#L25-L49) to a response using content negotiation.
+We recommend **NOT self-handling** the exception and let AdonisJS [convert the exception](https://github.com/adonisjs/validator/blob/develop/src/ValidationException/index.ts#L25-L49) to a response using content negotiation.
 
-Following is an explanation on how content negotiation works.
+Following is an explanation of how content negotiation works.
 
 ### Server rendered app
 
-If you are building a standard web application with server side templating, then we will redirect the client back to the form and pass the errors as session flash messages.
+If you build a standard web application with server-side templating, we will redirect the client back to the form and pass the errors as session flash messages.
 
 Following is the structure of error messages inside the session's flash store.
 
@@ -120,7 +120,7 @@ Following is the structure of error messages inside the session's flash store.
 }
 ```
 
-You can access them using `flashMessages` global helper.
+You can access them using the `flashMessages` global helper.
 
 ```edge
 @if(flashMessages.has('errors.username'))
@@ -129,7 +129,7 @@ You can access them using `flashMessages` global helper.
 ```
 
 ### Requests with `Accept=application/json` header
-Requests negotiating for the JSON data type receives the error messages as an array of objects. Each error message contains the **field name**, the failed **validation rule** and the **error message**.
+Requests negotiating for the JSON data type receive the error messages as an array of objects. Each error message contains the **field name**, the failed **validation rule**, and the **error message**.
 
 ```ts
 {
@@ -161,7 +161,7 @@ Requests negotiating using `Accept=application/vnd.api+json` header, receives th
 ```
 
 ## Standalone validator usage
-You can also use the validator outside of an HTTP request by importing the `validate` method from the Validator module. The functional API remains the same, however you will have to manually provide the `data` to validate.
+You can also use the validator outside of an HTTP request by importing the `validate` method from the Validator module. The functional API remains the same. However, you will have to provide the `data` to validate manually.
 
 ```ts
 import { validator, schema } from '@ioc:Adonis/Core/Validator'
@@ -177,10 +177,10 @@ await validator.validate({
 })
 ```
 
-Also, since you are performing the validation outside of an HTTP request. You will have to self handle the exception and display the errors manually.
+Also, since you perform the validation outside of an HTTP request, you will have to handle the exception and display the errors manually.
 
 ## Validator classes
-Validator classes allows you extract the inline schema from your controllers and move them to a dedicated class.
+Validator classes allow you to extract the inline schema from your controllers and move them to a dedicated class.
 
 You can create a new validator by executing the following ace command.
 
@@ -190,7 +190,7 @@ node ace make:validator CreateUser
 # CREATE: app/Validators/CreateUserValidator.ts
 ```
 
-All the validation related properties including the `schema`, `messages` are defined as properties on the class.
+All the validation related properties, including the `schema`, `messages` are defined as properties on the class.
 
 ```ts
 // title: app/Validators/CreateUserValidator.ts
@@ -225,7 +225,7 @@ Route.post('users', async ({ request, response }) => {
 })
 ```
 
-During validation, a new instance of the validator class is created behind scenes. Also, the `request.validate` method will pass the current HTTP context as first constructor argument.
+During validation, a new instance of the validator class is created behind the scenes. Also, the `request.validate` method will pass the current HTTP context as a first constructor argument.
 
 You can also manually construct the class instance and pass any arguments you like. For example:
 

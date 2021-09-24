@@ -31,9 +31,10 @@ In this scenario, tokens are generated in bulk and will be expired after some du
 
 The configuration for the tokens is defined within the `config/auth` file.
 
-[codegroup]
+:::codegroup
 
-```ts{}{Database provider}
+```ts
+// title: Database provider
 {
   tokenProvider: {
     driver: 'database',
@@ -42,7 +43,8 @@ The configuration for the tokens is defined within the `config/auth` file.
 }
 ```
 
-```ts{}{Redis provider}
+```ts
+// title: Redis provider
 {
   tokenProvider: {
     driver: 'redis',
@@ -51,7 +53,7 @@ The configuration for the tokens is defined within the `config/auth` file.
 }
 ```
 
-[/codegroup]
+:::
 
 When using the Redis driver, you have to define the connection inside the `config/redis` file and reference the connection name from the `tokenProvider.connection` property.
 
@@ -65,9 +67,11 @@ Begin by upgrading the `@adonisjs/mail` package.
 npm i @adonisjs/mail@alpha
 ```
 
-[note]
+:::note
+
 The following steps are only required when upgrading an existing application. For new applications, the command will be added automatically on the `node ace invoke` call.
-[/note]
+
+:::
 
 Next, open the `.adonisrc.json` file and register the mail package to the array of commands.
 

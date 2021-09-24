@@ -1,24 +1,32 @@
-<nav class="header-nav">
+<nav class="header-nav" up-nav>
   <ul>
     @each((groups, name) in zones)
       @if(groups.length === 1)
         @if(groups[0].landingDoc)
-          <li class="{{ name === doc.zone ? 'active' : '' }}">
-            <a href="{{ groups[0].landingDoc.url }}">
+          <li>
+            <a
+              href="{{ groups[0].landingDoc.url }}"
+              class="{{ name === doc.zone ? 'up-current' : '' }}"
+              up-alias="/{{ name.toLowerCase() }}/*"
+              up-follow
+              up-preload
+            >
               {{ name }}
             </a>
-            <ul>
-            </ul>
           </li>
         @endif
       @else
         <li
-          class="{{ name === doc.zone ? 'active' : '' }}"
-          x-data="{ active: false }"
-          :class="{ 'expand': active }"
-          @click.away="active = false"
+          x-data="{ expanded: false }"
+          :class="{ 'expanded': expanded }"
+          @click.away="expanded = false"
         >
-          <a href="#" @click.prevent="active = !active">
+          <a
+            href="#"
+            @click.prevent="expanded = !expanded"
+            class="{{ name === doc.zone ? 'up-current' : '' }}"
+            up-alias="/{{ name.toLowerCase() }}/*"
+          >
             {{ name }}
             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-down" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -28,7 +36,12 @@
           <ul class="dropdown">
             @each(group in groups)
               <li>
-                <a href="{{ group.landingDoc.url }}">{{ group.name }}</a>
+                <a
+                  href="{{ group.landingDoc.url }}"
+                  up-follow
+                  up-preload
+                  @click="expanded = false"
+                >{{ group.name }}</a>
               </li>
             @endeach
           </ul>

@@ -70,13 +70,13 @@ The automatic **content type** header is only defined when you don't set it expl
 
 ## Lazy Response
 
-Many Node.js frameworks write the response to the outgoing stream as soon as you call the `response.send` method. AdonisJS **does not** do the same. Instead, we wait for the route handler and all the middleware calls to finish before writing the final response.
+Many Node.js frameworks write the response to the outgoing stream as soon as you call the `response.send` method. However, AdonisJS **does not** do the same. Instead, we wait for the route handler and middleware calls to finish before writing the final response.
 
 This approach ensures that the last call to `response.send` always wins. In most cases, this behavior doesn't impact you or your applications at all. However, it allows you to post-process the response inside a middleware.
 
 Following is an example of converting the `camelCase` object keys to `snake_case`.
 
-:::warn
+:::warning
 
 The following example is not the best way to transform response. It is just a demonstration of how post-processing a response looks like
 
@@ -109,9 +109,9 @@ Route
   })
 ```
 
-In the above example, the route handler writes the response body using the `response.send` method. However, the downstream middleware mutates the body and re-writes it using the `response.send` again.
+The route handler writes the response body using the `response.send` method in the above example. However, the downstream middleware mutates the body and re-writes it using the `response.send` again.
 
-Since the response body is lazily evaluated, We will always set the **content-length** and the **content-type** headers by inspecting the most recent response body.
+Since the response body is lazily evaluated, AdonisJS will always set the **content-length** and the **content-type** headers by inspecting the most recent response body.
 
 ## Response status and headers
 
@@ -125,6 +125,8 @@ The `response.header` method defines the HTTP response header. Using this method
 response.header('Content-type', 'text/html')
 ```
 
+---
+
 ### append
 
 The `response.append` method is similar to the `header` method. However, it appends to the existing header value (if any).
@@ -132,6 +134,8 @@ The `response.append` method is similar to the `header` method. However, it appe
 ```ts
 response.append('Set-cookie', 'cookie-value')
 ```
+
+---
 
 ### removeHeader
 
@@ -141,6 +145,8 @@ The `response.removeHeader` allows removing an existing response header.
 response.removeHeader('Content-type')
 ```
 
+---
+
 ### getHeader
 
 The `response.getHeader` method returns the value of an existing header.
@@ -148,6 +154,8 @@ The `response.getHeader` method returns the value of an existing header.
 ```ts
 const cookie = response.getHeader('Set-cookie')
 ```
+
+---
 
 ### safeHeader
 
@@ -157,6 +165,8 @@ The `response.safeHeader` method is similar to the `header` method. However, it 
 response.safeHeader('Content-type', 'application/json')
 ```
 
+---
+
 ### status
 
 The `response.status` method defines the status for the HTTP response. You can also use the [descriptive methods](#descriptive-response-methods) to set the status and the response body together.
@@ -164,6 +174,8 @@ The `response.status` method defines the status for the HTTP response. You can a
 ```ts
 response.status(401)
 ```
+
+---
 
 ### safeStatus
 
@@ -186,7 +198,7 @@ const image = fs.createReadStream('./some-file.jpg')
 response.stream(image)
 ```
 
-In the case of errors, A 500 response is sent to the client. However, you can send a custom status code and message by defining a `callback` as the second parameter.
+In the case of errors, A 500 response is sent to the client. However, you can send a custom status code and message by defining a `callback`. The callback must return an array with the response message and the response status code.
 
 ```ts
 response.stream(image, (error) => {
@@ -194,9 +206,11 @@ response.stream(image, (error) => {
 })
 ```
 
+---
+
 ### download
 
-The `download` method streams the file to the client by reading it from the disk. Unlike the stream method, the `download` method does set the **content-type** and the **content-length** headers.
+The `download` method streams the file to the client by reading it from the disk. However, unlike the stream method, the `download` method does set the **content-type** and the **content-length** headers.
 
 ```ts
 const filePath = Application.tmpPath('uploads/some-file.jpg')
@@ -210,7 +224,7 @@ const filePath = Application.tmpPath('uploads/some-file.jpg')
 response.download(filePath, true)
 ```
 
-A custom status code and a message can be defined by passing a `callback` as the third parameter.
+You can define a custom status code and a message by passing a `callback` as the third parameter.
 
 ```ts
 const filePath = Application.tmpPath('uploads/some-file.jpg')
@@ -224,9 +238,11 @@ response.download(filePath, true, (error) => {
 })
 ```
 
+---
+
 ### attachment
 
-The `response.attachment` is similar to the `download` method. However, it allows customizing the downloaded file name and also defines the [Content-Disposition](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Disposition) header.
+The `response.attachment` is similar to the `download` method. However, it allows customizing the downloaded file name and defines the [Content-Disposition](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Disposition) header.
 
 ```ts
 const filePath = Application.tmpPath('uploads/some-file.jpg')
@@ -255,7 +271,7 @@ response.redirect().toPath('/some/url')
 
 ### Custom status code
 
-By default, a `302` status code is used. You can override it using the `.status` method.
+By default, a `302` status code is used. However, you can override it using the `.status` method.
 
 ```ts
 response.redirect().status(301).toPath('/some/url')
@@ -302,7 +318,7 @@ response
 
 ### withQs without params
 
-Calling the `withQs` method without any parameters will forward the existing query string to the redirected URL. If you redirect the user back to the old page, then the query string from the `referrer` header URL will be used.
+Calling the `withQs` method without any parameters will forward the existing query string to the redirected URL. If you redirect the user back to the old page, we will use the query string from the `referrer` header URL.
 
 ```ts
 response.redirect().withQs().back() // 👈 referrer header qs is used
@@ -320,7 +336,7 @@ The response class allows you to abort the current HTTP request using the `respo
 
 The `response.abort` method aborts the current request by raising an [AbortException](https://github.com/adonisjs/http-server/blob/develop/src/Response/index.ts#L44)
 
-The method accepts a total of two arguments: ie, the response body and an optional status.
+The method accepts a total of two arguments: i.e., the response body and an optional status.
 
 ```ts
 if (!auth.user) {
@@ -331,6 +347,8 @@ if (!auth.user) {
 }
 ```
 
+---
+
 ### abortIf
 
 The `response.abortIf` method accepts a condition and aborts the request when the condition is true.
@@ -338,6 +356,8 @@ The `response.abortIf` method accepts a condition and aborts the request when th
 ```ts
 response.abortIf(!auth.user, 'Not authenticated', 401)
 ```
+
+---
 
 ### abortUnless
 
@@ -361,9 +381,13 @@ if (!response.finished) {
 }
 ```
 
+---
+
 ### headersSent
 
 An alias for the Node.js [res.headersSent](https://nodejs.org/dist/latest-v15.x/docs/api/http.html#http_response_headerssent) property.
+
+---
 
 ### isPending
 
@@ -374,6 +398,8 @@ if (response.isPending) {
   response.send()
 }
 ```
+
+---
 
 ### vary
 
@@ -386,6 +412,8 @@ response.vary('Origin')
 response.vary('Accept, User-Agent')
 ```
 
+---
+
 ### location
 
 A shortcut to set the [HTTP location header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Location).
@@ -393,6 +421,8 @@ A shortcut to set the [HTTP location header](https://developer.mozilla.org/en-US
 ```ts
 response.location('/dashboard')
 ```
+
+---
 
 ### type
 
@@ -409,7 +439,7 @@ response.type('json') // defines content-type=application/json
 response.type('html') // defines content-type=text/html
 ```
 
-### Descriptive response methods
+## Descriptive response methods
 
 The response class has a bunch of descriptive methods (one of each HTTP status) to send the response body and set the status at the same time. For example:
 

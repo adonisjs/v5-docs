@@ -53,7 +53,7 @@ Ensure to require them in your route declaration correctly.
 
 ### Route namespacing
 
-When having different locations for your controller, it may be convenient to define the namespace of your controllers by route groups.
+When having different locations for your controller, it may be convenient to define the namespace of your controllers using route groups.
 
 ```ts
 Route.group(() => {
@@ -62,7 +62,7 @@ Route.group(() => {
 }).namespace('App/Modules/Checkout')
 ```
 
-In this example, the `CartController` will be imported from `App/Modules/Checkout`.
+The `CartController` will be imported from `App/Modules/Checkout` in this example.
 
 :::note
 The namespace should be an absolute path from the root of your application.
@@ -70,7 +70,7 @@ The namespace should be an absolute path from the root of your application.
 
 ## Make controller command
 
-You can make use of `node ace` to create a new controller. For example:
+You can make use of the following `node ace` command to create a new controller.
 
 ```sh
 node ace make:controller Post
@@ -80,7 +80,7 @@ node ace make:controller Post
 
 If you notice, in the above command, we mentioned the word `Post` as singular, whereas the generated file name is in the plural form and has a `Controller` suffix.
 
-AdonisJS applies these transformations to ensure that the filenames are consistent throughout your project. However, you can instruct the CLI not to apply these transformations by using the `--exact` flag.
+AdonisJS applies these transformations to ensure that the filenames are consistent throughout your project. However, you can instruct the CLI not to apply these transformations using the `--exact` flag.
 
 ![Output of "node ace make:controller --help"](https://res.cloudinary.com/adonis-js/image/upload/f_auto,q_auto/v1611555570/v5/controller-help-exact-flag.png)
 
@@ -88,7 +88,7 @@ AdonisJS applies these transformations to ensure that the filenames are consiste
 
 As you can notice, the controllers are referenced on routes as a string expression, i.e., `'Controller.method'`. We opted for this approach intentionally in favor of lazy loading controllers and less verbose syntax.
 
-Let's see how the routes file may look like if we decide **NOT TO use** the string expression.
+Let's see how the routes file may look if we decide **NOT TO use** the string expression.
 
 ```ts
 import Route from '@ioc:Adonis/Core/Route'
@@ -99,7 +99,7 @@ Route.get('/posts', async (ctx) => {
 })
 ```
 
-In the above example, we import the `PostsController` within the routes file. Create an instance of it and run the `index` method, passing the `ctx` object.
+In the above example, we import the `PostsController` within the routes file. Then, create an instance and run the `index` method, passing the `ctx` object.
 
 Now imagine an application with 40-50 different controllers. Each controller has its set of imports, all getting pulled down inside a single routes file, making the routes file a choke point.
 
@@ -126,16 +126,16 @@ The string-based reference provides the best of both worlds. The controllers are
 
 However, it comes with the downside of not being type-safe. IDE doesn't complain if the controller or the method is missing or has a typo.
 
-On the brighter side, making the string expression type-safe is not impossible. TypeScript is already making progress in that direction. We need two things to achieve type safety when referencing the `'Controller.method'` as a string expression.
+On the brighter side, making the string expression type-safe is not impossible. TypeScript is already making progress in that direction. We need two things to achieve type safety when referencing the `'Controller.method'` string expression.
 
-- The ability to tokenize the string expression and create a full path to the controller and its method. It is achievable with TypeScript 4.1 and onwards. Here is a [proof of concept](https://www.typescriptlang.org/play?ts=4.1.3#code/MYewdgzgLgBASiArlApjAvDA3gKBjAcxSgB4AJAQzABMAbFAJxhQA9UaIZoGBLMAgHwAKAA4UoqBmABcXKL34AaGAAsqdRrMo16DAJSyY2jU1btqnAAYASLHwBmjGAEEAvgDpbDpwCFXlmAB+bDx8GFAweRBaXVlLZxERAHoAYXAomMYIJLIJZNs3S0VQ-ABbYhUQalkfUNcYWUQwAGswEAB3MBxXHF6kpKMQADcnYacoFTQAIgYkVCmYIYpeCgAjehh1LhQ0CfEYdrRlo-XdkBgxBggjuQUCGD4oc6fmlEgcCOgYWeQ0TARfu4iFAhAByJKg5SgsggcppSKzTIMdx8aisUF6IA) for the same.
-- Next is the ability to have an Import type with support for generics. There is [an open issue](https://github.com/microsoft/TypeScript/issues/31090) for it, and we are optimistic that it will make its way to the TypeScript in the future, as it adheres to the TypeScript design goals.
+- The ability to tokenize the string expression and create a full path to the controller and its method. It is achievable with TypeScript 4.1 and onwards. For example, here is a [proof of concept](https://www.typescriptlang.org/play?ts=4.1.3#code/MYewdgzgLgBASiArlApjAvDA3gKBjAcxSgB4AJAQzABMAbFAJxhQA9UaIZoGBLMAgHwAKAA4UoqBmABcXKL34AaGAAsqdRrMo16DAJSyY2jU1btqnAAYASLHwBmjGAEEAvgDpbDpwCFXlmAB+bDx8GFAweRBaXVlLZxERAHoAYXAomMYIJLIJZNs3S0VQ-ABbYhUQalkfUNcYWUQwAGswEAB3MBxXHF6kpKMQADcnYacoFTQAIgYkVCmYIYpeCgAjehh1LhQ0CfEYdrRlo-XdkBgxBggjuQUCGD4oc6fmlEgcCOgYWeQ0TARfu4iFAhAByJKg5SgsggcppSKzTIMdx8aisUF6IA) for the same.
+- Next is the ability to have an Import type with support for generics. There is [an open issue](https://github.com/microsoft/TypeScript/issues/31090), and we are optimistic that it will make its way to the TypeScript in the future, as it adheres to the TypeScript design goals.
 
 ## CRUD operations
 
-The principles of [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) provides a great way to map CRUD operations with HTTP methods without making the URL's verbose.
+The principles of [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) provides a great way to map CRUD operations with HTTP methods without making the URLs verbose.
 
-For example, The URL `/posts` can be used to **view all the posts** and also to **create a new post**, just by using the correct HTTP method.
+For example, The URL `/posts` can be used to **view all the posts** and **create a new post**, just by using the correct HTTP method.
 
 ```ts
 Route.get('/posts', () => {
@@ -217,20 +217,20 @@ articles.destroy
 
 ### Filtering routes
 
-In many situations, you would want to prevent some of the resourceful routes from getting registered. For example, You decide to restrict the users of your blog from **updating** or **deleting** their comments, and hence routes for the same is not required.
+In many situations, you would want to prevent some of the resourceful routes from getting registered. For example, You decide to restrict the users of your blog from **updating** or **deleting** their comments, and hence routes for the same are not required.
 
 ```ts
-Route.resource('comments', 'CommentsController').except(['update', 'destroy']) // 👈
+Route
+  .resource('comments', 'CommentsController')
+  .except(['update', 'destroy']) // 👈
 ```
 
 The opposite of the `except` method is the `only` method. It only registers the routes with the given action names.
 
 ```ts
-Route.resource('comments', 'CommentsController').only([
-  'index',
-  'show',
-  'store',
-]) // 👈
+Route
+  .resource('comments', 'CommentsController')
+  .only(['index', 'show', 'store']) // 👈
 ```
 
 ### API only routes
@@ -275,7 +275,7 @@ As you can notice, the parent resource id is prefixed with the resource name. ie
 
 ## Shallow resources
 
-In the case of nested resources, every child resource is prefixed with the parent resource name and its id. For example:
+In nested resources, every child resource is prefixed with the parent resource name and its id. For example:
 
 - `/posts/:post_id/comments`: View all comments for the post
 - `/posts/:post_id/comments/:id`: View all comment by id.
@@ -290,7 +290,7 @@ Route.shallowResource('posts.comments', 'CommentsController')
 
 ![](https://res.cloudinary.com/adonis-js/image/upload/q_auto,f_auto/v1612004976/v5/shallow-resource.png)
 
-## Reusing controllers
+## Re-using controllers
 
 Many developers tend to make the mistake of attempting to re-use controllers by importing them inside other controllers.
 

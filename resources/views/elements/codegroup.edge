@@ -1,10 +1,6 @@
 @set('tabs', JSON.parse(node.properties.dataTabs))
 
-<div
-  x-data="initializeCodegroups()"
-  x-init="mounted"
-  class="codegroup"
->
+<div x-data="codegroups" class="codegroup">
   <div class="codegroup-tabs">
     <div x-ref="highlighter" class="highlighter" style="width: 0; left: 20px;"></div>
     @each((tab, index) in tabs)

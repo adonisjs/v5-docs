@@ -16,7 +16,7 @@ Route.get('/', () => {
 })
 ```
 
-The route handler can also refer to a [controller](./controllers.md) method.
+The route handler can also reference a [controller](./controllers.md) method.
 
 ```ts
 import Route from '@ioc:Adonis/Core/Route'
@@ -26,7 +26,7 @@ Route.get('posts', 'PostsController.index')
 
 ## Default routes file
 
-Conventionally the routes are registered inside the `start/routes.ts` file, which is then preloaded by AdonisJS when booting the application. However, this is not a hard restriction, and you can keep your routes in a separate file as well.
+Conventionally the routes are registered inside the `start/routes.ts` file, which is then [preloaded](../fundamentals/adonisrc-file.md#preloads) by AdonisJS when booting the application. However, this is not a hard restriction, and you can keep your routes in a separate file as well.
 
 Let's explore some different ways to structure and load routes from other files.
 
@@ -190,7 +190,7 @@ Route
 
 Route
   .get('/posts/:slug', async ({ params }) => {
-    return `Viewing post using slug ${params.id}`
+    return `Viewing post using slug ${params.slug}`
   })
   .where('slug', /^[a-z0-9_-]+$/)
 ```
@@ -211,13 +211,33 @@ Parameters part of the URL are always represented as a string. For example: In t
 
 However, you can manually cast the params to their actual JavaScript data type by defining a `cast` property with the param matcher.
 
+:::note
+
+It is a good practice to validate the param using the `match` property when using the `cast` function.
+
+:::
+
 ```ts
 Route
   .get('posts/:id', 'PostsController.show')
   .where('id', {
-    matches: /^[0-9]+$/,
+    match: /^[0-9]+$/,
     cast: (id) => Number(id),
   })
+```
+
+## Inbuilt matchers
+The route module ships with the following inbuilt matchers for commonly used data types.
+
+```ts
+// Validate id to be numeric + cast to number data type
+Route.where('id', Route.matchers.number())
+
+// Validate id to be a valid uuid
+Route.where('id', Route.matchers.uuid())
+
+// Validate slug to match a given slug regex: regexr.com/64su0
+Route.where('slug', Route.matchers.slug())
 ```
 
 ## URL generation

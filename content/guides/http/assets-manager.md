@@ -226,13 +226,13 @@ Also, make sure to install the appropriate loaders for them.
 
 ```sh
 # For SASS
-npm i -D sass-loader
+npm i -D sass-loader sass
 
 # For Less
-npm i -D less-loader
+npm i -D less-loader less
 
 # For Stylus
-npm i -D stylus-loader
+npm i -D stylus-loader stylus
 ```
 
 ## Copying & referencing images
@@ -250,7 +250,7 @@ Encore.copyFiles({
 Also, make sure to use the `asset` helper to reference the image inside an `img` tag.
 
 ```edge
-<img src="{{ asset('logo.png') }}" />
+<img src="{{ asset('assets/images/logo.png') }}" />
 ```
 
 ## Configuring Babel
@@ -299,15 +299,15 @@ npm i -D @babel/preset-react
 
 Next, enable the react preset inside the `webpack.config.js` file.
 
-:::warn
+```ts
+Encore.enableReactPreset()
+```
+
+:::warning
 
 If you are using the `.babelrc` file, you must enable the react preset inside it, as Encore can no longer configure babel.
 
 :::
-
-```ts
-Encore.enableReactPreset()
-```
 
 ## Configuring Vue
 You can configure Vue by first enabling the vue loader inside the `webpack.config.js` file. 

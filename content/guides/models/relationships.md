@@ -6,7 +6,7 @@ The Lucid data models have out of box support for working with relationships. Yo
 
 
 ## Has one
-Has one creates a one to one relationship between two models. For example, **A user has a profile**. The has one relationship needs a foreign key in the related table. 
+Has one creates a one to one relationship between two models. For example, **A user has a profile**. The has one relationship needs a foreign key in the related table.
 
 Following is an example table structure for the has one relationship. The `profiles.user_id` is the foreign key and forms the relationship with the `users.id` column.
 
@@ -28,7 +28,8 @@ export default class Users extends BaseSchema {
       // highlight-start
       table.increments('id').primary()
       // highlight-end
-      table.timestamps(true)
+      table.timestamp('created_at', { useTz: true })
+      table.timestamp('updated_at', { useTz: true })
     })
   }
 }
@@ -51,7 +52,8 @@ export default class Profiles extends BaseSchema {
         .references('users.id')
         .onDelete('CASCADE') // delete profile when user is deleted
       // highlight-end
-      table.timestamps(true)
+      table.timestamp('created_at', { useTz: true })
+      table.timestamp('updated_at', { useTz: true })
     })
   }
 }
@@ -127,7 +129,8 @@ export default class Users extends BaseSchema {
       // highlight-start
       table.increments('id').primary()
       // highlight-end
-      table.timestamps(true)
+      table.timestamp('created_at', { useTz: true })
+      table.timestamp('updated_at', { useTz: true })
     })
   }
 }
@@ -150,7 +153,8 @@ export default class Posts extends BaseSchema {
         .references('users.id')
         .onDelete('CASCADE') // delete post when user is deleted
       // highlight-end
-      table.timestamps(true)
+      table.timestamp('created_at', { useTz: true })
+      table.timestamp('updated_at', { useTz: true })
     })
   }
 }
@@ -258,7 +262,8 @@ export default class Users extends BaseSchema {
       // highlight-start
       table.increments('id').primary()
       // highlight-end
-      table.timestamps(true)
+      table.timestamp('created_at', { useTz: true })
+      table.timestamp('updated_at', { useTz: true })
     })
   }
 }
@@ -276,7 +281,8 @@ export default class Skills extends BaseSchema {
       // highlight-start
       table.increments('id').primary()
       // highlight-end
-      table.timestamps(true)
+      table.timestamp('created_at', { useTz: true })
+      table.timestamp('updated_at', { useTz: true })
     })
   }
 }
@@ -295,8 +301,10 @@ export default class SkillUsers extends BaseSchema {
       // highlight-start
       table.integer('user_id').unsigned().references('users.id')
       table.integer('skill_id').unsigned().references('skills.id')
+      table.unique(['user_id', 'skill_id'])
       // highlight-end
-      table.timestamps(true)
+      table.timestamp('created_at', { useTz: true })
+      table.timestamp('updated_at', { useTz: true })
     })
   }
 }
@@ -378,10 +386,10 @@ public skills: ManyToMany<typeof Skill>
 ```
 
 ### Pivot table timestamps
-You can enable the support for **created at** and **updated at** timestamps for your pivot tables using the `pivotTimestamps` property. 
+You can enable the support for **created at** and **updated at** timestamps for your pivot tables using the `pivotTimestamps` property.
 
 - Once defined, Lucid will automatically set/update these timestamps on insert and update queries.
-- Converts them to an instance of [Luxon Datetime](https://moment.github.io/luxon/docs/class/src/datetime.js~DateTime.html) class during fetch.
+- Converts them to an instance of [Luxon Datetime](https://moment.github.io/luxon/api-docs/index.html#datetime) class during fetch.
 
 ```ts
 @manyToMany(() => Skill, {
@@ -396,7 +404,7 @@ Settings `pivotTimestamps = true` assumes the column names are defined as `creat
 @manyToMany(() => Skill, {
   pivotTimestamps: {
     createdAt: 'creation_date',
-    updatedAt: 'updation_date'    
+    updatedAt: 'updation_date'
   }
 })
 public skills: ManyToMany<typeof Skill>
@@ -408,14 +416,14 @@ To disable a particular timestamp, you can set its value to `false`.
 @manyToMany(() => Skill, {
   pivotTimestamps: {
     createdAt: 'creation_date',
-    updatedAt: false // turn off update at timestamp field    
+    updatedAt: false // turn off update at timestamp field
   }
 })
 public skills: ManyToMany<typeof Skill>
 ```
 
 ## Has many through
-Has many through relationship is similar to a `hasMany` relationship but creates the relationship through an intermediate model. For example, **A country has many posts, through users**. 
+Has many through relationship is similar to a `hasMany` relationship but creates the relationship through an intermediate model. For example, **A country has many posts, through users**.
 
 - This relationship needs the through model (i.e., User) to have a foreign key reference with the current model (i.e., Country).
 The related model (i.e., Post) has a foreign key reference with the through model (i.e., User).
@@ -438,7 +446,8 @@ export default class Countries extends BaseSchema {
       // highlight-start
       table.increments('id').primary()
       // highlight-end
-      table.timestamps(true)
+      table.timestamp('created_at', { useTz: true })
+      table.timestamp('updated_at', { useTz: true })
     })
   }
 }
@@ -460,7 +469,8 @@ export default class Users extends BaseSchema {
         .unsigned()
         .references('countries.id')
       // highlight-end
-      table.timestamps(true)
+      table.timestamp('created_at', { useTz: true })
+      table.timestamp('updated_at', { useTz: true })
     })
   }
 }
@@ -482,7 +492,8 @@ export default class Posts extends BaseSchema {
         .unsigned()
         .references('users.id')
       // highlight-end
-      table.timestamps(true)
+      table.timestamp('created_at', { useTz: true })
+      table.timestamp('updated_at', { useTz: true })
     })
   }
 }
@@ -498,7 +509,7 @@ The has many through relationship is defined using the [@hasManyThrough](../../r
 ```ts
 import Post from 'App/Models/Post'
 import User from 'App/Models/User'
-import { 
+import {
   BaseModel,
   column,
   // highlight-start
@@ -703,14 +714,33 @@ Following is the list of `has` and `whereHas` variations.
 - `doesntHave | whereDoesntHave` checks for the absence of the relationship.
 - `orDoesntHave | orWhereDoesntHave` adds an **OR** clause for the relationship absence.
 
-## Counting related rows
-The relationships API of Lucid also allows you to load the count of relationship rows. For example, **get the count of comments for each post**.
+## Relationship aggregates
+The relationships API of Lucid also allows you to load the aggregates for relationships. For example: You can fetch a list of **posts with a count of comments for each post**.
 
-You can load the count using the `withCount` method. In the following example, we will store the value for the comments count inside the `$extras.comments_count` property.
+#### withAggregate
+
+The `withAggregate` method accepts the relationship as the first argument and a mandatory callback to define the value's aggregate function and property name.
 
 :::note
-The property is moved to the `$extras` object because it is a runtime value for a one-off query.
+In the following example, the `comments_count` property is moved to the `$extras` object because it not defined as a property on the model.
 :::
+
+```ts
+const posts = await Post
+  .query()
+  .withAggregate('comments', (query) => {
+    query.count('*').as('comments_count')
+  })
+
+posts.forEach((post) => {
+  console.log(post.$extras.comments_count)
+})
+```
+
+---
+
+#### withCount
+Since, counting relationship rows is a very common requirement, you can instead make use of the `withCount` method.
 
 ```ts
 const posts = await Post.query().withCount('comments')
@@ -748,26 +778,26 @@ const posts = await Post
   })
 ```
 
-### Load aggregates
-Like the `withCount` method, you can also use the `withAggregate` method to run custom aggregate queries.
-
-The `withAggregate` method accepts the relationship as the first argument and a mandatory callback to define the value's aggregate function and property name.
-
-:::note
-When using `withAggregate`, it is required to define the column alias using the `as` method.
-:::
+### Lazy load relationship aggregates
+Similar to the `withCount` and the `withAggregate` methods, you can also lazy load the aggregates from a model instance using `loadCount` and the `loadAggregate` methods.
 
 ```ts
-const users = await User
-  .query()
-  .withAggregate('exams', (query) => {
-    query.sum('marks').as('totalMarks')
-  })
+const post = await Post.findOrFail()
+await post.loadCount('comments')
 
-users.forEach((user) => {
-  console.log(user.$extras.totalMarks)
-})
+console.log(post.$extras.comments_count)
 ```
+
+```ts
+const post = await Post.findOrFail()
+await post.loadAggregate('comments', (query) => {
+  query.count('*').as('commentsCount')
+})
+
+console.log(post.$extras.commentsCount)
+```
+
+Make sure you are using `loadCount` method only when working with a single model instance. If there are multiple model instances, then it is better to use the query builder `withCount` method.
 
 ## Relationship query hook
 You can define an `onQuery` relationship hook at the time of defining a relationship. The query hooks get executed for all the **select**, **update**, and **delete** queries executed by the relationship query builder.

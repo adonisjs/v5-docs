@@ -18,7 +18,7 @@ Route.get('dashboard', async ({ auth, response }) => {
 
 #### We prefer writing
 
-In the following example, the `auth.authenticate` method will raise an exception if the user is not logged in. The exception has the ability to handle itself and return an appropriate response.
+In the following example, the `auth.authenticate` method will raise an exception if the user is not logged in. The exception can handle itself and return an appropriate response.
 
 ```ts
 Route.get('dashboard', async ({ auth, response }) => {
@@ -55,7 +55,7 @@ export default class ExceptionHandler extends HttpExceptionHandler {
 }
 ```
 
-The `handle` method in this class is responsible for handling the exceptions and converting them to a response. Either you can let the parent class ([HttpExceptionHandler](https://github.com/adonisjs/core/blob/develop/src/HttpExceptionHandler/index.ts)) handle the errors for you, or you can define the `handle` method to self handle them.
+The `handle` method is responsible for handling the exceptions and converting them to a response. So either you can let the parent class ([HttpExceptionHandler](https://github.com/adonisjs/core/blob/develop/src/HttpExceptionHandler/index.ts)) handle the errors for you, or you can define the `handle` method to self handle them.
 
 ```ts
 import Logger from '@ioc:Adonis/Core/Logger'
@@ -94,7 +94,17 @@ export default class ExceptionHandler extends HttpExceptionHandler {
 
 Alongside the handle method, you can also implement the `report` method to report the exception to logging or an error monitoring service.
 
+The default implementation of the `report` method uses the [logger](../digging-deeper/logger.md) to report exceptions.
+
+- Exceptions with error code `>= 500` are logged using `logger.error` method.
+- Exceptions with error code `>= 400` are logged using `logger.warn` method.
+- All other exceptions are logged using the `logger.info` method.
+
+:::note
 The HTTP response does not wait for the report method to finish. In other words, the report method is executed in the background.
+:::
+
+If required, you can overwrite the `report` method, as shown in the following example.
 
 ```ts
 import Logger from '@ioc:Adonis/Core/Logger'
@@ -117,21 +127,43 @@ export default class ExceptionHandler extends HttpExceptionHandler {
       return
     }
 
+   if (typeof error.report === 'function') {
+      error.report(error, ctx)
+      return
+    }
+
     someReportingService.report(error.message)
   }
   // highlight-end
 }
 ```
 
+### Reporting context
+You can implement the `context` method to provide additional data when reporting errors. By default, the context includes the current request-id.
+
+```ts
+import Logger from '@ioc:Adonis/Core/Logger'
+import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
+import HttpExceptionHandler from '@ioc:Adonis/Core/HttpExceptionHandler'
+
+export default class ExceptionHandler extends HttpExceptionHandler {
+  protected context(ctx: HttpContextContract) {
+    return {
+      userId: ctx.auth.user?.id
+    }
+  }
+}
+```
+
 ## Http Exception Handler
 
-All of the following features are only available when the global exception handler extends the [HttpExceptionHandler](https://github.com/adonisjs/core/blob/develop/src/HttpExceptionHandler/index.ts), class. If you decide not to extend from this class, then the following features will not work.
+The following features are only available when the global exception handler extends the [HttpExceptionHandler](https://github.com/adonisjs/core/blob/develop/src/HttpExceptionHandler/index.ts) class. If you decide not to extend from this class, then the following features will not work.
 
 ### Status pages
 
 The `statusPages` page property on the exception handler allows you to associate edge templates to a range of error status codes.
 
-In the following example, all 404 errors will render the `errors/not-found.edge` template, and the errors between the range of _500 - 599_ will render the `errors/server-error.edge` template.
+In the following example, all 404 errors will render the `errors/not-found.edge` template and the errors between the range of _500 - 599_ will render the `errors/server-error.edge` template.
 
 ```ts
 import Logger from '@ioc:Adonis/Core/Logger'
@@ -151,9 +183,19 @@ export default class ExceptionHandler extends HttpExceptionHandler {
 }
 ```
 
-### Ignoring exceptions by code and status
+- The status pages are only rendered when the HTTP request `Accept` header is not set to `application/json`.
 
-You can ignore certain exceptions from being reported by whitelisting them inside the `ignoreCodes` and `ignoreStatuses` properties.
+- The status pages are disabled during development. However, you can enable them using the `disableStatusPagesInDevelopment` flag.
+  ```ts
+  export default class ExceptionHandler extends HttpExceptionHandler {
+    protected disableStatusPagesInDevelopment = false
+  }
+  ```
+
+---
+
+### Disable reporting for certain exceptions
+You can ignore certain exceptions from being reported by adding them inside the `ignoreCodes` or `ignoreStatuses` properties.
 
 ```ts
 import Logger from '@ioc:Adonis/Core/Logger'
