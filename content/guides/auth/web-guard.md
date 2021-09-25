@@ -113,7 +113,7 @@ Calling this method manually inside every single route is not practical and henc
 
 <div class="doc-cta-wrapper">
 
-[Learn more about the auth middleware →](./introduction.md#auth-middleware)
+[Learn more about the auth middleware →](./middleware.md)
 
 </div>
 
