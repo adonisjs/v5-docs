@@ -155,11 +155,13 @@ Enable/disable CSP protection all together.
 #### directives
 Configure the CSP header directives. We recommend reading about them on [https://content-security-policy.com](https://content-security-policy.com/#directive). The `dash-case` directive names are defined as `camelCase` inside the shield config file.
 
+
+<!-- About the quotes around 'self': https://github.com/adonisjs/core/discussions/3233 -->
 ```ts
 directives: {
-  defaultSrc: ['self'],
-  scriptSrc: ['self', 'https://cdnjs.cloudflare.com', '@nonce'],
-  fontSrc: ['self', 'https://fonts.googleapis.com'],
+  defaultSrc: ["'self'"],
+  scriptSrc: ["'self'", 'https://cdnjs.cloudflare.com', '@nonce'],
+  fontSrc: ["'self'", 'https://fonts.googleapis.com'],
 }
 ```
 
@@ -175,7 +177,7 @@ To define [nonce](https://content-security-policy.com/nonce/) based inline scrip
 
 ```ts
 directives: {
-  scriptSrc: ['self', '@nonce'],
+  scriptSrc: ["'self'", '@nonce'],
 }
 ```
 
