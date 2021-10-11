@@ -57,7 +57,7 @@ Following is the list of methods and properties available on the schema class.
 The `now` method is a helper to set the default value to the `CURRENT_TIMESTAMP`.
 
 ```ts
-table.timestamp('created_at').defaultsTo(this.now())
+table.timestamp('created_at').defaultTo(this.now())
 ```
 
 ---
