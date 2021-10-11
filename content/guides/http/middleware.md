@@ -121,19 +121,7 @@ Route
   .middleware('auth') // 👈
 ```
 
-Since resources generate multiple routes at once, you have to explicitly configure for which parts of the resource the middleware should apply. The `*` keyword can be used to apply the middleware to all routes of the resource.
-
-```ts
-// Apply to single route of a resource
-Route
-  .resource('posts', 'PostsController')
-  .middleware({ 'edit': 'auth' })
-
-// Apply to all routes of a resource
-Route
-  .resource('user', 'UsersController')
-  .middleware({ '*': 'auth' })
-```
+The middleware can be applied to one or multiple actions for resource routes. Learn more about [applying middleware to resourceful routes](./controllers.md#applying-middleware).
 
 You can also define multiple middleware on a route by passing them as an array or calling the middleware method multiple times.
 
