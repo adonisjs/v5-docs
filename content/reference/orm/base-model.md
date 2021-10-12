@@ -285,7 +285,7 @@ The `firstOrCreate` is similar to the `firstOrNew` method. However, instead of j
 The method accepts the same options as the [firstOrNew](#static-firstornew) method.
 
 ```ts
-const user = await User.firstOrNew(searchCriteria, savePayload)
+const user = await User.firstOrCreate(searchCriteria, savePayload)
 
 if (user.$isLocal) {
   // no rows found in db. Hence a new one is created
