@@ -2,7 +2,7 @@
 summary: Learn how to paginate results using the Lucid ORM
 ---
 
-Lucid has inbuilt support for ** offset-based pagination**. You can paginate the results of a query by chaining the `.paginate` method.
+Lucid has inbuilt support for **offset-based pagination**. You can paginate the results of a query by chaining the `.paginate` method.
 
 The `paginate` method accepts the page number as the first argument and the rows to fetch as the second argument. Internally, we execute an additional query to count the total number of rows.
 
