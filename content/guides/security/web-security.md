@@ -6,7 +6,7 @@ You can protect your web applications from common web attacks like **CSRF**, **X
 
 It is recommended to use this package when creating a server rendered app using AdonisJS.
 
-If you are using AdonisJS to create an API server, then you must use rely on your frontend framework's security layer.
+If you are using AdonisJS to create an API server, then you must rely on your frontend framework's security layer.
 
 :::div{class="setup"}
 
