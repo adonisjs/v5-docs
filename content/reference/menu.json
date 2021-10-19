@@ -401,5 +401,31 @@
         ]
       }
     ]
+  },
+  {
+    "name": "Internationalization",
+    "categories": [
+      {
+        "name": "root",
+        "docs": [
+          {
+            "title": "I18n Manager",
+            "permalink": "i18n/manager",
+            "contentPath": "i18n/i18n-manager.md",
+            "isLandingDoc": true
+          },
+          {
+            "title": "I18n",
+            "permalink": "i18n/i18n",
+            "contentPath": "i18n/i18n.md"
+          },
+          {
+            "title": "View helpers",
+            "permalink": "i18n/view-helpers",
+            "contentPath": "i18n/view-helpers.md"
+          }
+        ]
+      }
+    ]
   }
 ]

@@ -205,6 +205,17 @@ Route.get('/', async ({ bouncer }) => {
 })
 ```
 
+---
+
+### i18n
+Reference to the [i18n class](../digging-deeper/i18n.md#usage-during-http-requests). Available only when `@adonisjs/i18n` package is installed.
+
+```ts
+Route.get('/', async ({ i18n }) => {
+  await i18n.formatCurrency(100, { currency: 'EUR' })
+})
+```
+
 ## Extending Context
 
 The HTTP context object is meant to be extended by other packages or your own application code. A common use case is to attach custom properties inside a middleware. For example:

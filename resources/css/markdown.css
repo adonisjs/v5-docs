@@ -355,7 +355,12 @@
   border-bottom: 1px solid var(--lighter-gray);
 }
 
-.markdown figure,
+.markdown figure {
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+
 .markdown .embed {
   margin: var(--markdown-block-elements-margin) 0;
   position: relative;
@@ -367,7 +372,7 @@
   text-align: center;
   color: var(--mute-color);
   font-style: italic;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   margin-top: 22px;
   position: relative;
   top: -32px;

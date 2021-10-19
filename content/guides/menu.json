@@ -387,6 +387,11 @@
             "contentPath": "digging-deeper/drive.md"
           },
           {
+            "title": "Internationalization",
+            "permalink": "i18n",
+            "contentPath": "digging-deeper/i18n.md"
+          },
+          {
             "title": "Ace",
             "permalink": "ace-commandline",
             "contentPath": "digging-deeper/ace.md"
