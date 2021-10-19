@@ -53,6 +53,7 @@ const bodyParserConfig: BodyParserConfig = {
     encoding: 'utf-8',
     limit: '1mb',
     queryString: {},
+    convertEmptyStringsToNull: true,
     types: ['application/x-www-form-urlencoded'],
   },
 
@@ -97,6 +98,8 @@ const bodyParserConfig: BodyParserConfig = {
     |
     */
     autoProcess: true,
+
+    convertEmptyStringsToNull: true,
 
     /*
     |--------------------------------------------------------------------------
