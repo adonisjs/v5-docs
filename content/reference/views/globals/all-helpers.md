@@ -116,7 +116,7 @@ This helper is only available when using the `@adonisjs/bouncer` package.
 ### i18n
 An instance of `i18n` for the default locale is shared with the templates as a global property.
 
-However, the [DetectLocaleMiddleware](https://github.com/adonisjs/i18n/blob/develop/templates/DetectUserLocale.txt#L47) overrides this property and shares a request specific instance for the current user's locale.
+However, the [DetectUserLocale](https://github.com/adonisjs/i18n/blob/develop/templates/DetectUserLocale.txt#L47) middleware overrides this property and shares a request specific instance for the current user's locale.
 
 ```edge
 {{ i18n.locale }}
