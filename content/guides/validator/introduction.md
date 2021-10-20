@@ -243,7 +243,7 @@ Route.post('users', async ({ request, response }) => {
 Following is an example of using the validator classes outside of the HTTP request.
 
 ```ts
-import { validate } from '@ioc:Adonis/Core/Validator'
+import { validator } from '@ioc:Adonis/Core/Validator'
 import CreateUser from 'App/Validators/CreateUserValidator'
 
 await validator.validate(
