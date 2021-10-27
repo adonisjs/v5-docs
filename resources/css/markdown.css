@@ -286,7 +286,8 @@
   position: relative;
 }
 
-.markdown .alert > :last-child, .markdown blockquote > :last-child {
+.markdown .alert > :last-child,
+.markdown blockquote > :last-child {
   margin-bottom: 0;
 }
 
@@ -306,7 +307,7 @@
 }
 
 .markdown blockquote::before {
-  content: "\201C";
+  content: '\201C';
   color: var(--light-gray);
   font-size: 8rem;
   position: absolute;
