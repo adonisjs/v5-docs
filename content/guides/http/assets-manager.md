@@ -61,7 +61,7 @@ The `setOutputPath` method accepts a path relative to the project root. Also, ma
 Encore.setOutputPath('./public/assets')
 
 // Prefix the following to the output URL
-Encore.setOutputPath('/assets')
+Encore.setPublicPath('/assets')
 ```
 
 ### Disable assets compilation
