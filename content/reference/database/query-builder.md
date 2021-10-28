@@ -495,7 +495,7 @@ Database
   .join('user_logins', (query) => {
     query
       .on('users.id', '=', 'user_logins.user_id')
-      .andOn('user_logins.created_at', '>', '2020-10-09')
+      .andOnVal('user_logins.created_at', '>', '2020-10-09')
   })
   // highlight-end
   .select('users.*')
@@ -514,12 +514,12 @@ Database
       .on((subquery) => {
         subquery
           .on('users.id', '=', 'user_logins.user_id')
-          .andOn('user_logins.created_at', '>', '2020-10-09')
+          .andOnVal('user_logins.created_at', '>', '2020-10-09')
       })
       .orOn((subquery) => {
         subquery
           .on('users.id', '=', 'user_logins.account_id')
-          .andOn('user_logins.created_at', '>', '2020-10-09')
+          .andOnVal('user_logins.created_at', '>', '2020-10-09')
       })
       // highlight-end
   })
