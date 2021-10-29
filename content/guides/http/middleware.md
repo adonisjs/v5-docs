@@ -121,6 +121,8 @@ Route
   .middleware('auth') // 👈
 ```
 
+The middleware can be applied to one or multiple actions for resource routes. Learn more about [applying middleware to resourceful routes](./controllers.md#applying-middleware).
+
 You can also define multiple middleware on a route by passing them as an array or calling the middleware method multiple times.
 
 ```ts
