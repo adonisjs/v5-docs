@@ -2,31 +2,39 @@
 summary: Getting started by creating and running a new AdonisJS application
 ---
 
-AdonisJS is a Node.js framework, and hence it requires Node.js to be installed on your computer. To be precise, we need at least the latest release of `Node.js 14`, along with `npm >= 6.0.0`.
+AdonisJS is a Node.js framework, and hence it requires Node.js to be installed on your computer. To be precise, we need at least the latest release of `Node.js 14`.
 
 You can check the Node.js and npm versions by running the following commands.
 
 ```sh
 # check node.js version
 node -v
-
-# check npm version
-npm -v
 ```
 
-If you don't have Node.js installed, you can [download the binary](https://nodejs.org/en/download/) for your operating system from the official website.
+If you don't have Node.js installed, you can [download the binary](https://nodejs.org/en/download) for your operating system from the official website.
 
-If you are comfortable with the command line, then we recommend using [nvm](https://github.com/nvm-sh/nvm) or [volta](https://volta.sh/) to install and run multiple versions of Node.js on your computer.
+If you are comfortable with the command line, then we recommend using [volta](https://volta.sh) or [nvm](https://github.com/nvm-sh/nvm) to install and run multiple versions of Node.js on your computer.
 
 ## Creating a new project
-You can create a new project using [npm init](https://docs.npmjs.com/cli/v7/commands/npm-init) or [yarn create](https://classic.yarnpkg.com/en/docs/cli/create/). Both of these tools will download the AdonisJS starter package and starts the installation process.
+You can create a new project using [npm init](https://docs.npmjs.com/cli/v7/commands/npm-init), [yarn create](https://classic.yarnpkg.com/en/docs/cli/create) or [pnpm create](https://pnpm.io/tr/next/cli/create). These tools will download the AdonisJS starter package and starts the installation process.
+
+:::codegroup
 
 ```sh
+// title: npm
 npm init adonis-ts-app@latest hello-world
+```
 
-# If using yarn
+```sh
+// title: yarn
 yarn create adonis-ts-app hello-world
 ```
+
+```sh
+// title: pnpm
+pnpm create adonis-ts-app hello-world
+```
+:::
 
 The installation process prompts for the following selections.
 
