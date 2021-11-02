@@ -71,7 +71,7 @@ Route.post('login', async ({ auth, request, response }) => {
 ---
 
 ### auth.loginViaId
-Similar to the `auth.login` method. The `loginViaId` method creates the login session for the user using their id.
+Similar to the `auth.login` method, the `loginViaId` method creates the login session for the user using their id.
 
 ```ts
 // Login user using the id
