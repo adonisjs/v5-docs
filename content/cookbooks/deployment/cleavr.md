@@ -21,6 +21,8 @@ This guide assumes you have the following ready-to-go.
 
 On your server in Cleavr, add a new **Adonis** site. 
 
+![](/cleavr-new-site.png)
+
 :::note
 
 To save time, you can set up your database during the site creation step and the connection configs will automatically be added to the environment variables. 
@@ -35,9 +37,13 @@ After the site has been successfully added to your server, navigate to the web a
 
 In Settings > Code Repository, connect your web app to the git repository that your code resides on. 
 
+![](/cleavr-webapp-git-repository.png)
+
 #### Configure environment variables 
 
 Cleavr adds default environment variables for your AdonisJS app. Configure any additional required variables. 
+
+![](/cleavr-env-variables.png)
 
 #### Configure deployment hooks
 
@@ -52,5 +58,7 @@ If you included setting up a database while adding your AdonisJS site, the **Mig
 ## Step 3: Deploy your Web App
 
 After you have completed configuring your web app, you can now deploy your project! 
+
+![](/cleavr-deployment.png)
 
 View the [Cleavr Adonis deployment guide](https://docs.cleavr.io/guides/adonis) and the [Cleavr Adonis troubleshooting guide](https://docs.cleavr.io/adonis-deployments) for additional info. 
