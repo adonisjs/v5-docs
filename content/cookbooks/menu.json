@@ -29,6 +29,11 @@
             "title": "Digital ocean apps",
             "permalink": "deploy-to-digial-ocean",
             "contentPath": "deployment/digial-ocean.md"
+          },
+          {
+            "title": "Cleavr",
+            "permalink": "deploy-with-cleavr",
+            "contentPath": "deployment/cleavr.md"
           }
         ]
       },
