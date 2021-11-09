@@ -79,7 +79,7 @@ schema.create({
 ```
 
 ## Validating HTTP requests
-You can validate the request body for a given HTTP request using the `request.validate` method. In case of a failure, the `validate` method will raise an exception.
+You can validate the request body, query string and route parameters for a given HTTP request using the `request.validate` method. In case of a failure, the `validate` method will raise an exception.
 
 ```ts
 import Route from '@ioc:Adonis/Core/Route'
@@ -87,7 +87,12 @@ import { schema } from '@ioc:Adonis/Core/Validator'
 
 Route.post('users', async ({ request, response }) => {
   const newUserSchema = schema.create({
-    // ... define schema
+    params: schema
+      .object()
+      .members({
+        // ... define schema for your route parameters
+      })
+    // ... define schema for your body and query string
   })
 
   // highlight-start
