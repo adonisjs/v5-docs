@@ -57,7 +57,7 @@ if (!coverImage) {
   return
 }
 
-if (!coverImage.isValid()) {
+if (!coverImage.isValid) {
   return coverImage.errors
 }
 
