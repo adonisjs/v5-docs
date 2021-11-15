@@ -57,6 +57,14 @@ HEADER STYLES
   display: none;
 }
 
+.header-nav .github-cta-wrapper a svg {
+  margin: 1px 0 0 0;
+}
+
+.github-cta-wrapper a {
+  color: #fff;
+}
+
 /* SEARCH */
 .search-wrapper {
   width: var(--toc-width);
