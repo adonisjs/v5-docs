@@ -104,7 +104,7 @@ You can generate an API token for a user using the `auth.generate` or the `auth.
 - Otherwise an [InvalidCredentialsException](https://github.com/adonisjs/auth/blob/develop/src/Exceptions/InvalidCredentialsException.ts) is raised.
 
 ```ts
-import Route from '@ioc:Adonis/Core/Auth'
+import Route from '@ioc:Adonis/Core/Route'
 
 Route.post('login', async ({ auth, request, response }) => {
   const email = request.input('email')
@@ -136,7 +136,7 @@ The `auth.login` method is an alias for the `auth.generate` method.
 
 ```ts
 import User from 'App/Models/User'
-import Route from '@ioc:Adonis/Core/Auth'
+import Route from '@ioc:Adonis/Core/Route'
 import Hash from '@ioc:Adonis/Core/Hash'
 
 Route.post('login', async ({ auth, request, response }) => {
@@ -270,7 +270,7 @@ You can verify if the token is valid or not using the `auth.authenticate` method
 Otherwise, you can access the logged-in user using the `auth.user` property.
 
 ```ts
-import Route from '@ioc:Adonis/Core/Auth'
+import Route from '@ioc:Adonis/Core/Route'
 
 Route.get('dashboard', async ({ auth }) => {
   await auth.use('api').authenticate()
@@ -292,7 +292,7 @@ During the logout phase, you can revoke the token by deleting it from the databa
 The `auth.revoke` method will remove the token sent during the current request from the database.
 
 ```ts
-import Route from '@ioc:Adonis/Core/Auth'
+import Route from '@ioc:Adonis/Core/Route'
 
 Route.post('/logout', async ({ auth, response }) => {
   await auth.use('api').revoke()
