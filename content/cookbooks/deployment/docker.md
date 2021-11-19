@@ -1,5 +1,5 @@
 ---
-datetime: 2021-09-19
+datetime: 2021-11-19
 author: Roth Fessler Maxime
 avatarUrl: https://avatars.githubusercontent.com/u/57860498?v=4
 summary: Cookbook to deploy AdonisJS application to Docker
@@ -27,27 +27,42 @@ npm run build
 In the interest of simplicity this guide will only cover how to create a `Dockerfile` and not a `docker-compose.yaml` file.
 :::
 
+Before beginning make you sure you have docker engine version 17.05 or newer.
+
+```sh
+docker version
+```
+
 - In the root folder of your project create a `Dockerfile`
 - In the root folder also create a `.dockerignore` file
 - Add `node_modules` and `.env` file to the `.dockerignore` file as well as any other folders/files you don't want as part of the deployment
 - Open your empty `Dockerfile` and paste the following inside of it
 
-```dockerfile
+```sh
 // title: dockerfile
 # Pull latest NodeJs LTS version with Alpine Linux
-FROM node:14-alpine3.12
+# and rename it "builder" to re-use it for the next stage
+
+FROM node:16-alpine3.14 AS builder
 # Make a working directory for your app in the container
 WORKDIR /home/app
-# Copy files to the container
+# Copy all files to the container
 COPY . .
 # Install dependencies
 RUN npm install
-# And build the application
+# and build the application
 RUN node ace build --production
-# Change the workdir to the build folder
+
+# Build stage for production
+
+FROM node:16-alpine3.14
+# Change the workdir
+WORKDIR /home/app
+# Copy files from builder to the new stage
+COPY --from=builder /home/app/build ./build
 WORKDIR /home/app/build
 # Install production dependencies
-RUN npm install --production
+RUN npm ci --production
 # Open the port
 EXPOSE 3333
 # Start the server
@@ -59,7 +74,7 @@ CMD [ "node", "server.js" ]
 Now that we have a docker file we are ready to build and run the container.
 
 ```sh
-sudo docker build -t adonisjs .
+docker build -t adonisjs .
 ```
 
 Once the build is completed you'll be able to run it by running
