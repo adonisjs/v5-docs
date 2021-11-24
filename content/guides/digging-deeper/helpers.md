@@ -527,7 +527,7 @@ import { types } from '@ioc:Adonis/Core/Helpers'
 class User {}
 
 types.isClass(User) // true
-types.isFunction(User) // true
+types.isFunction(User) // false
 ```
 
 ---
