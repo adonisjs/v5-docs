@@ -95,7 +95,7 @@ You register them as an array inside the `start/kernel.ts` file, as shown below:
 ```ts
 // title: start/kernel.ts
 Server.middleware.register([
-  () => import('@ioc:Adonis/Core/BodyParserMiddleware'),
+  () => import('@ioc:Adonis/Core/BodyParser'),
   // highlight-start
   () => import('App/Middleware/LogRequest')
   // highlight-end
