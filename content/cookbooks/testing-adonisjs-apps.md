@@ -101,12 +101,12 @@ Enough of theory, let's begin with some action. Run the following command to ins
 
 ```sh
 // title: Npm
-npm i -D japa execa get-port@5.1.1
+npm i -D japa execa@5.1.1 get-port@5.1.1
 ```
 
 ```sh
 // title: Yarn
-yarn add -D japa execa get-port@5.1.1
+yarn add -D japa execa@5.1.1 get-port@5.1.1
 ```
 
 :::
