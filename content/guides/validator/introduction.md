@@ -2,7 +2,7 @@
 summary: Introduction for the AdonisJS schema-based validator
 ---
 
-AdonisJS has first-class support for **parsing** and **validating** the request body, and there is no need to install any 3rd party packages for the same. Instead, define the validation schema and validate the request body against it.
+AdonisJS has first-class support for **parsing** and **validating** the request body, and there is no need to install any 3rd party packages for the same. Just define the validation schema and validate the request body against it.
 
 ```ts
 import Route from '@ioc:Adonis/Core/Route'
@@ -25,7 +25,7 @@ Route.post('posts', async ({ request }) => {
 })
 ```
 
-The validator also **extracts the static types** from the schema definition. Meaning, you get the runtime validations along with the static type safety from a single schema definition.
+The validator also **extracts the static types** from the schema definition. You get the runtime validations and the static type safety from a single schema definition.
 
 ![](https://res.cloudinary.com/adonis-js/image/upload/q_auto,f_auto/v1611685370/v5/validator-static-types.jpg)
 
@@ -34,7 +34,7 @@ The schema definition is divided into three main parts.
 
 - The `schema.create` method defines the shape of the data you expect.
 - The `schema.string`, `schema.number`, and other similar methods define the data type for an individual field.
-- Finally, you use the `rules` object to apply additional validation constraints on a given field. For example: Validating a string to be a valid email and is unique inside the database.
+- Finally, you use the `rules` object to apply additional validation constraints on a given field. For example: Validating a string to be a valid email is unique inside the database.
 
 ![](https://res.cloudinary.com/adonis-js/image/upload/q_auto,f_auto/v1617601990/v5/schema-101.png)
 
@@ -50,36 +50,69 @@ If you look carefully, we have separated the **format validations** from **core 
 
 This separation helps extend the validator with custom rules without creating unnecessary schema types that have no meaning. For example, there is no thing called **email type**; it is just a string, formatted as an email.
 
-### Marking fields as optional
+## Working with optional and null values
+The validator schema has first-class support for marking values as optional and null using the modifier functions. 
 
-The schema properties are required by default. However, you can mark them as optional by chaining the `optional` method. The optional variant is available for all the schema types.
+Let's understand the purpose and behavior of these modifiers before looking at the actual API.
+
+| Modifier | Validation behavior | Return payload |
+|------------|---------------------|---------------|
+| `optional` | Allows both `null` and `undefined` values to exist | Removes the key from the return payload is not is non-existing |
+| `nullable` | Allows `null` values to exists. However, the field must be defined in the validation data | Returns the field value including null. |
+| `nullableAndOptional` | Allows both `null` and `undefined` values to exist. (Same as modifier 1) | Only removes the key when the value is undefined, otherwise returns the field value |
+
+### Use case for `nullable` modifier
+
+You will often find yourself using the `nullable` modifier to allow optional fields within your application forms. 
+
+In the following example, when the user submits an empty value for the `fullName` field, your server will receive `null,` and hence you can update their existing full name inside the database to null.
 
 ```ts
-schema.create({
-  username: schema.string.optional(),
-  password: schema.string.optional()
+schema: schema.create({
+  fullName: schema.string.nullable(),
 })
 ```
 
-### Validating nested objects/arrays
-You can validate nested objects and arrays using the [schema.array]() and [schema.object]() methods.
+### Use case for `nullableAndOptional` modifier
+
+If you create an API server that accepts PATCH requests and allows the client to update a portion of a resource, you must use the `nullableAndOptional` modifier.
+
+In the following example, if the `fullName` is undefined, you can assume that the client does not want to update this property, and if it is `null`, they want to set the property value of `null`.
 
 ```ts
-schema.create({
-  user: schema
-    .object()
-    .members({
-      username: schema.string(),
-    }),
-
-  tags: schema
-    .array()
-    .members(schema.string())
+const payload = await request.validate({
+  schema: schema.create({
+    fullName: schema.string.nullableAndOptional(),
+  })
 })
+
+const user = await User.findOrFail(1)
+user.merge(payload)
+await user.save()
 ```
+
+### Use case for `optional` modifier
+The `optional` modifier is helpful if you want to update a portion of a resource without any optional fields.
+
+The `email` property may or may not exist in the following example. But the user cannot set it `null`. If the property is not in the request, you will not update the email.
+
+```ts
+const payload = await request.validate({
+  schema: schema.create({
+    email: schema.string.optional(),
+  })
+})
+
+const user = await User.findOrFail(1)
+user.merge(payload)
+await user.save()
+```
+
+## Available schema types
+Make sure to go through the API reference for all the available [schema types](../../reference/validator/schema/string.md) and [validation rules](../../reference/validator/rules/alpha.md).
 
 ## Validating HTTP requests
-You can validate the request body, query string and route parameters for a given HTTP request using the `request.validate` method. In case of a failure, the `validate` method will raise an exception.
+You can validate the request body, query-string, and route parameters for a given HTTP request using the `request.validate` method. In case of a failure, the `validate` method will raise an exception.
 
 ```ts
 import Route from '@ioc:Adonis/Core/Route'
@@ -92,7 +125,7 @@ Route.post('users', async ({ request, response }) => {
       .members({
         // ... define schema for your route parameters
       })
-    // ... define schema for your body and query string
+    // ... define the schema for your body and query string
   })
 
   // highlight-start
@@ -166,7 +199,7 @@ Requests negotiating using `Accept=application/vnd.api+json` header, receives th
 ```
 
 ## Standalone validator usage
-You can also use the validator outside of an HTTP request by importing the `validate` method from the Validator module. The functional API remains the same. However, you will have to provide the `data` to validate manually.
+You can also use the validator outside of an HTTP request by importing the `validate` method from the Validator module. The functional API remains the same. However, you will have to manually provide the `data` to validate.
 
 ```ts
 import { validator, schema } from '@ioc:Adonis/Core/Validator'
