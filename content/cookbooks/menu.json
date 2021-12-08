@@ -54,6 +54,11 @@
             "title": "Using Knex Postgis with Lucid",
             "permalink": "using-knex-postgis-with-lucid",
             "contentPath": "database/using-knex-postgis-with-lucid.md"
+          },
+          {
+            "title": "Using Postgres custom type parsers",
+            "permalink": "using-postgres-custom-type-parsers",
+            "contentPath": "database/using-postgres-custom-type-parsers.md"
           }
         ]
       }
