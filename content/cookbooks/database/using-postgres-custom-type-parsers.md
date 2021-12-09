@@ -1,3 +1,10 @@
+---
+datetime: 2021-12-09
+author: hlozancic
+avatarUrl: https://avatars.githubusercontent.com/u/10560710?v=4
+summary: Learn how to use custom type parsers with pg driver
+---
+
 The guides cover the process of using pg adapter to override how a specific data-type is parsed and turned into a JavaScript type.
 
 By default the PostgreSQL backend server returns everything as strings.
@@ -41,17 +48,21 @@ We need to call pg.setTypeParser method inside AppProvider.ts to set up our cust
 // title: providers/AppProvider.ts
 import { types } from 'pg' // we are importing types from pg, so we can use existing enums
 export default class AppProvider {
-  constructor(protected app: ApplicationContract) {}
+  constructor(protected app: ApplicationContract) {
+  }
 
   public register() {
   }
 
   public async boot() {
     // -- this is where the magic happens!
-    types.setTypeParser(types.builtins.NUMERIC, function (val) {
+    types.setTypeParser(types.builtins.NUMERIC, function(val) {
       return parseFloat(val)
     })
-// ... rest of AppProvider.ts
+
+    // ... rest of AppProvider.ts
+  }
+}
 ```
 
 ## Make driver autmatically use BigInt for BIGINT + BIGSERIAL
