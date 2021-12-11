@@ -634,7 +634,9 @@ Mailer can accept data using the constructor arguments. For example:
 ```ts
 export default class VerifyEmail extends BaseMailer {
   // highlight-start
-  constructor (private user: User) {}
+  constructor (private user: User) {
+    super()
+  }
   // highlight-end
 
   public prepare(message: MessageContract) {
