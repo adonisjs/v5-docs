@@ -285,7 +285,7 @@ The `firstOrCreate` is similar to the `firstOrNew` method. However, instead of j
 The method accepts the same options as the [firstOrNew](#static-firstornew) method.
 
 ```ts
-const user = await User.firstOrNew(searchCriteria, savePayload)
+const user = await User.firstOrCreate(searchCriteria, savePayload)
 
 if (user.$isLocal) {
   // no rows found in db. Hence a new one is created
@@ -1114,7 +1114,7 @@ console.log(user.$isDeleted) // true
 Reference to the [transaction client](../database/transaction-client.md) used by the model instance. You can also set the `$trx` manually in order to perform model operations within the transaction block.
 
 ```ts
-await trx = await Database.transaction()
+const trx = await Database.transaction()
 
 const user = new User()
 user.$trx = trx
@@ -1130,7 +1130,7 @@ After transaction is committed or rolled back the model instance will release th
 The `$trx` property on the model instance is automatically defined, when the model instances are created as a result of executing a query and the query was using the transaction.
 
 ```ts
-await trx = await Database.transaction()
+const trx = await Database.transaction()
 
 // select query is using trx
 const users = await User.query().useTransaction(trx)
@@ -1164,7 +1164,7 @@ users.forEach((user) => {
 The `useTransaction` is an alternative to manually set the `$trx` property.
 
 ```ts
-await trx = await Database.transaction()
+const trx = await Database.transaction()
 const user = new User()
 
 await user

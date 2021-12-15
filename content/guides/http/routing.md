@@ -323,7 +323,7 @@ const url = Route.builder()
   .params({ id: 1 })
   .qs({ verified: true })
   .prefixUrl('https://foo.com')
-  .makeUrl('UsersController.show')
+  .make('UsersController.show')
 ```
 
 Make for a domain

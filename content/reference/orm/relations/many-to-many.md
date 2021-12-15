@@ -545,7 +545,19 @@ await user
   .sync([1, 2, 4, 5])
 ```
 
-In the above example, the `sync` method will only keep the projects with the mentioned ids and removes the other ones. You can also perform a sync with pivot attributes.
+In the above example, the `sync` method will only keep the projects with the mentioned ids and removes the other ones. 
+
+You can change this behavior by passing `false` as the second argument to the `sync` method, and then it will attach the mentioned ids without detaching the others.
+
+In the following example, the `sync` method will attach (only if they aren't already) the projects with the id of **"1"** and **"2"** without detaching any existing ids.
+
+```ts
+await user
+  .related('projects')
+  .sync([1, 2], false)
+```
+
+You can also perform a sync with pivot attributes.
 
 ```ts
 await user

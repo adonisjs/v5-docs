@@ -222,7 +222,7 @@ class UserSchema extends BaseSchema {
     })
     // highlight-end
 
-    this.schema.table('users', (table) => {
+    this.schema.alterTable('users', (table) => {
       table.dropColumn('email')
     })
   }
@@ -333,7 +333,7 @@ The `migrator.migratedFiles` is an object. The key is the unique name (derived f
 - The `batch` property tells the batch in which the migration was executed.
 
 ### getList
-The `migrator.getList` method returns a list of all the migrations, including the completed and the pending ones. This is the same list you see when running the `node ace migration:list` command.
+The `migrator.getList` method returns a list of all the migrations, including the completed and the pending ones. This is the same list you see when running the `node ace migration:status` command.
 
 ```ts
 await migrator.getList()

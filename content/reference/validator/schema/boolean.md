@@ -14,11 +14,29 @@ import { schema } from '@ioc:Adonis/Core/Validator'
 ```
 
 ## Mark as optional
-You can mark the property to be optional by chaining the `optional` method. Only the `undefined` values are considered optional. We treat `null` as a valid value and it will fail the boolean validation.
+You can mark the property to be optional by chaining the `optional` method. The `undefined` and the `null` values are considered optional and removed from the validated object.
 
 ```ts
 {
   accepted: schema.boolean.optional()
+}
+```
+
+## Mark as nullable
+You can mark the property to be nullable by chaining the `nullable` method. The `nullable` fields must exist in the payload but can contain null values.
+
+```ts
+{
+  accepted: schema.boolean.nullable()
+}
+```
+
+## Mark as nullable and optional
+Mark the property both as `nullable` and `optional`. If the field value is undefined, it will be removed from the validated object. Otherwise, the validated value (including null) is returned.
+
+```ts
+{
+  accepted: schema.boolean.nullableAndOptional()
 }
 ```
 

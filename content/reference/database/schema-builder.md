@@ -63,7 +63,7 @@ Select a SQL table to alter its columns. The method accepts the table name and a
 class UserSchema extends BaseSchema {
   public up() {
     // highlight-start
-    this.schema.table('user', (table) => {
+    this.schema.alterTable('user', (table) => {
       /**
        * Drop the name column
        */

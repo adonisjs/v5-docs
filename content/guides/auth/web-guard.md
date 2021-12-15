@@ -17,7 +17,7 @@ You can login the user using the `auth.attempt` or the `auth.login` method. The 
 - Otherwise an [InvalidCredentialsException](https://github.com/adonisjs/auth/blob/develop/src/Exceptions/InvalidCredentialsException.ts) is raised.
 
 ```ts
-import Route from '@ioc:Adonis/Core/Auth'
+import Route from '@ioc:Adonis/Core/Route'
 
 Route.post('login', async ({ auth, request, response }) => {
   const email = request.input('email')
@@ -43,7 +43,7 @@ If the `auth.attempt` lookup strategy does not fit your use case, then you can m
 
 ```ts
 import User from 'App/Models/User'
-import Route from '@ioc:Adonis/Core/Auth'
+import Route from '@ioc:Adonis/Core/Route'
 import Hash from '@ioc:Adonis/Core/Hash'
 
 Route.post('login', async ({ auth, request, response }) => {
@@ -71,7 +71,7 @@ Route.post('login', async ({ auth, request, response }) => {
 ---
 
 ### auth.loginViaId
-Similar to the `auth.login` method. The `loginViaId` method creates the login session for the user using their id.
+Similar to the `auth.login` method, the `loginViaId` method creates the login session for the user using their id.
 
 ```ts
 // Login user using the id
@@ -101,7 +101,7 @@ The [AuthenticationException](https://github.com/adonisjs/auth/blob/develop/src/
 Otherwise, you can access the logged-in user using the `auth.user` property.
 
 ```ts
-import Route from '@ioc:Adonis/Core/Auth'
+import Route from '@ioc:Adonis/Core/Route'
 
 Route.get('dashboard', async ({ auth }) => {
   await auth.use('web').authenticate()
@@ -113,7 +113,7 @@ Calling this method manually inside every single route is not practical and henc
 
 <div class="doc-cta-wrapper">
 
-[Learn more about the auth middleware →](./introduction.md#auth-middleware)
+[Learn more about the auth middleware →](./middleware.md)
 
 </div>
 
@@ -121,7 +121,7 @@ Calling this method manually inside every single route is not practical and henc
 You can logout the user by calling the `auth.logout` method. It will destroy the user login session and the remember me cookie. The remember me token inside the `users` is also set to null.
 
 ```ts
-import Route from '@ioc:Adonis/Core/Auth'
+import Route from '@ioc:Adonis/Core/Route'
 
 Route.post('/logout', async ({ auth, response }) => {
   await auth.use('web').logout()

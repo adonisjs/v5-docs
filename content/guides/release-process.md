@@ -26,4 +26,4 @@ The following changes are not subject to breaking changes.
 ## Release cycle
 AdonisJS roughly follows an 8-week release cycle for shipping new features or publishing breaking changes. However, critical bug fixes and security patches are usually released right away.
 
-You can check out our [roadmap on Trello](https://trello.com/b/3klaHbfP/adonisjs-roadmap) and [what's in the next release card](https://trello.com/c/NejT6yf6/45-july-planning-2021) to know about the upcoming changes.
+You can check out our [roadmap on Trello](https://trello.com/b/3klaHbfP/adonisjs-roadmap) and [what's in the next release card](https://trello.com/c/y8PCAodY/47-september-planning-2021) to know about the upcoming changes.

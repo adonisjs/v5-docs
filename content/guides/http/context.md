@@ -50,7 +50,7 @@ You will not see any `req` or `res` objects in AdonisJS. This is because everyth
 Also, you are encouraged to add your custom properties to the `ctx` object and NOT to the `request` object. See [extending Http context](#extending-context)
 
 ## Access HTTP context from anywhere
-AdonisJS uses the Node.js [async local storage](https://nodejs.org/dist/latest-v16.x/docs/api/async_hooks.html#async_hooks_class_asynclocalstorage) to make the HTTP context available anywhere inside your application.
+AdonisJS uses the Node.js [async local storage](https://nodejs.org/dist/latest-v16.x/docs/api/async_context.html#class-asynclocalstorage) to make the HTTP context available anywhere inside your application.
 
 You can access the context for the current request as follows.
 
@@ -202,6 +202,17 @@ Reference to the [bouncer object](../digging-deeper/authorization.md). Available
 ```ts
 Route.get('/', async ({ bouncer }) => {
   await bouncer.authorize('viewPost', post)
+})
+```
+
+---
+
+### i18n
+Reference to the [i18n class](../digging-deeper/i18n.md#usage-during-http-requests). Available only when `@adonisjs/i18n` package is installed.
+
+```ts
+Route.get('/', async ({ i18n }) => {
+  await i18n.formatCurrency(100, { currency: 'EUR' })
 })
 ```
 

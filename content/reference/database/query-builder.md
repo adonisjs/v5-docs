@@ -326,8 +326,8 @@ Database
   .whereNull('deleted_at')
 ```
 
-### whereNull method whereNull
-Following is the list of the `whereIn` method variations and shares the same API.
+### whereNull method variants
+Following is the list of the `whereNull` method variations and shares the same API.
 
 | Method | Description |
 |--------|-------------|
@@ -495,7 +495,7 @@ Database
   .join('user_logins', (query) => {
     query
       .on('users.id', '=', 'user_logins.user_id')
-      .andOn('user_logins.created_at', '>', '2020-10-09')
+      .andOnVal('user_logins.created_at', '>', '2020-10-09')
   })
   // highlight-end
   .select('users.*')
@@ -514,12 +514,12 @@ Database
       .on((subquery) => {
         subquery
           .on('users.id', '=', 'user_logins.user_id')
-          .andOn('user_logins.created_at', '>', '2020-10-09')
+          .andOnVal('user_logins.created_at', '>', '2020-10-09')
       })
       .orOn((subquery) => {
         subquery
           .on('users.id', '=', 'user_logins.account_id')
-          .andOn('user_logins.created_at', '>', '2020-10-09')
+          .andOnVal('user_logins.created_at', '>', '2020-10-09')
       })
       // highlight-end
   })

@@ -306,7 +306,7 @@ Lucid will queue new queries when the pool is full and waits for the pool to hav
 
 :::tip
 
-Bigger the pool size, the better the performance is a misconception. We recommend you read this [document](https://github.com/brettwooldridge/HikariCP/wiki/About-Pool-Sizing) to understand how the smaller pool size is can boost the application performance.
+Bigger the pool size, the better the performance is a misconception. We recommend you read this [document](https://github.com/brettwooldridge/HikariCP/wiki/About-Pool-Sizing) to understand how the smaller pool size can boost the application performance.
 
 :::
 

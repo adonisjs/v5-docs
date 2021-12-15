@@ -2,11 +2,11 @@
 summary: An in-depth reference to relationships in Lucid ORM data models
 ---
 
-The Lucid data models have out of box support for working with relationships. You have to define the relationships on your models, and Lucid will do all the heavy lifting of constructing the underlying SQL queries for you.
+The Lucid data models have out of box support for working with relationships. You have to define the relationships on your models, and Lucid will do all the heavy lifting of constructing the underlying SQL queries.
 
 
 ## Has one
-Has one creates a one to one relationship between two models. For example, **A user has a profile**. The has one relationship needs a foreign key in the related table.
+Has one creates a `one-to-one` relationship between two models. For example, **A user has a profile**. The has one relationship needs a foreign key in the related table.
 
 Following is an example table structure for the has one relationship. The `profiles.user_id` is the foreign key and forms the relationship with the `users.id` column.
 
@@ -62,7 +62,7 @@ export default class Profiles extends BaseSchema {
 :::
 
 ### Defining relationship on the model
-Once you have created the tables with the required columns, you will have to define the relationship on the Lucid model as well.
+Once you have created the tables with the required columns, you will also have to define the relationship on the Lucid model.
 
 The has one relationship is defined using the [@hasOne](../../reference/orm/decorators.md#hasone) decorator on a model property.
 
@@ -107,7 +107,7 @@ public profile: HasOne<typeof Profile>
 ```
 
 ## Has many
-Has-many creates a one-to-many relationship between two models. For example, **A user has many posts**. The hasMany relationship needs a foreign key in the related table.
+Has-many creates a `one-to-many` relationship between two models. For example, **A user has many posts**. The hasMany relationship needs a foreign key in the related table.
 
 Following is an example table structure for the hasMany relationship. The `posts.user_id` is the foreign key and forms the relationship with the `users.id` column.
 
@@ -163,7 +163,7 @@ export default class Posts extends BaseSchema {
 :::
 
 ### Defining relationship on the model
-Once you have created the tables with the required columns, you will have to define the relationship on the Lucid model as well.
+Once you have created the tables with the required columns, you will also have to define the relationship on the Lucid model.
 
 The has many relationship is defined using the [@hasMany](../../reference/orm/decorators.md#hasmany) decorator on a model property.
 
@@ -208,7 +208,7 @@ public posts: HasMany<typeof Post>
 ```
 
 ## Belongs to
-Belongs to relationship is the inverse of the `hasOne` and the `hasMany` relationship. For example, **profile belongs to a user** and **a post belongs to a user**.
+Belongs to is the inverse of the `hasOne` and the `hasMany` relationship. So, for example, **profile belongs to a user** and **a post belongs to a user**.
 
 You can leverage the same table structure and the same foreign key conventions to define a belongsTo relationship.
 
@@ -238,11 +238,11 @@ export default class Profile extends BaseModel {
 ```
 
 ## Many to Many
-A many-to-many relationship is slightly complex, as it allows both sides to have more than one relationship with each other. For example: **A user can have many skills**, and also **a skill can belong to many users**.
+A many-to-many relationship is slightly complex, as it allows both sides to have more than one relationship with each other. For example: **A user can have many skills**, and **a skill can also belong to many users**.
 
-For this relationship to work, you need a third table (usually known as a pivot table). The pivot table holds the foreign keys for both the other tables.
+You need a third table (usually known as a pivot table) for this relationship to work. The pivot table holds the foreign keys for both the other tables.
 
-In the following example, the `skill_user` table has the foreign keys for both the `users` and the `skills` table, and this allows each user to have many skills and vice versa.
+In the following example, the `skill_user` table has the foreign keys for both the `users` and the `skills` table, allowing each user to have many skills and vice versa.
 
 ![](https://res.cloudinary.com/adonis-js/image/upload/q_auto,f_auto/v1619890917/v5/many-to-many.png)
 
@@ -313,7 +313,7 @@ export default class SkillUsers extends BaseSchema {
 :::
 
 ### Defining relationship on the model
-Once you have created the tables with the required columns, you will have to define the relationship on the Lucid model as well.
+Once you have created the tables with the required columns, you will also have to define the relationship on the Lucid model.
 
 The many to many relationship is defined using the [@manyToMany](../../reference/orm/decorators.md#manytomany) decorator on a model property.
 
@@ -350,8 +350,8 @@ A manyToMany relation relies on many different keys to properly set up the relat
 
 - `localKey` is the primary key of the parent model (i.e., User)
 - `relatedKey` is the primary key of the related model (i.e., Skill)
-- `pivotForeignKey` is the foreign key to establish the relationship with the parent model. The default value is the `snake_case` version of the parent model name and its primary key.
-- `pivotRelatedForeignKey` is the foreign key to establish the relationship with the related model. The default value is the `snake_case` version of the related model name and its primary key.
+- `pivotForeignKey` is the foreign key for establishing the relationship with the parent model. The default value is the `snake_case` version of the parent model name and its primary key.
+- `pivotRelatedForeignKey` is the foreign key for establishing the relationship with the related model. The default value is the `snake_case` version of the related model name and its primary key.
 
 ```ts
 @manyToMany(() => Skill, {
@@ -374,7 +374,7 @@ public skills: ManyToMany<typeof Skill>
 ```
 
 ### Additional pivot columns
-At times your pivot table will have additional columns. For example, storing the `proficiency` alongside the user skill.
+At times your pivot table will have additional columns. For example, you are storing the `proficiency` alongside the user skill.
 
 You will have to inform a manyToMany relationship about this extra column. Otherwise, Lucid will not select it during the fetch queries.
 
@@ -423,7 +423,7 @@ public skills: ManyToMany<typeof Skill>
 ```
 
 ## Has many through
-Has many through relationship is similar to a `hasMany` relationship but creates the relationship through an intermediate model. For example, **A country has many posts, through users**.
+Has many through relationship is similar to a `hasMany` relationship but creates the relationship through an intermediate model. For example, **A country has many posts through users**.
 
 - This relationship needs the through model (i.e., User) to have a foreign key reference with the current model (i.e., Country).
 The related model (i.e., Post) has a foreign key reference with the through model (i.e., User).
@@ -502,7 +502,7 @@ export default class Posts extends BaseSchema {
 :::
 
 ### Defining relationship on the model
-Once you have created the tables with the required columns, you will have to define the relationship on the Lucid model as well.
+Once you have created the tables with the required columns, you will also have to define the relationship on the Lucid model.
 
 The has many through relationship is defined using the [@hasManyThrough](../../reference/orm/decorators.md#hasmanythrough) decorator on a model property.
 
@@ -537,7 +537,7 @@ Preloading allows you to fetch the relationship data alongside the main query. F
 
 - The `preload` method accepts the name of the relationship defined on the model.
 - The relationship property value for the `hasOne` and the `belongsTo` relationship is either set to the related model instance or `null` when no records are found.
-- For all other relationship types, the relationship property value is an array of the related model instance.
+The relationship property value is an array of the related model instance for all other relationship types.
 
 ```ts
 const users = await User
@@ -572,7 +572,7 @@ const users = await User
 ### Preload nested relationships
 You can preload nested relationships using the relationship query builder accessible via the optional callback.
 
-In the following example, we fetch all the users, preload their posts, and then fetch all the comments for the posts, along with the comment user.
+In the following example, we fetch all the users, preload their posts, and then fetch all the comments for each post, along with the comment user.
 
 ```ts
 const users = await User
@@ -587,7 +587,7 @@ const users = await User
 ### Many to many pivot columns
 When preloading a manyToMany relationship, the pivot table columns are moved to the `$extras` object on the relationship instance.
 
-By default, we only select the foreign keys from the pivot table. However, you can define additional pivot columns to select at the time of [defining the relationship](#additional-pivot-columns) or runtime.
+By default, we only select the foreign keys from the pivot table. However, you can define additional pivot columns to select at [defining the relationship](#additional-pivot-columns) or runtime.
 
 ```ts
 const users = await User
@@ -629,7 +629,7 @@ await user.load('profile', (profileQuery) => {
 })
 ```
 
-You can load multiple relationships either by calling the `load` method multiple times or grabbing an instance of the underlying relationship loader.
+You can load multiple relationships by calling the `load` method multiple times or grabbing an instance of the underlying relationship loader.
 
 ```ts
 // Calling "load" method multiple times
@@ -644,6 +644,21 @@ await user.load((loader) => {
 })
 ```
 
+### Limit preloaded relationships
+Let's say you want to load all the posts and fetch the recent three comments for each post.
+
+Using the query builder `limit` method will not give you the desired output since the limit is applied to the entire data set and not on the comments of an individual post.
+
+Therefore, you must use the `groupLimit` method that uses [SQL window functions](https://drill.apache.org/docs/sql-window-functions-introduction/) to apply a limit on each parent record separately.
+
+```ts
+const posts = await Post
+  .query()
+  .preload('comments', (query) => {
+    query.groupLimit(3)
+  })
+```
+
 ## Relationship query builder
 
 :::note
@@ -652,7 +667,7 @@ Make sure to read the [relationship API docs](../../reference/orm/relations/has-
 
 You can also access the query builder for a relationship using the `related` method. The relationship queries are always scoped to a given parent model instance.
 
-In the following example, Lucid will automatically add the `where` clause for limiting the posts to the given user.
+Lucid will automatically add the `where` clause for limiting the posts to the given user in the following example.
 
 ```ts
 const user = await User.find(1)
@@ -715,14 +730,14 @@ Following is the list of `has` and `whereHas` variations.
 - `orDoesntHave | orWhereDoesntHave` adds an **OR** clause for the relationship absence.
 
 ## Relationship aggregates
-The relationships API of Lucid also allows you to load the aggregates for relationships. For example: You can fetch a list of **posts with a count of comments for each post**.
+The relationships API of Lucid also allows you to load the aggregates for relationships. For example, You can fetch a list of **posts with a count of comments for each post**.
 
 #### withAggregate
 
 The `withAggregate` method accepts the relationship as the first argument and a mandatory callback to define the value's aggregate function and property name.
 
 :::note
-In the following example, the `comments_count` property is moved to the `$extras` object because it not defined as a property on the model.
+In the following example, the `comments_count` property is moved to the `$extras` object because it is not defined as a property on the model.
 :::
 
 ```ts
@@ -740,7 +755,7 @@ posts.forEach((post) => {
 ---
 
 #### withCount
-Since, counting relationship rows is a very common requirement, you can instead make use of the `withCount` method.
+Since counting relationship rows is a very common requirement, you can instead use the `withCount` method.
 
 ```ts
 const posts = await Post.query().withCount('comments')
@@ -797,10 +812,10 @@ await post.loadAggregate('comments', (query) => {
 console.log(post.$extras.commentsCount)
 ```
 
-Make sure you are using `loadCount` method only when working with a single model instance. If there are multiple model instances, then it is better to use the query builder `withCount` method.
+Make sure you are using the `loadCount` method only when working with a single model instance. If there are multiple model instances, it is better to use the query builder `withCount` method.
 
 ## Relationship query hook
-You can define an `onQuery` relationship hook at the time of defining a relationship. The query hooks get executed for all the **select**, **update**, and **delete** queries executed by the relationship query builder.
+You can define an `onQuery` relationship hook at the time of defining a relationship. Then, the query hooks get executed for all the **select**, **update**, and **delete** queries executed by the relationship query builder.
 
 The `onQuery` method is usually helpful when you always apply certain constraints to the relationship query.
 
@@ -904,7 +919,7 @@ await profile.related('user').associate(user)
 ```
 
 ### dissociate
-The `dissociate` removes the relationship by setting the foreign key to `null`. The method is exclusive to the `belongsTo` relationship.
+The `dissociate` removes the relationship by setting the foreign key to `null`. Thus, the method is exclusive to the `belongsTo` relationship.
 
 ```ts
 await profile = await Profile.findOrFail(1)
@@ -924,7 +939,7 @@ const skill = await Skill.find(1)
 await user.related('skills').attach([skill.id])
 ```
 
-You can define additional pivot columns by passing an object of key-value pair. The key is the related model id, and value is an object of additional columns.
+You can define additional pivot columns by passing an object of key-value pair. The key is the related model id, and the value is an object of additional columns.
 
 ```ts
 await user.related('skills').attach({
