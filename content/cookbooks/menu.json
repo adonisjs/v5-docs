@@ -34,6 +34,11 @@
             "title": "Cleavr",
             "permalink": "deploy-with-cleavr",
             "contentPath": "deployment/cleavr.md"
+          },
+          {
+            "title": "Dockerizing Adonis",
+            "permalink": "dockerizing-adonis",
+            "contentPath": "deployment/dockerizing-adonis.md"
           }
         ]
       },
