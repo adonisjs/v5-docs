@@ -2,19 +2,19 @@
 summary: Learn how to deploy your AdonisJS applications to a production server.
 ---
 
-Deploying an AdonisJS application is no different than deploying any other Node.js application. First, you need a server/platform that can install and run `Node.js >= 14.15.4`.
+Deploying an AdonisJS application is no different than deploying any other Node.js application. First, you'll need a server/platform that can install and run the latest release of `Node.js v14`.
 
 :::note
 For a frictionless deployment experience, you can try Cleavr. It is a server provisioning service and has first-class support for [deploying AdonisJS apps](https://cleavr.io/adonis).
 
-**Disclaimer - Cleavr is also a sponsor of AdonisJS**
+**Disclaimer: Cleavr is also a sponsor of AdonisJS.**
 :::
 
 ## Compiling TypeScript to JavaScript
 
 AdonisJS applications are written in TypeScript and must be compiled to JavaScript during deployment. You can compile your application directly on the production server or perform the build step in a CI/CD pipeline.
 
-You can build your [code for production](./typescript-build-process.md#standalone-production-builds) by running the following ace command. The compiled JavaScript output is written to the `build` directory.
+You can build your [code for production](./typescript-build-process.md#standalone-production-builds) by running the following Ace command. The compiled JavaScript output is written to the `build` directory.
 
 ```sh
 node ace build --production
@@ -47,11 +47,11 @@ node server.js
 
 ### Using a process manager
 
-It is recommended to use a process manager when managing a Node.js application on a bare-bone server.
+It is recommended to use a process manager when managing a Node.js application on a bare-bones server.
 
-A process manager ensures to restart the application if it crashes during runtime. In addition, some process managers like [pm2](https://pm2.keymetrics.io/docs/usage/quick-start/) can also perform graceful restarts when re-deploying the application.
+A process manager ensures to restart the application if it crashes during runtime. In addition, some process managers like [PM2](https://pm2.keymetrics.io/docs/usage/quick-start/) can also perform graceful restarts when re-deploying the application.
 
-Following is an example [ecosystem file](https://pm2.keymetrics.io/docs/usage/application-declaration/) for pm2.
+Following is an example [ecosystem file](https://pm2.keymetrics.io/docs/usage/application-declaration/) for PM2.
 
 ```ts
 module.exports = {
@@ -67,14 +67,14 @@ module.exports = {
 }
 ```
 
-## Nginx reverse proxy
-When running the AdonisJS application on a bare-bone server, you must put it behind Nginx (or a similar web server) for [many different reasons](https://medium.com/intrinsic/why-should-i-use-a-reverse-proxy-if-node-js-is-production-ready-5a079408b2ca), but SSL termination being an important one.
+## NGINX reverse proxy
+When running the AdonisJS application on a bare-bone server, you must put it behind NGINX (or a similar web server) for [many different reasons](https://medium.com/intrinsic/why-should-i-use-a-reverse-proxy-if-node-js-is-production-ready-5a079408b2ca), but SSL termination being an important one.
 
 :::note
 Make sure to read the [trusted proxies guide](../http/request.md#trusted-proxy) to ensure you can access the visitor's correct IP address when running the AdonisJS application behind a proxy server.
 :::
 
-Following is an example Nginx config to proxy requests to your AdonisJS application. **Make sure to replace the values inside the angle brackets `<>`**.
+Following is an example NGINX config to proxy requests to your AdonisJS application. **Make sure to replace the values inside the angle brackets `<>`**.
 
 ```nginx
 server {
@@ -103,7 +103,7 @@ Using the `node ace migration:run --force` command, you can migrate your product
 
 Also, it would be best if you always run the migrations before restarting the server. Then, if the migration fails, do not restart the server.
 
-Using a managed service like Cleavr or Heroku, they can automatically handle this use case. Otherwise, you will have to run the migration script inside a CI/CD pipeline or run it manually by SSHing to the server.
+Using a managed service like Cleavr or Heroku, they can automatically handle this use case. Otherwise, you will have to run the migration script inside a CI/CD pipeline or run it manually through SSH.
 
 ### Do not rollback in production
 The `down` method in your migration files usually contains destructive actions like **drop the table**, or **remove a column**, and so on. It is recommended to turn off rollbacks in production inside the `config/database.ts` file.
@@ -129,12 +129,12 @@ When deploying your AdonisJS application on multiple servers, make sure to run t
 For MySQL and PostgreSQL, Lucid will obtain [advisory locks](https://www.postgresql.org/docs/9.4/explicit-locking.html#ADVISORY-LOCKS) to ensure that concurrent migration is not allowed. However, it is better to avoid running migrations from multiple servers in the first place.
 
 ## Persistent storage for file uploads
-Modern-day deployment platforms like AWS ECS, Heroku, or Digital ocean apps run your application code inside [ephemeral filesystem](https://devcenter.heroku.com/articles/dynos#ephemeral-filesystem), which means that each deployment will nuke the existing filesystem and creates a fresh one.
+Modern-day deployment platforms like Amazon ECS, Heroku, or DigitalOcean apps run your application code inside an [ephemeral filesystem](https://devcenter.heroku.com/articles/dynos#ephemeral-filesystem), which means that each deployment will nuke the existing filesystem and creates a fresh one.
 
-You will lose the user uploaded files if stored within the same storage as your application code. Hence, you must consider using [Drive](../digging-deeper/drive.md) to keep the user uploaded files on a cloud storage service like S3 or GCS.
+You will lose the user uploaded files if stored within the same storage as your application code. Hence, you must consider using [Drive](../digging-deeper/drive.md) to keep the user uploaded files on a cloud storage service like Amazon S3 or Google Cloud Storage.
 
 ## Logging
-The [AdonisJS logger](../digging-deeper/logger.md) write logs to `stdout` and `stderr` in JSON format. You can either set up an external logging service to read the logs from stdout/stderr or forward them to a local file on the same server.
+The [AdonisJS Logger](../digging-deeper/logger.md) writes logs to `stdout` and `stderr` in JSON format. You can either set up an external logging service to read the logs from stdout/stderr, or forward them to a local file on the same server.
 
 The framework core and ecosystem packages write logs at the `trace` level. Therefore, you must set the logging level to `trace` when debugging the framework internals.
 
@@ -171,7 +171,7 @@ ENV_PATH=/etc/myapp/.env node server.js
 ```
 
 ## Caching views
-You must cache the edge templates in production using the `CACHE_VIEWS` environment variable. The templates are cached in memory at runtime, and no precompiling is required.
+You must cache the Edge templates in production using the `CACHE_VIEWS` environment variable. The templates are cached in memory at runtime, and no precompiling is required.
 
 ```dotenv
 CACHE_VIEWS=true
@@ -183,7 +183,7 @@ Serving static assets effectively is essential for the performance of your appli
 ### Using a CDN service
 The best approach is to use a CDN for delivering the static assets from your AdonisJS application.
 
-The front-end assets compiled using [webpack encore](../http/assets-manager.md) are fingerprinted, and this allows your CDN server to cache them aggressively.
+The front-end assets compiled using [Webpack Encore](../http/assets-manager.md) are fingerprinted, and this allows your CDN server to cache them aggressively.
 
 Depending upon the CDN service you are using and your deployment technique, you may have to add a step to your deployment process to move the static files to the CDN server. This is how it should work in a nutshell.
 
@@ -197,14 +197,14 @@ Depending upon the CDN service you are using and your deployment technique, you 
   }
   ```
 - Build your AdonisJS application as usual.
-- Copy the output of `public/assets` to your CDN server. For example, [here is a command](https://github.com/adonisjs-community/polls-app/blob/main/commands/PublishAssets.ts) we use to publish the assets to an s3 bucket.
+- Copy the output of `public/assets` to your CDN server. For example, [here is a command](https://github.com/adonisjs-community/polls-app/blob/main/commands/PublishAssets.ts) we use to publish the assets to an Amazon S3 bucket.
 
 ---
 
-### Using Nginx to deliver static files
-Another option is to offload the task of serving assets to Nginx. If you use webpack encore to compile the front-end assets, you must aggressively cache all the static files since they are fingerprinted.
+### Using NGINX to deliver static files
+Another option is to offload the task of serving assets to NGINX. If you use Webpack Encore to compile the front-end assets, you must aggressively cache all the static files since they are fingerprinted.
 
-Add the following block to your Nginx config file. **Make sure to replace the values inside the angle brackets `<>`**.
+Add the following block to your NGINX config file. **Make sure to replace the values inside the angle brackets `<>`**.
 
 ```nginx
 location ~ \.(jpg|png|css|js|gif|ico|woff|woff2) {
@@ -221,7 +221,7 @@ location ~ \.(jpg|png|css|js|gif|ico|woff|woff2) {
 ### Using AdonisJS static file server
 You can also rely on the AdonisJS inbuilt static file server to serve the static assets from the `public` directory to keep things simple.
 
-No additional configuration is required. Just deploy your AdonisJS application as usual, and the request for static assets will be served automatically. However, if you use webpack encore to compile your front-end assets, you must update the `config/static.ts` file with the following options.
+No additional configuration is required. Just deploy your AdonisJS application as usual, and the request for static assets will be served automatically. However, if you use Webpack Encore to compile your front-end assets, you must update the `config/static.ts` file with the following options.
 
 ```ts
 // title: config/static.ts

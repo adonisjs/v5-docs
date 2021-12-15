@@ -31,7 +31,7 @@ SimplePaginator {
 ```
 
 ## Displaying pagination links
-Following is a complete example of displaying the pagination links inside an edge template.
+Following is a complete example of displaying the pagination links inside an Edge template.
 
 ```ts
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'

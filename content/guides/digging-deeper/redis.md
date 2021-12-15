@@ -53,7 +53,7 @@ export default Env.rules({
 &nbsp;
 
 - [View on npm](https://npm.im/@adonisjs/redis)
-- [View on Github](https://github.com/adonisjs/redis)
+- [View on GitHub](https://github.com/adonisjs/redis)
 
 :::
 
@@ -169,7 +169,7 @@ Redis forces you to maintain two separate connections when using `pub/sub`, wher
 
 In AdonisJS,  we have improved the API of pub/sub and manage the subscriber connection internally for you, so that you don't have to create and manage it manually.
 
-For demonstration, lets create a pub/sub channel for tracking user signups. Begin by creating a new preload file by executing the following ace command.
+For demonstration, lets create a pub/sub channel for tracking user signups. Begin by creating a new preload file by executing the following Ace command.
 
 ```sh
 node ace make:prldfile redis
@@ -216,7 +216,7 @@ Redis.psubscribe('user:*', (event: string, user: string) => {
 })
 ```
 
-## Health Checks
+## Health checks
 The Redis module uses the AdonisJS [health check](./health-check.md) module to report the connections health. All you need to do is enable it inside the config file.
 
 ```ts

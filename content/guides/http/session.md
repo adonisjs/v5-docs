@@ -46,7 +46,7 @@ export default Env.rules({
 &nbsp;
 
 - [View on npm](https://npm.im/@adonisjs/session)
-- [View on Github](https://github.com/adonisjs/session)
+- [View on GitHub](https://github.com/adonisjs/session)
 
 :::
 
@@ -390,7 +390,7 @@ session.reflashExcept(['success', 'username', 'password'])
 
 ### Accessing flash messages
 
-You can access the flash messages set by the previous request using the `session.flashMessages` property or the `flashMessages` helper inside the edge templates.
+You can access the flash messages set by the previous request using the `session.flashMessages` property or the `flashMessages` helper inside the Edge templates.
 
 ```edge
 // title: Inside templates

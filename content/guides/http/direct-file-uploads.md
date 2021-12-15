@@ -1,4 +1,4 @@
-Direct file uploads allow you to stream the incoming multipart streams to a cloud service like s3 or cloudinary without processing them on your server. The flow looks as follows:
+Direct file uploads allow you to stream the incoming multipart streams to a cloud service like Amazon S3 or Cloudinary without processing them on your server. The flow looks as follows:
 
 - The user uploads the file.
 - The request comes to your server.

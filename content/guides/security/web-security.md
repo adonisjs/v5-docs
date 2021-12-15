@@ -2,9 +2,9 @@
 summary: A complete guide to securing web applications in AdonisJS
 ---
 
-You can protect your web applications from common web attacks like **CSRF**, **XSS**, **Content sniffing** and more using the `@adonisjs/shield` package. 
+You can protect your web applications from common web attacks like **CSRF**, **XSS**, **content sniffing** and more using the `@adonisjs/shield` package. 
 
-It is recommended to use this package when creating a server rendered app using AdonisJS.
+It is recommended to use this package when creating a server-rendered app using AdonisJS.
 
 If you are using AdonisJS to create an API server, then you must rely on your frontend framework's security layer.
 
@@ -38,13 +38,13 @@ Server.middleware.register([
 
 
 ## CSRF protection
-[CSRF (Cross Site Request Forgery)](https://owasp.org/www-community/attacks/csrf) is an attack that tricks the user of your web apps to perform form submissions without their explicit consent.
+[CSRF (Cross-Site Request Forgery)](https://owasp.org/www-community/attacks/csrf) is an attack that tricks the user of your web apps to perform form submissions without their explicit consent.
 
 To protect against the CSRF attacks, your application should be able to distinguish between the form submissions triggered by your app vs. some other malicious website.
 
 AdonisJS generates a unique token (known as CSRF token) for every HTTP request and associates it with the user session for later verification. Since, the token is generated on the backend, the malicious website has no way of getting access to it.
 
-The token must be present alongside the other form fields in order for CSRF check to pass. You can access it using the `csrfField` inside your edge templates.
+The token must be present alongside the other form fields in order for CSRF check to pass. You can access it using the `csrfField` inside your Edge templates.
 
 ```edge
 <form action="{{ route('PostsController.store') }}" method="post">
@@ -64,7 +64,7 @@ The token must be present alongside the other form fields in order for CSRF chec
 
 That is all you need to do.
 
-### Config
+### Configuration
 The shield middleware relies on the config stored inside the `config/shield.ts` file. Feel free to tweak the configuration options as per your requirements.
 
 ```ts
@@ -173,7 +173,7 @@ Set the value to true, if you want the CSP violations to result in a warning rat
 ---
 
 ### CSP nonce
-To define [nonce](https://content-security-policy.com/nonce/) based inline script and style tags, you have to make use of the `@nonce` keyword.
+To define [nonce-based](https://content-security-policy.com/nonce/) inline script and style tags, you have to make use of the `@nonce` keyword.
 
 ```ts
 directives: {
@@ -198,7 +198,7 @@ Route.get('/', ({ response }) => {
 })
 ```
 
-## DNS Prefetch
+## DNS prefetching
 Using the `dnsPrefetch` setting from the `config/shield.ts` file, you can control the behavior for the [X-DNS-Prefetch-Control](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-DNS-Prefetch-Control) header.
 
 ```ts

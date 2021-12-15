@@ -31,7 +31,7 @@
             "contentPath": "fundamentals/application.md"
           },
           {
-            "title": "AdonisRc file",
+            "title": "AdonisRC file",
             "permalink": "adonisrc-file",
             "contentPath": "fundamentals/adonisrc-file.md"
           },
@@ -63,7 +63,7 @@
         ]
       },
       {
-        "name": "Http",
+        "name": "HTTP",
         "docs": [
           {
             "title": "Context",
@@ -127,7 +127,7 @@
             "contentPath": "http/assets-manager.md"
           },
           {
-            "title": "Exception Handling",
+            "title": "Exception handling",
             "permalink": "exception-handling",
             "contentPath": "http/exception-handling.md"
           }
@@ -287,7 +287,7 @@
             "contentPath": "models/query-scopes.md"
           },
           {
-            "title": "Serializing Models",
+            "title": "Serializing models",
             "permalink": "models/serializing-models",
             "contentPath": "models/serialization.md"
           },
@@ -347,7 +347,7 @@
         "name": "Security",
         "docs": [
           {
-            "title": "Web Security",
+            "title": "Web security",
             "permalink": "security/web-security",
             "contentPath": "security/web-security.md"
           },
@@ -397,7 +397,7 @@
             "contentPath": "digging-deeper/ace.md"
           },
           {
-            "title": "AdonisJS Repl",
+            "title": "AdonisJS REPL",
             "permalink": "repl",
             "contentPath": "digging-deeper/repl.md"
           },

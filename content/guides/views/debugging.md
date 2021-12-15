@@ -1,5 +1,5 @@
 ---
-summary: Learn how to debug edge templates using the chrome devtools or the inspect helper
+summary: Learn how to debug Edge templates using the chrome devtools or the inspect helper
 ---
 
 Edge provides a couple of options to debug the templates. The simplest one is the `inspect` global helper. This method pretty prints any value you provide to it and the other one is the `@debugger` tag.

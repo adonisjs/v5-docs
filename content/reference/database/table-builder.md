@@ -254,7 +254,7 @@ Adds `created_at` and `updated_at` columns to the database table.
 
 :::warning
 
-Since AdonisJS uses knex.js under the hood, your editor autocomplete feature will list the `timestamps` method in list of available methods.
+Since AdonisJS uses Knex.js under the hood, your editor autocomplete feature will list the `timestamps` method in list of available methods.
 
 However, we recommend not using this method and instead use the `timestamp` method for following reasons.
 
@@ -343,7 +343,7 @@ this.schema.dropTable('users')
 ---
 
 ### json
-Adds a json column, using the built-in json type in **PostgreSQL**, **MySQL** and **SQLite**, defaulting to a text column in older versions or in unsupported databases.
+Adds a JSON column, using the built-in JSON type in **PostgreSQL**, **MySQL** and **SQLite**, defaulting to a text column in older versions or in unsupported databases.
 
 ```ts
 this.schema.createTable('projects', (table) => {

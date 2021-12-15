@@ -7,7 +7,7 @@ summary: The adonisrc.json file configures the workspace and some of the runtime
 
 The `.adonisrc.json` file is stored inside the root of your project. It configures the workspace and some of the runtime settings of your AdonisJS application.
 
-The file only contains the minimum required configuration to run your application. However, you can view the complete file contents by running the following ace command.
+The file only contains the minimum required configuration to run your application. However, you can view the complete file contents by running the following Ace command.
 
 ```sh
 node ace dump:rcfile
@@ -113,14 +113,14 @@ node ace dump:rcfile
 ```
 
 ### typescript
-The `typescript` property informs the framework and the ace commands that your application is using TypeScript. Currently, this value is always set to `true`. However, we will later allow applications to be written in JavaScript as well.
+The `typescript` property informs the framework and the Ace commands that your application is using TypeScript. Currently, this value is always set to `true`. However, we will later allow applications to be written in JavaScript as well.
 
 ---
 
 ### directories
 An object of known directories and their pre-configured paths. You can change the path to match your requirements.
 
-Also, all the ace `make` commands references the `.adonisrc.json` file before creating the file.
+Also, all the Ace `make` commands references the `.adonisrc.json` file before creating the file.
 
 ```json
 {
@@ -160,7 +160,7 @@ An array of files to load at the time of booting the application. The files are 
 You can define the environment in which to load the file. The valid options are:
 
 - `web` environment refers to the process started for the HTTP server.
-- `console` environment refers to the ace commands except for the `repl` command.
+- `console` environment refers to the Ace commands except for the `repl` command.
 - `repl` environment refers to the process started using the `node ace repl` command.
 - Finally, `test` environment is reserved for the future when AdonisJS will have the inbuilt test runner.
 
@@ -254,7 +254,7 @@ The `metaFiles` array accepts the files you want AdonisJS to copy to the `build`
 ---
 
 ### commands
-An array of paths to lookup/index ace commands. You can define a relative path like `./command` or path to an installed package.
+An array of paths to lookup/index Ace commands. You can define a relative path like `./command` or path to an installed package.
 
 ```json
 {
@@ -302,7 +302,7 @@ An array of service providers to load during the application boot cycle. The pro
 ---
 
 ### aceProviders
-An array of providers to load when running the ace commands. Here you can load the providers, which aren't required when starting the HTTP server.
+An array of providers to load when running the Ace commands. Here you can load the providers, which aren't required when starting the HTTP server.
 
 ```json
 {

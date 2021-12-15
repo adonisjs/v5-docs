@@ -55,7 +55,7 @@ export default Env.rules({
 &nbsp;
 
 - [View on npm](https://npm.im/@adonisjs/lucid)
-- [View on Github](https://github.com/adonisjs/lucid)
+- [View on GitHub](https://github.com/adonisjs/lucid)
 
 :::
 
@@ -354,7 +354,7 @@ await Database.manager.close('mysql')
 await Database.manager.closeAll()
 ```
 
-## Health Checks
+## Health checks
 You can enable [health checks](../digging-deeper/health-check.md#lucid-checker) for registered database connections by enabling the `healthCheck` boolean flag inside the `config/database.ts` file.
 
 ```ts

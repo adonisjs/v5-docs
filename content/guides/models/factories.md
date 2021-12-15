@@ -2,7 +2,7 @@
 summary: Use model factories to generate fake data in bulk. Usually helpful during tests and seeding database with random data
 ---
 
-Have you ever written tests, in which the first **15-20 lines** of each test are dedicated to just setting up the database state by using multiple models? With model factories, you can extract all this setup to a dedicated file and then write the bare minimum code to setup the database state.
+Have you ever written tests, in which the first **15-20 lines** of each test are dedicated to just setting up the database state by using multiple models? With model factories, you can extract all this set up to a dedicated file and then write the bare minimum code to set up the database state.
 
 By the end of this guide, you will know:
 

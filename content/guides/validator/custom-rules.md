@@ -4,7 +4,7 @@ summary: Learn how you can create custom rules for the AdonisJS validator
 
 You can add custom rules to the validator using the `validator.rule` method. Rules should be registered only once. Hence we recommend you register them inside a service provider or a [preload file](../fundamentals/adonisrc-file.md#preloads).
 
-Throughout this guide, we will keep them inside the `start/validator.ts` file. You can create this file by running the following ace command and select the environment as **"During HTTP server"**.
+Throughout this guide, we will keep them inside the `start/validator.ts` file. You can create this file by running the following Ace command and select the environment as **"During HTTP server"**.
 
 ```sh
 node ace make:prldfile validator

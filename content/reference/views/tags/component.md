@@ -1,4 +1,4 @@
-The `@component` tag allows you to use an edge template as a component. 
+The `@component` tag allows you to use an Edge template as a component. 
 
 - It is a block level tag
 - It accepts the template path relative from the `views` directory, along with the component state as the second argument.

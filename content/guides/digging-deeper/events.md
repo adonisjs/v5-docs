@@ -2,16 +2,16 @@
 summary: Introduction to the async event emitter of AdonisJS.
 ---
 
-The AdonisJS event emitter module is built on top of [emittery](https://github.com/sindresorhus/emittery). It differs from the Node.js native Events module in the following ways.
+The AdonisJS event emitter module is built on top of [Emittery](https://github.com/sindresorhus/emittery). It differs from the Node.js native Events module in the following ways.
 
-- It is asynchronous, whereas the Node.js events module emits events synchronously. So make sure to also [read the emittery](https://github.com/sindresorhus/emittery#how-is-this-different-than-the-built-in-eventemitter-in-nodejs) explanation on this as well.
+- It is asynchronous, whereas the Node.js events module emits events synchronously. So make sure to also [read the Emittery](https://github.com/sindresorhus/emittery#how-is-this-different-than-the-built-in-eventemitter-in-nodejs) explanation on this as well.
 - Ability to make events type-safe.
 - Ability to trap events during tests instead of triggering the actual event.
 
 ## Usage
 We recommend defining all the event listeners inside a dedicated file, just like how you define routes in a single file.
 
-For this guide, let's define the event listeners inside the `start/events.ts` file. You can create this file manually or run the following ace command.
+For this guide, let's define the event listeners inside the `start/events.ts` file. You can create this file manually or run the following Ace command.
 
 ```sh
 node ace make:prldfile events
@@ -88,7 +88,7 @@ Conventionally event listeners are stored inside the `app/Listeners` directory. 
 
 </details>
 
-You can create a listener class by running the following ace command.
+You can create a listener class by running the following Ace command.
 
 ```sh
 node ace make:listener User
@@ -176,7 +176,7 @@ Event.onError((event, error, eventData) => {
 ```
 
 ## Differences from the Node.js event emitter
-As mentioned earlier, the Event module of AdonisJS is built on top of [emittery](https://github.com/sindresorhus/emittery), and it is different from the Node.js event emitter in the following ways.
+As mentioned earlier, the Event module of AdonisJS is built on top of [Emittery](https://github.com/sindresorhus/emittery), and it is different from the Node.js event emitter in the following ways.
 
 - Emittery is asynchronous and does not block the event loop.
 - It does not have the magic error event

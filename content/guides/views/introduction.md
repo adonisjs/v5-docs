@@ -36,7 +36,7 @@ p This will be safe: #{theGreat}
 
 ## Edge vs. Nunjucks
 
-Unlike Nunjucks, Edge feels like writing JavaScript and not Python. As a result, the edge has a small learning curve, is quicker to type, and supports all JavaScript expressions.
+Unlike Nunjucks, Edge feels like writing JavaScript and not Python. As a result, the Edge has a small learning curve, is quicker to type, and supports all JavaScript expressions.
 
 <div class="fancy-codeblock">
 
@@ -131,7 +131,7 @@ Route.get('/', async ({ view }) => {
 })
 ```
 
-The next step is to create the `home.edge` template. You can manually create a file inside the views folder or use the following ace command to create one.
+The next step is to create the `home.edge` template. You can manually create a file inside the views folder or use the following Ace command to create one.
 
 ```sh
 node ace make:view home

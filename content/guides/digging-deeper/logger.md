@@ -2,7 +2,7 @@
 summary: Reference to the logger module of AdonisJS.
 ---
 
-The core of the framework ships with an inbuilt logger built on top of [pino](https://getpino.io/#/)(one of the fastest logging libraries for Node.js). You can import and use the Logger as follows:
+The core of the framework ships with an inbuilt logger built on top of [Pino](https://getpino.io/#/)(one of the fastest logging libraries for Node.js). You can import and use the Logger as follows:
 
 ```ts
 import Logger from '@ioc:Adonis/Core/Logger'
@@ -29,9 +29,9 @@ Route.get('/', async ({ logger }) => {
 ![](https://res.cloudinary.com/adonis-js/image/upload/q_auto,w_700,f_auto,fl_lossy/v1592211987/adonisjs.com/http-logger.png)
 
 ## Config
-The configuration for the logger is stored inside the `config/app.ts` file under the `logger` export. The options are the same as documented by [pino logger](https://getpino.io/#/docs/api?id=options).
+The configuration for the logger is stored inside the `config/app.ts` file under the `logger` export. The options are the same [as documented by Pino](https://getpino.io/#/docs/api?id=options).
 
-Following the bare minimum options required to configure the logger.
+Following the bare minimum options required to configure the logger:
 
 ```ts
 {
@@ -61,38 +61,38 @@ The current logging level. It is derived from the `LOG_LEVEL` environment variab
 ---
 
 #### redact
-Remove/redact sensitive paths from the logging output. Read the [redact section](#redact-values).
+Remove/redact sensitive paths from the logging output. Read the [Redact section](#redact-values).
 
 ---
 
 #### prettyPrint
 Whether or not to pretty-print the logs. We recommend turning off pretty printing in production, as it has some performance overhead.
 
-## How AdonisJS Logger works?
+## How does AdonisJS Logger work?
 Since Node.js is a single-threaded event-loop, it is very important to keep the main thread free from any extra work required to process or reformat logs. 
 
-For this very reason, we opted for [pino logger](https://getpino.io/), which does not perform any in-process log formatting and instead encourages you to use a separate process for that. In a nutshell, this is how logging works.
+For this very reason, we opted for [Pino](https://getpino.io/), which does not perform any in-process log formatting and instead encourages you to use a separate process for that. In a nutshell, this is how logging works.
 
 1. You can log at different levels using the Logger API, for example: `Logger.info('some message')`.
 2. The logs are always sent out to `stdout`.
 3. You can redirect the `stdout` stream to a file or use a separate process to read and format them.
 
-## Logging in Development
+## Logging in development
 Since logs are always written to `stdout`, there is nothing special required in the development environment. Also, AdonisJS will automatically [pretty print](https://github.com/pinojs/pino-pretty) the logs when `NODE_ENV=development`.
 
-## Logging in Production
+## Logging in production
 In production, you would want to stream your logs to an external service like Datadog or Papertrail. Following are some of the ways to send logs to an external service.
 
 :::note
 
-There is an additional operational overhead of piping the stdout stream to a service. But, the trade-off is worth the performance boost you receive. Make sure to check [pino benchmarks](https://getpino.io/#/docs/benchmarks) as well.
+There is an additional operational overhead of piping the stdout stream to a service. But, the trade-off is worth the performance boost you receive. Make sure to check [Pino benchmarks](https://getpino.io/#/docs/benchmarks) as well.
 
 :::
 
-### Using Pino Transports
-The simplest way to process the `stdout` stream is to use [pino transports](https://getpino.io/#/docs/transports?id=known-transports). All you need to do is pipe the output to the transport of your choice. 
+### Using Pino transports
+The simplest way to process the `stdout` stream is to use [Pino transports](https://getpino.io/#/docs/transports?id=known-transports). All you need to do is pipe the output to the transport of your choice. 
 
-For demonstration, let's install the `pino-datadog` npm package to send logs to Datadog.
+For demonstration, let's install the `pino-datadog package to send logs to Datadog.
 
 ```sh
 npm i pino-datadog
@@ -104,7 +104,7 @@ Next, start the production server and pipe the `stdout` output to `pino-datadog`
 node build/server.js | ./node_modules/.bin/pino-datadog --key DD_API_KEY
 ```
 
-### Streaming to a File
+### Streaming to a file
 Another approach is to forward the output of `stdout` to a physical file on the disk and then configure your logging service to read and rotate the log files.
 
 ```sh

@@ -155,13 +155,13 @@ export default class ExceptionHandler extends HttpExceptionHandler {
 }
 ```
 
-## Http Exception Handler
+## HTTP exception handler
 
 The following features are only available when the global exception handler extends the [HttpExceptionHandler](https://github.com/adonisjs/core/blob/develop/src/HttpExceptionHandler/index.ts) class. If you decide not to extend from this class, then the following features will not work.
 
 ### Status pages
 
-The `statusPages` page property on the exception handler allows you to associate edge templates to a range of error status codes.
+The `statusPages` page property on the exception handler allows you to associate Edge templates to a range of error status codes.
 
 In the following example, all 404 errors will render the `errors/not-found.edge` template and the errors between the range of _500 - 599_ will render the `errors/server-error.edge` template.
 
@@ -215,7 +215,7 @@ export default class ExceptionHandler extends HttpExceptionHandler {
 
 ## Custom exceptions
 
-You can create custom exceptions by executing the following ace command.
+You can create custom exceptions by executing the following Ace command.
 
 ```sh
 node ace make:exception UnAuthorized

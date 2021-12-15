@@ -1,4 +1,4 @@
-AdonisJS Drive is an abstraction on top of cloud storage services like **S3**, **Digital ocean spaces**, and the **Google cloud storage**.
+AdonisJS Drive is an abstraction on top of cloud storage services, such as: **Amazon S3**, **DigitalOcean Spaces**, and **Google Cloud Storage**.
 
 The Drive comes pre-bundled with the framework's core, and hence no extra installation steps are required (except for drivers). You can use Drive as follows:
 
@@ -20,11 +20,11 @@ if (await Drive.exists(filePath)) {
 ```
 
 ## Goals & design limitations
-The primary goal of Drive is to provide a consistent API that works across all the storage providers. So, for example, you can use the **local file system** during development and switch to **s3** in production without changing a single line of code.
+The primary goal of Drive is to provide a consistent API that works across all the storage providers. So, for example, you can use the **local file system** during development and switch to **S3** in production without changing a single line of code.
 
 To guarantee a consistent API, Drive cannot work with the specifics of a given storage service.
 
-For example, you cannot create symlinks using Drive since [symlinks](https://en.wikipedia.org/wiki/Symbolic_link) are a Unix-based file systems concept and cannot be replicated with s3 or GCS.
+For example, you cannot create symlinks using Drive since [symlinks](https://en.wikipedia.org/wiki/Symbolic_link) are a Unix-based file systems concept and cannot be replicated with S3 or GCS.
 
 Similarly, the proprietary features of a cloud service that cannot be replicated across drivers are also not supported.
 
@@ -127,9 +127,9 @@ await Drive.getSignedUrl('avatar.jpg')
 
 ---
 
-### S3 Driver
+### S3 driver
 
-The `s3` driver makes use of the Amazon S3 cloud storage for reading/writing files. You will have to install the driver separately.
+The `s3` driver makes use of Amazon S3 cloud storage for reading/writing files. You will have to install the driver separately.
 
 Make sure to follow the `configure` command instructions to set up the driver correctly. You can also read the same instructions [here](https://github.com/adonisjs/drive-s3/blob/master/instructions.md).
 
@@ -141,7 +141,7 @@ npm i @adonisjs/drive-s3
 node ace configure @adonisjs/drive-s3
 ```
 
-You can also use the `s3` driver with S3 compatible services like [Digital ocean spaces](https://www.digitalocean.com/products/spaces/) and [Min.io](https://min.io/). 
+You can also use the `s3` driver with S3-compatible services like [DigitalOcean Spaces](https://www.digitalocean.com/products/spaces/) and [MinIO](https://min.io/). 
 
 When using a different service, you will have to define the bucket endpoint as well.
 
@@ -154,9 +154,9 @@ When using a different service, you will have to define the bucket endpoint as w
 
 ---
 
-### GCS Driver
+### GCS driver
 
-The `gcs` driver makes use of the Google cloud storage for reading/writing files. You will have to install the driver separately.
+The `gcs` driver makes use of Google Cloud Storage for reading/writing files. You will have to install the driver separately.
 
 Make sure to follow the `configure` command instructions to set up the driver correctly. You can also read the same instructions [here](https://github.com/adonisjs/drive-gcs/blob/master/instructions.md).
 
@@ -252,7 +252,7 @@ await Drive.putStream(filePath, readableStream)
 
 ---
 
-### Bodyparser `moveToDisk`
+### BodyParser `moveToDisk`
 You can move the user uploaded files to a given disk using the `file.moveToDisk` method.
 
 The method accepts the following arguments.
@@ -422,7 +422,7 @@ await Drive.move(source, destination, metadataOptions)
 You can switch between disks using the `Drive.use` method.
 
 ```ts
-// Reference to the s3 disk
+// Reference to the S3 disk
 const s3 = Drive.use('s3')
 
 await s3.put(filePath, stringOrBuffer)
@@ -488,7 +488,7 @@ The Drive exposes the API to add your custom drivers. Every driver must adhere t
 
 :::note
 
-You can also use the official [s3](https://github.com/adonisjs/drive-s3) or [gcs](https://github.com/adonisjs/drive-gcs) drivers as a reference for creating your own driver.
+You can also use the official [S3](https://github.com/adonisjs/drive-s3) or [GCS](https://github.com/adonisjs/drive-gcs) drivers as a reference for creating your own driver.
 
 :::
 
@@ -608,7 +608,7 @@ Delete the file. The driver should not raise an exception when the file is missi
 ---
 
 #### copy
-Copy the file from one location to another. The copy operation should copy the metadata of the file as well. For example: In s3, it requires an additional request to copy the file ACL.
+Copy the file from one location to another. The copy operation should copy the metadata of the file as well. For example: In S3, it requires an additional request to copy the file ACL.
 
 ---
 
@@ -671,8 +671,8 @@ export default class AppProvider {
 }
 ```
 
-###  Informing typescript about the new driver
-The next step is to inform typescript about the dummy driver and the config it accepts. Then, open the pre-existing `contracts/drive.ts` file and add the following code inside it.
+###  Informing TypeScript about the new driver
+The next step is to inform TypeScript about the dummy driver and the config it accepts. Then, open the pre-existing `contracts/drive.ts` file and add the following code inside it.
 
 ```ts
 // insert-start

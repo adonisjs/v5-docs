@@ -2,7 +2,7 @@
 summary: Getting started by creating and running a new AdonisJS application
 ---
 
-AdonisJS is a Node.js framework, and hence it requires Node.js to be installed on your computer. To be precise, we need at least the latest release of `Node.js 14`.
+AdonisJS is a Node.js framework, and hence it requires Node.js to be installed on your computer. To be precise, we need at least the latest release of `Node.js v14`.
 
 You can check the Node.js and npm versions by running the following commands.
 
@@ -13,7 +13,7 @@ node -v
 
 If you don't have Node.js installed, you can [download the binary](https://nodejs.org/en/download) for your operating system from the official website.
 
-If you are comfortable with the command line, then we recommend using [volta](https://volta.sh) or [nvm](https://github.com/nvm-sh/nvm) to install and run multiple versions of Node.js on your computer.
+If you are comfortable with the command line, then we recommend using [Volta](https://volta.sh) or [Node Version Manager](https://github.com/nvm-sh/nvm) to install and run multiple versions of Node.js on your computer.
 
 ## Creating a new project
 You can create a new project using [npm init](https://docs.npmjs.com/cli/v7/commands/npm-init), [yarn create](https://classic.yarnpkg.com/en/docs/cli/create) or [pnpm create](https://pnpm.io/tr/next/cli/create). These tools will download the AdonisJS starter package and starts the installation process.
@@ -57,10 +57,10 @@ Optionally, you can configure eslint and prettier. Both the packages are configu
 
 ---
 
-#### Configure webpack encore
-Optionally, you can also configure [webpack encore](./http/assets-manager.md) to bundle and serve frontend dependencies.
+#### Configure Webpack Encore
+Optionally, you can also configure [Webpack Encore](./http/assets-manager.md) to bundle and serve frontend dependencies.
 
-Please do note, AdonisJS is a backend framework and does not concern itself with front-end build tools. Hence the webpack setup is optional.
+Please do note, AdonisJS is a backend framework and does not concern itself with front-end build tools. Hence the Webpack setup is optional.
 
 ## Starting the development server
 After creating the application, you can start the development server by running the following command.
@@ -72,16 +72,16 @@ node ace serve --watch
 - The `serve` command starts the HTTP server and performs an in-memory compilation of TypeScript to JavaScript.
 - The `--watch` flag is meant to watch the file system for changes and restart the server automatically.
 
-By default, the server starts on `PORT 3333` (defined inside the .env file). You can view the welcome page by visiting http://localhost:3333.
+By default, the server starts on port 3333 (defined inside the .env file). You can view the welcome page by visiting: http://localhost:3333.
 
 ## Compiling for production
-You must always deploy the compiled JavaScript on your production server. You can create the production build by running the following command.
+You must always deploy the compiled JavaScript on your production server. You can create the production build by running the following command:
 
 ```sh
 node ace build --production
 ```
 
-The compiled output is written to the `build` folder. You can `cd` into this folder and start the server by directly running the `server.js` file. Learn more about the [typescript build process](./fundamentals/typescript-build-process.md)
+The compiled output is written to the `build` folder. You can `cd` into this folder and start the server by directly running the `server.js` file. Learn more about the [TypeScript build process](./fundamentals/typescript-build-process.md)
 
 ```sh
 cd build

@@ -38,7 +38,7 @@ node ace configure @adonisjs/bouncer
 
 
 ## Basic example
-The main goal of the bouncer package is to help you extract the authorization logic to the Bouncer actions or policies vs. writing it everywhere in your codebase.
+The main goal of the Bouncer package is to help you extract the authorization logic to actions or policies instead of writing it everywhere in your codebase.
 
 You can define a Bouncer action inside the `start/bouncer.ts` file. The `Bouncer.define` method accepts the name of the action and closure to write the authorization logic.
 
@@ -113,7 +113,7 @@ In this scenario, you must set the `options.allowGuest` property to `true`.
 
 :::note
 
-If `allowGuest !== true` and there is no logged-in user, then the bouncer will not even call the action and deny the request implicitly.
+If `allowGuest !== true` and there is no logged-in user, then Bouncer will not even call the action and deny the request implicitly.
 
 :::
 
@@ -135,7 +135,7 @@ export const { actions } = Bouncer
 ```
 
 ### Deny access
-An action can deny the access by returning a ** non-true** value from the action closure, and the bouncer will convert that to a `403` status code.
+An action can deny the access by returning a ** non-true** value from the action closure, and Bouncer will convert that to a `403` status code.
 
 However, you can also return a custom message and status code from the action itself using the `Bouncer.deny` method.
 
@@ -209,7 +209,7 @@ Bouncer.before((user: User | null) => {
 ```
 
 - The actual action callback is never executed when a before hook returns a `true` or a `false` value. 
-- Make sure to return `undefined` if you want the bouncer to execute the next hook or the action callback.
+- Make sure to return `undefined` if you want Bouncer to execute the next hook or the action callback.
 - The `before` hook is always executed, even when there is no logged-in user. Make sure to handle the use case of a missing user inside the hook callback.
 - The `before` hook receives the **action name** as the second argument.
 
@@ -233,7 +233,7 @@ Usually, you will create one policy for a given resource. For example, a policy 
 
 ### Creating a policy file
 
-You can create a policy by running the following ace command. The policies are stored inside the `app/Policies` directory. However, you can customize the location by updating the `namespaces.policies` property inside the [.adonisrc.json file](../fundamentals/adonisrc-file.md#namespaces).
+You can create a policy by running the following Ace command. The policies are stored inside the `app/Policies` directory. However, you can customize the location by updating the `namespaces.policies` property inside the [.adonisrc.json file](../fundamentals/adonisrc-file.md#namespaces).
 
 ```sh
 node ace make:policy Post
@@ -257,7 +257,7 @@ export default class PostPolicy extends BasePolicy {
 }
 ```
 
-### Registering the policy with the bouncer
+### Registering the policy with Bouncer
 
 Also, make sure to register the newly created policy inside the `start/bouncer.ts` file. The `registerPolicies` method accepts a key-value pair. The key is the policy name, and value is a function to import the Policy file lazily.
 
@@ -326,7 +326,7 @@ export default class PostPolicy extends BasePolicy {
 }
 ```
 
-## Usage inside the edge templates
+## Usage inside the Edge templates
 You can use the `@can` and the `@cannot` tags to display the specific portion of your markup conditionally. For example: Hiding the links to delete and edit the post when the user cannot perform those actions.
 
 ```edge

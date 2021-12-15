@@ -26,7 +26,7 @@ Route.get('/', async ({ view }) => {
 })
 ```
 
-## Rendering Modes
+## Rendering modes
 
 Edge exposes both the sync and the async API for rendering views. We **recommend using the async API**. In async mode, the I/O operations performed by Edge do not block the Node.js event loop.
 
@@ -149,7 +149,7 @@ View.renderRawSync(
 
 ## View renderer instances
 
-Views in edge are rendered using the [ViewRenderer](https://github.com/edge-js/edge/blob/develop/src/Renderer/index.ts) class. So every time you run the `View.render` method, we create a new instance of the `ViewRenderer` and then call the `render` method on it.
+Views in Edge are rendered using the [ViewRenderer](https://github.com/edge-js/edge/blob/develop/src/Renderer/index.ts) class. So every time you run the `View.render` method, we create a new instance of the `ViewRenderer` and then call the `render` method on it.
 
 You can also get the renderer instance by calling the `View.getRenderer()` method and use the `share` method to share data with the view.
 

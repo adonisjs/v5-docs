@@ -43,20 +43,20 @@ class HomeController {
 }
 ```
 
-## Differences from the express `req` and `res` objects?
+## Differences from the Express `req` and `res` objects?
 
 You will not see any `req` or `res` objects in AdonisJS. This is because everything, including the request and the response, is part of the HTTP context.
 
-Also, you are encouraged to add your custom properties to the `ctx` object and NOT to the `request` object. See [extending Http context](#extending-context)
+Also, you are encouraged to add your custom properties to the `ctx` object and NOT to the `request` object. See [Extending context](#extending-context).
 
 ## Access HTTP context from anywhere
-AdonisJS uses the Node.js [async local storage](https://nodejs.org/dist/latest-v16.x/docs/api/async_context.html#class-asynclocalstorage) to make the HTTP context available anywhere inside your application.
+AdonisJS uses the Node.js [Async Local Storage](https://nodejs.org/dist/latest-v16.x/docs/api/async_context.html#class-asynclocalstorage) to make the HTTP context available anywhere inside your application.
 
-You can access the context for the current request as follows.
+You can access the context for the current request as follows:
 
 :::warning
 
-Make sure to thoroughly read the [async local storage](../fundamentals/async-local-storage.md) guide before using the `HttpContext.get` method.
+Make sure to thoroughly read the [Async Local Storage](../fundamentals/async-local-storage.md) guide before using the `HttpContext.get` method.
 
 :::
 
@@ -70,7 +70,7 @@ class SomeService {
 }
 ```
 
-## Http Context Properties
+## Properties
 
 Following is the list of properties available on the HTTP context. As you will install new packages, they may also add more properties to this object.
 
@@ -98,7 +98,7 @@ Route.get('/', async ({ response }) => {})
 
 ### logger
 
-Reference to the logger instance. A [child logger](../digging-deeper/logger.md#child_logger) instance with a unique [request id](./request.md#request-id) is created for every HTTP request.
+Reference to the logger instance. A [child logger](../digging-deeper/logger.md#child_logger) instance with a unique [request ID](./request.md#request-id) is created for every HTTP request.
 
 ```ts
 Route.get('/', async ({ logger }) => {})
@@ -149,7 +149,7 @@ Route.group(() => {
 
 ### session
 
-Reference to the [session object](./session.md). Available only when `@adonisjs/session` package is installed.
+Reference to the [Session object](./session.md). Available only when `@adonisjs/session` package is installed.
 
 ```ts
 Route.get('/', async ({ session }) => {
@@ -161,7 +161,7 @@ Route.get('/', async ({ session }) => {
 
 ### auth
 
-Reference to the [auth object](../auth/introduction.md). Available only when `@adonisjs/auth` package is installed.
+Reference to the [Auth object](../auth/introduction.md). Available only when `@adonisjs/auth` package is installed.
 
 ```ts
 Route.get('/', async ({ auth }) => {
@@ -173,7 +173,7 @@ Route.get('/', async ({ auth }) => {
 
 ### view
 
-Reference to the [view renderer object](../views/introduction.md). Available only when `@adonisjs/view` package is installed.
+Reference to the [View object](../views/introduction.md). Available only when `@adonisjs/view` package is installed.
 
 ```ts
 Route.get('/', async ({ view }) => {
@@ -185,7 +185,7 @@ Route.get('/', async ({ view }) => {
 
 ### ally
 
-Reference to the [ally object](../auth/social.md). Available only when `@adonisjs/ally` package is installed.
+Reference to the [Ally object](../auth/social.md). Available only when `@adonisjs/ally` package is installed.
 
 ```ts
 Route.get('/', async ({ ally }) => {
@@ -197,7 +197,7 @@ Route.get('/', async ({ ally }) => {
 
 ### bouncer
 
-Reference to the [bouncer object](../digging-deeper/authorization.md). Available only when `@adonisjs/bouncer` package is installed.
+Reference to the [Bouncer object](../digging-deeper/authorization.md). Available only when `@adonisjs/bouncer` package is installed.
 
 ```ts
 Route.get('/', async ({ bouncer }) => {
@@ -208,7 +208,7 @@ Route.get('/', async ({ bouncer }) => {
 ---
 
 ### i18n
-Reference to the [i18n class](../digging-deeper/i18n.md#usage-during-http-requests). Available only when `@adonisjs/i18n` package is installed.
+Reference to the [I18n object](../digging-deeper/i18n.md#usage-during-http-requests). Available only when `@adonisjs/i18n` package is installed.
 
 ```ts
 Route.get('/', async ({ i18n }) => {
@@ -238,11 +238,11 @@ export default class UserLocationMiddleware {
 
 Here we have added a custom `location` property to the `ctx`, which you can access inside the route handler or the upcoming middleware.
 
-### Informing typescript about the custom property
+### Informing TypeScript about the custom property
 
 The `location` property is added at the runtime; hence TypeScript does not know about it. To inform the TypeScript, we will use [declaration merging](https://www.typescriptlang.org/docs/handbook/declaration-merging.html#merging-interfaces) and add the property to the `HttpContextContract` interface.
 
-Create a new file at path `contracts/context.ts` (the filename is not important) and paste the following contents inside it.
+Create a new file at path `contracts/context.ts` (the file name is not important) and paste the following contents inside it:
 
 ```ts
 // title: contracts/context.ts
@@ -265,9 +265,10 @@ You can also use getters and macros for adding custom properties to the `ctx` ob
 
 Also, there is no need to create a middleware this time since you need to define the macros/getters only once, and they are available for all the instances of the HttpContext class.
 
-Open the pre-existing `providers/AppProvider.ts` file and paste the following code inside the `boot` method.
+Open the pre-existing `providers/AppProvider.ts` file and paste the following code inside the `boot` method:
 
 ```ts
+// title: providers/AppProvider.ts
 // highlight-start
 import geoip from 'geoip-lite'
 // highlight-end
@@ -290,7 +291,7 @@ export default class AppProvider {
 }
 ```
 
-By default, the getters are evaluated on every access. However, you can also mark them as singleton, as shown in the following example.
+By default, the getters are evaluated on every access. However, you can also mark them as singleton, as shown in the following example:
 
 ```ts
 HttpContext.getter(

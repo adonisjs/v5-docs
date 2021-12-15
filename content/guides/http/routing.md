@@ -2,7 +2,7 @@
 summary: Learn how to use the AdonisJS HTTP router to configure routes, route groups, subdomain routes, and resourceful routes.
 ---
 
-The users of your website or web application can visit different URL's like `/`, `/about` or `/posts/1`. To make these URLs work, you will have to define them as routes.
+The users of your website or web application can visit different URLs like `/`, `/about` or `/posts/1`. To make these URLs work, you will have to define them as routes.
 
 Routes are usually defined (but not limited to) inside the `start/routes.ts` file using the Route module.
 
@@ -62,7 +62,7 @@ Another approach is to get rid of the routes file altogether and use a custom fi
 
 ## List routes
 
-You can view the registered routes by running the following ace command.
+You can view the registered routes by running the following Ace command.
 
 ```sh
 node ace list:routes
@@ -625,7 +625,7 @@ Route
   .mustBeSigned()
 ```
 
-### Informing typescript about the method
+### Informing TypeScript about the method
 
 The `mustBeSigned` property is added at the runtime, and hence TypeScript does not know about it. To inform the TypeScript, we will use [declaration merging](https://www.typescriptlang.org/docs/handbook/declaration-merging.html#merging-interfaces) and add the property to the `RouteContract` interface.
 

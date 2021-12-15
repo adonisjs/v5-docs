@@ -2,7 +2,7 @@
 summary: Reference guide for the Hash module.
 ---
 
-AdonisJS Hash module allows you to hash the values using **Bcrypt** or **Argon2**, along with the option to add a custom hashing driver.
+AdonisJS Hash module allows you to hash the values using **bcrypt** or **Argon2**, along with the option to add a custom hashing driver.
 
 You can configure the driver of your choice inside the `config/hash.ts` file.
 
@@ -128,11 +128,11 @@ if (Hash.needsReHash(user.password)) {
 
 ## PHC string format
 
-The Bcrypt and the Argon2 drivers return the hash output per the [PHC string format](https://github.com/P-H-C/phc-string-format/blob/master/phc-sf-spec.md). It allows us to verify the hashes against the current configuration of a hasher and decide if the hash needs to be rehashed or not.
+The bcrypt and Argon2 drivers return the hash output per the [PHC string format](https://github.com/P-H-C/phc-string-format/blob/master/phc-sf-spec.md). It allows us to verify the hashes against the current configuration of a hasher and decide if the hash needs to be rehashed or not.
 
 ## Adding a custom driver
 
-The Hash module is extensible and allows you to register your own custom drivers. Every driver must implement the following `HashDriverContract` interface.
+The Hash module is extensible and allows you to register your own custom drivers. Every driver must implement the following `HashDriverContract` interface:
 
 ```ts
 interface HashDriverContract {
@@ -186,7 +186,7 @@ The `params` and the `ids` properties are something you need when using the PHC 
 
 Anytime you are extending the core of the framework. It is better to assume that you do not have access to the application code and its dependencies. In other words, write your extensions as if you are writing a third-party package and use dependency injection to rely on other dependencies.
 
-For demonstration purposes, let's create a dummy hash driver.
+For demonstration purposes, let's create a dummy hash driver:
 
 ```sh
 mkdir providers/HashDriver

@@ -196,7 +196,7 @@ Database.manager.on('db:connection:error', (error, connection) => {
 ---
 
 ### db\:connection\:disconnect
-Emitted when the connection and knex instance(s) have been destroyed.
+Emitted when the connection and Knex instance(s) have been destroyed.
 
 ```ts
 Database.manager.on('db:connection:disconnect', (connection) => {

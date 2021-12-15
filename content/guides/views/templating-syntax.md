@@ -1,5 +1,5 @@
 ---
-summary: A 101 guide to the edge templating syntax
+summary: A 101 guide to the Edge templating syntax
 ---
 
 With Edge, we ensure not to introduce too many new concepts and instead rely on the JavaScript language features.
@@ -7,7 +7,7 @@ With Edge, we ensure not to introduce too many new concepts and instead rely on 
 The syntax of Edge revolves around the two main primitives.
 
 - **Curly braces** are used to evaluate an expression and display its output value.
-- **Edge tags** are used to add new features to the template engine. The tags API is used by the core of edge and is also exposed to add custom tags.
+- **Edge tags** are used to add new features to the template engine. The tags API is used by the core of Edge and is also exposed to add custom tags.
 
 ## Curly braces
 
@@ -34,7 +34,7 @@ The double curly braces escape the output of the expression to keep your templat
 &lt;script&gt; alert(&#x60;foo&#x60;) &lt;/script&gt;
 ```
 
-However, in situations where you trust the expression, you can **instruct edge to not escape the value by using three curly braces.**
+However, in situations where you trust the expression, you can **instruct Edge to not escape the value by using three curly braces.**
 
 ```edge
 {{{ '<script> alert(`foo`) </script>' }}}
@@ -48,7 +48,7 @@ However, in situations where you trust the expression, you can **instruct edge t
 
 ## Ignoring curly braces
 
-You can instruct edge to ignore curly braces by prefixing the `@` symbol. This is usually helpful when you are using edge to generate the markup for another template engine.
+You can instruct Edge to ignore curly braces by prefixing the `@` symbol. This is usually helpful when you are using Edge to generate the markup for another template engine.
 
 ```edge
 Hello @{{ username }}
@@ -160,7 +160,7 @@ Seekable tags are the ones that accept one or more arguments. For example:
 @super
 ```
 
-The concept of seekable tags is introduced to optimize the edge compiler. For non seekable tags, the edge compiler does not wait for the opening and closing parenthesis to appear and moves to the next line.
+The concept of seekable tags is introduced to optimize the Edge compiler. For non seekable tags, the Edge compiler does not wait for the opening and closing parenthesis to appear and moves to the next line.
 
 ## Comments
 

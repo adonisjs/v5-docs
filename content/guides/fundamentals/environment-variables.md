@@ -2,7 +2,7 @@
 summary: Learn how to define and validate environment variables in AdonisJS
 ---
 
-Instead of maintaining multiple config files, one for each environment, AdonisJS uses [environment variables](https://en.wikipedia.org/wiki/Environment_variable) for values that often change between your local and the production environment. For example, The database credentials, a boolean flag to toggle templates caching, and so on.
+Instead of maintaining multiple config files, one for each environment, AdonisJS uses [environment variables](https://en.wikipedia.org/wiki/Environment_variable) for values that often change between your local and the production environment. For example: the database credentials, a boolean flag to toggle templates caching, and so on.
 
 ## Access environment variables
 
@@ -30,7 +30,7 @@ Env.get('PORT', 3333)
 
 Environment variables are injected from outside-in to your application, and you have little or no control over them within your codebase.
 
-For example, A section of your codebase relies on the existence of the `SESSION_DRIVER` environment variable.
+For example, a section of your codebase relies on the existence of the `SESSION_DRIVER` environment variable.
 
 ```ts
 const driver = process.env.SESSION_DRIVER

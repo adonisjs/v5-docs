@@ -1,5 +1,5 @@
 ---
-summary: Reference to the edge error reporters for customizing the shape of the error
+summary: Reference to the Edge error reporters for customizing the shape of the error
 ---
 
 Error formatters are helpful when you are writing an API server following a pre-defined spec like [JSON\:API](https://jsonapi.org/)

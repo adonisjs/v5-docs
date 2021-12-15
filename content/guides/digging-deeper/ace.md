@@ -1,12 +1,12 @@
 ---
-summary: Introduction to the ace command line. Ace is an embedded CLI framework and allows you to create project-specific commands.
+summary: Introduction to the Ace command line. Ace is an embedded CLI framework and allows you to create project-specific commands.
 ---
 
-Ace is a command-line framework embedded into the core of AdonisJS. Commands like `node ace serve` or `node ace make:controller` is powered by the ace CLI.
+Ace is a command-line framework embedded into the core of AdonisJS. Commands like `node ace serve` or `node ace make:controller` is powered by the Ace CLI.
 
 Ace also allows you to create custom commands by storing them locally within your project codebase.
 
-## Why we use ace instead of npm scripts?
+## Why we use Ace instead of npm scripts?
 
 The majority of the Node.js projects extensively make use of the [npm scripts](https://docs.npmjs.com/cli/v7/using-npm/scripts). Npm scripts are great, as they allow you to define scripts on a per-project basis vs. defining them globally somewhere on your computer.
 
@@ -24,7 +24,7 @@ node ace
 
 ![Help screen](https://res.cloudinary.com/adonis-js/image/upload/v1617207298/v5/ace-help.png)
 
-The `ace` is an extension-less JavaScript file that you can execute like any other Node.js program. Running this file will boot the command line framework and execute the mentioned command.
+The `ace` file is an extension-less JavaScript file that you can execute like any other Node.js program. Running this file will boot the command line framework and execute the mentioned command.
 
 You can list all the commands by running `node ace --help`, and view help for a particular command using `node ace <command-name> --help`.
 
@@ -42,13 +42,13 @@ Ace allows you and the packages you install to contribute commands. They are def
 }
 ```
 
-Every entry inside the array must point to a file that [exports an ace command](https://github.com/adonisjs/core/blob/develop/commands/GenerateKey.ts). Or it can export an [additional array of commands](https://github.com/adonisjs/core/blob/develop/commands/index.ts).
+Every entry inside the array must point to a file that [exports an Ace command](https://github.com/adonisjs/core/blob/develop/commands/GenerateKey.ts). Or it can export an [additional array of commands](https://github.com/adonisjs/core/blob/develop/commands/index.ts).
 
 The first entry, `./commands` is a reference to the commands directory of your project. Files inside this directory are scanned and registered as commands.
 
 ## Creating a new command
 
-You can create a new command by running the following ace command.
+You can create a new command by running the following Ace command.
 
 ```sh
 node ace make:command Greet
@@ -111,8 +111,8 @@ The settings property controls the runtime behavior of the command.
 
 | Option | Description |
 |---------|---------------|
-| **loadApp** | Instructs ace to boot the application before running the method. By default, commands do NOT load the application and are executed as independent scripts. |
-| **stayAlive** | Instructs ace to NOT kill the process after running the command. However, do make sure to manually kill the process using `await this.exit()` |
+| **loadApp** | Instructs Ace to boot the application before running the method. By default, commands do NOT load the application and are executed as independent scripts. |
+| **stayAlive** | Instructs Ace to NOT kill the process after running the command. However, do make sure to manually kill the process using `await this.exit()` |
 
 #### aliases
 
@@ -222,7 +222,7 @@ export default class Greet extends BaseCommand {
 }
 ```
 
-Make sure to generate the ace manifest file by running the following command.
+Make sure to generate the Ace manifest file by running the following command.
 
 ```sh
 node ace generate:manifest
@@ -1020,10 +1020,10 @@ export default class Greet extends BaseCommand {
 }
 ```
 
-## Generating the ace manifest file
-Ace manifest is a JSON index of all the registered commands. It allows ace to look up the command, the argument/flags it accepts without loading all the command files.
+## Generating the Ace manifest file
+Ace manifest is a JSON index of all the registered commands. It allows Ace to look up the command, the argument/flags it accepts without loading all the command files.
 
-Generating an index is essential for performance. Otherwise, importing all the commands, compiling them using the in-memory typescript compiler will take a lot of time, even to print the help screen.
+Generating an index is essential for performance. Otherwise, importing all the commands, compiling them using the in-memory TypeScript compiler will take a lot of time, even to print the help screen.
 
 AdonisJS automatically updates the `ace-manifest.json` file during the following events.
 

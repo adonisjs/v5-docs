@@ -13,7 +13,7 @@ You make a new migration file for every database schema change (i.e., create or 
 - During development, you can also roll back migrations to edit them.
 
 ## Creating your first migration
-You can create a new migration by running the following ace command. The migration files are stored inside the `database/migrations` directory.
+You can create a new migration by running the following Ace command. The migration files are stored inside the `database/migrations` directory.
 
 :::note
 You can also create a Lucid model and the migration together by running the `node ace make:model -m' flag.
@@ -56,7 +56,7 @@ export default class Users extends BaseSchema {
 ```
 
 ## Run & rollback migrations
-Once you have created the migration files you need, you can run the following ace command to process migrations. For example, the `migration:run` command executes the `up` method on all the migration files.
+Once you have created the migration files you need, you can run the following Ace command to process migrations. For example, the `migration:run` command executes the `up` method on all the migration files.
 
 ```sh
 node ace migration:run
@@ -356,7 +356,7 @@ Returns the current `status` of the migrator. It will always be one of the follo
 - The `error` status means there was an error in the migration process. You can read the actual error from the `migrator.error` property in case of error status.
 - The `skipped` status means there were no migrations to run or rollback.
 
-## Migrations Config
+## Migrations config
 The configuration for migrations is stored inside the `config/database.ts` file under the connection config object.
 
 ```ts
