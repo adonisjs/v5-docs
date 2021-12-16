@@ -2,7 +2,7 @@
 summary: OAuth-based social authentication using the `@adonisjs/ally` package.
 ---
 
-Along with the standard authentication, AdonisJS also ships with a package to help you implement social authentication with OAuth providers like **Google**, **Twitter**, **Github**, and so on.
+Along with the standard authentication, AdonisJS also ships with a package to help you implement social authentication with OAuth providers like **Google**, **Twitter**, **GitHub**, and so on.
 
 :::div{class="setup"}
 
@@ -31,7 +31,7 @@ node ace configure @adonisjs/ally
  * by the configured social drivers.
  *
  * Following is an example of validating the env vars for
- * the google provider
+ * the Google provider
  */
 
 export default Env.rules({
@@ -45,13 +45,13 @@ export default Env.rules({
 
 :::div{class="features"}
 
-- Support for multiple providers. **Google**, **Twitter**, **LinkedIn**, **Facebook**, **Discord**, **Spotify**, and **Github**
+- Support for multiple providers. **Google**, **Twitter**, **LinkedIn**, **Facebook**, **Discord**, **Spotify**, and **GitHub**
 - Extensible API to add custom social providers
 
 &nbsp;
 
 - [View on npm](https://npm.im/@adonisjs/ally)
-- [View on Github](https://github.com/adonisjs/ally)
+- [View on GitHub](https://github.com/adonisjs/ally)
 
 :::
 
@@ -176,7 +176,7 @@ Route.get('/github/callback', async ({ ally }) => {
 ### Marking user as logged in
 Ally decouples itself from the Authentication flow used by your application. Its only job is to manage the lifecycle of an OAuth request and give you the user details shared by the OAuth provider.
 
-Once you have the user details, you can decide how to store them and authenticate the user in your application. For example: After the github login, you may create a new user account and then create a session using the [web authentication guard.](./web-guard.md) For example:
+Once you have the user details, you can decide how to store them and authenticate the user in your application. For example: After the GitHub login, you may create a new user account and then create a session using the [web authentication guard](./web-guard.md). For example:
 
 ```ts
 import User from 'App/Models/User'
@@ -421,7 +421,7 @@ if(ally.use('github').hasCode()) {
 Following is the list of available configuration options for all the officially available drivers.
 
 <details>
-  <summary>Github</summary>
+  <summary>GitHub</summary>
 
 ```ts
 github: {
@@ -430,7 +430,7 @@ github: {
   clientSecret: '',
   callbackUrl: '',
 
-  // Github specific
+  // GitHub specific
   login: 'adonisjs',
   scopes: ['user', 'gist'],
   allowSignup: true,
@@ -514,7 +514,7 @@ google: {
   clientSecret: '',
   callbackUrl: '',
 
-  // Linkedin specific
+  // LinkedIn specific
   scopes: ['r_emailaddress', 'r_liteprofile'],
 }
 ```

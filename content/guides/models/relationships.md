@@ -5,8 +5,8 @@ summary: An in-depth reference to relationships in Lucid ORM data models
 The Lucid data models have out of box support for working with relationships. You have to define the relationships on your models, and Lucid will do all the heavy lifting of constructing the underlying SQL queries.
 
 
-## Has one
-Has one creates a `one-to-one` relationship between two models. For example, **A user has a profile**. The has one relationship needs a foreign key in the related table.
+## HasOne
+HasOne creates a `one-to-one` relationship between two models. For example, **A user has a profile**. The has one relationship needs a foreign key in the related table.
 
 Following is an example table structure for the has one relationship. The `profiles.user_id` is the foreign key and forms the relationship with the `users.id` column.
 
@@ -106,8 +106,8 @@ The local key is always the **primary key of the parent model** but can also be 
 public profile: HasOne<typeof Profile>
 ```
 
-## Has many
-Has-many creates a `one-to-many` relationship between two models. For example, **A user has many posts**. The hasMany relationship needs a foreign key in the related table.
+## HasMany
+HasMany creates a `one-to-many` relationship between two models. For example, **A user has many posts**. The hasMany relationship needs a foreign key in the related table.
 
 Following is an example table structure for the hasMany relationship. The `posts.user_id` is the foreign key and forms the relationship with the `users.id` column.
 
@@ -207,8 +207,8 @@ The local key is always the **primary key of the parent model** but can also be 
 public posts: HasMany<typeof Post>
 ```
 
-## Belongs to
-Belongs to is the inverse of the `hasOne` and the `hasMany` relationship. So, for example, **profile belongs to a user** and **a post belongs to a user**.
+## BelongsTo
+BelongsTo is the inverse of the `hasOne` and the `hasMany` relationship. So, for example, **profile belongs to a user** and **a post belongs to a user**.
 
 You can leverage the same table structure and the same foreign key conventions to define a belongsTo relationship.
 
@@ -237,7 +237,7 @@ export default class Profile extends BaseModel {
 }
 ```
 
-## Many to Many
+## ManyToMany
 A many-to-many relationship is slightly complex, as it allows both sides to have more than one relationship with each other. For example: **A user can have many skills**, and **a skill can also belong to many users**.
 
 You need a third table (usually known as a pivot table) for this relationship to work. The pivot table holds the foreign keys for both the other tables.
@@ -422,8 +422,8 @@ To disable a particular timestamp, you can set its value to `false`.
 public skills: ManyToMany<typeof Skill>
 ```
 
-## Has many through
-Has many through relationship is similar to a `hasMany` relationship but creates the relationship through an intermediate model. For example, **A country has many posts through users**.
+## HasManyThrough
+The HasManyThrough relationship is similar to the `HasMany` relationship but creates the relationship through an intermediate model. For example, **A country has many posts through users**.
 
 - This relationship needs the through model (i.e., User) to have a foreign key reference with the current model (i.e., Country).
 The related model (i.e., Post) has a foreign key reference with the through model (i.e., User).

@@ -1,24 +1,24 @@
 ---
-summary: An introduction to the Lucid ORM data models, built on the Active record pattern.
+summary: An introduction to the Lucid ORM data models, built on the active record pattern.
 ---
 
-Along with the Database query builder, Lucid also has data models built on top of the [Active record pattern](https://en.wikipedia.org/wiki/Active_record_pattern).
+Along with the Database query builder, Lucid also has data models built on top of the [active record pattern](https://en.wikipedia.org/wiki/Active_record_pattern).
 
 The data models layer of Lucid makes it super easy to **perform CRUD operations**, **manage relationships between models**, and **define lifecycle hooks**. 
 
 We recommend using models extensively and reach for the standard query builder for particular use cases.
 
-## What is the Active record pattern?
+## What is the active record pattern?
 
-Active Record is also the name of the ORM used by Ruby on Rails. However, the Active record pattern is a broader concept that any programming language or framework can implement.
+Active Record is also the name of the ORM used by Ruby on Rails. However, the active record pattern is a broader concept that any programming language or framework can implement.
 
 :::note
 
-Whenever we say the term **Active record**, we are talking about the pattern itself and not the implementation of Rails.
+Whenever we say the term **active record**, we are talking about the pattern itself and not the implementation of Rails.
 
 :::
 
-The Active record pattern advocates encapsulating the database interactions to language-specific objects or classes. Each database table gets its model, and each instance of that class represents a table row.
+The active record pattern advocates encapsulating the database interactions to language-specific objects or classes. Each database table gets its model, and each instance of that class represents a table row.
 
 The data models clean up many database interactions since you can encode most of the behavior inside your models vs. writing it everywhere inside your codebase. 
 
@@ -56,7 +56,7 @@ return users.map((user) => user.toJSON()) // date is formatted during `toJSON` c
 ```
 
 ## Creating your first model
-Assuming you already have lucid [setup](../database/introduction.md), run the following command to create your first data model.
+Assuming you already have Lucid [set up](../database/introduction.md), run the following command to create your first data model.
 
 ```sh
 node ace make:model User
@@ -258,7 +258,7 @@ export default class User extends BaseModel {
 }
 ```
 
-## FAQ's
+## FAQs
 
 <details>
   <summary>Does models creates the database tables automatically?</summary>

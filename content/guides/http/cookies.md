@@ -117,7 +117,7 @@ By default, all the cookies set by the `response.cookie` method are signed. Sign
 
 - The signature is computed from the cookie value, and in case of tampering, the signature will mismatch, and AdonisJS will ignore the cookie.
 - The signature is generated using the `appKey` stored inside the `config/app.ts` file.
-- The signed cookies are still readable by base64 decoding them. You can use encrypted cookies if you want the value to be unreadable.
+- The signed cookies are still readable by Base64 decoding them. You can use encrypted cookies if you want the value to be unreadable.
 
 ```ts
 Route.get('/', async ({ request, response }) => {
@@ -154,7 +154,7 @@ Route.get('/', async ({ request }) => {
 
 ## Plain cookies
 
-Plain cookies hold base64 encoded values with no signature or encryption in place. They are usually helpful when you want to access the cookie on frontend JavaScript and read/write its value.
+Plain cookies hold Base64 encoded values with no signature or encryption in place. They are usually helpful when you want to access the cookie on frontend JavaScript and read/write its value.
 
 You can define a plain cookie using the `plainCookie` method. For example:
 
@@ -172,7 +172,7 @@ response.plainCookie('user_id', 1, {
 })
 ```
 
-You can read the cookie value inside JavaScript using the `document.cookie` property. Make sure to base64 decode and JSON parse the value.
+You can read the cookie value inside JavaScript using the `document.cookie` property. Make sure to Base64 decode and JSON parse the value.
 
 :::note
 The following example is a naive implementation for reading the cookie value for demonstration only.

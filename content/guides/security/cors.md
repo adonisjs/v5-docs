@@ -1,9 +1,9 @@
-The support for [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) is baked into the framework core, and hence there is no need to install any additional packages.
+[Cross-Origin Resource Sharing](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) support is baked into the framework core, and hence there is no need to install any additional packages.
 
-Make sure the cors is enabled inside the `config/cors.ts` file by setting the `enabled` property to true.
+Make sure CORS is enabled inside the `config/cors.ts` file by setting the `enabled` property to true.
 
 :::note
-If the config file is missing, then create a new one manually and copy/paste the contents from the [cors stub](https://github.com/adonisjs/core/blob/develop/templates/config/cors.txt)
+If the config file is missing, then create a new one manually and copy/paste the contents from the [CORS stub](https://github.com/adonisjs/core/blob/develop/templates/config/cors.txt).
 :::
 
 ```ts
@@ -17,7 +17,7 @@ If the config file is missing, then create a new one manually and copy/paste the
 You can control the origins to allow for the CORS request using the `origin` property. This property controls the [Access-Control-Allow-Origin](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin) header.
 
 #### Boolean value
-Setting the value to `true` will allow all the origins. Whereas setting the value to `false` will dis-allow all the origins.
+Setting the value to `true` will allow any origin. Whereas setting the value to `false` will disallow any origin.
 
 ```ts
 {

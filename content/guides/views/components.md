@@ -11,7 +11,7 @@ Do note, Edge is a backend template engine, and we cannot replicate some of the 
 
 ## Creating a component
 
-Components are represented using the regular edge template files. For example, You can create a file named `button.edge` with the following markup.
+Components are represented using the regular Edge template files. For example, You can create a file named `button.edge` with the following markup.
 
 ```edge
 <button type="{{ type }}">
@@ -256,7 +256,7 @@ The injected values are available on the `$context` variable.
 ```
 
 ## Components as tags
-Edge allows you to reference the components stored inside the `./resources/views/components` directory as edge tags.
+Edge allows you to reference the components stored inside the `./resources/views/components` directory as Edge tags.
 
 Create the following template inside the `resources/views/components/button.edge` file.
 

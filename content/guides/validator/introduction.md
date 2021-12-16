@@ -220,7 +220,7 @@ Also, since you perform the validation outside of an HTTP request, you will have
 ## Validator classes
 Validator classes allow you to extract the inline schema from your controllers and move them to a dedicated class.
 
-You can create a new validator by executing the following ace command.
+You can create a new validator by executing the following Ace command.
 
 ```sh
 node ace make:validator CreateUser

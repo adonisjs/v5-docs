@@ -653,7 +653,7 @@ fsReadAll(join(__dirname, 'config'), (filePath) => {
 ```
 
 ## base64
-Encode/decode base64 values. Make use of the `urlEncode` and `urlDecode` methods if you want to pass the encoded value to a URL.
+Encode/decode Base64 values. Make use of the `urlEncode` and `urlDecode` methods if you want to pass the encoded value to a URL.
 
 ```ts
 import { base64 } from '@ioc:Adonis/Core/Helpers'
@@ -752,7 +752,7 @@ class User extends compose(
 #### Mixins gotchas
 TypeScript has an [open issue](https://github.com/microsoft/TypeScript/issues/37142) related to the constructor arguments of the mixin class or the base class.
 
-TypeScript expects all classes used in the mixin chain to have a constructor with only one argument of `...args: any[]`. For example: **The following code will work fine at runtime, but the typescript compiler complains about it**.
+TypeScript expects all classes used in the mixin chain to have a constructor with only one argument of `...args: any[]`. For example: **The following code will work fine at runtime, but the TypeScript compiler complains about it**.
 
 ```ts
 class BaseModel {
@@ -787,7 +787,7 @@ const UserWithEmail = <T extends NormalizeConstructor<typeof BaseModel>>(
 ```
 
 ## cuid
-Generate a [collision resistant id](https://github.com/ericelliott/cuid).
+Generate a [collision-resistant ID](https://github.com/ericelliott/cuid).
 
 ```ts
 import { cuid } from '@ioc:Adonis/Core/Helpers'

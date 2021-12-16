@@ -1,4 +1,4 @@
-As per the [Node.js official documentation](https://nodejs.org/dist/latest-v16.x/docs/api/async_hooks.html#async_hooks_class_asynclocalstorage) - "AsyncLocalStorage is used to create asynchronous state within callbacks and promise chains. **It allows storing data throughout the lifetime of a web request or any other asynchronous duration. It is similar to thread-local storage in other languages**."
+As per the [Node.js official documentation](https://nodejs.org/docs/latest-v14.x/api/async_hooks.html): "AsyncLocalStorage is used to create asynchronous state within callbacks and promise chains. **It allows storing data throughout the lifetime of a web request or any other asynchronous duration. It is similar to thread-local storage in other languages**."
 
 To simplify the explanation further, AsyncLocalStorage allows you to store a state when executing an async function and then make it available to all the code paths within that function. For example:
 
@@ -38,7 +38,7 @@ run(2)
 run(3)
 ```
 
-Finally, the `./ModuleA` can access the state using the `storage.getStore()` method.
+Finally, `ModuleA` can access the state using the `storage.getStore()` method.
 
 ```ts
 // title: ModuleA.ts
@@ -57,11 +57,11 @@ export default class ModuleA {
 }
 ```
 
-Like `ModuleA`, the `ModuleB` can also access the same state using the `storage.getStore` method. 
+Like `ModuleA`, `ModuleB` can also access the same state using the `storage.getStore` method. 
 
 In other words, the entire chain of operations has access to the same state initially set inside the `main.js` file during the `storage.run` method call.
 
-## What is the need for Async local storage?
+## What is the need for Async Local Storage?
 Unlike other languages like PHP, Node.js is not a threaded language.
 
 In PHP, every HTTP request creates a new thread, and each thread has its memory. This allows you to store the state into the global memory and access it anywhere inside your codebase.
@@ -127,7 +127,7 @@ export default class User extends BaseModel {
 }
 ```
 
-The model static properties (not methods) cannot access the HTTP context as they are evaluated when importing the model. So you must understand the code execution path and [use the ALS carefully](#things-to-be-aware-of-when-using-als).
+The model static properties (not methods) cannot access the HTTP context as they are evaluated when importing the model. So you must understand the code execution path and [use ALS carefully](#things-to-be-aware-of-when-using-als).
 
 ## Usage
 To use ALS within your apps, you must enable it first inside the `config/app.ts` file. Feel free to create the property manually if it doesn't exist.
@@ -156,14 +156,14 @@ class SomeService {
 ```
 
 ## How should it be used?
-At this point, you can consider Async local storage as a request-specific global state. [Global state or variables are generally considered bad](https://wiki.c2.com/?GlobalVariablesAreBad) as they make testing and debugging a lot harder.
+At this point, you can consider Async Local Storage as a request-specific global state. [Global state or variables are generally considered bad](https://wiki.c2.com/?GlobalVariablesAreBad) as they make testing and debugging a lot harder.
 
-Node.js Async local storage can get even trickier if you are not careful enough to access the local storage within the HTTP request.
+Node.js Async Local Storage can get even trickier if you are not careful enough to access the local storage within the HTTP request.
 
-We recommend you still write your code as you were writing earlier (passing `ctx` by reference), even if you have access to the async local storage. Passing data by reference conveys a clear execution path and makes it easier to test your code in isolation.
+We recommend you still write your code as you were writing earlier (passing `ctx` by reference), even if you have access to the Async Local Storage. Passing data by reference conveys a clear execution path and makes it easier to test your code in isolation.
 
-### Then why have you introduced async local storage?
-Async local storage shines with the APM tools. The tools that collect performance metrics from your app and help you debug/pinpoint problems.
+### Then why have you introduced Async Local Storage?
+Async Local Storage shines with APM tools, which collect performance metrics from your app to help you debug and pinpoint problems.
 
 Before ALS, there was no simple way for APM tools to relate different resources with a given HTTP request. For example, It can show you the time taken by a given SQL query but cannot tell you which HTTP request executed that query.
 
@@ -175,7 +175,7 @@ You are free to use ALS if you think it makes your code more straightforward and
 However, be aware of the following situations that can usually lead to memory leaks or unstable behavior of the program.
 
 ### Top-level access
-Never access the async local storage at the top level of any module. For example:
+Never access the Async Local Storage at the top level of any module. For example:
 
 #### ❌ Does not work
 In Node.js, the modules are cached. So `HttpContext.get()` method will be executed only once during the first HTTP request and holds its `ctx` forever during the lifecycle of your process.

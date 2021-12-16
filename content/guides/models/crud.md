@@ -283,7 +283,7 @@ const usersToCreate = [
 await User.updateOrCreateMany('email', usersToCreate)
 ```
 
-## Additional Reading
+## Additional reading
 
 - Checkout the [Base model reference guide](../../reference/orm/base-model.md) to view all the available methods and properties.
 - Also, read the reference docs for the [model query builder](../../reference/orm/query-builder.md).

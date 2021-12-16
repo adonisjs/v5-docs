@@ -38,7 +38,7 @@ Fitting all the validation rules, the database query builder methods within guid
 Cookbooks are actionable guides to help you achieve a practical task. Also, feel free to contribute to cookbooks by sending a PR.
 
 ## Awesome list
-A [Github repository](https://github.com/adonisjs-community/awesome-adonisjs) holding a curated list of **awesome AdonisJS packages**, **articles**, **meetups** and other resources created by the community members.
+A [GitHub repository](https://github.com/adonisjs-community/awesome-adonisjs) holding a curated list of **awesome AdonisJS packages**, **articles**, **meetups** and other resources created by the community members.
 
 Feel free to explore and find the packages you need or [submit your work](https://github.com/adonisjs-community/awesome-adonisjs/blob/master/CONTRIBUTING.md) to the list.
 
@@ -48,11 +48,11 @@ Editors with support for TypeScript are all you need to work with your AdonisJS 
 
 :::note
 
-We are looking for contributors to add support for edge template syntax to other editors as well. Here is an [extensive syntax guide](https://github.com/edge-js/syntax) to test your integration.
+We are looking for contributors to add support for Edge template syntax to other editors as well. Here is an [extensive syntax guide](https://github.com/edge-js/syntax) to test your integration.
 
 :::
 
-- [VS Code edge templating syntax](https://marketplace.visualstudio.com/items?itemName=luongnd.edge) is a community package to syntax highlight the edge templates.
-- [VS code go to controller](https://marketplace.visualstudio.com/items?itemName=stef-k.adonis-js-goto-controller) is a community package to add **click + go to controller** support.
-- [VS code go to view](https://marketplace.visualstudio.com/items?itemName=stef-k.adonis-js-goto-view) is a community package to add **click + go to a template file** support.
-- [Sublime text edge templating syntax](https://github.com/edge-js/edge-sublime) is an official extension to syntax highlight the edge templates.
+- [VS Code: Edge template support](https://marketplace.visualstudio.com/items?itemName=luongnd.edge) is a community package to syntax highlight the Edge templates.
+- [VS Code: Adonis JS Goto Controller](https://marketplace.visualstudio.com/items?itemName=stef-k.adonis-js-goto-controller) is a community package to add **click + go to controller** support.
+- [VS Code: Adonis JS Goto View](https://marketplace.visualstudio.com/items?itemName=stef-k.adonis-js-goto-view) is a community package to add **click + go to a template file** support.
+- [Sublime Text: Edge templates extension](https://github.com/edge-js/edge-sublime) is an official extension to syntax highlight the Edge templates.

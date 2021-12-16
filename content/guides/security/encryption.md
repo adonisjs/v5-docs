@@ -2,7 +2,7 @@
 summary: Reference guide for the Encryption module
 ---
 
-You can make use of the AdonisJS encryption module to encrypt/decrypt the values in your application.
+You can make use of the AdonisJS encryption module to encrypt and decrypt values in your application.
 
 ```ts
 import Encryption from '@ioc:Adonis/Core/Encryption'
@@ -10,9 +10,9 @@ import Encryption from '@ioc:Adonis/Core/Encryption'
 const encrypted = Encryption.encrypt('hello-world')
 ```
 
-The encryption is based on the `aes-256-cbc` algorithm and uses the `appKey` saved inside the `config/app.ts` file as the secret for encryption.
+The encryption is based on the `aes-256-cbc` algorithm, and uses the `appKey` saved inside the `config/app.ts` file as the secret for encryption.
 
-## Encrypting/Decrypting values
+## Encrypting/decrypting values
 
 The encryption module also generates a unique [iv](https://en.wikipedia.org/wiki/Initialization_vector) for every encryption call. Hence encrypting the same value twice will result in a different visual output.
 

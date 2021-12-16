@@ -89,9 +89,9 @@ The `menu.json` file has the following structure
 
 ## Rendering HTML
 
-We make use of a self written [@dimerapp/content](https://npm.im/@dimerapp/content) module to render markdown to HTML using edge templates in the middle.
+We make use of a self written [@dimerapp/content](https://npm.im/@dimerapp/content) module to render markdown to HTML using Edge templates in the middle.
 
-We begin by first converting Markdown to an AST and then render each node of the AST using edge templates. This allow to spit custom markup. Checkout the [./resources/views/elements](./resources/views/elements) directory to see how we are using it.
+We begin by first converting Markdown to an AST and then render each node of the AST using Edge templates. This allow to spit custom markup. Checkout the [./resources/views/elements](./resources/views/elements) directory to see how we are using it.
 
 The code blocks are rendered using the [shiki](https://github.com/shikijs/shiki). The module uses VsCode grammar and themes to process the code blocks. Also, code blocks are processed on the backend and the client receives formatted HTML.
 

@@ -2,13 +2,13 @@
 summary: Authenticate requests using Opaque access tokens
 ---
 
-The API guard uses the database backed **opaque access token** to authenticate the user requests. You may want to use the api guard when creating an API that should be accessed by a third-party client, or for any other system that does not support cookies.
+The API guard uses the database-backed **opaque access token** to authenticate the user requests. You may want to use the API guard when creating an API that should be accessed by a third-party client, or for any other system that does not support cookies.
 
 ## Tokens storage
 The API tokens guard allows you store tokens either in a SQL database or store them inside Redis. Both the storage options have their own use cases.
 
 ### SQL storage
-The SQL storage is suited when api tokens are not primary mode of authentication. For example: You may want to allow the users of your application to create personal access tokens (just like the way github does) and authenticate the API requests using that.
+The SQL storage method is suitable when API tokens are not the primary mode of authentication. For example: You may want to allow the users of your application to create personal access tokens (just like the way GitHub does) and authenticate the API requests using that.
 
 In this scenario, you will not generate too many tokens in bulk and also most of the tokens will live forever.
 
@@ -53,7 +53,7 @@ The foreign key to build the relationship between the user and the token. Later,
 ---
 
 ### Redis storage
-The redis storage is suitable when API tokens are the primary mode of authentication. For example: You authenticate the requests from your mobile app using token based authentication.
+The redis storage is suitable when API tokens are the primary mode of authentication. For example: You authenticate the requests from your mobile app using token-based authentication.
 
 In this scenario, you would also want tokens to expire after a given period of time and redis can automatically clear the expired tokens from its storage.
 
@@ -219,7 +219,7 @@ await auth.use('api').attempt(email, password, {
 ---
 
 ### name
-The name to associate with the token. This is usually helpful when you allow the users of your application to generate personal access tokens (just like the way Github does) and give them a memorable name.
+The name to associate with the token. This is usually helpful when you allow the users of your application to generate personal access tokens (just like the way GitHub does) and give them a memorable name.
 
 The name property only exists, when you have defined it at the time of generating the token.
 

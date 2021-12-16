@@ -91,7 +91,7 @@ class User extends Model {
 }
 ```
 
-## Config Reference
+## Config reference
 
 As you install and configure AdonisJS packages, they may create new config files. Following is a list of config files (with their default templates) used by the different parts of the framework.
 

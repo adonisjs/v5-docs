@@ -2,7 +2,7 @@
 summary: Learn how to create and use layouts in edge
 ---
 
-Layouts in edge allow you to define the main layout for your pages and then override specific sections as needed.
+Layouts in Edge allow you to define the main layout for your pages and then override specific sections as needed.
 
 ## Basic example
 

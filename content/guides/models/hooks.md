@@ -49,7 +49,7 @@ During the update, you may have updated other properties but NOT the user passwo
 
 The `$dirty` object only contains the changed values. So, you can check if the password was changed and then hash the new value.
 
-## Available Hooks
+## Available hooks
 Following is the list of all the available hooks. Make sure to read the [decorators API docs](../../reference/orm/decorators.md) as well.
 
 | Hook | Description |

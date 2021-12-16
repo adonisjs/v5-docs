@@ -487,7 +487,7 @@ Route.post('users', ({ response }) => {
 })
 ```
 
-### Informing typescript about the method
+### Informing TypeScript about the method
 
 The `flash` property is added at the runtime, and hence TypeScript does not know about it. To inform the TypeScript, we will use [declaration merging](https://www.typescriptlang.org/docs/handbook/declaration-merging.html#merging-interfaces) and add the property to the `ResponseContract` interface.
 

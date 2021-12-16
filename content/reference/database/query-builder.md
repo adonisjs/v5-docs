@@ -1449,7 +1449,7 @@ results.total
 ### hasPages
 A boolean to know if there are pages for pagination. You can rely on this value to decide when or when not to show the pagination links.
 
-Following is an example of the edge view.
+Following is an example of the Edge view.
 
 ```edge
 @if(results.hasPages)
@@ -1513,7 +1513,7 @@ result.getPreviousPageUrl() // /?page=1
 ### getUrlsForRange
 Returns URLs for a given range. Helpful when you want to render links for a given range.
 
-Following is an example of using `getUrlsForRange` inside an edge template.
+Following is an example of using `getUrlsForRange` inside an Edge template.
 
 ```edge
 @each(

@@ -42,7 +42,7 @@ connection.connect()
 ---
 
 ### disconnect
-The `disconnect` method disconnects the underlying driver connection and destroys the knex instance(s).
+The `disconnect` method disconnects the underlying driver connection and destroys the Knex instance(s).
 
 ```ts
 await connection.disconnect()
@@ -70,7 +70,7 @@ connection.readPool.numFree()
 ---
 
 ### client/readClient
-Reference to the underlying knex instance. The property is available only after the `connect` method is called.
+Reference to the underlying Knex instance. The property is available only after the `connect` method is called.
 
 ```ts
 connection.client
@@ -143,7 +143,7 @@ connection.on('error', (error, self) => {
 ---
 
 ### disconnect
-Emitted when the connection and knex instance(s) have been destroyed.
+Emitted when the connection and Knex instance(s) have been destroyed.
 
 ```ts
 connection.on('disconnect', (self) => {
@@ -154,7 +154,7 @@ connection.on('disconnect', (self) => {
 ---
 
 ### disconnect\:error
-Emitted when the unable to disconnect or destroy knex instance(s).
+Emitted when the unable to disconnect or destroy Knex instance(s).
 
 ```ts
 connection.on('disconnect:error', (error, self) => {

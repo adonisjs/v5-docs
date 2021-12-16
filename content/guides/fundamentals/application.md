@@ -8,13 +8,13 @@ When you start the HTTP server from the `server.ts` file or run the `node ace se
 
 Whereas running the `node ace repl` command boots the application in the **repl** environment. All other commands boot the application in the **console** environment.
 
-The environment of the application plays an essential role in deciding which actions to perform. For example, The **web** environment does not register or boot the ace providers.
+The environment of the application plays an essential role in deciding which actions to perform. For example, The **web** environment does not register or boot the Ace providers.
 
 You can access the current environment of the application using the `environment` property. Following is the list of known application environments.
 
 - `web` environment refers to the process started for the HTTP server.
-- `console` environment refers to the ace commands except for the repl command.
-- `repl` environment refers to the process started using node ace repl command.
+- `console` environment refers to the Ace commands except for the REPL command.
+- `repl` environment refers to the process started using node ace REPL command.
 - `test` environment is reserved for the future when AdonisJS will have the inbuilt test runner.
 
 ```ts
@@ -22,7 +22,7 @@ import Application from '@ioc:Adonis/Core/Application'
 console.log(Application.environment)
 ```
 
-## Boot Lifecycle
+## Boot lifecycle
 
 Following is the boot lifecycle of the application. 
 

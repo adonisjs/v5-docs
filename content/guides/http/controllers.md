@@ -120,7 +120,7 @@ Route.get('/posts', async (ctx) => {
 
 Manually importing the controller, instantiating the class instance is still too much code, considering a decent-sized application can go over 100 routes.
 
-### Betting on the typescript future
+### Betting on the TypeScript future
 
 The string-based reference provides the best of both worlds. The controllers are lazy-loaded, and the syntax is concise.
 
