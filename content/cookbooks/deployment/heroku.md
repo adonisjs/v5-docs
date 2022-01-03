@@ -46,8 +46,8 @@ You can now push your code to Heroku by running the `git push heroku master` com
 - It will detect your application as a Node.js app and use the `heroku/nodejs` buildpack to build and deploy it.
 - It will detect the `build` script inside the `package.json` file and build your TypeScript code to JavaScript. **You must always run the JavaScript code in production**.
 - Post-build, it will [prune](https://docs.npmjs.com/cli/v7/commands/npm-prune) the development dependencies.
-- Runs the `release` script defined inside the `Profile.
-- Runs the `web` script defined inside the `Profile.
+- Runs the `release` script defined inside the `Procfile`.
+- Runs the `web` script defined inside the `Procfile`.
 
 ## Using database
 You can use the Heroku add-ons to add a database to your application. Just make sure to define the required environment variables for AdonisJS to connect to your database.
