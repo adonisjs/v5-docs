@@ -258,7 +258,7 @@ import CreateUser from 'App/Validators/CreateUserValidator'
 
 Route.post('users', async ({ request, response }) => {
   // highlight-start
-  await request.validate(CreateUser)
+  const payload = await request.validate(CreateUser)
   // highlight-end
 })
 ```
@@ -269,7 +269,7 @@ You can also manually construct the class instance and pass any arguments you li
 
 ```ts
 Route.post('users', async ({ request, response }) => {
-  await request.validate(
+  const payload = await request.validate(
     new CreateUser({
       countries: fetchAllowedCountries(),
       states: fetchAllowedStates()
