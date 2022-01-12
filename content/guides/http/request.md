@@ -501,8 +501,8 @@ return Buffer.from('hello-world').toString(charset || 'utf-8')
 
 ---
 
-### charset
-The `charset` method returns an array of accepted charsets by inspecting the `Accept-charset` header. The array is ordered by the client's preference (most preferred first).
+### charsets
+The `charsets` method returns an array of accepted charsets by inspecting the `Accept-charset` header. The array is ordered by the client's preference (most preferred first).
 
 ```ts
 const charsets = request.charsets()
