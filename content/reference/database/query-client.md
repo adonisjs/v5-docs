@@ -124,6 +124,18 @@ console.log(columns)
 
 ---
 
+### dropAllTables
+Drop all tables inside the database.
+
+```ts
+await client.dropAllTables()
+
+// specify schemas ( for Postgres and Redshift )
+await client.dropAllTables(['public'])
+```
+
+---
+
 ### truncate
 Truncate a database table. Optionally you can also cascade foreign key references.
 
