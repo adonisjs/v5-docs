@@ -127,7 +127,7 @@ node ace migration:fresh --seed
 
 :::warning
 
-`migration:fresh` and `db:wipe` commands will drop all database tables regardless of their prefix. These command should be used with caution when developing on a database that is shared with other applications.
+`migration:fresh` and `db:wipe` commands will drop all database tables. These command should be used with caution when developing on a database that is shared with other applications.
 
 :::
 
