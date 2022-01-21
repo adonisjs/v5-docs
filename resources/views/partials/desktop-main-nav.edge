@@ -16,43 +16,32 @@
           </li>
         @endif
       @else
-        <li
-          x-data="{ expanded: false }"
-          :class="{ 'expanded': expanded }"
-          @click.away="expanded = false"
-        >
-          <a
-            href="#"
-            @click.prevent="expanded = !expanded"
-            class="{{ name === doc.zone ? 'up-current' : '' }}"
-            up-alias="/{{ name.toLowerCase() }}/*"
-          >
-            {{ name }}
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-down" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-              <polyline points="6 9 12 15 18 9" />
-            </svg>
-          </a>
-          <ul class="dropdown">
-            @each(group in groups)
-              <li>
-                <a
-                  href="{{ group.landingDoc.url }}"
-                  up-follow
-                  up-preload
-                  @click="expanded = false"
-                >{{ group.name }}</a>
-              </li>
-            @endeach
-          </ul>
-        </li>
+        @!component('components/dropdown', {
+          name,
+          active: name === doc.zone,
+          items: groups.map(group => ({
+            name: group.name,
+            url: group.landingDoc.url,
+            active: name === doc.zone,
+          }))
+        })
       @endif
     @endeach
-    <li>
-      <a href="https://packages.adonisjs.com" target="_blank">
-        Packages
-      </a>
-    </li>
+    @!component('components/dropdown', {
+      name: 'About',
+      items: [
+        {
+          name: 'News',
+          url: 'https://news.adonisjs.com',
+          external: true
+        },
+        {
+          name: 'Packages',
+          url: 'https://packages.adonisjs.com',
+          external: true
+        },
+      ],
+    })
     <li class="github-cta-wrapper">
       <a href="https://github.com/adonisjs/core" target="_blank">
         <svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M11.925 0C5.366 0 0 5.366 0 11.925c0 5.218 3.429 9.69 8.199 11.33.596.149.745-.299.745-.597v-2.087c-3.28.746-4.025-1.49-4.025-1.49-.596-1.342-1.341-1.79-1.341-1.79-1.044-.744.149-.744.149-.744 1.192.149 1.789 1.192 1.789 1.192 1.043 1.938 2.832 1.342 3.428 1.044.15-.746.447-1.342.745-1.64-2.683-.298-5.366-1.342-5.366-5.963 0-1.341.447-2.385 1.193-3.13-.15-.298-.597-1.491.149-3.13 0 0 1.043-.299 3.28 1.192.894-.298 1.937-.447 2.98-.447 1.044 0 2.087.149 2.982.447 2.236-1.49 3.28-1.193 3.28-1.193.596 1.64.297 2.833.148 3.13.746.895 1.193 1.939 1.193 3.131 0 4.621-2.832 5.516-5.516 5.814.448.596.895 1.341.895 2.385v3.28c0 .297.149.745.894.596 4.77-1.64 8.199-6.112 8.199-11.33C23.85 5.366 18.485 0 11.925 0z" fill="currentColor"></path></svg>
