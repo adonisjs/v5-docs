@@ -1,0 +1,34 @@
+<li
+  x-data="{ expanded: false }"
+  :class="{ 'expanded': expanded }"
+  @click.away="expanded = false"
+>
+  <a
+    href="#"
+    @click.prevent="expanded = !expanded"
+    class="{{ active ? 'up-current' : '' }}"
+    up-alias="/{{ name.toLowerCase() }}/*"
+  >
+    {{ name }}
+    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-down" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <polyline points="6 9 12 15 18 9" />
+    </svg>
+  </a>
+  <ul class="dropdown">
+    @each(item in items)
+      <li>
+        <a
+          external={{ !!item.external }}
+          href="{{ item.url }}"
+          target="{{ item.external ? '_blank' : '' }}"
+          up-follow="{{ !item.external ? true : false }}"
+          up-preload="{{ !item.external ? true : false }}"
+          @click="expanded = false"
+        >
+          {{ item.name }}
+        </a>
+      </li>
+    @end
+  </ul>
+</li>
