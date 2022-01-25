@@ -61,10 +61,19 @@ You will hardly rely on assets manager directly, as the `asset` helper and the `
 Returns the value of the CSRF token. The helper is only available when the `@adonisjs/shield` is installed and configured.
 
 ```edge
-<input type="hidden" value="{{ csrfToken }}" name="_token">
+<input type="hidden" value="{{ csrfToken }}" name="_csrf">
 ```
 
 ---
+
+### csrfMeta
+Returns a meta tag with the csrf token as the content. The helper is only available when the `@adonisjs/shield` is installed and configured.
+
+```edge
+<head>
+  {{ csrfMeta() }}
+</head>
+```
 
 ### csrfField
 Returns the hidden input element for the CSRF token. The helper is only available when the `@adonisjs/shield` is installed and configured.
