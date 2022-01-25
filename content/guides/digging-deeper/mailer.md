@@ -724,20 +724,30 @@ When using mailer classes, you can call the `preview` method directly on the cla
 ## Email traps
 AdonisJS allows you to trap the outgoing emails instead of sending them to the actual recipient. The traps are usually helpful when writing tests. 
 
-All you need to do is call the `Mail.trap` method and pass it the callback to receive the outgoing message.
+All you need to do is call the `Mail.trap` method before you trigger the message and pass it the callback to receive the outgoing message. Wrap your assertions in a try/catch block and provide your errors to the `done()` function of your test runner to report the actual message errors.
 
 ```ts
 Mail.trap((message) => {
-  assert.deepEqual(message.to, [{
-    address: 'virk@adonisjs.com',
-  }])
+  try {
+  
+    assert.deepEqual(message.to, [{
+      address: 'virk@adonisjs.com',
+    }])
 
-  assert.deepEqual(message.from, {
-    address: 'admin@example.com',
-  })
+    assert.deepEqual(message.from, {
+      address: 'admin@example.com',
+    })
 
-  assert.equal(message.subject, 'Welcome to my app')
+    assert.equal(message.subject, 'Welcome to my app')
+    
+    done()
+    
+  } catch (e) {
+    done(e)
+  }
 })
+
+await supertest.agent(BASE_URL).get('/').expect(200)
 ```
 
 Once done with the test, you must restore the trap using the `Mail.restore` method. A better option will be to place this method inside the `afterEach` lifecycle hook of your testing framework.
