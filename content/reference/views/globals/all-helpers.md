@@ -96,6 +96,18 @@ Returns the value for the `nonce` to be used with inline script tags. Make sure 
 
 ---
 
+### request
+
+Reference to the [ctx.request](../../../guides/http/request.md) instance. You can use it to access to the current url.
+
+```edge
+<a href="{{ route('UsersController.index') }}" class="{{ (request.matchesRoute('namedRoute')) ? 'link-active' : 'link-inactive' }}">
+  Users
+</a>
+```
+
+---
+
 ### auth
 Reference to the [ctx.auth](../../../guides/auth/introduction.md#usage) instance. You can use it to display the specific portion of your markup conditionally.
 
