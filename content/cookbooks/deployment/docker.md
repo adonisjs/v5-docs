@@ -1,5 +1,5 @@
 ---
-datetime: 2021-11-19
+datetime: 2022-02-02
 author: Roth Fessler Maxime
 avatarUrl: https://avatars.githubusercontent.com/u/57860498?v=4
 summary: Cookbook to deploy AdonisJS application to Docker
@@ -27,7 +27,7 @@ npm run build
 In the interest of simplicity this guide will only cover how to create a `Dockerfile` and not a `docker-compose.yaml` file.
 :::
 
-Before beginning make you sure you have docker engine version 17.05 or newer.
+Before beginning make you sure you have docker engine version `17.05` or newer.
 
 ```sh
 docker version
@@ -36,37 +36,52 @@ docker version
 - In the root folder of your project create a `Dockerfile`
 - In the root folder also create a `.dockerignore` file
 - Add `node_modules` and `.env` file to the `.dockerignore` file as well as any other folders/files you don't want as part of the deployment
+
+```dockerignore
+// title: .dockerignore
+node_modules
+.env
+.git
+build
+```
 - Open your empty `Dockerfile` and paste the following inside of it
 
-```sh
-// title: dockerfile
+```dockerfile
 # Pull latest NodeJs LTS version with Alpine Linux
-# and rename it "builder" to re-use it for the next stage
-
-FROM node:16-alpine3.14 AS builder
+# and rename it "base" to re-use it for the next stages
+FROM node:16-alpine3.14 AS base
 # Make a working directory for your app in the container
 WORKDIR /home/app
-# Copy all files to the container
-COPY . .
+
+# Build stage for build
+FROM base AS builder
+# Add git, some node packages require git to be available
+RUN apk add --no-cache git
+# Copy package and package-lock
+COPY package*.json ./
 # Install dependencies
-RUN npm install
+RUN npm ci
+# Copy all other files to the container
+COPY . .
 # and build the application
 RUN node ace build --production
 
 # Build stage for production
-
-FROM node:16-alpine3.14
-# Change the workdir
-WORKDIR /home/app
-# Copy files from builder to the new stage
-COPY --from=builder /home/app/build ./build
-WORKDIR /home/app/build
+FROM base AS production
+# Add a process supervisor and init system
+RUN apk add dumb-init
+# Copy package and package-lock
+COPY package*.json ./
 # Install production dependencies
 RUN npm ci --production
-# Open the port
+# Copy files from builder to the new stage
+COPY --chown=node:node --from=builder /home/app/build .
+# Use a non-root user
+USER node
+# Expose the port
 EXPOSE 3333
 # Start the server
-CMD [ "node", "server.js" ]
+CMD [ "dumb-init", "node", "server.js" ]
 ```
 
 ## Building and Running
@@ -76,6 +91,10 @@ Now that we have a docker file we are ready to build and run the container.
 ```sh
 docker build -t adonisjs .
 ```
+
+:::note
+Make you sure you have set the `NODE_ENV` into `.env` to production
+:::
 
 Once the build is completed you'll be able to run it by running
 
