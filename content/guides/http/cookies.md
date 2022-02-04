@@ -2,7 +2,7 @@
 summary: A reference to reading and writing cookies during the HTTP requests.
 ---
 
-You work with cookies using the [request](./request.md) and the [response](./response.md) classes. The request class exposes the API for reading the existing cookies, and the response class allows creating/updating cookies.
+You work with cookies using the [request](./request.md) and the [response](./response.md) classes. The request class exposes the API for reading the existing cookies, and the response class allows creating, updating and deleting cookies.
 
 ```ts
 import Route from '@ioc:Adonis/Core/Route'
@@ -18,6 +18,13 @@ Route.post('add-to-cart', async ({ request, response }) => {
    */
   const newItems = existingItems.concat([{ id: 10 }])
   response.cookie('cart-items', newItems)
+})
+
+Route.delete('clear-cart', async ({ response }) => {
+  /**
+   * Clear cookie
+   */
+  response.clearCookie('cart-items')
 })
 ```
 
