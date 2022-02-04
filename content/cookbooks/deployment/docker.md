@@ -55,8 +55,6 @@ WORKDIR /home/app
 
 # Build stage for build
 FROM base AS builder
-# Add git, some node packages require git to be available
-RUN apk add --no-cache git
 # Copy package and package-lock
 COPY package*.json ./
 # Install dependencies

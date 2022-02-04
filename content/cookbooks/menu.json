@@ -37,7 +37,7 @@
           },
           {
             "title": "Docker",
-            "permalink": "deploy-to-docker",
+            "permalink": "deploy-with-docker",
             "contentPath": "deployment/docker.md"
           }
         ]
