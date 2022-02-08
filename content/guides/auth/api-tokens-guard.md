@@ -18,6 +18,12 @@ Configuration for tokens is managed inside the `config/auth.ts` file under the g
 {
   api: {
     driver: 'oat',
+    provider: {
+      driver: 'lucid',
+      identifierKey: 'id',
+      uids: ['email'],
+      model: () => import('App/Models/User'),
+    },
     // highlight-start
     tokenProvider: {
       type: 'api',
@@ -63,6 +69,12 @@ Configuration for tokens is managed inside the `config/auth.ts` file under the g
 {
   api: {
     driver: 'oat',
+    provider: {
+      driver: 'lucid',
+      identifierKey: 'id',
+      uids: ['email'],
+      model: () => import('App/Models/User'),
+    },
     // highlight-start
     tokenProvider: {
       type: 'api',
