@@ -1,0 +1,20 @@
+html.dark {
+  --background-color: #120e33;
+  --brand-color: #5a45ff;
+  --brand-faded-color: #afa7ef;
+  --accent-color: #5a45ff;
+  --text-color: white;
+  --heading-color: white;
+  --mute-color: #6d7175;
+  --gray: #241c66;
+  --light-gray: #8c929c;
+  --lighter-gray: #2c2c2c;
+  --danger-badge-color: #f17270;
+  --pre-background: #0e0b29;
+  --brand-mute-color: #d1cdf1;
+  --sidebar-background: #0e0b29;
+  --pre-header-border-color: #40405f;
+  --pre-header-color: #b3b3d0;
+  --toc-border-color: #2c2c2c;
+  color-scheme: dark;
+}

@@ -56,6 +56,15 @@
     crossorigin
   >
 
+  {{-- Since entry point loading is defered, we have to keep this inline to avoid FOUC --}}
+  <script>
+    if (localStorage.colorMode === 'dark' || (!('colorMode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark')
+    } else {
+      document.documentElement.classList.remove('dark')
+    }
+  </script>
+
   @entryPointStyles('app')
   @entryPointScripts('app')
   <script

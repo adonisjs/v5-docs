@@ -29,7 +29,7 @@ TOC BLOCK
 .toc nav > ul > li {
   padding-top: 5px;
   padding-bottom: 5px;
-  border-bottom: 1px dashed #d1d5db;
+  border-bottom: 1px dashed var(--toc-border-color);
 }
 
 .toc ul li ul {

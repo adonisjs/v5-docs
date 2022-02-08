@@ -142,7 +142,7 @@ HEADER STYLES
     z-index: 2;
     border-radius: 0 0 var(--rounded-corners-size) var(--rounded-corners-size);
     margin-top: var(--header-height);
-    background: #fff;
+    background: var(--background-color);
     left: 0;
     box-shadow: 0px 4px 16px rgb(46 41 51 / 8%), 0px 8px 24px rgb(71 63 79 / 16%);
 
@@ -220,4 +220,35 @@ HEADER STYLES
 
 .search-wrapper .DocSearch-Button-Key {
   display: none;
+}
+
+.right-section {
+  display: flex;
+}
+
+/* Dark Mode Toggler */
+.dark-mode-toggler {
+  cursor: pointer;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  position: relative;
+  top: -1px;
+}
+
+.dark-mode-toggler svg {
+  margin: 1px 0 0 0;
+}
+
+.dark-mode-toggler div {
+  height: 24px;
+}
+
+@media (min-width: 768px) {
+  .dark-mode-toggler {
+    margin-right: 20px;
+    position: relative;
+    top: 0px;
+  }
 }
