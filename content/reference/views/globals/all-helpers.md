@@ -61,10 +61,19 @@ You will hardly rely on assets manager directly, as the `asset` helper and the `
 Returns the value of the CSRF token. The helper is only available when the `@adonisjs/shield` is installed and configured.
 
 ```edge
-<input type="hidden" value="{{ csrfToken }}" name="_token">
+<input type="hidden" value="{{ csrfToken }}" name="_csrf">
 ```
 
 ---
+
+### csrfMeta
+Returns a meta tag with the csrf token as the content. The helper is only available when the `@adonisjs/shield` is installed and configured.
+
+```edge
+<head>
+  {{ csrfMeta() }}
+</head>
+```
 
 ### csrfField
 Returns the hidden input element for the CSRF token. The helper is only available when the `@adonisjs/shield` is installed and configured.
@@ -83,6 +92,18 @@ Returns the value for the `nonce` to be used with inline script tags. Make sure 
 ```edge
 <script nonce="{{ cspNonce }}">
 </script>
+```
+
+---
+
+### request
+
+Reference to the [ctx.request](../../../guides/http/request.md) instance. You can use it to access to the current url.
+
+```edge
+<a href="{{ route('UsersController.index') }}" class="{{ (request.matchesRoute('namedRoute')) ? 'link-active' : 'link-inactive' }}">
+  Users
+</a>
 ```
 
 ---
