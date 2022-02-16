@@ -1577,6 +1577,15 @@ results.queryString({ limit: 20, sort: 'top' })
 results.getUrl(2) // /?page=2&limit=20&sort=top
 ```
 
+This method can be useful for adding query string parameters to pagination URLs, for example, in the context of filters.
+
+```ts
+// request url : /?name=virk
+results.queryString(request.qs())
+
+results.getUrl(3) // /?name=virk&page=3
+```
+
 ## Helpful properties and methods
 Following is the list of properties and methods you may occasionally need when building something on top of the query builder.
 
