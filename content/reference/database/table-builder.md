@@ -254,7 +254,7 @@ Adds `created_at` and `updated_at` columns to the database table.
 
 :::warning
 
-Since AdonisJS uses knex.js under the hood, your editor autocomplete feature will list the `timestamps` method in list of available methods.
+Since AdonisJS uses Knex.js under the hood, your editor autocomplete feature will list the `timestamps` method in list of available methods.
 
 However, we recommend not using this method and instead use the `timestamp` method for following reasons.
 
@@ -343,7 +343,7 @@ this.schema.dropTable('users')
 ---
 
 ### json
-Adds a json column, using the built-in json type in **PostgreSQL**, **MySQL** and **SQLite**, defaulting to a text column in older versions or in unsupported databases.
+Adds a JSON column, using the built-in JSON type in **PostgreSQL**, **MySQL** and **SQLite**, defaulting to a text column in older versions or in unsupported databases.
 
 ```ts
 this.schema.createTable('projects', (table) => {
@@ -571,6 +571,32 @@ this.schema.alterTable('posts', (table) => {
 })
 ```
 
+---
+
+### setNullable
+Set the column to be nullable.
+
+```ts
+this.schema.alterTable('posts', (table) => {
+  table.setNullable('full_name')
+})
+```
+
+---
+
+### dropNullable
+Drop the nullable constraint from the column.
+
+:::warning
+The operation will fail, when the column already has null values.
+:::
+
+```ts
+this.schema.alterTable('posts', (table) => {
+  table.dropNullable('full_name')
+})
+```
+
 ## Chainable methods
 
 Following is the list of methods you can chain on the schema building methods as modifiers to the column. 
@@ -738,6 +764,10 @@ this.schema.table('posts', (table) => {
 ### notNullable
 Mark the current column as NOT nullable.
 
+:::note
+Consider using [dropNullable](#dropnullable) method when altering the column. 
+:::
+
 ```ts
 this.schema.table('users', (table) => {
   table.integer('email').notNullable()
@@ -748,6 +778,10 @@ this.schema.table('users', (table) => {
 
 ### nullable
 Mark the current column as nullable.
+
+:::note
+Consider using [setNullable](#setnullable) method when altering the column. 
+:::
 
 ```ts
 this.schema.table('users', (table) => {

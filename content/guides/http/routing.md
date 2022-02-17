@@ -2,7 +2,7 @@
 summary: Learn how to use the AdonisJS HTTP router to configure routes, route groups, subdomain routes, and resourceful routes.
 ---
 
-The users of your website or web application can visit different URL's like `/`, `/about` or `/posts/1`. To make these URLs work, you will have to define them as routes.
+The users of your website or web application can visit different URLs like `/`, `/about` or `/posts/1`. To make these URLs work, you will have to define them as routes.
 
 Routes are usually defined (but not limited to) inside the `start/routes.ts` file using the Route module.
 
@@ -16,7 +16,7 @@ Route.get('/', () => {
 })
 ```
 
-The route handler can also refer to a [controller](./controllers.md) method.
+The route handler can also reference a [controller](./controllers.md) method.
 
 ```ts
 import Route from '@ioc:Adonis/Core/Route'
@@ -26,7 +26,7 @@ Route.get('posts', 'PostsController.index')
 
 ## Default routes file
 
-Conventionally the routes are registered inside the `start/routes.ts` file, which is then preloaded by AdonisJS when booting the application. However, this is not a hard restriction, and you can keep your routes in a separate file as well.
+Conventionally the routes are registered inside the `start/routes.ts` file, which is then [preloaded](../fundamentals/adonisrc-file.md#preloads) by AdonisJS when booting the application. However, this is not a hard restriction, and you can keep your routes in a separate file as well.
 
 Let's explore some different ways to structure and load routes from other files.
 
@@ -62,7 +62,7 @@ Another approach is to get rid of the routes file altogether and use a custom fi
 
 ## List routes
 
-You can view the registered routes by running the following ace command.
+You can view the registered routes by running the following Ace command.
 
 ```sh
 node ace list:routes
@@ -211,6 +211,12 @@ Parameters part of the URL are always represented as a string. For example: In t
 
 However, you can manually cast the params to their actual JavaScript data type by defining a `cast` property with the param matcher.
 
+:::note
+
+It is a good practice to validate the param using the `match` property when using the `cast` function.
+
+:::
+
 ```ts
 Route
   .get('posts/:id', 'PostsController.show')
@@ -218,6 +224,20 @@ Route
     match: /^[0-9]+$/,
     cast: (id) => Number(id),
   })
+```
+
+## Inbuilt matchers
+The route module ships with the following inbuilt matchers for commonly used data types.
+
+```ts
+// Validate id to be numeric + cast to number data type
+Route.where('id', Route.matchers.number())
+
+// Validate id to be a valid uuid
+Route.where('id', Route.matchers.uuid())
+
+// Validate slug to match a given slug regex: regexr.com/64su0
+Route.where('slug', Route.matchers.slug())
 ```
 
 ## URL generation
@@ -303,7 +323,7 @@ const url = Route.builder()
   .params({ id: 1 })
   .qs({ verified: true })
   .prefixUrl('https://foo.com')
-  .makeUrl('UsersController.show')
+  .make('UsersController.show')
 ```
 
 Make for a domain
@@ -605,7 +625,7 @@ Route
   .mustBeSigned()
 ```
 
-### Informing typescript about the method
+### Informing TypeScript about the method
 
 The `mustBeSigned` property is added at the runtime, and hence TypeScript does not know about it. To inform the TypeScript, we will use [declaration merging](https://www.typescriptlang.org/docs/handbook/declaration-merging.html#merging-interfaces) and add the property to the `RouteContract` interface.
 

@@ -22,7 +22,7 @@ Route.post('posts', async ({ request }) => {
 })
 ```
 
-When accepting multiple files from the same input, you can use the `request.files` method (the plural form), and it will return an array of the file instances.
+When accepting multiple files from the same input, you can use the `request.files` method (the plural form) to return an array of the file instances.
 
 ```ts
 import Route from '@ioc:Adonis/Core/Route'
@@ -57,7 +57,7 @@ if (!coverImage) {
   return
 }
 
-if (!coverImage.isValid()) {
+if (!coverImage.isValid) {
   return coverImage.errors
 }
 
@@ -70,7 +70,7 @@ You can also use the [validator](../validator/introduction.md) to validate the u
 
 The `schema.file` method validates the input to be a valid file, along with any custom validation rules provided for the file size and the extension.
 
-If the file validation fails, you can access the error message alongside the rest of the form errors. Otherwise, you can access the file instance and move it to the desired location.
+If the file validation fails, you can access the error message alongside the form errors. Otherwise, you can access the file instance and move it to the desired location.
 
 ```ts
 import Route from '@ioc:Adonis/Core/Route'
@@ -91,95 +91,33 @@ Route.post('posts', async ({ request }) => {
 })
 ```
 
-## Renaming files
-
-It is always recommended to rename the user uploaded files during the `move` operation. The renamed file name can be anything suitable for your app, or you can use the `cuid` helper method to create random file names.
+## Saving files
+You can save user-uploaded files using the `moveToDisk` method. It uses AdonisJS [Drive](../digging-deeper/drive.md) under the hood to save files.
 
 ```ts
-import { cuid } from '@ioc:Adonis/Core/Helpers'
-
 const coverImage = request.file('cover_image', {
   size: '2mb',
   extnames: ['jpg', 'png', 'gif'],
-})
-
-if (!coverImage) {
-  return
-}
+})!
 
 // highlight-start
-const fileName = `${cuid()}.${coverImage.extname}`
+await coverImage.moveToDisk('./')
 
-await coverImage.move(Application.tmpPath('uploads'), {
-  name: fileName,
-})
+// Get the name of the saved file; to store it in your database, for example.
+const fileName = coverImage.fileName;
 // highlight-end
 ```
 
-In case of renamed filename conflicts, you can decide whether to overwrite the existing file by defining the `overwrite` option.
+The `moveToDisk` method accepts the following arguments.
 
-```ts
-await coverImage.move(Application.tmpPath('uploads'), {
-  name: fileName,
-  overwrite: true,
-})
-```
+- `storagePath`: A relative path to the disk root.
+- `options`: An object of options accepted by the [Drive.put](../digging-deeper/drive.md#put) method. Additionally, you can pass the file name property.
+- `disk`: Define the disk name to use for saving the file. If not defined, we will use the default disk.
 
 ## Serving uploaded files
+We recommend using Drive to save user uploaded files and then use the [Drive.getUrl](../digging-deeper/drive.md#geturl) to serve public files and [Drive.getSignedUrl](../digging-deeper/drive.md#getsignedurl) to serve private files.
 
-The API for the file uploads only focuses on handling user uploaded files and not saving and serving them. However, the following is the simplest way to serve the files from a local disk.
-
-The `response.attachment` method streams the file to the client or returns a `404` status code when the file is missing.
-
-```ts
-import Route from '@ioc:Adonis/Core/Route'
-import Application from '@ioc:Adonis/Core/Application'
-
-Route.get('uploads/:filename', async ({ params, response }) => {
-  return response.attachment(
-    Application.tmpPath('uploads', params.filename)
-  )
-})
-```
-
-You can also rename files during download by specifying the name as the second argument.
-
-```ts
-response.attachment(
-  Application.tmpPath('uploads', params.filename),
-  're-named.jpg'
-)
-```
-
-## Moving files to the cloud storage
-You can move files to the cloud storage services like S3, Digital ocean or Cloudinary using their official SDKs.
-
-You can access the temporary path to the upload file using the `file.tmpPath` property.
-
-:::note
-
-The `file.move` method moves the file locally from its `tmpPath` to the given location. This method cannot be used when moving files to a cloud service.
-
-:::
-
-```ts
-const coverImage = request.file('cover_image', {
-  size: '2mb',
-  extnames: ['jpg', 'png', 'gif'],
-})
-
-const fileName = `${cuid()}.${coverImage.extname}`
-
-// highlight-start
-await s3.upload({
-  Key: fileName,
-  Bucket: 's3-bucket-name',
-  Body: fs.createReadStream(coverImage.tmpPath) // 👈
-})
-// highlight-end
-```
-
-## File properties
+## File properties/methods
 
 Following is the list of properties on the [File](https://github.com/adonisjs/bodyparser/blob/develop/src/Multipart/File.ts) class.
 
@@ -205,7 +143,7 @@ file.clientName
 
 ### size
 
-The file size in bytes. It is only available when the file stream has been consumed.
+The file size is in bytes. The file size is only available when the file stream has been consumed.
 
 ```ts
 file.size
@@ -363,6 +301,34 @@ Reference to the `extnames` validation option.
 ### validate
 
 Validate the file against the pre-defined validation options. AdonisJS implicitly calls this method when you access the file using the `request.file(s)` method.
+
+---
+
+### move
+Move the file to a given location on the filesystem. The method accepts an absolute to the destination directory and options object to rename the file.
+
+```ts
+await file.move(Application.tmpPath('uploads'), {
+  name: 'renamed-file-name.jpg',
+  overwrite: true, // overwrite in case of conflict
+})
+```
+
+---
+
+### moveToDisk
+Move file using Drive. The methods accept the following arguments:
+
+- `storagePath`: A relative path to the disk root.
+- `options`: An object of options accepted by the [Drive.put](../digging-deeper/drive.md#put) method. Additionally, you have to pass the file name property
+- `disk`: Define the disk name to use for saving the file. If not defined, we will use the default disk.
+
+```ts
+await file.moveToDisk('./', {
+  name: 'renamed-file-name.jpg',
+  contentType: 'image/jpg'
+}, 's3')
+```
 
 ---
 

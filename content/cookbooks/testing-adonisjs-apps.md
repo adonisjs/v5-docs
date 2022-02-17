@@ -101,12 +101,12 @@ Enough of theory, let's begin with some action. Run the following command to ins
 
 ```sh
 // title: Npm
-npm i -D japa execa get-port
+npm i -D japa execa@5.1.1 get-port@5.1.1
 ```
 
 ```sh
 // title: Yarn
-yarn add -D japa execa get-port
+yarn add -D japa execa@5.1.1 get-port@5.1.1
 ```
 
 :::
@@ -262,7 +262,7 @@ async function runMigrations() {
 }
 
 async function rollbackMigrations() {
-  await execa.node('ace', ['migration:rollback'], {
+  await execa.node('ace', ['migration:rollback', '--batch=0'], {
     stdio: 'inherit',
   })
 }

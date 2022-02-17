@@ -1,4 +1,4 @@
-The `@if`, `@elseif` and the `@else` tags allows you to write conditionals inside the edge templates. 
+The `@if`, `@elseif` and the `@else` tags allows you to write conditionals inside the Edge templates. 
 
 - The `@if` and the `@elseif` tag accepts the expression to evaluate as the only argument.
 - Only the `@if` tag needs to be closed explicitly with the `@end` statement. Other tags must appear within the opening and closing if block.

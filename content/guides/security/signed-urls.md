@@ -6,7 +6,7 @@ Signed URLs provide a neat way to generate URLs with a hash signature appended t
 
 :::note
 
-The `makeSignedUrl` accepts the same set of arguments accepted by the [Route.makeUrl](../http/routing.md#url-generation) method. So make sure to read the docs for `Route.makeUrl` as well.
+The `makeSignedUrl` function accepts the same set of arguments accepted by the [Route.makeUrl](../http/routing.md#url-generation) method. So make sure to read the docs for `Route.makeUrl` as well.
 
 :::
 
@@ -36,7 +36,7 @@ Route.get('/verify/:email', async ({ request }) => {
 }).as('verifyEmail')
 ```
 
-## Expiring Signed URLs
+## Expiring signed URLs
 
 By default, the signed URLs live forever. However, you can add expiry to them at the time of generating one.
 

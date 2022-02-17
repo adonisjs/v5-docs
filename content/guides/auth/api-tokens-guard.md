@@ -2,13 +2,13 @@
 summary: Authenticate requests using Opaque access tokens
 ---
 
-The API guard uses the database backed **opaque access token** to authenticate the user requests. You may want to use the api guard when creating an API that should be accessed by a third-party client, or for any other system that does not support cookies.
+The API guard uses the database-backed **opaque access token** to authenticate the user requests. You may want to use the API guard when creating an API that should be accessed by a third-party client, or for any other system that does not support cookies.
 
 ## Tokens storage
 The API tokens guard allows you store tokens either in a SQL database or store them inside Redis. Both the storage options have their own use cases.
 
 ### SQL storage
-The SQL storage is suited when api tokens are not primary mode of authentication. For example: You may want to allow the users of your application to create personal access tokens (just like the way github does) and authenticate the API requests using that.
+The SQL storage method is suitable when API tokens are not the primary mode of authentication. For example: You may want to allow the users of your application to create personal access tokens (just like the way GitHub does) and authenticate the API requests using that.
 
 In this scenario, you will not generate too many tokens in bulk and also most of the tokens will live forever.
 
@@ -18,6 +18,12 @@ Configuration for tokens is managed inside the `config/auth.ts` file under the g
 {
   api: {
     driver: 'oat',
+    provider: {
+      driver: 'lucid',
+      identifierKey: 'id',
+      uids: ['email'],
+      model: () => import('App/Models/User'),
+    },
     // highlight-start
     tokenProvider: {
       type: 'api',
@@ -53,7 +59,7 @@ The foreign key to build the relationship between the user and the token. Later,
 ---
 
 ### Redis storage
-The redis storage is suitable when API tokens are the primary mode of authentication. For example: You authenticate the requests from your mobile app using token based authentication.
+The redis storage is suitable when API tokens are the primary mode of authentication. For example: You authenticate the requests from your mobile app using token-based authentication.
 
 In this scenario, you would also want tokens to expire after a given period of time and redis can automatically clear the expired tokens from its storage.
 
@@ -63,6 +69,12 @@ Configuration for tokens is managed inside the `config/auth.ts` file under the g
 {
   api: {
     driver: 'oat',
+    provider: {
+      driver: 'lucid',
+      identifierKey: 'id',
+      uids: ['email'],
+      model: () => import('App/Models/User'),
+    },
     // highlight-start
     tokenProvider: {
       type: 'api',
@@ -104,7 +116,7 @@ You can generate an API token for a user using the `auth.generate` or the `auth.
 - Otherwise an [InvalidCredentialsException](https://github.com/adonisjs/auth/blob/develop/src/Exceptions/InvalidCredentialsException.ts) is raised.
 
 ```ts
-import Route from '@ioc:Adonis/Core/Auth'
+import Route from '@ioc:Adonis/Core/Route'
 
 Route.post('login', async ({ auth, request, response }) => {
   const email = request.input('email')
@@ -136,7 +148,7 @@ The `auth.login` method is an alias for the `auth.generate` method.
 
 ```ts
 import User from 'App/Models/User'
-import Route from '@ioc:Adonis/Core/Auth'
+import Route from '@ioc:Adonis/Core/Route'
 import Hash from '@ioc:Adonis/Core/Hash'
 
 Route.post('login', async ({ auth, request, response }) => {
@@ -192,7 +204,7 @@ The user for which the token was generated. The value of the user relies on the 
 ---
 
 ### expiresAt
-An instance of the [luxon Datetime](https://moment.github.io/luxon/docs/class/src/datetime.js~DateTime.html) representing a static time at which the token will expire. Only exists, if have explicitly defined the expiry for the token.
+An instance of the [luxon Datetime](https://moment.github.io/luxon/api-docs/index.html#datetime) representing a static time at which the token will expire. Only exists, if have explicitly defined the expiry for the token.
 
 ---
 
@@ -219,7 +231,7 @@ await auth.use('api').attempt(email, password, {
 ---
 
 ### name
-The name to associate with the token. This is usually helpful when you allow the users of your application to generate personal access tokens (just like the way Github does) and give them a memorable name.
+The name to associate with the token. This is usually helpful when you allow the users of your application to generate personal access tokens (just like the way GitHub does) and give them a memorable name.
 
 The name property only exists, when you have defined it at the time of generating the token.
 
@@ -270,7 +282,7 @@ You can verify if the token is valid or not using the `auth.authenticate` method
 Otherwise, you can access the logged-in user using the `auth.user` property.
 
 ```ts
-import Route from '@ioc:Adonis/Core/Auth'
+import Route from '@ioc:Adonis/Core/Route'
 
 Route.get('dashboard', async ({ auth }) => {
   await auth.use('api').authenticate()
@@ -282,7 +294,7 @@ Calling this method manually inside every single route is not practical and henc
 
 <div class="doc-cta-wrapper">
 
-[Learn more about the auth middleware →](./introduction.md#auth-middleware)
+[Learn more about the auth middleware →](./middleware.md)
 
 </div>
 
@@ -292,7 +304,7 @@ During the logout phase, you can revoke the token by deleting it from the databa
 The `auth.revoke` method will remove the token sent during the current request from the database.
 
 ```ts
-import Route from '@ioc:Adonis/Core/Auth'
+import Route from '@ioc:Adonis/Core/Route'
 
 Route.post('/logout', async ({ auth, response }) => {
   await auth.use('api').revoke()

@@ -46,7 +46,7 @@ node ace configure @adonisjs/auth
 &nbsp;
 
 - [View on npm](https://npm.im/@adonisjs/auth)
-- [View on Github](https://github.com/adonisjs/auth)
+- [View on GitHub](https://github.com/adonisjs/auth)
 
 :::
 

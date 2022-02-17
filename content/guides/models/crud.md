@@ -9,7 +9,7 @@ This guide covers 80% of the use cases. However, do make sure to check the [Mode
 ## Create
 You can create and persist new records to the database by first assigning values to the model instance and then calling the `save` method.
 
-The `save` method performs the **INSERT** query when persisting the model instance for the first time and performs the **UPDATE** query when model has already been persisted.
+The `save` method performs the **INSERT** query when persisting the model instance for the first time and performs the **UPDATE** query when the model has persisted.
 
 ```ts
 import User from 'App/Models/User'
@@ -25,7 +25,7 @@ await user.save()
 console.log(user.$isPersisted) // true
 ```
 
-Also, you can make use of the `fill` method to define all the attributes as once and then call the `save` method.
+Also, you can use the `fill` method to define all the attributes as once and then call the `save` method.
 
 ```ts
 await user
@@ -38,7 +38,7 @@ console.log(user.$isPersisted) // true
 ---
 
 ### create
-The `static create` method creates the model instance and persists it to database in one go.
+The `static create` method creates the model instance and persists it to the database in one go.
 
 ```ts
 import User from 'App/Models/User'
@@ -57,7 +57,7 @@ console.log(user.$isPersisted) // true
 Create multiple instances of a model and persist them to the database. The `createMany` method accepts the same options as the `create` method.
 
 :::note
-One insert query is issued for each model instance to ensure that we execute the lifecycle hooks for every individual instance.
+One insert query is issued for each model instance to execute the lifecycle hooks for every instance.
 :::
 
 ```ts
@@ -167,7 +167,7 @@ user.last_login_at = DateTime.local() // Luxon dateTime is used
 await user.save()
 ```
 
-Also, you can make use of the `merge` method to define all the attributes as once and then call the `save` method.
+Also, you can use the `merge` method to define all the attributes at once and then call the `save` method.
 
 ```ts
 await user
@@ -190,14 +190,14 @@ However, updating records directly does not trigger any model hooks and neither 
 We recommend not stressing much on the extra `select` query unless dealing with millions of updates per second and happy leaving the model's features.
 
 ## Delete
-Like the `update` operation, you first fetch it from the database and then delete the row. For example
+Like the `update` operation, you first fetch it from the database and delete the row. For example
 
 ```ts
 const user = await User.findOrFail(1)
 await user.delete()
 ```
 
-Again, for hooks to work, Lucid needs the instance of the model first. If you decide to use the query builder directly, then no hooks will be fired.
+Again, for hooks to work, Lucid needs the instance of the model first. If you decide to use the query builder directly, then the model will not fire any hooks.
 
 However, the direct query builder approach can help perform bulk deletes.
 
@@ -283,7 +283,7 @@ const usersToCreate = [
 await User.updateOrCreateMany('email', usersToCreate)
 ```
 
-## Additional Reading
+## Additional reading
 
 - Checkout the [Base model reference guide](../../reference/orm/base-model.md) to view all the available methods and properties.
 - Also, read the reference docs for the [model query builder](../../reference/orm/query-builder.md).

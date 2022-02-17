@@ -1,6 +1,11 @@
-<div id="sidenav-open" :class="{ opened: isSideNavOpen }">
-  <div class="sidebar" id="sidebar" data-maintain-scroll>
-    <div class="sidebar-container">
+<div
+  x-data="offCanvasMenu"
+  id="sidenav-open"
+  @toggle.window="open"
+  :class="{ opened: opened }"
+>
+  <div class="sidebar">
+    <div class="sidebar-container" up-nav x-data="prefetch">
       @include('partials/mobile-main-nav')
       @include('partials/sidebar-menu')
     </div>
@@ -8,7 +13,7 @@
 
   <a
     href=""
-    @click.prevent="isSideNavOpen = false"
+    @click.prevent="close"
     data-turbo="false"
     id="sidenav-close"
     class="sidenav-backdrop"

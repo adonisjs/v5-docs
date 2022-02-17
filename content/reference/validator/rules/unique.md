@@ -102,7 +102,7 @@ export default class CreateUserValidator {
 
   public schema = schema.create({
     email: schema.string({}, [
-      rules.exists({
+      rules.unique({
         table: 'users',
         column: 'email',
         // highlight-start

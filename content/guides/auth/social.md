@@ -2,7 +2,7 @@
 summary: OAuth-based social authentication using the `@adonisjs/ally` package.
 ---
 
-Along with the standard authentication, AdonisJS also ships with a package to help you implement social authentication with OAuth providers like **Google**, **Twitter**, **Github**, and so on.
+Along with the standard authentication, AdonisJS also ships with a package to help you implement social authentication with OAuth providers like **Google**, **Twitter**, **GitHub**, and so on.
 
 :::div{class="setup"}
 
@@ -31,7 +31,7 @@ node ace configure @adonisjs/ally
  * by the configured social drivers.
  *
  * Following is an example of validating the env vars for
- * the google provider
+ * the Google provider
  */
 
 export default Env.rules({
@@ -45,13 +45,13 @@ export default Env.rules({
 
 :::div{class="features"}
 
-- Support for multiple providers. **Google**, **Twitter**, **LinkedIn**, **Facebook**, **Discord**, and **Github**
+- Support for multiple providers. **Google**, **Twitter**, **LinkedIn**, **Facebook**, **Discord**, **Spotify**, and **GitHub**
 - Extensible API to add custom social providers
 
 &nbsp;
 
 - [View on npm](https://npm.im/@adonisjs/ally)
-- [View on Github](https://github.com/adonisjs/ally)
+- [View on GitHub](https://github.com/adonisjs/ally)
 
 :::
 
@@ -86,6 +86,7 @@ Name of the driver to use. It must always be one of the following available driv
 - `discord`
 - `facebook`
 - `linkedin`
+- `spotify`
 
 ---
 
@@ -175,7 +176,7 @@ Route.get('/github/callback', async ({ ally }) => {
 ### Marking user as logged in
 Ally decouples itself from the Authentication flow used by your application. Its only job is to manage the lifecycle of an OAuth request and give you the user details shared by the OAuth provider.
 
-Once you have the user details, you can decide how to store them and authenticate the user in your application. For example: After the github login, you may create a new user account and then create a session using the [web authentication guard.](./web-guard.md) For example:
+Once you have the user details, you can decide how to store them and authenticate the user in your application. For example: After the GitHub login, you may create a new user account and then create a session using the [web authentication guard](./web-guard.md). For example:
 
 ```ts
 import User from 'App/Models/User'
@@ -247,6 +248,13 @@ Also, for some of the drivers (e.g., Google), the list of the scopes is too long
 
 ![](https://res.cloudinary.com/adonis-js/image/upload/q_auto,f_auto/v1619637422/v5/ally-intellisense.jpg)
 
+:::warning
+
+If you want to customize the Discord driver, it require to have the `identify` scope present to work properly.
+You can find more informations about it [here](https://discord.com/developers/docs/resources/user#get-current-user).
+
+:::
+
 ## Define other query string params
 You can also define custom query string params on the redirect request using the `redirectRequest.param` method. For example: Define the `prompt` and the `access_type` for the Google provider.
 
@@ -277,6 +285,7 @@ console.log(user.email)
 
 #### id
 A unique id returned by the OAuth provider.
+
 ---
 
 #### nickName
@@ -412,7 +421,7 @@ if(ally.use('github').hasCode()) {
 Following is the list of available configuration options for all the officially available drivers.
 
 <details>
-  <summary>Github</summary>
+  <summary>GitHub</summary>
 
 ```ts
 github: {
@@ -421,7 +430,7 @@ github: {
   clientSecret: '',
   callbackUrl: '',
 
-  // Github specific
+  // GitHub specific
   login: 'adonisjs',
   scopes: ['user', 'gist'],
   allowSignup: true,
@@ -464,6 +473,91 @@ twitter: {
   clientId: '',
   clientSecret: '',
   callbackUrl: '',
+}
+```
+
+</details>
+
+---
+
+<details>
+  <summary>Discord</summary>
+
+```ts
+google: {
+  driver: 'discord',
+  clientId: '',
+  clientSecret: '',
+  callbackUrl: '',
+
+  // Discord specific
+  prompt: 'consent' | 'none',
+  guildId: '',
+  disableGuildSelect: false,
+  permissions: 10,
+  // identify scope is always required
+  scopes: ['identify', 'email'],
+}
+```
+
+</details>
+
+---
+
+<details>
+  <summary>LinkedIn</summary>
+
+```ts
+google: {
+  driver: 'linkedin',
+  clientId: '',
+  clientSecret: '',
+  callbackUrl: '',
+
+  // LinkedIn specific
+  scopes: ['r_emailaddress', 'r_liteprofile'],
+}
+```
+
+</details>
+
+---
+
+<details>
+  <summary>Facebook</summary>
+
+```ts
+google: {
+  driver: 'facebook',
+  clientId: '',
+  clientSecret: '',
+  callbackUrl: '',
+
+  // Facebook specific
+  scopes: ['email', 'user_photos'],
+  userFields: ['first_name', 'picture', 'email'],
+  display: '',
+  authType: '',
+}
+```
+
+</details>
+
+---
+
+<details>
+  <summary>Spotify</summary>
+
+```ts
+google: {
+  driver: 'spotify',
+  clientId: '',
+  clientSecret: '',
+  callbackUrl: '',
+
+  // Spotify specific
+  scopes: ['user-read-email', 'streaming'],
+  showDialog: false
 }
 ```
 

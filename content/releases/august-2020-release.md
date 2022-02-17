@@ -119,7 +119,8 @@ The `blacklist` rule dis-allows certain values. It is the opposite of the enum s
 ## Support for Basic Auth
 We have also added the another auth driver that uses the HTTP basic auth for authenticating requests. Using it is as simple as dropping the auth middleware on a route.
 
-```ts{}{start/routes.ts}
+```ts
+// title: start/routes.ts
 Route
   .get('posts', async ({ auth }) => {
     return `You are logged in as ${auth.user!.email}`
@@ -127,7 +128,7 @@ Route
   .middleware('auth:basic')
 ```
 
-[video url="https://res.cloudinary.com/adonis-js/video/upload/q_80/v1597034375/adonisjs.com/adonis-basic-auth_n8ierd.mp4", controls]
+::video{url="https://res.cloudinary.com/adonis-js/video/upload/q_80/v1597034375/adonisjs.com/adonis-basic-auth_n8ierd.mp4" controls}
 
 
 ## Trap events

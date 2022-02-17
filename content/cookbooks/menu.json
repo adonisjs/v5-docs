@@ -29,6 +29,11 @@
             "title": "Digital ocean apps",
             "permalink": "deploy-to-digial-ocean",
             "contentPath": "deployment/digial-ocean.md"
+          },
+          {
+            "title": "Cleavr",
+            "permalink": "deploy-with-cleavr",
+            "contentPath": "deployment/cleavr.md"
           }
         ]
       },
@@ -39,6 +44,21 @@
             "title": "Validating server side forms",
             "permalink": "validating-server-rendered-forms",
             "contentPath": "validator/validating-server-rendered-forms.md"
+          }
+        ]
+      },
+      {
+        "name": "Database",
+        "docs": [
+          {
+            "title": "Using Knex Postgis with Lucid",
+            "permalink": "using-knex-postgis-with-lucid",
+            "contentPath": "database/using-knex-postgis-with-lucid.md"
+          },
+          {
+            "title": "Using Postgres custom type parsers",
+            "permalink": "using-postgres-custom-type-parsers",
+            "contentPath": "database/using-postgres-custom-type-parsers.md"
           }
         ]
       }

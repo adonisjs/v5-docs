@@ -27,7 +27,7 @@ Route
 
 Writing middleware as inline functions is fine for some quick testing. However, we recommend extracting the middleware logic to its own file.
 
-You can create a new middleware by running the following ace command.
+You can create a new middleware by running the following Ace command.
 
 ```sh
 node ace make:middleware LogRequest
@@ -95,7 +95,7 @@ You register them as an array inside the `start/kernel.ts` file, as shown below:
 ```ts
 // title: start/kernel.ts
 Server.middleware.register([
-  () => import('@ioc:Adonis/Core/BodyParserMiddleware'),
+  () => import('@ioc:Adonis/Core/BodyParser'),
   // highlight-start
   () => import('App/Middleware/LogRequest')
   // highlight-end
@@ -120,6 +120,8 @@ Route
   .get('dashboard', 'DashboardController.index')
   .middleware('auth') // 👈
 ```
+
+The middleware can be applied to one or multiple actions for resource routes. Learn more about [applying middleware to resourceful routes](./controllers.md#applying-middleware).
 
 You can also define multiple middleware on a route by passing them as an array or calling the middleware method multiple times.
 

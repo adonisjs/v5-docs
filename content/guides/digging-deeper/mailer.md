@@ -48,13 +48,13 @@ export default Env.rules({
 
 - Support for multiple drivers. **SparkPost**, **SES**, **Mailgun** and **Smtp**
 - Ability to trap emails during tests
-- Use edge templates to define the email markup
+- Use Edge templates to define the email markup
 - Preview emails on a dummy SMTP server
 
 &nbsp;
 
 - [View on npm](https://npm.im/@adonisjs/mail)
-- [View on Github](https://github.com/adonisjs/mail)
+- [View on GitHub](https://github.com/adonisjs/mail)
 
 :::
 
@@ -209,7 +209,7 @@ interface MailersList {
 ## Usage
 Once done with the setup, you can import the `Mail` module and send emails using the `Mail.send` method. It accepts a callback function to let you configure the outgoing message.
 
-In the following example, the `htmlView` method accepts the path to an edge template and the data you want to pass to it. 
+In the following example, the `htmlView` method accepts the path to an Edge template and the data you want to pass to it. 
 
 ```ts
 // highlight-start
@@ -252,7 +252,7 @@ class UsersController {
 ```
 
 ## Email templates
-You can make use of standard edge templates for defining the email content. The templates live inside the same `resources/views` directory. For better organization, you can move them inside a sub-directory called `emails`. For example:
+You can make use of standard Edge templates for defining the email content. The templates live inside the same `resources/views` directory. For better organization, you can move them inside a sub-directory called `emails`. For example:
 
 ```sh
 node ace make:view emails/welcome
@@ -364,7 +364,7 @@ await Mail.sendLater((message) => {
 })
 ```
 
-Inside the edge template, you can use the earlier defined unique id as the `img` src.
+Inside the Edge template, you can use the earlier defined unique id as the `img` src.
 
 ```edge
 // title: Email template
@@ -545,7 +545,7 @@ message.encoding('utf-8')
 ---
 
 #### htmlView
-Define the HTML body of the email by rendering an edge template. Optionally, it accepts the data to pass to the template.
+Define the HTML body of the email by rendering an Edge template. Optionally, it accepts the data to pass to the template.
 
 ```ts
 message.htmlView('emails/verify-email', { user: user })
@@ -596,7 +596,7 @@ await Mail.use('smtp').sendLater(() => {
 ```
 
 ## Mailer classes
-Mailer classes allow you to extract the inline mail configuration to its dedicated class. The mailers are stored inside the `app/Mailers` directory, and you can create a new mailer by running the following ace command.
+Mailer classes allow you to extract the inline mail configuration to its dedicated class. The mailers are stored inside the `app/Mailers` directory, and you can create a new mailer by running the following Ace command.
 
 ```sh
 node ace make:mailer VerifyEmail
@@ -634,7 +634,9 @@ Mailer can accept data using the constructor arguments. For example:
 ```ts
 export default class VerifyEmail extends BaseMailer {
   // highlight-start
-  constructor (private user: User) {}
+  constructor (private user: User) {
+    super()
+  }
   // highlight-end
 
   public prepare(message: MessageContract) {
@@ -678,7 +680,7 @@ export default class VerifyEmail extends BaseMailer {
 ```
 
 ### Customizing mailers directory
-You can change the namespace for storing the mailers by defining the `namespaces.mailers` property inside the `.adonisrc.json` file. After the following change, the `make:mailer` ace command will create new files inside the configured directory.
+You can change the namespace for storing the mailers by defining the `namespaces.mailers` property inside the `.adonisrc.json` file. After the following change, the `make:mailer` Ace command will create new files inside the configured directory.
 
 ```json
 "namespaces": {
@@ -715,7 +717,7 @@ await Mail.preview((message) => {
 })
 ```
 
-When using mailer classes, you can call the `preview` method directly on the class instance. Following is a demo of previewing emails via the ace REPL.
+When using mailer classes, you can call the `preview` method directly on the class instance. Following is a demo of previewing emails via the Ace REPL.
 
 ::video{url="https://res.cloudinary.com/adonis-js/video/upload/v1618142771/v5/mailer-preview-repl.mp4" controls}
 
@@ -914,8 +916,8 @@ export default class AppProvider {
 ### Driver lifecycle
 The mail module internally creates a single instance of the driver and uses it throughout the application's lifecycle unless someone decides to close it manually.
 
-### Informing typescript about the new driver
-The next step is to inform typescript about the postmark driver and the config it accepts. Open the pre-existing `contracts/mail.ts` file and add the following code inside it.
+### Informing TypeScript about the new driver
+The next step is to inform TypeScript about the postmark driver and the config it accepts. Open the pre-existing `contracts/mail.ts` file and add the following code inside it.
 
 ```ts
 // insert-start

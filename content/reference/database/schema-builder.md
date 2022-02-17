@@ -31,7 +31,8 @@ class UserSchema extends BaseSchema {
     this.schema.createTable('users', (table) => {
       table.increments()
       table.string('name')
-      table.timestamps()
+      table.timestamp('created_at', { useTz: true })
+      table.timestamp('updated_at', { useTz: true })
     })
     // highlight-end
   }
@@ -62,7 +63,7 @@ Select a SQL table to alter its columns. The method accepts the table name and a
 class UserSchema extends BaseSchema {
   public up() {
     // highlight-start
-    this.schema.table('user', (table) => {
+    this.schema.alterTable('user', (table) => {
       /**
        * Drop the name column
        */
@@ -190,7 +191,8 @@ class UserSchema extends BaseSchema {
       .createTable('users', (table) => {
         table.increments()
         table.string('name')
-        table.timestamps()
+        table.timestamp('created_at', { useTz: true })
+        table.timestamp('updated_at', { useTz: true })
       })
   }
 }

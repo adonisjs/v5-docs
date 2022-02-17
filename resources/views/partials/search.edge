@@ -1,8 +1,7 @@
 @if(app.env.get('ALGOLIA_API_KEY'))
   <div
     class="search-wrapper"
-    x-data="initializeSearch('{{ app.env.get('ALGOLIA_API_KEY') }}')"
-    x-init="mounted"
+    x-data="search('{{ app.env.get('ALGOLIA_API_KEY') }}')"
   >
     <button
       class="search-trigger"

@@ -40,7 +40,7 @@ export const markdownLanguages = [
 | Themes used for codeblocks
 |
 */
-export const codeBlocksTheme = 'material-theme-palenight'
+export const codeBlocksTheme = 'material-palenight'
 
 /*
 |--------------------------------------------------------------------------

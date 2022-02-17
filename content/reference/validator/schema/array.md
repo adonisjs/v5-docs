@@ -28,16 +28,40 @@ Following is an example of accepting an array of objects with `username` and the
 ```
 
 ## Mark as optional
-You can mark the array to be optional by chaining the `optional` method. Only the `undefined` values are considered optional. We treat `null` as a valid value and it will fail the array validation.
-
-In the following example, we expect the array either to be `undefined` or have alteast one element.
+You can mark the property to be optional by chaining the `optional` method. The `undefined` and the `null` values are considered optional and removed from the validated object.
 
 ```ts
 {
   tags: schema.array
-    .optional([
+    .optional([// 👈
       rules.minLength(1)
-    ]) // 👈
+    ])
+    .members(schema.number())
+}
+```
+
+## Mark as nullable
+You can mark the property to be nullable by chaining the `nullable` method. The `nullable` fields must exist in the payload but can contain null values.
+
+```ts
+{
+  tags: schema.array
+    .nullable([// 👈
+      rules.minLength(1)
+    ])
+    .members(schema.number())
+}
+```
+
+## Mark as nullable and optional
+Mark the property both as `nullable` and `optional`. If the field value is undefined, it will be removed from the validated object. Otherwise, the validated value (including null) is returned.
+
+```ts
+{
+  tags: schema.array
+    .nullableAndOptional([// 👈
+      rules.minLength(1)
+    ])
     .members(schema.number())
 }
 ```

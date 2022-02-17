@@ -10,6 +10,7 @@
 
 import { Renderer } from '@dimerapp/edge'
 import Content from 'App/Services/Content'
+import remarkCaptions from 'remark-captions'
 import { zones, codeBlocksTheme, markdownLanguages } from 'Config/markdown'
 
 /**
@@ -69,6 +70,18 @@ zones.forEach(({ title, baseUrl, template, menu, contentPath }) => {
     .template(template)
     .useTheme(codeBlocksTheme)
     .docs(menu)
+    .before('compile', (file) => {
+      file.transform(remarkCaptions, {
+        external: {
+          table: 'Table:',
+          code: 'Code:',
+          math: 'Equation:',
+        },
+        internal: {
+          image: 'Figure:',
+        },
+      })
+    })
     .renderer('dimerRenderer', dimerRenderer)
     .register()
 })

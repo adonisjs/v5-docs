@@ -1,0 +1,7 @@
+@if(app.env.get('CARBON_ADS_ID'))
+  <div
+    class="carbonads_wrapper"
+    x-data="carbonAd('{{ app.env.get('CARBON_ADS_ID') }}')"
+  >
+  </div>
+@end

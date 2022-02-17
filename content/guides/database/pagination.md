@@ -2,9 +2,9 @@
 summary: Learn how to paginate results using the Lucid ORM
 ---
 
-Lucid has inbuilt support for **offset based pagination**. You can paginate the results of a query by chaining the `.paginate` method.
+Lucid has inbuilt support for **offset-based pagination**. You can paginate the results of a query by chaining the `.paginate` method.
 
-The `paginate` method accepts the page number as the first argument and the number of rows to fetch as the second argument. Internally, we execute an additional query to count the total number of rows.
+The `paginate` method accepts the page number as the first argument and the rows to fetch as the second argument. Internally, we execute an additional query to count the total number of rows.
 
 ```ts
 const page = request.input('page', 1)
@@ -18,19 +18,8 @@ The `paginate` method returns an instance of the [SimplePaginatorClass](../../re
 
 ```ts
 SimplePaginator {
-  rows: [
-    {
-     // ...
-    },
-    {
-     // ...
-    },
-  ],
-  totalNumber: '50',
   perPage: 10,
   currentPage: 1,
-  qs: {},
-  url: '/',
   firstPage: 1,
   isEmpty: false,
   total: 50,
@@ -42,7 +31,7 @@ SimplePaginator {
 ```
 
 ## Displaying pagination links
-Following is a complete example of displaying the pagination links inside the edge template.
+Following is a complete example of displaying the pagination links inside an Edge template.
 
 ```ts
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
@@ -67,7 +56,7 @@ Open the `posts/index.edge` file and paste the following code snippet inside it.
 
 ```edge
 <div>
-  @each(post in posts.rows)
+  @each(post in posts)
     <h1>{{ post.title }}</h1>
     <p> {{ excerpt(post.body, 200) }} </p>
   @endeach
@@ -157,7 +146,7 @@ posts.namingStrategy = {
 return posts.toJSON()
 ```
 
-The naming strategy can also be assigned to the `SimplePaginator` class constructor to override it globally. The following code must go inside a provider or a [preload file](../fundamentals/adonisrc-file.md#preloads).
+You can also assign a custom naming strategy to the `SimplePaginator` class constructor to override it globally. The following code must go inside a provider or a [preload file](../fundamentals/adonisrc-file.md#preloads).
 
 ```ts
 import { ApplicationContract } from '@ioc:Adonis/Core/Application'
@@ -181,3 +170,6 @@ export default class AppProvider {
 }
 
 ```
+
+## Additional reading
+- [Paginator class reference guide](../../reference/database/query-builder.md#pagination)

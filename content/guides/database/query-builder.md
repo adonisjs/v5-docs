@@ -58,7 +58,7 @@ await Database
   .insert({ username: 'virk', email: 'virk@adonisjs.com' })
 ```
 
-### Multi insert
+### Multi-insert
 You can make use of the `.multiInsert` method in order to insert multiple rows in a single insert query.
 
 :::note
@@ -124,7 +124,7 @@ export default class AppProvider {
 
 In the above example, we have added a `getCount` method on the [database query builder](../../reference/database/query-builder.md). The method adds a `count` function to the query, executes it right away and returns the result back as a **BigInt**.
 
-###  Informing typescript about the method
+###  Informing TypeScript about the method
 The `getCount` property is added at the runtime, and hence TypeScript does not know about it. To inform the TypeScript, we will use [declaration merging](https://www.typescriptlang.org/docs/handbook/declaration-merging.html#merging-interfaces) and add the property to the `DatabaseQueryBuilderContract` interface.
 
 Create a new file at path `contracts/database.ts` (the filename is not important) and paste the following contents inside it.
@@ -157,7 +157,7 @@ const {
 
 ModelQueryBuilder.macro('getCount', async function () {
   const result = await this.count('* as total')
-  return BigInt(result[0].total)
+  return BigInt(result[0].$extras.total)
 })
 ```
 

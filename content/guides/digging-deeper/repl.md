@@ -6,7 +6,7 @@ REPL stands for **read–eval–print loop** - a way to quickly execute single-l
 
 Just like Node.js, AdonisJS also has its own **application-aware REPL**, giving you the access to your application code inside the REPL session. 
 
-Let's give it a try by running the following ace command.
+Let's give it a try by running the following Ace command.
 
 ```sh
 node ace repl
@@ -58,4 +58,4 @@ Repl.addMethod(
 )
 ```
 
-Finally, start the repl session and type `sayHi()` to execute the method. Currently, we are writing to the console, however, you can perform any action inside this function.
+Finally, start the REPL session and type `sayHi()` to execute the method. Currently, we are writing to the console, however, you can perform any action inside this function.

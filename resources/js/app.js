@@ -1,13 +1,13 @@
 import 'lazysizes'
-import '@hotwired/turbo'
-import 'alpine-hotwire-turbo-adapter'
-import 'alpinejs'
+import 'unpoly'
+import Alpine from 'alpinejs'
 import { listen } from 'quicklink'
 
 /**
  * Css imports. Do not change the order
  */
 import 'normalize.css'
+import 'unpoly/unpoly.css'
 import '../fonts/Calibre/stylesheet.css'
 import '../fonts/jetbrains/stylesheet.css'
 import '../css/variables.css'
@@ -16,39 +16,13 @@ import '../css/header.css'
 import '../css/sidebar.css'
 import '../css/toc.css'
 import '../css/markdown.css'
+import '../css/carbon-ads.css'
+
+up.feedback.config.navSelectors = ['[up-nav]']
 
 /**
- * Alpine component for codegroup tabs
+ * Prefix zone name to the search results
  */
-window.initializeCodegroups = () => ({
-  activeTab: 1,
-
-  changeTab(index, element) {
-    this.$refs.highlighter.style.left = `${element.offsetLeft}px`
-    this.$refs.highlighter.style.width = `${element.clientWidth}px`
-    this.activeTab = index
-  },
-
-  mounted() {
-    this.changeTab(1, this.$refs.firstTab)
-    setTimeout(() => {
-      if (this.$el.classList) {
-        this.$el.classList.add('ready')
-      }
-    })
-  },
-})
-
-window.initializeCode = () => ({
-  copyToClipboard() {
-    const code = this.$el.querySelector('pre').textContent
-    navigator.clipboard.writeText(code)
-
-    this.$refs.copyButton.innerText = 'Copied'
-    setTimeout(() => (this.$refs.copyButton.innerText = 'Copy to Clipboard'), 1000)
-  },
-})
-
 function prefixZoneName(title, docUrl) {
   if (!title) {
     return title
@@ -73,79 +47,147 @@ function prefixZoneName(title, docUrl) {
   return title
 }
 
-window.initializeSearch = (apiKey) => ({
-  mounted() {
-    Promise.all([
-      import(/* webpackChunkName: "docsearch" */ '@docsearch/js'),
-      import(/* webpackChunkName: "docsearch" */ '@docsearch/css'),
-    ])
-      .then(([docsearch]) => {
-        docsearch = docsearch.default
-        docsearch({
-          apiKey: apiKey,
-          indexName: 'adonisjs_next',
-          container: '#algolia-search-input',
-          transformItems: (items) => {
-            return items.map((item) => {
-              item.hierarchy.lvl0 = prefixZoneName(item.hierarchy.lvl0, item.url)
-              return item
-            })
-          },
-        })
+/**
+ * Alpine component for codegroup tabs
+ */
+Alpine.data('codegroups', function () {
+  return {
+    activeTab: 1,
+
+    changeTab(index, element) {
+      this.$refs.highlighter.style.left = `${element.offsetLeft}px`
+      this.$refs.highlighter.style.width = `${element.clientWidth}px`
+      this.activeTab = index
+    },
+
+    init() {
+      this.changeTab(1, this.$refs.firstTab)
+      setTimeout(() => {
+        if (this.$el.classList) {
+          this.$el.classList.add('ready')
+        }
       })
-      .catch(console.error)
-  },
+    },
+  }
+})
+
+Alpine.data('copyToClipboard', function () {
+  return {
+    copied: false,
+    copy() {
+      const code = this.$refs.content.textContent
+      navigator.clipboard.writeText(code)
+
+      this.copied = true
+      setTimeout(() => (this.copied = false), 1500)
+    },
+  }
+})
+
+Alpine.data('search', function (apiKey) {
+  return {
+    init() {
+      Promise.all([
+        import(/* webpackChunkName: "docsearch" */ '@docsearch/js'),
+        import(/* webpackChunkName: "docsearch" */ '@docsearch/css'),
+      ])
+        .then(([docsearch]) => {
+          docsearch = docsearch.default
+          docsearch({
+            apiKey: apiKey,
+            indexName: 'adonisjs_next',
+            container: '#algolia-search-input',
+            transformItems: (items) => {
+              return items.map((item) => {
+                item.hierarchy.lvl0 = prefixZoneName(item.hierarchy.lvl0, item.url)
+                return item
+              })
+            },
+          })
+        })
+        .catch(console.error)
+    },
+  }
 })
 
 /**
  * Alpine component to navigate from a select box
  */
-window.selectBoxNavigate = () => ({
-  mounted() {
-    this.$el.querySelectorAll('option').forEach((element) => {
-      if (element.value === window.location.pathname) {
-        element.selected = 'selected'
-      }
-    })
-  },
+Alpine.data('selectBoxNavigate', function () {
+  return {
+    init() {
+      this.$el.querySelectorAll('option').forEach((element) => {
+        if (element.value === window.location.pathname) {
+          element.selected = 'selected'
+        }
+      })
+    },
 
-  navigateTo(e) {
-    window.location = e.target.value
-  },
+    visitUrl(e) {
+      up.navigate({ url: e.target.value })
+    },
+  }
 })
 
-/**
- * Trigger quick links preloading
- */
-document.addEventListener('turbo:load', () => {
-  listen({
-    el: document.querySelector('#sidebar'),
-  })
+Alpine.data('carbonAd', function (zoneId) {
+  return {
+    init() {
+      const script = document.createElement('script')
+      script.setAttribute('type', 'text/javascript')
+      script.setAttribute(
+        'src',
+        `//cdn.carbonads.com/carbon.js?serve=${zoneId}&placement=adonisjscom`
+      )
+      script.setAttribute('id', '_carbonads_js')
+      this.$el.appendChild(script)
+    },
+  }
 })
 
-/**
- * Manage scroll position of elements
- */
-const scrollPositions = {}
-document.addEventListener('turbo:before-render', () => {
-  document.querySelectorAll('[data-maintain-scroll]').forEach((element) => {
-    scrollPositions[element.id] = element.scrollTop
-  })
+Alpine.data('offCanvasMenu', function () {
+  return {
+    opened: false,
+    open() {
+      this.opened = true
+    },
+    close() {
+      this.opened = false
+    },
+  }
 })
-document.addEventListener('turbo:render', () => {
-  document.querySelectorAll('[data-maintain-scroll]').forEach((element) => {
-    if (scrollPositions[element.id]) {
-      element.scrollTop = scrollPositions[element.id]
-    }
-  })
+
+Alpine.data('prefetch', function () {
+  return {
+    init() {
+      listen({
+        el: this.$el,
+      })
+    },
+  }
+})
+
+Alpine.data('tocMenu', function () {
+  return {
+    init() {
+      const anchors = this.$el.querySelectorAll('a')
+      anchors.forEach((link) => {
+        link.onclick = function () {
+          anchors.forEach((anchor) => anchor.classList.remove('up-current'))
+          link.classList.add('up-current')
+        }
+      })
+    },
+  }
 })
 
 /**
  * Scroll the active sidebar item into the view on page load
  */
-const activeSidebarItem = document.querySelector('.sidebar li.active')
+const activeSidebarItem = document.querySelector('.sidebar a.up-current')
 if (activeSidebarItem) {
   activeSidebarItem.scrollIntoView({
     block: 'center',
   })
 }
+
+Alpine.start()

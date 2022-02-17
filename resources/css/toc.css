@@ -12,12 +12,12 @@ TOC BLOCK
   top: var(--header-height);
   bottom: 0;
   width: var(--toc-width);
-  overflow: scroll;
+  overflow-y: auto;
   border-left: 1px solid var(--lighter-gray);
 }
 
 .toc-container {
-  padding: 40px 0;
+  margin: 40px 0;
 }
 
 .toc h3 {
@@ -35,6 +35,11 @@ TOC BLOCK
 .toc ul li ul {
   margin-left: 10px;
   margin-top: 5px;
+  display: none;
+}
+
+.toc.show_nested ul li ul {
+  display: block;
 }
 
 .toc ul {
@@ -52,6 +57,10 @@ TOC BLOCK
   font-size: var(--toc-link-font-size);
   color: var(--light-gray);
   text-decoration: none;
+}
+
+.toc li a:hover, .toc li a.up-current {
+  color: inherit;
 }
 
 /** Required only when using Calibre */

@@ -1,4 +1,4 @@
-Following is the list of available string helpers that you can use with in your edge templates. The framework core and official packages of AdonisJS are already using these helpers, its just we have also injected them as view helpers.
+Following is the list of available string helpers that you can use with in your Edge templates. The framework core and official packages of AdonisJS are already using these helpers, its just we have also injected them as view helpers.
 
 ---
 

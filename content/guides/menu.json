@@ -31,7 +31,7 @@
             "contentPath": "fundamentals/application.md"
           },
           {
-            "title": "AdonisRc file",
+            "title": "AdonisRC file",
             "permalink": "adonisrc-file",
             "contentPath": "fundamentals/adonisrc-file.md"
           },
@@ -63,7 +63,7 @@
         ]
       },
       {
-        "name": "Http",
+        "name": "HTTP",
         "docs": [
           {
             "title": "Context",
@@ -127,7 +127,7 @@
             "contentPath": "http/assets-manager.md"
           },
           {
-            "title": "Exception Handling",
+            "title": "Exception handling",
             "permalink": "exception-handling",
             "contentPath": "http/exception-handling.md"
           }
@@ -215,6 +215,11 @@
             "title": "Schema caching",
             "permalink": "validator/schema-caching",
             "contentPath": "validator/schema-caching.md"
+          },
+          {
+            "title": "Custom validation rules",
+            "permalink": "validator/custom-rules",
+            "contentPath": "validator/custom-rules.md"
           }
         ]
       },
@@ -282,7 +287,7 @@
             "contentPath": "models/query-scopes.md"
           },
           {
-            "title": "Serializing Models",
+            "title": "Serializing models",
             "permalink": "models/serializing-models",
             "contentPath": "models/serialization.md"
           },
@@ -342,7 +347,7 @@
         "name": "Security",
         "docs": [
           {
-            "title": "Web Security",
+            "title": "Web security",
             "permalink": "security/web-security",
             "contentPath": "security/web-security.md"
           },
@@ -377,12 +382,22 @@
             "contentPath": "digging-deeper/authorization.md"
           },
           {
+            "title": "Drive",
+            "permalink": "drive",
+            "contentPath": "digging-deeper/drive.md"
+          },
+          {
+            "title": "Internationalization",
+            "permalink": "i18n",
+            "contentPath": "digging-deeper/i18n.md"
+          },
+          {
             "title": "Ace",
             "permalink": "ace-commandline",
             "contentPath": "digging-deeper/ace.md"
           },
           {
-            "title": "AdonisJS Repl",
+            "title": "AdonisJS REPL",
             "permalink": "repl",
             "contentPath": "digging-deeper/repl.md"
           },

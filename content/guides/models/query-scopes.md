@@ -31,7 +31,7 @@ Post
   .withScopes((scopes) => scopes.published())
 ```
 
-### Passing arguments to the scopes
+## Passing arguments to the scopes
 The query scopes can also accept arguments. For example: Creating a scope that accepts a user object to scope the projects they can view.
 
 ```ts

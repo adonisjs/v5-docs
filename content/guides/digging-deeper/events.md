@@ -2,16 +2,16 @@
 summary: Introduction to the async event emitter of AdonisJS.
 ---
 
-AdonisJS ships with an event emitter module built on top of [emittery](https://github.com/sindresorhus/emittery). It differs from the Node.js native Events module in the following ways.
+The AdonisJS event emitter module is built on top of [Emittery](https://github.com/sindresorhus/emittery). It differs from the Node.js native Events module in the following ways.
 
-- It is asynchronous, whereas the Node.js events module emits events synchronously. Make sure to also [read the emittery](https://github.com/sindresorhus/emittery#how-is-this-different-than-the-built-in-eventemitter-in-nodejs) explanation on this as well.
+- It is asynchronous, whereas the Node.js events module emits events synchronously. So make sure to also [read the Emittery](https://github.com/sindresorhus/emittery#how-is-this-different-than-the-built-in-eventemitter-in-nodejs) explanation on this as well.
 - Ability to make events type-safe.
 - Ability to trap events during tests instead of triggering the actual event.
 
 ## Usage
-We recommend defining all the event listeners inside a dedicated file, just like the way you define routes in a single file.
+We recommend defining all the event listeners inside a dedicated file, just like how you define routes in a single file.
 
-For this guide, let's define the event listeners inside the `start/events.ts` file. You can create this file manually or run the following ace command.
+For this guide, let's define the event listeners inside the `start/events.ts` file. You can create this file manually or run the following Ace command.
 
 ```sh
 node ace make:prldfile events
@@ -19,7 +19,7 @@ node ace make:prldfile events
 # SELECT ALL THE ENVIRONMENTS
 ```
 
-Open the newly created file and write the following code inside it. The `Event.on` method registers a listener invoked every time you emit the `new:user` event from anywhere inside your application.
+Open the newly created file and write the following code inside it. The `Event.on` method registers an event listener. It accepts the event name as the first argument, followed by a method to handle the event.
 
 ```ts
 import Event from '@ioc:Adonis/Core/Event'
@@ -29,8 +29,23 @@ Event.on('new:user', (user) => {
 })
 ```
 
+To trigger the `new:user` event listener, you will have to emit this event. You can do it from anywhere inside your application after it has been booted.
+
+```ts
+import Event from '@ioc:Adonis/Core/Event'
+
+export default class UsersController {
+  public async store() {
+    // ... code to create a new user
+    // highlight-start
+    Event.emit('new:user', { id: 1 })
+    // highlight-end
+  }
+}
+```
+
 ## Making events type-safe
-The event listeners and the code that emits the event are usually not in the same place/file. It is very easy for some part of your code to emit the event and send the wrong data. For example:
+The event listeners and the code that emits the event are usually not in the same place/file. Therefore, it is very easy for some of your code to emit the event and send the wrong data. For example:
 
 ```ts
 Event.on('new:user', (user) => {
@@ -73,7 +88,7 @@ Conventionally event listeners are stored inside the `app/Listeners` directory. 
 
 </details>
 
-You can create a listener class by running the following ace command.
+You can create a listener class by running the following Ace command.
 
 ```sh
 node ace make:listener User
@@ -100,7 +115,7 @@ Event.on('new:user', 'User.onNewUser')
 ```
 
 ## Trapping events
-To make testing easier, the Event module allows you to trap a specific or all the events. The actual listener is not invoked when there is a trap in place.
+The Event module allows you to trap a specific or all the events to make testing more straightforward. The actual listener is not invoked when there is a trap in place.
 
 You can write the following code inside your test block just before the action that triggers the event.
 
@@ -150,7 +165,7 @@ try {
 
 However, this is not the most intuitive way to write code. Usually, you want to emit events and then forget about them.
 
-To make error handling a bit easier, AdonisJS allows you to register an error handler invoked for all the errors that occurred during the event emit lifecycle.
+AdonisJS allows you to register an error handler invoked for all the errors that occurred during the event emit lifecycle to make error handling a bit easier.
 
 You should define the error handler only once (maybe alongside the rest of the event handlers).
 
@@ -161,7 +176,7 @@ Event.onError((event, error, eventData) => {
 ```
 
 ## Differences from the Node.js event emitter
-As mentioned earlier, the Event module of AdonisJS is built on top of [emittery](https://github.com/sindresorhus/emittery), and it is different from the Node.js event emitter in the following ways.
+As mentioned earlier, the Event module of AdonisJS is built on top of [Emittery](https://github.com/sindresorhus/emittery), and it is different from the Node.js event emitter in the following ways.
 
 - Emittery is asynchronous and does not block the event loop.
 - It does not have the magic error event

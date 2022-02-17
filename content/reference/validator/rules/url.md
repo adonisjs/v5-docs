@@ -60,7 +60,7 @@ Following is the list of options for validate a URL string
 
 | Option | Description |
 |---------|------------------|
-| `protocol` | An array of allowed protocols. Defining protocols will implicitly set the `requireProtocol` option to `true`. |
+| `protocols` | An array of allowed protocols ("http", "https", or "ftp"). Defining protocols will implicitly set the `requireProtocol` option to `true`. |
 | `requireTld` | Ensure the tld is present in the URL. Defaults to `true`  |
 | `requireProtocol` | Ensure the URL has protocol defined. Defaults to `false` |
 | `requireHost` | Ensure the URL has the host defined. Defaults to `true` |

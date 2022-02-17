@@ -97,22 +97,22 @@
         "name": "Relationships",
         "docs": [
           {
-            "title": "Has One",
+            "title": "Has one",
             "permalink": "orm/relations/has-one",
             "contentPath": "orm/relations/has-one.md"
           },
           {
-            "title": "Has Many",
+            "title": "Has many",
             "permalink": "orm/relations/has-many",
             "contentPath": "orm/relations/has-many.md"
           },
           {
-            "title": "Belongs To",
+            "title": "Belongs to",
             "permalink": "orm/relations/belongs-to",
             "contentPath": "orm/relations/belongs-to.md"
           },
           {
-            "title": "Many to Many",
+            "title": "Many to many",
             "permalink": "orm/relations/many-to-many",
             "contentPath": "orm/relations/many-to-many.md"
           },
@@ -397,6 +397,32 @@
             "title": "entryPoints",
             "permalink": "views/tags/entry-points",
             "contentPath": "views/tags/entry-points.md"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Internationalization",
+    "categories": [
+      {
+        "name": "root",
+        "docs": [
+          {
+            "title": "I18n Manager",
+            "permalink": "i18n/manager",
+            "contentPath": "i18n/i18n-manager.md",
+            "isLandingDoc": true
+          },
+          {
+            "title": "I18n",
+            "permalink": "i18n/i18n",
+            "contentPath": "i18n/i18n.md"
+          },
+          {
+            "title": "View helpers",
+            "permalink": "i18n/view-helpers",
+            "contentPath": "i18n/view-helpers.md"
           }
         ]
       }

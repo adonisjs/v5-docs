@@ -2,23 +2,23 @@
 summary: Reference to partials in edge
 ---
 
-Partials as the name suggest is a way to extract a chunk of markup to its own file and then re-use it across multiple templates.
+As the name suggests, partials are a way to extract a chunk of markup to its file and then re-use it across multiple templates.
 
-Keeping the website header, logo, footer and sidebar in its own file are some common use cases for partials.
+Keeping the website **header**, **logo**, **footer**, and **sidebar** in its file are some common use cases for partials.
 
 ## Basic example
 
-Let's create a standard webpage with a header, sidebar, main and the footer using partials.
+Let's create a standard webpage with a header, sidebar, main, and footer using partials.
 
 #### 1. Create the following file structure
 
 ```sh
 ├── views
-│   ├── partials
-│   │   ├── footer.edge
-│   │   ├── header.edge
-│   │   └── sidebar.edge
-│   └── home.edge
+│   ├── partials
+│   │   ├── footer.edge
+│   │   ├── header.edge
+│   │   └── sidebar.edge
+│   └── home.edge
 ```
 
 #### 2. Write the following content inside the respective partials
@@ -76,8 +76,8 @@ Let's create a standard webpage with a header, sidebar, main and the footer usin
 
 The `@include` tag is responsible for loading and inlining the partials.
 
-- It accepts only a single argument, that is the partial path relative from the views directory
-- The path can also be dynamic. Meaning you can use a variables to define the partial path
+- It accepts only a single argument, that is, the partial path relative from the views directory
+- The path can also be dynamic. Meaning you can use variables to define the partial path
 - The partial have access to the parent template state
 
 Also, there is an additional `@includeIf` tag to include the partial, only when a certain condition is `true`.

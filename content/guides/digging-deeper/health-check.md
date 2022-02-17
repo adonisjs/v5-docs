@@ -4,10 +4,10 @@ summary: Use the health check module to report your application health and statu
 
 The health check module of AdonisJS allows you and the installed packages to report the health of your application. 
 
-Health checks are usually helpful when performing rolling deployments, as you can check the health of the newly deployed code before sending any traffic to it. All major platforms, including [Digital ocean apps](https://docs.digitalocean.com/products/app-platform/concepts/health-check/), [Kubernetes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) and [AWS ECS](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_HealthCheck.html) has support for performing health checks.
+Health checks are usually helpful when performing rolling deployments, as you can check the health of the newly deployed code before sending any traffic to it. All major platforms, including: [DigitalOcean Apps](https://docs.digitalocean.com/products/app-platform/concepts/health-check/), [Kubernetes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) and [Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_HealthCheck.html) has support for performing health checks.
 
-## How health checks work?
-The health checks' main goal is to perform operations and ensure that your application will work fine in production. It covers operations like
+## How do health checks work?
+The health checks' main goals are to perform operations and ensure that your application will work fine in production. It covers operations like:
 
 - Checking database connectivity
 - Making sure all the environment variables are in place to run the app

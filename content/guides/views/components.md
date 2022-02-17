@@ -1,17 +1,17 @@
 ---
-summary: Reference guide for the template components
+summary: A reference guide for the template components
 ---
 
 The Edge components system is highly inspired by the frontend frameworks like Vue or Svelte. It borrows the concept of **reusability**, **isolated state**, **props** and **slots** from them.
 
-However, do note that Edge is a backend template engine and hence some of the principles cannot be replicated because of the server side environment and the design of Edge. It includes
+Do note, Edge is a backend template engine, and we cannot replicate some of the frontend ecosystem principles with Edge. It includes.
 
-- **Reactivity**: There is no concept of reactivity on backend. You just generate the HTML and send it over the wire.
-- **Scoped CSS**: Edge is not compiled using frontend build tools like Webpack and hence it does not bother itself with compiling and extract CSS from components. You must use existing frontend tooling for that.
+- **Reactivity**: There is no concept of reactivity on the backend. You generate the HTML and send it over the wire.
+- **Scoped CSS**: Edge is not compiled using frontend build tools like Webpack, and hence it does not bother itself with compiling and extract CSS from components. You must use existing frontend tooling for that.
 
 ## Creating a component
 
-Components are represented using the regular edge template files. For example: You can create a file named `button.edge` with the following markup
+Components are represented using the regular Edge template files. For example, You can create a file named `button.edge` with the following markup.
 
 ```edge
 <button type="{{ type }}">
@@ -28,7 +28,7 @@ And then use it as a component inside other templates.
 })
 ```
 
-The `@component` tag accepts a total of two arguments. First is the component path (relative from the views directory) and second is the component state (aka props).
+The `@component` tag accepts a total of two arguments. First is the component path (relative to the views directory), and the second is the component state (props).
 
 :::note
 
@@ -55,7 +55,7 @@ Then `button` component can access the `text` and the `type` props as follows.
 ### $props
 Another way to access the props is to use the `$props` property. It is an instance of the [Props class](https://github.com/edge-js/edge/blob/develop/src/Component/Props.ts) and comes with a few extra capabilities to make components authoring easier.
 
-In the following example, the `serializeExcept` method will convert all the props, except the `text` prop into HTML attributes.
+In the following example, the `serializeExcept` method will convert all the props into HTML attributes, except the `text` prop.
 
 ```edge
 <button {{ $props.serializeExcept(['text']) }}>{{ text }}</button>
@@ -73,9 +73,9 @@ Similar to the `serializeExcept` method, you can use the `serializeOnly` method 
 
 ## Slots
 
-Along with the props, components can also accept `slots`. Slots are named outlets, that the parent component can define markup for.
+Along with the props, components can also accept `slots`. Slots are named outlets that the parent component can define markup for.
 
-As an example, lets accept the text for our `button` component as a slot and not as a prop.
+For example, let's accept the text for our `button` component as a slot and not as a prop.
 
 ```edge
 <button type="{{ type }}">
@@ -96,9 +96,9 @@ The component caller can define the markup for the main slot as follows.
 
 ### Main slot
 
-All the contents between the `@component` opening and the closing tag is part of the main slot, unless you move it inside a named slot.
+The contents between the `@component` opening and the closing tag are part of the main slot unless you move it inside a named slot.
 
-In the following example, all the content outside the `@slot('trigger')` is part of the main slot.
+All the content outside the `@slot('trigger')` is part of the main slot in the following example.
 
 ```edge
 @component('modal')
@@ -113,7 +113,7 @@ In the following example, all the content outside the `@slot('trigger')` is part
 
 ### Named slots
 
-Named slots allow the component to accept markup for multiple outlets. For example, a modal component can accept markup for the modal header, body and its actions
+Named slots allow the component to accept markup for multiple outlets. For example, a modal component can accept markup for the modal header, body, and actions.
 
 ```edge
 // title: components/modal.edge
@@ -132,7 +132,7 @@ Named slots allow the component to accept markup for multiple outlets. For examp
 </div>
 ```
 
-The parent template can define them as follows
+The parent template can define them as follows.
 
 ```edge
 @component('components/modal')
@@ -174,7 +174,7 @@ Following is the markup for the button component
 </button>
 ```
 
-The parent template attempting to access the `title` property defined inside the `component`.
+The parent template is attempting to access the `title` property defined inside the `component`.
 
 ```edge
 // title: home.edge
@@ -223,7 +223,7 @@ To summarize:
 
 The data injection API of Edge is inspired by the [Svelte context API](https://svelte.dev/tutorial/context-api) and [Vue provide/inject API](https://v3.vuejs.org/guide/component-provide-inject.html#provide-inject).
 
-The goal is to simplify the communication between the components inside a tree. However, do note that this is an advanced API and must only be used when you are self authoring a group of components and want transparent communication between them.
+The goal is to simplify the communication between the components inside a tree. However, note that this is an advanced API and must only be used when you are self-authoring a group of components and want transparent communication between them.
 
 ### Basic example
 
@@ -240,7 +240,7 @@ Let's start with the most basic example to see the injection API in action. You 
 {{{ await $slots.main() }}}
 ```
 
-Since the `@inject` tag shares the object by reference, any part of the component tree can mutate it's properties, as shown in the following snippet.
+Since the `@inject` tag shares the object by reference, any part of the component tree can mutate its properties, as shown in the following snippet.
 
 The injected values are available on the `$context` variable.
 
@@ -256,9 +256,9 @@ The injected values are available on the `$context` variable.
 ```
 
 ## Components as tags
-Edge allows you reference the components stored inside the `./resources/views/components` directory as edge tags.
+Edge allows you to reference the components stored inside the `./resources/views/components` directory as Edge tags.
 
-Let's create the following template inside the `resources/views/components/button.edge` file.
+Create the following template inside the `resources/views/components/button.edge` file.
 
 ```edge
 // title: resources/views/components/button.edge
@@ -267,7 +267,7 @@ Let's create the following template inside the `resources/views/components/butto
 </button>
 ```
 
-Now, instead of referencing the button component using the `@component` tag. You can also reference it as `@button` tag.
+Now, instead of referencing the button component using the `@component` tag. You can also reference it as the `@button` tag.
 
 ```edge
 @!button({

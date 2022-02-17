@@ -1,4 +1,4 @@
-Validates the property to be a valid date object or a string representing a date. The values are casted to an instance of [luxon.DateTime](https://moment.github.io/luxon/docs/manual/tour.html#creating-a-datetime)
+Validates the property to be a valid date object or a string representing a date. The values are casted to an instance of [luxon.DateTime](https://moment.github.io/luxon/api-docs/index.html#datetime)
 
 ```ts
 import { schema } from '@ioc:Adonis/Core/Validator'
@@ -43,11 +43,33 @@ Or use the following shorthand codes for standardized date/time formats.
 ```
 
 ## Mark as optional
-You can mark the property to be optional by chaining the `optional` method. Only the `undefined` values are considered optional. We treat `null` as a valid value and it will fail the date validation.
+You can mark the property to be optional by chaining the `optional` method. The `undefined` and the `null` values are considered optional and removed from the validated object.
 
 ```ts
 {
   published_at: schema.date.optional({
+    format: 'yyyy-MM-dd HH:mm:ss',
+  })
+}
+```
+
+## Mark as nullable
+You can mark the property to be nullable by chaining the `nullable` method. The `nullable` fields must exist in the payload but can contain null values.
+
+```ts
+{
+  published_at: schema.date.nullable({
+    format: 'yyyy-MM-dd HH:mm:ss',
+  })
+}
+```
+
+## Mark as nullable and optional
+Mark the property both as `nullable` and `optional`. If the field value is undefined, it will be removed from the validated object. Otherwise, the validated value (including null) is returned.
+
+```ts
+{
+  published_at: schema.date.nullableAndOptional({
     format: 'yyyy-MM-dd HH:mm:ss',
   })
 }

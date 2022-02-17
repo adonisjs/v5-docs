@@ -7,7 +7,7 @@ Database seeding is a way to set up your application with some initial data requ
 - Creating a seeder to insert **countries**, **states**, and **cities** before deploying and running your application.
 - Or a seeder to insert users inside the database for local development.
 
-The seeders are stored inside the `database/seeders` directory. You can create a new seeder file by running the following ace command.
+The seeders are stored inside the `database/seeders` directory. You can create a new seeder file by running the following Ace command.
 
 ```sh
 node ace make:seeder User
@@ -43,7 +43,7 @@ export default class UserSeeder extends BaseSeeder {
 ```
 
 ## Running seeders
-You can execute all or selected database seeders by running the following ace command.
+You can execute all or selected database seeders by running the following Ace command.
 
 ```sh
 # runs all
@@ -170,7 +170,7 @@ The `db:seed` command runs all the seeders in the order they are stored on the f
 If you want certain seeders to run before the other seeders, then either you can **prefix a counter to file names** or **you can create a Main seeder directory** as follows.
 
 #### Step 1. Create the main seeder
-Create the main seeder file by running the following ace command.
+Create the main seeder file by running the following Ace command.
 
 ```sh
 node ace make:seeder MainSeeder/index
