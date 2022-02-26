@@ -50,6 +50,10 @@ If you look carefully, we have separated the **format validations** from **core 
 
 This separation helps extend the validator with custom rules without creating unnecessary schema types that have no meaning. For example, there is no thing called **email type**; it is just a string, formatted as an email.
 
+:::note
+Fields are required by default and hence there is no need to use `rules.required` method. Using it would result in duplicate error messages.
+:::
+
 ## Working with optional and null values
 The validator schema has first-class support for marking values as optional and null using the modifier functions. 
 
