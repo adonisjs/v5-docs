@@ -98,7 +98,38 @@ node ace migration:rollback --batch=0
 node ace migration:rollback --batch=1
 ```
 
+The `migration:reset` command is basically an alias for `migration:rollback --batch=0`. This will rollback all of your application's migrations :
+```sh
+node ace migration:reset
+```
+
 The rollback command executes the `down` method of the migration class. Like the `up` method, the SQL statements of the `down` method are also wrapped inside a database transaction.
+
+### Rollback and migrate using a single command
+The `migration:refresh` command will rollback all of your migrations and then execute the `migration:run` command. This command effectively re-creates your entire database:
+
+```sh
+node ace migration:refresh
+
+# Refresh the database and run all seeders
+node ace migration:refresh --seed
+```
+
+### Drop tables and migrate
+Unlike the `migration:refresh` command, the `migration:reset` command will not run the `down` method of the migration files. Instead, it will drop all the tables using the `db:wipe` command and then run the `migration:run` command.
+
+```sh
+node ace migration:fresh
+
+# Drop all tables, migrate, and run seeders
+node ace migration:fresh --seed
+```
+
+:::warning
+
+`migration:fresh` and `db:wipe` commands will drop all database tables. These command should be used with caution when developing on a database that is shared with other applications.
+
+:::
 
 ### Avoid rollback in production
 Performing a rollback during development is perfectly fine since there is no fear of data loss. However, performing a rollback in production is not an option in the majority of cases. Consider the following example:
