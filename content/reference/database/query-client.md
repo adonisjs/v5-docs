@@ -125,7 +125,7 @@ console.log(views)
 ---
 
 ### getAllTypes
-Returns an array of all the database custom types. The method works only with **Postgres and Redshift**
+Returns an array of all the database custom types. The method works only with **Postgres and Redshift**.
 
 ```ts
 const types = await client.getAllTypes()
