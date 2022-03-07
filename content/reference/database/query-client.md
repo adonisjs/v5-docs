@@ -125,7 +125,7 @@ console.log(views)
 ---
 
 ### getAllTypes
-⚠️ Postgres/Redshift only
+For Postgres/Redshift only
 
 Returns an array of all the database custom types.
 
@@ -159,7 +159,7 @@ await client.dropAllViews(['public'])
 ---
 
 ### dropAllTypes
-⚠️ Postgres/Redshift only
+For Postgres/Redshift only
 
 Drop all types inside the database.
 
