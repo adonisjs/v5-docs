@@ -157,7 +157,7 @@ await client.dropAllViews(['public'])
 ---
 
 ### dropAllTypes
-Drop all custom types inside the database. The method works only with **Postgres and Redshift**
+Drop all custom types inside the database. The method works only with **Postgres and Redshift**.
 
 ```ts
 await client.dropAllTypes()
