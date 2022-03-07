@@ -125,9 +125,7 @@ console.log(views)
 ---
 
 ### getAllTypes
-For Postgres/Redshift only
-
-Returns an array of all the database custom types.
+Returns an array of all the database custom types. The method works only with **Postgres and Redshift**
 
 ```ts
 const types = await client.getAllTypes()
@@ -159,15 +157,10 @@ await client.dropAllViews(['public'])
 ---
 
 ### dropAllTypes
-For Postgres/Redshift only
-
-Drop all types inside the database.
+Drop all custom types inside the database. The method works only with **Postgres and Redshift**
 
 ```ts
 await client.dropAllTypes()
-
-// specify schemas ( for Postgres and Redshift )
-await client.dropAllTypes(['public'])
 ```
 
 ---
