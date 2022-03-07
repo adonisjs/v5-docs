@@ -143,8 +143,8 @@ You can get an instance of a query builder for your model using the `.query` met
 ```ts
 const users = await User
   .query() // 👈now have access to all query builder methods
-  .where('country_code', 'IN')
-  .orWhereNull('country_code')
+  .where('countryCode', 'IN')
+  .orWhereNull('countryCode')
 ```
 
 To fetch a single row, you can make use of the `.first` method. There is also a `firstOrFail` method.
@@ -152,8 +152,8 @@ To fetch a single row, you can make use of the `.first` method. There is also a 
 ```ts
 const users = await User
   .query()
-  .where('country_code', 'IN')
-  .orWhereNull('country_code')
+  .where('countryCode', 'IN')
+  .orWhereNull('countryCode')
   .first() // 👈 Adds `LIMIT 1` clause
 ```
 
@@ -162,7 +162,7 @@ The standard way to perform updates using the model is to look up the record and
 
 ```ts
 const user = await User.findOrFail(1)
-user.last_login_at = DateTime.local() // Luxon dateTime is used
+user.lastLoginAt = DateTime.local() // Luxon dateTime is used
 
 await user.save()
 ```
@@ -171,7 +171,7 @@ Also, you can use the `merge` method to define all the attributes at once and th
 
 ```ts
 await user
-  .merge({ last_login_at: DateTime.local() })
+  .merge({ lastLoginAt: DateTime.local() })
   .save()
 ```
 
@@ -182,7 +182,7 @@ Another way to update the records is to perform an update using the query builde
 await User
   .query()
   .where('id', 1)
-  .update({ last_login_at: new Date() })
+  .update({ lastLoginAt: new Date() })
 ```
 
 However, updating records directly does not trigger any model hooks and neither auto-update the timestamps.
@@ -202,7 +202,7 @@ Again, for hooks to work, Lucid needs the instance of the model first. If you de
 However, the direct query builder approach can help perform bulk deletes.
 
 ```ts
-await User.query().where('is_verified', false).delete()
+await User.query().where('isVerified', false).delete()
 ```
 
 ## Idempotent methods

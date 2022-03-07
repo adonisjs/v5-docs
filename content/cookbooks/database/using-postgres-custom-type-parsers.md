@@ -5,7 +5,7 @@ avatarUrl: https://avatars.githubusercontent.com/u/10560710?v=4
 summary: Learn how to use custom type parsers with pg driver
 ---
 
-The guides cover the process of using pg adapter to override how a specific data-type is parsed and turned into a JavaScript type.
+This guide covers the process of using pg adapter to override how a specific data-type is parsed and turned into a JavaScript type.
 
 By default the PostgreSQL backend server returns everything as strings.
 

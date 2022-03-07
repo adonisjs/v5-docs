@@ -144,6 +144,18 @@ console.log(columns)
 
 ---
 
+### dropAllTables
+Drop all tables inside the database.
+
+```ts
+await client.dropAllTables()
+
+// specify schemas ( for Postgres and Redshift )
+await client.dropAllTables(['public'])
+```
+
+---
+
 ### dropAllViews
 Drop all views inside the database.
 
