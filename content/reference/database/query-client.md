@@ -114,6 +114,26 @@ console.log(tables)
 
 ---
 
+### getAllViews
+Returns an array of all the database views.
+
+```ts
+const views = await client.getAllViews()
+console.log(views)
+```
+
+---
+
+### getAllTypes
+Returns an array of all the database custom types. The method works only with **Postgres and Redshift**.
+
+```ts
+const types = await client.getAllTypes()
+console.log(types)
+```
+
+---
+
 ### columnsInfo
 Returns a key-value pair of columns in a given database table.
 
@@ -132,6 +152,27 @@ await client.dropAllTables()
 
 // specify schemas ( for Postgres and Redshift )
 await client.dropAllTables(['public'])
+```
+
+---
+
+### dropAllViews
+Drop all views inside the database.
+
+```ts
+await client.dropAllViews()
+
+// specify schemas ( for Postgres and Redshift )
+await client.dropAllViews(['public'])
+```
+
+---
+
+### dropAllTypes
+Drop all custom types inside the database. The method works only with **Postgres and Redshift**.
+
+```ts
+await client.dropAllTypes()
 ```
 
 ---
