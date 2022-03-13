@@ -64,7 +64,7 @@ SIDEBAR STYLES
 }
 
 .sidebar nav li a.up-current {
-  color: var(--brand-color);
+  color: var(--sidebar-selected-text);
   border-color: var(--accent-color);
 }
 

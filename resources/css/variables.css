@@ -13,9 +13,11 @@
   --pre-background: #292d3e;
   --brand-mute-color: #d1cdf1;
   --sidebar-background: #fff;
+  --sidebar-selected-text: var(--brand-color);
   --pre-header-border-color: #40405f;
   --pre-header-color: #b3b3d0;
   --toc-border-color: #d1d5db;
+  --toc-text-color: var(--light-gray);
 
   --font-sans: 'Calibre';
   --font-mono: 'Jetbrains Mono', monospace;
