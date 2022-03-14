@@ -13,7 +13,7 @@ TOC BLOCK
   bottom: 0;
   width: var(--toc-width);
   overflow-y: auto;
-  border-left: 1px solid var(--lighter-gray);
+  border-left: 1px solid var(--toc-border-color);
 }
 
 .toc-container {
@@ -29,7 +29,7 @@ TOC BLOCK
 .toc nav > ul > li {
   padding-top: 5px;
   padding-bottom: 5px;
-  border-bottom: 1px dashed #d1d5db;
+  border-bottom: 1px dashed var(--toc-border-color);
 }
 
 .toc ul li ul {
@@ -55,7 +55,7 @@ TOC BLOCK
 
 .toc li a {
   font-size: var(--toc-link-font-size);
-  color: var(--light-gray);
+  color: var(--toc-text-color);
   text-decoration: none;
 }
 

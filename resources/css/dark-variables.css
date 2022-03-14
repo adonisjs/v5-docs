@@ -1,0 +1,21 @@
+html.dark {
+  --background-color: rgb(38 38 38);
+  --brand-color: rgb(80 63 212);
+  --accent-color: rgb(6 208 234);
+  --text-color: rgb(212 212 212);
+  --heading-color: rgb(229 229 229);
+  --mute-color: rgb(163 163 163);
+  --gray: rgb(64 64 64);
+  --light-gray: rgb(115 115 115);
+  --lighter-gray: rgb(163 163 163);
+  --danger-badge-color: rgb(239 68 68);
+  --pre-background: rgb(255 255 255 / 1%);
+  --brand-mute-color: rgb(255 255 255 / 5%);
+  --sidebar-background: var(--background-color);
+  --pre-header-border-color: rgb(64 64 95 / 50%);
+  --pre-header-color: rgb(179 179 208 / 75%);
+  --toc-border-color: #2c2c2c;
+  --toc-text-color: var(--mute-color);
+  --sidebar-selected-text: var(--accent-color);
+  color-scheme: dark;
+}

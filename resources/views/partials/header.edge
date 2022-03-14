@@ -8,7 +8,10 @@
       </div>
 
       @include('partials/desktop-main-nav')
-      @include('partials/search')
+      <div class="right-section" >
+        @include('partials/dark-mode-toggler')
+        @include('partials/search')
+      </div>
     </div>
   </header>
 </div>
