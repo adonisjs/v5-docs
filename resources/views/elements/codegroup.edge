@@ -4,11 +4,10 @@
   <div class="codegroup-tabs">
     <div x-ref="highlighter" class="highlighter" style="width: 0; left: 20px;"></div>
     @each((tab, index) in tabs)
-      <a
-        href=""
+      <button
         {{ index === 0 ? 'x-ref=firstTab' : '' }}
         @click.prevent="changeTab({{ index + 1 }}, event.target)"
-        :class="{ active: {{index + 1}} === activeTab }">{{ tab }}</a>
+        :class="{ active: {{index + 1}} === activeTab }">{{ tab }}</button>
     @end
   </div>
   <div>

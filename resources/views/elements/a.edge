@@ -1,7 +1,7 @@
 <a
-  href="{{ node.properties.href }}"
+  {{{ dimerUtils.propsToAttributes(node.properties) }}}
   {{ node.properties.href.startsWith('http') ? 'target="_blank"' : '' }}
-  {{ node.properties.href.startsWith('http') ? 'rel="noopener"' : '' }}
+  {{ node.properties.href.startsWith('http') ? 'rel="noopener noreferrer nofollow"' : '' }}
 >
 @dimerTree(node.children)~
 </a>

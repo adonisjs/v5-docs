@@ -19,6 +19,13 @@
   --toc-border-color: #d1d5db;
   --toc-text-color: var(--light-gray);
 
+  --carbon-ads-bg-color: #f7f8fb;
+  --carbon-ads-text: #454f5b;
+  --carbon-powered-by-text: #919eab;
+
+  --dropdown-background-color: #f9f9f9;
+  --dropdown-hover-color: #e8e8e8;
+
   --font-sans: 'Calibre';
   --font-mono: 'Jetbrains Mono', monospace;
 

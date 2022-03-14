@@ -5,17 +5,38 @@ html.dark {
   --text-color: rgb(212 212 212);
   --heading-color: rgb(229 229 229);
   --mute-color: rgb(163 163 163);
-  --gray: rgb(64 64 64);
+  --gray: rgb(50 50 50);
   --light-gray: rgb(115 115 115);
-  --lighter-gray: rgb(163 163 163);
+  --lighter-gray: rgb(77 77 77 / 50%);
   --danger-badge-color: rgb(239 68 68);
-  --pre-background: rgb(255 255 255 / 1%);
+  --pre-background: rgb(31 31 31);
   --brand-mute-color: rgb(255 255 255 / 5%);
-  --sidebar-background: var(--background-color);
-  --pre-header-border-color: rgb(64 64 95 / 50%);
+  --sidebar-background: rgb(33 33 33);
+  --pre-header-border-color: rgb(77 77 77 / 50%);
+  --sidebar-shadow: none;
   --pre-header-color: rgb(179 179 208 / 75%);
-  --toc-border-color: #2c2c2c;
+  --toc-border-color: rgb(77 77 77 / 50%);
   --toc-text-color: var(--mute-color);
   --sidebar-selected-text: var(--accent-color);
+
+  --carbon-ads-bg-color: rgb(33 33 33);
+  --carbon-background-text: #e2e2e2;
+  --carbon-powered-by-text: #999999;
+
+  --dropdown-background-color: rgb(51 51 51);
+  --dropdown-hover-color: rgb(45 44 44);
+
+  --docsearch-modal-background: rgb(31 31 31);
+  --docsearch-searchbox-focus-background: rgb(51 51 51);
+  --docsearch-footer-background: rgb(51 51 51);
+  --docsearch-footer-shadow: 0 -1px 0 0 #434446,0 -3px 6px 0 rgba(69,98,155,0.12);
+  --docsearch-searchbox-shadow: inset 0 0 0 2px rgb(87 87 87);
+  --docsearch-modal-shadow: none;
+  --docsearch-text-color: #e2e2e2;
+  --docsearch-highlight-color: #999999;
+  --docsearch-key-gradient: #282727;
+  --docsearch-key-shadow: none;
+  --docsearch-logo-color: #999999;
+
   color-scheme: dark;
 }
