@@ -39,6 +39,8 @@ HEADER STYLES
   top: 1px;
   display: block;
   position: relative;
+  background: none;
+  border: none;
 }
 
 .hamburger svg {
@@ -142,7 +144,7 @@ HEADER STYLES
     z-index: 2;
     border-radius: 0 0 var(--rounded-corners-size) var(--rounded-corners-size);
     margin-top: var(--header-height);
-    background: var(--background-color);
+    background: var(--dropdown-background-color);
     left: 0;
     box-shadow: 0px 4px 16px rgb(46 41 51 / 8%), 0px 8px 24px rgb(71 63 79 / 16%);
 
@@ -185,7 +187,7 @@ HEADER STYLES
   }
 
   .header-nav li ul li a:hover {
-    background: var(--gray);
+    background: var(--dropdown-hover-color);
   }
 
   .header-nav > ul > li > a.up-current,
@@ -227,28 +229,31 @@ HEADER STYLES
 }
 
 /* Dark Mode Toggler */
-.dark-mode-toggler {
+.dark-mode-switch {
+  margin-right: 10px;
+}
+
+.dark-mode-switch button {
+  background: none;
   cursor: pointer;
-  color: #fff;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
   display: flex;
   align-items: center;
-  margin-right: 10px;
-  position: relative;
-  top: -1px;
+  padding: 6px 10px;
+  border-radius: var(--rounded-corners-size);
+}
+.dark-mode-switch button:hover {
+  color: #fff;
+  background: rgba(0, 0, 0, 0.2);
 }
 
-.dark-mode-toggler svg {
-  margin: 1px 0 0 0;
-}
-
-.dark-mode-toggler div {
-  height: 24px;
+.dark-mode-switch svg {
+  margin-top: 1px;
 }
 
 @media (min-width: 768px) {
   .dark-mode-toggler {
     margin-right: 20px;
-    position: relative;
-    top: 0px;
   }
 }

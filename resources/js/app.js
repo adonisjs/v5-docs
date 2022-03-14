@@ -181,6 +181,38 @@ Alpine.data('tocMenu', function () {
   }
 })
 
+Alpine.data('darkModeSwitch', function () {
+  return {
+    mode: null,
+
+    toggleColorMode() {
+      this.mode = this.mode === 'dark' ? 'light' : 'dark'
+      localStorage.setItem('colorMode', this.mode)
+
+      if (this.mode === 'dark') {
+        document.documentElement.classList.add('dark')
+      } else {
+        document.documentElement.classList.remove('dark')
+      }
+    },
+
+    init() {
+      const selectedMode = localStorage.colorMode
+      if (selectedMode) {
+        this.mode = selectedMode === 'dark' ? 'dark' : 'light'
+        return
+      }
+
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        this.mode = 'dark'
+        return
+      }
+
+      this.mode = 'light'
+    },
+  }
+})
+
 /**
  * Scroll the active sidebar item into the view on page load
  */

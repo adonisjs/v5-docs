@@ -199,7 +199,7 @@
   border-bottom: 2px solid var(--pre-header-border-color);
 }
 
-.markdown .codegroup-tabs a {
+.markdown .codegroup-tabs button {
   color: var(--pre-header-color);
   padding: 12px 8px;
   margin-right: 10px;
@@ -209,6 +209,9 @@
   font-family: var(--font-mono);
   transition: left 0.3s ease;
   text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 .markdown .codegroup-tabs a.active {

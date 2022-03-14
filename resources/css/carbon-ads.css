@@ -2,7 +2,7 @@
   z-index: 99;
   padding: 10px;
   width: 150px;
-  background-color: #f7f8fb;
+  background-color: var(--carbon-ads-background-color);
   box-shadow: 0 0 1px rgb(0 0 0 / 25%);
   margin: 40px 0;
 }
@@ -22,7 +22,7 @@
 
 #carbonads .carbon-text {
   display: block;
-  color: #454f5b;
+  color: var(--carbon-ads-text);
   font-size: 14px;
   line-height: 18px;
   margin-bottom: 10px;
