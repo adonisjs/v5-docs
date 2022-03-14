@@ -72,6 +72,7 @@ HEADER STYLES
   width: var(--toc-width);
   padding: 0 var(--space-x) 0 10px;
   border-left: 1px solid var(--brand-mute-color);
+  margin-block: auto;
 }
 
 .search-trigger {
