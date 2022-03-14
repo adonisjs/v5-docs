@@ -74,7 +74,7 @@ import {
   ModelQueryBuilderContract,
 } from '@ioc:Adonis/Lucid/Orm'
 
-type Builder = ModelQueryBuilderContract<typeof User>
+type Builder = ModelQueryBuilderContract<typeof Post>
 
 export default class Post extends BaseModel {
   public static firstScope = scope((query: Builder) => {
@@ -93,7 +93,7 @@ The `scope` method is not aware of the Model it is used inside (a TypeScript lim
 
 ```ts
 // highlight-start
-type Builder = ModelQueryBuilderContract<typeof User>
+type Builder = ModelQueryBuilderContract<typeof Post>
 // highlight-end
 
 public static firstScope = scope(
