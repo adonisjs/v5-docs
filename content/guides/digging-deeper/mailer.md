@@ -99,7 +99,7 @@ The mailgun driver optionally accepts the following options.
 
 | Config option | Mailgun variant | 
 |---------------|---------------|
-| `oTag` | o\:tag |
+| `oTags` | o\:tag |
 | `oDeliverytime` | o\:deliverytime |
 | `oTestMode` | o\:testmode |
 | `oTracking` | o\:tracking |
@@ -114,7 +114,7 @@ You can pass all of the options except `oDkim` during the `Mail.send` call as we
 await Mail.use('mailgun').send((message) => {
   message.subject('Welcome Onboard!')
 }, {
-  oTag: ['signup'],
+  oTags: ['signup'],
 })
 ```
 
