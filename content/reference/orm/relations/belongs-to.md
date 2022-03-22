@@ -2,7 +2,7 @@
 summary: API documentation for Lucid BelongsTo relationship
 ---
 
-The [BelongsTo relationship class](https://github.com/adonisjs/lucid/blob/develop/src/Orm/Relations/BelongsTo.ts) manages the belongs to the relationship between two models.
+The [BelongsTo relationship class](https://github.com/adonisjs/lucid/blob/develop/src/Orm/Relations/BelongsTo/index.ts) manages the belongs to the relationship between two models.
 
 You will not find yourself directly working with this class. However, an instance of the class can be accessed using the `Model.$getRelation` method.
 
