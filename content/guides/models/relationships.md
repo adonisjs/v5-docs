@@ -346,7 +346,7 @@ export default class User extends BaseModel {
 ```
 
 ### Custom relationship keys
-A manyToMany relation relies on many different keys to properly set up the relationship. All of these are keys are computed using standard conventions. However, you are free to override them.
+A manyToMany relation relies on many different keys to properly set up the relationship. All of these keys are computed using standard conventions. However, you are free to override them.
 
 - `localKey` is the primary key of the parent model (i.e., User)
 - `relatedKey` is the primary key of the related model (i.e., Skill)
