@@ -196,7 +196,7 @@ import Route from '@ioc:Adonis/Core/Route'
 import Redis from '@ioc:Adonis/Addons/Redis'
 
 Route.get('/signup', async () => {
-  await Redis.publish('user:signups', JSON.stringify({ id: 1 }))
+  await Redis.publish('user:signup', JSON.stringify({ id: 1 }))
 
   return 'handled'
 })
