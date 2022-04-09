@@ -236,7 +236,7 @@ All the validation related properties, including the `schema`, `messages` are de
 
 ```ts
 // title: app/Validators/CreateUserValidator.ts
-import { schema } from '@ioc:Adonis/Core/Validator'
+import { schema, CustomMessages } from '@ioc:Adonis/Core/Validator'
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
 export default class CreateUserValidator {
@@ -246,7 +246,7 @@ export default class CreateUserValidator {
   public schema = schema.create({
   })
 
-  public messages = {}
+  public messages: CustomMessages = {}
 }
 ```
 
