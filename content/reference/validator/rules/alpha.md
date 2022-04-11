@@ -5,7 +5,7 @@ type**.
 import { schema, rules } from '@ioc:Adonis/Core/Validator'
 
 {
-  username: schema.string({}, [
+  username: schema.string([
     rules.alpha(),
   ])
 }
@@ -15,7 +15,7 @@ You can also allow the string to have `spaces`, `dash` and `underscore` characte
 
 ```ts
 {
-  username: schema.string({}, [
+  username: schema.string([
     rules.alpha({
       allow: ['space', 'underscore', 'dash']
     })

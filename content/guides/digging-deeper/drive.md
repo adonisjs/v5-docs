@@ -435,20 +435,20 @@ You can fake a disk by calling the `Drive.fake` method.
 
 ```ts
 // Fake default disk
-Drive.fake()
+const fakeDrive = Drive.fake()
 
 await Drive.put('foo.txt', 'hello world')
-assert.equal(await Drive.get('foo.txt'), 'hello world')
+assert.isTrue(await fakeDrive.exists('foo.txt'))
 ```
 
 You can also fake a named disk by providing its name to the fake method.
 
 ```ts
 // Fake named disk
-Drive.fake('s3')
+const fakeDrive = Drive.fake('s3')
 
 await Drive.use('s3').put('foo.txt', 'hello world')
-assert.equal(await Drive.use('s3').get('foo.txt'), 'hello world')
+assert.isTrue(await fakeDrive.exists('foo.txt'))
 ```
 
 Once done with the test, you must restore the fake.

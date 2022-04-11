@@ -23,3 +23,12 @@ Following is an example of applying the `minLength` rule on an array.
     .members(schema.string())
 }
 ```
+
+## Custom messages options
+The `minLength` validation rule passes the `minLength` option to custom messages.
+
+```ts
+{
+  'minLength': 'The array must have minimum of {{ options.minLength }} items',
+}
+```

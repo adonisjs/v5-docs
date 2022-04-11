@@ -9,11 +9,6 @@
             "title": "Using socket.io",
             "permalink": "socketio-with-adonisjs",
             "contentPath": "socketio-with-adonisjs.md"
-          },
-          {
-            "title": "Writing tests",
-            "permalink": "testing-adonisjs-apps",
-            "contentPath": "testing-adonisjs-apps.md"
           }
         ]
       },

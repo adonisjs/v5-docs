@@ -66,3 +66,13 @@ import { schema, rules } from '@ioc:Adonis/Core/Validator'
   ),
 }
 ```
+
+## Custom messages options
+The `file` schema type passes the `size` and the `extnames` to custom messages.
+
+```ts
+{
+  'file.size': 'The file size must be under {{ options.size }}',
+  'file.extname': 'The file must have one of {{ options.extnames }} extension names',
+}
+```

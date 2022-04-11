@@ -4,7 +4,7 @@ Validates the value to be formatted as a valid URL string.
 import { schema, rules } from '@ioc:Adonis/Core/Validator'
 
 {
-  website: schema.string({}, [
+  website: schema.string([
     rules.url()
   ])
 }
@@ -14,7 +14,7 @@ Along with the format validation, you can also **enforce the url to be from a ce
 
 ```ts
 {
-  twitterProfile: schema.string({}, [
+  twitterProfile: schema.string([
     rules.url({
       // Only twitter.com urls are allowed
       allowedHosts: ['twitter.com']
@@ -27,7 +27,7 @@ The inverse of `allowedHosts` is the `bannedHosts`.
 
 ```ts
 {
-  website: schema.string({}, [
+  website: schema.string([
     rules.url({
       bannedHosts: [
         'acme.com',
@@ -44,7 +44,7 @@ Following is the list of options for validate a URL string
 
 ```ts
 {
-  website: schema.string({}, [
+  website: schema.string([
     rules.url({
       protocols: ['http', 'https', 'ftp'],
       requireTld: true,
@@ -68,13 +68,14 @@ Following is the list of options for validate a URL string
 | `bannedHosts` | An array of banned hosts. URLs matching the defined hosts will fail the validation. |
 | `validateLength` | Validate the length of the URL to be under or equal to **2083 charcters**. Defaults to `true`. |
 
-## Normalization options
-Following is the list of available options to normalize the URL value post validation.
+## Normalizing url
+You can normalize the URL using the `rules.normalizeUrl` method.
 
 ```ts
 {
-  website: schema.string({}, [
-    rules.url({
+  website: schema.string([
+    rules.url(),
+    rules.normalizeUrl({
       ensureProtocol: 'https',
       stripWWW: true,
     })

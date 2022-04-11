@@ -4,7 +4,7 @@ Enforce the field under validation is also confirmed using the `_confirmation` c
 import { schema, rules } from '@ioc:Adonis/Core/Validator'
 
 {
-  password: schema.string({}, [
+  password: schema.string([
     rules.confirmed()
   ])
 }
@@ -21,7 +21,7 @@ Optionally, you can also change the field name that should be checked for the co
 
 ```ts
 {
-  password: schema.string({}, [
+  password: schema.string([
     rules.confirmed('passwordConfirmation')
   ])
 }
@@ -32,4 +32,13 @@ Optionally, you can also change the field name that should be checked for the co
     passwordConfirmation: 'secret'
  }
  */
+```
+
+## Custom message
+You can define custom message for the `confirmed` rule on confirmation field.
+
+```ts
+{
+  'password_confirmation.confirmed': 'Password do not match'
+}
 ```

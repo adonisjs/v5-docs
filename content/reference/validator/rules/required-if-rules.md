@@ -14,7 +14,7 @@ The opposite of this rule is `requiredIfNotExists`
 import { schema, rules } from '@ioc:Adonis/Core/Validator'
 
 {
-  address: schema.string.optional({}, [
+  address: schema.string.optional([
     rules.requiredIfExists('needs_delivery')
   ])
 }
@@ -34,7 +34,7 @@ The opposite of this rule is `requiredIfNotExistsAll`
 import { schema, rules } from '@ioc:Adonis/Core/Validator'
 
 {
-  tax_id: schema.string.optional({}, [
+  tax_id: schema.string.optional([
     rules.requiredIfExistsAll(['owns_a_car', 'owns_a_house'])
   ])
 }
@@ -54,7 +54,7 @@ The opposite of this rule is `requiredIfNotExistsAny`
 import { schema, rules } from '@ioc:Adonis/Core/Validator'
 
 {
-  password: schema.string.optional({}, [
+  password: schema.string.optional([
     rules.requiredIfExistsAny(['username', 'email'])
   ])
 }
@@ -67,7 +67,7 @@ Mark the current field as required **when the value of the other field matches a
 import { schema, rules } from '@ioc:Adonis/Core/Validator'
 
 {
-  address: schema.string.optional({}, [
+  address: schema.string.optional([
     rules.requiredWhen('delivery_method', '=', 'shipping')
   ])
 }

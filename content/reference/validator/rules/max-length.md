@@ -23,3 +23,12 @@ Following is an example of applying the `maxLength` rule on an array.
     .members(schema.string())
 }
 ```
+
+## Custom messages options
+The `maxLength` validation rule passes the `maxLength` option to custom messages.
+
+```ts
+{
+  'maxLength': 'The array can contain maximum of {{ options.maxLength }} items',
+}
+```
