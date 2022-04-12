@@ -4,7 +4,7 @@ Enforces the value to be properly formatted as a phone number. You can also defi
 import { schema, rules } from '@ioc:Adonis/Core/Validator'
 
 {
-  mobile: schema.string({}, [
+  mobile: schema.string([
     rules.mobile()
   ])
 }
@@ -14,7 +14,7 @@ You can also specify one or more locales to force format validation for a specif
 
 ```ts
 {
-  mobile: schema.string({}, [
+  mobile: schema.string([
     rules.mobile({
       locales: ['pt-BR', 'en-IN', 'en-US']
     })
@@ -27,7 +27,7 @@ Enabling the strict mode forces the user to always define the country code and p
 
 ```ts
 {
-  mobile: schema.string({}, [
+  mobile: schema.string([
     rules.mobile({ strict: true })
   ])
 }

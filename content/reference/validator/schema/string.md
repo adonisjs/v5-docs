@@ -1,28 +1,19 @@
-Validates the property to be a valid string. Optionally you can define the options for **trimming the whitespace** and **escaping the value**.
+Validates the property to be a valid string.
 
 ```ts
 import { schema } from '@ioc:Adonis/Core/Validator'
 
 {
-  title: schema.string({
-    escape: true,
-    trim: true
-  })
+  title: schema.string()
 }
 ```
-
-- The `escape` option will convert `<`, `>`, `&`, `'`, `"` and `/` characters to HTML entities.
-- The `trim` option removes the surrounding whitespace.
 
 ## Mark as optional
 You can mark the property to be optional by chaining the `optional` method. The `undefined` and the `null` values are considered optional and removed from the validated object.
 
 ```ts
 {
-  title: schema.string.optional({
-    escape: true,
-    trim: true
-  })
+  title: schema.string.optional()
 }
 ```
 
@@ -31,10 +22,7 @@ You can mark the property to be nullable by chaining the `nullable` method. The 
 
 ```ts
 {
-  title: schema.string.nullable({
-    escape: true,
-    trim: true
-  })
+  title: schema.string.nullable()
 }
 ```
 
@@ -43,10 +31,7 @@ Mark the property both as `nullable` and `optional`. If the field value is undef
 
 ```ts
 {
-  title: schema.string.nullableAndOptional({
-    escape: true,
-    trim: true
-  })
+  title: schema.string.nullableAndOptional()
 }
 ```
 
@@ -57,10 +42,12 @@ You can define an array of additional rules as the second parameter.
 import { schema, rules } from '@ioc:Adonis/Core/Validator'
 
 {
-  title: schema.string({}, [
+  title: schema.string([
     rules.alpha(),
     rules.minLength(10),
-    rules.maxLength(200)
+    rules.maxLength(200),
+    rules.trim(),
+    rules.escape(),
   ])
 }
 ```

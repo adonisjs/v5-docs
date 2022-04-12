@@ -114,44 +114,6 @@ Finally, you can bind the `onNewUser` method as the event listener inside the `s
 Event.on('new:user', 'User.onNewUser')
 ```
 
-## Trapping events
-The Event module allows you to trap a specific or all the events to make testing more straightforward. The actual listener is not invoked when there is a trap in place.
-
-You can write the following code inside your test block just before the action that triggers the event.
-
-```ts
-import Event from '@ioc:Adonis/Core/Event'
-
-Event.trap('new:user', (user) => {
-  assert.property(user, 'id')
-  assert.property(user, 'email')
-})
-```
-
-You can also trap all the events using the `trapAll` method. The trap for a specific event gets preference over the catch-all trap.
-
-```ts
-Event.trap('new:user', (data) => {
-  // called for "new:user"
-})
-
-Event.trapAll((event, data) => {
-  // only called for "send:email"
-})
-
-Event.emit('new:user', {})
-Event.emit('send:email', {})
-```
-
-Once done with the test, you must restore the trap using the `Event.restore` method. A better option will be to place this method inside the afterEach lifecycle hook of your testing framework.
-
-```ts
-afterEach(() => {
-  // Restores the trap
-  Event.restore()
-})
-```
-
 ## Error handling
 Emittery emits events asynchronously when you call the `Event.emit` method. One way to handle the errors is to wrap your emit calls inside a `try/catch` block.
 

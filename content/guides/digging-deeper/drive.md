@@ -428,61 +428,6 @@ const s3 = Drive.use('s3')
 await s3.put(filePath, stringOrBuffer)
 ```
 
-## Testing fake
-Drive makes it easier to write tests by providing a fake implementation that keeps all the files within the memory.
-
-You can fake a disk by calling the `Drive.fake` method.
-
-```ts
-// Fake default disk
-Drive.fake()
-
-await Drive.put('foo.txt', 'hello world')
-assert.equal(await Drive.get('foo.txt'), 'hello world')
-```
-
-You can also fake a named disk by providing its name to the fake method.
-
-```ts
-// Fake named disk
-Drive.fake('s3')
-
-await Drive.use('s3').put('foo.txt', 'hello world')
-assert.equal(await Drive.use('s3').get('foo.txt'), 'hello world')
-```
-
-Once done with the test, you must restore the fake.
-
-```ts
-Drive.fake()
-Drive.fake('s3')
-
-// test implementation
-
-Drive.restore()
-Drive.restore('s3')
-```
-
-The fake implementation does not serve files from the file URL. If you want to serve files during tests, then you can self implement a route for it.
-
-```ts
-import { extname } from 'path'
-import Route from '@ioc:Adonis/Core/Route'
-import Drive from '@ioc:Adonis/Core/Drive'
-
-Route.get('__drive_fake/:disk/*', async ({ request, response }) => {
-  const location = request.param('*').join('/')
-  const disk = request.param('disk')
-
-  const { size } = await Drive.use(disk).getStats(location)
-
-  response.header('content-type', extname(location))
-  response.header('content-length', size)
-
-  return response.stream(await Drive.use(disk).getStream(location))
-})
-```
-
 ## Adding a custom driver
 The Drive exposes the API to add your custom drivers. Every driver must adhere to the [DriverContract](https://github.com/adonisjs/drive/blob/develop/adonis-typings/drive.ts#L53-L134).
 

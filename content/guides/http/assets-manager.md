@@ -88,7 +88,9 @@ Depending upon your Webpack config, the output files may not have the same as th
 
 Hence, it is recommended to never hardcode the file names in your templates and always use the `asset` helper.
 
-#### ❌ Not recommended
+:::caption{for="error"}
+Do not reference files by name
+:::
 
 ```edge
 <!DOCTYPE html>
@@ -104,7 +106,9 @@ Hence, it is recommended to never hardcode the file names in your templates and 
 </html>
 ```
 
-#### ✅ Instead use the `asset` helper
+:::caption{for="success"}
+Use the `asset` helper
+:::
 
 ```edge
 <!DOCTYPE html>

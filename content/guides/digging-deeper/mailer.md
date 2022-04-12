@@ -721,34 +721,6 @@ When using mailer classes, you can call the `preview` method directly on the cla
 
 ::video{url="https://res.cloudinary.com/adonis-js/video/upload/v1618142771/v5/mailer-preview-repl.mp4" controls}
 
-## Email traps
-AdonisJS allows you to trap the outgoing emails instead of sending them to the actual recipient. The traps are usually helpful when writing tests. 
-
-All you need to do is call the `Mail.trap` method and pass it the callback to receive the outgoing message.
-
-```ts
-Mail.trap((message) => {
-  assert.deepEqual(message.to, [{
-    address: 'virk@adonisjs.com',
-  }])
-
-  assert.deepEqual(message.from, {
-    address: 'admin@example.com',
-  })
-
-  assert.equal(message.subject, 'Welcome to my app')
-})
-```
-
-Once done with the test, you must restore the trap using the `Mail.restore` method. A better option will be to place this method inside the `afterEach` lifecycle hook of your testing framework.
-
-```ts
-afterEach(() => {
-  // Restore the trap. After this emails will be sent out
-  Mail.restore()
-})
-```
-
 ## Monitory mailer queue
 The emails sent using the `Mail.sendLater` method are moved into an in-memory queue. You can monitor this queue using the `Mail.monitorQueue` method.
 

@@ -64,6 +64,7 @@
   margin: 70px 0 20px 0;
   padding-top: 50px;
   position: relative;
+  line-height: 1;
 }
 /** Required only when using Calibre */
 .markdown h2 code {
@@ -568,8 +569,67 @@ Author details for the coobook
   border-radius: 6px;
   padding: 1px 8px 3px 8px;
   font-size: var(--features-font-size);
+  white-space: nowrap;
+  position: relative;
+  top: -4px;
 }
 
 .markdown .badge.badge-danger {
   background: var(--danger-badge-color);
+}
+
+.markdown .caption {
+  padding-bottom: 12px;
+  padding-left: 40px;
+  padding-right: 12px;
+  padding-top: 12px;
+  font-weight: 500;
+  position: relative;
+}
+
+.markdown .caption > *:last-child {
+  margin-bottom: 0;
+}
+
+.markdown .caption::before {
+  bottom: 0;
+  content: '';
+  left: 18.5px;
+  position: absolute;
+  top: 39px;
+  width: 1px;
+}
+
+.markdown .caption .icon {
+  left: 0;
+  margin-left: 8px;
+  margin-top: 4.9px;
+  position: absolute;
+  }
+
+.markdown .caption-error .icon {
+  background-color: rgb(251 113 133);
+  border-radius: 9999px;
+  color: rgb(255 255 255);
+  padding: 8px;
+}
+
+.markdown .caption .icon svg {
+  display: block;
+  overflow: visible;
+}
+
+.markdown .caption-error::before {
+  background: rgb(251, 113, 133);
+}
+
+.markdown .caption-success .icon {
+  background-color: rgb(45, 212, 191);
+  border-radius: 9999px;
+  color: rgb(255, 255, 255);
+  padding: 8px;
+}
+
+.markdown .caption-success::before {
+  background-color: rgb(45, 212, 191);
 }

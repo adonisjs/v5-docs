@@ -8,7 +8,7 @@ There is no `rules.in` rule. We encourage you to use the [enum schema type](../s
 
 ```ts
 {
-  username: schema.string({}, [
+  username: schema.string([
     rules.notIn(['admin', 'super', 'root'])
   ])
 }
@@ -33,12 +33,21 @@ export default class CreateUserValidator {
   })
 
   public schema = schema.create({
-    username: schema.string({}, [
+    username: schema.string([
       rules.notIn(this.refs.unallowedValues)
     ]),
   })
   // highlight-end
 
   public cacheKey = this.ctx.routeKey
+}
+```
+
+## Custom messages options
+The `notIn` validation rule passes the `values` array as the only option to custom messages.
+
+```ts
+{
+  'notIn': 'The {{ field }} value cannot be one of {{ options.values }}',
 }
 ```

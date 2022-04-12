@@ -11,3 +11,12 @@ import { schema, rules } from '@ioc:Adonis/Core/Validator'
   ])
 }
 ```
+
+## Custom messages options
+The `range` validation rule passes the `start` and the `stop` options to custom messages.
+
+```ts
+{
+  'age.range': 'Candidate age must be between {{ options.start }} and {{ options.stop }} years',
+}
+```

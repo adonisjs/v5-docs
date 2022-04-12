@@ -1,0 +1,13 @@
+@set('type', node.properties.className.includes('caption-success') ? 'success' : 'error')
+@set('classes', (node.properties.className || []).join(' '))
+
+<div class="{{ classes }}">
+  <div class="icon">
+    @if(type === 'success')
+      @!icons.tick()
+    @else
+      @!icons.cross()
+    @end
+  </div>
+  @dimerTree(node.children)~
+</div>

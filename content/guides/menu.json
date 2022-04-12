@@ -374,6 +374,26 @@
         ]
       },
       {
+        "name": "Testing",
+        "docs": [
+          {
+            "title": "Introduction",
+            "permalink": "testing/introduction",
+            "contentPath": "testing/introduction.md"
+          },
+          {
+            "title": "HTTP tests",
+            "permalink": "testing/http-tests",
+            "contentPath": "testing/http-tests.md"
+          },
+          {
+            "title": "Mocking and Fakes",
+            "permalink": "testing/fakes",
+            "contentPath": "testing/fakes.md"
+          }
+        ]
+      },
+      {
         "name": "Digging deeper",
         "docs": [
           {

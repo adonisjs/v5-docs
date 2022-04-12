@@ -75,7 +75,7 @@ The `date` validation rule will pass the `options.format`.
 
 ```ts
 {
-  'date.format': '{{ date }} must be formatted as {{ format }}',
+  'date.format': '{{ field }} must be formatted as {{ options.format }}',
 }
 ```
 
@@ -117,14 +117,25 @@ The file validation allows defining custom messages for the sub-rules. For examp
 ---
 
 ### minLength / maxLength
-The `minLength` and `maxLength` validation rules will pass the `options.length` to the message.
+The `minLength` and `maxLength` validation rules will pass the following options to custom messages.
 
 ```ts
 {
-  'minLength': 'The array must have {{ options.minLength }} items',
+  'minLength': 'The array must have minimum of {{ options.minLength }} items',
+  'maxLength': 'The array can contain maximum of {{ options.maxLength }} items',
 }
 ```
 
+---
+
+### range
+The `range` validation rule passes the `start` and the `stop` options to custom messages.
+
+```ts
+{
+  'range': 'Candidate age must be between {{ options.start }} and {{ options.stop }} years',
+}
+```
 
 ---
 

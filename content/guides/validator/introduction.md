@@ -13,8 +13,8 @@ Route.post('posts', async ({ request }) => {
    * Schema definition
    */
   const newPostSchema = schema.create({
-    title: schema.string({ trim: true }),
-    body: schema.string({ escape: true }),
+    title: schema.string(),
+    body: schema.string(),
     categories: schema.array().members(schema.number()),
   })
 
@@ -50,14 +50,10 @@ If you look carefully, we have separated the **format validations** from **core 
 
 This separation helps extend the validator with custom rules without creating unnecessary schema types that have no meaning. For example, there is no thing called **email type**; it is just a string, formatted as an email.
 
-:::note
-Fields are required by default and hence there is no need to use `rules.required` method. Using it would result in duplicate error messages.
-:::
-
 ## Working with optional and null values
-The validator schema has first-class support for marking values as optional and null using the modifier functions. 
+All the fields are **required** by default. However, you can make use of the `optional`, `nullable`, and `nullableAndOptional` modifiers to mark fields as optional.
 
-Let's understand the purpose and behavior of these modifiers before looking at the actual API.
+All of these modifiers serve different purposes. Let's take a closer look at them.
 
 | Modifier | Validation behavior | Return payload |
 |------------|---------------------|---------------|
@@ -69,7 +65,7 @@ Let's understand the purpose and behavior of these modifiers before looking at t
 
 You will often find yourself using the `nullable` modifier to allow optional fields within your application forms. 
 
-In the following example, when the user submits an empty value for the `fullName` field, your server will receive `null,` and hence you can update their existing full name inside the database to null.
+In the following example, when the user submits an empty value for the `fullName` field, the server will receive `null,` and hence you can update their existing full name inside the database to null.
 
 ```ts
 schema: schema.create({
@@ -112,35 +108,42 @@ user.merge(payload)
 await user.save()
 ```
 
-## Available schema types
-Make sure to go through the API reference for all the available [schema types](../../reference/validator/schema/string.md) and [validation rules](../../reference/validator/rules/alpha.md).
-
 ## Validating HTTP requests
 You can validate the request body, query-string, and route parameters for a given HTTP request using the `request.validate` method. In case of a failure, the `validate` method will raise an exception.
 
 ```ts
 import Route from '@ioc:Adonis/Core/Route'
-import { schema } from '@ioc:Adonis/Core/Validator'
+import { schema, rules } from '@ioc:Adonis/Core/Validator'
 
 Route.post('users', async ({ request, response }) => {
+  /**
+   * Step 1 - Define schema
+   */
   const newUserSchema = schema.create({
-    params: schema
-      .object()
-      .members({
-        // ... define schema for your route parameters
-      })
-    // ... define the schema for your body and query string
+    username: schema.string(),
+    email: schema.string([
+      rules.email()
+    ]),
+    password: schema.string([
+      rules.confirmed(),
+      rules.minLength(4)
+    ])
   })
 
-  // highlight-start
   try {
+    /**
+     * Step 2 - Validate request body against
+     *          the schema
+     */
     const payload = await request.validate({
       schema: newUserSchema
     })
   } catch (error) {
+    /**
+     * Step 3 - Handle errors
+     */
     response.badRequest(error.messages)
   }
-  // highlight-end
 })
 ```
 

@@ -26,6 +26,18 @@ rules.before('today')
 rules.before('yesterday')
 ```
 
+Also, you can make use of the `beforeOrEqual` for enforcing the date to be same or after a given date.
+
+```ts
+{
+  joining_date: schema.date({}, [
+    rules.beforeOrEqual('today')
+  ])
+}
+```
+
+## Using Luxon dates
+
 For more advanced use cases, you can pass an instance of the [luxon DateTime](https://moment.github.io/luxon/api-docs/index.html#datetime) object. **Do make sure to pass the value as a ref**.
 
 ```ts

@@ -50,6 +50,13 @@ const dimerRenderer = new Renderer().use((node) => {
   if (node.properties!.className.includes('codegroup')) {
     return ['elements/codegroup', { node }]
   }
+
+  /**
+   * Render captions using "elements/caption.edge" file
+   */
+  if (node.properties!.className.includes('caption')) {
+    return ['elements/caption', { node }]
+  }
 })
 
 /**
@@ -71,6 +78,14 @@ zones.forEach(({ title, baseUrl, template, menu, contentPath }) => {
     .useTheme(codeBlocksTheme)
     .docs(menu)
     .before('compile', (file) => {
+      file.macro('caption', (node) => {
+        node.data = node.data || {}
+        node.data.hName = 'div'
+        node.data.hProperties = {
+          class: ['caption', `caption-${node.attributes.for}`],
+        }
+      })
+
       file.transform(remarkCaptions, {
         external: {
           table: 'Table:',

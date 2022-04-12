@@ -139,7 +139,10 @@ console.log(file.meta) // { url: '...' }
 ## Caveats
 When working with the stream directly, you cannot access the form input fields before processing the entire stream. This is because the form fields and files are both parts of a single stream, and hence they are available only when the stream is processed.
 
-#### ❌ Incorrect
+:::caption{for="error"}
+Form field may not be available during stream processing
+:::
+
 ```ts
 request.multipart.onFile('input_field_name', {}, (part) => {
   // highlight-start
@@ -152,7 +155,10 @@ request.multipart.onFile('input_field_name', {}, (part) => {
 await request.multipart.process()
 ```
 
-#### ✅ Correct
+:::caption{for="success"}
+Access the form field after the stream has been processed
+:::
+
 ```ts
 request.multipart.onFile('input_field_name', {}, (part) => {
 })

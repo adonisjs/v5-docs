@@ -118,3 +118,13 @@ In the following example, the user can select **one or more** skills.
   ] as const)
 }
 ```
+
+## Custom messages options
+The `enum` and the `enumSet` schema types passes the choices array to custom messages.
+
+```ts
+{
+  'enum': 'The value must be one of {{ options.choices }}',
+  'enumSet': 'The values must be one of {{ options.choices }}',
+}
+```

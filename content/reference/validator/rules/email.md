@@ -4,42 +4,40 @@ Enforces the value to be properly formatted as an email. **The validation rule o
 import { schema, rules } from '@ioc:Adonis/Core/Validator'
 
 {
-  email: schema.string({}, [
+  email: schema.string([
     rules.email()
   ])
 }
 ```
 
-You can also define the following options to control the validation behavior.
+The `email` rule uses the `validator.isEmail` method from the [validatorjs](https://www.npmjs.com/package/validator) package. You can specify all of the options accepted by the `validator.isEmail` method. Just make sure to pass them in **camelCase form**.
 
 ```ts
 {
-  email: schema.string({}, [
+  email: schema.string([
     rules.email({
-      sanitize: true,
       ignoreMaxLength: true,
+      allowIpDomain: true,
       domainSpecificValidation: true,
     })
   ])
 }
 ```
 
-#### allowIpDomain
-By default, the IP addresses cannot be defined as the host of the email. Set the option to `true` to allow IP addresses as well.
+## Normalize email
+You can make use of the `rules.normalizeEmail` method to normalize the email address.
 
----
+The `normalizeEmail` rule uses the `validator.normalizeEmail` method from the [validatorjs](https://www.npmjs.com/package/validator) package. You can specify all of the options accepted by the `validator.normalizeEmail` method. Just make sure to pass them in **camelCase form**.
 
-#### ignoreMaxLength
-The email address is validated for its max length. Optionally, you can disable the check by enabling the `ignoreMaxLength` option.
-
----
-
-#### domainSpecificValidation
-Enable this option to perform domain specific validations. For example: disallowing certain syntactically valid email addresses that are rejected by GMail.
-
----
-
-#### sanitize
-Not a validation option, but instead can be used to transform the local part of the email (before the @ symbol) to all lowercase.
-
----
+```ts
+{
+  email: schema.string([
+    rules.email(),
+    rules.normalizeEmail({
+      allLowercase: true,
+      gmailRemoveDots: true,
+      gmailRemoveSubaddress: true,
+    }),
+  ])
+}
+```

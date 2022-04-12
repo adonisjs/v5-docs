@@ -223,11 +223,6 @@
             "contentPath": "validator/rules/min-length.md"
           },
           {
-            "title": "unsigned",
-            "permalink": "validator/rules/unsigned",
-            "contentPath": "validator/rules/unsigned.md"
-          },
-          {
             "title": "range",
             "permalink": "validator/rules/range",
             "contentPath": "validator/rules/range.md"
