@@ -189,15 +189,13 @@ title: schema.string([
 ## Pretty routes list
 [Julien Ripouteau](https://twitter.com/julien_rpt) earlier created a [pretty-list-routes](https://github.com/Julien-R44/pretty-list-routes) package, which has been merged to the core of the framework. The `node ace list:routes` output looks as follows.
 
-[SCREENSHOT HERE]
+![](https://res.cloudinary.com/adonis-js/image/upload/v1649841876/v5/pretty-list-routes_xmvaix.png)
 
 You can still view the routes as a table by using `--table` flag.
 
 ```sh
 node ace list:routes --table
 ```
-
-[SCREENSHOT HERE]
 
 ## Deprecate Event emitter traps
 The `Event.trap` and `Event.trapAll` methods have been deprecated. We recommend you use Event fakes instead. 
