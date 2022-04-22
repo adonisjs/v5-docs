@@ -14,7 +14,7 @@ You can utilize same docker-compose.yml file to spin up and develop/deploy your 
 This guide assumes you have basic understanding of Docker and you know how to build or start Docker images.
 :::
 
-## Crating Dockerfile
+## Creating Dockerfile
 
 We will use [Docker multistage build](https://docs.docker.com/develop/develop-images/multistage-build/) because it's a best practice to keep your Docker image small and able to cache build steps better.
 
@@ -125,7 +125,7 @@ EXPOSE $PORT
 CMD [ "dumb-init", "node", "server.js" ]
 ```
 
-## Crating .dockerignore
+## Creating .dockerignore
 
 To keep our Docker image small, it's always good practice to create .dockerignore file.
 
@@ -155,7 +155,7 @@ docker-compose*
 Now we are ready to build and/or deploy our Docker image!
 
 
-## Crating docker-compose.yml
+## Creating docker-compose.yml
 
 :::note
 This step is not needed if you only wanted to create dockerized Adonis app.
