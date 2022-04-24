@@ -61,6 +61,16 @@
             "contentPath": "database/using-postgres-custom-type-parsers.md"
           }
         ]
+      },
+      {
+        "name": "Auth",
+        "docs": [
+          {
+            "title": "Using Ally with API guard",
+            "permalink": "using-ally-with-api-guard",
+            "contentPath": "auth/using-ally-with-api-guard.md"
+          }
+        ]
       }
     ]
   }
