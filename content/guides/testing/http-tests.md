@@ -27,6 +27,50 @@ test.group('List users', () => {
 Please read the [Japa documentation](https://japa.dev/plugins/api-client#making-api-calls) to view all the available methods and assertions. This guide only documents the additional methods added by AdonisJS
 :::
 
+## Open API testing
+The API client allows you to write assertions against your OpenAPI spec. 
+
+Keep the spec YAML or JSON file inside the project root and register it within the `tests/boostrap.ts` file.
+
+```ts
+// title: tests/bootstrap.ts
+export const plugins: Config['plugins'] = [
+  // highlight-start
+  assert({
+    openApi: {
+      schemas: [Application.makePath('api-spec.yml')],
+    },
+  }),
+  // highlight-end
+  runFailedTests(),
+  apiClient(),
+]
+```
+
+Once the schema is registered, you can make use of the `response.assertAgainstApiSpec` method to assert against the API spec.
+
+```ts
+test('get a paginated list of existing posts', async ({ client }) => {
+  const response = await client.get('/posts')
+  response.assertAgainstApiSpec()
+})
+```
+
+- The assertion will use the **request method**, the **endpoint** and **response status code** to find the expected response schema.
+- The actual response body is validated against the matching schema. 
+
+Do note, only the shape of the response is tested and not the actual values. Therefore, you may have to write additonal assertions. For example:
+
+```ts
+// Assert that response is as per the schema
+response.assertAgainstApiSpec()
+
+// Assert for expected values
+response.assertBodyContains({
+  data: [{ title: 'Adonis 101' }, { title: 'Lucid 101' }]
+})
+```
+
 ## Cookies
 You can read/write cookies during the request. The cookies are automatically signed during the request and converted to plain text in the response.
 
