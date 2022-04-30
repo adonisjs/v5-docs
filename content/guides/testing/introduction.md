@@ -167,10 +167,10 @@ You can run tests by executing the `node ace test` command. Also, you can run te
 node ace test
 
 # Only functional tests are executed
-node ace suite functional
+node ace test functional
 
-# unit and functional tests are executed
-node ace suite unit,functional
+# unit and functional tests are executed sequentially
+node ace test unit,functional
 ```
 
 The `test` command accepts the following flags.
