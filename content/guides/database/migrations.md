@@ -244,7 +244,7 @@ class UserSchema extends BaseSchema {
 
     // highlight-start
     this.defer(async (db) => {
-      const users = await db.select('*').from('users')
+      const users = await db.from('users').select('*')
       await Promise.all(users.map((user) => {
         return db
           .table('user_emails')
