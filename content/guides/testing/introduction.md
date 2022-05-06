@@ -173,7 +173,7 @@ node ace test functional
 node ace test unit functional
 
 # Only tests with an "orders" or "upload" tag in the "unit" and "functional" suites
-node ace test --tags=orders,upload unit functional
+node ace test --tags="orders,upload" unit functional
 ```
 
 The `test` command accepts the following flags.
