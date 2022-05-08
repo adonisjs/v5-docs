@@ -1,0 +1,57 @@
+@set('collaborators', await collaborators())
+
+<div class="sponsors-wrapper">
+  <h3> Sponsors </h3>
+
+  <p>
+    It would have been impossible to create and sustain AdonisJS without the financial help from our sponsors.
+  </p>
+
+  <p>
+    If you or your business benefit from AdonisJS, consider <a href="https://www.patreon.com/adonisframework">sponsoring
+      us</a> to support the framework's development!
+  </p>
+
+  <div class="sponsors">
+    <div class="sponsor">
+      <a href="https://cleavr.io/adonis/?utm_source=adonisjs" target="_blank" title="Cleavr">
+        <img src="https://adonisjs.com/assets/images/cleavr.35c0e821.svg" style="width: 110px;" alt="Cleavr">
+      </a>
+    </div>
+
+    <div class="sponsor">
+      <a href="https://cavai.com" target="_blank" title="Cavai">
+        <img src="https://adonisjs.com/assets/images/cavai.ea64eafe.png" style="width: 100px;" alt="Cavai">
+      </a>
+    </div>
+
+    <div class="sponsor">
+      <a href="https://fossunited.org/?utm_source=adonisjs" target="_blank" title="FOSS United">
+        <img src="https://adonisjs.com/assets/images/foss.4b4f8874.svg" style="width: 50px;" alt="FOSS United">
+      </a>
+    </div>
+
+    <div class="sponsor">
+      <a href="https://ably.com/?utm_source=adonisjs" target="_blank" title="Ably">
+        <img src="https://adonisjs.com/assets/images/ably.7e295eef.svg" style="width: 90px;" alt="Ably">
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="contributors-wrapper">
+  <h3> Contributors ({{ collaborators.total }} and growing) </h3>
+  <p>
+    AdonisJS is the outcome of the love and labour of its contributors.
+  </p>
+
+  <div class="contributors">
+    @each(collaborator in collaborators.list)
+    @if(shouldMention(collaborator.username))
+    <a href="{{ collaborator.url }}">
+      <img src="{{ collaborator.avatar_url }}" title="{{ collaborator.username }}" />
+    </a>
+    @end
+    @end
+  </div>
+</div>

@@ -52,6 +52,13 @@ const dimerRenderer = new Renderer().use((node) => {
   }
 
   /**
+   * Render collaborators using "elements/collaborators.edge" file
+   */
+  if (node.properties!.className.includes('collaborators')) {
+    return ['elements/collaborators', { node }]
+  }
+
+  /**
    * Render captions using "elements/caption.edge" file
    */
   if (node.properties!.className.includes('caption')) {
@@ -83,6 +90,14 @@ zones.forEach(({ title, baseUrl, template, menu, contentPath }) => {
         node.data.hName = 'div'
         node.data.hProperties = {
           class: ['caption', `caption-${node.attributes.for}`],
+        }
+      })
+
+      file.macro('collaborators', (node) => {
+        node.data = node.data || {}
+        node.data.hName = 'div'
+        node.data.hProperties = {
+          class: ['collaborators'],
         }
       })
 

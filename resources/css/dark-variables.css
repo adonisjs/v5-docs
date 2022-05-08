@@ -37,6 +37,7 @@ html.dark {
   --docsearch-key-gradient: #282727;
   --docsearch-key-shadow: none;
   --docsearch-logo-color: #999999;
+  --sponsors-card-bg: #fff;
 
   color-scheme: dark;
 }

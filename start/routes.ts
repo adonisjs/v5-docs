@@ -18,8 +18,35 @@
 |
 */
 
+import { readJson } from 'fs-extra'
+import View from '@ioc:Adonis/Core/View'
 import Route from '@ioc:Adonis/Core/Route'
 import Content from 'App/Services/Content'
+import Application from '@ioc:Adonis/Core/Application'
+
+const collaboratorsToIgnore = [
+  'thetutlage',
+  'RomainLanz',
+  'targos',
+  'Julien-R44',
+  'greenkeeperio-bot',
+  'dependabot-preview[bot]',
+  'greenkeeper[bot]',
+  'dependabot[bot]',
+  'snyk-bot',
+]
+
+View.global('shouldMention', function (githubUserName: string) {
+  return !collaboratorsToIgnore.includes(githubUserName)
+})
+
+View.global('collaborators', async function () {
+  const list = await readJson(Application.makePath('content/collaborators.json'))
+  return {
+    total: list.length - collaboratorsToIgnore.length,
+    list,
+  }
+})
 
 /**
  * There is no homepage for docs

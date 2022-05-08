@@ -58,4 +58,6 @@
   --markdown-h2-size: 3.4rem;
   --markdown-h3-size: 2.6rem;
   --markdown-h4-size: 2.2rem;
+
+  --sponsors-card-bg: var(--gray);
 }

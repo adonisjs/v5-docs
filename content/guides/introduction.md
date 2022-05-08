@@ -20,39 +20,41 @@ If you have never used TypeScript, we recommend learning the basics of the langu
 
 We also expect you to be familiar with the Node.js ecosystem and asynchronous programming in general. Suppose you are coming from a threaded language like PHP or Ruby. In that case, we recommend educating yourself with the Node.js event loop and understand how it is different from a threaded environment.
 
+## Documentation
 
-## Guides
+### Guides
 
 The technical guides are the in-depth documentation of the framework and cover every single topic and feature of the framework.
 
 The guides also have documentation for the official packages of AdonisJS, i.e., Lucid ORM, template engine, Redis, and so on.
 
-## Reference
+### Reference
 
 Modules with larger API surfaces like **Database** and **Validator** are also documented inside the reference guides.
 
 Fitting all the validation rules, the database query builder methods within guides will overcrowd them, and hence they are moved to the reference guides.
 
-## Cookbooks
+### Cookbooks
 
 Cookbooks are actionable guides to help you achieve a practical task. Also, feel free to contribute to cookbooks by sending a PR.
 
-## Awesome list
-A [GitHub repository](https://github.com/adonisjs-community/awesome-adonisjs) holding a curated list of **awesome AdonisJS packages**, **articles**, **meetups** and other resources created by the community members.
+## How to ask for help?
+At AdonisJS we have a friendly and helpful community always eager to help each other. You can join our [Discord channel](https://discord.gg/vDcEjq6), or use [Github Discussions](https://github.com/adonisjs/core/discussions) when seeking help.
 
-Feel free to explore and find the packages you need or [submit your work](https://github.com/adonisjs-community/awesome-adonisjs/blob/master/CONTRIBUTING.md) to the list.
+We also encourage you to help others whenever possible 💗
 
-## Editor extensions
+## Resources
 
-Editors with support for TypeScript are all you need to work with your AdonisJS applications. However, the following is the list of extensions to enhance your developer experience.
+- [Newsletter](https://news.adonisjs.com) - Receive framework and community updates directly in your Inbox. No spam. Max 1 email a month.
+- [Twitter](https://twitter.com/adonisframework) - Stay upto date.
+- [VS Code extension](https://marketplace.visualstudio.com/items?itemName=jripouteau.adonis-vscode-extension) - An official VS Code extension to sky rocket your development experience.
+- [Awesome AdonisJS](https://github.com/adonisjs-community/awesome-adonisjs) - A collection of packages, tutorials and applications created by the community members.
 
-:::note
+## Who maintains AdonisJS?
+AdonisJS is primarly maintained by [Harminder Virk](https://twitter.com/AmanVirk1) (the creator and the lead maintainer of the framework) along with the help of the following core team members.
 
-We are looking for contributors to add support for Edge template syntax to other editors as well. Here is an [extensive syntax guide](https://github.com/edge-js/syntax) to test your integration.
+- [Romain Lanz](https://twitter.com/romainlanz) is a full-stack developer at the FIVB. He believes that knowledge should be free and accessible for anyone, and he is working towards it.
+- [Michaël Zasso](https://twitter.com/targos89) is a scientific research software engineer and a member of the Node.js Technical Steering Committee.
+- [Julien Ripouteau](https://twitter.com/julien_rpt) is a french developer with a passion for Javascript and Open Source. He is also the creator of the [AdonisJS VsCode extension](https://marketplace.visualstudio.com/items?itemName=jripouteau.adonis-vscode-extension), [AdonisJS Sail](https://github.com/Julien-R44/adonis-sail) and the [packages.adonisjs.com](https://packages.adonisjs.com) website.
 
-:::
-
-- [VS Code: Edge template support](https://marketplace.visualstudio.com/items?itemName=luongnd.edge) is a community package to syntax highlight the Edge templates.
-- [VS Code: Adonis JS Goto Controller](https://marketplace.visualstudio.com/items?itemName=stef-k.adonis-js-goto-controller) is a community package to add **click + go to controller** support.
-- [VS Code: Adonis JS Goto View](https://marketplace.visualstudio.com/items?itemName=stef-k.adonis-js-goto-view) is a community package to add **click + go to a template file** support.
-- [Sublime Text: Edge templates extension](https://github.com/edge-js/edge-sublime) is an official extension to syntax highlight the Edge templates.
+::collaborators
