@@ -194,6 +194,17 @@ services:
 If you only need docker-compose.yml to play with your Adonis app locally, this will be enough.
 Notice that we are exposing `${PORT}` and `9229` port. This is because we will use this .yml to be able to debug our Node.js process (9229 is default debug port of Node.js).
 
+:::note
+If you're using encore you need to make sure that host and port from encore are correctly set, and you're exposing encore's port. An easy way of doing it is by simple changing ports and the command.
+
+ports: 
+  - ${PORT}:${PORT}
+  - 9229:9229
+  - 8080:8080
+
+command: dumb-init node ace serve --watch --encore-args="--host ${HOST} --port 8080"
+:::
+
 Also, notice one more important thing: `target: dependencies`. This is where multistage Docker builds shine. We are using same Dockerfile for our development environment and we can use same file for production.
 In this way, Docker will build everything until (and including) second stage. This is great because we don't need build and production stage while developing our app!
 
