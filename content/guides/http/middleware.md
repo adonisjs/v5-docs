@@ -148,7 +148,7 @@ Named middleware can also accept runtime config through the `handle` method as t
 export default class Auth {
   public async handle(
     { request, response }: HttpContextContract,
-    next: () => Promise<void>
+    next: () => Promise<void>,
     // highlight-start
     guards?: string[]
     // highlight-end
