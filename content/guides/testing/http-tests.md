@@ -214,7 +214,7 @@ test('a user can update avatar', async ({ client, assert }) => {
     .put(`/me`)
     .loginAs(user)
     // highlight-start
-    .file('avatar', fakeAvatar)
+    .file('avatar', fakeAvatar.contents)
     // highlight-end
 
   // highlight-start
