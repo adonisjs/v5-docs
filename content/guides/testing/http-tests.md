@@ -207,7 +207,7 @@ test('a user can update avatar', async ({ client, assert }) => {
   /**
    * Creating a fake file to upload
    */
-  const fakeAvatar = file.createPng('1mb')
+  const fakeAvatar = file.generatePng('1mb')
   // highlight-end
 
   await client
