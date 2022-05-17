@@ -207,21 +207,21 @@ test('a user can update avatar', async ({ client, assert }) => {
   /**
    * Creating a fake file to upload
    */
-  const fakeAvatar = file.createPng('1mb')
+  const fakeAvatar = file.generatePng('1mb')
   // highlight-end
 
   await client
     .put(`/me`)
     .loginAs(user)
     // highlight-start
-    .file('avatar', fakeAvatar)
+    .file('avatar', fakeAvatar.contents, { filename: fakeAvatar.name })
     // highlight-end
 
   // highlight-start
   /**
    * Assert the file was uploaded successfully
    */
-  assert.isTrue(fakeDrive.hasFile(fakeAvatar.name))
+  assert.isTrue(fakeDrive.exists(fakeAvatar.name))
 
   /**
    * Restore the Drive fake
