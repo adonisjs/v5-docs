@@ -244,6 +244,24 @@ Following is the list of the `whereColumn` method variations and shares the same
 | `orWhereNotColumn` | Adds an **or where not** clause |
 | `andWhereNotColumn` | Alias for `whereNotColumn` |
 
+### whereLike
+Adds a where clause with case-sensitive substring comparison on a given column with a given value.
+
+```ts
+Database
+  .from('posts')
+  .whereLike('title', '%Adonis 101%')
+```
+
+### whereILike
+Adds a where clause with case-insensitive substring comparison on a given column with a given value. The method generates a slightly different for each dialect to achieve the case insensitive comparison.
+
+```ts
+Database
+  .from('posts')
+  .whereILike('title', '%Adonis 101%')
+```
+
 ### whereIn
 The `whereIn` method is used to define the **wherein** SQL clause. The method accepts the column name as the first argument and an array of values as the second argument.
 
@@ -473,6 +491,80 @@ Following is the list of the `whereRaw` method variations and shares the same AP
 |--------|-------------|
 | `andWhereRaw` | Alias for the `whereRaw` method |
 | `orWhereRaw` | Adds an **or where raw** clause |
+
+### whereJson
+Add a where clause with an object to match the value of a JSON column inside the database.
+
+```ts
+Database
+  .from('users')
+  .whereJson('address', { city: 'XYZ', pincode: '110001' })
+```
+
+The column value can also be computed using a sub-query.
+
+```ts
+Database
+  .from('users')
+  .whereJson(
+    'address',
+    Database
+      .select('address')
+      .from('user_address')
+      .where('address.user_id', 1)
+  )
+```
+
+### whereJson method variants
+Following is the list of the `whereJson` method variations and shares the same API.
+
+| Method | Description |
+|--------|-------------|
+| `orWhereJson` | Add a **or where** clause matching the value of a JSON column |
+| `andWhereJson` | Alias for `whereJson` |
+| `whereNotJson` | Add a **where not** clause against a JSON column |
+| `orWhereNotJson` | Add a **or where not** clause against a JSON column |
+| `andWhereNotJson` | Alias for `whereNotJson` |
+
+### whereJsonSuperset
+Add a clause where the value of the JSON column is the superset of the defined object. In the following example, the user address is stored as JSON and we find by the user by their pincode.
+
+```ts
+Database
+  .from('users')
+  .whereJsonSuperset('address', { pincode: '110001' })
+```
+
+### whereJsonSuperset method variants
+Following is the list of the `whereJsonSuperset` method variations and shares the same API.
+
+| Method | Description |
+|--------|-------------|
+| `orWhereJsonSuperset` | Add a **or where** clause matching the value of a JSON column |
+| `andWhereJsonSuperset` | Alias for `whereJsonSuperset` |
+| `whereNotJsonSuperset` | Add a **where not** clause against a JSON column |
+| `orWhereNotJsonSuperset` | Add a **or where not** clause against a JSON column |
+| `andWhereNotJsonSuperset` | Alias for `whereNotJsonSuperset` |
+
+### whereJsonSubset
+Add a clause where the value of the JSON column is the subset of the defined object. In the following example, the user address is stored as JSON and we find by the user by their pincode or the city name.
+
+```ts
+Database
+  .from('users')
+  .whereJsonSubset('address', { pincode: '110001', city: 'XYZ' })
+```
+
+### whereJsonSubset method variants
+Following is the list of the `whereJsonSubset` method variations and shares the same API.
+
+| Method | Description |
+|--------|-------------|
+| `orWhereJsonSubset` | Add a **or where** clause matching the value of a JSON column |
+| `andWhereJsonSubset` | Alias for `whereJsonSubset` |
+| `whereNotJsonSubset` | Add a **where not** clause against a JSON column |
+| `orWhereNotJsonSubset` | Add a **or where not** clause against a JSON column |
+| `andWhereNotJsonSubset` | Alias for `whereNotJsonSubset` |
 
 ### join
 The `join` method allows specifying SQL joins between two tables. For example: Select the `ip_address` and the `country` columns by joining the `user_logins` table.
@@ -1014,6 +1106,28 @@ Database
 
 /**
 WITH "aliased_table" AS (
+  SELECT * FROM "users"
+)
+SELECT * FROM "aliased_table"
+*/
+```
+
+---
+
+### withMaterialized/withNotMaterialized
+The `withMaterialized` and the `withNotMaterialized` methods allows you to use CTE (Common table expression) as materialized views in **PostgreSQL** and **SQLite3** database.
+
+```ts
+Database
+  .query()
+  .with('aliased_table', (query) => {
+    query.from('users').select('*')
+  })
+  .select('*')
+  .from('aliased_table')
+
+/**
+WITH "aliased_table" AS MATERIALIZED (
   SELECT * FROM "users"
 )
 SELECT * FROM "aliased_table"

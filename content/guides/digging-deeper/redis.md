@@ -62,7 +62,9 @@ export default Env.rules({
 The configuration for redis is stored inside `config/redis.ts` file. You can define one or more named connections inside this file and their lifecycle will be managed automatically for you.
 
 ```ts
-{
+import { redisConfig } from '@adonisjs/redis/build/config'
+
+export default redisConfig({
   connection: Env.get('REDIS_CONNECTION'),
 
   connections: {
@@ -74,7 +76,7 @@ The configuration for redis is stored inside `config/redis.ts` file. You can def
       keyPrefix: '',
     },
   },
-}
+})
 ```
 
 #### connection
@@ -83,66 +85,7 @@ Default connection to use for making all redis queries. The connection value is 
 ---
 
 #### connections
-A list of available connections that you are planning to use in your application.
-
----
-
-### Add a new connection
-When using multiple redis connections, you will have to first register the connection with the `RedisConnectionsList` TypeScript interface. This will make the TypeScript static compiler to validate the config automatically and complain if the config is not in sync with the `contracts` file.
-
-```ts
-// title: contracts/redis.ts
-declare module '@ioc:Adonis/Addons/Redis' {
-  interface RedisConnectionsList {
-    local: RedisConnectionConfig,
-    session: RedisConnectionConfig
-  }
-}
-```
-
-If using the Redis cluster, then you can use the `RedisClusterConfig` type.
-
-```ts
-declare module '@ioc:Adonis/Addons/Redis' {
-  interface RedisConnectionsList {
-    local: RedisConnectionConfig,
-    // highlight-start
-    session: RedisClusterConfig
-    // highlight-end
-  }
-}
-```
-
-After this change, you will get errors inside the `config/redis.ts` file and you must define the config for this new connection to fix the compiler errors.
-
-:::note
-
-Make sure to check out IO redis [docs](https://github.com/luin/ioredis/blob/master/API.md) to find all the configuration options. AdonisJS redis module accepts the same set of options.
-
-:::
-
-```ts
-// title: config/redis.ts
-connections: {
-  // ...other connections
-  session: {
-    host: Env.get('REDIS_HOST'),
-    port: Env.get('REDIS_PORT'),
-    password: Env.get('REDIS_PASSWORD', ''),
-    db: 1,
-    keyPrefix: 'session-',
-  }
-}
-```
-
-Once, if you have added a Redis connection and defined its config. You must also validate the `REDIS_CONNECTION` environment variable to allow this new connection name.
-
-```ts
-export default Env.rules({
-  // ... other rules
-  REDIS_CONNECTION: Env.schema.enum(['local', 'session'] as const),
-})
-```
+A list of available connections that you are planning to use in your application. Feel free to add/remove connections from this object.
 
 ## Usage
 Once the setup has been done, you can import the module and execute redis commands. All the methods from [ioredis](https://github.com/luin/ioredis) are supported as it is by the AdonisJS redis module.

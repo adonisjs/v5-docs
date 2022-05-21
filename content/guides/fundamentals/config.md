@@ -66,7 +66,9 @@ You might consider this limitation bad. However, it has a positive impact on the
 
 Fundamentally, your runtime code should rely on the config and NOT the other way around. For example:
 
-#### ❌ Don't do this
+:::caption{for="error"}
+Do not derive config from the runtime code (Model in this case)
+:::
 ```ts
 import User from 'App/Models/User'
 
@@ -75,7 +77,9 @@ const someConfig = {
 }
 ```
 
-#### ✅ Instead do this
+:::caption{for="success"}
+Instead, make your model read the table from the config file
+:::
 
 ```ts
 const someConfig = {

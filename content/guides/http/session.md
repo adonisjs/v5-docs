@@ -56,7 +56,9 @@ You can configure the behavior of the session by tweaking the `config/session.ts
 
 ```ts
 // title: config/session.ts
-{
+import { sessionConfig } from '@adonisjs/session/build/config'
+
+export default sessionConfig({
   enabled: true,
   driver: Env.get('SESSION_DRIVER'),
   cookieName: 'adonis-session',
@@ -65,7 +67,7 @@ You can configure the behavior of the session by tweaking the `config/session.ts
   cookie: {}, // see the cookie driver
   file: {}, // see the file driver
   redisConnection: 'local', // see the redis driver
-}
+})
 ```
 
 - **enabled** works as a switch to turn on/off sessions for the entire app.

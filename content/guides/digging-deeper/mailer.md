@@ -62,7 +62,9 @@ export default Env.rules({
 The configuration for the mail package is stored inside the `config/mail.ts` file. Inside this file, you can define multiple mailers using the same or different drivers.
 
 ```ts
-const mailConfig: MailConfig = {
+import { mailConfig } from '@adonisjs/mail/build/config'
+
+export default mailConfig({
   mailer: 'mailgun',
   mailers: {
     mailgun: {
@@ -78,9 +80,7 @@ const mailConfig: MailConfig = {
       port: Env.get('SMTP_PORT') as string,
     },
   },
-}
-
-export default mailConfig
+})
 ```
 
 #### mailer
@@ -889,7 +889,9 @@ export default class AppProvider {
 The mail module internally creates a single instance of the driver and uses it throughout the application's lifecycle unless someone decides to close it manually.
 
 ### Informing TypeScript about the new driver
-The next step is to inform TypeScript about the postmark driver and the config it accepts. Open the pre-existing `contracts/mail.ts` file and add the following code inside it.
+Before someone can reference this driver within the `config/mail.ts` file. You will have to inform TypeScript static compiler about its existence. 
+
+If you are creating a package, then you can write the following code inside your package main file, otherwise you can write it inside the `contracts/mail.ts` file.
 
 ```ts
 // insert-start
@@ -897,8 +899,7 @@ import { PostMarkConfig } from '../providers/PostMarkDriver'
 // insert-end
 
 declare module '@ioc:Adonis/Addons/Mail' {
-  interface MailersList {
-    mailgun: MailDrivers['mailgun'],
+  interface MailDrivers {
     // insert-start
     postmark: {
       config: PostMarkConfig,
@@ -915,7 +916,7 @@ Alright, we are now ready to use the postmark driver. Let's start by defining th
 ```ts
 {
   mailers: {
-    postmark: {
+    transactionalMailer: {
       driver: 'postmark',
       auth: {
         apiKey: 'your-api-key',
@@ -930,6 +931,6 @@ And use it as follows:
 ```ts
 import Mail from '@ioc:Adonis/Core/Mail'
 
-Mail.use('postmark').send((message) => {
+Mail.use('transactionalMailer').send((message) => {
 })
 ```

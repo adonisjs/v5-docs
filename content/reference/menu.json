@@ -281,6 +281,16 @@
             "title": "equalTo",
             "permalink": "validator/rules/equal-to",
             "contentPath": "validator/rules/equal-to.md"
+          },
+          {
+            "title": "escape",
+            "permalink": "validator/rules/escape",
+            "contentPath": "validator/rules/escape.md"
+          },
+          {
+            "title": "trim",
+            "permalink": "validator/rules/trim",
+            "contentPath": "validator/rules/trim.md"
           }
         ]
       }

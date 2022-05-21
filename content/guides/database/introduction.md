@@ -402,7 +402,7 @@ sqlite: {
   <summary>MySQL</summary>
 
 ```sh
-npm i mysql
+npm i mysql2
 ```
 
 ```ts

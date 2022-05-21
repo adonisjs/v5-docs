@@ -71,7 +71,7 @@ export default Env.rules({
   APP_NAME: Env.schema.string(),
   CACHE_VIEWS: Env.schema.boolean(),
   SESSION_DRIVER: Env.schema.string(),
-  NODE_ENV: Env.schema.enum(['development', 'production', 'testing'] as const),
+  NODE_ENV: Env.schema.enum(['development', 'production', 'test'] as const),
 })
 ```
 
@@ -255,11 +255,11 @@ The `.env` file can be at any location on your server. For example, You can stor
 ENV_PATH=/etc/myapp/.env node server.js
 ```
 
-## Defining variables while testing
+## Defining variables during tests
 
-AdonisJS will look for the `.env.testing` file when the application is started with the `NODE_ENV=testing` environment variable.
+AdonisJS will look for the `.env.test` file when the application is started with the `NODE_ENV=test` environment variable.
 
-The variables defined inside the `.env.testing` file are automatically merged with the `.env` file. This allows you to use a different database or a different session driver when writing tests.
+The variables defined inside the `.env.test` file are automatically merged with the `.env` file. This allows you to use a different database or a different session driver when writing tests.
 
 ## Defining variables in production
 

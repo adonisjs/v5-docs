@@ -1,11 +1,7 @@
 <figure>
-  <img
-    data-src="{{ node.properties.src }}"
-    alt="{{ node.properties.alt }}"
-    class="lazyload"
-    {{ node.properties.width ? `width=${node.properties.width}` : ''  }}
-  >
+  <img data-src="{{ node.properties.src }}" alt="{{ node.properties.alt }}" class="lazyload" {{ node.properties.width ?
+    `width=${node.properties.width}` : '' }}>
   @if(node.properties.alt)
-    <figcaption>{{ node.properties.alt }}</figcaption>
+  <figcaption>{{ node.properties.alt }}</figcaption>
   @endif
 </figure>

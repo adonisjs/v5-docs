@@ -100,6 +100,17 @@ node ace dump:rcfile
   ],
   "commandsAliases": {
   },
+  "tests": {
+    "suites": [
+      {
+        "name": "functional",
+        "files": [
+          "tests/functional/**/*.spec.ts"
+        ],
+        "timeout": 30000
+      }
+    ]
+  },
   "providers": [
     "./providers/AppProvider",
     "@adonisjs/core",
@@ -108,6 +119,9 @@ node ace dump:rcfile
   ],
   "aceProviders": [
     "@adonisjs/repl"
+  ],
+  "testProviders": [
+    "@japa/preset-adonis/TestsProvider"
   ]
 }
 ```
@@ -272,7 +286,9 @@ A key-value pair of command aliases. This is usually to help you create memorabl
 
 ```json
 {
-  "migrate": "migration:run"
+  "commandsAliases": {
+    "migrate": "migration:run"
+  }
 }
 ```
 
@@ -280,8 +296,31 @@ You can also define multiple aliases by adding multiple entries.
 
 ```json
 {
-  "migrate": "migration:run",
-  "up": "migration:run"
+  "commandsAliases": {
+    "migrate": "migration:run",
+    "up": "migration:run"
+  }
+}
+```
+
+---
+
+### tests
+The `test` object holds the collection of test suites used by your application. You can add/remove suites as per your application requirements.
+
+```json
+{
+ "tests": {
+    "suites": [
+      {
+        "name": "functional",
+        "files": [
+          "tests/functional/**/*.spec.ts"
+        ],
+        "timeout": 30000
+      }
+    ]
+  }
 }
 ```
 
@@ -302,12 +341,25 @@ An array of service providers to load during the application boot cycle. The pro
 ---
 
 ### aceProviders
-An array of providers to load when running the Ace commands. Here you can load the providers, which aren't required when starting the HTTP server.
+An array of providers required the ace commands.
 
 ```json
 {
   "aceProviders": [
     "@adonisjs/repl"
+  ]
+}
+```
+
+---
+
+### testProviders
+An array of providers loaded only during the testing.
+
+```json
+{
+  "testProviders": [
+    "@japa/preset-adonis/TestsProvider"
   ]
 }
 ```

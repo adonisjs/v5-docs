@@ -154,6 +154,15 @@ const response = await client.get('/')
 console.log(response.flashMessages())
 ```
 
+You can dump the session data to the console using the `dumpSession` method.
+
+```ts
+const response = await client.get('/')
+
+// writes to the console
+response.dumpSession()
+```
+
 ## Authentication
 The `@adonisjs/auth` package extends the API client and adds the `loginAs` method you can use to login as a certain user when making the request.
 

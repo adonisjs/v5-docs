@@ -73,6 +73,15 @@ node ace make:model User -m
 # CREATE: app/Models/User.ts
 ```
 
+Finally, you can also create the factory for the model using the `-f` flag.
+
+```sh
+node ace make:model User -f
+
+# CREATE: app/Models/User.ts
+# CREATE: database/factories/User.ts
+```
+
 The `make:model` command creates a new model inside the `app/Models` directory. Every model must extend the `BaseModel` class to inherit additional functionality.
 
 ```ts

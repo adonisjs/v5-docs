@@ -15,6 +15,10 @@ By the end of this guide, you will know:
 
 Model factories are stored inside `databases/factories` directory. You can define all factories within a single file or create dedicated files for each model, the choice is yours.
 
+:::note
+You can use the `make:factory` command to create a new factory. The command accepts the model name for which you want to create the factory.
+:::
+
 Unlike seeders or models, the factories are declarative in nature as shown in the following example:
 
 ```ts
@@ -168,6 +172,36 @@ Finally, you can also create nested relationships. For example: Create a user wi
 ```ts
 const user = await UserFactory
   .with('posts', 2, (post) => post.with('comments', 5))
+  .create()
+```
+
+### Pivot attributes
+When creating a [many to many](relationships.md#manytomany) relationship, you can define the attributes for the pivot table using the `pivotAttributes` method.
+
+In the following example, the `User` model has a many to many relationship with the `Team` model and we define the user role within a given team.
+
+```ts
+await UserFactory
+  .with('teams', 1, (team) => {
+    team.pivotAttributes({ role: 'admin' })
+  })
+  .create()
+```
+
+You can pass an array of objects to the `pivotAttributes` method when creating multiple instances of the relationship.
+
+:::note
+The size of array should match the count of relationship rows you are about to create.
+:::
+
+```ts
+await UserFactory
+  .with('teams', 2, (team) => {
+    team.pivotAttributes([
+      { role: 'admin' },
+      { role: 'moderator' }
+    ])
+  })
   .create()
 ```
 

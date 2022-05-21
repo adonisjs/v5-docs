@@ -58,6 +58,10 @@ AdonisJS organizes tests into multiple suites. Tests for every suite live within
 
 Suites are registered inside the `.adonisrc.json` file, and you can remove/add suites as per requirements. A suite combines a unique name and a glob pattern for the files.
 
+:::note
+You can also use the `make:suite` command to create a new test suite and register it inside the `.adonisrc.json` file.
+:::
+
 ```json
 // title: .adonisrc.json
 {
@@ -181,6 +185,7 @@ The `test` command accepts the following flags.
 - `--files`: Cherry pick and run tests from mentioned files.
 - `--timeout`: Define the global timeout for all the tests.
 - `--force-exit`: Force exit the test process if it does not ends gracefully.
+- `--tests`: Run specific tests by title.
 
 ## Database management
 This section covers database migrations, running seeders, and using global transactions to have a clean database state between tests.

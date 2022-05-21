@@ -14,8 +14,8 @@ You can access the current environment of the application using the `environment
 
 - `web` environment refers to the process started for the HTTP server.
 - `console` environment refers to the Ace commands except for the REPL command.
-- `repl` environment refers to the process started using node ace REPL command.
-- `test` environment is reserved for the future when AdonisJS will have the inbuilt test runner.
+- `repl` environment refers to the process started using `node ace repl` command.
+- `test` environment referes to the process started using the `node ace test` command.
 
 ```ts
 import Application from '@ioc:Adonis/Core/Application'
@@ -46,7 +46,9 @@ You can access the IoC container bindings once the application state is set to `
 
 For example, if you have a service provider who wants to resolve the container's bindings, you should write the import statements inside the `boot` or the `ready` methods.
 
-#### ❌ Top-level import will not work
+:::caption{for="error"}
+Top-level import will not work
+:::
 
 ```ts
 import { ApplicationContract } from '@ioc:Adonis/Core/Application'
@@ -61,7 +63,9 @@ export default class AppProvider {
 }
 ```
 
-#### ✅ Move import inside the boot method
+:::caption{for="success"}
+Move import inside the boot method
+:::
 
 ```ts
 import { ApplicationContract } from '@ioc:Adonis/Core/Application'
@@ -113,7 +117,7 @@ console.log(Application.nodeEnvironment)
 | develop | development |
 | stage | staging |
 | prod | production |
-| test | testing |
+| testing | test |
 
 Also, you can make use of the following properties as a shorthand to know the current environment.
 
@@ -133,6 +137,16 @@ Application.inDev
 
 // Same as
 Application.nodeEnvironment === 'development'
+```
+
+---
+
+### inTest
+```ts
+Application.inTest
+
+// Same as
+Application.nodeEnvironment === 'test'
 ```
 
 ## Make paths to project directories

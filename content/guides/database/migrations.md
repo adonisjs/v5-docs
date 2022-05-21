@@ -38,7 +38,7 @@ Both the methods have access to the AdonisJS [schema builder](../../reference/da
 ```ts
 import BaseSchema from '@ioc:Adonis/Lucid/Schema'
 
-export default class Users extends BaseSchema {
+export default class extends BaseSchema {
   protected tableName = 'users'
 
   public async up() {
@@ -148,7 +148,7 @@ You can use the `schema.createTable` method to create a new database table. The 
 ```ts
 import BaseSchema from '@ioc:Adonis/Lucid/Schema'
 
-export default class Users extends BaseSchema {
+export default class extends BaseSchema {
   protected tableName = 'users'
 
   public async up() {
@@ -177,7 +177,7 @@ export default class Users extends BaseSchema {
 You can alter an existing database table using the `schema.alterTable` method. The method accepts the table name as the first argument and a callback function to alter/add the table columns.
 
 ```ts
-class UserSchema extends BaseSchema {
+export default class extends BaseSchema {
   public up() {
     // highlight-start
     this.schema.alterTable('user', (table) => {
@@ -194,7 +194,7 @@ class UserSchema extends BaseSchema {
 You can rename the table using the `schema.renameTable`. The method accepts the existing table name as the first argument and the new name as the second argument.
 
 ```ts
-class UserSchema extends BaseSchema {
+export default class extends BaseSchema {
   // highlight-start
   public up() {
     this.schema.renameTable('user', 'app_users')
@@ -206,7 +206,7 @@ class UserSchema extends BaseSchema {
 You can drop the table using the `schema.dropTable`. The method accepts the table name as the only argument.
 
 ```ts
-class UserSchema extends BaseSchema {
+export default class extends BaseSchema {
   // highlight-start
   public down() {
     this.schema.dropTable('users')
@@ -236,7 +236,7 @@ We migrate the emails from the `users` table to the `user_emails` table in the f
 :::
 
 ```ts
-class UserSchema extends BaseSchema {
+export default class extends BaseSchema {
   public up() {
     this.schema.createTable('user_emails', (table) => {
       // table columns

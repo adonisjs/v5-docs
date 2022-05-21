@@ -7,7 +7,9 @@ AdonisJS Hash module allows you to hash the values using **bcrypt** or **Argon2*
 You can configure the driver of your choice inside the `config/hash.ts` file.
 
 ```ts
-const hashConfig: HashConfig = {
+import { hashConfig } from '@adonisjs/core/build/config'
+
+export default hashConfig({
   default: Env.get('HASH_DRIVER', 'argon'),
 
   list: {
@@ -37,9 +39,7 @@ const hashConfig: HashConfig = {
       rounds: 10,
     },
   },
-}
-
-export default hashConfig
+})
 ```
 
 #### Default hasher
@@ -207,7 +207,7 @@ Open the `HashDriver/index.ts` file and paste the following contents inside it.
 // title: providers/HashDriver/index.ts
 import { HashDriverContract } from '@ioc:Adonis/Core/Hash'
 
-export class FakeDriver implements HashDriverContract {
+export class PlainTextDriver implements HashDriverContract {
   public async make(value: string) {
     return value
   }
@@ -229,55 +229,55 @@ export default class AppProvider {
   constructor(protected app: ApplicationContract) {}
 
   public async boot() {
-    const { FakeDriver } = await import('./HashDriver')
+    const { PlainTextDriver } = await import('./HashDriver')
     const Hash = this.app.container.use('Adonis/Core/Hash')
 
-    Hash.extend('fake', () => {
-      return new FakeDriver()
+    Hash.extend('plainText', () => {
+      return new PlainTextDriver()
     })
   }
 }
 ```
 
-Voila! Your `fake` driver is ready to be used.
+Voila! Your `PlainTextDriver` driver is ready to be used.
 
-### Updating the contract
+### Informing TypeScript about the new driver
+Before someone can reference this driver within the `config/hash.ts` file. You will have to inform TypeScript static compiler about its existence. 
 
-In the following example, we add a new hasher named `fakeHasher` and force its config to always have `fake` as the value for the driver.
+If you are creating a package, then you can write the following code inside your package main file, otherwise you can write it inside the `contracts/hash.ts` file.
 
 ```ts
-// title: contracts/hash.ts
+import { PlainTextDriver } from '../providers/HashDriver'
 
 declare module '@ioc:Adonis/Core/Hash' {
-  interface HashersList {
-    // ...other hashers
-    fakeHasher: {
+  interface HashDrivers {
+    plainText: {
       config: {
-        driver: 'fake'
+        driver: 'plainText',
+        // ...rest of the config
       }
-      implementation: ArgonContract
+      implementation: PlainTextDriver
     }
   }
 }
 ```
 
 ### Updating the config
-
-After updating the contract, TypeScript will complain about the missing `fakeHasher` inside the config file, and hence you must define it.
+In order to use the driver, you will have to define a mapping within the config file setting the `driver=plainText`.
 
 ```ts
 // title: config/hash.ts
 
 list: {
-  fakeHasher: {
-    driver: 'fake',
+  myHashDriver: {
+    driver: 'plainText',
   },
   // other hashers
 }
 ```
 
-### Giving it a test run
+Now, you can use the newly defined mapping as follows.
 
-Open the AdonisJS REPL and give the fake hasher a try.
-
-::video{url="https://res.cloudinary.com/adonis-js/video/upload/q_auto,f_auto/v1614925151/v5/fake-hash-driver-test-run.mp4" controls}
+```ts
+await Hash.use('myHashDriver').make('foo')
+```

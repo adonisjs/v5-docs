@@ -41,7 +41,9 @@ Feel free to create the config file (if missing) using the [config stub](https:/
 
 ```ts
 // title: config/drive.ts
-const driveConfig: DriveConfig = {
+import { driveConfig } from '@adonisjs/core/build/config'
+
+export default driveConfig({
   disk: Env.get('DRIVE_DISK'),
 
   disks: {
@@ -66,9 +68,7 @@ const driveConfig: DriveConfig = {
       // forcePathStyle: true,
     },
   },
-}
-
-export default driveConfig
+})
 ```
 
 #### disk
@@ -431,6 +431,18 @@ const s3 = Drive.use('s3')
 await s3.put(filePath, stringOrBuffer)
 ```
 
+## Switching bucket at runtime
+When using the `s3` and the `gcs` drivers, you can switch the bucket at runtime using the bucket method.
+
+```ts
+Drive
+  .use('s3')
+  // highlight-start
+  .bucket('bucketName')
+  // highlight-end
+  .put(filePath, stringOrBuffer)
+```
+
 ## Adding a custom driver
 The Drive exposes the API to add your custom drivers. Every driver must adhere to the [DriverContract](https://github.com/adonisjs/drive/blob/develop/adonis-typings/drive.ts#L53-L134).
 
@@ -620,28 +632,22 @@ export default class AppProvider {
 ```
 
 ###  Informing TypeScript about the new driver
-The next step is to inform TypeScript about the dummy driver and the config it accepts. Then, open the pre-existing `contracts/drive.ts` file and add the following code inside it.
+Before someone can reference this driver within the `config/drive.ts` file. You will have to inform TypeScript static compiler about its existence. 
+
+If you are creating a package, then you can write the following code inside your package main file, otherwise you can write it inside the `contracts/drive.ts` file.
 
 ```ts
-// insert-start
 import {
   DummyDriverConfig,
   DummyDriverContract
 } from '../providers/DummyDriver'
-// insert-end
 
 declare module '@ioc:Adonis/Core/Drive' {
-  interface DisksList {
-    local: {
-      implementation: LocalDriverContract
-      config: LocalDriverConfig
-    }
-    // insert-start
+  interface DriversList {
     dummy: {
       config: DummyDriverConfig,
       implementation: DummyDriverContract
     }
-    // insert-end
   }
 }
 ```
@@ -652,7 +658,7 @@ Alright, we are now ready to use the driver. Let's start by defining the config 
 ```ts
 {
   disks: {
-    dummy: {
+    myDummyDisk: {
       driver: 'dummy',
       // ... rest of the config
     }
@@ -665,5 +671,5 @@ And use it as follows.
 ```ts
 import Drive from '@ioc:Adonis/Core/Drive'
 
-await Drive.use('dummy').put(filePath, contents)
+await Drive.use('myDummyDisk').put(filePath, contents)
 ```
