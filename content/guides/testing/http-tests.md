@@ -230,7 +230,7 @@ test('a user can update avatar', async ({ client, assert }) => {
   /**
    * Assert the file was uploaded successfully
    */
-  assert.isTrue(fakeDrive.exists(fakeAvatar.name))
+  assert.isTrue(await fakeDrive.exists(fakeAvatar.name))
 
   /**
    * Restore the Drive fake
