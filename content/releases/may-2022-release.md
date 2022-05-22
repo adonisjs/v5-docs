@@ -1,4 +1,4 @@
-This release brings improvements to Lucid model factories, the ability to switch Drive S3 and GCS bucket at runtime, and the `make:suite` command to create new test suites, along with many bug fixes and minor improvements.
+This release improves Lucid model factories and the ability to switch Drive S3 and GCS buckets at runtime. In addition, the `make:suite` command to create new test suites and many bug fixes and minor improvements.
 
 You must update all the packages under `@adonisjs` scope to their latest version. You can run the npm update command or use the following command to upgrade packages manually.
 
@@ -9,9 +9,45 @@ npx npm-check-updates -i
 ## Infer TypeScript types from config
 If you open `contracts/drive.ts`, `contracts/mail.ts`, or `contracts/hash.ts`, you will notice we have manually defined the mappings of the drivers we want to use within our application.
 
-Before moving forward, we recommend you watch the following screencast to explicitly understand why we have to define these mappings.
+### Back story
 
-As you can see, defining mappings manually on an interface is not the best DX. Therefore, we have made some changes to infer the types from the config directly.
+Before moving forward, let's understand why we have to define these mappings on an interface, and we will use Drive as an example for the same.
+
+In the following import statement, the `Drive` object is a singleton created using the config defined inside the `config/drive.ts` file and you switch between the disks using the `Drive.use` method.
+
+```ts
+import Drive from '@ioc:Adonis/Core/Drive'
+
+Drive.use('<use-any-mapping-from-config-file>')
+```
+
+All this works as expected at runtime. However, TypeScript has no way to make a relation between the **Drive import** and **its config file**. Therefore the TypeScript static compiler cannot provide any IntelliSense or type safety.
+
+To combat that, we use an interface called `DisksList` and explicitly inform the TypeScript compiler about the mappings/disks we want to use inside our application.
+
+```ts
+declare module '@ioc:Adonis/Core/Drive' {
+  interface DisksList {
+    local: {
+      config: LocalDriverConfig
+      implementation: LocalDriverContract
+    }
+    s3: {
+      config: S3DriverConfig
+      implementation: S3DriverContract
+    }
+  }
+}
+```
+
+In a nutshell, we have disk mappings in two places.
+
+- First is the contracts file for the TypeScript compiler.
+- Another is the config file for runtime JavaScript.
+
+We can do better here and reduce the mental fatigue of defining mappings at multiple places. Technically it is possible by inferring the TypeScript types directly from the config.
+
+In this and the upcoming releases, we will incrementally remove the manually defined mappings from the interface and use config inference. This release focuses on **Drive**, **Mailer**, and the **Hash** module.
 
 ### Updating Drive config and contract
 Open the `config/drive.ts` file and wrap the config object within the `driveConfig` method below.
@@ -131,7 +167,7 @@ declare module '@ioc:Adonis/Core/Hash' {
 }
 ```
 
-That is all. In future releases, we will also introduce config type inference for other packages.
+That is all. We will also introduce config type inference for other packages in future releases.
 
 ## Lucid model factory improvements and new commands
 The following new methods/properties have been added to Lucid model factories.
@@ -216,7 +252,7 @@ node ace make:model User -cf
 ## Upgrading to Knex 2.0
 We have upgraded the Knex version to 2.0, resulting in a **small breaking change for SQLite users**. Earlier, knex used the `@vscode/sqlite3` package for the SQLite connection. However, now it relies on the `sqlite3` package. 
 
-If you are using SQLite, make sure to uninstall the old dependency in favor of the new one.
+If you are using SQLite, uninstall the old dependency and favor the new one.
 
 ```sh
 npm uninstall @vscode/sqlite3
@@ -260,19 +296,19 @@ Since implementing the `list` method is experimental, we might change the final 
 - feat: add `make:suite` command [018da9d](https://github.com/adonisjs/assembler/commit/018da9d1094155babda8c8e12b3a84a1876fa58a)
 - feat: add support to find routes by identifier [7920caf](https://github.com/adonisjs/http-server/commit/7920caf0c757630ee45e1ee73955ae4caa17668e)
 - feat: add route lookup methods on the router class [9211cfd](https://github.com/adonisjs/http-server/commit/9211cfd20a82f8121608b4935852178be4a28fe2)
-- fix: do not use magic method to compute file name when file type is not supported [0740a35](https://github.com/adonisjs/bodyparser/commit/0740a35f46ea48204db3c391f82affe7699b3ce2)
+- fix: do not use a magic method to compute file name when the file type is not supported [0740a35](https://github.com/adonisjs/bodyparser/commit/0740a35f46ea48204db3c391f82affe7699b3ce2)
 - fix: retain default value assigned to arguments on the class instance [cf51363](https://github.com/adonisjs/ace/commit/cf513638642f881cbb3420da5bc5d2b4a7297333)
 - fix: use the mutated value for validating minLength and maxLength [80081bb](https://github.com/adonisjs/validator/commit/80081bb6bc3fee270cbf319cebdb8e7f432bb5fe)
 - fix: define serialize property for the attachment column [b847dae](https://github.com/adonisjs/attachment-lite/commit/b847dae32707fb332eb48b2e5421d53160b9706f)
-- fix: do not persist pre computed URL to be database [ecc6397](https://github.com/adonisjs/attachment-lite/commit/ecc6397c282c3daecf1675b938418e8866c90d8a)
+- fix: do not persist pre-computed URL to be database [ecc6397](https://github.com/adonisjs/attachment-lite/commit/ecc6397c282c3daecf1675b938418e8866c90d8a)
 - feat: add config helper and type from infer disklist from config [92d1448](https://github.com/adonisjs/drive/commit/92d1448f2934247beae497003bc0ccfd164269f5)
 - feat: add support for listing files inside a directory [e98cb43](https://github.com/adonisjs/drive/commit/e98cb43f182b9e9822a9267f4fe8f8b7ef448bd7)
 - feat: add hashConfig method to define the hash config [87f8e4f](https://github.com/adonisjs/hash/commit/87f8e4fe07cdb851d57dbb513cb321667d37340e)
 - fix: add stayAlive to ListRoutes command (#3703) [36406f5](https://github.com/adonisjs/core/commit/36406f593cad2978b9ebbd3daa0bdd569727c664)
-- fix: check for main command name inside command aliases as well [1f8da36](https://github.com/adonisjs/core/commit/1f8da36395c349698430a0a393687ee39cf69154)
+- fix: check for the main command name inside command aliases as well [1f8da36](https://github.com/adonisjs/core/commit/1f8da36395c349698430a0a393687ee39cf69154)
 - feat: add support to switch bucket at runtime [8d75ec4](https://github.com/adonisjs/drive-gcs/commit/8d75ec42c7325c0bad45f9450a6c5ccaacaa69af)
 - feat: add support to switch bucket at runtime [208e5bb](https://github.com/adonisjs/drive-s3/commit/208e5bbc9e316317424957eb5122ef1cbddb19f0)
-- feat: add mailConfig method to infer types from user defined config [7cd6313](https://github.com/adonisjs/mail/commit/7cd63132bf0f733fe4040370938e8a1b3751e46e)
+- feat: add mailConfig method to infer types from user-defined config [7cd6313](https://github.com/adonisjs/mail/commit/7cd63132bf0f733fe4040370938e8a1b3751e46e)
 - feat: add redisConfig method to infer types from config [abc1ce3](https://github.com/adonisjs/redis/commit/abc1ce323f8beb4458e8218e3560b55a88d08b73)
 - fix: use response cookies to read the session id [38ccee9](https://github.com/adonisjs/session/commit/38ccee9e14cea5ea6d39b2cc5356550e25099d62)
 - refactor: regenerate session id as soon as regenerate method is called [cb21abf](https://github.com/adonisjs/session/commit/cb21abf41487dc034fce6660cbce4e96c381e261)
