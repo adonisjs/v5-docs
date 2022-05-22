@@ -6,6 +6,12 @@ You must update all the packages under `@adonisjs` scope to their latest version
 npx npm-check-updates -i
 ```
 
+Once done, make sure to update the ace commands index by running following ace command.
+
+```sh
+node ace generate:manifest
+```
+
 ## Infer TypeScript types from config
 If you open `contracts/drive.ts`, `contracts/mail.ts`, or `contracts/hash.ts`, you will notice we have manually defined the mappings of the drivers we want to use within our application.
 
