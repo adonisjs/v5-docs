@@ -283,6 +283,26 @@ await Drive
   .put(path, contents)
 ```
 
+### Prevention for path traversal
+In earlier versions of Drive using local driver, the absolute paths were working with drive methods without prefixing them with disk root. To prevent [Path Traversal](https://owasp.org/www-community/attacks/Path_Traversal) it has been changed to always resolve paths relative to the root of the defined disk and not from the entire filesystem. If you are using absolute paths with Drive like in the example below, please change it to relative locations. This applies to all Drive methods not only `put`.
+
+```ts
+const filename = 'somefile.txt'
+const contents = '...'
+// delete-start
+await Drive.put(
+  // DO NOT resolve absolute path for filename
+  Application.tmpPath('uploads', filename),
+  contents
+)
+// delete-end
+// insert-start
+// instead just let Drive to prefix it with
+// defined root for given disk inside config
+await Drive.put(filename, contents)
+// insert-end
+```
+
 ### Experimental `list` method
 The `local` driver of Drive now ships with an [expiremental list method](https://github.com/adonisjs/drive/pull/39) to list all files inside a given directory. We will implement the same for the S3 and the GCS drivers in the coming days.
 
