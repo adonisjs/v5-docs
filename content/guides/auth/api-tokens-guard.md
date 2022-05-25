@@ -128,7 +128,7 @@ Route.post('login', async ({ auth, request, response }) => {
     return token
     // highlight-end
   } catch {
-    return response.badRequest('Invalid credentials')
+    return response.unauthorized('Invalid credentials')
   }
 })
 ```
@@ -165,7 +165,7 @@ Route.post('login', async ({ auth, request, response }) => {
 
   // Verify password
   if (!(await Hash.verify(user.password, password))) {
-    return response.badRequest('Invalid credentials')
+    return response.unauthorized('Invalid credentials')
   }
 
   // Generate token
