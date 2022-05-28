@@ -16,7 +16,7 @@ You make a new migration file for every database schema change (i.e., create or 
 You can create a new migration by running the following Ace command. The migration files are stored inside the `database/migrations` directory.
 
 :::note
-You can also create a Lucid model and the migration together by running the `node ace make:model -m' flag.
+You can also create a Lucid model and the migration together by running the `node ace make:model -m` flag.
 :::
 
 ```sh
