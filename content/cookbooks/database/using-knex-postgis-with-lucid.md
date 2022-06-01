@@ -25,7 +25,7 @@ const st = knexPostgis(db)
 
 Since the management of connections is abstracted with Lucid, we need a graceful API to grab the `st` object for any connection on-demand.
 
-We can do this by extending the Database class and adding an `st` method to it. For the sake of simplicity, I will write the following code inside a [preload file.](./../guides/fundamentals/adonisrc-file.md)
+We can do this by extending the Database class and adding an `st` method to it. For the sake of simplicity, I will write the following code inside a [preload file.](./../../guides/http/routing.md#register-as-a-preload-file)
 
 ```ts
 // title: start/db.ts
