@@ -23,7 +23,6 @@ test('register user', async ({ assert, client }) => {
 
   // highlight-start
   // Time for assertions
-  assert.lengthOf(mailer.size(), 1)
   assert.isTrue(mailer.exists((mail) => {
     return mail.subject === 'Welcome to AdonisJS'
   }))
