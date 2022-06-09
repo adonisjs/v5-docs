@@ -120,7 +120,7 @@ Env.schema.string({ format: 'url', tld: false, protocol: false })
 
 ### Env.schema.boolean
 
-Enforces the value to be a valid string representation of a boolean. Following values are considered as valid booleans and will be converted `true` or `false`.
+Enforces the value to be a valid string representation of a boolean. Following values are considered as valid booleans and will be converted to `true` or `false`.
 
 - `'1', 'true'` are casted to `Boolean(true)`
 - `'0', 'false'` are casted to `Boolean(false)`
