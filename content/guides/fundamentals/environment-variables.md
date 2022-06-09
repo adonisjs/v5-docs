@@ -84,7 +84,7 @@ Also, AdonisJS extracts the static type information from the validation rules an
 Following is the list of available methods to validate the environment variables. 
 
 ### Env.schema.string
-Validates the value to exist and be a valid string. Empty strings fail the validations, and you must use the optional variant to allow empty strings.
+Validates the value to check if it exists and if it is a valid string. Empty strings fail the validations, and you must use the optional variant to allow empty strings.
 
 ```ts
 {
