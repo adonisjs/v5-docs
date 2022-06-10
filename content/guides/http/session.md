@@ -415,19 +415,19 @@ You can access the flash messages set by the previous request using the `session
 ```ts
 Route.get('/', async ({ session }) => {
   // Get value for a given key
-  response.flashMessages.get('errors.title')
+  session.flashMessages.get('errors.title')
 
   // With optional default value
-  response.flashMessages.get('title', '')
+  session.flashMessages.get('title', '')
 
   // Find if a key exists
-  response.flashMessages.has('errors.title')
+  session.flashMessages.has('errors.title')
 
   // Get all
-  response.flashMessages.all()
+  session.flashMessages.all()
 
   // Find if store is empty
-  response.flashMessages.isEmpty
+  session.flashMessages.isEmpty
 })
 ```
 
