@@ -121,6 +121,7 @@ HEADER STYLES
 @media (min-width: 1024px) {
   .header-nav {
     display: block;
+    max-width: var(--markdown-content-width);
     width: 655px;
     margin: 0 auto;
   }
