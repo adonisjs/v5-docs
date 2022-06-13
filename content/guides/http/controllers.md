@@ -261,6 +261,37 @@ Route.resource('users', 'UsersController').middleware({
 })
 ```
 
+### Renaming resource param name
+The param to view a single instance of a resource is named as `id`. However, you can rename it to something else using the `paramFor` method.
+
+```ts
+Route
+  .resource('users', 'UsersController')
+  // highlight-start
+  .paramFor('users', 'user')
+  // highlight-end
+```
+
+The above example will generate the following routes.
+
+```sh
+# Showing routes with params only
+
+GET /users/:user
+GET /users/:user/edit
+PUT,PATCH /users/:user
+DELETE /users/:user
+```
+
+You can also rename nested and shallow resources. For example:
+
+```ts
+Route
+  .resource('posts.comments', 'CommentsController')
+  .paramFor('posts', 'post')
+  .paramFor('comments', 'comment')
+```
+
 ## Nested resources
 
 You can also register nested resources by separating each resource with a `dot notation (.)`. For example:
