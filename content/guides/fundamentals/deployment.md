@@ -14,7 +14,7 @@ For a frictionless deployment experience, you can try Cleavr. It is a server pro
 
 AdonisJS applications are written in TypeScript and must be compiled to JavaScript during deployment. You can compile your application directly on the production server or perform the build step in a CI/CD pipeline.
 
-You can build your [code for production](./typescript-build-process.md#standalone-production-builds) by running the following Ace command. The compiled JavaScript output is written to the `build` directory.
+You can build your [code for production](./typescript-build-process.md#standalone-production-builds) by running the following Ace command. The compiled JavaScript output is written inside the `build` directory.
 
 ```sh
 node ace build --production
@@ -26,7 +26,7 @@ If you have performed the build step inside a CI/CD pipeline, then you can move 
 
 You can start the production server by running the `server.js` file.
 
-If you have performed the build step on your production server, make sure to first `cd` into the build directory and then start the server.
+If you have performed the build step on your production server, make sure to first `cd` into the `build` directory and then start the server.
 
 ```sh
 cd build
@@ -36,7 +36,7 @@ npm ci --production
 node server.js
 ```
 
-If the build step was performed in a CI/CD pipeline and **you have copied only the `build` folder to your production server**, the `build` becomes the root of your application.
+If the build step was performed in a CI/CD pipeline and **you have copied only the `build` folder to your production server**, the `build` directory becomes the root of your application.
 
 ```sh
 npm ci --production
@@ -47,7 +47,7 @@ node server.js
 
 ### Using a process manager
 
-It is recommended to use a process manager when managing a Node.js application on a bare-bones server.
+It is recommended to use a process manager when managing a Node.js application on a basic server.
 
 A process manager ensures to restart the application if it crashes during runtime. In addition, some process managers like [PM2](https://pm2.keymetrics.io/docs/usage/quick-start/) can also perform graceful restarts when re-deploying the application.
 
@@ -68,13 +68,13 @@ module.exports = {
 ```
 
 ## NGINX reverse proxy
-When running the AdonisJS application on a bare-bone server, you must put it behind NGINX (or a similar web server) for [many different reasons](https://medium.com/intrinsic/why-should-i-use-a-reverse-proxy-if-node-js-is-production-ready-5a079408b2ca), but SSL termination being an important one.
+When running the AdonisJS application on a basic server, you must put it behind NGINX (or a similar web server) for [many different reasons](https://medium.com/intrinsic/why-should-i-use-a-reverse-proxy-if-node-js-is-production-ready-5a079408b2ca), with the SSL termination being one of the most important.
 
 :::note
 Make sure to read the [trusted proxies guide](../http/request.md#trusted-proxy) to ensure you can access the visitor's correct IP address when running the AdonisJS application behind a proxy server.
 :::
 
-Following is an example NGINX config to proxy requests to your AdonisJS application. **Make sure to replace the values inside the angle brackets `<>`**.
+Following is an example of NGINX config to proxy requests to your AdonisJS application. **Make sure to replace the values inside the angle brackets `<>`**.
 
 ```nginx
 server {
@@ -162,7 +162,7 @@ Event.on('db:query', (query) => {
 ## Environment variables
 You must keep your production environment variables secure and do not keep them alongside your application code. If you are using a deployment platform like Cleavr, Heroku, and so on, you must manage environment variables from their web dashboard.
 
-When deploying your code on a bare-bones server, you can keep your environment variables inside the `.env` file. The file can also live outside the application codebase. Make sure to inform AdonisJS about its location using the `ENV_PATH` environment variable.
+When deploying your code on a basic server, you can keep your environment variables inside the `.env` file. The file can also live outside the application codebase. Make sure to inform AdonisJS about its location using the `ENV_PATH` environment variable.
 
 ```sh
 cd build
@@ -178,7 +178,7 @@ CACHE_VIEWS=true
 ```
 
 ## Serving static assets
-Serving static assets effectively is essential for the performance of your application. Regardless of how fast your AdonisJS applications are, the delivery of static assets plays a massive role in a better user experience.
+Serving static assets effectively is essential for the performance of your application. Regardless of how fast your AdonisJS applications are, the delivery of static assets plays a massive role to a better user experience.
 
 ### Using a CDN service
 The best approach is to use a CDN for delivering the static assets from your AdonisJS application.
