@@ -183,6 +183,11 @@
             "contentPath": "validator/rules/alpha.md"
           },
           {
+            "title": "alphaNum",
+            "permalink": "validator/rules/alpha-num",
+            "contentPath": "validator/rules/alpha-num.md"
+          },
+          {
             "title": "confirmed",
             "permalink": "validator/rules/confirmed",
             "contentPath": "validator/rules/confirmed.md"
