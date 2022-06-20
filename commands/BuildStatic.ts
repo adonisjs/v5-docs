@@ -55,7 +55,7 @@ export default class BuildStatic extends BaseCommand {
    */
   private async createErrorPages() {
     const View = this.application.container.use('Adonis/Core/View')
-    const html = await View.render('errors.404')
+    const html = await View.render('errors/404')
     await this.writeFile('404.html', html!)
   }
 
