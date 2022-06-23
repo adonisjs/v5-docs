@@ -188,6 +188,8 @@ services:
       - .env
     volumes:
       - ./:/home/node/app
+      # Uncomment the below line if you developing on MacOS
+      #- /home/node/app/node_modules
     command: dumb-init node ace serve --watch --node-args="--inspect=0.0.0.0"
 ```
 
