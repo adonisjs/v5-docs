@@ -165,14 +165,14 @@ We recommend you still write your code as you were writing earlier (passing `ctx
 ### Then why have you introduced Async Local Storage?
 Async Local Storage shines with APM tools, which collect performance metrics from your app to help you debug and pinpoint problems.
 
-Before ALS, there was no simple way for APM tools to relate different resources with a given HTTP request. For example, It can show you the time taken by a given SQL query but cannot tell you which HTTP request executed that query.
+Before ALS, there was no simple way for APM tools to relate different resources with a given HTTP request. For example, It could show you how much time was taken to execute a given SQL query but could not tell you which HTTP request executed that query.
 
-After ALS, all this is now possible without having you tweak a single line of code. **AdonisJS is going to use ALS to collect metrics using its application-level profiler**.
+After ALS, now all this is possible without you have to touch a single line of code. **AdonisJS is going to use ALS to collect metrics using its application-level profiler**.
 
 ## Things to be aware of when using ALS
-You are free to use ALS if you think it makes your code more straightforward and you prefer global access over passing everything by reference.
+You are free to use ALS if you think it makes your code more straightforward and you prefer global access instead of passing everything by reference.
 
-However, be aware of the following situations that can usually lead to memory leaks or unstable behavior of the program.
+However, be aware of the following situations that can easily lead to memory leaks or unstable behavior of the program.
 
 ### Top-level access
 Never access the Async Local Storage at the top level of any module. For example:
@@ -193,7 +193,7 @@ export default class UsersController {
 
 #### ✅ Works
 
-Instead, you should move the `.get` call within the `index` method.
+Instead, you should move the `.get` call to within the `index` method.
 
 ```ts
 export default class UsersController {
@@ -219,7 +219,7 @@ export default class User extends BaseModel {
 ```
 
 #### ✅ Works
-Instead, you should move the `HttpContext.get` call inside the `query` method.
+Instead, you should move the `HttpContext.get` call to inside the `query` method.
 
 ```ts
 import HttpContext from '@ioc:Adonis/Core/HttpContext'
