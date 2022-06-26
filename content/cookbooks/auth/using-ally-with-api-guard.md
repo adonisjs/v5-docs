@@ -195,4 +195,4 @@ Server.middleware.register([
 ])
 ```
 
-Now, you can add the `auth` middleware to a route and it will check the token and grant access or deny if it has expired.
+Now, you can add the [Auth middleware](https://docs.adonisjs.com/guides/auth/middleware) middleware to a route and it will check the token and grant access or deny if it has expired.
