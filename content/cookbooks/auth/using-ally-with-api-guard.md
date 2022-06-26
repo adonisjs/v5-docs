@@ -154,3 +154,45 @@ Route.get('/:provider/callback', async ({ ally, auth, response, params }) => {
 ```
 
 So... you are certainly wondering how does it work? In fact, we are using the SPA as an intermediary to pass callback URL to the server. That's all.
+
+## Authorize subsequent requests
+In order to check if a user is authenticated for subsequent requests, we can create a new middleware to grab the Opaque Access Token from the cookie and append it to the request headers.
+
+To do so, run this command to generate a new middleware file
+
+```sh
+node ace make:middleware SetAuthorizationHeader
+```
+
+Then, add the following content
+
+```ts
+import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
+
+import Env from '@ioc:Adonis/Core/Env'
+
+export default class SetAuthorizationHeader {
+  public async handle ({ request }: HttpContextContract, next: () => Promise<void>) {
+    const token = request.cookie(String(Env.get('API_TOKEN_COOKIE_NAME')))
+
+    if (token) {
+      request.headers().authorization = `Bearer ${token}`
+    }
+
+    await next()
+  }
+}
+```
+
+Finally, you need to register the middleware in the global middleware array, inside `start/kernel.ts`
+
+```ts
+Server.middleware.register([
+  () => import('@ioc:Adonis/Core/BodyParser'),
+  () => import('@ioc:Adonis/Addons/Shield'),
+  () => import('App/Middleware/SetAuthorizationHeader'),
+  // Other middleware
+])
+```
+
+Now, you can add the `auth` middleware to a route and it will check the token and grant access or deny if it has expired.
