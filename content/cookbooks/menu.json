@@ -34,6 +34,11 @@
             "title": "Dockerizing Adonis",
             "permalink": "dockerizing-adonis",
             "contentPath": "deployment/dockerizing-adonis.md"
+          },
+          {
+            "title": "Laravel Forge",
+            "permalink": "deploy-to-laravel-forge",
+            "contentPath": "deployment/laravel-forge.md"
           }
         ]
       },
