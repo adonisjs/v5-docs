@@ -43,7 +43,7 @@ class HomeController {
 }
 ```
 
-## Differences from the Express `req` and `res` objects?
+## Are there any relation to `req` and `res` objects from the Express?
 
 You will not see any `req` or `res` objects in AdonisJS. This is because everything, including the request and the response, is part of the HTTP context.
 
@@ -56,7 +56,7 @@ You can access the context for the current request as follows:
 
 :::warning
 
-Make sure to thoroughly read the [Async Local Storage](../fundamentals/async-local-storage.md) guide before using the `HttpContext.get` method.
+Make sure to carefully read the [Async Local Storage](../fundamentals/async-local-storage.md) guide before using the `HttpContext.get` method.
 
 :::
 
@@ -218,7 +218,7 @@ Route.get('/', async ({ i18n }) => {
 
 ## Extending Context
 
-The HTTP context object is meant to be extended by other packages or your own application code. A common use case is to attach custom properties inside a middleware. For example:
+The HTTP context object is designed to be extended by other packages or your own application code. A common use case is to attach custom properties inside a middleware. For example:
 
 ```ts
 // highlight-start
@@ -236,11 +236,11 @@ export default class UserLocationMiddleware {
 }
 ```
 
-Here we have added a custom `location` property to the `ctx`, which you can access inside the route handler or the upcoming middleware.
+Here we have added a custom `location` property to the `ctx`, which you can access inside the route handler or in the upcoming middleware.
 
 ### Informing TypeScript about the custom property
 
-The `location` property is added at the runtime; hence TypeScript does not know about it. To inform the TypeScript, we will use [declaration merging](https://www.typescriptlang.org/docs/handbook/declaration-merging.html#merging-interfaces) and add the property to the `HttpContextContract` interface.
+The `location` property is added at the runtime; hence TypeScript does not know about it. To inform the TypeScript about its existence, we will use [declaration merging](https://www.typescriptlang.org/docs/handbook/declaration-merging.html#merging-interfaces) and add the property to the `HttpContextContract` interface.
 
 Create a new file at path `contracts/context.ts` (the file name is not important) and paste the following contents inside it:
 
@@ -261,7 +261,7 @@ That's all! Now, TypeScript will not complain about the missing property on the 
 
 ### Using getters and macros
 
-You can also use getters and macros for adding custom properties to the `ctx` object. In the previous example, we added an **instance property** to the `ctx` object. However, getters and macros add the property on the **prototype of the class**.
+You can also use getters and macros to add custom properties to the `ctx` object. In the previous example, we added an **instance property** to the `ctx` object. However, getters and macros add the property on the **prototype of the class**.
 
 Also, there is no need to create a middleware this time since you need to define the macros/getters only once, and they are available for all the instances of the HttpContext class.
 
@@ -291,7 +291,7 @@ export default class AppProvider {
 }
 ```
 
-By default, the getters are evaluated on every access. However, you can also mark them as singleton, as shown in the following example:
+By default, the getters are evaluated on every each access. However, you can also mark them as singleton, as shown in the following example:
 
 ```ts
 HttpContext.getter(
@@ -307,7 +307,7 @@ HttpContext.getter(
 
 ### Macros
 
-Getters are always accessible as properties. However, macros can be both properties and methods.
+Getters are only accessible as properties. However, macros can be both properties and methods.
 
 ```ts
 HttpContext.macro('getLocation', function location() {
