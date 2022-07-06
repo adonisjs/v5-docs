@@ -525,16 +525,6 @@ You can control which proxies to trust by modifying the `http.trustProxy` value 
 }
 ```
 
-### Boolean values
-
-Setting the value to `true` will trust the left-most entry in the `X-Forwarded-*` header. The `false` assumes the application directly faces the Internet and value for `request.connection.remoteAddress` is used.
-
-```ts
-{
-  trustProxy: proxyAddr.compile(true)
-}
-```
-
 ### Ip addresses
 
 You can also define a single or an array of proxy server IP addresses to trust.
