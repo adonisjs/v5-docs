@@ -128,3 +128,51 @@ DOC CONTENT STYLES
 .banner a {
   color: var(--brand-color);
 }
+
+.sponsors-wrapper {
+  margin-bottom: var(--markdown-block-elements-margin);
+}
+
+.sponsors {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.sponsors .sponsor {
+  padding: 1px;
+  width: 50%;
+}
+
+.sponsor a {
+  background-color: var(--sponsors-card-bg);
+  padding: 30px 20px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+html.dark .sponsor a img {
+  filter: grayscale(1) invert(1);
+  transition: filter .2s ease;
+}
+
+html.dark .sponsor a:hover {
+  background-color: #fff;
+}
+
+html.dark .sponsor a:hover img {
+  filter: none;
+}
+
+@media (min-width: 1280px) {
+  .sponsors {
+    flex-direction: row;
+  }
+
+  .sponsors .sponsor {
+    width: 50%;
+  }
+}

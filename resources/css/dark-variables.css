@@ -40,4 +40,5 @@ html.dark {
   --sponsors-card-bg: #fff;
 
   color-scheme: dark;
+  --sponsors-card-bg: var(--sidebar-background);
 }
