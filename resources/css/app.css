@@ -146,7 +146,7 @@ DOC CONTENT STYLES
 
 .sponsor a {
   background-color: var(--sponsors-card-bg);
-  padding: 30px 20px;
+  padding: 30px 15px;
   width: 100%;
   height: 100%;
   display: flex;
@@ -156,7 +156,6 @@ DOC CONTENT STYLES
 
 html.dark .sponsor a img {
   filter: grayscale(1) invert(1);
-  transition: filter .2s ease;
 }
 
 html.dark .sponsor a:hover {
