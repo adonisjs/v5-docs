@@ -450,6 +450,11 @@
             "title": "Health check",
             "permalink": "health-check",
             "contentPath": "digging-deeper/health-check.md"
+          },
+          {
+            "title": "Rate limiting",
+            "permalink": "rate-limiting",
+            "contentPath": "digging-deeper/rate-limiting.md"
           }
         ]
       }

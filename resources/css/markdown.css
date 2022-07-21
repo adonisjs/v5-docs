@@ -440,7 +440,11 @@ FEATURES BLOCK
   left: 0px;
   top: 3px;
   height: 16px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='ListIcon List__itemIcon' width='16' height='16' viewBox='0 0 16 16'%3E%3Cg fill='var(--accentColor)' fill-rule='evenodd'%3E%3Cpath d='M11.41 4.93L6.64 9.54 5.38 8.18a.7.7 0 0 0-.87-.04.61.61 0 0 0-.18.8l1.5 2.45c.15.22.41.36.69.36.28 0 .53-.14.68-.36.24-.31 4.82-5.78 4.82-5.78.6-.6-.13-1.15-.6-.68z'%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='ListIcon List__itemIcon' width='16' height='16' viewBox='0 0 16 16'%3E%3Cg fill-rule='evenodd'%3E%3Cpath d='M11.41 4.93L6.64 9.54 5.38 8.18a.7.7 0 0 0-.87-.04.61.61 0 0 0-.18.8l1.5 2.45c.15.22.41.36.69.36.28 0 .53-.14.68-.36.24-.31 4.82-5.78 4.82-5.78.6-.6-.13-1.15-.6-.68z'%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
+}
+
+html.dark .features ul:first-child li:before {
+    filter: invert(1);
 }
 
 .features ul:first-child li {
