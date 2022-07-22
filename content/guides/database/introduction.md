@@ -9,12 +9,12 @@ AdonisJS is one of the few Node.js frameworks (if not the only one) with first-c
 :::codegroup
 
 ```sh
-// title: Install
+// title: 1. Install
 npm i @adonisjs/lucid
 ```
 
 ```sh
-// title: Configure
+// title: 2. Configure
 node ace configure @adonisjs/lucid
 
 # CREATE: config/database.ts
@@ -25,7 +25,7 @@ node ace configure @adonisjs/lucid
 ```
 
 ```ts
-// title: Validate environment variables
+// title: 3. Validate environment variables
 /**
  * Depending upon the database driver you are using, you must validate
  * the environment variables defined.
