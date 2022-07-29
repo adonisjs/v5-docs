@@ -68,7 +68,7 @@ The `withCount` method performs a sub query to count the total number of rows fo
 const users = await User.query().withCount('posts')
 
 users.forEach((user) => {
-  console.log(user.$extras.postsCount)
+  console.log(user.$extras.posts_count)
 })
 ```
 
