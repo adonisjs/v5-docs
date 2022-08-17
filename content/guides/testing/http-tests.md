@@ -163,6 +163,17 @@ const response = await client.get('/')
 response.dumpSession()
 ```
 
+## CSRF token
+You can pass a CSRF token to the HTTP request by calling the `withCsrfToken` method on the request object. The method will set the CSRF secret session and passes the token inside the `x-csrf-token` header.
+
+:::note
+Ensure you have the `@adonisjs/session` package installed as CSRF secrets rely on the session storage. Also, the `SESSION_DRIVER` should be set to `memory` during testing.
+:::
+
+```ts
+await client.post('/comments').withCsrfToken()
+```
+
 ## Authentication
 The `@adonisjs/auth` package extends the API client and adds the `loginAs` method you can use to login as a certain user when making the request.
 
