@@ -274,7 +274,7 @@ Define the migrations path next to the database connection config.
 ```ts
 {
   users: {
-    client: 'mysql',
+    client: 'mysql2',
     migrations: {
       // highlight-start
       paths: ['./database/users/migrations']
@@ -282,7 +282,7 @@ Define the migrations path next to the database connection config.
     }
   },
   products: {
-    client: 'mysql',
+    client: 'mysql2',
     migrations: {
       // highlight-start
       paths: ['./database/products/migrations']
@@ -393,7 +393,7 @@ The configuration for migrations is stored inside the `config/database.ts` file 
 ```ts
 {
   mysql: {
-    client: 'mysql',
+    client: 'mysql2',
     migrations: {
       naturalSort: true,
       disableTransactions: false,
