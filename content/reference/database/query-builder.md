@@ -1112,6 +1112,8 @@ SELECT * FROM "aliased_table"
 */
 ```
 
+The method also accepts an optional third parameter which is an array of column names. The number of column names specified must match the number of columns in the result set of the CTE query.
+
 ---
 
 ### withMaterialized/withNotMaterialized
@@ -1171,6 +1173,8 @@ Database
 ```
 
 The above example is not meant to simplify the complexity of SQL. Instead, it demonstrates the power of the query builder to construct such SQL queries without writing them as a SQL string.
+
+The method also accepts an optional third parameter which is an array of column names. The number of column names specified must match the number of columns in the result set of the CTE query.
 
 Here's a great article explaining the [PostgreSQL Recursive Query](https://www.postgresqltutorial.com/postgresql-recursive-query/)
 
