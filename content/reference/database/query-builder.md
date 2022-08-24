@@ -1114,6 +1114,23 @@ SELECT * FROM "aliased_table"
 
 The method also accepts an optional third parameter which is an array of column names. The number of column names specified must match the number of columns in the result set of the CTE query.
 
+```ts
+Database
+  .query()
+  .with('aliased_table', (query) => {
+    query.from('users').select('id', 'email')
+  }, ['id', 'email'])
+  .select('*')
+  .from('aliased_table')
+
+/**
+WITH "aliased_table" (id, email) AS (
+  SELECT * FROM "users"
+)
+SELECT * FROM "aliased_table"
+*/
+```
+
 ---
 
 ### withMaterialized/withNotMaterialized
@@ -1122,7 +1139,7 @@ The `withMaterialized` and the `withNotMaterialized` methods allows you to use C
 ```ts
 Database
   .query()
-  .with('aliased_table', (query) => {
+  .withMaterialized('aliased_table', (query) => {
     query.from('users').select('*')
   })
   .select('*')
@@ -1175,6 +1192,25 @@ Database
 The above example is not meant to simplify the complexity of SQL. Instead, it demonstrates the power of the query builder to construct such SQL queries without writing them as a SQL string.
 
 The method also accepts an optional third parameter which is an array of column names. The number of column names specified must match the number of columns in the result set of the CTE query.
+
+```ts
+Database
+  .query()
+  .withRecursive('tree', (query) => {
+    query
+      .from('accounts')
+      .select('amount', 'id')
+      .where('id', 1)
+      .union((subquery) => {
+        subquery
+          .from('accounts as a')
+          .select('a.amount', 'a.id')
+          .innerJoin('tree', 'tree.id', '=', 'a.parent_id')
+      })
+  }, ['amount', 'id'])
+  .sum('amount as total')
+  .from('tree')
+```
 
 Here's a great article explaining the [PostgreSQL Recursive Query](https://www.postgresqltutorial.com/postgresql-recursive-query/)
 
