@@ -94,9 +94,9 @@ export default limiterConfig({
   stores: {
     db: {
       client: 'db',
-      dbName: Env.get('PG_DB_NAME'),
+      dbName: database_name,
       tableName: 'rate_limits',
-      connectionName: Env.get('DB_CONNECTION'),
+      connectionName: connection_name,
       clearExpiredByTimeout: true,
     }
   }
