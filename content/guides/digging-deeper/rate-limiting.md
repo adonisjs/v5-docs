@@ -94,9 +94,9 @@ export default limiterConfig({
   stores: {
     db: {
       client: 'db',
-      dbName: database_name,
+      dbName: 'database_name',
       tableName: 'rate_limits',
-      connectionName: connection_name,
+      connectionName: 'connection_name',
       clearExpiredByTimeout: true,
     }
   }
