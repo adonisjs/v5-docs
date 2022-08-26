@@ -180,11 +180,11 @@ You can also define the expiry for the token at the time of the generating it.
 
 ```ts
 await auth.use('api').attempt(email, password, {
-  expiresIn: '7days'
+  expiresIn: '7 days'
 })
 
 await auth.use('api').generate(user, {
-  expiresIn: '30mins'
+  expiresIn: '30 mins'
 })
 ```
 
