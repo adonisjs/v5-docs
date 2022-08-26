@@ -88,6 +88,21 @@ The Database store relies on the `@adonisjs/lucid` package. Therefore, make sure
 
 The database connection details are defined inside the `config/database.ts` file. In addition, you should mention the connection's name inside the limiter's config file.
 
+```ts
+export default limiterConfig({
+  default: 'db',
+  stores: {
+    db: {
+      client: 'db',
+      dbName: 'database_name',
+      tableName: 'rate_limits',
+      connectionName: 'connection_name',
+      clearExpiredByTimeout: true,
+    }
+  }
+})
+```
+
 If you decide to use the database store, you must create the `rate_limits` table using the following schema class.
 
 ```sh
