@@ -262,7 +262,7 @@ Update the data source with the new remember me token. This method receives an i
 ---
 
 #### findById
-Find a user by their unique id. This method must return an instance of the ProviderUser](#provideruser-class) class.
+Find a user by their unique id. This method must return an instance of the [ProviderUser](#provideruser-class) class.
 
 ---
 
@@ -271,14 +271,14 @@ Find a user for login by using either their email address or username or any oth
 
 For example, The Lucid provider [relies on the config](https://github.com/adonisjs/auth/blob/develop/src/UserProviders/Lucid/index.ts#L160-L162) to look up a user by uid.
 
-This method must return an instance of the ProviderUser](#provideruser-class) class.
+This method must return an instance of the [ProviderUser](#provideruser-class) class.
 
 ---
 
 #### findByRememberMeToken
 Find a user by their remember me token. The method receives the user id, and the remember me token both.
 
-This method must return an instance of the ProviderUser](#provideruser-class) class.
+This method must return an instance of the [ProviderUser](#provideruser-class) class.
 
 ## Registering the User provider
 The next step is to register the User provider with the auth module. You must do it inside the provider's` boot` method. For this example, we will make use of the `providers/AppProvider.ts` file.
