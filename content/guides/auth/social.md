@@ -484,7 +484,7 @@ twitter: {
   <summary>Discord</summary>
 
 ```ts
-google: {
+discord: {
   driver: 'discord',
   clientId: '',
   clientSecret: '',
@@ -508,7 +508,7 @@ google: {
   <summary>LinkedIn</summary>
 
 ```ts
-google: {
+linkedin: {
   driver: 'linkedin',
   clientId: '',
   clientSecret: '',
@@ -527,7 +527,7 @@ google: {
   <summary>Facebook</summary>
 
 ```ts
-google: {
+facebook: {
   driver: 'facebook',
   clientId: '',
   clientSecret: '',
@@ -549,7 +549,7 @@ google: {
   <summary>Spotify</summary>
 
 ```ts
-google: {
+spotify: {
   driver: 'spotify',
   clientId: '',
   clientSecret: '',
