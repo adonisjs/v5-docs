@@ -552,11 +552,11 @@ this.schema.alterTable('posts', (table) => {
 ---
 
 ### dropUnique
-Drop a pre-existing unique index. The method accepts one or more columns as the first argument and an optional index name as the second argument.
+Drop a pre-existing unique index. The method accepts an array of string(s) representing column names as the first argument and an optional index name as the second argument.
 
 ```ts
 this.schema.alterTable('posts', (table) => {
-  table.dropUnique('email')
+  table.dropUnique(['email'])
 })
 ```
 
