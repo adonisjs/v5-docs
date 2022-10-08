@@ -8,6 +8,10 @@ This is the official documentation website for the framework. We have divided th
 
 Please read the [AdonisJS at a glance](https://adonisjs.com/adonisjs-at-a-glance) document if you are unsure whether AdonisJS will fit your needs or match the programming style.
 
+:::tip
+**Visual learner?** - Checkout the [Let's Learn AdonisJS](https://adocasts.com/series/lets-learn-adonisjs-5/lesson/1) free screencasts series from our friends at Adocasts.
+:::
+
 ## TypeScript usage
 
 AdonisJS is a backend framework for Node.js. The framework is written in TypeScript, and the application you will create using AdonisJS is also going to be in TypeScript.
