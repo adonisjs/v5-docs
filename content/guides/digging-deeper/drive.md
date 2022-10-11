@@ -52,7 +52,7 @@ export default driveConfig({
       visibility: 'public',
       root: Application.tmpPath('uploads'),
       basePath: '/uploads',
-      serveAssets: true,
+      serveFiles: true,
     },
 
     s3: {
@@ -108,7 +108,7 @@ Ensure you do not define any other routes in your application using the same pre
 ```ts
 local: {
   basePath: '/uploads',
-  serveAssets: true,
+  serveFiles: true,
 }
 ```
 
@@ -326,14 +326,14 @@ You can generate a URL to a file path using the `Drive.getUrl` or the `Drive.get
 
 In the case of cloud storage providers, the generated URL points to the cloud service. Whereas, in the case of the `local` driver, the URL points to your AdonisJS application.
 
-The `local` driver registers a route implicitly when the `serveAssets` option is set to true inside the config file. Also, a `basePath` is required and must be unique across the registered disks.
+The `local` driver registers a route implicitly when the `serveFiles` option is set to true inside the config file. Also, a `basePath` is required and must be unique across the registered disks.
 
 ```ts
 {
   local: {
     driver: 'local',
     // highlight-start
-    serveAssets: true,
+    serveFiles: true,
     basePath: '/uploads'
     // highlight-end
   }
