@@ -545,15 +545,15 @@ Route.on('/posts/:id').redirect('/articles/:id', { id: 1 })
 Route.on('/posts/:id').redirect('/articles/:id', undefined, 301)
 ```
 
-### redirectToUrl
+### redirectToPath
 
-To redirect to an absolute URL, you can make use of the `redirectToUrl` method.
+To redirect to an absolute URL, you can make use of the `redirectToPath` method.
 
 ```ts
-Route.on('/posts/:id').redirectToUrl('https://medium.com/my-blog')
+Route.on('/posts/:id').redirectToPath('https://medium.com/my-blog')
 
 // Custom status
-Route.on('/posts/:id').redirectToUrl('https://medium.com/my-blog', 301)
+Route.on('/posts/:id').redirectToPath('https://medium.com/my-blog', 301)
 ```
 
 ## Access registered routes
