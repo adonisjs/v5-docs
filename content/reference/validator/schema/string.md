@@ -42,7 +42,7 @@ You can define an array of additional rules as the second parameter.
 import { schema, rules } from '@ioc:Adonis/Core/Validator'
 
 {
-  title: schema.string({}, [
+  title: schema.string([
     rules.alpha(),
     rules.minLength(10),
     rules.maxLength(200),
