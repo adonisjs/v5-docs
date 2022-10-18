@@ -2,7 +2,11 @@
 summary: Reference guide for the Hash module.
 ---
 
-AdonisJS Hash module allows you to hash the values using **bcrypt** or **Argon2**, along with the option to add a custom hashing driver.
+AdonisJS Hash module allows you to hash the values using `bcrypt`, `argon2` or `scrypt` along with the option to add a custom hashing driver.
+
+:::tip
+The `scrypt` hasher is available by default. You don't need to install any package for it.
+:::
 
 You can configure the driver of your choice inside the `config/hash.ts` file.
 
@@ -10,7 +14,7 @@ You can configure the driver of your choice inside the `config/hash.ts` file.
 import { hashConfig } from '@adonisjs/core/build/config'
 
 export default hashConfig({
-  default: Env.get('HASH_DRIVER', 'argon'),
+  default: Env.get('HASH_DRIVER', 'scrypt'),
 
   list: {
     /**
@@ -52,8 +56,9 @@ The `default` property configures the hasher to use by default for hashing value
 
 The `list` object contains one or more hashers available to be used for hashing values. Each hasher must use one of the available drivers. For example:
 
-- The argon hasher uses the `argon2` driver.
-- The bcrypt hasher uses the `bcrypt` driver.
+- The `scrypt` hasher uses the [Node.js native function](https://nodejs.org/api/crypto.html#cryptoscryptpassword-salt-keylen-options-callback).
+- The `argon` hasher uses the `argon2` driver.
+- The `bcrypt` hasher uses the `bcrypt` driver.
 
 ```sh
 # If using bcrypt
@@ -62,6 +67,10 @@ npm i phc-bcrypt
 # If using argon2
 npm i phc-argon2
 ```
+
+:::tip
+In production, we recommend using `argon` as the hasher. It is the winner of the [Password Hashing Competition](https://www.password-hashing.net/).
+:::
 
 ## Hashing values
 
@@ -128,7 +137,7 @@ if (Hash.needsReHash(user.password)) {
 
 ## PHC string format
 
-The bcrypt and Argon2 drivers return the hash output per the [PHC string format](https://github.com/P-H-C/phc-string-format/blob/master/phc-sf-spec.md). It allows us to verify the hashes against the current configuration of a hasher and decide if the hash needs to be rehashed or not.
+Our drivers return the hash output per the [PHC string format](https://github.com/P-H-C/phc-string-format/blob/master/phc-sf-spec.md). It allows us to verify the hashes against the current configuration of a hasher and decide if the hash needs to be rehashed or not.
 
 ## Adding a custom driver
 
