@@ -17,6 +17,16 @@ export default hashConfig({
   default: Env.get('HASH_DRIVER', 'scrypt'),
 
   list: {
+    scrypt: {
+      driver: 'scrypt',
+      cost: 16384,
+      blockSize: 8,
+      parallelization: 1,
+      saltSize: 16,
+      keyLength: 64,
+      maxMemory: 32 * 1024 * 1024,
+    },
+    
     /**
      * Make sure to install the driver from npm
      * ------------------------------------
