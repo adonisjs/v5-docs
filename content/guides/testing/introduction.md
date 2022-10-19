@@ -5,10 +5,14 @@ summary: Introduction to testing
 AdonisJS has out of the box support for testing, and there is no need to install any third-party packages for the same. Just run the `node ace test` and the magic will happen.
 
 :::note
-AdonisJS uses [Japa](https://japa.dev) (A homegrown testing framework) for writing and executing tests. **Therefore, we highly recommend you to read the Japa docs once**.
+If you are running an older version that dos not have testing support, ensure to follow our [activation guide](https://docs.adonisjs.com/releases/april-2022-release#first-class-support-for-testing).
 :::
 
 Every fresh installation of AdonisJS ships with an example functional test written within the `tests/functional/hello-world.spec.ts` file. Let's open this file and learn how tests are written in AdonisJS.
+
+:::tip
+AdonisJS uses [Japa](https://japa.dev) (A homegrown testing framework) for writing and executing tests. **Therefore, we highly recommend you to read the Japa docs once**.
+:::
 
 ```ts
 import { test } from '@japa/runner'
