@@ -7,18 +7,18 @@ summary: Learn how to use socket.io with AdonisJS
 
 [Socket.io](https://socket.io/) is a very popular library for real-time and bidirectional communication. In this guide, we will learn how to use socket.io with AdonisJS.
 
-The first step is to install the package from the npm package registry. We will also grab the Typescript types for the package.
+The first step is to install the package from the npm package registry.
 
 :::codegroup
 
 ```sh
 // title: npm
-npm i socket.io @types/socket.io
+npm i socket.io
 ```
 
 ```sh
 // title: yarn
-yarn add socket.io @types/socket.io
+yarn add socket.io
 ```
 :::
 
