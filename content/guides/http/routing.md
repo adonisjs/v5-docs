@@ -716,3 +716,4 @@ Following are some of the additional guides to learn more about the topics not c
 - [Resourceful routes](./controllers.md#resourceful-routes-and-controllers)
 - [Route middleware](./middleware.md)
 - [Signed routes](./../security/signed-urls.md)
+- [Route Model Binding](./../digging-deeper/route-model-binding.md)

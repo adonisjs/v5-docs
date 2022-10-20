@@ -455,6 +455,11 @@
             "title": "Rate limiting",
             "permalink": "rate-limiting",
             "contentPath": "digging-deeper/rate-limiting.md"
+          },
+          {
+            "title": "Route Model Binding",
+            "permalink": "route-model-binding",
+            "contentPath": "digging-deeper/route-model-binding.md"
           }
         ]
       }
