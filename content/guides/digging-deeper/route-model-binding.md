@@ -159,7 +159,7 @@ You can change the lookup logic by defining a static `findForRequest` method on 
     - `param.parent` - The name of the parent param.
 - `value` - The value of the param during the current request.
 
-In the following example, we query only published posts. Also, make sure that this method either returns an instance of the model or raises an exception.
+In the following example, we query only published posts. Also, ensure that this method either returns an instance of the model or raises an exception.
 
 ```ts
 class Post extends BaseModel {
