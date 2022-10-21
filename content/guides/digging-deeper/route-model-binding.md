@@ -112,7 +112,7 @@ export default class PostsController {
 :::warning
 Make sure you always import your model with an `import` and not an `import type`. Otherwise, the `bind` decorator will not be able to retrieve the class of your model and it will not work.
 
-ESLint user? Take a look [here](#compatibility-with-eslint)
+**ESLint user?** - Take a look [here](#compatibility-with-eslint)
 :::
 
 The params and models are matched in the order they are defined. So the first param in the URL matches the first type-hinted model in the controller method.
