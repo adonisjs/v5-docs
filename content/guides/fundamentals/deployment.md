@@ -152,7 +152,7 @@ import Application from '@ioc:Adonis/Core/Application'
 
 Event.on('db:query', (query) => {
   if (Application.inProduction) {
-    Logger.debug(query)
+    Logger.debug(query.sql)
   } else {
     Database.prettyPrint(query)
   }
