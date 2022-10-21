@@ -201,7 +201,7 @@ export default class PostsController {
 }
 ```
 
-For the above example to work, you will have to define the `comments` as a relationship on the `Post` model. The type of the relationship does not matter.
+For the above example to work, you must define the `comments` as a relationship on the `Post` model. The type of relationship does not matter.
 
 ```ts
 class Post extends BaseModel {
