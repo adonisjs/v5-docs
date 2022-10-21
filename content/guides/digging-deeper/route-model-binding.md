@@ -60,7 +60,7 @@ In the following example, we connect the route params `:post` and `:comments` wi
 - Similarly, the value of the second param will be used to query the second typed hinted model (i.e., Comment).
 
 :::note
-The params and models are connected using the order they appear and not the name. This is because TypeScript decorators have no way to know the names of the arguments accepted by a method.
+The params and models are connected using the order they appear and not the name. This is because TypeScript decorators cannot know the names of the arguments accepted by a method.
 :::
 
 ```ts
@@ -70,9 +70,9 @@ Route.get('posts/:post/comments/:comment', 'PostsController.show')
 
 ```ts
 // Controller
+import { bind } from '@adonisjs/route-model-binding'
 import Post from 'App/Models/Post'
 import Comment from 'App/Models/Comment'
-import { bind } from '@adonisjs/route-model-binding'
 
 export default class PostsController {
   @bind()
@@ -84,12 +84,12 @@ export default class PostsController {
 
 
 :::note
-**Are you a visual learner**? Checkout [these screencasts](https://learn.adonisjs.com/series/route-model-binding/introduction) to learn about Route model binding, its setup and usage.
+**Are you a visual learner**? Checkout [these screencasts](https://learn.adonisjs.com/series/route-model-binding/introduction) to learn about Route model binding, its setup, and usage.
 :::
 
 
 ## Basic usage
-Start with the most basic example and then tune up the complexity level to serve different use cases.
+Start with the most basic example and tune the complexity level to serve different use cases.
 
 In the following example, we will bind the `Post` model with the first parameter in the `posts/:id` route.
 
@@ -98,8 +98,8 @@ Route.get('/posts/:id', 'PostsController.show')
 ```
 
 ```ts
-import Post from 'App/Models/Post'
 import { bind } from '@adonisjs/route-model-binding'
+import Post from 'App/Models/Post'
 
 export default class PostsController {
   @bind()
@@ -110,7 +110,7 @@ export default class PostsController {
 ```
 
 :::warning
-Make sure you always import your model with an `import` and not an `import type`. Otherwise, the `bind` decorator will not be able to retrieve the class of your model and it will not work.
+Ensure you always import your model with an `import` and not an `import type`. Otherwise, the `bind` decorator will not be able to retrieve the class of your model, and it will not work.
 
 **ESLint user?** - Take a look [here](#compatibility-with-eslint)
 :::
@@ -120,10 +120,10 @@ The params and models are matched in the order they are defined. So the first pa
 The match is not performed using the name of the controller method argument because TypeScript decorators cannot read them (so the technical limitation leaves us with the order-based matching only).
 
 ## Changing the lookup key
-By default, the model's primary key is used to find a matching row in the database. You can either change that globally or change it for just one specific route.
+By default, the model's primary key is used to find a matching row in the database. You can change that globally or for just one specific route.
 
 ### Change lookup key globally via model
-After the following change, the post will be queried using the `slug` property and not the primary key. In a nutshell, the `Post.findByOrFail('slug', value)` query is executed.
+After the following change, the post will be queried using the `slug` property, not the primary key. In a nutshell, the `Post.findByOrFail('slug', value)` query is executed.
 
 ```ts
 class Post extends BaseModel {
@@ -132,14 +132,14 @@ class Post extends BaseModel {
 ```
 
 ### Change the lookup key for a single route.
-In the following example, we define the lookup key directly on the route enclosed with parenthesis.
+The following example defines the lookup key directly on the route enclosed with parenthesis.
 
 ```ts
 Route.get('/posts/:id(slug)', 'PostsController.show')
 ```
 
 **Did you notice that our route now reads a bit funny?**\
-The param is written as `:id(slug)`, which does not translate well. Therefore, with Route model binding, we recommend using the model name as the route param because we are not dealing with the `id` anymore. We are fetching model instances from the database.
+The param is written as `:id(slug)`, which does not translate well. Therefore, with Route model binding, we recommend using the model name as the route param because we are no longer dealing with the `id`. Instead, we are fetching model instances from the database.
 
 Following is the better way to write the same route.
 
@@ -189,9 +189,9 @@ Route.get('/posts/:post/comments/:>comment', 'PostsController.show')
 ```
 
 ```ts
+import { bind } from '@adonisjs/route-model-binding'
 import Post from 'App/Models/Post'
 import Comment from 'App/Models/Comment'
-import { bind } from '@adonisjs/route-model-binding'
 
 export default class PostsController {
   @bind()
@@ -259,8 +259,8 @@ Route.get(
 You can represent the `version` as a string on the controller method, and we will perform no database lookup. For example:
 
 ```ts
-import Post from 'App/Models/Post'
 import { bind } from '@adonisjs/route-model-binding'
+import Post from 'App/Models/Post'
 
 class PostsController {
   @bind()
