@@ -178,7 +178,7 @@ class Post extends BaseModel {
 ## Scoped params
 When working with nested route resources, you might want to scope the second param as a relationship with the first param.
 
-A great example of this is finding a post comment by id and making sure that it is a child of the post mentioned within the same URL.
+A great example is finding a post comment by id and ensuring that it is a child of the post mentioned within the same URL.
 
 The `posts/1/comments/2` should return 404 if the post id of the comment is not `1`.
 
