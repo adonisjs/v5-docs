@@ -156,7 +156,7 @@ Define the paths for loading the database seeder files. You can also define a pa
 ```ts
 {
   mysql: {
-    client: 'mysql',
+    client: 'mysql2',
     seeders: {
       paths: ['./database/seeders', '@somepackage/seeders-dir']
     }
@@ -188,7 +188,7 @@ After the following change, the `db:seed` command will scan the `./database/seed
 ```ts
 {
   mysql: {
-    client: 'mysql',
+    client: 'mysql2',
     // ... rest of the config
     seeders: {
       paths: ['./database/seeders/MainSeeder']

@@ -293,7 +293,7 @@ Lucid will queue new queries when the pool is full and waits for the pool to hav
 ```ts
 {
   mysql: {
-    client: 'mysql',
+    client: 'mysql2',
     connection: {},
     // highlight-start
     pool: {
@@ -316,7 +316,7 @@ You can configure the pool settings for a given connection inside the `config/da
 {
   connections: {
     mysql: {
-      client: 'mysql',
+      client: 'mysql2',
       connection: {
       },
       // highlight-start
@@ -407,7 +407,7 @@ npm i mysql2
 
 ```ts
 mysql: {
-  client: 'mysql',
+  client: 'mysql2',
   connection: {
     host: Env.get('MYSQL_HOST'),
     port: Env.get('MYSQL_PORT'),
