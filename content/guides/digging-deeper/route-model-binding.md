@@ -272,7 +272,7 @@ Since the route params and the controller method arguments are matched in the sa
 
 ## Compatibility with ESLint
 
-If ever you are using the rule `@typescript-eslint/consistent-type-imports`, you will notice that it will automatically replace your `import` with `import type`. This will completely break the route model binding, as the types will be removed at runtime, and so the `bind` decorator will be unable to retrieve the class from your model.
+If you use the rule `@typescript-eslint/consistent-type-imports`, you will notice that it will automatically replace your `import` with `import type`. Unfortunately, this will ultimately break the route model binding, as the types will be removed at runtime, so the `bind` decorator cannot retrieve the class from your model.
 
 You will need to enable type-aware linting. You can follow this document:
 
