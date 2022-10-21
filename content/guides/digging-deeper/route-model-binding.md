@@ -109,6 +109,12 @@ export default class PostsController {
 }
 ```
 
+:::warning
+Make sure you always import your model with an `import` and not an `import type`. Otherwise, the `bind` decorator will not be able to retrieve the class of your model and it will not work.
+
+ESLint user? Take a look [here](#compatibility-with-eslint)
+:::
+
 The params and models are matched in the order they are defined. So the first param in the URL matches the first type-hinted model in the controller method.
 
 The match is not performed using the name of the controller method argument because TypeScript decorators cannot read them (so the technical limitation leaves us with the order-based matching only).
@@ -263,3 +269,11 @@ class PostsController {
 ```
 
 Since the route params and the controller method arguments are matched in the same order they are defined, you will always have to type-hint all the parameters.
+
+## Compatibility with ESLint
+
+If ever you are using the rule `@typescript-eslint/consistent-type-imports`, you will notice that it will automatically replace your `import` with `import type`. This will completely break the route model binding, as the types will be removed at runtime, and so the `bind` decorator will be unable to retrieve the class from your model.
+
+You will need to enable type-aware linting. You can follow this document:
+
+https://typescript-eslint.io/docs/linting/typed-linting/
