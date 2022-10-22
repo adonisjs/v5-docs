@@ -2,6 +2,10 @@
 summary: Introduction to the AdonisJS authorization package `@adonisjs/bouncer`. Bouncer allows you to extract the authorization logic to standalone actions or policies.
 ---
 
+:::tip
+**Visual learner?** - Checkout the [AdonisJS Bouncer](https://adocasts.com/series/adonisjs-bouncer) free screencasts series from our friends at Adocasts.
+:::
+
 AdonisJS ships with an authorization framework to help you authorize user actions against a given resource. For example, checking if a logged-in user is allowed to edit a given post or not.
 
 The support for authorization is added by the `@adonisjs/bouncer` package, and you must install it separately.
@@ -35,7 +39,6 @@ node ace configure @adonisjs/bouncer
 ```
 
 :::
-
 
 ## Basic example
 The main goal of the Bouncer package is to help you extract the authorization logic to actions or policies instead of writing it everywhere in your codebase.
@@ -369,4 +372,3 @@ The `@can` and the `@cannot` tags authorize the actions against the currently lo
 ```
 
 In the above example, the second argument, `bouncer.forUser(admin)`, is a child instance of bouncer for a specific user, followed by the action arguments.
-
