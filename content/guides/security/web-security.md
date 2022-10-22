@@ -13,17 +13,17 @@ If you are using AdonisJS to create an API server, then you must rely on your fr
 :::codegroup
 
 ```sh
-// title: Install
+// title: 1. Install
 npm i @adonisjs/shield
 ```
 
 ```sh
-// title: Configure
+// title: 2. Configure
 node ace configure @adonisjs/shield
 ```
 
 ```ts
-// title: Register middleware
+// title: 3. Register middleware
 // Add following to start/kernel.ts
 
 Server.middleware.register([

@@ -11,12 +11,12 @@ The package must be installed and configured separately. You can install it by r
 :::codegroup
 
 ```sh
-// title: Install
+// title: 1. Install
 npm i @adonisjs/route-model-binding
 ```
 
 ```sh
-// title: Configure
+// title: 2. Configure
 node ace configure @adonisjs/route-model-binding
 
 # UPDATE: tsconfig.json { types += "@adonisjs/route-model-binding/build/adonis-typings" }
@@ -24,7 +24,7 @@ node ace configure @adonisjs/route-model-binding
 ```
 
 ```ts
-// title: Register middleware
+// title: 3. Register middleware
 /**
  * Make sure to add the following global middleware inside
  * the start/kernel.ts file

@@ -11,12 +11,12 @@ The first step is  to install and configure the package using the following inst
 :::codegroup
 
 ```sh
-// title: Install
+// title: 1. Install
 npm i @adonisjs/redis
 ```
 
 ```sh
-// title: Configure
+// title: 2. Configure
 node ace configure @adonisjs/redis
 
 # CREATE: config/redis.ts
@@ -27,7 +27,7 @@ node ace configure @adonisjs/redis
 ```
 
 ```ts
-// title: Validate environment variables  
+// title: 3. Validate environment variables  
 /**
  * Make sure to add the following validation rules to the
  * `env.ts` file to validate the environment variables.

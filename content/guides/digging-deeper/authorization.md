@@ -21,12 +21,12 @@ The `@adonisjs/bouncer` package needs the `@adonisjs/auth` package to look up th
 :::codegroup
 
 ```sh
-// title: Install
+// title: 1. Install
 npm i @adonisjs/bouncer
 ```
 
 ```sh
-// title: Configure
+// title: 2. Configure
 node ace configure @adonisjs/bouncer
 
 # CREATE: start/bouncer.ts

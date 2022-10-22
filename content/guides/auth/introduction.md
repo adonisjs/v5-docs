@@ -17,12 +17,12 @@ The auth package relies on the `@adonisjs/lucid` package. Make sure to [configur
 :::codegroup
 
 ```sh
-// title: Install
+// title: 1. Install
 npm i @adonisjs/auth
 ```
 
 ```sh
-// title: Configure
+// title: 2. Configure
 node ace configure @adonisjs/auth
 
 # CREATE: app/Models/User.ts

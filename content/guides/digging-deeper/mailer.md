@@ -11,12 +11,12 @@ Before you can start sending emails, make sure to install and configure the pack
 :::codegroup
 
 ```sh
-// title: Install
+// title: 1. Install
 npm i @adonisjs/mail
 ```
 
 ```sh
-// title: Configure
+// title: 2. Configure
 node ace configure @adonisjs/mail
 
 # CREATE: config/mail.ts
@@ -28,7 +28,7 @@ node ace configure @adonisjs/mail
 ```
 
 ```ts
-// title: Validate environment variables
+// title: 3. Validate environment variables
 /**
  * Depending upon the mail driver you are using, you must validate
  * the environment variables required by it.

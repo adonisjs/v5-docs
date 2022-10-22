@@ -7,12 +7,12 @@ The package must be installed and configured separately.
 :::codegroup
 
 ```sh
-// title: Install
+// title: 1. Install
 npm i @adonisjs/limiter
 ```
 
 ```sh
-// title: Configure
+// title: 2. Configure
 node ace configure @adonisjs/limiter
 
 # CREATE:  config/limiter.ts
@@ -22,7 +22,7 @@ node ace configure @adonisjs/limiter
 ```
 
 ```ts
-// title: Register throttle middleware
+// title: 3. Register throttle middleware
 /**
  * Make sure to add the following named middleware inside
  * the start/kernel.ts file
