@@ -132,6 +132,22 @@ Named slots allow the component to accept markup for multiple outlets. For examp
 </div>
 ```
 
+You can verify a slot existence and give a fallback value using an `if` statement.
+
+```edge
+// title: components/modal.edge
+<div>
+  <!-- ... -->
+  <footer>
+    @if($slots.footer)
+      {{{ await $slots.footer() }}}
+    @else
+      Default footer
+    @end
+  </footer>
+</div>
+```
+
 The parent template can define them as follows.
 
 ```edge
