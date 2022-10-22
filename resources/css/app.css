@@ -56,8 +56,7 @@ video {
   }
 
   :root {
-    /*--markdown-content-width: 54ch;*/
-    --markdown-content-width: 58ch;
+    --markdown-content-width: 70ch;
   }
 }
 
