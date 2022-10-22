@@ -6,6 +6,12 @@ The Views layer of AdonisJS is powered by a homegrown template engine called [Ed
 
 We created Edge as an alternative to other existing template engines and address the pain points with them.
 
+:::tip
+Do you prefer to use a frontend framework like React, Vue or Svelte? You can use them with [InertiaJS](https://inertiajs.com/).
+
+Checkout the Adocasts series on [AdonisJS + InertiaJS](https://adocasts.com/series/adonisjs-inertiajs).
+:::
+
 ## Edge vs. Pug
 
 Unlike Pug, we don't re-invent the way you write the HTML. Edge is not even tied to HTML in the first place, and it can render any text-based files.
