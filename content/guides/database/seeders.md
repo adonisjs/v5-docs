@@ -64,16 +64,16 @@ node ace db:seed -i
 
 ::video{url="https://res.cloudinary.com/adonis-js/video/upload/q_auto/v1618896667/v5/db-seed-interactive.mp4" controls}
 
-## Development only seeders
-Lucid allows you to mark a seeder file as development only by setting the `developmentOnly` property to `true`. This ensures that you don't seed your production database with dummy data by mistake.
+## Environment specific seeders
+Lucid allows you to mark a seeder file to run only in a specific environment by changing the `environment` property. This ensures you don't seed your production, testing, or development database with data you don't want by mistake.
 
-The seeders using the `developmentOnly` flag will only run when the `NODE_ENV` environment variable is set to `development`.
+The seeders using the `environment` flag will only run when the `NODE_ENV` environment variable is set to their respective value.
 
 ```ts
 import BaseSeeder from '@ioc:Adonis/Lucid/Seeder'
 
 export default class UserSeeder extends BaseSeeder {
-  public static developmentOnly = true
+  public static environment = ['development', 'testing']
 
   public async run () {
   }
