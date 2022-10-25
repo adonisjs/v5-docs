@@ -74,6 +74,7 @@ DOC CONTENT STYLES
 */
 
 .doc {
+  margin-inline: var(--space-x);
   padding: 0 var(--space-x) 40px var(--space-x);
 }
 
