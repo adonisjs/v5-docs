@@ -131,6 +131,27 @@ On the brighter side, making the string expression type-safe is not impossible. 
 - The ability to tokenize the string expression and create a full path to the controller and its method. It is achievable with TypeScript 4.1 and onwards. For example, here is a [proof of concept](https://www.typescriptlang.org/play?ts=4.1.3#code/MYewdgzgLgBASiArlApjAvDA3gKBjAcxSgB4AJAQzABMAbFAJxhQA9UaIZoGBLMAgHwAKAA4UoqBmABcXKL34AaGAAsqdRrMo16DAJSyY2jU1btqnAAYASLHwBmjGAEEAvgDpbDpwCFXlmAB+bDx8GFAweRBaXVlLZxERAHoAYXAomMYIJLIJZNs3S0VQ-ABbYhUQalkfUNcYWUQwAGswEAB3MBxXHF6kpKMQADcnYacoFTQAIgYkVCmYIYpeCgAjehh1LhQ0CfEYdrRlo-XdkBgxBggjuQUCGD4oc6fmlEgcCOgYWeQ0TARfu4iFAhAByJKg5SgsggcppSKzTIMdx8aisUF6IA) for the same.
 - Next is the ability to have an Import type with support for generics. There is [an open issue](https://github.com/microsoft/TypeScript/issues/31090), and we are optimistic that it will make its way to the TypeScript in the future, as it adheres to the TypeScript design goals.
 
+
+## Single action controllers
+
+AdonisJS provides a way to define a single action controller. It is a great way to extract a complex handler into a separate file. To accomplish this, you need to define a `handle` method inside the controller.
+
+```ts
+import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
+
+class RegisterNewsletterSubsciptionController {
+  public async handle({}: HttpContextContract) {
+    // ...
+  }
+}
+```
+
+Then, you can reference the controller on the route as a string expression.
+
+```ts
+Route.post('/newsletter', 'RegisterNewsletterSubsciptionController')
+```
+
 ## CRUD operations
 
 The principles of [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) provides a great way to map CRUD operations with HTTP methods without making the URLs verbose.
