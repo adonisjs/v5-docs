@@ -203,6 +203,8 @@ Make sure you have `@adonisjs/lucid` installed for the following examples to wor
 
 ### Migrating database
 
+#### Reset database after each run cycle
+
 You can migrate the database before running all the tests and roll it back after the tests. This can be done by registering the `TestUtils.db().migrate()` hook within the `tests/bootstrap.ts` file.
 
 ```ts
@@ -217,6 +219,34 @@ export const runnerHooks: Required<Pick<Config, 'setup' | 'teardown'>> = {
   teardown: [],
 }
 ```
+
+#### Truncate database after each run cycle
+
+An alternative to the above approach is to truncate all table in the database after each run cycle instead of roll it back. This can be done by registering the `TestUtils.db().truncate()` hook within the `tests/bootstrap.ts` file.
+
+```ts
+// title: tests/bootstrap.ts
+export const runnerHooks: Required<Pick<Config, 'setup' | 'teardown'>> = {
+  setup: [
+    () => TestUtils.ace().loadCommands(),
+    // highlight-start
+    () => TestUtils.db().truncate()
+    // highlight-end
+  ],
+  teardown: [],
+}
+```
+
+Now, before running your tests, the hook will migrate the database if necessary. After the tests are run, all the tables in your database will be kept but truncated. 
+
+So next time you run your tests, your database will be empty, but will not need to be migrated again. This may be a better approach and will save you some time if you have a lot of migrations.
+
+:::tip
+
+Note that the hook internally call the `node ace db:truncate` command that you can also run manually. Also note that this command will truncate all tables **except** `adonis_schema` and `adonis_schema_versions` tables.
+
+:::
+
 
 ### Seeding database
 You can also run database seeders by calling the `TestUtils.db().seed()` method.
