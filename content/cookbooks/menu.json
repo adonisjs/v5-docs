@@ -9,6 +9,11 @@
             "title": "Using socket.io",
             "permalink": "socketio-with-adonisjs",
             "contentPath": "socketio-with-adonisjs.md"
+          },
+          {
+            "title": "Migrating from Encore to Vite",
+            "permalink": "migrating-to-vite",
+            "contentPath": "migrating-to-vite.md"
           }
         ]
       },
