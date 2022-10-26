@@ -116,7 +116,7 @@ node ace migration:refresh --seed
 ```
 
 ### Drop tables and migrate
-Unlike the `migration:refresh` command, the `migration:reset` command will not run the `down` method of the migration files. Instead, it will drop all the tables using the `db:wipe` command and then run the `migration:run` command.
+Unlike the `migration:refresh` command, the `migration:fresh` command will not run the `down` method of the migration files. Instead, it will drop all the tables using the `db:wipe` command and then run the `migration:run` command.
 
 ```sh
 node ace migration:fresh

@@ -1985,3 +1985,49 @@ Database
 ---
 
 ### ifDialect
+The `ifDialect` helper allows you to conditionally add constraints to the query builder when dialect matches one of the mentioned dialects.
+
+```ts
+Database
+  .from('users')
+  .query()
+  .ifDialect('postgres', (query) => {
+      query.whereJson('address', { city: 'XYZ', pincode: '110001' })
+    }, 
+  )
+```
+
+You can define the else method by passing another callback as the second argument.
+```ts
+Database
+  .from('users')
+  .ifDialect('postgres',
+    (query) => {}, // if dialect is postgres
+    (query) => {}, // otherwise execute this
+  )
+```
+
+---
+
+### unlessDialect
+The `unlessDialect` method is opposite of the `ifDialect` helper.
+
+```ts
+Database
+  .from('users')
+  .unlessDialect('postgres', (query) => {
+      query.whereJson('address', { city: 'XYZ', pincode: '110001' })
+    } 
+  )
+```
+
+You can pass another callback which gets executed when the `unlessDialect` statement isn't true.
+```ts
+Database
+  .from('users')
+  .query()
+  .unlessDialect('postgres',
+    (query) => {}, // if dialect is anything other than postgres
+    (query) => {}  // otherwise execute this
+  )
+```
