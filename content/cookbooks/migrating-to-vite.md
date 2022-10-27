@@ -177,4 +177,5 @@ You can now uninstall webpack from your project by removing the following packag
 
 ```bash
 npm rm @symfony/webpack-encore webpack webpack-cli @babel/core @babel/preset-env
+rm webpack.config.js
 ```
