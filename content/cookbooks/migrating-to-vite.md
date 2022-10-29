@@ -54,6 +54,22 @@ You must specify your new assets driver in the `.adonisrc.json` file by adding a
 }
 ```
 
+Also make sure to update the `config/app.ts` as follows:
+
+```ts
+// title: config/app.ts
+export const assets: AssetsManagerConfig = {
+  // delete-start
+  driver: 'encore',
+  // delete-end
+  // insert-start
+  driver: Application.rcFile.assetsDriver,
+  // insert-end
+
+  // ...
+}
+```
+
 ## Vite configuration
 
 You should have a new `vite.config.ts` file at the root of your project with the following content : 
