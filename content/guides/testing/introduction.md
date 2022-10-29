@@ -222,7 +222,7 @@ export const runnerHooks: Required<Pick<Config, 'setup' | 'teardown'>> = {
 
 #### Truncate database after each run cycle
 
-An alternative to the above approach is to truncate all table in the database after each run cycle instead of roll it back. This can be done by registering the `TestUtils.db().truncate()` hook within the `tests/bootstrap.ts` file.
+An alternative to the above approach is to truncate all tables in the database after each run cycle instead of rolling it back. This can be done by registering the `TestUtils.db().truncate()` hook within the `tests/bootstrap.ts` file.
 
 ```ts
 // title: tests/bootstrap.ts
@@ -237,14 +237,12 @@ export const runnerHooks: Required<Pick<Config, 'setup' | 'teardown'>> = {
 }
 ```
 
-Now, before running your tests, the hook will migrate the database if necessary. After the tests are run, all the tables in your database will be kept but truncated. 
+Before running your tests, the hook will migrate the database if necessary. After the tests are run, all the tables in your database will be kept but truncated. 
 
-So next time you run your tests, your database will be empty, but will not need to be migrated again. This may be a better approach and will save you some time if you have a lot of migrations.
+So next time you run your tests, your database will be empty but will not need to be migrated again. This may be a better approach and will save you some time if you have a lot of migrations.
 
 :::tip
-
-Note that the hook internally call the `node ace db:truncate` command that you can also run manually. Also note that this command will truncate all tables **except** `adonis_schema` and `adonis_schema_versions` tables.
-
+Note that the hook internally calls the `node ace db:truncate` command that you can also run manually. Also, note that this command will truncate all tables **except** `adonis_schema` and `adonis_schema_versions` tables.
 :::
 
 
