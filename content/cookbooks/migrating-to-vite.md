@@ -171,6 +171,40 @@ Also, for the HMR to work, you will need to add the following tag in your `edge`
 </head>
 ```
 
+## Inertia
+
+If you are using Inertia with [Lev Eidelman Nagar](https://github.com/eidellev)'s awesome [`@eidellev/inertia-adonisjs`](https://github.com/eidellev/inertiajs-adonisjs) package, you will need to make the following change since Vite does not allow `require()` statements : 
+
+```ts
+import { createApp, h } from 'vue'
+import { createInertiaApp } from '@inertiajs/inertia-vue3'
+// insert-start
++ import { resolvePageComponent } from '@adonisjs/vite-plugin-adonis/inertia'
+// insert-end
+
+createInertiaApp({
+  // delete-start
+  resolve: (name) => require(`./Pages/${name}`),
+  // delete-end
+  // insert-start
+  resolve: (name) => {
+    return resolvePageComponent(
+      `./Pages/${name}.vue`, 
+      import.meta.glob('./Pages/**/*.vue')
+    )
+  },
+  // insert-end
+  setup({ el, App, props, plugin }) {
+    createApp({ render: () => h(App, props) })
+      .use(plugin)
+      .mount(el)
+  },
+})
+
+```
+
+The above example is for Vue.js, but with React or other frameworks, the process is probably almost the same.
+
 ## Uninstall webpack
 
 You can now uninstall webpack from your project by removing the following packages :
