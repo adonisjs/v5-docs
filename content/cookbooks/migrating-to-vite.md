@@ -205,6 +205,45 @@ createInertiaApp({
 
 The above example is for Vue.js, but with React or other frameworks, the process is probably almost the same.
 
+## CDN Deployment
+
+If you were using a CDN to serve your resources, you probably did the following with Encore : 
+
+```ts
+// title: webpack.config.js
+if (Encore.isProduction()) {
+  Encore.setPublicPath('https://your-cdn-server-url/assets')
+  Encore.setManifestKeyPrefix('assets/')
+} else {
+  Encore.setPublicPath('/assets')
+}
+```
+
+With Vite, you can do the same thing as follows : 
+
+```ts
+// title: vite.config.ts
+import { defineConfig } from 'vite'
+import Adonis from '@adonisjs/vite-plugin-adonis'
+
+export default defineConfig(({ command }) => ({
+  plugins: [
+    Adonis({
+      // ...
+
+      // highlight-start
+      publicPath: command === "build" 
+        ? "https://your-cdn-server-url/assets",
+        : "/assets" 
+      // highlight-end
+
+      // ...
+    })
+  ]
+})
+```
+
+
 ## Uninstall webpack
 
 You can now uninstall webpack from your project by removing the following packages :
