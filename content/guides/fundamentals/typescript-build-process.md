@@ -65,7 +65,7 @@ Every time you run `node ace serve --watch`, we start the HTTP server along with
 You build your code for production by running the `node ace build --production` command. It performs the following operations.
 
 - Clean the existing `build` directory (if any).
-- Build your frontend assets using Webpack Encore (only if it is installed).
+- Build your frontend assets using Webpack Encore or Vite (only if it is installed).
 - Use the TypeScript compiler API to compile the TypeScript code to JavaScript and write it inside the `build` folder. **This time, we do perform type checking and report the TypeScript errors**.
 - Copy all the static files to the `build` folder. The static files are registered inside the `.adonisrc.json` file under the `metaFiles` array.
 - Copy the `package.json` and `package-lock.json`/`yarn.lock` to the `build` folder.

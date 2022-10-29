@@ -199,10 +199,30 @@ Depending upon the CDN service you are using and your deployment technique, you 
 - Build your AdonisJS application as usual.
 - Copy the output of `public/assets` to your CDN server. For example, [here is a command](https://github.com/adonisjs-community/polls-app/blob/main/commands/PublishAssets.ts) we use to publish the assets to an Amazon S3 bucket.
 
+If you are using Vite for building your front-end assets, you can configure it as follows : 
+
+```ts
+// title: vite.config.ts
+import { defineConfig } from 'vite'
+import Adonis from '@adonisjs/vite-plugin-adonis'
+export default defineConfig(({ command }) => ({
+  plugins: [
+    Adonis({
+      // ...
+      // highlight-start
+      publicPath: command === "build" 
+        ? "https://your-cdn-server-url/assets",
+        : "/assets" 
+      // highlight-end
+      // ...
+    })
+  ]
+})
+```
 ---
 
 ### Using NGINX to deliver static files
-Another option is to offload the task of serving assets to NGINX. If you use Webpack Encore to compile the front-end assets, you must aggressively cache all the static files since they are fingerprinted.
+Another option is to offload the task of serving assets to NGINX. If you use Webpack Encore or Vite to compile the front-end assets, you must aggressively cache all the static files since they are fingerprinted.
 
 Add the following block to your NGINX config file. **Make sure to replace the values inside the angle brackets `<>`**.
 
@@ -221,7 +241,7 @@ location ~ \.(jpg|png|css|js|gif|ico|woff|woff2) {
 ### Using AdonisJS static file server
 You can also rely on the AdonisJS inbuilt static file server to serve the static assets from the `public` directory to keep things simple.
 
-No additional configuration is required. Just deploy your AdonisJS application as usual, and the request for static assets will be served automatically. However, if you use Webpack Encore to compile your front-end assets, you must update the `config/static.ts` file with the following options.
+No additional configuration is required. Just deploy your AdonisJS application as usual, and the request for static assets will be served automatically. However, if you use Webpack Encore or Vite to compile your front-end assets, you must update the `config/static.ts` file with the following options.
 
 ```ts
 // title: config/static.ts

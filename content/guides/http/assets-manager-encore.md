@@ -2,13 +2,11 @@
 summary: The assets manager module allows referencing compiled frontend assets in your Edge templates.
 ---
 
-AdonisJS makes use of [Webpack Encore](https://www.npmjs.com/package/@symfony/webpack-encore) to compile and serve the frontend assets. Webpack Encore is a wrapper on top of [Webpack](https://webpack.js.org/) to make it easier to work with the Webpack config.
+One of the possible options for bundling and serving your assets is [Webpack Encore](https://www.npmjs.com/package/@symfony/webpack-encore). Webpack Encore is a wrapper on top of [Webpack](https://webpack.js.org/) to make it easier to work with the Webpack config.
 
 :::note
 
-AdonisJS is a backend framework and does not concern itself directly with the frontend build tools.
-
-You are free NOT to use Webpack Encore and set up the frontend build tools yourself, and everything will still work.
+We are highly recommending using [Vite](https://vitejs.dev) as a driver for the Asset Manager. Check out the [Vite guide](./assets-manager-vite.md) for more information.
 
 :::
 
@@ -74,10 +72,10 @@ node ace build --productions --no-assets
 ```
 
 ## Customize dev server port and host
-Webpack dev server runs on `localhost:8080` by default. If the port is in use, AdonisJS will find a random port to start the Webpack dev server. However, you can also define a custom port using the `--encore-args` flag.
+Webpack dev server runs on `localhost:8080` by default. If the port is in use, AdonisJS will find a random port to start the Webpack dev server. However, you can also define a custom port using the `--assets-bundler-args` flag.
 
 ```sh
-node ace serve --watch --encore-args="--port 5000"
+node ace serve --watch --assets-bundler-args="--port 5000"
 ```
 
 As of now, you cannot define the port for the Webpack dev server inside the `webpack.config.js` file. This is the limitation enforced by the [Symfony Encore package](https://github.com/symfony/webpack-encore/issues/941#issuecomment-787568811).

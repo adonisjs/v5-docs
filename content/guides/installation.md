@@ -58,7 +58,7 @@ Optionally, you can configure eslint and prettier. Both the packages are configu
 ---
 
 #### Configure Webpack Encore
-Optionally, you can also configure [Webpack Encore](./http/assets-manager.md) to bundle and serve frontend dependencies.
+Optionally, you can also configure [Vite](./http//assets-manager-vite.md) or [Webpack Encore](./http/assets-manager-encore.md) to bundle and serve frontend dependencies.
 
 Please do note, AdonisJS is a backend framework and does not concern itself with front-end build tools. Hence the Webpack setup is optional.
 

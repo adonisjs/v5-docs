@@ -122,9 +122,14 @@
             "contentPath": "http/static-assets.md"
           },
           {
-            "title": "Assets manager",
-            "permalink": "assets-manager",
-            "contentPath": "http/assets-manager.md"
+            "title": "Assets manager - Vite",
+            "permalink": "assets-manager-vite",
+            "contentPath": "http/assets-manager-vite.md"
+          },
+          {
+            "title": "Assets manager - Encore",
+            "permalink": "assets-manager-encore",
+            "contentPath": "http/assets-manager-encore.md"
           },
           {
             "title": "Exception handling",
