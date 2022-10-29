@@ -29,6 +29,9 @@ SimplePaginator {
   hasPages: true
 }
 ```
+:::note
+It is recommended to use the `orderBy` method when using pagination to avoid a different order every time you query the data. 
+:::
 
 ## Displaying pagination links
 Following is a complete example of displaying the pagination links inside an Edge template.

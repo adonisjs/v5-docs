@@ -73,6 +73,14 @@ export const csrf: ShieldConfig['csrf'] = {
   exceptRoutes: [],
   enableXsrfCookie: true,
   methods: ['POST', 'PUT', 'PATCH', 'DELETE'],
+  cookieOptions:  {
+    domain: '',
+    path: '/',
+    maxAge: '2h',
+    httpOnly: true,
+    secure: false,
+    sameSite: false,
+  }
 }
 ```
 
@@ -120,6 +128,11 @@ HTTP methods to validate for the availability of the CSRF token. You must add al
 
 #### enableXsrfCookie
 Setting the value to `true` instructs the shield middleware to read the CSRF token from the `X-XSRF-TOKEN` header. Read the [Ajax form submissions](#ajax-form-submissions) section to learn more.
+
+---
+
+#### cookieOptions
+An object of cookie options. Read the [Cookie](../http/cookies.md) section to learn more.
 
 ---
 
