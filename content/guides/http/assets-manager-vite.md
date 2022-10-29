@@ -45,7 +45,6 @@ The `outputPath` property accepts a path relative to the project root. Also, mak
 
 ```ts
 // title: vite.config.ts
-
 import { defineConfig } from 'vite'
 import Adonis from '@adonisjs/vite-plugin-adonis'
 
@@ -182,7 +181,6 @@ You can define these entry points inside the `vite.config.js` file using as foll
 
 ```ts
 // title: vite.config.ts
-
 import { defineConfig } from 'vite'
 import Adonis from '@adonisjs/vite-plugin-adonis'
 
@@ -229,7 +227,6 @@ You can use the `import.meta.glob` method to instruct Vite which files to bundle
 
 ```ts
 // title: resources/js/app.ts
-
 import.meta.glob([
   '../images/**', 
   '../fonts/**'
@@ -267,7 +264,6 @@ You can configure Vue using the `@vitejs/plugin-vue` plugin.
 
 ```ts
 // title: vite.config.ts
-
 import { defineConfig } from 'vite'
 import Adonis from '@adonisjs/vite-plugin-adonis'
 import Vue from '@vitejs/plugin-vue'
@@ -288,7 +284,6 @@ You can configure React using the `@vitejs/plugin-react` plugin.
 
 ```ts
 // title: vite.config.ts
-
 import { defineConfig } from 'vite'
 import Adonis from '@adonisjs/vite-plugin-adonis'
 import React from '@vitejs/plugin-react'
