@@ -7,7 +7,7 @@ summary: Migrating from Webpack Encore to Vite
 
 This guide will help you to migrate your AdonisJS application from Webpack Encore to Vite.
 
-If you encounter a problem or a missing step in the migration guide, feel free to open an issue or propose a PR as it is more than likely that not all cases are covered.
+If you encounter a problem or a missing step in the migration guide, feel free to open an issue or propose a PR, as it is more than likely that only some cases are covered.
 
 ## Installation
 
@@ -35,8 +35,8 @@ This command will :
 - Create a basic `vite.config.ts` file in the root of your project.
 - Create a `resources/js/app.ts` file. This file will be the entry point of your application.
 - Install the required dependencies : 
-  - `vite` Obviously.
-  - `@adonisjs/vite-plugin-adonis`: Plugin for vite that bridges the gap between AdonisJS and Vite.
+  - `vite`
+  - `@adonisjs/vite-plugin-adonis`: Plugin for vite bridging the gap between AdonisJS and Vite.
 
 :::note
 Depending on your project, you might need to install other vite plugins. Like `@vitejs/plugin-vue` for Vue.js projects or `@vitejs/plugin-react` for React projects.
@@ -56,7 +56,7 @@ You must specify your new assets driver in the `.adonisrc.json` file by adding a
 
 ## Vite configuration
 
-You should have a now `vite.config.ts` file at the root of your project with the following content : 
+You should have a new `vite.config.ts` file at the root of your project with the following content : 
 
 ```ts
 // title: vite.config.ts
@@ -74,7 +74,7 @@ export default defineConfig({
 })
 ```
 
-Similar to Webpack Encore, you can define multiple entry points. Here, for the sake of simplicity, we only have one entry point named `app`. This entry point can be used in your views by using the well-known `@entryPointsStyles('app)` and `@entryPointsScripts('app')` helpers tags.
+Similar to Webpack Encore, you can define multiple entry points. Here, for the sake of simplicity, we only have one entry point named `app`. This entry point can be used in your views using the well-known `@entryPointsStyles('app)` and `@entryPointsScripts('app')` helpers tags.
 
 So make sure to add all your `Encore.addEntry()` calls to your new Vite configuration.
 
@@ -103,7 +103,7 @@ Make sure you add the @vite tag in the header of your edge files. This allows th
 
 ## Typescript, CSS, Tailwind ..
 
-Typescript, Css, Postcss, Less, Sass, Tailwind : these tools should just work out of the box. You don't need to configure anything thanks to Vite ⚡.
+Typescript, CSS, Postcss, Less, Sass, Tailwind: these tools should work out of the box. You don't need to configure anything thanks to Vite ⚡.
 
 ## Vue
 
