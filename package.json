@@ -11,7 +11,7 @@
   },
   "devDependencies": {
     "@adonisjs/assembler": "^5.9.3",
-    "@octokit/core": "^3.6.0",
+    "@octokit/core": "^4.1.0",
     "@symfony/webpack-encore": "^4.1.1",
     "adonis-preset-ts": "^2.1.0",
     "alpinejs": "^3.10.5",
