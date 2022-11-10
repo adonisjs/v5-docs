@@ -4,10 +4,6 @@ summary: Reference guide for the Hash module.
 
 AdonisJS Hash module allows you to hash the values using `bcrypt`, `argon2` or `scrypt` along with the option to add a custom hashing driver.
 
-:::tip
-The `scrypt` hasher is available by default. You don't need to install any package for it.
-:::
-
 You can configure the driver of your choice inside the `config/hash.ts` file.
 
 ```ts
@@ -63,24 +59,17 @@ The `default` property configures the hasher to use by default for hashing value
 ---
 
 #### Available hashers
+The `list` object contains one or more hashers available to be used for hashing values. A hasher must use one of the available drivers.
 
-The `list` object contains one or more hashers available to be used for hashing values. Each hasher must use one of the available drivers. For example:
-
-- The `scrypt` hasher uses the [Node.js native function](https://nodejs.org/api/crypto.html#cryptoscryptpassword-salt-keylen-options-callback).
-- The `argon` hasher uses the `argon2` driver.
-- The `bcrypt` hasher uses the `bcrypt` driver.
-
-```sh
-# If using bcrypt
-npm i phc-bcrypt
-
-# If using argon2
-npm i phc-argon2
-```
-
-:::tip
-In production, we recommend using `argon` as the hasher. It is the winner of the [Password Hashing Competition](https://www.password-hashing.net/).
-:::
+- The `scrypt` hasher uses the [Node.js `cryto.scrypt` method](https://nodejs.org/api/crypto.html#cryptoscryptpassword-salt-keylen-options-callback) for generating and verifying hashes.
+- The `argon` hasher uses the `argon2` driver. You will have to install the following package in order to use argon. **If you do not have any strong preference, we recommend you to use argon in production**
+   ```sh
+   npm i phc-argon2
+   ```
+- The `bcrypt` hasher uses the `bcrypt` driver. You will have to install the following package in order to use bcrypt.
+   ```sh
+   npm i phc-bcrypt
+   ```  
 
 ## Hashing values
 
