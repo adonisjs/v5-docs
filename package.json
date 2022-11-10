@@ -11,6 +11,8 @@
   },
   "devDependencies": {
     "@adonisjs/assembler": "^5.9.3",
+    "@babel/core": "^7.20.2",
+    "@babel/preset-env": "^7.20.2",
     "@octokit/core": "^4.1.0",
     "@symfony/webpack-encore": "^4.1.1",
     "adonis-preset-ts": "^2.1.0",
@@ -28,6 +30,8 @@
     "remark-captions": "^2.2.2",
     "typescript": "^4.8.4",
     "unpoly": "^2.6.1",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^4.10.0",
     "youch": "^3.2.2",
     "youch-terminal": "^2.1.5"
   },
