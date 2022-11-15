@@ -4,7 +4,9 @@ summary: Learn how to use controllers and resourceful routes in AdonisJS
 
 Controllers are the de facto way of handling HTTP requests in AdonisJS. They enable you to clean up the routes file by moving all the inline route handlers to their dedicated controller files.
 
-In AdonisJS, the controllers are stored inside (but not limited to) the `app/Controllers/Http` directory and each file represents a single controller. For exampleDo you want to extract a complexe controller method to its file?
+In AdonisJS, the controllers are stored inside (but not limited to) the `app/Controllers/Http` directory and each file represents a single controller. 
+
+Do you want to extract a complex controller method to its own file? 
 
 Use a Single Action Controller!
 
@@ -140,12 +142,12 @@ On the brighter side, making the string expression type-safe is not impossible. 
 
 ## Single action controllers
 
-AdonisJS provides a way to define a single action controller. It is a great way to extract a complex handler into a separate file. To accomplish this, you need to define a `handle` method inside the controller.
+AdonisJS provides a way to define a single action controller. It's an effective way to wrap up functionality into clearly named classes. To accomplish this, you need to define a `handle` method inside the controller.
 
 ```ts
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
-class RegisterNewsletterSubscriptionController {
+export default class RegisterNewsletterSubscriptionController {
   public async handle({}: HttpContextContract) {
     // ...
   }
