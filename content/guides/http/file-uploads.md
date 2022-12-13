@@ -4,6 +4,10 @@ summary: Access and validate user-uploaded files.
 
 AdonisJS provides you a robust and performant API for dealing with file uploads. Not only can you process and store uploaded files locally, but you can also **stream them directly to the cloud services like S3, Cloudinary, or Google cloud storage**.
 
+:::tip
+Checkout [Attachment Lite](https://github.com/adonisjs/attachment-lite). An opinionated package to convert any column on your Lucid model to an attachment data type. Making file upload clean and easy.
+:::
+
 ## Accessing uploaded files
 The bodyparser middleware registered inside the `start/kernel.ts` file automatically processes all the files for `multipart/form-data` requests.
 
