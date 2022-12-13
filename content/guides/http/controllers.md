@@ -8,11 +8,7 @@ In AdonisJS, the controllers are stored inside (but not limited to) the `app/Con
 
 Do you want to extract a complex controller method to its own file? 
 
-Use a Single Action Controller!
-
-📚 https://docs.adonisjs.com/guides/controllers#single-action-controllers
-
-:
+Use a [Single Action Controller](https://docs.adonisjs.com/guides/controllers#single-action-controllers)!
 
 ```ts
 // title: app/Controllers/Http/PostsController.ts
