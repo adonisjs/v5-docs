@@ -213,10 +213,13 @@ import Application from '@ioc:Adonis/Core/Application'
 export default class IndexSeeder extends BaseSeeder {
   private async runSeeder(Seeder: { default: typeof BaseSeeder }) {
     /**
-     * Do not run when not in dev mode and seeder is development
-     * only
+     * Do not run when not in a environment specified in Seeder
      */
-    if (Seeder.default.developmentOnly && !Application.inDev) {
+    if (
+      (!Seeder.default.environment.includes('development') && Application.inDev)
+      || (!Seeder.default.environment.includes('testing') && Application.inTest)
+      || (!Seeder.default.environment.includes('production') && Application.inProduction)
+    ) {
       return
     }
 
