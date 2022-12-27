@@ -65,7 +65,7 @@ import { rules, schema, validator } from '@ioc:Adonis/Core/Validator'
 
 await validator.validate({
   schema: schema.create({
-    fileName: schema.string({}, [
+    fileName: schema.string([
       // highlight-start
       rules.camelCase()
       // highlight-end

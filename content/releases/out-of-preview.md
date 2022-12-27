@@ -323,7 +323,7 @@ The `blacklist` rule has been renamed to `notIn`
 
 ```ts
 {
-  username: schema.string({}, [
+  username: schema.string([
     // delete-start
     rules.blacklist(['admin', 'super'])
     // delete-end
@@ -338,7 +338,7 @@ The `hostWhitelist` and `hostBlacklist` properties of the `url` validation rules
 
 ```ts
 {
-  twitterHandle: schema.string({}, [
+  twitterHandle: schema.string([
     rules.url({
       // delete-start
       hostWhitelist: ['twitter']

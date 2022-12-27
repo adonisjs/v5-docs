@@ -4,7 +4,7 @@ Validates the value to be equal to a provided value.
 import { schema, rules } from '@ioc:Adonis/Core/Validator'
 
 {
-  country: schema.string({}, [
+  country: schema.string([
     rules.equalTo('IN')
   ])
 }
@@ -25,7 +25,7 @@ export default class CreateUserValidator {
   })
 
   public schema = schema.create({
-    country: schema.string({}, [
+    country: schema.string([
       rules.equalTo(this.refs.teamsCountry)
     ]),
   })

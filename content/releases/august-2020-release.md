@@ -104,7 +104,7 @@ The `blacklist` rule dis-allows certain values. It is the opposite of the enum s
 
 ```ts
 {
-  username: schema.string({}, [
+  username: schema.string([
     rules.blacklist([
       'super',
       'admin',
