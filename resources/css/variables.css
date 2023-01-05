@@ -1,6 +1,6 @@
 :root {
-  --font-sans: 'Test Calibre', sans-serif;
-  --font-mono: 'Source code pro', monospace;
+  --font-sans: 'calibre', sans-serif;
+  --font-mono: 'Source Code Pro', monospace;
 
   --space-x: 32px;
   --window-max-width: 1600px;
@@ -65,6 +65,8 @@
 @media (min-width: 1440px) {
   :root {
     --markdown-content-width: 70ch;
+    --markdown-font-size: 2rem;
+    --sidebar-link-font-size: 1.8rem;
   }
 }
 

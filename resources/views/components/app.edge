@@ -32,6 +32,39 @@
     <meta name="msapplication-config" content="/icons/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
 
+  {{-- Preload fonts --}}
+    <link
+      rel="preload"
+      href="{{ asset('assets/fonts/Calibre.woff2') }}"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    >
+    <link
+      rel="preload"
+      href="{{ asset('assets/fonts/Calibre-Medium.woff2') }}"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    >
+    <link
+      rel="preload"
+      href="{{ asset('assets/fonts/Calibre-Semibold.woff2') }}"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    >
+    <link
+      rel="preload"
+      href="{{ asset('assets/fonts/Calibre-Bold.woff2') }}"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;500&display=swap" rel="stylesheet">
+
     {{-- Since entry point loading is deferred, we have to keep this inline to avoid FOUC --}}
     <script>
       window.getModeColor = function() {

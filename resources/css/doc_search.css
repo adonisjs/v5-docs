@@ -62,7 +62,7 @@
   font-family: inherit;
   font-size: var(--base-font-size);
   font-weight: 400;
-  top: -1px;
+  top: 0;
   position: relative;
   padding: 0 12px;
   color: var(--search-text-color);

@@ -129,12 +129,12 @@
 
 .markdown ul li:before {
   position: absolute;
-  top: 2px;
+  top: 0;
   left: 0;
   display: block;
   content: '\2022';
   font-size: 2.2rem;
-  line-height: 1.4;
+  line-height: 1.2;
 }
 
 .markdown ol {
@@ -148,6 +148,7 @@
   display: block;
   content: counter(numbered-counter, decimal) '.';
   counter-increment: numbered-counter;
+  line-height: 1.2;
 }
 
 .markdown .dimer-highlight {
@@ -195,6 +196,7 @@
   border-bottom: 1px solid var(--pre-header-border-color);
   color: var(--pre-header-title-color);
   padding: 6px 30px;
+  letter-spacing: 0.4px;
   font-size: var(--pre-header-font-size);
   position: relative;
   font-weight: var(--bold-font-weight);
@@ -228,6 +230,7 @@
   font-weight: var(--bold-font-weight);
   transition: left 0.3s ease;
   text-decoration: none;
+  letter-spacing: 0.4px;
   background: none;
   border: none;
   cursor: pointer;
@@ -300,7 +303,7 @@ span[style="color: #545454;"] {
 }
 
 .markdown .alert-type {
-  margin-top: 3px;
+  margin-top: 6px;
 }
 
 .markdown .alert-type svg {

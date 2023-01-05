@@ -66,5 +66,5 @@ export const zones = [
     template: 'docs',
     contentPath: './content/core',
     menu: Core,
-  }
+  },
 ]

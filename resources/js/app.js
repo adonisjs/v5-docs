@@ -11,6 +11,7 @@ import 'normalize.css'
 import '@docsearch/css'
 import 'unpoly/unpoly.css'
 
+import '../fonts/calibre/stylesheet.css'
 import '../css/variables.css'
 import '../css/light_mode.css'
 import '../css/dark_mode.css'
@@ -165,11 +166,15 @@ Alpine.data('darkModeSwitch', function () {
         }
       }.bind(this)
 
-      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', this.colorSchemeListener)
+      window
+        .matchMedia('(prefers-color-scheme: dark)')
+        .addEventListener('change', this.colorSchemeListener)
     },
 
     destroy() {
-      window.matchMedia('(prefers-color-scheme: dark)').removeEventListener('change', this.colorSchemeListener)
+      window
+        .matchMedia('(prefers-color-scheme: dark)')
+        .removeEventListener('change', this.colorSchemeListener)
     },
   }
 })
@@ -221,7 +226,7 @@ Alpine.data('trackScroll', function () {
 
     destroy() {
       window.removeEventListener('scroll', this.scrollListener)
-    }
+    },
   }
 })
 

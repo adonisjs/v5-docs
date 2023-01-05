@@ -50,6 +50,7 @@ HEADER STYLES
   background: none;
   border: none;
   padding: 0;
+  cursor: pointer;
 }
 
 .hamburger svg {
