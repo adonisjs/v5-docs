@@ -1,0 +1,7 @@
+@if(app.env.get('ALGOLIA_API_KEY'))
+  <div
+    class="search-wrapper"
+    x-data="search('{{ app.env.get('ALGOLIA_API_KEY') }}')"
+  >
+  </div>
+@end

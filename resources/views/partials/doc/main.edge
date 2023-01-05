@@ -1,0 +1,19 @@
+<main class="doc">
+  <div class="markdown">
+    @include('partials/doc/debug')
+
+    <h1>{{ doc.title }}</h1>
+    @dimerTree(file.ast.children)~
+  </div>
+
+  <div class="doc_footer_wrapper">
+    <div class="doc_footer">
+      <p>Copyright &copy; {{ new Date().getFullYear() }} AdonisJS</p>
+      <p>
+        <a href="{{ getFileURL(doc) }}" target="_blank" rel="noopener">
+          Edit this page on Github
+        </a>
+      </p>
+    </div>
+  </div>
+</main>

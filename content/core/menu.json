@@ -1,0 +1,173 @@
+[
+  {
+    "name": "root",
+    "categories": [
+      {
+        "name": "root",
+        "docs": [
+          {
+            "title": "Installation",
+            "permalink": "installation",
+            "contentPath": "installation.md"
+          },
+          {
+            "title": "Folder structure",
+            "permalink": "folder-structure",
+            "contentPath": "folder-structure.md"
+          },
+          {
+            "title": "Config",
+            "permalink": "config",
+            "contentPath": "config.md"
+          },
+          {
+            "title": "Environment variables",
+            "permalink": "environment-variables",
+            "contentPath": "environment-variables.md"
+          },
+          {
+            "title": "Logger",
+            "permalink": "logger",
+            "contentPath": "logger.md"
+          }
+        ]
+      },
+      {
+        "name": "Basics",
+        "docs": [
+          {
+            "title": "HTTP Context",
+            "permalink": "context",
+            "contentPath": "basics/context.md",
+            "isLandingDoc": true
+          },
+          {
+            "title": "Async local storage",
+            "permalink": "async-local-storage",
+            "contentPath": "basics/async-local-storage.md"
+          },
+          {
+            "title": "Routing",
+            "permalink": "routing",
+            "contentPath": "basics/routing.md"
+          },
+          {
+            "title": "Controllers",
+            "permalink": "controllers",
+            "contentPath": "basics/controllers.md"
+          },
+          {
+            "title": "Request",
+            "permalink": "request",
+            "contentPath": "basics/request.md"
+          },
+          {
+            "title": "Response",
+            "permalink": "response",
+            "contentPath": "basics/response.md"
+          },
+          {
+            "title": "Middleware",
+            "permalink": "middleware",
+            "contentPath": "basics/middleware.md"
+          },
+          {
+            "title": "Cookies",
+            "permalink": "cookies",
+            "contentPath": "basics/cookies.md"
+          },
+          {
+            "title": "Session",
+            "permalink": "session",
+            "contentPath": "basics/session.md"
+          },
+          {
+            "title": "Static assets",
+            "permalink": "static-assets",
+            "contentPath": "basics/static-assets.md"
+          },
+          {
+            "title": "Assets manager",
+            "permalink": "assets-manager",
+            "contentPath": "basics/assets-manager.md"
+          },
+          {
+            "title": "Exception handling",
+            "permalink": "exception-handling",
+            "contentPath": "basics/exception-handling.md"
+          }
+        ]
+      },
+      {
+        "name": "Testing",
+        "docs": [
+          {
+            "title": "Introduction",
+            "permalink": "testing/introduction",
+            "contentPath": "testing/introduction.md"
+          },
+          {
+            "title": "HTTP tests",
+            "permalink": "testing/http-tests",
+            "contentPath": "testing/http-tests.md"
+          },
+          {
+            "title": "Mocking and Fakes",
+            "permalink": "testing/fakes",
+            "contentPath": "testing/fakes.md"
+          }
+        ]
+      },
+      {
+        "name": "Fundamentals",
+        "docs": [
+          {
+            "title": "IoC container",
+            "permalink": "ioc-container",
+            "contentPath": "fundamentals/ioc-container.md"
+          },
+          {
+            "title": "Service providers",
+            "permalink": "service-providers",
+            "contentPath": "fundamentals/service-providers.md"
+          },
+          {
+            "title": "Container services",
+            "permalink": "container-services",
+            "contentPath": "fundamentals/container-services.md"
+          },
+          {
+            "title": "Application",
+            "permalink": "application",
+            "contentPath": "fundamentals/application.md"
+          },
+          {
+            "title": "AdonisRC file",
+            "permalink": "adonisrc-file",
+            "contentPath": "fundamentals/adonisrc-file.md"
+          },
+          {
+            "title": "Application lifecycle",
+            "permalink": "application-lifecycle",
+            "contentPath": "fundamentals/application-lifecycle.md"
+          }
+        ]
+      },
+      {
+        "name": "Deployment",
+        "docs": [
+          {
+            "title": "TypeScript build process",
+            "permalink": "typescript-build-process",
+            "contentPath": "deployment/typescript-build-process.md"
+          },
+          {
+            "title": "Deployment",
+            "permalink": "deployment",
+            "contentPath": "deployment/deployment.md"
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,17 @@
+<div class="toc_wrapper">
+  <aside class="toc">
+    @if(file.toc)
+      <div class="toc-container">
+        <h3> On this page </h3>
+        <nav>
+          <ul x-data="trackScroll">
+            @dimerTree(file.toc.children)~
+          </ul>
+        </nav>
+      </div>
+    @end
+
+    @include('partials/toc/sponsors')
+    @include('partials/toc/carbon-ads')
+  </aside>
+</div>

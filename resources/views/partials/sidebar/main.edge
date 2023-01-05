@@ -1,0 +1,20 @@
+<div
+  id="sidenav"
+  x-data
+  :class="{ opened: $store.offCanvasMenu.opened }"
+>
+  <div class="sidebar">
+    <div class="sidebar-container" up-nav x-data="prefetch">
+      @include('partials/sidebar/package-selector')
+      @include('partials/sidebar/menu')
+    </div>
+  </div>
+
+  <button
+    @click.prevent="$store.offCanvasMenu.close()"
+    id="sidenav"
+    class="sidenav-backdrop"
+    title="Close Docs Menu"
+    aria-label="Close Docs Menu"
+  ></button>
+</div>

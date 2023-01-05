@@ -8,10 +8,19 @@
 |
 */
 
+import visit from 'unist-util-visit'
+import View from '@ioc:Adonis/Core/View'
 import { Renderer } from '@dimerapp/edge'
 import Content from 'App/Services/Content'
-import remarkCaptions from 'remark-captions'
-import { zones, codeBlocksTheme, markdownLanguages } from 'Config/markdown'
+import Application from '@ioc:Adonis/Core/Application'
+import AssetsManager from '@ioc:Adonis/Core/AssetsManager'
+import { zones, codeBlocksTheme, markdownLanguages, docsRepoBaseUrl } from 'Config/markdown'
+
+View.global('getFileURL', function (doc: any) {
+  return `${docsRepoBaseUrl}${doc.path.replace(Application.appRoot, '')}`
+})
+
+const manifest = AssetsManager.manifest()
 
 /**
  * Renderer makes the markdown AST and convert them to HTML by processing
@@ -40,6 +49,13 @@ const dimerRenderer = new Renderer().use((node) => {
     return ['elements/code', { node }]
   }
 
+  /**
+   * Render tables using "elements/tables.edge" file
+   */
+  if (node.tagName === 'table') {
+    return ['elements/table', { node }]
+  }
+
   if (!Array.isArray(node.properties!.className)) {
     return
   }
@@ -52,17 +68,10 @@ const dimerRenderer = new Renderer().use((node) => {
   }
 
   /**
-   * Render collaborators using "elements/collaborators.edge" file
+   * Render anchor tags using "elements/a.edge" file
    */
-  if (node.properties!.className.includes('collaborators')) {
-    return ['elements/collaborators', { node }]
-  }
-
-  /**
-   * Render captions using "elements/caption.edge" file
-   */
-  if (node.properties!.className.includes('caption')) {
-    return ['elements/caption', { node }]
+  if (node.properties!.className.includes('alert')) {
+    return ['elements/alert', { node }]
   }
 })
 
@@ -85,31 +94,35 @@ zones.forEach(({ title, baseUrl, template, menu, contentPath }) => {
     .useTheme(codeBlocksTheme)
     .docs(menu)
     .before('compile', (file) => {
-      file.macro('caption', (node) => {
+      file.macro('danger', (node) => {
         node.data = node.data || {}
         node.data.hName = 'div'
         node.data.hProperties = {
-          class: ['caption', `caption-${node.attributes.for}`],
+          class: ['alert', 'alert-danger'],
         }
       })
 
-      file.macro('collaborators', (node) => {
+      file.macro('important', (node) => {
         node.data = node.data || {}
         node.data.hName = 'div'
         node.data.hProperties = {
-          class: ['collaborators'],
+          class: ['alert', 'alert-important'],
         }
       })
 
-      file.transform(remarkCaptions, {
-        external: {
-          table: 'Table:',
-          code: 'Code:',
-          math: 'Equation:',
-        },
-        internal: {
-          image: 'Figure:',
-        },
+      file.transform(() => {
+        return (tree) => {
+          visit(tree, 'image', (node: any) => {
+            if (!node.url.startsWith('http')) {
+              if (!manifest[node.url]) {
+                file.report(`Cannot find image "${node.url}"`, node.position)
+                return
+              }
+
+              node.url = AssetsManager.assetPath(node.url)
+            }
+          })
+        }
       })
     })
     .renderer('dimerRenderer', dimerRenderer)

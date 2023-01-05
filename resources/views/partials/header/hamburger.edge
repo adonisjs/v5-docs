@@ -1,0 +1,10 @@
+<button
+  x-data
+  @click.prevent="$store.offCanvasMenu.toggle()"
+  title="Open Docs Menu"
+  aria-label="Open Docs Menu"
+  class="hamburger"
+>
+  <svg x-show="!$store.offCanvasMenu.opened" viewBox="0 0 10 9" fill="none" stroke-linecap="round" aria-hidden="true" stroke="#fff"><path d="M.5 1h9M.5 8h9M.5 4.5h9"></path></svg>
+  <svg x-show="$store.offCanvasMenu.opened" viewBox="0 0 10 9" fill="none" stroke-linecap="round" aria-hidden="true" stroke="#fff"><path d="m1.5 1 7 7M8.5 1l-7 7"></path></svg>
+</button>

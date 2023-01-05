@@ -4,8 +4,12 @@ TOC BLOCK
 --------------------------------
 */
 
-.toc {
+.toc_wrapper {
   display: none;
+  width: var(--toc-width);
+}
+
+.toc {
   position: fixed;
   right: 0;
   padding: 0 20px 0 20px;
@@ -35,11 +39,6 @@ TOC BLOCK
 .toc ul li ul {
   margin-left: 10px;
   margin-top: 5px;
-  display: none;
-}
-
-.toc.show_nested ul li ul {
-  display: block;
 }
 
 .toc ul {
@@ -56,20 +55,28 @@ TOC BLOCK
 .toc li a {
   font-size: var(--toc-link-font-size);
   color: var(--toc-text-color);
+  padding: 3px 0;
+  font-weight: var(--toc-font-weight);
   text-decoration: none;
+  display: block;
+}
+
+.toc li a code {
+  font-size: var(--toc-code-font-size);
 }
 
 .toc li a:hover, .toc li a.up-current {
-  color: inherit;
-}
-
-/** Required only when using Calibre */
-.toc code {
-  font-size: 1.2rem;
+  color: var(--toc-text-hover-color);
 }
 
 @media (min-width: 1280px) {
-  .toc {
+  .toc_wrapper {
     display: block;
+  }
+}
+
+@media (min-width: 1600px) {
+  .toc {
+    right: auto;
   }
 }

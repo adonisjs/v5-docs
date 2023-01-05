@@ -7,14 +7,16 @@
       <button
         {{ index === 0 ? 'x-ref=firstTab' : '' }}
         @click.prevent="changeTab({{ index + 1 }}, event.target)"
-        :class="{ active: {{index + 1}} === activeTab }">{{ tab }}</button>
+        :class="{ active: {{index + 1}} === activeTab }"
+      >
+        {{ tab }}
+      </button>
     @end
   </div>
   <div>
     @each((child, index) in node.children)
       <div x-show="activeTab === {{index + 1}}">
         @set(child.properties, 'dataTitle', null)
-
         @dimerTree([child])~
       </div>
     @end

@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{{ doc.title ? `${doc.title} - ` : '' }}AdonisJS</title>
+    <meta name="description" content="AdonisJS includes everything you need to create a fully functional web app or an API server. So stop wasting hours downloading and assembling hundreds of packages — Use AdonisJS and be productive from day one.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://docs.adonisjs.com{{ doc.url }}">
+    <meta property="og:title" content="{{ doc.title ? `${doc.title} - ` : '' }}AdonisJS">
+    <meta property="og:description" content="AdonisJS includes everything you need to create a fully functional web app or an API server. So stop wasting hours downloading and assembling hundreds of packages — Use AdonisJS and be productive from day one.">
+    <meta property="og:image" content="">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://docs.adonisjs.com{{ doc.url }}">
+    <meta property="twitter:title" content="{{ doc.title ? `${doc.title} - ` : '' }}AdonisJS">
+    <meta property="twitter:description" content="AdonisJS includes everything you need to create a fully functional web app or an API server. So stop wasting hours downloading and assembling hundreds of packages — Use AdonisJS and be productive from day one.">
+    <meta property="twitter:image" content="">
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="manifest" href="/icons/site.webmanifest">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="/icons/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="/icons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    {{-- Since entry point loading is deferred, we have to keep this inline to avoid FOUC --}}
+    <script>
+      window.getModeColor = function() {
+        const colorScheme = localStorage.getItem('colorScheme')
+        if (colorScheme === 'dark') {
+          return 'dark'
+        }
+
+        if (colorScheme === 'light') {
+          return 'light'
+        }
+
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+      }
+
+      window.syncModeColor = function(scheme) {
+        if (scheme === 'dark') {
+          document.documentElement.classList.add('dark')
+        } else {
+          document.documentElement.classList.remove('dark')
+        }
+      }
+
+      window.syncModeColor(window.getModeColor())
+    </script>
+
+    @entryPointStyles('app')
+    @entryPointScripts('app')
+
+    <script
+      async
+      defer
+      data-domain="adonisjs.com"
+      src="https://analytics.adonisjs.com/js/index.js"
+    ></script>
+  </head>
+
+  <body>
+    {{{ await $slots.main() }}}
+  </body>
+</html>

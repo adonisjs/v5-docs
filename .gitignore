@@ -8,3 +8,4 @@ coverage
 tmp
 public/*
 !public/icons
+!public/sponsors

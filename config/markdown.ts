@@ -1,7 +1,14 @@
-import Guides from '../content/guides/menu.json'
-import Releases from '../content/releases/menu.json'
-import Cookbooks from '../content/cookbooks/menu.json'
-import Reference from '../content/reference/menu.json'
+import Core from '../content/core/menu.json'
+
+/*
+|--------------------------------------------------------------------------
+| Base URL for the content file
+|--------------------------------------------------------------------------
+|
+| The URL is used to generate the links to edit the current doc
+|
+*/
+export const docsRepoBaseUrl = 'https://github.com/adonisjs/docs.adonisjs.com/blob/develop'
 
 /*
 |--------------------------------------------------------------------------
@@ -40,7 +47,7 @@ export const markdownLanguages = [
 | Themes used for codeblocks
 |
 */
-export const codeBlocksTheme = 'material-palenight'
+export const codeBlocksTheme = 'material-darker'
 
 /*
 |--------------------------------------------------------------------------
@@ -54,31 +61,10 @@ export const codeBlocksTheme = 'material-palenight'
 */
 export const zones = [
   {
-    title: 'Guides',
+    title: 'Core',
     baseUrl: '/guides',
     template: 'docs',
-    contentPath: './content/guides',
-    menu: Guides,
-  },
-  {
-    title: 'Reference',
-    baseUrl: '/reference',
-    template: 'docs',
-    contentPath: './content/reference',
-    menu: Reference,
-  },
-  {
-    title: 'Cookbooks',
-    baseUrl: '/cookbooks',
-    template: 'docs',
-    contentPath: './content/cookbooks',
-    menu: Cookbooks,
-  },
-  {
-    title: 'Releases',
-    baseUrl: '/releases',
-    template: 'docs',
-    contentPath: './content/releases',
-    menu: Releases,
-  },
+    contentPath: './content/core',
+    menu: Core,
+  }
 ]

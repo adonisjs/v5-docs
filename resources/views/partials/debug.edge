@@ -1,9 +1,0 @@
-@if(file.messages.length && app.env.get('DEBUG_DOCS'))
-  <div class="file-errors">
-    <pre><code>
-@each(message in file.messages)~
-<div class="line {{ message.fatal ? 'fatal' : 'warning' }}">{{ message.ruleId }} ({{ message.line }}:{{ message.column }}): {{ message.message }}</div>
-@endeach~
-</code></pre>
-  </div>
-@endif

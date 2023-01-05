@@ -1,0 +1,63 @@
+html.dark {
+  --gray-800: #28292a;
+  --gray-200: #e5e5e5;
+  --gray-100: rgba(77,77,77,.5);
+  --gray-300: #737373;
+  --mute-color: #a3a3a3;
+  --brand-color: #5047eb;
+  --accent-color: #7c97e8;
+
+  --background-color: #191919;
+  --text-color: #d4d4d4;
+  --sponsors-card-background-color: var(--gray-800);
+
+  --carbon-ads-background-color: var(--gray-800);
+  --carbon-ads-text: var(--mute-color);
+
+  --header-background-color: var(--background-color);
+  --header-link-color: var(--mute-color);
+  --header-border-color: var(--gray-100);
+  --header-font-weight: 400;
+  --header-link-hover-color: #fff;
+  --header-menu-separator-color: var(--gray-300);
+
+  --search-background-color: var(--gray-800);
+  --search-text-color: var(--mute-color);
+  --search-font-weight: 400;
+  --search-border-color: var(--gray-100);
+  --search-hover-border-color: var(--gray-300);
+
+  --sidebar-background-color: var(--background-color);
+  --sidebar-border-color: var(--gray-100);
+  --sidebar-shadow: none;
+  --sidebar-heading-color: var(--gray-200);
+  --sidebar-link-color: var(--mute-color);
+  --sidebar-link-hover-color: #fff;
+  --sidebar-link-weight: 400;
+  --sidebar-selected-link-color: var(--accent-color);
+
+  --markdown-links-color: var(--accent-color);
+  --markdown-headings-color: #e3e3e3;
+
+  --inline-code-background-color: var(--gray-800);
+  --pre-background-color: var(--gray-800);
+  --pre-header-border-color: #3f3f46;
+  --pre-header-title-color: rgb(255, 255, 255 / 65%);
+  --code-comment-color: #9c9c9c;
+
+  --alert-background-color: var(--gray-800);
+  --table-border-color: var(--gray-100);
+  --embed-background-color: var(--gray-800);
+  --figcaption-text-color: var(--mute-color);
+
+  --toc-border-color: var(--gray-100);
+  --toc-font-weight: 400;
+  --toc-text-color: var(--mute-color);
+  --toc-text-hover-color: #fff;
+
+  --ctc-text-color: var(--gray-300);
+  --ctc-background-color: var(--background-color);
+
+  --docsearch-text-color: var(--search-text-color) !important;
+  --search-modal-footer-border-color: var(--gray-100);
+}
