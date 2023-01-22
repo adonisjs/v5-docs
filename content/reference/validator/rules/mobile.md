@@ -16,7 +16,7 @@ You can also specify one or more locales to force format validation for a specif
 {
   mobile: schema.string([
     rules.mobile({
-      locales: ['pt-BR', 'en-IN', 'en-US']
+      locale: ['pt-BR', 'en-IN', 'en-US']
     })
   ])
 }
