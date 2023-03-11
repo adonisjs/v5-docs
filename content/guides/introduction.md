@@ -50,7 +50,7 @@ We also encourage you to help others whenever possible 💗
 ## Resources
 
 - [Newsletter](https://news.adonisjs.com) - Receive framework and community updates directly in your Inbox. No spam. Max 1 email a month.
-- [Twitter](https://twitter.com/adonisframework) - Stay upto date.
+- [Twitter](https://twitter.com/adonisframework) - Stay up to date.
 - [VS Code extension](https://marketplace.visualstudio.com/items?itemName=jripouteau.adonis-vscode-extension) - An official VS Code extension to sky rocket your development experience.
 - [Awesome AdonisJS](https://github.com/adonisjs-community/awesome-adonisjs) - A collection of packages, tutorials and applications created by the community members.
 
