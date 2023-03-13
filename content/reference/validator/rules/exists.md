@@ -10,7 +10,7 @@ The validation rule is added by `@adonisjs/lucid` package. So make sure it is [i
 import { schema, rules } from '@ioc:Adonis/Core/Validator'
 
 {
-  slug: schema.string({}, [
+  slug: schema.string([
     rules.exists({ table: 'categories', column: 'slug' })
   ])
 }
@@ -22,7 +22,7 @@ Many databases perform case sensitive queries. So either you can transform the v
 
 ```ts
 {
-  username: schema.string({}, [
+  username: schema.string([
     rules.exists({
       table: 'users',
       column: 'username',
@@ -44,7 +44,7 @@ Additionally, you can also define `where` and `whereNot` constraints as an objec
 
 ```ts
 {
-  slug: schema.string({}, [
+  slug: schema.string([
     rules.exists({
       table: 'categories',
       column: 'slug',
@@ -105,7 +105,7 @@ export default class CreateUserValidator {
   // highlight-end
 
   public schema = schema.create({
-    username: schema.string({}, [
+    username: schema.string([
       rules.exists({
         table: 'users',
         column: 'username',

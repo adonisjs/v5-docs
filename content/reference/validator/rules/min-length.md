@@ -6,7 +6,7 @@ In the following example, the username with less than 4 characters will fail the
 import { schema, rules } from '@ioc:Adonis/Core/Validator'
 
 {
-  username: schema.string({}, [
+  username: schema.string([
     rules.minLength(4)
   ])
 }

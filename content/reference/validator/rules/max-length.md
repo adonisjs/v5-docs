@@ -6,7 +6,7 @@ In the following example, the username with greater than 40 characters will fail
 import { schema, rules } from '@ioc:Adonis/Core/Validator'
 
 {
-  username: schema.string({}, [
+  username: schema.string([
     rules.maxLength(40)
   ])
 }

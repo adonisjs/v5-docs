@@ -4,7 +4,7 @@ Validates the value to be a valid IP address. Optionally, you can also enforce t
 import { schema, rules } from '@ioc:Adonis/Core/Validator'
 
 {
-  ip: schema.string({}, [
+  ip: schema.string([
     rules.ip()
   ])
 }
@@ -12,7 +12,7 @@ import { schema, rules } from '@ioc:Adonis/Core/Validator'
 
 ```ts
 {
-  ip: schema.string({}, [
+  ip: schema.string([
     rules.ip({ version: 6 })
   ])
 }
