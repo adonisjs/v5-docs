@@ -15,7 +15,7 @@ You can access the current environment of the application using the `environment
 - `web` environment refers to the process started for the HTTP server.
 - `console` environment refers to the Ace commands except for the REPL command.
 - `repl` environment refers to the process started using `node ace repl` command.
-- `test` environment referes to the process started using the `node ace test` command.
+- `test` environment refers to the process started using the `node ace test` command.
 
 ```ts
 import Application from '@ioc:Adonis/Core/Application'
