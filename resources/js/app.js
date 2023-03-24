@@ -85,7 +85,7 @@ Alpine.data('copyToClipboard', function () {
   }
 })
 
-Alpine.data('search', function (apiKey) {
+Alpine.data('search', function () {
   return {
     init() {
       Promise.all([
@@ -95,7 +95,8 @@ Alpine.data('search', function (apiKey) {
         .then(([docsearch]) => {
           docsearch = docsearch.default
           docsearch({
-            apiKey: apiKey,
+            appId: 'KXECYAMEX8',
+            apiKey: '01279e9ede105d87a1ade54565b1a2fd',
             indexName: 'adonisjs_next',
             container: '#algolia-search-input',
             transformItems: (items) => {
