@@ -18,6 +18,7 @@ html.dark {
   --toc-border-color: rgb(77 77 77 / 50%);
   --toc-text-color: var(--mute-color);
   --sidebar-selected-text: var(--accent-color);
+  --edit-link-color: var(--accent-color);
 
   --carbon-ads-bg-color: rgb(33 33 33);
   --carbon-background-text: #e2e2e2;
