@@ -22,4 +22,5 @@ export default Env.rules({
   CACHE_VIEWS: Env.schema.boolean(),
   NODE_ENV: Env.schema.enum(['development', 'production', 'testing'] as const),
   COPY_REDIRECTS_FILE: Env.schema.boolean.optional(),
+  REPOSITORY_URL: Env.schema.string({ format: 'url' }),
 })
