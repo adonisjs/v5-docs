@@ -166,6 +166,20 @@ html.dark .sponsor a:hover img {
   filter: none;
 }
 
+.edit-link {
+  color: var(--edit-link-color);
+}
+
+.edit-link .edit-icon {
+  position: relative;
+  top: 2px;
+}
+
+.edit-link a {
+  font-size: 16px;
+  text-decoration: none;
+}
+
 @media (min-width: 1280px) {
   .sponsors {
     flex-direction: row;

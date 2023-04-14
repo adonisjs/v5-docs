@@ -36,6 +36,7 @@ CACHE_VIEWS=false
 DEBUG_DOCS=true
 ALGOLIA_API_KEY=
 COPY_REDIRECTS_FILE=false
+REPOSITORY_URL=https://github.com/adonisjs/docs.adonisjs.com
 ```
 
 The `ALGOLIA_API_KEY` environment variable is optional and required only if you want to enable search.
