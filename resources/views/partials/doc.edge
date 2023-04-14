@@ -26,7 +26,7 @@
         <polygon points="18 2 22 6 12 16 8 16 8 12 18 2"></polygon>
       </svg>
 
-      <a href="{{ env('REPOSITORY_URL') }}/blob/develop/content{{ doc.url }}.md" target="_blank">Edit this page on GitHub</a>
+      <a href="{{ env('REPOSITORY_URL') }}/blob/develop{{ doc.path.replace(app.appRoot, '') }}" target="_blank">Edit this page on GitHub</a>
     </p>
   </div>
 </main>
