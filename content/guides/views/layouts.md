@@ -60,7 +60,7 @@ Let's create a standard webpage using layouts.
       </p>
     </div>
   </section>
-@end
+@endsection
 ```
 
 #### 4. Render the view, and you will end up with the following result
@@ -87,7 +87,7 @@ In the following example, the layout renders the scripts tags inside the `script
 @section('scripts')
   <script src="./vendor.js"></script>
   <script src="./app.js"></script>
-@end
+@endsection
 ```
 
 #### Parent template overriding everything
@@ -96,7 +96,7 @@ In the following example, the layout renders the scripts tags inside the `script
 @section('scripts')
   <script src="./vendor.js"></script>
   <script src="./admin.js"></script>
-@end
+@endsection
 ```
 
 #### Parent template appending to existing scripts
@@ -105,7 +105,7 @@ In the following example, the layout renders the scripts tags inside the `script
 @section('scripts')
   @super {{-- Super means inherit --}}
   <script src="./autocomplete.js"></script>
-@end
+@endsection
 ```
 
 - The name for all the section tags must be unique.
