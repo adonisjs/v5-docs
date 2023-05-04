@@ -97,7 +97,7 @@ The `mailers` object defines a list of mailers you want to use. Each mailer must
 #### Mailgun options
 The mailgun driver optionally accepts the following options.
 
-| Config option | Mailgun variant | 
+| Config option | Mailgun variant |
 |---------------|---------------|
 | `oTags` | o\:tag |
 | `oDeliverytime` | o\:deliverytime |
@@ -123,7 +123,7 @@ await Mail.use('mailgun').send((message) => {
 #### Sparkpost options
 The sparkpost driver optionally accepts the following options.
 
-| Config option | Sparkpost variant | 
+| Config option | Sparkpost variant |
 |---------------|---------------|
 | `startTime` | start_time |
 | `openTracking` | open_tracking |
@@ -179,7 +179,7 @@ You can define the authentication options for the SMTP connections as follows:
 }
 ```
 
-### Configuring new mailers 
+### Configuring new mailers
 You can also configure new mailers after the initial setup. Use the [config stub](https://github.com/adonisjs/mail/blob/develop/templates/config.txt) as a reference to copy the default options for all the drivers.
 
 Also, you must define the mailers inside the `contracts/mail.ts` file before you can define its config or use it to send emails. The contracts file is a way to inform the TypeScript static compiler about the existence of the mailer.
@@ -209,7 +209,7 @@ interface MailersList {
 ## Usage
 Once done with the setup, you can import the `Mail` module and send emails using the `Mail.send` method. It accepts a callback function to let you configure the outgoing message.
 
-In the following example, the `htmlView` method accepts the path to an Edge template and the data you want to pass to it. 
+In the following example, the `htmlView` method accepts the path to an Edge template and the data you want to pass to it.
 
 ```ts
 // highlight-start
@@ -240,7 +240,7 @@ class UsersController {
     // highlight-start
     // Pushed to in-memory queue
     await Mail.sendLater((message) => {
-    // highlight-end    
+    // highlight-end
       message
         .from('info@example.com')
         .to('virk@adonisjs.com')
@@ -474,7 +474,7 @@ message.subject('Verify email address')
 ---
 
 #### replyTo
-An email address that will appear on the `Reply-To: field.`
+An email address that will appear on the `Reply-To: field.` Calling this method multiple times will push a new replyTo recipient to the list.
 
 ```ts
 message.replyTo('support@example.com')
@@ -576,7 +576,7 @@ message.header('X-Key-Name', 'X-Value')
 ---
 
 #### preparedHeader
-Nodemailer internally encodes and folds the headers to meet the requirement of having plain-ASCII messages with lines no longer than 78 bytes. 
+Nodemailer internally encodes and folds the headers to meet the requirement of having plain-ASCII messages with lines no longer than 78 bytes.
 
 Sometimes it is preferable not to modify header values and pass these as provided. This can be achieved using the `preparedHeader` method.
 
@@ -889,7 +889,7 @@ export default class AppProvider {
 The mail module internally creates a single instance of the driver and uses it throughout the application's lifecycle unless someone decides to close it manually.
 
 ### Informing TypeScript about the new driver
-Before someone can reference this driver within the `config/mail.ts` file. You will have to inform TypeScript static compiler about its existence. 
+Before someone can reference this driver within the `config/mail.ts` file. You will have to inform TypeScript static compiler about its existence.
 
 If you are creating a package, then you can write the following code inside your package main file, otherwise you can write it inside the `contracts/mail.ts` file.
 
