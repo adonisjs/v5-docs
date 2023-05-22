@@ -313,6 +313,16 @@ This option is helpful for multi-tenant applications, where you want to switch c
 node ace migration:run --connection=tenantA
 ```
 
+## A note on advisory locks
+We obtain an advisory lock with the database server to ensure that only one process is running migrations at a time. The advisory locks are supported only by `pg` and `mysql` drivers and you can disable locking system using the `--disable-locks` command-line flag.
+
+
+```sh
+node ace migration:run --disable-locks
+node ace migration:refresh --disable-locks
+node ace migration:rollback --disable-locks
+```
+
 ## Running migrations programmatically
 Using the `Migrator` module, you can run migrations programmatically. This is usually helpful when running migrations from a web interface and not the command line.
 
