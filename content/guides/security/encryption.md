@@ -55,7 +55,7 @@ Encryption.decrypt(value)
 Encryption.decrypt(value, purpose)
 ```
 
-## Support data types
+## Supported data types
 
 You can encrypt the following data types.
 
@@ -75,7 +75,7 @@ Encryption.encrypt(true)
 // Number
 Encryption.encrypt(10)
 
-// Data objects are converted to ISO string
+// Date objects are converted to ISO string
 Encryption.encrypt(new Date())
 ```
 
