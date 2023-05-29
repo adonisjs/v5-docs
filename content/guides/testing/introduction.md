@@ -252,7 +252,7 @@ You can also run database seeders by calling the `TestUtils.db().seed()` method.
 ```ts
 setup: [
   () => TestUtils.ace().loadCommands(),
-  () => TestUtils.db().migrate()
+  () => TestUtils.db().migrate(),
   // highlight-start
   () => TestUtils.db().seed()
   // highlight-end
