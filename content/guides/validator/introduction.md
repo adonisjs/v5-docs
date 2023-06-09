@@ -205,6 +205,30 @@ Requests negotiating using `Accept=application/vnd.api+json` header, receives th
 }
 ```
 
+### Validating request body, query, and params
+It can be useful to validate the body, query, and route params of a single request. For example, when updating a user profile, you may want to validate **both** the request body as well as ensure the `id` route param is a number.
+```ts
+Route.put('users/:id', async ({ request, response }) => {
+
+  const updateUserSchema = schema.create({
+    // Validate the request body and query
+    username: schema.string(),
+    email: schema.string([
+      rules.email()
+    ]),
+    // Validate the request params
+    params: schema.object().members({
+      id: schema.number([
+        rules.unsigned()
+      ])
+    })
+
+  })
+```
+:::note
+The request body and query strings are merged during validation. Request params are not merged.
+:::
+
 ## Standalone validator usage
 You can also use the validator outside of an HTTP request by importing the `validate` method from the Validator module. The functional API remains the same. However, you will have to manually provide the `data` to validate.
 
