@@ -1014,7 +1014,7 @@ class Post extends BaseModel {
     if (!this.$sideloaded) {
       return false
     }
-    return this.$sideloaded.userId = this.userId
+    return this.$sideloaded.userId === this.userId
   }
 }
 ```
