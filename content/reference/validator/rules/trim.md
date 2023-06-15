@@ -1,4 +1,4 @@
-The `trim` is sanitization rule to trim all the whitespaces from the left and the trim of the string.
+The `trim` is sanitization rule to trim all the whitespace from the left and the right of the string.
 
 ```ts
 import { schema, rules } from '@ioc:Adonis/Core/Validator'
