@@ -42,7 +42,7 @@ Dumb-init is lightweight init system which will properly spawn Node.js runtime p
 Also, we are changing user to `node` because Docker defaults to running the process in the container as the root user, which is not recommended.
 
 :::note
-If you want to know more about Docker best practices for Node.js, I strongly recommend this [Synk cheatsheet](https://snyk.io/wp-content/uploads/10-best-practices-to-containerize-Node.js-web-applications-with-Docker.pdf)
+If you want to know more about Docker best practices for Node.js, I strongly recommend this [Synk cheatsheet](https://snyk.io/blog/10-best-practices-to-containerize-nodejs-web-applications-with-docker/)
 :::
 
 ### Second stage - dependencies
