@@ -23,7 +23,7 @@ npm run build
 
 ## Create a Server
 
-Select your prefered provider and create a server
+Select your preferred provider and create a server
 
 Once server is ready . Create a database user (optional)
 
@@ -47,7 +47,7 @@ When you create a server on forge , we need to create a [site](https://forge.lar
 
 ### Configure Your Deployment script and Git settings
 
-Deploy Script is the commands that are executed when you push a commit to your pre-defined branch . in our case for Adonisjs we need to access the app folder -> then pull the changes -> run some commands for migration and build proccess . 
+Deploy Script is the commands that are executed when you push a commit to your pre-defined branch . in our case for Adonisjs we need to access the app folder -> then pull the changes -> run some commands for migration and build process . 
 
 
  "Quick Deploy" feature allows you to easily deploy your projects when you push to your source control provider. When you push to your configured quick deploy branch, Forge will pull your latest code from source control and run your application's configured deployment script.

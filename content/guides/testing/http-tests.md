@@ -59,7 +59,7 @@ test('get a paginated list of existing posts', async ({ client }) => {
 - The assertion will use the **request method**, the **endpoint** and **response status code** to find the expected response schema.
 - The actual response body is validated against the matching schema. 
 
-Do note, only the shape of the response is tested and not the actual values. Therefore, you may have to write additonal assertions. For example:
+Do note, only the shape of the response is tested and not the actual values. Therefore, you may have to write additional assertions. For example:
 
 ```ts
 // Assert that response is as per the schema

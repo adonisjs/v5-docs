@@ -87,7 +87,7 @@ import User from 'App/Models/User'
 
 Route.get('/:provider/callback', async ({ ally, auth, response, params }) => {
   /**
-   * If user is alrady logged in, do not execute the callback.
+   * If user is already logged in, do not execute the callback.
    */
   if (await auth.check()) {
     return response.notAcceptable()

@@ -251,7 +251,7 @@ Also, for some of the drivers (e.g., Google), the list of the scopes is too long
 :::warning
 
 If you want to customize the Discord driver, it require to have the `identify` scope present to work properly.
-You can find more informations about it [here](https://discord.com/developers/docs/resources/user#get-current-user).
+You can find more information about it [here](https://discord.com/developers/docs/resources/user#get-current-user).
 
 :::
 
