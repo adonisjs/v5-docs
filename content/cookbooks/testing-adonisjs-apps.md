@@ -2,7 +2,7 @@
 datetime: 2020-06-24
 author: Virk
 avatarUrl: https://res.cloudinary.com/adonis-js/image/upload/v1619103621/adonisjs-authors-avatars/DYO4KUru_400x400_shujhw.jpg
-summary: Setting up the Japa test runner to test AdonisJS appplication
+summary: Setting up the Japa test runner to test AdonisJS application
 ---
 
 The tests runner of AdonisJS v4 has not been migrated to v5 yet and hence, I receive a lot of questions regarding testing in v5. In this article, **I will show you, how to setup [japa](https://github.com/thetutlage/japa) to test your AdonisJS applications.**

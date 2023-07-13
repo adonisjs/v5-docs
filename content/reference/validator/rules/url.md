@@ -66,7 +66,7 @@ Following is the list of options for validate a URL string
 | `requireHost` | Ensure the URL has the host defined. Defaults to `true` |
 | `allowedHosts` | An array of allowed hosts. URLs outside the defined hosts will fail the validation. |
 | `bannedHosts` | An array of banned hosts. URLs matching the defined hosts will fail the validation. |
-| `validateLength` | Validate the length of the URL to be under or equal to **2083 charcters**. Defaults to `true`. |
+| `validateLength` | Validate the length of the URL to be under or equal to **2083 characters**. Defaults to `true`. |
 
 ## Normalizing url
 You can normalize the URL using the `rules.normalizeUrl` method.

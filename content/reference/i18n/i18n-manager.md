@@ -147,7 +147,7 @@ Event.on('i18n:missing:translation', I18n.prettyPrint)
 Extend the default capabilities by adding custom formatters and translations loaders.
 
 :::note
-Make sure to read the [extensions guide](../../guides/digging-deeper/i18n.md#add-custom-message-formatter) for an in-depth explaination for adding custom formatters and loaders.
+Make sure to read the [extensions guide](../../guides/digging-deeper/i18n.md#add-custom-message-formatter) for an in-depth explanation for adding custom formatters and loaders.
 :::
 
 ```ts

@@ -65,7 +65,7 @@ export default class AppProvider {
 }
 ```
 
-## Make driver autmatically use BigInt for BIGINT + BIGSERIAL
+## Make driver automatically use BigInt for BIGINT + BIGSERIAL
 
 One more example is how we can utilise this to convert BIGINT and BIGSERIAL PostgreSQL types to JavaScript BigInt:
 

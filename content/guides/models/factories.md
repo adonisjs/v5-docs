@@ -145,7 +145,7 @@ user.posts.length // 3
 ### Points to note
 - The factory will find the type of relationship by inspecting the Lucid model. For example: If your model defines a `hasMany` relationship on `posts`, then factory will infer the same.
 - A relationship first needs to be defined on the model and then only it can be defined on the Factory.
-- Lucid will internally wrap all the database operations inside a transaction. So if a relationship persistance fails, the parent model persistance will be rolled back too.
+- Lucid will internally wrap all the database operations inside a transaction. So if a relationship persistence fails, the parent model persistence will be rolled back too.
 
 ### Applying relationship states
 You can also apply states on a relationship by passing a callback to the `with` method.

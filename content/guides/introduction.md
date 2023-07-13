@@ -55,7 +55,7 @@ We also encourage you to help others whenever possible 💗
 - [Awesome AdonisJS](https://github.com/adonisjs-community/awesome-adonisjs) - A collection of packages, tutorials and applications created by the community members.
 
 ## Who maintains AdonisJS?
-AdonisJS is primarly maintained by [Harminder Virk](https://twitter.com/AmanVirk1) (the creator and the lead maintainer of the framework) along with the help of the following core team members.
+AdonisJS is primarily maintained by [Harminder Virk](https://twitter.com/AmanVirk1) (the creator and the lead maintainer of the framework) along with the help of the following core team members.
 
 - [Romain Lanz](https://twitter.com/romainlanz) is a full-stack developer at the FIVB. He believes that knowledge should be free and accessible for anyone, and he is working towards it.
 - [Michaël Zasso](https://twitter.com/targos89) is a scientific research software engineer and a member of the Node.js Technical Steering Committee.
