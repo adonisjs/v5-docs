@@ -38,7 +38,7 @@ The silent auth middleware silently checks if the user is logged-in or not. The 
 
 This middleware is helpful when you want to render a public webpage, but also show the currently logged in user details somewhere in the page (maybe the header).
 
-To summarize, this middleware does not force the users to be logged-in, but will fetch their details if they are logged-in and provide it you through out the request lifecycle.
+To summarize, this middleware does not force the users to be logged-in, but will fetch their details if they are logged-in and provide it to you through out the request lifecycle.
 
 If you plan to use this middleware, then you must register it inside the list of global middleware.
 
