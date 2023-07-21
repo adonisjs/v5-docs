@@ -38,7 +38,7 @@ You can also define any of the following optional properties.
 | `isPrimary` | Mark column as primary. One model can only have one primary column. |
 | `serialize` | A custom function to handle the column value serialization. For example: Serialize luxon date objects to a string. |
 | `prepare` | A custom function to transform the value before it is saved inside the database. |
-| `consume` | A custom function to transform the after fetching it from the database and before defining it on the model instance. |
+| `consume` | A custom function to transform the value after fetching it from the database and before defining it on the model instance. |
 | `meta` | The `meta` object holds arbitrary metadata for the property. 3rd party libraries extending the model's functionality can use this property. |
 
 ```ts
