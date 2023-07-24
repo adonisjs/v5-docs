@@ -35,7 +35,9 @@
   --bold-font-weight: 500;
   --mono-font-weight: 400;
 
+  --notification-banner-height: 0;
   --header-height: 56px;
+  --header-extended-height: var(--header-height);
   --sidebar-width: 300px;
   --rounded-corners-size: 4px;
   --toc-width: auto;
@@ -61,4 +63,12 @@
   --markdown-h4-size: 2.2rem;
 
   --sponsors-card-bg: var(--gray);
+}
+
+
+@media (min-width: 768px) {
+  :root {
+    --header-extended-height: calc(var(--header-height) + var( --notification-banner-height));
+    --notification-banner-height: 30px;
+  }
 }

@@ -100,7 +100,7 @@ MOBILE ONLY
 @media (min-width: 1024px) {
   .sidebar {
     transform: none;
-    top: var(--header-height);
+    top: var(--header-extended-height);
   }
 
   .sidenav-backdrop {

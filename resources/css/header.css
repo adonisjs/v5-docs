@@ -5,14 +5,39 @@ HEADER STYLES
 */
 
 .header-wrapper {
-  height: var(--header-height);
+  height: var(--header-extended-height);
+}
+
+.notification_banner {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  border-bottom: 1px solid #6e5aff;
+  right: 0;
+  background: rgb(64 50 169);
+  height: var(--notification-banner-height);
+  justify-content: center;
+  width: 100%;
+  z-index: 3;
+  align-items: center;
+  padding: 0 var(--space-x);
+}
+
+.notification_banner p {
+  font-size: 16px;
+  margin: 0;
+}
+
+.notification_banner p a {
+  color: #fff;
 }
 
 .header {
   background: var(--brand-color);
   height: var(--header-height);
   position: fixed;
-  top: 0;
+  top: var(--notification-banner-height);
   left: 0;
   z-index: 3;
   right: 0;
@@ -257,5 +282,9 @@ HEADER STYLES
 @media (min-width: 768px) {
   .dark-mode-toggler {
     margin-right: 20px;
+  }
+
+  .notification_banner {
+    display: flex;
   }
 }
