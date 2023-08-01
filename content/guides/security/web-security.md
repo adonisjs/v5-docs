@@ -8,6 +8,12 @@ It is recommended to use this package when creating a server-rendered app using 
 
 If you are using AdonisJS to create an API server, then you must rely on your frontend framework's security layer.
 
+:::note
+
+The shield package relies on the `@adonisjs/session` package. Make sure to [configure session](../http/session.md) first.
+
+:::
+
 :::div{class="setup"}
 
 :::codegroup
