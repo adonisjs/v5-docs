@@ -97,6 +97,10 @@ By default, the `foreignKey` is the **camelCase representation of the parent mod
 public profile: HasOne<typeof Profile>
 ```
 
+:::note
+Remember, if you intend to use camelCase for your foreign key definition, keep in mind that the default [naming strategy](../../reference/orm/naming-strategy.md) will automatically convert it to snake_case. 
+:::
+
 The local key is always the **primary key of the parent model** but can also be defined explicitly.
 
 ```ts
@@ -197,6 +201,10 @@ By default, the `foreignKey` is the **camelCase representation of the parent mod
 })
 public posts: HasMany<typeof Post>
 ```
+
+:::note
+Remember, if you intend to use camelCase for your foreign key definition, keep in mind that the default [naming strategy](../../reference/orm/naming-strategy.md) will automatically convert it to snake_case. 
+:::
 
 The local key is always the **primary key of the parent model** but can also be defined explicitly.
 
@@ -362,6 +370,10 @@ A manyToMany relation relies on many different keys to properly set up the relat
 })
 public skills: ManyToMany<typeof Skill>
 ```
+
+:::note
+Remember, if you intend to use camelCase for your foreign key definition, keep in mind that the default [naming strategy](../../reference/orm/naming-strategy.md) will automatically convert it to snake_case. 
+:::
 
 ### Custom pivot table
 The default value for the pivot table name is computed by [combining](https://github.com/adonisjs/lucid/blob/develop/src/Orm/NamingStrategies/SnakeCase.ts#L73) the **parent model name** and the **related model name**. However, you can also define a custom pivot table.
