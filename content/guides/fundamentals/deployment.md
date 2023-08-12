@@ -210,7 +210,7 @@ Add the following block to your NGINX config file. **Make sure to replace the va
 location ~ \.(jpg|png|css|js|gif|ico|woff|woff2) {
   root <PATH_TO_ADONISJS_APP_PUBLIC_DIRECTORY>;
   sendfile on;
-  sendfile_max_chunk 2mb;
+  sendfile_max_chunk 2m;
   add_header Cache-Control "public";
   expires 365d;
 }
