@@ -10,6 +10,12 @@ The opposite of this rule is `requiredIfNotExists`
 
 :::
 
+:::note
+
+If field parameter starts with `/`, then it will be searched from the root of the object.
+
+:::
+
 ```ts
 import { schema, rules } from '@ioc:Adonis/Core/Validator'
 
@@ -26,6 +32,12 @@ Same as the `requiredIf` rule, but here you can define more than one field to ex
 :::note
 
 The opposite of this rule is `requiredIfNotExistsAll`
+
+:::
+
+:::note
+
+If field parameter starts with `/`, then it will be searched from the root of the object.
 
 :::
 
@@ -49,6 +61,12 @@ The opposite of this rule is `requiredIfNotExistsAny`
 
 :::
 
+:::note
+
+If field parameter starts with `/`, then it will be searched from the root of the object.
+
+:::
+
 
 ```ts
 import { schema, rules } from '@ioc:Adonis/Core/Validator'
@@ -62,6 +80,12 @@ import { schema, rules } from '@ioc:Adonis/Core/Validator'
 
 ## requiredWhen
 Mark the current field as required **when the value of the other field matches a given criteria**.
+
+:::note
+
+If field parameter starts with `/`, then it will be searched from the root of the object.
+
+:::
 
 ```ts
 import { schema, rules } from '@ioc:Adonis/Core/Validator'
