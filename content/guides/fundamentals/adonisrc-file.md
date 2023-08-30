@@ -212,7 +212,7 @@ For example, you can change the controller's namespace from `App/Controllers/Htt
 ```json
 {
   "namespaces": {
-    "controllers": "App/Controllers"
+    "httpControllers": "App/Controllers"
   }
 }
 ```
