@@ -650,16 +650,16 @@ The `join` method uses the **inner join** by default, and you can use a differen
 ### joinRaw
 You can use the `joinRaw` method to express conditions not covered by the query builder standard API.
 
----
-
-### On methods
-Following is the list of available `on` methods you can use with a **join query**.
-
 ```ts
 Database
   .from('users')
   .joinRaw('natural full join user_logins')
 ```
+
+---
+
+### On methods
+Following is the list of available `on` methods you can use with a **join query**.
 
 #### onIn
 
