@@ -291,7 +291,7 @@ export default class AppProvider {
 }
 ```
 
-By default, the getters are evaluated on every each access. However, you can also mark them as singleton, as shown in the following example:
+By default, the getters are evaluated on every access. However, you can also mark them as singleton, as shown in the following example:
 
 ```ts
 HttpContext.getter(
