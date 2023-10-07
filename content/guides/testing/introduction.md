@@ -27,7 +27,7 @@ test('display welcome page', async ({ client }) => {
 
 - A test is registered using the `test` function exported by the `@japa/runner` package.
 - The `test` function accepts the title as the first argument and the implementation callback as the second argument.
-- The implementation callback receives the [Test context](https://v2.japa.dev/test-context). Test context contains additional properties you can use to have a better testing experience.
+- The implementation callback receives the [Test context](https://v2.japa.dev/docs/test-context). Test context contains additional properties you can use to have a better testing experience.
 
 Let's run the test by executing the following command.
 
@@ -114,14 +114,14 @@ export const configureSuite: Config['configureSuite'] = (suite) => {
 #### plugins
 The `plugins` property accepts an array of Japa plugins. By default, we register the following plugins.
 
-- [`assert`](https://v2.japa.dev/plugins/assert) - Assert module to make assertions.
-- [`runFailedTests`](https://v2.japa.dev/plugins/run-failed-tests) - A plugin to run only failed tests (if any).
-- [`apiClient`](https://v2.japa.dev/plugins/api-client) - An API client for testing HTTP endpoints.
+- [`assert`](https://v2.japa.dev/docs/plugins/assert) - Assert module to make assertions.
+- [`runFailedTests`](https://v2.japa.dev/docs/plugins/run-failed-tests) - A plugin to run only failed tests (if any).
+- [`apiClient`](https://v2.japa.dev/docs/plugins/api-client) - An API client for testing HTTP endpoints.
 
 ---
 
 #### reporters
-The `reporters` property accepts an array of Japa reporters. We register the [`spec-reporter`](https://v2.japa.dev/plugins/spec-reporter) to display the progress of tests on the terminal.
+The `reporters` property accepts an array of Japa reporters. We register the [`spec-reporter`](https://v2.japa.dev/docs/plugins/spec-reporter) to display the progress of tests on the terminal.
 
 ---
 
@@ -134,7 +134,7 @@ You can use the `runnerHooks` property to run actions before or after the tests 
 ---
 
 #### configureSuite
-The `configureSuite` method is executed with an instance of the [Japa suite](https://v2.japa.dev/core/suite) class. You can use the suite instance to configure it.
+The `configureSuite` method is executed with an instance of the [Japa suite](https://v2.japa.dev/docs/core/suite) class. You can use the suite instance to configure it.
 
 ## Environment variables
 During tests, AdonisJS automatically sets the value of `NODE_ENV` to `test`.
