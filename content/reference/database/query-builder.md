@@ -1226,7 +1226,7 @@ const affectedRows = Database
   .update({ email: 'virk@adonisjs.com' })
 ```
 
-The return value is the number of affected rows. However, when using `PostgreSQL`, `Orcale`, or `MSSQL`, you can specify the return columns as well.
+The return value is the number of affected rows. However, when using `PostgreSQL`, `Oracle`, or `MSSQL`, you can specify the return columns as well.
 
 ```ts
 const rows = Database
