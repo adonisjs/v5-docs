@@ -114,7 +114,7 @@ await client
 ## Session
 The `@adonisjs/session` package extends the API client by providing additional methods to read/write session data during the request.
 
-Sessions must use the `memory` driver during tests. Therefore, make sure to update the `SESSION_DRIVER` within the `.env.test` file.
+Sessions must use the `memory` driver during tests. Therefore, make sure to update the `SESSION_DRIVER` within the `.env.testing` file.
 
 ```dotenv
 // title: .env.test
