@@ -87,7 +87,7 @@ request.input('user.profile.username')
 You can also define a default value to be returned when the actual value is `null` or `undefined`.
 
 ```ts
-// Returns "Hello world" title is missing
+// Returns "Hello world" if title is missing
 request.input('title', 'Hello world')
 ```
 
