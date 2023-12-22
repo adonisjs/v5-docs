@@ -84,7 +84,7 @@ As of now, you cannot define the port for the Webpack dev server inside the `web
 
 ## Assets view helpers
 
-Depending upon your Webpack config, the output files may not have the same as the input file. For example, The `Encore.enableVersioning()` method appends the file hash to the output file name.
+Depending upon your Webpack config, the output files may not have the same name as the input file. For example, The `Encore.enableVersioning()` method appends the file hash to the output file name.
 
 Hence, it is recommended to never hardcode the file names in your templates and always use the `asset` helper.
 
