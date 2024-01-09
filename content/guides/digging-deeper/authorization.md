@@ -22,7 +22,7 @@ The `@adonisjs/bouncer` package needs the `@adonisjs/auth` package to look up th
 
 ```sh
 // title: 1. Install
-npm i @adonisjs/bouncer
+npm i @adonisjs/bouncer@2.3.0
 ```
 
 ```sh
