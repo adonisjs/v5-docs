@@ -14,7 +14,7 @@ If you are using AdonisJS to create an API server, then you must rely on your fr
 
 ```sh
 // title: 1. Install
-npm i @adonisjs/shield
+npm i @adonisjs/shield@7.1.1
 ```
 
 ```sh
