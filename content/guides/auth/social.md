@@ -10,7 +10,7 @@ Along with the standard authentication, AdonisJS also ships with a package to he
 
 ```sh
 // title: Install
-npm i @adonisjs/ally
+npm i @adonisjs/ally@4.1.5
 ```
 
 ```sh
