@@ -10,7 +10,7 @@ AdonisJS is one of the few Node.js frameworks (if not the only one) with first-c
 
 ```sh
 // title: 1. Install
-npm i @adonisjs/lucid
+npm i @adonisjs/lucid@18.4.0
 ```
 
 ```sh

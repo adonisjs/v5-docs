@@ -10,7 +10,7 @@ The support for sessions is provided by the `@adonisjs/session` package. The pac
 
 ```sh
 // title: Install
-npm i @adonisjs/session
+npm i @adonisjs/session@6.4.0
 ```
 
 ```sh
