@@ -12,7 +12,7 @@ Before you can start sending emails, make sure to install and configure the pack
 
 ```sh
 // title: 1. Install
-npm i @adonisjs/mail
+npm i @adonisjs/mail@8.2.1
 ```
 
 ```sh
