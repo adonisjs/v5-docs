@@ -78,6 +78,12 @@ node ace list:routes --json > routes.json
 
 AdonisJS provides shorthand methods to register routes for commonly used HTTP verbs. For example:
 
+#### Get verb
+
+```ts
+Route.get('posts', async () => {})
+```
+
 #### Post verb
 
 ```ts
