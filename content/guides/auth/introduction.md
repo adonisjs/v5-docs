@@ -18,7 +18,7 @@ The auth package relies on the `@adonisjs/lucid` package. Make sure to [configur
 
 ```sh
 // title: 1. Install
-npm i @adonisjs/auth
+npm i @adonisjs/auth@8.2.3
 ```
 
 ```sh
