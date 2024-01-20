@@ -8,7 +8,7 @@ The package must be installed and configured separately.
 
 ```sh
 // title: 1. Install
-npm i @adonisjs/limiter
+npm i @adonisjs/limiter@1.0.2
 ```
 
 ```sh

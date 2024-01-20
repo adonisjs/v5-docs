@@ -12,7 +12,7 @@ The first step is  to install and configure the package using the following inst
 
 ```sh
 // title: 1. Install
-npm i @adonisjs/redis
+npm i @adonisjs/redis@7.3.4
 ```
 
 ```sh

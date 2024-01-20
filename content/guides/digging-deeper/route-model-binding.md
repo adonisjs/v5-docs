@@ -12,7 +12,7 @@ The package must be installed and configured separately. You can install it by r
 
 ```sh
 // title: 1. Install
-npm i @adonisjs/route-model-binding
+npm i @adonisjs/route-model-binding@1.0.1
 ```
 
 ```sh
