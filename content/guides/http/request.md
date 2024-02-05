@@ -542,7 +542,7 @@ You can also define a single or an array of proxy server IP addresses to trust.
 
 You can also use the following shorthand keywords in place of IP addresses.
 
-- `loopback`: Pv4 and IPv6 loopback addresses (like `::1` and `127.0.0.1`).
+- `loopback`: IPv4 and IPv6 loopback addresses (like `::1` and `127.0.0.1`).
 - `linklocal`: IPv4 and IPv6 link-local addresses (like `fe80::1:1:1:1` and `169.254.0.1`).
 - `uniquelocal`: IPv4 private addresses and IPv6 unique-local addresses (like `fc00:ac:1ab5:fff::1` and `192.168.0.1`).
 
