@@ -95,9 +95,9 @@ Alpine.data('search', function () {
         .then(([docsearch]) => {
           docsearch = docsearch.default
           docsearch({
-            appId: 'KXECYAMEX8',
-            apiKey: '01279e9ede105d87a1ade54565b1a2fd',
-            indexName: 'adonisjs_next',
+            appId: 'C9FV0US91G',
+            apiKey: '4b6104f55554192726359c02e8d57a48',
+            indexName: 'v5-adonisjs-docs',
             container: '#algolia-search-input',
             transformItems: (items) => {
               return items.map((item) => {
