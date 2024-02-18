@@ -5,8 +5,8 @@ Every other package like `@adonisjs/lucid`, or `@adonisjs/mail` have their indep
 ## Following semver
 We strictly follow [semantic versioning](https://semver.org/) and bump the major version after every breaking change. This means, what is AdonisJS 5 today can quickly become AdonisJS 8 in few months.
 
-- We will bump the patch version when releasing **critical bug fixes** (ex: 5.2.0 to 5.2.1).
-- The minor version includes **new features** or **non-critical bug fixes**. Also, we will deprecate APIs during a minor release. (ex: 5.2.0 to 5.3.0)
+- We will bump the patch version when releasing **non-critical bug fixes** (ex: 5.2.0 to 5.2.1).
+- The minor version includes **new features** or **critical bug fixes**. Also, we will deprecate APIs during a minor release. (ex: 5.2.0 to 5.3.0)
 - When releasing breaking changes, we bump the major version (ex: 5.2.0 to 6.0.0).
 
 ## Introducing breaking changes
