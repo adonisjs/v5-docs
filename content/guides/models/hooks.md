@@ -161,10 +161,10 @@ import {
 
 export default class User extends BaseModel {
   @beforePaginate()
-  public static ignoreDeleted ([
+  public static ignoreDeleted (
     countQuery: ModelQueryBuilderContract<typeof User>,
-    query: ModelQueryBuilderContract<typeof User>,
-  ]) {
+    query: ModelQueryBuilderContract<typeof User>
+  ) {
     query.whereNull('is_deleted')
     countQuery.whereNull('is_deleted')
   }
