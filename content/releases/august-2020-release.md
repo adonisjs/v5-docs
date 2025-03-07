@@ -22,6 +22,13 @@ categories.forEach((category) => {
 })
 ```
 
+To obtain the count in Model, you can add the following field in the Model file.
+
+```ts
+  @column()
+  public postsCount: number
+```
+
 ### Check for relationship existence
 Another frequent use case is to limit the number of parent model records based upon the existence of its relationships.
 
