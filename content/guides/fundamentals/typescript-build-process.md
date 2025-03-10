@@ -94,6 +94,6 @@ Creating a standalone `build` folder does help in reducing the size of code that
 - You must install production-only dependencies inside the `build` folder.
   ```sh
   cd build
-  npm ci --production
+  npm ci --omit=dev
   ```
 - We do not copy the `.env` file to the output folder. Because the environment variables are not transferable, you must define environment variables for production separately.
