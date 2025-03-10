@@ -22,7 +22,7 @@ Route
   .get('posts', async ({ auth }) => {
     await auth.use('basic').authenticate()
 
-    return `You are logged in as ${auth.user!.email}`
+    return `You are logged in as ${auth.user?.email}`
   })
 ```
 
@@ -33,7 +33,7 @@ import Route from '@ioc:Adonis/Core/Route'
 
 Route
   .get('posts', async ({ auth }) => {
-    return `You are logged in as ${auth.user!.email}`
+    return `You are logged in as ${auth.user?.email}`
   })
   .middleware('auth', { guards: ['basic'] })
 ```
