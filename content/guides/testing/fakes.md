@@ -225,6 +225,28 @@ test('transfer payment', async ({ client }) => {
 })
 ```
 
+## Mocking with IoC container
+IoC container allows you to replace the registered bindings with the fake ones while testing using `.fake` method. You can enable it by adding `.useProxies()` in `test.ts` before the kernel is booted.
+
+```ts
+// test.ts
+const kernel = new Ignitor(__dirname).kernel('test');
+kernel.application.container.useProxies();
+
+kernel.boot()
+```
+
+You can now mock any service registered in the IoC container in your tests.
+
+```ts
+// some.spec.ts
+import Application from '@ioc:Adonis/Core/Application';
+
+test('service call', ({ expect }) => {
+  Application.container.fake('My/Service', () => mock);
+})
+```
+
 ## Mocking network requests
 You can use [nock](https://github.com/nock/nock) to mock the outgoing network requests. Since nock works by overriding the Node.js `http.request`, it works with almost every HTTP client, including `axios` and `got`.
 
